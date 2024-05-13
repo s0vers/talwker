@@ -1,37 +1,6 @@
-import TestComponent from "@/components/TestComponent";
-import HeroSection from "@/components/ui/home/HeroSection";
-import Image from "next/image";
+import HeroSection from "@/components/HeroSection/HeroSection";
 
-interface Banner {
-  category: string;
-  title: string;
-  description: string;
-  author: {
-    name: string;
-    avatar: string;
-  };
-  date: string;
-  readTime: string;
-  image: string;
-}
-
-const dummyBanners = [
-  {
-    image: "/image.jpg",
-    link: "/banner1",
-  },
-  {
-    image: "/image.jpg",
-    link: "/banner2",
-  },
-  {
-    image: "/image.jpg",
-    link: "/banner3",
-  },
-  // Add more dummy banner objects as needed
-];
-
-const dummyBannerser: Banner[] = [
+const dummyBanners: Banner[] = [
   {
     category: "Travel",
     title: "Travel the world with us",
@@ -64,8 +33,7 @@ const dummyBannerser: Banner[] = [
 export default function Home() {
   return (
     <>
-      <HeroSection banners={dummyBannerser} />
-      {/* <TestComponent banners={dummyBannerser} /> */}
+      <HeroSection banners={dummyBanners} />
     </>
   );
 }

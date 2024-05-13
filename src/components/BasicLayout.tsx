@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
-import { Menu } from "lucide-react";
+import { LuMenu } from "react-icons/lu";
 
 export default function BasicLayout({
   children,
@@ -29,7 +29,7 @@ export default function BasicLayout({
           <Sheet>
             <SheetTrigger asChild>
               <div className="md:hidden">
-                <Menu className="h-8 w-8" />
+                <LuMenu className="h-8 w-8" />
                 <span className="sr-only">Toggle navigation menu</span>
               </div>
             </SheetTrigger>
