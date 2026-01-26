@@ -1,54 +1,74 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import Image from "next/image";
 import React from "react";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { LuMapPin, LuStar } from "react-icons/lu";
 
 export default function CarouselBanner({ item }: { item: Banner }) {
 	return (
-		<>
-			<Image
-				src={item.image}
-				alt="plane Image"
-				width={1800}
-				height={400}
-				className="h-dvh w-full object-cover"
-				placeholder="blur"
-				blurDataURL="/image.jpg"
-				priority
-			/>
+		<div className="relative h-screen w-full overflow-hidden">
+			{/* Image with Gradient Overlay */}
+			<div className="absolute inset-0 z-0">
+				<Image
+					src={item.image}
+					alt={item.title}
+					fill
+					className="object-cover transition-transform duration-700 hover:scale-105"
+					priority
+					placeholder="blur"
+					blurDataURL={item.image} // Ideally use a real blur data url
+				/>
+				<div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+			</div>
 
-			<div className="absolute bottom-14 flex w-full cursor-default flex-col justify-between px-7 align-middle text-white md:flex-row md:items-center">
-				<div>
-					<span className="cursor-pointer rounded-3xl bg-slate-600/40 px-6 py-2 text-xl font-semibold text-[#2a9d8f]">
-						{item.category}
-					</span>
-					<h1 className="my-4 text-4xl font-bold">{item.title}</h1>
-					<p className=" max-w-2xl">{item.description}</p>
-				</div>
-				<div className="flex flex-col pt-4 md:items-end md:pt-0">
-					<div className="flex items-center gap-4 align-middle">
-						<Avatar>
-							<AvatarImage src={item.author.avatar} />
-							<AvatarFallback>{item.author.name}</AvatarFallback>
-						</Avatar>
-						<h2 className="text-xl font-medium md:hidden">
-							{item.author.name}
-						</h2>
-					</div>
-					<h2 className="hidden text-xl font-medium md:flex">
-						{item.author.name}
-					</h2>
-					<div className="mt-2 flex items-center gap-4 align-middle md:hidden">
-						<p>{item.date}</p>
-						<p className="text-sm font-semibold text-white/50">
-							{item.readTime} min read
-						</p>
-					</div>
-					<p className="hidden md:flex">{item.date}</p>
-					<p className="hidden text-sm font-semibold text-white/50 md:flex">
-						{item.readTime} min read
+			{/* Content */}
+			<div className="relative z-10 flex h-full flex-col justify-end pb-32 px-6 md:px-12 lg:px-24">
+				<div className="max-w-4xl space-y-6">
+					{/* Location Tag */}
+					{item.location && (
+						<div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-md border border-white/20">
+							<LuMapPin className="h-4 w-4 text-[var(--secondary)]" />
+							<span>{item.location}</span>
+						</div>
+					)}
+
+					{/* Title */}
+					<h1 className="font-heading text-5xl font-bold leading-tight text-white md:text-7xl lg:text-8xl">
+						{item.title}
+					</h1>
+
+					{/* Description */}
+					<p className="max-w-2xl text-lg text-gray-200 md:text-xl">
+						{item.description}
 					</p>
+
+					{/* Price & Rating Row */}
+					<div className="flex items-center gap-6 text-white">
+						{item.price && (
+							<div>
+								<p className="text-sm text-gray-400">Starting from</p>
+								<p className="text-3xl font-bold text-[var(--secondary)]">{item.price}</p>
+							</div>
+						)}
+						{item.rating && (
+							<div className="flex items-center gap-2">
+								<LuStar className="h-6 w-6 fill-[var(--secondary)] text-[var(--secondary)]" />
+								<span className="text-2xl font-bold">{item.rating}</span>
+								<span className="text-sm text-gray-400">/ 5.0</span>
+							</div>
+						)}
+					</div>
+
+					{/* CTAs */}
+					<div className="flex flex-wrap gap-4 pt-4">
+						<Button size="lg" className="h-14 rounded-full bg-[var(--secondary)] px-8 text-lg font-semibold text-white hover:bg-orange-500">
+							Explore Now
+						</Button>
+						<Button size="lg" variant="outline" className="h-14 rounded-full border-white/30 bg-white/5 px-8 text-lg font-semibold text-white backdrop-blur-sm hover:bg-white/10 hover:text-white">
+							View Itinerary
+						</Button>
+					</div>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 }

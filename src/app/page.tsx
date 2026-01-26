@@ -1,41 +1,49 @@
-import { BlogCarousel } from "@/components/Blog/BlogCarousel";
 import HeroSection from "@/components/HeroSection/HeroSection";
+import { DestinationsGrid } from "@/components/Destinations/DestinationsGrid";
+import { ServicesSection } from "@/components/Services/ServicesSection";
 
 const dummyBanners: Banner[] = [
 	{
-		category: "Travel",
-		title: "Travel the world with us",
+		id: "1",
+		location: "Maldives",
+		title: "Experience the Tropical Paradise",
 		description:
-			"Get the best travel experience with us. We provide the best travel experience with the best price.",
-		author: {
-			name: "Jane Doe",
-			avatar: "/writer.avif"
-		},
-		date: "12th March, 2024",
-		readTime: "10",
-		image: "/image.jpg"
+			"Immerse yourself in the crystal-clear waters and pristine white sands of the Maldives. A perfect getaway for relaxation.",
+		price: "$2,499",
+		rating: 4.9,
+		image: "/image.jpg",
+		category: "Beach",
 	},
 	{
-		category: "Adventure",
-		title: "Explore the unknown",
+		id: "2",
+		location: "Swiss Alps, Switzerland",
+		title: "Conquer the Majestic Peaks",
 		description:
-			"Embark on an adventure of a lifetime with our exciting expeditions.",
-		author: {
-			name: "John Smith",
-			avatar: "/author.jpg"
-		},
-		date: "5th April, 2024",
-		readTime: "8",
-		image: "/image.jpg"
-	}
-	// Add more banner objects as needed
+			"Embark on a thrilling adventure through the snow-capped mountains of Switzerland. Skiing, hiking, and breathtaking views await.",
+		price: "$1,899",
+		rating: 4.8,
+		image: "/image.jpg", // Using same placeholder
+		category: "Adventure",
+	},
+	{
+		id: "3",
+		location: "Kyoto, Japan",
+		title: "Discover Ancient Traditions",
+		description:
+			"Step back in time and explore the historic temples, shrines, and beautiful cherry blossoms of Kyoto.",
+		price: "$1,599",
+		rating: 4.7,
+		image: "/image.jpg",
+		category: "Culture",
+	},
 ];
 
 export default function Home() {
 	return (
-		<>
+		<div className="flex flex-col min-h-screen bg-white dark:bg-black">
 			<HeroSection banners={dummyBanners} />
-			<BlogCarousel />
-		</>
+			<ServicesSection />
+			<DestinationsGrid />
+		</div>
 	);
 }

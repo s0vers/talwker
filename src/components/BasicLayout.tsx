@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
-import { LuMenu } from "react-icons/lu";
+import { LuMenu, LuPlane, LuHotel, LuMapPin, LuInfo } from "react-icons/lu";
 
 export default function BasicLayout({
 	children
@@ -10,70 +10,90 @@ export default function BasicLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<main>
-			<header className="absolute top-0 z-50 my-4 flex h-16 w-full items-center gap-4 px-4 md:px-6">
-				<nav className="flex w-full items-center justify-between gap-4">
-					<Image
-						src="/simple.png"
-						alt="Talkwer logo"
-						width={150}
-						height={32}
-						className="rounded-md bg-orange-400 p-2"
-					/>
-					<div className="hidden w-full items-center justify-center gap-8 align-middle text-2xl font-semibold text-white md:flex">
-						<div className="flex gap-4 rounded-full bg-orange-400/80 px-6 py-3">
-							<Link
-								href="/travel"
-								className=" transition duration-200 ease-in-out hover:scale-110 hover:text-[#2a9d8f]"
-							>
-								Travel
-							</Link>
-							<Link
-								href="/technology"
-								className="transition duration-200 ease-in-out hover:scale-110 hover:text-[#264653]"
-							>
-								Technology
-							</Link>
-							<Link
-								href="/food"
-								className="transition duration-200 ease-in-out hover:scale-110 hover:text-[#3f84e5]"
-							>
-								Food
-							</Link>
-							<Link
-								href="/lifestyle"
-								className="transition duration-200 ease-in-out hover:scale-110 hover:text-[#e76f51]"
-							>
-								Lifestyle
-							</Link>
-						</div>
+		<main className="relative min-h-screen">
+			<header className="absolute top-0 z-50 w-full px-4 pt-6 md:px-6">
+				<nav className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/20 bg-white/10 px-6 py-3 backdrop-blur-md shadow-lg transition-all hover:bg-white/20">
+					<Link href="/" className="flex items-center gap-2">
+						<Image
+							src="/simple.png"
+							alt="Talkwer logo"
+							width={120}
+							height={30}
+							className="h-auto w-auto object-contain p-1"
+						/>
+					</Link>
+					
+					<div className="hidden items-center justify-center gap-8 align-middle text-sm font-medium text-white md:flex">
+						<Link
+							href="/destinations"
+							className="group flex items-center gap-2 transition duration-200 ease-in-out hover:text-[var(--secondary)]"
+						>
+							Destinations
+						</Link>
+						<Link
+							href="/tours"
+							className="group flex items-center gap-2 transition duration-200 ease-in-out hover:text-[var(--secondary)]"
+						>
+							Tours
+						</Link>
+						<Link
+							href="/hotels"
+							className="group flex items-center gap-2 transition duration-200 ease-in-out hover:text-[var(--secondary)]"
+						>
+							Hotels
+						</Link>
+						<Link
+							href="/about"
+							className="group flex items-center gap-2 transition duration-200 ease-in-out hover:text-[var(--secondary)]"
+						>
+							About Us
+						</Link>
 					</div>
+
+					<div className="hidden md:block">
+						<Link href="/book-now" className="rounded-full bg-[var(--secondary)] px-6 py-2 text-sm font-semibold text-white transition hover:bg-orange-500 hover:shadow-lg">
+							Book Now
+						</Link>
+					</div>
+
 					<Sheet>
 						<SheetTrigger asChild>
-							<div className="md:hidden">
+							<div className="cursor-pointer text-white md:hidden hover:text-[var(--secondary)]">
 								<LuMenu className="h-8 w-8" />
 								<span className="sr-only">Toggle navigation menu</span>
 							</div>
 						</SheetTrigger>
-						<SheetContent side="left" className="bg-orange-100">
-							<nav className="grid gap-6 text-lg font-medium">
+						<SheetContent side="right" className="w-[300px] border-l-white/10 bg-black/90 text-white backdrop-blur-xl">
+							<nav className="mt-8 flex flex-col gap-6 text-lg font-medium">
 								<Link
-									href="#"
-									className="flex items-center gap-2 text-lg font-semibold"
+									href="/"
+									className="mb-4 flex items-center gap-2"
 								>
 									<Image
 										src="/simple.png"
 										alt="Talkwer logo"
-										width={150}
-										height={32}
-										className="rounded-md bg-orange-400 p-1"
+										width={120}
+										height={30}
+										className="h-auto w-auto object-contain bg-white/10 rounded-lg p-2"
 									/>
 								</Link>
-								<div className="flex flex-col gap-4 text-xl font-semibold text-[#2a9d8f]">
-									<Link href="/travel">Travel</Link>
-									<Link href="/technology">Technology</Link>
-									<Link href="/food">Food</Link>
-									<Link href="/lifestyle">Lifestyle</Link>
+								<Link href="/destinations" className="flex items-center gap-4 hover:text-[var(--secondary)]">
+									<LuMapPin className="h-5 w-5" /> Destinations
+								</Link>
+								<Link href="/tours" className="flex items-center gap-4 hover:text-[var(--secondary)]">
+									<LuPlane className="h-5 w-5" /> Tours
+								</Link>
+								<Link href="/hotels" className="flex items-center gap-4 hover:text-[var(--secondary)]">
+									<LuHotel className="h-5 w-5" /> Hotels
+								</Link>
+								<Link href="/about" className="flex items-center gap-4 hover:text-[var(--secondary)]">
+									<LuInfo className="h-5 w-5" /> About Us
+								</Link>
+								
+								<div className="mt-8">
+									<Link href="/book-now" className="block w-full rounded-full bg-[var(--secondary)] px-6 py-3 text-center text-sm font-semibold text-white transition hover:bg-orange-500">
+										Book Now
+									</Link>
 								</div>
 							</nav>
 						</SheetContent>

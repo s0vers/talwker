@@ -1,14 +1,18 @@
 interface Banner {
-  category: string;
+  id?: string;
+  category?: string; // Keeping for backward compatibility if needed, or repurposed as 'Region'
   title: string;
   description: string;
-  author: {
+  author?: { // Optional now
     name: string;
     avatar: string;
   };
-  date: string;
-  readTime: string;
+  date?: string; // Optional
+  readTime?: string; // Optional
   image: string;
+  location?: string;
+  price?: string;
+  rating?: number;
 }
 
 interface BannerProps {
@@ -34,6 +38,3 @@ interface AuthorSectionProps {
   date: string;
   readTime: string;
 }
-
-
-
