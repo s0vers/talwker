@@ -1,41 +1,48 @@
 import React from "react";
-import { LuMountain, LuWaves, LuBuilding2, LuTent, LuShip, LuSunset } from "react-icons/lu";
+import { LuMountain, LuWaves, LuBuilding2, LuTent, LuShip, LuSunset, LuArrowRight } from "react-icons/lu";
 
 const categories = [
-    { name: "Beaches", icon: <LuWaves className="h-6 w-6" />, count: "120+ Spots" },
-    { name: "Mountains", icon: <LuMountain className="h-6 w-6" />, count: "85+ Trails" },
-    { name: "Cities", icon: <LuBuilding2 className="h-6 w-6" />, count: "200+ Cities" },
-    { name: "Camping", icon: <LuTent className="h-6 w-6" />, count: "50+ Camps" },
-    { name: "Cruises", icon: <LuShip className="h-6 w-6" />, count: "25+ Routes" },
-    { name: "Romance", icon: <LuSunset className="h-6 w-6" />, count: "40+ Getaways" },
+    { name: "Beaches", icon: <LuWaves className="h-8 w-8" />, count: "120 Spots" },
+    { name: "Mountains", icon: <LuMountain className="h-8 w-8" />, count: "85 Trails" },
+    { name: "Cities", icon: <LuBuilding2 className="h-8 w-8" />, count: "200 Cities" },
+    { name: "Camping", icon: <LuTent className="h-8 w-8" />, count: "50 Camps" },
 ];
 
 export const CategoriesSection = () => {
   return (
-    <section className="bg-[var(--muted)] py-20 dark:bg-gray-950">
+    <section className="bg-white py-24 dark:bg-black">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="mb-12 text-center">
-            <h2 className="text-3xl font-heading font-bold text-gray-900 dark:text-white md:text-4xl">
-                Browse by Category
-            </h2>
-            <p className="mt-4 text-gray-600 dark:text-gray-400">
-                Find the perfect trip based on your interests.
-            </p>
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div>
+                <h2 className="text-3xl font-heading font-bold text-gray-900 dark:text-white md:text-4xl tracking-tight">
+                    Find Your Vibe
+                </h2>
+                <p className="mt-2 text-gray-500 dark:text-gray-400">
+                    Select a category to start exploring.
+                </p>
+            </div>
+            <button className="hidden md:flex items-center gap-2 text-sm font-semibold text-gray-900 dark:text-white hover:text-[var(--secondary)] transition-colors">
+                View All Categories <LuArrowRight />
+            </button>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {categories.map((cat, index) => (
                 <button 
                     key={index}
-                    className="group flex min-w-[160px] flex-col items-center justify-center gap-4 rounded-[2rem] bg-white p-6 shadow-sm transition-all hover:bg-[var(--secondary)] hover:text-white hover:shadow-lg dark:bg-gray-900"
+                    className="group relative flex flex-col justify-between h-64 p-8 rounded-[2rem] bg-gray-50 hover:bg-gray-100 dark:bg-gray-900 dark:hover:bg-gray-800 transition-all duration-300 overflow-hidden text-left"
                 >
-                    <div className="rounded-full bg-gray-100 p-4 text-gray-600 transition-colors group-hover:bg-white/20 group-hover:text-white dark:bg-gray-800 dark:text-gray-300">
+                    <div className="relative z-10 text-gray-400 group-hover:text-[var(--secondary)] transition-colors duration-300">
                         {cat.icon}
                     </div>
-                    <div className="text-center">
-                        <h3 className="font-bold">{cat.name}</h3>
-                        <p className="text-xs text-gray-500 group-hover:text-white/80 dark:text-gray-400">{cat.count}</p>
+                    
+                    <div className="relative z-10">
+                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">{cat.name}</h3>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">{cat.count}</p>
                     </div>
+
+                    {/* Subtle decorative circle */}
+                    <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-[var(--secondary)]/5 rounded-full blur-2xl group-hover:bg-[var(--secondary)]/10 transition-colors duration-300" />
                 </button>
             ))}
         </div>

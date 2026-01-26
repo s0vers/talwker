@@ -44,7 +44,7 @@ const dummyBanners: Banner[] = [
 
 export default function Home() {
 	return (
-		<div className="flex flex-col min-h-screen bg-white dark:bg-black font-sans">
+		<div className="flex flex-col min-h-screen bg-white dark:bg-black font-sans selection:bg-[var(--secondary)] selection:text-white">
 			<HeroSection banners={dummyBanners} />
             <PartnersSection />
 			<CategoriesSection />

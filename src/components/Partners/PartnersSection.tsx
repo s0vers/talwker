@@ -1,27 +1,28 @@
 import React from "react";
-import Image from "next/image";
 
-// Placeholder logos - in a real app these would be SVGs or images
 const partners = [
-	{ name: "Airbnb", logo: "https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg" },
-	{ name: "Booking.com", logo: "https://upload.wikimedia.org/wikipedia/commons/b/be/Booking.com_logo.svg" },
-	{ name: "Expedia", logo: "https://upload.wikimedia.org/wikipedia/commons/3/36/Expedia_2012_logo.svg" },
-	{ name: "Tripadvisor", logo: "https://upload.wikimedia.org/wikipedia/commons/0/02/TripAdvisor_Logo.svg" },
-	{ name: "Skyscanner", logo: "https://upload.wikimedia.org/wikipedia/commons/4/41/Skyscanner_Logo_Lockup_Horizontal_White_RGB.svg" },
+	"Airbnb",
+	"Booking.com",
+	"Expedia",
+	"Tripadvisor",
+	"Skyscanner",
+    "Kayak",
+    "Agoda"
 ];
 
 export const PartnersSection = () => {
 	return (
-		<section className="bg-white py-12 border-b border-gray-100 dark:bg-black dark:border-gray-800">
+		<section className="bg-white py-10 border-b border-gray-50 dark:bg-black dark:border-gray-900 overflow-hidden">
 			<div className="container mx-auto px-4 md:px-6">
-				<p className="mb-8 text-center text-sm font-semibold uppercase tracking-widest text-gray-400">
-					Trusted by 10,000+ Travelers & Partners
+				<p className="mb-8 text-center text-xs font-bold uppercase tracking-[0.2em] text-gray-400">
+					Trusted by industry leaders
 				</p>
-				<div className="flex flex-wrap items-center justify-center gap-8 md:gap-16 opacity-50 grayscale transition-all duration-300 hover:grayscale-0 hover:opacity-100">
-                    {/* Using simple text placeholders for reliability if images fail, but structure suggests images */}
+				<div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 md:gap-x-20">
                     {partners.map((partner) => (
-                        <div key={partner.name} className="flex items-center justify-center">
-                             <span className="text-xl font-bold text-gray-500 dark:text-gray-400">{partner.name}</span>
+                        <div key={partner} className="group cursor-default">
+                             <span className="text-xl md:text-2xl font-bold text-gray-300 transition-colors duration-300 group-hover:text-gray-800 dark:text-gray-700 dark:group-hover:text-gray-200">
+                                {partner}
+                             </span>
                         </div>
                     ))}
 				</div>
