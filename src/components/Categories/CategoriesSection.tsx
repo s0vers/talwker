@@ -1,8 +1,8 @@
 import React from "react";
-import { LuMountain, LuPalmtree, LuBuilding2, LuTent, LuShip, LuSunset } from "react-icons/lu";
+import { LuMountain, LuWaves, LuBuilding2, LuTent, LuShip, LuSunset } from "react-icons/lu";
 
 const categories = [
-    { name: "Beaches", icon: <LuPalmtree className="h-6 w-6" />, count: "120+ Spots" },
+    { name: "Beaches", icon: <LuWaves className="h-6 w-6" />, count: "120+ Spots" },
     { name: "Mountains", icon: <LuMountain className="h-6 w-6" />, count: "85+ Trails" },
     { name: "Cities", icon: <LuBuilding2 className="h-6 w-6" />, count: "200+ Cities" },
     { name: "Camping", icon: <LuTent className="h-6 w-6" />, count: "50+ Camps" },
