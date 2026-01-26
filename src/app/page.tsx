@@ -231,13 +231,15 @@ export default function Home() {
                 </div>
                 <p className="text-foreground leading-relaxed">&ldquo;{testimonial.text}&rdquo;</p>
                 <div className="mt-6 pt-4 border-t border-border flex items-center gap-3">
-                  <Image
-                    src={testimonial.avatar}
-                    alt={testimonial.name}
-                    width={44}
-                    height={44}
-                    className="rounded-full object-cover"
-                  />
+                  <div className="relative w-11 h-11 rounded-full overflow-hidden flex-shrink-0 bg-secondary">
+                    <Image
+                      src={testimonial.avatar}
+                      alt={testimonial.name}
+                      fill
+                      className="object-cover"
+                      sizes="44px"
+                    />
+                  </div>
                   <div>
                     <p className="font-medium text-foreground">{testimonial.name}</p>
                     <p className="text-sm text-muted-foreground">{testimonial.location}</p>
@@ -295,7 +297,7 @@ export default function Home() {
             Join thousands of travelers who have discovered their dream destinations with Talkwer
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/search" className="btn bg-white text-foreground hover:bg-white/90 px-8 py-3 text-base font-semibold">
+            <Link href="/search" className="btn bg-white text-slate-900 hover:bg-white/90 px-8 py-3 text-base font-semibold">
               Explore Trips <ArrowRight className="h-5 w-5" />
             </Link>
             <Link href="/contact" className="btn bg-white/10 text-white border border-white/30 hover:bg-white/20 px-8 py-3 text-base font-semibold">

@@ -15,9 +15,15 @@ export function ReviewCard({ review, className }: ReviewCardProps) {
     <div className={cn("bg-card rounded-xl border border-border p-5", className)}>
       <div className="flex items-start justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="relative h-10 w-10 rounded-full overflow-hidden bg-secondary flex-shrink-0">
+          <div className="relative w-10 h-10 rounded-full overflow-hidden bg-secondary flex-shrink-0">
             {review.userAvatar ? (
-              <Image src={review.userAvatar} alt={review.userName} fill className="object-cover" />
+              <Image 
+                src={review.userAvatar} 
+                alt={review.userName} 
+                fill 
+                className="object-cover" 
+                sizes="40px"
+              />
             ) : (
               <span className="w-full h-full flex items-center justify-center text-lg font-semibold text-muted-foreground">
                 {review.userName[0]}
@@ -52,8 +58,8 @@ export function ReviewCard({ review, className }: ReviewCardProps) {
       {review.images && review.images.length > 0 && (
         <div className="mt-4 flex gap-2">
           {review.images.map((img, i) => (
-            <div key={i} className="relative w-16 h-16 rounded-lg overflow-hidden">
-              <Image src={img} alt="" fill className="object-cover" />
+            <div key={i} className="relative w-16 h-16 rounded-lg overflow-hidden bg-secondary">
+              <Image src={img} alt="" fill className="object-cover" sizes="64px" />
             </div>
           ))}
         </div>
@@ -61,7 +67,7 @@ export function ReviewCard({ review, className }: ReviewCardProps) {
 
       {review.helpful !== undefined && (
         <div className="mt-4 pt-4 border-t border-border">
-          <button className="flex items-center gap-2 text-xs text-muted-foreground hover:text-primary">
+          <button className="flex items-center gap-2 text-xs text-muted-foreground hover:text-primary transition-colors">
             <ThumbsUp className="h-3.5 w-3.5" />
             Helpful ({review.helpful})
           </button>
@@ -104,10 +110,10 @@ export function RatingBreakdown({ ratings, totalReviews, averageRating, classNam
         {ratings.map((rating) => (
           <div key={rating.stars} className="flex items-center gap-2">
             <span className="text-xs text-muted-foreground w-3">{rating.stars}</span>
-            <Star className="h-3.5 w-3.5 text-amber-400" />
+            <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
             <div className="flex-1 h-2 bg-secondary rounded-full overflow-hidden">
               <div
-                className="h-full bg-amber-400 rounded-full"
+                className="h-full bg-amber-400 rounded-full transition-all"
                 style={{ width: `${maxCount ? (rating.count / maxCount) * 100 : 0}%` }}
               />
             </div>

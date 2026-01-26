@@ -43,13 +43,15 @@ export default function BlogPostPage() {
             </span>
             <h1 className="text-2xl md:text-4xl font-bold text-white max-w-3xl">{post.title}</h1>
             <div className="mt-4 flex items-center gap-4">
-              <Image
-                src={post.author.avatar}
-                alt={post.author.name}
-                width={44}
-                height={44}
-                className="rounded-full border-2 border-white/20"
-              />
+              <div className="relative w-11 h-11 rounded-full overflow-hidden flex-shrink-0 border-2 border-white/20">
+                <Image
+                  src={post.author.avatar}
+                  alt={post.author.name}
+                  fill
+                  className="object-cover"
+                  sizes="44px"
+                />
+              </div>
               <div>
                 <p className="text-white font-medium">{post.author.name}</p>
                 <div className="flex items-center gap-3 text-sm text-white/70">
@@ -131,13 +133,15 @@ export default function BlogPostPage() {
           {/* Author */}
           <div className="mt-8 p-6 rounded-xl bg-secondary">
             <div className="flex items-start gap-4">
-              <Image
-                src={post.author.avatar}
-                alt={post.author.name}
-                width={56}
-                height={56}
-                className="rounded-full"
-              />
+              <div className="relative w-14 h-14 rounded-full overflow-hidden flex-shrink-0 bg-muted">
+                <Image
+                  src={post.author.avatar}
+                  alt={post.author.name}
+                  fill
+                  className="object-cover"
+                  sizes="56px"
+                />
+              </div>
               <div>
                 <p className="font-semibold text-foreground">{post.author.name}</p>
                 <p className="mt-1 text-sm text-muted-foreground">{post.author.bio}</p>

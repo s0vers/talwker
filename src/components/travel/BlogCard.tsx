@@ -39,13 +39,15 @@ export function BlogCard({ post, className }: BlogCardProps) {
         <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{post.excerpt}</p>
         <div className="mt-4 pt-4 border-t border-border flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Image
-              src={post.author.avatar}
-              alt={post.author.name}
-              width={28}
-              height={28}
-              className="rounded-full"
-            />
+            <div className="relative w-7 h-7 rounded-full overflow-hidden flex-shrink-0 bg-secondary">
+              <Image
+                src={post.author.avatar}
+                alt={post.author.name}
+                fill
+                className="object-cover"
+                sizes="28px"
+              />
+            </div>
             <span className="text-sm text-muted-foreground">{post.author.name}</span>
           </div>
           <div className="flex items-center gap-3 text-xs text-muted-foreground">
