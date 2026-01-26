@@ -1,6 +1,10 @@
 import HeroSection from "@/components/HeroSection/HeroSection";
 import { DestinationsGrid } from "@/components/Destinations/DestinationsGrid";
 import { ServicesSection } from "@/components/Services/ServicesSection";
+import { PartnersSection } from "@/components/Partners/PartnersSection";
+import { CategoriesSection } from "@/components/Categories/CategoriesSection";
+import { TestimonialsSection } from "@/components/Testimonials/TestimonialsSection";
+import { Footer } from "@/components/Footer/Footer";
 
 const dummyBanners: Banner[] = [
 	{
@@ -40,10 +44,14 @@ const dummyBanners: Banner[] = [
 
 export default function Home() {
 	return (
-		<div className="flex flex-col min-h-screen bg-white dark:bg-black">
+		<div className="flex flex-col min-h-screen bg-white dark:bg-black font-sans">
 			<HeroSection banners={dummyBanners} />
+            <PartnersSection />
+			<CategoriesSection />
+            <DestinationsGrid />
 			<ServicesSection />
-			<DestinationsGrid />
+            <TestimonialsSection />
+            <Footer />
 		</div>
 	);
 }

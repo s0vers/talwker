@@ -15,14 +15,14 @@ export default function CarouselBanner({ item }: { item: Banner }) {
 					className="object-cover transition-transform duration-700 hover:scale-105"
 					priority
 					placeholder="blur"
-					blurDataURL={item.image} // Ideally use a real blur data url
+					blurDataURL={item.image}
 				/>
 				<div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 			</div>
 
 			{/* Content */}
-			<div className="relative z-10 flex h-full flex-col justify-end pb-32 px-6 md:px-12 lg:px-24">
-				<div className="max-w-4xl space-y-6">
+			<div className="relative z-10 flex h-full flex-col justify-center items-center px-4 md:px-6">
+				<div className="mx-auto flex max-w-7xl flex-col items-center text-center space-y-6">
 					{/* Location Tag */}
 					{item.location && (
 						<div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-md border border-white/20">
@@ -42,7 +42,7 @@ export default function CarouselBanner({ item }: { item: Banner }) {
 					</p>
 
 					{/* Price & Rating Row */}
-					<div className="flex items-center gap-6 text-white">
+					<div className="flex items-center gap-6 text-white justify-center">
 						{item.price && (
 							<div>
 								<p className="text-sm text-gray-400">Starting from</p>
@@ -59,7 +59,7 @@ export default function CarouselBanner({ item }: { item: Banner }) {
 					</div>
 
 					{/* CTAs */}
-					<div className="flex flex-wrap gap-4 pt-4">
+					<div className="flex flex-wrap justify-center gap-4 pt-4">
 						<Button size="lg" className="h-14 rounded-full bg-[var(--secondary)] px-8 text-lg font-semibold text-white hover:bg-orange-500">
 							Explore Now
 						</Button>
