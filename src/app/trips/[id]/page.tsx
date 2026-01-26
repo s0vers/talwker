@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { MapPin, Clock, Users, Star, Check, X, ArrowRight } from "lucide-react";
+import { MapPin, Clock, Users, Star, Check, X, ArrowRight, Heart, Share2 } from "lucide-react";
 import { ImageGallery } from "@/components/travel/ImageGallery";
 import { ReviewCard, RatingBreakdown } from "@/components/travel/ReviewCard";
 import { TripCard } from "@/components/travel/TripCard";
@@ -17,13 +17,14 @@ export default function TripDetailPage() {
   const trip = tripPackages.find((t) => t.id === params.id);
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [travelers, setTravelers] = useState(2);
+  const [isWishlisted, setIsWishlisted] = useState(false);
 
   if (!trip) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-xl font-semibold">Trip not found</h1>
-          <Link href="/search" className="text-primary text-sm mt-2 inline-block">
+          <h1 className="text-xl font-semibold text-foreground">Trip not found</h1>
+          <Link href="/search" className="text-primary text-sm mt-2 inline-block hover:underline">
             Browse trips
           </Link>
         </div>
@@ -39,54 +40,77 @@ export default function TripDetailPage() {
   const tripReviews = reviews.filter((r) => r.tripId === trip.id);
 
   return (
-    <div className="min-h-screen bg-white pt-20 pb-24">
+    <div className="min-h-screen bg-background pt-20 pb-24">
       {/* Breadcrumb */}
-      <div className="container-travel py-4">
-        <nav className="text-sm text-slate-500">
+      <div className="container-main py-4">
+        <nav className="text-sm text-muted-foreground">
           <Link href="/" className="hover:text-primary">Home</Link>
           <span className="mx-2">/</span>
           <Link href="/search" className="hover:text-primary">Trips</Link>
           <span className="mx-2">/</span>
-          <span className="text-slate-900">{trip.title}</span>
+          <span className="text-foreground">{trip.title}</span>
         </nav>
       </div>
 
       {/* Gallery */}
-      <div className="container-travel">
+      <div className="container-main">
         <ImageGallery images={trip.images} alt={trip.title} />
       </div>
 
-      <div className="container-travel mt-8">
+      <div className="container-main mt-8">
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Main Content */}
           <div className="flex-1 min-w-0">
             {/* Header */}
-            <div>
-              <div className="flex items-center gap-2 text-sm">
-                <span className="text-primary font-medium">{trip.category}</span>
-                <span className="text-slate-300">·</span>
-                <span className="text-slate-500">{trip.difficulty}</span>
+            <div className="flex flex-wrap items-start justify-between gap-4">
+              <div>
+                <div className="flex items-center gap-2 text-sm">
+                  <span className="font-medium text-primary">{trip.category}</span>
+                  <span className="text-muted-foreground">·</span>
+                  <span className="text-muted-foreground">{trip.difficulty}</span>
+                  {trip.bestSeller && (
+                    <>
+                      <span className="text-muted-foreground">·</span>
+                      <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 text-xs font-medium px-2 py-0.5 rounded">
+                        Best Seller
+                      </span>
+                    </>
+                  )}
+                </div>
+                <h1 className="mt-2 text-2xl md:text-3xl font-bold text-foreground">{trip.title}</h1>
+                <div className="mt-3 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+                  <span className="flex items-center gap-1">
+                    <MapPin className="h-4 w-4" />
+                    {trip.destination.name}, {trip.destination.country}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <Clock className="h-4 w-4" />
+                    {trip.duration.days} Days / {trip.duration.nights} Nights
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <Users className="h-4 w-4" />
+                    Max {trip.groupSize.max}
+                  </span>
+                </div>
+                <div className="mt-3 flex items-center gap-2">
+                  <Star className="h-5 w-5 fill-amber-400 text-amber-400" />
+                  <span className="font-semibold text-foreground">{trip.rating}</span>
+                  <span className="text-muted-foreground">({trip.reviewCount} reviews)</span>
+                </div>
               </div>
-              <h1 className="mt-2 text-2xl md:text-3xl font-semibold text-slate-900">
-                {trip.title}
-              </h1>
-              <div className="mt-3 flex flex-wrap items-center gap-4 text-sm text-slate-600">
-                <span className="flex items-center gap-1">
-                  <MapPin className="h-4 w-4" />
-                  {trip.destination.name}, {trip.destination.country}
-                </span>
-                <span className="flex items-center gap-1">
-                  <Clock className="h-4 w-4" />
-                  {trip.duration.days} Days
-                </span>
-                <span className="flex items-center gap-1">
-                  <Users className="h-4 w-4" />
-                  Max {trip.groupSize.max}
-                </span>
-                <span className="flex items-center gap-1">
-                  <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-                  {trip.rating} ({trip.reviewCount})
-                </span>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => setIsWishlisted(!isWishlisted)}
+                  className={cn(
+                    "p-2.5 rounded-lg border transition-colors",
+                    isWishlisted ? "border-red-200 bg-red-50 dark:bg-red-900/20 text-red-500" : "border-border hover:bg-secondary"
+                  )}
+                >
+                  <Heart className={cn("h-5 w-5", isWishlisted && "fill-current")} />
+                </button>
+                <button className="p-2.5 rounded-lg border border-border hover:bg-secondary transition-colors">
+                  <Share2 className="h-5 w-5" />
+                </button>
               </div>
             </div>
 
@@ -100,49 +124,94 @@ export default function TripDetailPage() {
               </TabsList>
 
               <TabsContent value="overview" className="mt-6">
-                <p className="text-slate-600 leading-relaxed">{trip.description}</p>
+                <p className="text-muted-foreground leading-relaxed">{trip.description}</p>
 
-                <h3 className="mt-8 font-semibold text-slate-900">Highlights</h3>
-                <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+                <h3 className="mt-8 text-lg font-semibold text-foreground">Highlights</h3>
+                <ul className="mt-4 grid gap-3 sm:grid-cols-2">
                   {trip.highlights.map((highlight, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-slate-600">
-                      <Check className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                    <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
+                      <div className="mt-0.5 p-1 rounded-full bg-green-100 dark:bg-green-900/30">
+                        <Check className="h-3 w-3 text-green-600 dark:text-green-400" />
+                      </div>
                       {highlight}
                     </li>
                   ))}
                 </ul>
+
+                {/* Accommodation */}
+                <div className="mt-8 p-5 rounded-xl bg-secondary border border-border">
+                  <h4 className="font-semibold text-foreground">Accommodation</h4>
+                  <p className="mt-1 text-muted-foreground">
+                    {trip.accommodation.name} ({trip.accommodation.type})
+                  </p>
+                  <div className="mt-2 flex items-center gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className={cn(
+                          "h-4 w-4",
+                          i < trip.accommodation.rating
+                            ? "fill-amber-400 text-amber-400"
+                            : "text-muted-foreground/30"
+                        )}
+                      />
+                    ))}
+                  </div>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {trip.accommodation.amenities.map((amenity) => (
+                      <span key={amenity} className="text-xs bg-background px-2 py-1 rounded border border-border">
+                        {amenity}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </TabsContent>
 
               <TabsContent value="itinerary" className="mt-6">
                 {trip.itinerary.length > 0 ? (
                   <div className="space-y-4">
                     {trip.itinerary.map((day) => (
-                      <div key={day.day} className="border border-slate-100 rounded-xl p-4">
+                      <div key={day.day} className="border border-border rounded-xl p-5 bg-card">
                         <div className="flex items-center gap-3">
-                          <span className="w-8 h-8 rounded-full bg-primary/10 text-primary text-sm font-medium flex items-center justify-center">
+                          <span className="w-10 h-10 rounded-full bg-primary/10 text-primary text-sm font-semibold flex items-center justify-center">
                             {day.day}
                           </span>
-                          <h4 className="font-medium text-slate-900">{day.title}</h4>
+                          <div>
+                            <h4 className="font-semibold text-foreground">{day.title}</h4>
+                            <p className="text-sm text-muted-foreground">{day.description}</p>
+                          </div>
                         </div>
-                        <p className="mt-2 text-sm text-slate-600 pl-11">{day.description}</p>
+                        <div className="mt-4 pl-13">
+                          <p className="text-sm font-medium text-foreground">Activities:</p>
+                          <ul className="mt-2 space-y-1.5">
+                            {day.activities.map((activity, i) => (
+                              <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+                                <Check className="h-4 w-4 text-green-500" />
+                                {activity}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
                     ))}
                   </div>
                 ) : (
-                  <p className="text-slate-500 text-sm">Detailed itinerary provided upon booking.</p>
+                  <p className="text-muted-foreground">Detailed itinerary provided upon booking.</p>
                 )}
               </TabsContent>
 
               <TabsContent value="included" className="mt-6">
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
-                    <h3 className="font-semibold text-slate-900 flex items-center gap-2">
-                      <Check className="h-4 w-4 text-green-500" />
+                    <h3 className="font-semibold text-foreground flex items-center gap-2">
+                      <div className="p-1 rounded-full bg-green-100 dark:bg-green-900/30">
+                        <Check className="h-4 w-4 text-green-600 dark:text-green-400" />
+                      </div>
                       Included
                     </h3>
-                    <ul className="mt-3 space-y-2">
+                    <ul className="mt-4 space-y-2.5">
                       {trip.inclusions.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-slate-600">
+                        <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
                           <Check className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
                           {item}
                         </li>
@@ -150,13 +219,15 @@ export default function TripDetailPage() {
                     </ul>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-slate-900 flex items-center gap-2">
-                      <X className="h-4 w-4 text-red-500" />
+                    <h3 className="font-semibold text-foreground flex items-center gap-2">
+                      <div className="p-1 rounded-full bg-red-100 dark:bg-red-900/30">
+                        <X className="h-4 w-4 text-red-600 dark:text-red-400" />
+                      </div>
                       Not Included
                     </h3>
-                    <ul className="mt-3 space-y-2">
+                    <ul className="mt-4 space-y-2.5">
                       {trip.exclusions.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-slate-600">
+                        <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
                           <X className="h-4 w-4 text-red-500 mt-0.5 flex-shrink-0" />
                           {item}
                         </li>
@@ -183,7 +254,7 @@ export default function TripDetailPage() {
                     {tripReviews.length > 0 ? (
                       tripReviews.map((review) => <ReviewCard key={review.id} review={review} />)
                     ) : (
-                      <p className="text-slate-500 text-sm">No reviews yet.</p>
+                      <p className="text-muted-foreground">No reviews yet.</p>
                     )}
                   </div>
                 </div>
@@ -193,25 +264,25 @@ export default function TripDetailPage() {
 
           {/* Sidebar */}
           <div className="lg:w-80 flex-shrink-0">
-            <div className="sticky top-24 bg-white border border-slate-100 rounded-xl p-5">
-              <div className="pb-4 border-b border-slate-100">
+            <div className="sticky top-24 bg-card border border-border rounded-xl p-5">
+              <div className="pb-4 border-b border-border">
                 {trip.price.originalPrice && (
-                  <span className="text-sm text-slate-400 line-through">${trip.price.originalPrice}</span>
+                  <span className="text-sm text-muted-foreground line-through">${trip.price.originalPrice}</span>
                 )}
                 <div className="flex items-baseline gap-1">
-                  <span className="text-2xl font-semibold text-slate-900">${trip.price.amount}</span>
-                  <span className="text-slate-500 text-sm">/ person</span>
+                  <span className="text-3xl font-bold text-foreground">${trip.price.amount}</span>
+                  <span className="text-muted-foreground">/ person</span>
                 </div>
                 {discount > 0 && (
-                  <span className="inline-block mt-1 text-xs font-medium text-white bg-primary px-2 py-0.5 rounded">
-                    {discount}% OFF
+                  <span className="inline-block mt-2 text-xs font-semibold text-white bg-primary px-2.5 py-1 rounded">
+                    Save {discount}%
                   </span>
                 )}
               </div>
 
               {/* Date Selection */}
-              <div className="py-4 border-b border-slate-100">
-                <label className="text-sm font-medium text-slate-700">Select Date</label>
+              <div className="py-4 border-b border-border">
+                <label className="text-sm font-medium text-foreground">Select Date</label>
                 <div className="mt-2 grid grid-cols-2 gap-2">
                   {trip.departureDates.slice(0, 4).map((date) => (
                     <button
@@ -220,8 +291,8 @@ export default function TripDetailPage() {
                       className={cn(
                         "text-sm py-2 px-3 rounded-lg border transition-colors",
                         selectedDate === date
-                          ? "border-primary bg-primary/5 text-primary"
-                          : "border-slate-200 hover:border-slate-300"
+                          ? "border-primary bg-primary/10 text-primary"
+                          : "border-border hover:border-primary/50"
                       )}
                     >
                       {new Date(date).toLocaleDateString("en-US", { month: "short", day: "numeric" })}
@@ -231,19 +302,19 @@ export default function TripDetailPage() {
               </div>
 
               {/* Travelers */}
-              <div className="py-4 border-b border-slate-100">
-                <label className="text-sm font-medium text-slate-700">Travelers</label>
+              <div className="py-4 border-b border-border">
+                <label className="text-sm font-medium text-foreground">Travelers</label>
                 <div className="mt-2 flex items-center justify-between">
                   <button
                     onClick={() => setTravelers(Math.max(1, travelers - 1))}
-                    className="w-8 h-8 rounded border border-slate-200 text-slate-600"
+                    className="w-10 h-10 rounded-lg border border-border text-foreground hover:bg-secondary"
                   >
                     -
                   </button>
-                  <span className="font-medium">{travelers}</span>
+                  <span className="font-semibold text-foreground">{travelers}</span>
                   <button
                     onClick={() => setTravelers(Math.min(trip.groupSize.max, travelers + 1))}
-                    className="w-8 h-8 rounded border border-slate-200 text-slate-600"
+                    className="w-10 h-10 rounded-lg border border-border text-foreground hover:bg-secondary"
                   >
                     +
                   </button>
@@ -253,14 +324,14 @@ export default function TripDetailPage() {
               {/* Total */}
               <div className="py-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-slate-600">Total</span>
-                  <span className="text-xl font-semibold">${trip.price.amount * travelers}</span>
+                  <span className="text-muted-foreground">Total</span>
+                  <span className="text-2xl font-bold text-foreground">${trip.price.amount * travelers}</span>
                 </div>
               </div>
 
               <Link
                 href={`/booking/${trip.id}`}
-                className="w-full flex items-center justify-center gap-2 bg-primary text-white py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                className="w-full flex items-center justify-center gap-2 bg-primary text-white py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
               >
                 Book Now <ArrowRight className="h-4 w-4" />
               </Link>
@@ -274,9 +345,9 @@ export default function TripDetailPage() {
 
         {/* Related */}
         {relatedTrips.length > 0 && (
-          <section className="mt-16">
-            <h2 className="text-xl font-semibold text-slate-900 mb-6">You Might Also Like</h2>
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <section className="mt-16 pt-16 border-t border-border">
+            <h2 className="heading-3 mb-6">You Might Also Like</h2>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {relatedTrips.map((t) => (
                 <TripCard key={t.id} trip={t} />
               ))}

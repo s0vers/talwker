@@ -33,17 +33,13 @@ const priceRanges = [
 export function FilterPanel({ filters, onFilterChange, className }: FilterPanelProps) {
   const handleCategoryChange = (category: TripCategory, checked: boolean) => {
     const current = filters.categories || [];
-    const updated = checked
-      ? [...current, category]
-      : current.filter((c) => c !== category);
+    const updated = checked ? [...current, category] : current.filter((c) => c !== category);
     onFilterChange({ ...filters, categories: updated });
   };
 
   const handleDifficultyChange = (difficulty: string, checked: boolean) => {
     const current = filters.difficulty || [];
-    const updated = checked
-      ? [...current, difficulty]
-      : current.filter((d) => d !== difficulty);
+    const updated = checked ? [...current, difficulty] : current.filter((d) => d !== difficulty);
     onFilterChange({ ...filters, difficulty: updated });
   };
 
@@ -56,40 +52,39 @@ export function FilterPanel({ filters, onFilterChange, className }: FilterPanelP
   };
 
   return (
-    <div className={cn("bg-white rounded-xl border border-slate-100 p-5", className)}>
-      <div className="flex items-center justify-between pb-4 border-b border-slate-100">
+    <div className={cn("bg-card rounded-xl border border-border p-5", className)}>
+      <div className="flex items-center justify-between pb-4 border-b border-border">
         <div className="flex items-center gap-2">
-          <SlidersHorizontal className="h-4 w-4 text-slate-500" />
-          <span className="font-medium text-slate-900">Filters</span>
+          <SlidersHorizontal className="h-4 w-4 text-muted-foreground" />
+          <span className="font-semibold text-foreground">Filters</span>
         </div>
-        <button
-          onClick={() => onFilterChange({})}
-          className="text-sm text-slate-500 hover:text-primary"
-        >
+        <button onClick={() => onFilterChange({})} className="text-sm text-primary hover:underline">
           Clear all
         </button>
       </div>
 
       {/* Categories */}
-      <div className="py-4 border-b border-slate-100">
-        <h4 className="text-sm font-medium text-slate-900 mb-3">Category</h4>
+      <div className="py-4 border-b border-border">
+        <h4 className="text-sm font-semibold text-foreground mb-3">Category</h4>
         <div className="space-y-2.5">
           {categories.map((category) => (
-            <label key={category} className="flex items-center gap-2.5 cursor-pointer">
+            <label key={category} className="flex items-center gap-2.5 cursor-pointer group">
               <Checkbox
                 checked={filters.categories?.includes(category)}
                 onCheckedChange={(checked) => handleCategoryChange(category, checked as boolean)}
               />
-              <span className="text-sm text-slate-600">{category}</span>
+              <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+                {category}
+              </span>
             </label>
           ))}
         </div>
       </div>
 
       {/* Price Range */}
-      <div className="py-4 border-b border-slate-100">
-        <h4 className="text-sm font-medium text-slate-900 mb-3">Price Range</h4>
-        <div className="space-y-2">
+      <div className="py-4 border-b border-border">
+        <h4 className="text-sm font-semibold text-foreground mb-3">Price Range</h4>
+        <div className="space-y-1.5">
           {priceRanges.map((range) => (
             <button
               key={range.label}
@@ -98,7 +93,7 @@ export function FilterPanel({ filters, onFilterChange, className }: FilterPanelP
                 "w-full text-left px-3 py-2 rounded-lg text-sm transition-colors",
                 filters.priceMin === range.min && filters.priceMax === range.max
                   ? "bg-primary/10 text-primary font-medium"
-                  : "text-slate-600 hover:bg-slate-50"
+                  : "text-muted-foreground hover:bg-secondary hover:text-foreground"
               )}
             >
               {range.label}
@@ -109,15 +104,17 @@ export function FilterPanel({ filters, onFilterChange, className }: FilterPanelP
 
       {/* Difficulty */}
       <div className="py-4">
-        <h4 className="text-sm font-medium text-slate-900 mb-3">Difficulty</h4>
+        <h4 className="text-sm font-semibold text-foreground mb-3">Difficulty</h4>
         <div className="space-y-2.5">
           {difficulties.map((difficulty) => (
-            <label key={difficulty} className="flex items-center gap-2.5 cursor-pointer">
+            <label key={difficulty} className="flex items-center gap-2.5 cursor-pointer group">
               <Checkbox
                 checked={filters.difficulty?.includes(difficulty)}
                 onCheckedChange={(checked) => handleDifficultyChange(difficulty, checked as boolean)}
               />
-              <span className="text-sm text-slate-600">{difficulty}</span>
+              <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+                {difficulty}
+              </span>
             </label>
           ))}
         </div>
@@ -134,29 +131,24 @@ interface MobileFilterSheetProps {
   onFilterChange: (filters: SearchFilters) => void;
 }
 
-export function MobileFilterSheet({
-  isOpen,
-  onClose,
-  filters,
-  onFilterChange,
-}: MobileFilterSheetProps) {
+export function MobileFilterSheet({ isOpen, onClose, filters, onFilterChange }: MobileFilterSheetProps) {
   if (!isOpen) return null;
 
   return (
     <>
       <div className="fixed inset-0 z-50 bg-black/50" onClick={onClose} />
-      <div className="fixed bottom-0 left-0 right-0 z-50 bg-white rounded-t-2xl max-h-[85vh] overflow-y-auto">
-        <div className="sticky top-0 bg-white border-b border-slate-100 p-4 flex items-center justify-between">
-          <h2 className="font-semibold">Filters</h2>
-          <button onClick={onClose} className="p-1">
+      <div className="fixed bottom-0 left-0 right-0 z-50 bg-background rounded-t-2xl max-h-[85vh] overflow-y-auto">
+        <div className="sticky top-0 bg-background border-b border-border p-4 flex items-center justify-between">
+          <h2 className="font-semibold text-foreground">Filters</h2>
+          <button onClick={onClose} className="p-1 hover:bg-secondary rounded-lg">
             <X className="h-5 w-5" />
           </button>
         </div>
         <div className="p-4">
-          <FilterPanel filters={filters} onFilterChange={onFilterChange} className="border-0 p-0" />
+          <FilterPanel filters={filters} onFilterChange={onFilterChange} className="border-0 p-0 bg-transparent" />
         </div>
-        <div className="sticky bottom-0 bg-white border-t border-slate-100 p-4">
-          <button onClick={onClose} className="w-full bg-primary text-white py-3 rounded-lg font-medium">
+        <div className="sticky bottom-0 bg-background border-t border-border p-4">
+          <button onClick={onClose} className="w-full btn-primary py-3">
             Show Results
           </button>
         </div>

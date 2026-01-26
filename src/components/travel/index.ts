@@ -6,6 +6,5 @@ export { ReviewCard, RatingBreakdown } from "./ReviewCard";
 export { DealCard } from "./DealCard";
 export { BlogCard } from "./BlogCard";
 export { FilterPanel, MobileFilterSheet } from "./FilterPanel";
-export { ImageGallery, GridGallery } from "./ImageGallery";
-export { CategoryCard, CategoriesGrid } from "./CategoryCard";
+export { ImageGallery } from "./ImageGallery";
 export { FeatureSection, TrustBadges } from "./FeatureSection";

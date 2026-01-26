@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Clock } from "lucide-react";
+import { Clock, Flame } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface DealCardProps {
@@ -19,7 +19,7 @@ export function DealCard({ deal, className }: DealCardProps) {
     <Link
       href={`/trips/${deal.tripPackage.id}`}
       className={cn(
-        "group block overflow-hidden rounded-xl bg-white border border-slate-100 transition-all hover:shadow-lg",
+        "group block overflow-hidden rounded-xl bg-card border border-border transition-all hover:shadow-lg hover:border-primary/20",
         className
       )}
     >
@@ -31,26 +31,35 @@ export function DealCard({ deal, className }: DealCardProps) {
           className="object-cover transition-transform duration-500 group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-        <div className="absolute bottom-4 left-4 right-4">
-          <span className="inline-block bg-primary text-white text-xs font-medium px-2 py-1 rounded mb-2">
-            Save {savingsPercent}%
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+        <div className="absolute top-3 left-3 flex items-center gap-2">
+          <span className="bg-red-500 text-white text-xs font-semibold px-2.5 py-1 rounded-md flex items-center gap-1">
+            <Flame className="h-3 w-3" />
+            {savingsPercent}% OFF
           </span>
-          <h3 className="text-white font-semibold line-clamp-2">{deal.title}</h3>
+          {deal.spotsLeft && (
+            <span className="bg-amber-500 text-white text-xs font-semibold px-2.5 py-1 rounded-md">
+              {deal.spotsLeft} left
+            </span>
+          )}
+        </div>
+        <div className="absolute bottom-3 left-3 right-3">
+          <h3 className="text-lg font-semibold text-white line-clamp-2">{deal.title}</h3>
         </div>
       </div>
       <div className="p-4">
-        <div className="flex items-center justify-between">
+        <p className="text-sm text-muted-foreground line-clamp-2">{deal.description}</p>
+        <div className="mt-4 flex items-center justify-between">
           <div>
-            <span className="text-sm text-slate-400 line-through">${deal.originalPrice}</span>
-            <span className="ml-2 text-lg font-semibold text-slate-900">${deal.finalPrice}</span>
-            <span className="text-xs text-slate-500">/person</span>
+            <span className="text-sm text-muted-foreground line-through">${deal.originalPrice}</span>
+            <div className="flex items-baseline gap-1">
+              <span className="text-xl font-bold text-foreground">${deal.finalPrice}</span>
+              <span className="text-sm text-muted-foreground">/person</span>
+            </div>
           </div>
-          {deal.spotsLeft && (
-            <span className="text-xs text-amber-600 font-medium">
-              {deal.spotsLeft} spots left
-            </span>
-          )}
+          <span className="text-sm font-semibold text-primary group-hover:underline">
+            View Deal →
+          </span>
         </div>
       </div>
     </Link>

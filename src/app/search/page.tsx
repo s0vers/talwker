@@ -79,24 +79,22 @@ export default function SearchPage() {
     (filters.priceMin || filters.priceMax ? 1 : 0);
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-secondary">
       {/* Header */}
-      <div className="bg-slate-900 pt-24 pb-8">
-        <div className="container-travel">
-          <h1 className="text-2xl font-semibold text-white">Find Your Trip</h1>
-          <div className="mt-4 max-w-2xl">
-            <SearchBar
-              variant="compact"
-              onSearch={(f) => setFilters({ ...filters, ...f })}
-            />
+      <div className="bg-gradient-to-b from-background to-secondary pt-24 pb-8 border-b border-border">
+        <div className="container-main">
+          <h1 className="heading-2">Find Your Perfect Trip</h1>
+          <p className="mt-2 text-muted-foreground">Browse hundreds of curated experiences</p>
+          <div className="mt-6 max-w-2xl">
+            <SearchBar variant="compact" onSearch={(f) => setFilters({ ...filters, ...f })} />
           </div>
         </div>
       </div>
 
-      <div className="container-travel py-8">
+      <div className="container-main py-8">
         <div className="flex gap-8">
           {/* Sidebar */}
-          <aside className="hidden lg:block w-64 flex-shrink-0">
+          <aside className="hidden lg:block w-72 flex-shrink-0">
             <FilterPanel
               filters={filters}
               onFilterChange={setFilters}
@@ -107,19 +105,19 @@ export default function SearchPage() {
           {/* Main */}
           <main className="flex-1 min-w-0">
             {/* Toolbar */}
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-between mb-6 p-4 bg-card rounded-xl border border-border">
               <div className="flex items-center gap-3">
-                <span className="text-sm text-slate-600">
-                  {filteredTrips.length} trips found
+                <span className="text-sm text-muted-foreground">
+                  <span className="font-semibold text-foreground">{filteredTrips.length}</span> trips found
                 </span>
                 <button
                   onClick={() => setIsMobileFilterOpen(true)}
-                  className="lg:hidden flex items-center gap-2 text-sm font-medium text-slate-700 bg-white border border-slate-200 px-3 py-1.5 rounded-lg"
+                  className="lg:hidden flex items-center gap-2 text-sm font-medium bg-secondary px-3 py-1.5 rounded-lg"
                 >
                   <SlidersHorizontal className="h-4 w-4" />
                   Filters
                   {activeFilterCount > 0 && (
-                    <span className="bg-primary text-white text-xs px-1.5 rounded">
+                    <span className="bg-primary text-white text-xs px-1.5 py-0.5 rounded">
                       {activeFilterCount}
                     </span>
                   )}
@@ -128,7 +126,7 @@ export default function SearchPage() {
 
               <div className="flex items-center gap-2">
                 <Select value={sortBy} onValueChange={(v) => setSortBy(v as SortOption)}>
-                  <SelectTrigger className="w-40 h-9 text-sm">
+                  <SelectTrigger className="w-44 h-9 text-sm">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -140,24 +138,18 @@ export default function SearchPage() {
                   </SelectContent>
                 </Select>
 
-                <div className="hidden sm:flex border border-slate-200 rounded-lg p-0.5 bg-white">
+                <div className="hidden sm:flex border border-border rounded-lg p-1 bg-background">
                   <button
                     onClick={() => setViewMode("grid")}
-                    className={cn(
-                      "p-1.5 rounded",
-                      viewMode === "grid" ? "bg-slate-100" : ""
-                    )}
+                    className={cn("p-1.5 rounded", viewMode === "grid" ? "bg-secondary" : "")}
                   >
-                    <Grid className="h-4 w-4 text-slate-600" />
+                    <Grid className="h-4 w-4" />
                   </button>
                   <button
                     onClick={() => setViewMode("list")}
-                    className={cn(
-                      "p-1.5 rounded",
-                      viewMode === "list" ? "bg-slate-100" : ""
-                    )}
+                    className={cn("p-1.5 rounded", viewMode === "list" ? "bg-secondary" : "")}
                   >
-                    <List className="h-4 w-4 text-slate-600" />
+                    <List className="h-4 w-4" />
                   </button>
                 </div>
               </div>
@@ -165,17 +157,12 @@ export default function SearchPage() {
 
             {/* Active Filters */}
             {activeFilterCount > 0 && (
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex flex-wrap gap-2 mb-6">
                 {filters.categories?.map((cat) => (
                   <button
                     key={cat}
-                    onClick={() =>
-                      setFilters({
-                        ...filters,
-                        categories: filters.categories?.filter((c) => c !== cat),
-                      })
-                    }
-                    className="flex items-center gap-1 text-xs bg-primary/10 text-primary px-2 py-1 rounded"
+                    onClick={() => setFilters({ ...filters, categories: filters.categories?.filter((c) => c !== cat) })}
+                    className="flex items-center gap-1 text-sm bg-primary/10 text-primary px-3 py-1 rounded-full"
                   >
                     {cat} <X className="h-3 w-3" />
                   </button>
@@ -183,37 +170,31 @@ export default function SearchPage() {
                 {(filters.priceMin || filters.priceMax) && (
                   <button
                     onClick={() => setFilters({ ...filters, priceMin: undefined, priceMax: undefined })}
-                    className="flex items-center gap-1 text-xs bg-primary/10 text-primary px-2 py-1 rounded"
+                    className="flex items-center gap-1 text-sm bg-primary/10 text-primary px-3 py-1 rounded-full"
                   >
                     ${filters.priceMin || 0} - ${filters.priceMax || "∞"} <X className="h-3 w-3" />
                   </button>
                 )}
+                <button
+                  onClick={() => setFilters({})}
+                  className="text-sm text-muted-foreground hover:text-foreground"
+                >
+                  Clear all
+                </button>
               </div>
             )}
 
             {/* Results */}
             {filteredTrips.length > 0 ? (
-              <div
-                className={cn(
-                  "grid gap-5",
-                  viewMode === "grid" ? "sm:grid-cols-2 xl:grid-cols-3" : "grid-cols-1"
-                )}
-              >
+              <div className={cn("grid gap-6", viewMode === "grid" ? "sm:grid-cols-2 xl:grid-cols-3" : "grid-cols-1")}>
                 {filteredTrips.map((trip) => (
-                  <TripCard
-                    key={trip.id}
-                    trip={trip}
-                    variant={viewMode === "list" ? "horizontal" : "default"}
-                  />
+                  <TripCard key={trip.id} trip={trip} variant={viewMode === "list" ? "horizontal" : "default"} />
                 ))}
               </div>
             ) : (
-              <div className="text-center py-16">
-                <p className="text-slate-500">No trips match your criteria.</p>
-                <button
-                  onClick={() => setFilters({})}
-                  className="mt-2 text-primary text-sm font-medium"
-                >
+              <div className="text-center py-16 bg-card rounded-xl border border-border">
+                <p className="text-muted-foreground">No trips match your criteria.</p>
+                <button onClick={() => setFilters({})} className="mt-2 text-primary text-sm font-medium hover:underline">
                   Clear filters
                 </button>
               </div>
@@ -222,12 +203,7 @@ export default function SearchPage() {
         </div>
       </div>
 
-      <MobileFilterSheet
-        isOpen={isMobileFilterOpen}
-        onClose={() => setIsMobileFilterOpen(false)}
-        filters={filters}
-        onFilterChange={setFilters}
-      />
+      <MobileFilterSheet isOpen={isMobileFilterOpen} onClose={() => setIsMobileFilterOpen(false)} filters={filters} onFilterChange={setFilters} />
     </div>
   );
 }

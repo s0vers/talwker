@@ -3,7 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, Search, Heart, User } from "lucide-react";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { cn } from "@/lib/utils";
 
 const navigation = [
@@ -20,7 +21,7 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -31,37 +32,37 @@ export function Header() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-white/95 backdrop-blur-sm border-b border-slate-100"
-          : "bg-transparent"
+          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm"
+          : "bg-gradient-to-b from-black/50 to-transparent"
       )}
     >
-      <div className="container-travel">
-        <div className="flex h-16 items-center justify-between">
+      <div className="container-main">
+        <div className="flex h-16 lg:h-18 items-center justify-between gap-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex-shrink-0">
             <Image
               src="/simple.png"
               alt="Talkwer"
-              width={100}
-              height={28}
+              width={110}
+              height={32}
               className={cn(
-                "h-7 w-auto transition-all",
-                isScrolled ? "" : "brightness-0 invert"
+                "h-8 w-auto transition-all",
+                !isScrolled && "brightness-0 invert"
               )}
               priority
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-1">
             {navigation.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
                 className={cn(
-                  "px-4 py-2 text-sm font-medium transition-colors rounded-lg",
+                  "px-4 py-2 text-sm font-medium rounded-lg transition-colors",
                   isScrolled
-                    ? "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
+                    ? "text-foreground/80 hover:text-foreground hover:bg-secondary"
                     : "text-white/90 hover:text-white hover:bg-white/10"
                 )}
               >
@@ -70,59 +71,98 @@ export function Header() {
             ))}
           </nav>
 
-          {/* CTA */}
-          <div className="hidden md:flex items-center gap-3">
+          {/* Right Actions */}
+          <div className="flex items-center gap-1">
+            <button
+              className={cn(
+                "p-2 rounded-lg transition-colors hidden sm:flex",
+                isScrolled
+                  ? "text-foreground/70 hover:text-foreground hover:bg-secondary"
+                  : "text-white/80 hover:text-white hover:bg-white/10"
+              )}
+              aria-label="Search"
+            >
+              <Search className="h-5 w-5" />
+            </button>
+
+            <Link
+              href="/wishlist"
+              className={cn(
+                "p-2 rounded-lg transition-colors hidden sm:flex",
+                isScrolled
+                  ? "text-foreground/70 hover:text-foreground hover:bg-secondary"
+                  : "text-white/80 hover:text-white hover:bg-white/10"
+              )}
+              aria-label="Wishlist"
+            >
+              <Heart className="h-5 w-5" />
+            </Link>
+
+            <div className={cn(
+              "hidden sm:block",
+              isScrolled ? "text-foreground" : "text-white"
+            )}>
+              <ThemeToggle />
+            </div>
+
             <Link
               href="/search"
               className={cn(
-                "px-5 py-2 text-sm font-medium rounded-lg transition-colors",
+                "hidden lg:inline-flex items-center px-5 py-2 text-sm font-medium rounded-lg transition-all ml-2",
                 isScrolled
                   ? "bg-primary text-white hover:bg-primary/90"
-                  : "bg-white text-slate-900 hover:bg-white/90"
+                  : "bg-white text-foreground hover:bg-white/90"
               )}
             >
               Book Now
             </Link>
-          </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={cn(
-              "md:hidden p-2 rounded-lg",
-              isScrolled ? "text-slate-700" : "text-white"
-            )}
-          >
-            {isMobileMenuOpen ? (
-              <X className="h-5 w-5" />
-            ) : (
-              <Menu className="h-5 w-5" />
-            )}
-          </button>
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className={cn(
+                "lg:hidden p-2 rounded-lg transition-colors",
+                isScrolled
+                  ? "text-foreground hover:bg-secondary"
+                  : "text-white hover:bg-white/10"
+              )}
+              aria-label="Menu"
+            >
+              {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-slate-100 bg-white">
-            <nav className="flex flex-col gap-1">
-              {navigation.map((item) => (
+          <div className="lg:hidden py-4 border-t border-border bg-background absolute left-0 right-0 top-16 shadow-lg">
+            <div className="container-main">
+              <nav className="flex flex-col gap-1">
+                {navigation.map((item) => (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="px-4 py-3 text-sm font-medium text-foreground hover:bg-secondary rounded-lg transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
+              <div className="mt-4 pt-4 border-t border-border flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <ThemeToggle />
+                  <span className="text-sm text-muted-foreground">Theme</span>
+                </div>
                 <Link
-                  key={item.label}
-                  href={item.href}
+                  href="/search"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="px-4 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-50 rounded-lg"
+                  className="btn-primary"
                 >
-                  {item.label}
+                  Book Now
                 </Link>
-              ))}
-              <Link
-                href="/search"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="mx-4 mt-2 py-2.5 text-sm font-medium text-center bg-primary text-white rounded-lg"
-              >
-                Book Now
-              </Link>
-            </nav>
+              </div>
+            </div>
           </div>
         )}
       </div>

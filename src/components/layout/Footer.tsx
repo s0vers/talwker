@@ -2,10 +2,17 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Youtube } from "lucide-react";
 
 const footerLinks = {
+  destinations: [
+    { label: "Asia", href: "/search?region=asia" },
+    { label: "Europe", href: "/search?region=europe" },
+    { label: "Americas", href: "/search?region=americas" },
+    { label: "Africa", href: "/search?region=africa" },
+  ],
   company: [
-    { label: "About", href: "/about" },
+    { label: "About Us", href: "/about" },
     { label: "Careers", href: "/careers" },
     { label: "Blog", href: "/blog" },
     { label: "Contact", href: "/contact" },
@@ -14,45 +21,88 @@ const footerLinks = {
     { label: "Help Center", href: "/help" },
     { label: "FAQs", href: "/contact" },
     { label: "Cancellation", href: "/cancellation" },
-    { label: "Booking Guide", href: "/guide" },
-  ],
-  legal: [
-    { label: "Privacy", href: "/privacy" },
-    { label: "Terms", href: "/terms" },
-    { label: "Cookies", href: "/cookies" },
+    { label: "Privacy Policy", href: "/privacy" },
   ],
 };
 
+const socialLinks = [
+  { icon: Facebook, href: "#", label: "Facebook" },
+  { icon: Twitter, href: "#", label: "Twitter" },
+  { icon: Instagram, href: "#", label: "Instagram" },
+  { icon: Youtube, href: "#", label: "YouTube" },
+];
+
 export function Footer() {
   return (
-    <footer className="bg-slate-900 text-white">
-      <div className="container-travel py-12 md:py-16">
+    <footer className="bg-secondary border-t border-border">
+      {/* Main Footer */}
+      <div className="container-main py-12 lg:py-16">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-5">
           {/* Brand */}
           <div className="lg:col-span-2">
             <Image
               src="/simple.png"
               alt="Talkwer"
-              width={100}
-              height={28}
-              className="h-7 w-auto brightness-0 invert"
+              width={120}
+              height={32}
+              className="h-8 w-auto"
             />
-            <p className="mt-4 text-sm text-slate-400 max-w-xs">
-              Discover the world with curated travel experiences designed for
-              the modern explorer.
+            <p className="mt-4 text-sm text-muted-foreground max-w-xs leading-relaxed">
+              Discover the world with curated travel experiences. We craft unforgettable 
+              journeys to the most beautiful destinations on Earth.
             </p>
+
+            {/* Contact Info */}
+            <div className="mt-6 space-y-3">
+              <a href="tel:+1234567890" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <Phone className="h-4 w-4 text-primary" />
+                +1 (234) 567-890
+              </a>
+              <a href="mailto:hello@talkwer.com" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <Mail className="h-4 w-4 text-primary" />
+                hello@talkwer.com
+              </a>
+              <div className="flex items-start gap-3 text-sm text-muted-foreground">
+                <MapPin className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                123 Travel Street, Adventure City
+              </div>
+            </div>
+
+            {/* Social Links */}
+            <div className="mt-6 flex gap-2">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  className="p-2 rounded-lg bg-background hover:bg-primary hover:text-white transition-colors"
+                  aria-label={social.label}
+                >
+                  <social.icon className="h-4 w-4" />
+                </a>
+              ))}
+            </div>
           </div>
 
           {/* Links */}
           <div>
-            <h4 className="text-sm font-semibold mb-4">Company</h4>
+            <h4 className="text-sm font-semibold text-foreground mb-4">Destinations</h4>
+            <ul className="space-y-2.5">
+              {footerLinks.destinations.map((link) => (
+                <li key={link.label}>
+                  <Link href={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-sm font-semibold text-foreground mb-4">Company</h4>
             <ul className="space-y-2.5">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-slate-400 hover:text-white transition-colors"
-                  >
+                  <Link href={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -61,30 +111,11 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold mb-4">Support</h4>
+            <h4 className="text-sm font-semibold text-foreground mb-4">Support</h4>
             <ul className="space-y-2.5">
               {footerLinks.support.map((link) => (
                 <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-slate-400 hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-sm font-semibold mb-4">Legal</h4>
-            <ul className="space-y-2.5">
-              {footerLinks.legal.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-slate-400 hover:text-white transition-colors"
-                  >
+                  <Link href={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -92,9 +123,17 @@ export function Footer() {
             </ul>
           </div>
         </div>
+      </div>
 
-        <div className="mt-12 pt-8 border-t border-slate-800 text-center text-sm text-slate-500">
-          © {new Date().getFullYear()} Talkwer. All rights reserved.
+      {/* Bottom Bar */}
+      <div className="border-t border-border">
+        <div className="container-main py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+          <p>© {new Date().getFullYear()} Talkwer. All rights reserved.</p>
+          <div className="flex items-center gap-6">
+            <Link href="/terms" className="hover:text-foreground transition-colors">Terms</Link>
+            <Link href="/privacy" className="hover:text-foreground transition-colors">Privacy</Link>
+            <Link href="/cookies" className="hover:text-foreground transition-colors">Cookies</Link>
+          </div>
         </div>
       </div>
     </footer>
