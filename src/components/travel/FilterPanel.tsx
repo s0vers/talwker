@@ -1,12 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, ChevronUp, X, SlidersHorizontal } from "lucide-react";
+import { X, SlidersHorizontal } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Slider } from "@/components/ui/slider";
-import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
-import { motion, AnimatePresence } from "framer-motion";
 
 interface FilterPanelProps {
   filters: SearchFilters;
@@ -22,335 +19,108 @@ const categories: TripCategory[] = [
   "Romantic",
   "Family",
   "Luxury",
-  "Budget",
-  "Cruise",
-  "Safari",
-  "Hiking",
-  "City Break",
 ];
 
-const difficulties = ["Easy", "Moderate", "Challenging", "Difficult"];
+const difficulties = ["Easy", "Moderate", "Challenging"];
 
-const durations = [
-  { label: "1-3 Days", min: 1, max: 3 },
-  { label: "4-7 Days", min: 4, max: 7 },
-  { label: "8-14 Days", min: 8, max: 14 },
-  { label: "15+ Days", min: 15, max: 30 },
+const priceRanges = [
+  { label: "Under $1,000", min: 0, max: 1000 },
+  { label: "$1,000 - $2,000", min: 1000, max: 2000 },
+  { label: "$2,000 - $3,000", min: 2000, max: 3000 },
+  { label: "Over $3,000", min: 3000, max: 100000 },
 ];
 
-export function FilterPanel({
-  filters,
-  onFilterChange,
-  className,
-}: FilterPanelProps) {
-  const [expandedSections, setExpandedSections] = useState<string[]>([
-    "price",
-    "categories",
-    "duration",
-    "difficulty",
-  ]);
-  const [priceRange, setPriceRange] = useState([
-    filters.priceMin || 0,
-    filters.priceMax || 10000,
-  ]);
-
-  const toggleSection = (section: string) => {
-    setExpandedSections((prev) =>
-      prev.includes(section)
-        ? prev.filter((s) => s !== section)
-        : [...prev, section]
-    );
-  };
-
+export function FilterPanel({ filters, onFilterChange, className }: FilterPanelProps) {
   const handleCategoryChange = (category: TripCategory, checked: boolean) => {
-    const currentCategories = filters.categories || [];
-    const newCategories = checked
-      ? [...currentCategories, category]
-      : currentCategories.filter((c) => c !== category);
-    onFilterChange({ ...filters, categories: newCategories });
+    const current = filters.categories || [];
+    const updated = checked
+      ? [...current, category]
+      : current.filter((c) => c !== category);
+    onFilterChange({ ...filters, categories: updated });
   };
 
   const handleDifficultyChange = (difficulty: string, checked: boolean) => {
-    const currentDifficulties = filters.difficulty || [];
-    const newDifficulties = checked
-      ? [...currentDifficulties, difficulty]
-      : currentDifficulties.filter((d) => d !== difficulty);
-    onFilterChange({ ...filters, difficulty: newDifficulties });
+    const current = filters.difficulty || [];
+    const updated = checked
+      ? [...current, difficulty]
+      : current.filter((d) => d !== difficulty);
+    onFilterChange({ ...filters, difficulty: updated });
   };
 
-  const handleDurationChange = (duration: { min: number; max: number }) => {
-    onFilterChange({ ...filters, duration });
+  const handlePriceChange = (min: number, max: number) => {
+    if (filters.priceMin === min && filters.priceMax === max) {
+      onFilterChange({ ...filters, priceMin: undefined, priceMax: undefined });
+    } else {
+      onFilterChange({ ...filters, priceMin: min, priceMax: max });
+    }
   };
-
-  const handlePriceChange = (value: number[]) => {
-    setPriceRange(value);
-    onFilterChange({ ...filters, priceMin: value[0], priceMax: value[1] });
-  };
-
-  const handleRatingChange = (rating: number) => {
-    onFilterChange({ ...filters, rating });
-  };
-
-  const clearAllFilters = () => {
-    setPriceRange([0, 10000]);
-    onFilterChange({});
-  };
-
-  const activeFilterCount =
-    (filters.categories?.length || 0) +
-    (filters.difficulty?.length || 0) +
-    (filters.duration ? 1 : 0) +
-    (filters.rating ? 1 : 0) +
-    (filters.priceMin || filters.priceMax ? 1 : 0);
 
   return (
-    <div className={cn("rounded-2xl bg-white p-6 shadow-card", className)}>
-      {/* Header */}
-      <div className="flex items-center justify-between border-b pb-4">
+    <div className={cn("bg-white rounded-xl border border-slate-100 p-5", className)}>
+      <div className="flex items-center justify-between pb-4 border-b border-slate-100">
         <div className="flex items-center gap-2">
-          <SlidersHorizontal className="h-5 w-5 text-slate-600" />
-          <h3 className="text-lg font-semibold text-slate-900">Filters</h3>
-          {activeFilterCount > 0 && (
-            <Badge variant="secondary">{activeFilterCount}</Badge>
-          )}
+          <SlidersHorizontal className="h-4 w-4 text-slate-500" />
+          <span className="font-medium text-slate-900">Filters</span>
         </div>
-        {activeFilterCount > 0 && (
-          <button
-            onClick={clearAllFilters}
-            className="text-sm font-medium text-primary hover:underline"
-          >
-            Clear all
-          </button>
-        )}
-      </div>
-
-      {/* Price Range */}
-      <div className="border-b py-4">
         <button
-          onClick={() => toggleSection("price")}
-          className="flex w-full items-center justify-between"
+          onClick={() => onFilterChange({})}
+          className="text-sm text-slate-500 hover:text-primary"
         >
-          <h4 className="font-semibold text-slate-900">Price Range</h4>
-          {expandedSections.includes("price") ? (
-            <ChevronUp className="h-5 w-5 text-slate-400" />
-          ) : (
-            <ChevronDown className="h-5 w-5 text-slate-400" />
-          )}
+          Clear all
         </button>
-        <AnimatePresence>
-          {expandedSections.includes("price") && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="overflow-hidden"
-            >
-              <div className="mt-4 space-y-4">
-                <Slider
-                  value={priceRange}
-                  onValueChange={handlePriceChange}
-                  min={0}
-                  max={10000}
-                  step={100}
-                  className="w-full"
-                />
-                <div className="flex items-center justify-between text-sm">
-                  <span className="rounded-lg bg-slate-100 px-3 py-1 font-medium">
-                    ${priceRange[0]}
-                  </span>
-                  <span className="text-slate-400">to</span>
-                  <span className="rounded-lg bg-slate-100 px-3 py-1 font-medium">
-                    ${priceRange[1]}
-                  </span>
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
 
       {/* Categories */}
-      <div className="border-b py-4">
-        <button
-          onClick={() => toggleSection("categories")}
-          className="flex w-full items-center justify-between"
-        >
-          <h4 className="font-semibold text-slate-900">Categories</h4>
-          {expandedSections.includes("categories") ? (
-            <ChevronUp className="h-5 w-5 text-slate-400" />
-          ) : (
-            <ChevronDown className="h-5 w-5 text-slate-400" />
-          )}
-        </button>
-        <AnimatePresence>
-          {expandedSections.includes("categories") && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="overflow-hidden"
-            >
-              <div className="mt-4 space-y-3">
-                {categories.map((category) => (
-                  <label
-                    key={category}
-                    className="flex cursor-pointer items-center gap-3"
-                  >
-                    <Checkbox
-                      checked={filters.categories?.includes(category)}
-                      onCheckedChange={(checked) =>
-                        handleCategoryChange(category, checked as boolean)
-                      }
-                    />
-                    <span className="text-sm text-slate-700">{category}</span>
-                  </label>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+      <div className="py-4 border-b border-slate-100">
+        <h4 className="text-sm font-medium text-slate-900 mb-3">Category</h4>
+        <div className="space-y-2.5">
+          {categories.map((category) => (
+            <label key={category} className="flex items-center gap-2.5 cursor-pointer">
+              <Checkbox
+                checked={filters.categories?.includes(category)}
+                onCheckedChange={(checked) => handleCategoryChange(category, checked as boolean)}
+              />
+              <span className="text-sm text-slate-600">{category}</span>
+            </label>
+          ))}
+        </div>
       </div>
 
-      {/* Duration */}
-      <div className="border-b py-4">
-        <button
-          onClick={() => toggleSection("duration")}
-          className="flex w-full items-center justify-between"
-        >
-          <h4 className="font-semibold text-slate-900">Duration</h4>
-          {expandedSections.includes("duration") ? (
-            <ChevronUp className="h-5 w-5 text-slate-400" />
-          ) : (
-            <ChevronDown className="h-5 w-5 text-slate-400" />
-          )}
-        </button>
-        <AnimatePresence>
-          {expandedSections.includes("duration") && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="overflow-hidden"
+      {/* Price Range */}
+      <div className="py-4 border-b border-slate-100">
+        <h4 className="text-sm font-medium text-slate-900 mb-3">Price Range</h4>
+        <div className="space-y-2">
+          {priceRanges.map((range) => (
+            <button
+              key={range.label}
+              onClick={() => handlePriceChange(range.min, range.max)}
+              className={cn(
+                "w-full text-left px-3 py-2 rounded-lg text-sm transition-colors",
+                filters.priceMin === range.min && filters.priceMax === range.max
+                  ? "bg-primary/10 text-primary font-medium"
+                  : "text-slate-600 hover:bg-slate-50"
+              )}
             >
-              <div className="mt-4 flex flex-wrap gap-2">
-                {durations.map((duration) => {
-                  const isActive =
-                    filters.duration?.min === duration.min &&
-                    filters.duration?.max === duration.max;
-                  return (
-                    <button
-                      key={duration.label}
-                      onClick={() =>
-                        handleDurationChange(
-                          isActive ? { min: 0, max: 100 } : duration
-                        )
-                      }
-                      className={cn(
-                        "rounded-full px-4 py-2 text-sm font-medium transition-all",
-                        isActive
-                          ? "bg-primary text-white"
-                          : "bg-slate-100 text-slate-700 hover:bg-slate-200"
-                      )}
-                    >
-                      {duration.label}
-                    </button>
-                  );
-                })}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+              {range.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Difficulty */}
-      <div className="border-b py-4">
-        <button
-          onClick={() => toggleSection("difficulty")}
-          className="flex w-full items-center justify-between"
-        >
-          <h4 className="font-semibold text-slate-900">Difficulty</h4>
-          {expandedSections.includes("difficulty") ? (
-            <ChevronUp className="h-5 w-5 text-slate-400" />
-          ) : (
-            <ChevronDown className="h-5 w-5 text-slate-400" />
-          )}
-        </button>
-        <AnimatePresence>
-          {expandedSections.includes("difficulty") && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="overflow-hidden"
-            >
-              <div className="mt-4 space-y-3">
-                {difficulties.map((difficulty) => (
-                  <label
-                    key={difficulty}
-                    className="flex cursor-pointer items-center gap-3"
-                  >
-                    <Checkbox
-                      checked={filters.difficulty?.includes(difficulty)}
-                      onCheckedChange={(checked) =>
-                        handleDifficultyChange(difficulty, checked as boolean)
-                      }
-                    />
-                    <span className="text-sm text-slate-700">{difficulty}</span>
-                  </label>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-
-      {/* Rating */}
       <div className="py-4">
-        <button
-          onClick={() => toggleSection("rating")}
-          className="flex w-full items-center justify-between"
-        >
-          <h4 className="font-semibold text-slate-900">Rating</h4>
-          {expandedSections.includes("rating") ? (
-            <ChevronUp className="h-5 w-5 text-slate-400" />
-          ) : (
-            <ChevronDown className="h-5 w-5 text-slate-400" />
-          )}
-        </button>
-        <AnimatePresence>
-          {expandedSections.includes("rating") && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="overflow-hidden"
-            >
-              <div className="mt-4 flex flex-wrap gap-2">
-                {[5, 4, 3, 2].map((rating) => (
-                  <button
-                    key={rating}
-                    onClick={() =>
-                      handleRatingChange(filters.rating === rating ? 0 : rating)
-                    }
-                    className={cn(
-                      "flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-all",
-                      filters.rating === rating
-                        ? "bg-primary text-white"
-                        : "bg-slate-100 text-slate-700 hover:bg-slate-200"
-                    )}
-                  >
-                    {rating}+ ★
-                  </button>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <h4 className="text-sm font-medium text-slate-900 mb-3">Difficulty</h4>
+        <div className="space-y-2.5">
+          {difficulties.map((difficulty) => (
+            <label key={difficulty} className="flex items-center gap-2.5 cursor-pointer">
+              <Checkbox
+                checked={filters.difficulty?.includes(difficulty)}
+                onCheckedChange={(checked) => handleDifficultyChange(difficulty, checked as boolean)}
+              />
+              <span className="text-sm text-slate-600">{difficulty}</span>
+            </label>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -370,54 +140,27 @@ export function MobileFilterSheet({
   filters,
   onFilterChange,
 }: MobileFilterSheetProps) {
-  return (
-    <AnimatePresence>
-      {isOpen && (
-        <>
-          {/* Backdrop */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={onClose}
-            className="fixed inset-0 z-50 bg-black/50"
-          />
+  if (!isOpen) return null;
 
-          {/* Panel */}
-          <motion.div
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ type: "spring", damping: 30, stiffness: 300 }}
-            className="fixed bottom-0 right-0 top-0 z-50 w-full max-w-sm overflow-y-auto bg-white"
-          >
-            <div className="sticky top-0 z-10 flex items-center justify-between border-b bg-white p-4">
-              <h2 className="text-lg font-semibold">Filters</h2>
-              <button
-                onClick={onClose}
-                className="rounded-full p-2 hover:bg-slate-100"
-              >
-                <X className="h-5 w-5" />
-              </button>
-            </div>
-            <div className="p-4">
-              <FilterPanel
-                filters={filters}
-                onFilterChange={onFilterChange}
-                className="shadow-none"
-              />
-            </div>
-            <div className="sticky bottom-0 border-t bg-white p-4">
-              <button
-                onClick={onClose}
-                className="btn-primary w-full"
-              >
-                Show Results
-              </button>
-            </div>
-          </motion.div>
-        </>
-      )}
-    </AnimatePresence>
+  return (
+    <>
+      <div className="fixed inset-0 z-50 bg-black/50" onClick={onClose} />
+      <div className="fixed bottom-0 left-0 right-0 z-50 bg-white rounded-t-2xl max-h-[85vh] overflow-y-auto">
+        <div className="sticky top-0 bg-white border-b border-slate-100 p-4 flex items-center justify-between">
+          <h2 className="font-semibold">Filters</h2>
+          <button onClick={onClose} className="p-1">
+            <X className="h-5 w-5" />
+          </button>
+        </div>
+        <div className="p-4">
+          <FilterPanel filters={filters} onFilterChange={onFilterChange} className="border-0 p-0" />
+        </div>
+        <div className="sticky bottom-0 bg-white border-t border-slate-100 p-4">
+          <button onClick={onClose} className="w-full bg-primary text-white py-3 rounded-lg font-medium">
+            Show Results
+          </button>
+        </div>
+      </div>
+    </>
   );
 }

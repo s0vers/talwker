@@ -5,73 +5,65 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 220 20% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 20% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 20% 10%;
 
-    /* Premium travel brand colors - warm orange/coral with teal accents */
-    --primary: 24 95% 53%;
+    /* Sophisticated warm neutral with subtle orange accent */
+    --primary: 24 75% 50%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 174 72% 40%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 220 15% 96%;
+    --secondary-foreground: 220 20% 20%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 15% 96%;
+    --muted-foreground: 220 10% 50%;
 
-    --accent: 43 96% 56%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 220 15% 96%;
+    --accent-foreground: 220 20% 20%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 24 95% 53%;
+    --border: 220 15% 90%;
+    --input: 220 15% 90%;
+    --ring: 24 75% 50%;
 
-    --radius: 0.75rem;
-
-    /* Custom travel-specific colors */
-    --coral: 16 100% 66%;
-    --teal: 174 72% 40%;
-    --sand: 43 30% 94%;
-    --ocean: 199 89% 48%;
-    --forest: 142 71% 29%;
-    --sunset: 33 100% 50%;
+    --radius: 0.5rem;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 220 20% 8%;
+    --foreground: 0 0% 98%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 220 20% 10%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 220 20% 10%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 24 95% 53%;
+    --primary: 24 75% 55%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 174 72% 40%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 220 15% 15%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 220 15% 15%;
+    --muted-foreground: 220 10% 60%;
 
-    --accent: 43 96% 56%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 220 15% 15%;
+    --accent-foreground: 0 0% 98%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 60% 45%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 24 95% 53%;
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 24 75% 55%;
   }
 }
 
@@ -86,133 +78,48 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
 
 @layer components {
   .container-travel {
-    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+    @apply mx-auto max-w-6xl px-4 sm:px-6;
   }
 
-  .gradient-primary {
-    @apply bg-gradient-to-r from-orange-500 via-orange-400 to-amber-400;
+  .section-padding {
+    @apply py-16 md:py-24;
   }
 
-  .gradient-hero {
-    @apply bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900;
-  }
-
-  .gradient-overlay {
-    background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.4) 0%,
-      rgba(0, 0, 0, 0.2) 50%,
-      rgba(0, 0, 0, 0.6) 100%
-    );
-  }
-
-  .text-gradient {
-    @apply bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent;
-  }
-
-  .card-hover {
-    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl;
+  .card-simple {
+    @apply rounded-xl bg-white border border-slate-100 transition-shadow hover:shadow-lg;
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-full bg-gradient-to-r from-orange-500 to-amber-500 px-6 py-3 font-semibold text-white shadow-lg shadow-orange-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-orange-500/40;
+    @apply inline-flex items-center justify-center rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-primary/90;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-full border-2 border-white/30 bg-white/10 px-6 py-3 font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/20;
+    @apply inline-flex items-center justify-center rounded-lg border border-slate-200 bg-white px-5 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50;
   }
 
-  .glass {
-    @apply border border-white/20 bg-white/10 backdrop-blur-md;
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-lg px-5 py-2.5 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-100;
   }
 
-  .glass-dark {
-    @apply border border-white/10 bg-black/20 backdrop-blur-md;
+  .input-simple {
+    @apply w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary;
   }
 
-  .input-search {
-    @apply w-full rounded-xl border-0 bg-white/95 px-4 py-3 text-slate-900 shadow-lg placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500;
+  .section-title {
+    @apply text-2xl font-semibold text-slate-900 md:text-3xl;
+  }
+
+  .section-subtitle {
+    @apply text-slate-500;
   }
 }
 
 @layer utilities {
-  .animate-fade-in {
-    animation: fadeIn 0.5s ease-out forwards;
-  }
-
-  .animate-slide-up {
-    animation: slideUp 0.6s ease-out forwards;
-  }
-
-  .animate-scale-in {
-    animation: scaleIn 0.4s ease-out forwards;
-  }
-
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .animate-pulse-glow {
-    animation: pulseGlow 2s ease-in-out infinite;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes scaleIn {
-    from {
-      opacity: 0;
-      transform: scale(0.95);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-
-  @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-
-  @keyframes pulseGlow {
-    0%,
-    100% {
-      box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
-    }
-    50% {
-      box-shadow: 0 0 40px rgba(249, 115, 22, 0.6);
-    }
-  }
-
   .line-clamp-2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -225,22 +132,5 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-  }
-
-  .aspect-card {
-    aspect-ratio: 4/3;
-  }
-
-  .aspect-hero {
-    aspect-ratio: 16/9;
-  }
-
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
   }
 }

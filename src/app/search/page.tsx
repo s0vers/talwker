@@ -1,20 +1,10 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { motion } from "framer-motion";
-import {
-  Grid,
-  List,
-  SlidersHorizontal,
-  ChevronDown,
-  MapPin,
-  X,
-} from "lucide-react";
+import { Grid, List, SlidersHorizontal, X } from "lucide-react";
 import { TripCard } from "@/components/travel/TripCard";
 import { FilterPanel, MobileFilterSheet } from "@/components/travel/FilterPanel";
 import { SearchBar } from "@/components/travel/SearchBar";
-import { Badge } from "@/components/ui/badge";
-import { SkeletonTripCard } from "@/components/ui/skeleton";
 import {
   Select,
   SelectContent,
@@ -23,15 +13,13 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
-import { tripPackages, destinations } from "@/lib/data";
+import { tripPackages } from "@/lib/data";
 
 const sortOptions = [
   { value: "recommended", label: "Recommended" },
   { value: "price-low", label: "Price: Low to High" },
   { value: "price-high", label: "Price: High to Low" },
   { value: "rating", label: "Highest Rated" },
-  { value: "duration", label: "Duration" },
-  { value: "popularity", label: "Most Popular" },
 ];
 
 export default function SearchPage() {
@@ -39,60 +27,35 @@ export default function SearchPage() {
   const [sortBy, setSortBy] = useState<SortOption>("recommended");
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
 
-  // Filter and sort trips
   const filteredTrips = useMemo(() => {
     let result = [...tripPackages];
 
-    // Filter by destination
     if (filters.destination) {
-      const searchTerm = filters.destination.toLowerCase();
+      const search = filters.destination.toLowerCase();
       result = result.filter(
-        (trip) =>
-          trip.destination.name.toLowerCase().includes(searchTerm) ||
-          trip.destination.country.toLowerCase().includes(searchTerm) ||
-          trip.title.toLowerCase().includes(searchTerm)
+        (t) =>
+          t.destination.name.toLowerCase().includes(search) ||
+          t.destination.country.toLowerCase().includes(search) ||
+          t.title.toLowerCase().includes(search)
       );
     }
 
-    // Filter by price range
-    if (filters.priceMin !== undefined) {
-      result = result.filter((trip) => trip.price.amount >= filters.priceMin!);
+    if (filters.priceMin) {
+      result = result.filter((t) => t.price.amount >= filters.priceMin!);
     }
-    if (filters.priceMax !== undefined) {
-      result = result.filter((trip) => trip.price.amount <= filters.priceMax!);
-    }
-
-    // Filter by categories
-    if (filters.categories && filters.categories.length > 0) {
-      result = result.filter((trip) =>
-        filters.categories!.includes(trip.category)
-      );
+    if (filters.priceMax) {
+      result = result.filter((t) => t.price.amount <= filters.priceMax!);
     }
 
-    // Filter by difficulty
-    if (filters.difficulty && filters.difficulty.length > 0) {
-      result = result.filter((trip) =>
-        filters.difficulty!.includes(trip.difficulty)
-      );
+    if (filters.categories?.length) {
+      result = result.filter((t) => filters.categories!.includes(t.category));
     }
 
-    // Filter by duration
-    if (filters.duration) {
-      result = result.filter(
-        (trip) =>
-          trip.duration.days >= filters.duration!.min &&
-          trip.duration.days <= filters.duration!.max
-      );
+    if (filters.difficulty?.length) {
+      result = result.filter((t) => filters.difficulty!.includes(t.difficulty));
     }
 
-    // Filter by rating
-    if (filters.rating) {
-      result = result.filter((trip) => trip.rating >= filters.rating!);
-    }
-
-    // Sort results
     switch (sortBy) {
       case "price-low":
         result.sort((a, b) => a.price.amount - b.price.amount);
@@ -103,78 +66,37 @@ export default function SearchPage() {
       case "rating":
         result.sort((a, b) => b.rating - a.rating);
         break;
-      case "duration":
-        result.sort((a, b) => a.duration.days - b.duration.days);
-        break;
-      case "popularity":
-        result.sort((a, b) => b.reviewCount - a.reviewCount);
-        break;
       default:
-        // Recommended - featured first, then by rating
-        result.sort((a, b) => {
-          if (a.featured && !b.featured) return -1;
-          if (!a.featured && b.featured) return 1;
-          return b.rating - a.rating;
-        });
+        result.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
     }
 
     return result;
   }, [filters, sortBy]);
 
-  const handleSearch = (searchFilters: SearchFilters) => {
-    setFilters((prev) => ({ ...prev, ...searchFilters }));
-  };
-
-  const handleClearFilter = (key: keyof SearchFilters) => {
-    setFilters((prev) => {
-      const newFilters = { ...prev };
-      delete newFilters[key];
-      return newFilters;
-    });
-  };
-
   const activeFilterCount =
     (filters.categories?.length || 0) +
     (filters.difficulty?.length || 0) +
-    (filters.duration ? 1 : 0) +
-    (filters.rating ? 1 : 0) +
     (filters.priceMin || filters.priceMax ? 1 : 0);
 
   return (
     <div className="min-h-screen bg-slate-50">
-      {/* Header Section */}
-      <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 pb-32 pt-28">
+      {/* Header */}
+      <div className="bg-slate-900 pt-24 pb-8">
         <div className="container-travel">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center"
-          >
-            <h1 className="text-3xl font-bold text-white md:text-4xl lg:text-5xl">
-              Discover Your Perfect Trip
-            </h1>
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-400">
-              Browse hundreds of curated travel experiences across the globe
-            </p>
-          </motion.div>
-
-          {/* Search Bar */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="mt-8"
-          >
-            <SearchBar variant="inline" onSearch={handleSearch} />
-          </motion.div>
+          <h1 className="text-2xl font-semibold text-white">Find Your Trip</h1>
+          <div className="mt-4 max-w-2xl">
+            <SearchBar
+              variant="compact"
+              onSearch={(f) => setFilters({ ...filters, ...f })}
+            />
+          </div>
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="container-travel -mt-20">
+      <div className="container-travel py-8">
         <div className="flex gap-8">
-          {/* Desktop Sidebar Filters */}
-          <aside className="hidden w-72 flex-shrink-0 lg:block">
+          {/* Sidebar */}
+          <aside className="hidden lg:block w-64 flex-shrink-0">
             <FilterPanel
               filters={filters}
               onFilterChange={setFilters}
@@ -182,76 +104,60 @@ export default function SearchPage() {
             />
           </aside>
 
-          {/* Results Area */}
-          <main className="flex-1">
-            {/* Results Header */}
-            <div className="mb-6 flex flex-col gap-4 rounded-2xl bg-white p-4 shadow-card sm:flex-row sm:items-center sm:justify-between">
-              <div className="flex items-center gap-4">
-                <p className="text-slate-600">
-                  <span className="font-semibold text-slate-900">
-                    {filteredTrips.length}
-                  </span>{" "}
-                  trips found
-                </p>
-
-                {/* Mobile filter button */}
+          {/* Main */}
+          <main className="flex-1 min-w-0">
+            {/* Toolbar */}
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center gap-3">
+                <span className="text-sm text-slate-600">
+                  {filteredTrips.length} trips found
+                </span>
                 <button
                   onClick={() => setIsMobileFilterOpen(true)}
-                  className="flex items-center gap-2 rounded-xl bg-slate-100 px-4 py-2 text-sm font-medium lg:hidden"
+                  className="lg:hidden flex items-center gap-2 text-sm font-medium text-slate-700 bg-white border border-slate-200 px-3 py-1.5 rounded-lg"
                 >
                   <SlidersHorizontal className="h-4 w-4" />
                   Filters
                   {activeFilterCount > 0 && (
-                    <Badge variant="default" size="sm">
+                    <span className="bg-primary text-white text-xs px-1.5 rounded">
                       {activeFilterCount}
-                    </Badge>
+                    </span>
                   )}
                 </button>
               </div>
 
-              <div className="flex items-center gap-3">
-                {/* Sort */}
-                <Select
-                  value={sortBy}
-                  onValueChange={(value) => setSortBy(value as SortOption)}
-                >
-                  <SelectTrigger className="w-[180px] border-slate-200">
-                    <SelectValue placeholder="Sort by" />
+              <div className="flex items-center gap-2">
+                <Select value={sortBy} onValueChange={(v) => setSortBy(v as SortOption)}>
+                  <SelectTrigger className="w-40 h-9 text-sm">
+                    <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    {sortOptions.map((option) => (
-                      <SelectItem key={option.value} value={option.value}>
-                        {option.label}
+                    {sortOptions.map((opt) => (
+                      <SelectItem key={opt.value} value={opt.value}>
+                        {opt.label}
                       </SelectItem>
                     ))}
                   </SelectContent>
                 </Select>
 
-                {/* View mode toggle */}
-                <div className="hidden rounded-xl border bg-white p-1 md:flex">
+                <div className="hidden sm:flex border border-slate-200 rounded-lg p-0.5 bg-white">
                   <button
                     onClick={() => setViewMode("grid")}
                     className={cn(
-                      "rounded-lg p-2 transition-colors",
-                      viewMode === "grid"
-                        ? "bg-primary text-white"
-                        : "text-slate-400 hover:text-slate-600"
+                      "p-1.5 rounded",
+                      viewMode === "grid" ? "bg-slate-100" : ""
                     )}
-                    aria-label="Grid view"
                   >
-                    <Grid className="h-4 w-4" />
+                    <Grid className="h-4 w-4 text-slate-600" />
                   </button>
                   <button
                     onClick={() => setViewMode("list")}
                     className={cn(
-                      "rounded-lg p-2 transition-colors",
-                      viewMode === "list"
-                        ? "bg-primary text-white"
-                        : "text-slate-400 hover:text-slate-600"
+                      "p-1.5 rounded",
+                      viewMode === "list" ? "bg-slate-100" : ""
                     )}
-                    aria-label="List view"
                   >
-                    <List className="h-4 w-4" />
+                    <List className="h-4 w-4 text-slate-600" />
                   </button>
                 </div>
               </div>
@@ -259,86 +165,38 @@ export default function SearchPage() {
 
             {/* Active Filters */}
             {activeFilterCount > 0 && (
-              <div className="mb-6 flex flex-wrap items-center gap-2">
-                <span className="text-sm text-slate-500">Active filters:</span>
+              <div className="flex flex-wrap gap-2 mb-4">
                 {filters.categories?.map((cat) => (
                   <button
                     key={cat}
                     onClick={() =>
-                      setFilters((prev) => ({
-                        ...prev,
-                        categories: prev.categories?.filter((c) => c !== cat),
-                      }))
+                      setFilters({
+                        ...filters,
+                        categories: filters.categories?.filter((c) => c !== cat),
+                      })
                     }
-                    className="flex items-center gap-1 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary"
+                    className="flex items-center gap-1 text-xs bg-primary/10 text-primary px-2 py-1 rounded"
                   >
-                    {cat}
-                    <X className="h-3 w-3" />
-                  </button>
-                ))}
-                {filters.difficulty?.map((diff) => (
-                  <button
-                    key={diff}
-                    onClick={() =>
-                      setFilters((prev) => ({
-                        ...prev,
-                        difficulty: prev.difficulty?.filter((d) => d !== diff),
-                      }))
-                    }
-                    className="flex items-center gap-1 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary"
-                  >
-                    {diff}
-                    <X className="h-3 w-3" />
+                    {cat} <X className="h-3 w-3" />
                   </button>
                 ))}
                 {(filters.priceMin || filters.priceMax) && (
                   <button
-                    onClick={() => handleClearFilter("priceMin")}
-                    className="flex items-center gap-1 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary"
+                    onClick={() => setFilters({ ...filters, priceMin: undefined, priceMax: undefined })}
+                    className="flex items-center gap-1 text-xs bg-primary/10 text-primary px-2 py-1 rounded"
                   >
-                    ${filters.priceMin || 0} - ${filters.priceMax || "10000+"}
-                    <X className="h-3 w-3" />
+                    ${filters.priceMin || 0} - ${filters.priceMax || "∞"} <X className="h-3 w-3" />
                   </button>
                 )}
-                {filters.rating && (
-                  <button
-                    onClick={() => handleClearFilter("rating")}
-                    className="flex items-center gap-1 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary"
-                  >
-                    {filters.rating}+ stars
-                    <X className="h-3 w-3" />
-                  </button>
-                )}
-                <button
-                  onClick={() => setFilters({})}
-                  className="text-sm font-medium text-slate-500 hover:text-slate-700"
-                >
-                  Clear all
-                </button>
               </div>
             )}
 
-            {/* Results Grid/List */}
-            {isLoading ? (
+            {/* Results */}
+            {filteredTrips.length > 0 ? (
               <div
                 className={cn(
-                  "grid gap-6",
-                  viewMode === "grid"
-                    ? "grid-cols-1 sm:grid-cols-2 xl:grid-cols-3"
-                    : "grid-cols-1"
-                )}
-              >
-                {[...Array(6)].map((_, i) => (
-                  <SkeletonTripCard key={i} />
-                ))}
-              </div>
-            ) : filteredTrips.length > 0 ? (
-              <div
-                className={cn(
-                  "grid gap-6",
-                  viewMode === "grid"
-                    ? "grid-cols-1 sm:grid-cols-2 xl:grid-cols-3"
-                    : "grid-cols-1"
+                  "grid gap-5",
+                  viewMode === "grid" ? "sm:grid-cols-2 xl:grid-cols-3" : "grid-cols-1"
                 )}
               >
                 {filteredTrips.map((trip) => (
@@ -350,57 +208,20 @@ export default function SearchPage() {
                 ))}
               </div>
             ) : (
-              <div className="rounded-2xl bg-white p-12 text-center shadow-card">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-slate-100">
-                  <MapPin className="h-8 w-8 text-slate-400" />
-                </div>
-                <h3 className="text-xl font-semibold text-slate-900">
-                  No trips found
-                </h3>
-                <p className="mt-2 text-slate-600">
-                  Try adjusting your filters or search criteria to find more options.
-                </p>
+              <div className="text-center py-16">
+                <p className="text-slate-500">No trips match your criteria.</p>
                 <button
                   onClick={() => setFilters({})}
-                  className="mt-6 rounded-full bg-primary px-6 py-2.5 font-semibold text-white transition-all hover:bg-primary/90"
+                  className="mt-2 text-primary text-sm font-medium"
                 >
-                  Clear Filters
+                  Clear filters
                 </button>
-              </div>
-            )}
-
-            {/* Pagination (simplified) */}
-            {filteredTrips.length > 0 && (
-              <div className="mt-12 flex justify-center">
-                <div className="flex items-center gap-2">
-                  <button className="rounded-lg border bg-white px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50">
-                    Previous
-                  </button>
-                  {[1, 2, 3].map((page) => (
-                    <button
-                      key={page}
-                      className={cn(
-                        "rounded-lg px-4 py-2 text-sm font-medium",
-                        page === 1
-                          ? "bg-primary text-white"
-                          : "bg-white text-slate-600 hover:bg-slate-50"
-                      )}
-                    >
-                      {page}
-                    </button>
-                  ))}
-                  <span className="text-slate-400">...</span>
-                  <button className="rounded-lg border bg-white px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50">
-                    Next
-                  </button>
-                </div>
               </div>
             )}
           </main>
         </div>
       </div>
 
-      {/* Mobile Filter Sheet */}
       <MobileFilterSheet
         isOpen={isMobileFilterOpen}
         onClose={() => setIsMobileFilterOpen(false)}
