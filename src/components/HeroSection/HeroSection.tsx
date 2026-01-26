@@ -56,57 +56,56 @@ const HeroSection: React.FC<BannerProps> = ({ banners }) => {
 			</Carousel>
 
 			{/* Search Widget Overlay */}
-			<div className="absolute bottom-[10%] left-1/2 z-20 w-[90%] -translate-x-1/2 rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur-xl shadow-2xl lg:w-auto">
-				<div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:gap-2">
+			<div className="absolute bottom-[10%] left-1/2 z-20 w-[90%] -translate-x-1/2 rounded-full border border-white/20 bg-white/10 p-2 backdrop-blur-xl shadow-2xl lg:w-auto">
+				<div className="flex flex-col gap-2 lg:flex-row lg:items-center">
 					{/* Destination Input */}
-					<div className="relative flex-1 rounded-xl bg-white px-4 py-3 lg:w-64">
+					<div className="relative flex-1 rounded-full bg-white px-6 py-4 lg:w-64 transition-transform hover:scale-[1.02]">
 						<div className="flex items-center gap-3">
 							<LuMapPin className="h-5 w-5 text-gray-400" />
 							<div className="flex flex-col">
-								<span className="text-xs font-semibold text-gray-500">Destination</span>
+								<span className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Destination</span>
 								<input 
 									type="text" 
 									placeholder="Where to?" 
-									className="w-full bg-transparent text-sm font-medium text-gray-900 focus:outline-none"
+									className="w-full bg-transparent text-sm font-bold text-gray-900 focus:outline-none placeholder:font-normal"
 								/>
 							</div>
 						</div>
 					</div>
 
 					{/* Date Input */}
-					<div className="relative flex-1 rounded-xl bg-white px-4 py-3 lg:w-48">
+					<div className="relative flex-1 rounded-full bg-white px-6 py-4 lg:w-48 transition-transform hover:scale-[1.02]">
 						<div className="flex items-center gap-3">
 							<LuCalendar className="h-5 w-5 text-gray-400" />
 							<div className="flex flex-col">
-								<span className="text-xs font-semibold text-gray-500">Date</span>
+								<span className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Date</span>
 								<input 
 									type="text" 
 									placeholder="Add dates" 
-									className="w-full bg-transparent text-sm font-medium text-gray-900 focus:outline-none"
+									className="w-full bg-transparent text-sm font-bold text-gray-900 focus:outline-none placeholder:font-normal"
 								/>
 							</div>
 						</div>
 					</div>
 
 					{/* Travelers Input */}
-					<div className="relative flex-1 rounded-xl bg-white px-4 py-3 lg:w-48">
+					<div className="relative flex-1 rounded-full bg-white px-6 py-4 lg:w-48 transition-transform hover:scale-[1.02]">
 						<div className="flex items-center gap-3">
 							<LuUsers className="h-5 w-5 text-gray-400" />
 							<div className="flex flex-col">
-								<span className="text-xs font-semibold text-gray-500">Guests</span>
+								<span className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Guests</span>
 								<input 
 									type="text" 
 									placeholder="Add guests" 
-									className="w-full bg-transparent text-sm font-medium text-gray-900 focus:outline-none"
+									className="w-full bg-transparent text-sm font-bold text-gray-900 focus:outline-none placeholder:font-normal"
 								/>
 							</div>
 						</div>
 					</div>
 
 					{/* Search Button */}
-					<Button className="h-14 w-full rounded-xl bg-[var(--secondary)] px-8 text-lg font-bold text-white shadow-lg transition-transform hover:scale-105 hover:bg-orange-500 lg:w-auto">
-						<LuSearch className="mr-2 h-5 w-5" />
-						Search
+					<Button className="h-16 w-full rounded-full bg-[var(--secondary)] px-8 text-lg font-bold text-white shadow-lg transition-all hover:scale-105 hover:bg-orange-500 hover:shadow-orange-500/25 lg:w-auto lg:h-full lg:py-0 aspect-square flex items-center justify-center">
+						<LuSearch className="h-6 w-6" />
 					</Button>
 				</div>
 			</div>
