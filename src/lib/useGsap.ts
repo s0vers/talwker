@@ -57,6 +57,7 @@ export function createStaggerReveal(
 		duration,
 		stagger,
 		ease,
+		immediateRender: false,
 		scrollTrigger: {
 			trigger: trigger ?? undefined,
 			start,

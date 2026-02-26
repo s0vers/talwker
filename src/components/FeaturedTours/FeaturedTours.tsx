@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
-import { LuStar, LuClock, LuUsers, LuMapPin } from "react-icons/lu";
-import { gsap, prefersReducedMotion, ScrollTrigger } from "@/lib/useGsap";
+import { useRef } from "react";
+import { LuStar, LuClock, LuUsers, LuMapPin, LuArrowRight } from "react-icons/lu";
+import { gsap, useGsapContext } from "@/lib/useGsap";
 
 type Tour = {
 	id: number;
@@ -75,73 +75,78 @@ const TOURS: Tour[] = [
 
 export default function FeaturedTours() {
 	const sectionRef = useRef<HTMLElement>(null);
-	const headerRef = useRef<HTMLDivElement>(null);
-	const gridRef = useRef<HTMLDivElement>(null);
+	const headingRef = useRef<HTMLDivElement>(null);
+	const cardsRef = useRef<HTMLDivElement>(null);
 
-	useEffect(() => {
-		if (typeof window === "undefined") return;
-		if (prefersReducedMotion()) return;
-		gsap.registerPlugin(ScrollTrigger);
+	useGsapContext(sectionRef, () => {
+		const heading = headingRef.current;
+		const headingNodes = heading?.children;
+		if (headingNodes?.length && heading) {
+			gsap.from(headingNodes, {
+				y: 72,
+				opacity: 0,
+				scale: 0.96,
+				rotationX: 10,
+				transformOrigin: "center bottom",
+				duration: 1.05,
+				stagger: 0.11,
+				ease: "power4.out",
+				immediateRender: false,
+				scrollTrigger: {
+					trigger: heading,
+					start: "top 82%",
+					toggleActions: "play none none none",
+				},
+			});
+		}
 
-		const ctx = gsap.context(() => {
-			const headerNodes = headerRef.current?.children;
-			if (headerNodes?.length) {
-				gsap.from(headerNodes, {
-					y: 56,
-					opacity: 0,
-					stagger: 0.14,
-					duration: 0.95,
-					ease: "power3.out",
-					scrollTrigger: {
-						trigger: headerRef.current,
-						start: "top 82%",
-						toggleActions: "play none none none",
-					},
-				});
-			}
-
-			const cards = gsap.utils.toArray<HTMLElement>("[data-tour-card]");
-			ScrollTrigger.create({
-				trigger: gridRef.current,
-				start: "top 80%",
-				once: true,
-				onEnter: () => {
-					gsap.from(cards, {
-						y: 110,
-						opacity: 0,
-						rotateX: 8,
-						transformOrigin: "top center",
-						duration: 1.1,
-						ease: "power4.out",
-						stagger: 0.12,
-					});
+		const grid = cardsRef.current;
+		const cards = grid?.querySelectorAll<HTMLElement>("[data-tour-card]");
+		if (cards?.length && grid) {
+			gsap.from(cards, {
+				y: 56,
+				opacity: 0,
+				scale: 0.94,
+				rotationY: -8,
+				transformOrigin: "center bottom",
+				duration: 1,
+				stagger: 0.12,
+				ease: "power4.out",
+				immediateRender: false,
+				scrollTrigger: {
+					trigger: grid,
+					start: "top 78%",
+					toggleActions: "play none none none",
 				},
 			});
 
-			const mm = gsap.matchMedia();
-			mm.add("(min-width: 1024px)", () => {
-				if (!sectionRef.current || !headerRef.current) return;
-
-				ScrollTrigger.create({
-					trigger: sectionRef.current,
-					start: "top top+=84",
-					end: "+=220",
-					pin: headerRef.current,
-					pinSpacing: false,
-					scrub: true,
-				});
+			// Image scale-in inside each card (slight zoom settle)
+			cards.forEach((card) => {
+				const imgWrap = card.querySelector<HTMLElement>("[data-tour-card-image]");
+				if (imgWrap) {
+					gsap.from(imgWrap, {
+						scale: 1.12,
+						duration: 1.1,
+						ease: "power3.out",
+						immediateRender: false,
+						scrollTrigger: {
+							trigger: card,
+							start: "top 85%",
+							toggleActions: "play none none none",
+						},
+					});
+				}
 			});
-		}, sectionRef);
-
-		return () => ctx.revert();
+		}
 	}, []);
 
 	return (
 		<section ref={sectionRef} id="tours" className="bg-[#0b0b0b] py-28 md:py-36">
 			<div className="mx-auto max-w-[1600px] pad-x">
 				<div
-					ref={headerRef}
+					ref={headingRef}
 					className="mb-16 flex flex-col items-start justify-between gap-8 md:mb-20 md:flex-row md:items-end"
+					style={{ perspective: "1000px" }}
 				>
 					<div>
 						<p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500">
@@ -158,20 +163,29 @@ export default function FeaturedTours() {
 					</div>
 					<a
 						href="#"
-						className="group shrink-0 rounded-full border border-white/20 px-7 py-3 text-[12px] font-semibold uppercase tracking-[0.18em] text-white/70 transition-all duration-500 hover:border-orange-500 hover:bg-orange-500 hover:text-white"
+						className="group inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-3 text-[12px] font-semibold uppercase tracking-[0.16em] text-white/70 transition-all duration-500 hover:border-orange-500 hover:bg-orange-500 hover:text-white"
 					>
 						View All Tours
+						<LuArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
 					</a>
 				</div>
 
-				<div ref={gridRef} className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
+				<div
+					ref={cardsRef}
+					className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4"
+					style={{ perspective: "1200px" }}
+				>
 					{TOURS.map((tour) => (
 						<div
 							key={tour.id}
 							data-tour-card
 							className="group h-full overflow-hidden rounded-3xl border border-white/10 bg-[#101010] transition-all duration-500 hover:-translate-y-1 hover:border-white/20"
+							style={{ transformStyle: "preserve-3d" }}
 						>
-							<div className="relative h-64 overflow-hidden">
+							<div
+								className="relative h-64 overflow-hidden"
+								data-tour-card-image
+							>
 								<Image
 									src={tour.image}
 									alt={tour.title}
