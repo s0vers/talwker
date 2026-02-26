@@ -38,29 +38,6 @@ export default function Hero() {
 					"-=0.6",
 				);
 
-			gsap.to(imgWrap.current, {
-				yPercent: 18,
-				scale: 1.08,
-				ease: "none",
-				scrollTrigger: {
-					trigger: section.current,
-					start: "top top",
-					end: "bottom top",
-					scrub: true,
-				},
-			});
-
-			gsap.to(overlayRef.current, {
-				opacity: 0.75,
-				ease: "none",
-				scrollTrigger: {
-					trigger: section.current,
-					start: "top top",
-					end: "bottom top",
-					scrub: true,
-				},
-			});
-
 			gsap.to([line1.current, line2.current, line3.current], {
 				yPercent: -36,
 				opacity: 0,
