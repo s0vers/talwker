@@ -1,39 +1,26 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { gsap, ScrollTrigger } from "@/lib/useGsap";
 
 export default function CTA() {
-	const sectionRef = useRef<HTMLElement>(null);
-	const contentRef = useRef<HTMLDivElement>(null);
-	const bgRef = useRef<HTMLDivElement>(null);
+	const section = useRef<HTMLElement>(null);
+	const headRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		if (typeof window === "undefined") return;
 		gsap.registerPlugin(ScrollTrigger);
 
 		const ctx = gsap.context(() => {
-			gsap.from(contentRef.current!.children, {
-				y: 50,
+			gsap.from(headRef.current!.children, {
+				y: 60,
 				opacity: 0,
-				duration: 0.9,
+				duration: 1,
 				stagger: 0.12,
 				ease: "power3.out",
-				scrollTrigger: { trigger: contentRef.current, start: "top 80%" },
+				scrollTrigger: { trigger: headRef.current, start: "top 80%" },
 			});
-
-			gsap.to(bgRef.current!.querySelector("img"), {
-				yPercent: 15,
-				ease: "none",
-				scrollTrigger: {
-					trigger: sectionRef.current,
-					start: "top bottom",
-					end: "bottom top",
-					scrub: true,
-				},
-			});
-		}, sectionRef);
+		}, section);
 
 		return () => ctx.revert();
 	}, []);
@@ -41,55 +28,37 @@ export default function CTA() {
 	return (
 		<section
 			id="contact"
-			ref={sectionRef}
-			className="section-padding py-20 md:py-28"
+			ref={section}
+			className="relative bg-[#0a0a0a] py-32 md:py-44"
 		>
-			<div className="mx-auto max-w-[1400px]">
-				<div className="relative overflow-hidden rounded-3xl">
-					<div
-						ref={bgRef}
-						className="absolute inset-0 -top-[15%] -bottom-[15%]"
-					>
-						<Image
-							src="/image.jpg"
-							alt="Travel CTA"
-							fill
-							className="object-cover"
-						/>
-						<div className="absolute inset-0 bg-neutral-900/80" />
-					</div>
+			<div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)", backgroundSize: "30px 30px" }} />
 
-					<div
-						ref={contentRef}
-						className="relative px-8 py-20 text-center md:px-20 md:py-28"
+			<div ref={headRef} className="relative mx-auto max-w-[1600px] pad-x text-center">
+				<span className="mb-6 inline-block text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500">
+					Ready?
+				</span>
+				<h2 className="mx-auto max-w-4xl text-[clamp(2.5rem,7vw,6rem)] font-bold leading-[0.9] tracking-tighter text-white">
+					Let&apos;s plan something{" "}
+					<span className="font-light italic text-orange-500">extraordinary</span>
+				</h2>
+				<p className="mx-auto mt-8 max-w-lg text-base text-white/30">
+					Tell us your dream destination and travel style. We&apos;ll craft an
+					itinerary you&apos;ll never forget.
+				</p>
+				<div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+					<a
+						href="#"
+						className="group inline-flex items-center gap-3 rounded-full bg-orange-500 px-10 py-4 text-[13px] font-semibold uppercase tracking-[0.1em] text-white transition-all duration-500 hover:bg-orange-600 hover:shadow-2xl hover:shadow-orange-500/25"
 					>
-						<div className="label-sm mb-4 text-orange-400">
-							Ready for your next adventure?
-						</div>
-						<h2 className="heading-lg mx-auto max-w-3xl text-white">
-							Let&apos;s plan something{" "}
-							<span className="italic text-orange-400">extraordinary</span>
-						</h2>
-						<p className="mx-auto mt-6 max-w-xl text-base text-white/50">
-							Tell us your dream destination and travel style. We&apos;ll
-							handle the rest — from flights to unforgettable local
-							experiences.
-						</p>
-						<div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-							<a
-								href="#"
-								className="rounded-full bg-orange-500 px-10 py-4 text-sm font-semibold text-white transition-all hover:bg-orange-600 hover:shadow-xl hover:shadow-orange-500/20"
-							>
-								Start Planning
-							</a>
-							<a
-								href="#"
-								className="rounded-full px-10 py-4 text-sm font-semibold text-white ring-1 ring-white/20 transition-all hover:bg-white/10"
-							>
-								Browse Tours
-							</a>
-						</div>
-					</div>
+						Start Planning
+						<span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+					</a>
+					<a
+						href="#"
+						className="rounded-full border border-white/10 px-10 py-4 text-[13px] font-semibold uppercase tracking-[0.1em] text-white/40 transition-all duration-300 hover:border-white/30 hover:text-white"
+					>
+						Browse Tours
+					</a>
 				</div>
 			</div>
 		</section>
