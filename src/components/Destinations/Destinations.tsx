@@ -87,6 +87,7 @@ export default function Destinations() {
 	const sectionRef = useRef<HTMLElement>(null);
 	const headingRef = useRef<HTMLDivElement>(null);
 	const gridRef = useRef<HTMLDivElement>(null);
+	const trackRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		if (typeof window === "undefined") return;
@@ -103,35 +104,27 @@ export default function Destinations() {
 				});
 			}
 
-			const cards = gsap.utils.toArray<HTMLElement>("[data-destination-card]");
-			ScrollTrigger.create({
-				trigger: gridRef.current,
-				start: "top 78%",
-				once: true,
-				onEnter: () => {
-					gsap.from(cards, {
-						y: 84,
-						opacity: 0,
-						scale: 0.96,
-						duration: 1.1,
-						stagger: {
-							each: 0.1,
-							from: "start",
-						},
-						ease: "power4.out",
-					});
-				},
-			});
+			const section = sectionRef.current;
+			const track = trackRef.current;
+			if (!section || !track) return;
 
-			cards.forEach((card) => {
-				const image = card.querySelector("[data-destination-image]");
-				if (!image) return;
-				createElementParallax(image, card, {
-					fromY: -10,
-					toY: 10,
-					fromScale: 1.1,
-					toScale: 1.02,
-				});
+			const totalScroll = () => {
+				const scrollWidth = track.scrollWidth;
+				const viewport = window.innerWidth;
+				return Math.max(0, scrollWidth - viewport);
+			};
+
+			gsap.to(track, {
+				x: () => -totalScroll(),
+				ease: "none",
+				scrollTrigger: {
+					trigger: section,
+					start: "top top",
+					end: () => `+=${totalScroll()}`,
+					pin: true,
+					scrub: true,
+					invalidateOnRefresh: true,
+				},
 			});
 		}, sectionRef);
 
@@ -155,64 +148,69 @@ export default function Destinations() {
 					</p>
 				</div>
 
-				<div ref={gridRef} className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-					{DESTINATIONS.map((dest) => (
-						<div
-							key={dest.id}
-							data-destination-card
-							className="group cursor-pointer overflow-hidden rounded-3xl border border-white/10 bg-[#101010] transition-all duration-500 hover:-translate-y-1 hover:border-white/20"
-						>
-							<div className="relative h-64 overflow-hidden">
-								<Image
-									src={dest.image}
-									alt={dest.name}
-									fill
-									sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-									data-destination-image
-									className="object-cover transition-transform duration-700 group-hover:scale-105"
-								/>
-								<div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+				<div ref={gridRef} className="relative overflow-hidden">
+					<div
+						ref={trackRef}
+						className="flex gap-6 md:gap-8"
+					>
+						{DESTINATIONS.map((dest) => (
+							<div
+								key={dest.id}
+								data-destination-card
+								className="group cursor-pointer overflow-hidden rounded-3xl border border-white/10 bg-[#101010] transition-all duration-500 hover:-translate-y-1 hover:border-white/20 min-w-[80vw] sm:min-w-[60vw] lg:min-w-[420px]"
+							>
+								<div className="relative h-64 overflow-hidden">
+									<Image
+										src={dest.image}
+										alt={dest.name}
+										fill
+										sizes="(max-width: 640px) 100vw, (max-width: 1024px) 60vw, 33vw"
+										data-destination-image
+										className="object-cover transition-transform duration-700 group-hover:scale-105"
+									/>
+									<div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-								{dest.tag && (
-									<span className="absolute left-4 top-4 rounded-full border border-white/20 bg-black/35 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-white/90 backdrop-blur-md">
-										{dest.tag}
-									</span>
-								)}
-
-								<div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
-									<div>
-										<h3 className="text-2xl font-semibold tracking-tight text-white">
-											{dest.name}
-										</h3>
-										<p className="text-sm text-white/70">{dest.country}</p>
-									</div>
-									<div className="flex items-center gap-1 rounded-full border border-white/20 bg-black/35 px-3 py-1.5 backdrop-blur-md">
-										<LuStar className="h-3.5 w-3.5 fill-orange-500 text-orange-500" />
-										<span className="text-sm font-semibold text-white">
-											{dest.rating}
+									{dest.tag && (
+										<span className="absolute left-4 top-4 rounded-full border border-white/20 bg-black/35 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-white/90 backdrop-blur-md">
+											{dest.tag}
 										</span>
-									</div>
-								</div>
-							</div>
+									)}
 
-							<div className="flex items-center justify-between p-6">
-								<div className="flex items-center gap-4">
-									<div className="flex items-center gap-1.5 text-white/55">
-										<LuClock className="h-4 w-4 text-orange-500" />
-										<span className="text-sm">{dest.duration}</span>
+									<div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+										<div>
+											<h3 className="text-2xl font-semibold tracking-tight text-white">
+												{dest.name}
+											</h3>
+											<p className="text-sm text-white/70">{dest.country}</p>
+										</div>
+										<div className="flex items-center gap-1 rounded-full border border-white/20 bg-black/35 px-3 py-1.5 backdrop-blur-md">
+											<LuStar className="h-3.5 w-3.5 fill-orange-500 text-orange-500" />
+											<span className="text-sm font-semibold text-white">
+												{dest.rating}
+											</span>
+										</div>
 									</div>
 								</div>
-								<div className="text-right">
-									<p className="text-xs uppercase tracking-[0.12em] text-white/35">
-										From
-									</p>
-									<p className="text-2xl font-semibold tracking-tight text-orange-500">
-										${dest.price.toLocaleString()}
-									</p>
+
+								<div className="flex items-center justify-between p-6">
+									<div className="flex items-center gap-4">
+										<div className="flex items-center gap-1.5 text-white/55">
+											<LuClock className="h-4 w-4 text-orange-500" />
+											<span className="text-sm">{dest.duration}</span>
+										</div>
+									</div>
+									<div className="text-right">
+										<p className="text-xs uppercase tracking-[0.12em] text-white/35">
+											From
+										</p>
+										<p className="text-2xl font-semibold tracking-tight text-orange-500">
+											${dest.price.toLocaleString()}
+										</p>
+									</div>
 								</div>
 							</div>
-						</div>
-					))}
+						))}
+					</div>
 				</div>
 
 				<div className="mt-12 text-center">
