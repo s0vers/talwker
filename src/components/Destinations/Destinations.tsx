@@ -99,6 +99,7 @@ export default function Destinations() {
 
 			const section = sectionRef.current;
 			const track = trackRef.current;
+			const heading = headingRef.current;
 			if (!section || !track) return;
 
 			const totalScroll = () => {
@@ -111,10 +112,10 @@ export default function Destinations() {
 				x: () => -totalScroll(),
 				ease: "none",
 				scrollTrigger: {
-					trigger: section,
-					start: "top top",
+					trigger: heading ?? section,
+					start: "top top+=120",
 					end: () => `+=${totalScroll()}`,
-					pin: true,
+					pin: section,
 					scrub: true,
 					invalidateOnRefresh: true,
 				},
@@ -157,7 +158,7 @@ export default function Destinations() {
 							<div
 								key={dest.id}
 								data-destination-card
-								className="relative isolate h-[520px] min-w-[80vw] cursor-pointer overflow-hidden rounded-[1.9rem] border border-white/10 bg-[#050505] shadow-[0_26px_80px_rgba(0,0,0,0.9)] sm:min-w-[65vw] md:h-[560px] lg:min-w-[420px] xl:min-w-[440px]"
+								className="relative isolate h-[460px] min-w-[80vw] cursor-pointer overflow-hidden rounded-[1.9rem] border border-white/10 bg-[#050505] shadow-[0_20px_60px_rgba(0,0,0,0.9)] sm:min-w-[65vw] md:h-[500px] lg:min-w-[380px] xl:min-w-[400px]"
 							>
 								<div className="absolute inset-0 overflow-hidden rounded-[1.9rem]">
 									<Image
