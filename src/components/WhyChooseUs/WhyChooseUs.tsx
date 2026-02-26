@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import {
 	LuShield,
 	LuHeadphones,
@@ -55,60 +54,43 @@ const FEATURES = [
 	},
 ];
 
-const container = {
-	hidden: { opacity: 0 },
-	show: { opacity: 1, transition: { staggerChildren: 0.08 } },
-};
-
-const item = {
-	hidden: { opacity: 0, y: 20 },
-	show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-};
-
 export default function WhyChooseUs() {
 	return (
-		<section id="about" className="bg-muted/50 py-24">
+		<section id="about" className="bg-gray-50 py-24">
 			<div className="mx-auto max-w-7xl px-4 md:px-6">
 				<div className="mb-14 text-center">
-					<p className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary">
+					<p className="mb-3 text-sm font-semibold uppercase tracking-widest text-sky-500">
 						Why Voyager
 					</p>
-					<h2 className="mb-4 text-4xl font-bold text-foreground md:text-5xl">
+					<h2 className="mb-4 text-4xl font-bold text-gray-900 md:text-5xl">
 						Travel with Confidence
 					</h2>
-					<p className="mx-auto max-w-2xl text-muted-foreground">
+					<p className="mx-auto max-w-2xl text-gray-500">
 						We go above and beyond to make sure your adventure is seamless,
 						safe, and unforgettable.
 					</p>
 				</div>
 
-				<motion.div
-					variants={container}
-					initial="hidden"
-					whileInView="show"
-					viewport={{ once: true, amount: 0.2 }}
-					className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
-				>
+				<div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
 					{FEATURES.map((feature, i) => (
-						<motion.div
+						<div
 							key={i}
-							variants={item}
-							className="group rounded-2xl bg-card p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+							className="group rounded-2xl bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
 						>
 							<div
 								className={`mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl ${feature.color}`}
 							>
 								<feature.icon className="h-6 w-6" />
 							</div>
-							<h3 className="mb-2 text-lg font-bold text-foreground">
+							<h3 className="mb-2 text-lg font-bold text-gray-900">
 								{feature.title}
 							</h3>
-							<p className="text-sm leading-relaxed text-muted-foreground">
+							<p className="text-sm leading-relaxed text-gray-500">
 								{feature.description}
 							</p>
-						</motion.div>
+						</div>
 					))}
-				</motion.div>
+				</div>
 			</div>
 		</section>
 	);

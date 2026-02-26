@@ -2,14 +2,11 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import Autoplay from "embla-carousel-autoplay";
 import {
 	Carousel,
 	CarouselContent,
 	CarouselItem,
-	CarouselPrevious,
-	CarouselNext,
 } from "../ui/carousel";
 import { LuStar, LuClock, LuUsers, LuMapPin } from "react-icons/lu";
 
@@ -71,24 +68,24 @@ export default function FeaturedTours() {
 	const plugin = useRef(Autoplay({ delay: 5000, stopOnInteraction: true }));
 
 	return (
-		<section id="tours" className="bg-background py-24">
+		<section id="tours" className="bg-white py-24">
 			<div className="mx-auto max-w-7xl px-4 md:px-6">
 				<div className="mb-14 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
 					<div>
-						<p className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary">
+						<p className="mb-3 text-sm font-semibold uppercase tracking-widest text-sky-500">
 							Curated For You
 						</p>
-						<h2 className="mb-4 text-4xl font-bold text-foreground md:text-5xl">
+						<h2 className="mb-4 text-4xl font-bold text-gray-900 md:text-5xl">
 							Featured Tours
 						</h2>
-						<p className="max-w-xl text-muted-foreground">
+						<p className="max-w-xl text-gray-500">
 							Our most popular tour packages, designed for extraordinary
 							experiences at unbeatable value.
 						</p>
 					</div>
 					<a
 						href="#"
-						className="shrink-0 rounded-full border-2 border-primary px-6 py-2.5 text-sm font-semibold text-primary transition-all hover:bg-primary hover:text-white"
+						className="shrink-0 rounded-full border-2 border-sky-500 px-6 py-2.5 text-sm font-semibold text-sky-500 transition-all hover:bg-sky-500 hover:text-white"
 					>
 						View All Tours
 					</a>
@@ -105,13 +102,7 @@ export default function FeaturedTours() {
 								key={tour.id}
 								className="pl-4 md:basis-1/2 lg:basis-1/3"
 							>
-								<motion.div
-									initial={{ opacity: 0, y: 20 }}
-									whileInView={{ opacity: 1, y: 0 }}
-									viewport={{ once: true }}
-									transition={{ duration: 0.5 }}
-									className="group h-full overflow-hidden rounded-2xl bg-card shadow-sm transition-all duration-300 hover:shadow-xl"
-								>
+								<div className="group h-full overflow-hidden rounded-2xl bg-white shadow-md transition-all duration-300 hover:shadow-xl">
 									<div className="relative h-56 overflow-hidden">
 										<Image
 											src={tour.image}
@@ -135,7 +126,7 @@ export default function FeaturedTours() {
 									</div>
 
 									<div className="p-5">
-										<h3 className="mb-3 text-lg font-bold text-foreground">
+										<h3 className="mb-3 text-lg font-bold text-gray-900">
 											{tour.title}
 										</h3>
 
@@ -143,14 +134,14 @@ export default function FeaturedTours() {
 											{tour.highlights.map((hl) => (
 												<span
 													key={hl}
-													className="rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground"
+													className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600"
 												>
 													{hl}
 												</span>
 											))}
 										</div>
 
-										<div className="mb-4 flex items-center gap-4 text-sm text-muted-foreground">
+										<div className="mb-4 flex items-center gap-4 text-sm text-gray-500">
 											<span className="flex items-center gap-1">
 												<LuClock className="h-3.5 w-3.5" />
 												{tour.duration}
@@ -161,27 +152,27 @@ export default function FeaturedTours() {
 											</span>
 										</div>
 
-										<div className="flex items-center justify-between border-t border-border pt-4">
+										<div className="flex items-center justify-between border-t border-gray-200 pt-4">
 											<div className="flex items-center gap-1">
-												<LuStar className="h-4 w-4 fill-secondary text-secondary" />
-												<span className="text-sm font-bold">{tour.rating}</span>
-												<span className="text-xs text-muted-foreground">
+												<LuStar className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+												<span className="text-sm font-bold text-gray-900">{tour.rating}</span>
+												<span className="text-xs text-gray-500">
 													({tour.reviews})
 												</span>
 											</div>
 											<div className="text-right">
 												{tour.originalPrice && (
-													<p className="text-xs text-muted-foreground line-through">
+													<p className="text-xs text-gray-400 line-through">
 														${tour.originalPrice.toLocaleString()}
 													</p>
 												)}
-												<p className="text-xl font-bold text-primary">
+												<p className="text-xl font-bold text-sky-500">
 													${tour.price.toLocaleString()}
 												</p>
 											</div>
 										</div>
 									</div>
-								</motion.div>
+								</div>
 							</CarouselItem>
 						))}
 					</CarouselContent>
