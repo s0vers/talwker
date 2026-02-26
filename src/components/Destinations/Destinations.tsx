@@ -80,7 +80,6 @@ const DESTINATIONS: Destination[] = [
 export default function Destinations() {
 	const sectionRef = useRef<HTMLElement>(null);
 	const headingRef = useRef<HTMLDivElement>(null);
-	const gridRef = useRef<HTMLDivElement>(null);
 	const trackRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
@@ -152,11 +151,8 @@ export default function Destinations() {
 					</div>
 				</div>
 
-				<div ref={gridRef} className="relative overflow-hidden">
-					<div
-						ref={trackRef}
-						className="flex gap-6 md:gap-8"
-					>
+				<div className="relative overflow-hidden">
+					<div ref={trackRef} className="flex gap-6 md:gap-8">
 						{DESTINATIONS.map((dest) => (
 							<div
 								key={dest.id}
