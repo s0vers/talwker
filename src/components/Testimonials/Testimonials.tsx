@@ -3,6 +3,16 @@
 import { LuStar, LuQuote } from "react-icons/lu";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
+type Testimonial = {
+	id: number;
+	name: string;
+	avatar: string;
+	location: string;
+	rating: number;
+	text: string;
+	trip: string;
+};
+
 const TESTIMONIALS: Testimonial[] = [
 	{
 		id: 1,
@@ -10,7 +20,7 @@ const TESTIMONIALS: Testimonial[] = [
 		avatar: "/writer.avif",
 		location: "New York, USA",
 		rating: 5,
-		text: "Voyager made our honeymoon absolutely magical. The attention to detail, the hidden gems they included in our itinerary, and the seamless transfers — everything was perfect.",
+		text: "Talkwer made our honeymoon absolutely magical. The attention to detail, the hidden gems they included in our itinerary, and the seamless transfers — everything was perfect.",
 		trip: "Bali Cultural Immersion",
 	},
 	{
@@ -45,7 +55,7 @@ export default function Testimonials() {
 						What Our Travelers Say
 					</h2>
 					<p className="mx-auto max-w-2xl text-gray-500">
-						Real stories from real adventurers who trusted Voyager to craft
+						Real stories from real adventurers who trusted Talkwer to craft
 						their perfect getaway.
 					</p>
 				</div>

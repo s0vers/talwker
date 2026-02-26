@@ -1,19 +1,25 @@
-import HeroSection from "@/components/HeroSection/HeroSection";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import Marquee from "@/components/Marquee";
 import Destinations from "@/components/Destinations/Destinations";
-import WhyChooseUs from "@/components/WhyChooseUs/WhyChooseUs";
+import About from "@/components/About";
 import FeaturedTours from "@/components/FeaturedTours/FeaturedTours";
 import Testimonials from "@/components/Testimonials/Testimonials";
-import Newsletter from "@/components/Newsletter/Newsletter";
+import CTA from "@/components/CTA";
+import Footer from "@/components/Footer";
 
 export default function Home() {
 	return (
 		<>
-			<HeroSection />
+			<Navbar />
+			<Hero />
+			<Marquee />
 			<Destinations />
+			<About />
 			<FeaturedTours />
-			<WhyChooseUs />
 			<Testimonials />
-			<Newsletter />
+			<CTA />
+			<Footer />
 		</>
 	);
 }

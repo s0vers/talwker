@@ -3,6 +3,17 @@
 import Image from "next/image";
 import { LuStar, LuClock, LuArrowRight } from "react-icons/lu";
 
+type Destination = {
+	id: number;
+	name: string;
+	country: string;
+	image: string;
+	price: number;
+	rating: number;
+	duration: string;
+	tag?: string;
+};
+
 const DESTINATIONS: Destination[] = [
 	{
 		id: 1,

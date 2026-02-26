@@ -10,6 +10,20 @@ import {
 } from "../ui/carousel";
 import { LuStar, LuClock, LuUsers, LuMapPin } from "react-icons/lu";
 
+type Tour = {
+	id: number;
+	title: string;
+	destination: string;
+	image: string;
+	price: number;
+	originalPrice?: number;
+	duration: string;
+	groupSize: string;
+	rating: number;
+	reviews?: number;
+	highlights: string[];
+};
+
 const TOURS: Tour[] = [
 	{
 		id: 1,

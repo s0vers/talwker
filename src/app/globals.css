@@ -72,13 +72,25 @@
   }
   body {
     @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    overflow-x: hidden;
   }
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+  ::selection {
+    @apply bg-orange-500 text-white;
   }
 }
 
 @layer utilities {
+  .pad-x {
+    @apply px-5 md:px-10 lg:px-16 xl:px-24;
+  }
+
   .text-gradient {
     @apply bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent;
   }
