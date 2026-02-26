@@ -6,8 +6,9 @@ import BasicLayout from "@/components/BasicLayout";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Talkwer",
-  description: "Talkwer a personal blog website",
+  title: "Voyager Travel — Discover Your Next Adventure",
+  description:
+    "Crafting unforgettable travel experiences. Explore breathtaking destinations, curated tours, and exclusive deals.",
 };
 
 export default function RootLayout({
