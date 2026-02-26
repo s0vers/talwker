@@ -9,7 +9,6 @@ import {
 	CarouselContent,
 	CarouselItem,
 } from "../ui/carousel";
-import { motion } from "framer-motion";
 import {
 	LuMapPin,
 	LuCalendar,
@@ -83,17 +82,9 @@ const HeroSection: React.FC = () => {
 
 								<div className="absolute inset-0 flex items-center">
 									<div className="mx-auto w-full max-w-7xl px-4 md:px-6">
-										<motion.div
-											initial={{ opacity: 0, y: 30 }}
-											animate={{
-												opacity: current === index ? 1 : 0,
-												y: current === index ? 0 : 30,
-											}}
-											transition={{ duration: 0.8, delay: 0.2 }}
-											className="max-w-2xl"
-										>
+										<div className="max-w-2xl">
 											<div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 backdrop-blur-sm">
-												<LuMapPin className="h-4 w-4 text-secondary" />
+												<LuMapPin className="h-4 w-4 text-yellow-400" />
 												<span className="text-sm font-medium text-white">
 													{slide.location}
 												</span>
@@ -107,18 +98,18 @@ const HeroSection: React.FC = () => {
 											<div className="flex flex-wrap gap-4">
 												<a
 													href="#destinations"
-													className="rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-white transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25"
+													className="rounded-full bg-sky-500 px-8 py-3.5 text-sm font-semibold text-white transition-all hover:bg-sky-600 hover:shadow-lg hover:shadow-sky-500/25"
 												>
 													Explore Destinations
 												</a>
 												<button className="group flex items-center gap-3 rounded-full bg-white/15 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/25">
-													<span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-primary transition-transform group-hover:scale-110">
+													<span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-sky-500 transition-transform group-hover:scale-110">
 														<LuPlay className="ml-0.5 h-3.5 w-3.5" />
 													</span>
 													Watch Video
 												</button>
 											</div>
-										</motion.div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -134,7 +125,7 @@ const HeroSection: React.FC = () => {
 						key={i}
 						onClick={() => api?.scrollTo(i)}
 						className={`h-2 rounded-full transition-all ${
-							current === i ? "w-8 bg-primary" : "w-2 bg-white/50"
+							current === i ? "w-8 bg-sky-500" : "w-2 bg-white/50"
 						}`}
 						aria-label={`Go to slide ${i + 1}`}
 					/>
@@ -146,40 +137,40 @@ const HeroSection: React.FC = () => {
 				<div className="mx-auto max-w-5xl px-4">
 					<div className="rounded-2xl bg-white p-4 shadow-2xl shadow-black/10 md:p-6">
 						<div className="grid grid-cols-1 gap-4 md:grid-cols-4">
-							<div className="flex items-center gap-3 rounded-xl bg-muted p-3">
-								<LuMapPin className="h-5 w-5 shrink-0 text-primary" />
+							<div className="flex items-center gap-3 rounded-xl bg-gray-100 p-3">
+								<LuMapPin className="h-5 w-5 shrink-0 text-sky-500" />
 								<div>
-									<p className="text-xs font-medium text-muted-foreground">
+									<p className="text-xs font-medium text-gray-500">
 										Where to?
 									</p>
-									<p className="text-sm font-semibold text-foreground">
+									<p className="text-sm font-semibold text-gray-900">
 										Bali, Indonesia
 									</p>
 								</div>
 							</div>
-							<div className="flex items-center gap-3 rounded-xl bg-muted p-3">
-								<LuCalendar className="h-5 w-5 shrink-0 text-primary" />
+							<div className="flex items-center gap-3 rounded-xl bg-gray-100 p-3">
+								<LuCalendar className="h-5 w-5 shrink-0 text-sky-500" />
 								<div>
-									<p className="text-xs font-medium text-muted-foreground">
+									<p className="text-xs font-medium text-gray-500">
 										When?
 									</p>
-									<p className="text-sm font-semibold text-foreground">
+									<p className="text-sm font-semibold text-gray-900">
 										Mar 15 – Mar 22
 									</p>
 								</div>
 							</div>
-							<div className="flex items-center gap-3 rounded-xl bg-muted p-3">
-								<LuUsers className="h-5 w-5 shrink-0 text-primary" />
+							<div className="flex items-center gap-3 rounded-xl bg-gray-100 p-3">
+								<LuUsers className="h-5 w-5 shrink-0 text-sky-500" />
 								<div>
-									<p className="text-xs font-medium text-muted-foreground">
+									<p className="text-xs font-medium text-gray-500">
 										Guests
 									</p>
-									<p className="text-sm font-semibold text-foreground">
+									<p className="text-sm font-semibold text-gray-900">
 										2 Adults, 1 Child
 									</p>
 								</div>
 							</div>
-							<button className="flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-primary/90">
+							<button className="flex items-center justify-center gap-2 rounded-xl bg-sky-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-sky-600">
 								<LuSearch className="h-4 w-4" />
 								Search
 							</button>

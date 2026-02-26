@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
@@ -44,12 +43,12 @@ export default function BasicLayout({
 			>
 				<div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 md:px-6">
 					<Link href="/" className="flex items-center gap-2">
-						<div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
+						<div className="flex h-10 w-10 items-center justify-center rounded-lg bg-sky-500">
 							<span className="text-lg font-bold text-white">V</span>
 						</div>
 						<span
 							className={`text-2xl font-bold tracking-tight ${
-								scrolled ? "text-foreground" : "text-white"
+								scrolled ? "text-gray-900" : "text-white"
 							}`}
 						>
 							Voyager
@@ -61,9 +60,9 @@ export default function BasicLayout({
 							<Link
 								key={link.href}
 								href={link.href}
-								className={`text-sm font-medium transition-colors hover:text-primary ${
+								className={`text-sm font-medium transition-colors hover:text-sky-500 ${
 									scrolled
-										? "text-foreground/70"
+										? "text-gray-600"
 										: "text-white/80 hover:text-white"
 								}`}
 							>
@@ -77,8 +76,8 @@ export default function BasicLayout({
 							href="#contact"
 							className={`rounded-full px-5 py-2.5 text-sm font-semibold transition-all ${
 								scrolled
-									? "bg-primary text-white hover:bg-primary/90"
-									: "bg-white text-foreground hover:bg-white/90"
+									? "bg-sky-500 text-white hover:bg-sky-600"
+									: "bg-white text-gray-900 hover:bg-white/90"
 							}`}
 						>
 							Book Now
@@ -90,7 +89,7 @@ export default function BasicLayout({
 							<button className="lg:hidden" aria-label="Open menu">
 								<LuMenu
 									className={`h-7 w-7 ${
-										scrolled ? "text-foreground" : "text-white"
+										scrolled ? "text-gray-900" : "text-white"
 									}`}
 								/>
 							</button>
@@ -98,10 +97,10 @@ export default function BasicLayout({
 						<SheetContent side="right" className="w-80 bg-white p-8">
 							<div className="flex flex-col gap-8">
 								<div className="flex items-center gap-2">
-									<div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
+									<div className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-500">
 										<span className="text-base font-bold text-white">V</span>
 									</div>
-									<span className="text-xl font-bold text-foreground">
+									<span className="text-xl font-bold text-gray-900">
 										Voyager
 									</span>
 								</div>
@@ -110,7 +109,7 @@ export default function BasicLayout({
 										<Link
 											key={link.href}
 											href={link.href}
-											className="text-lg font-medium text-foreground/70 transition-colors hover:text-primary"
+											className="text-lg font-medium text-gray-600 transition-colors hover:text-sky-500"
 										>
 											{link.label}
 										</Link>
@@ -118,7 +117,7 @@ export default function BasicLayout({
 								</nav>
 								<Link
 									href="#contact"
-									className="rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-white transition-all hover:bg-primary/90"
+									className="rounded-full bg-sky-500 px-5 py-3 text-center text-sm font-semibold text-white transition-all hover:bg-sky-600"
 								>
 									Book Now
 								</Link>
@@ -135,7 +134,7 @@ export default function BasicLayout({
 					<div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
 						<div>
 							<div className="mb-6 flex items-center gap-2">
-								<div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
+								<div className="flex h-10 w-10 items-center justify-center rounded-lg bg-sky-500">
 									<span className="text-lg font-bold text-white">V</span>
 								</div>
 								<span className="text-2xl font-bold">Voyager</span>
@@ -150,7 +149,7 @@ export default function BasicLayout({
 										<a
 											key={i}
 											href="#"
-											className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-800 text-slate-400 transition-colors hover:bg-primary hover:text-white"
+											className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-800 text-slate-400 transition-colors hover:bg-sky-500 hover:text-white"
 										>
 											<Icon className="h-4 w-4" />
 										</a>
@@ -160,7 +159,7 @@ export default function BasicLayout({
 						</div>
 
 						<div>
-							<h3 className="mb-5 text-sm font-semibold uppercase tracking-wider">
+							<h3 className="mb-5 text-sm font-semibold uppercase tracking-wider text-white">
 								Quick Links
 							</h3>
 							<ul className="space-y-3 text-sm text-slate-400">
@@ -177,7 +176,7 @@ export default function BasicLayout({
 						</div>
 
 						<div>
-							<h3 className="mb-5 text-sm font-semibold uppercase tracking-wider">
+							<h3 className="mb-5 text-sm font-semibold uppercase tracking-wider text-white">
 								Support
 							</h3>
 							<ul className="space-y-3 text-sm text-slate-400">
@@ -194,20 +193,20 @@ export default function BasicLayout({
 						</div>
 
 						<div>
-							<h3 className="mb-5 text-sm font-semibold uppercase tracking-wider">
+							<h3 className="mb-5 text-sm font-semibold uppercase tracking-wider text-white">
 								Contact Us
 							</h3>
 							<ul className="space-y-4 text-sm text-slate-400">
 								<li className="flex items-start gap-3">
-									<LuMapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+									<LuMapPin className="mt-0.5 h-4 w-4 shrink-0 text-sky-500" />
 									<span>123 Travel Street, Adventure City, AC 10001</span>
 								</li>
 								<li className="flex items-center gap-3">
-									<LuPhone className="h-4 w-4 shrink-0 text-primary" />
+									<LuPhone className="h-4 w-4 shrink-0 text-sky-500" />
 									<span>+1 (555) 123-4567</span>
 								</li>
 								<li className="flex items-center gap-3">
-									<LuMail className="h-4 w-4 shrink-0 text-primary" />
+									<LuMail className="h-4 w-4 shrink-0 text-sky-500" />
 									<span>hello@voyager.travel</span>
 								</li>
 							</ul>
