@@ -154,7 +154,7 @@ export default function Testimonials() {
 										</div>
 									</div>
 
-									<p className="mt-4 shrink-0 inline-block rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.12em] text-white/60">
+									<p className="mt-4 inline-block shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.12em] text-white/60">
 										{t.trip}
 									</p>
 								</div>

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import { gsap, ScrollTrigger, useCountUp } from "@/lib/useGsap";
+import { gsap, prefersReducedMotion, ScrollTrigger, useCountUp } from "@/lib/useGsap";
 
 function Stat({ value, suffix, label }: { value: number; suffix: string; label: string }) {
 	const numRef = useCountUp(value, 2);
@@ -23,36 +23,45 @@ export default function About() {
 	const imgRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		if (typeof window === "undefined") return;
+		if (prefersReducedMotion()) return;
 		gsap.registerPlugin(ScrollTrigger);
 
 		const ctx = gsap.context(() => {
-			gsap.from(textRef.current!.children, {
-				y: 60,
-				opacity: 0,
-				duration: 1,
-				stagger: 0.12,
-				ease: "power3.out",
-				scrollTrigger: { trigger: textRef.current, start: "top 80%" },
-			});
+			const textEl = textRef.current;
+			const imgEl = imgRef.current;
+			if (textEl?.children.length) {
+				gsap.from(textEl.children, {
+					y: 60,
+					opacity: 0,
+					duration: 1,
+					stagger: 0.12,
+					ease: "power3.out",
+					scrollTrigger: { trigger: textEl, start: "top 80%" },
+				});
+			}
 
-			gsap.from(imgRef.current, {
-				clipPath: "inset(0 100% 0 0)",
-				duration: 1.4,
-				ease: "power4.inOut",
-				scrollTrigger: { trigger: imgRef.current, start: "top 75%" },
-			});
+			if (imgEl) {
+				gsap.from(imgEl, {
+					clipPath: "inset(0 100% 0 0)",
+					duration: 1.4,
+					ease: "power4.inOut",
+					scrollTrigger: { trigger: imgEl, start: "top 75%" },
+				});
 
-			gsap.to(imgRef.current!.querySelector("img"), {
-				yPercent: -12,
-				ease: "none",
-				scrollTrigger: {
-					trigger: section.current,
-					start: "top bottom",
-					end: "bottom top",
-					scrub: true,
-				},
-			});
+				const img = imgEl.querySelector("img");
+				if (img) {
+					gsap.to(img, {
+						yPercent: -12,
+						ease: "none",
+						scrollTrigger: {
+							trigger: section.current,
+							start: "top bottom",
+							end: "bottom top",
+							scrub: true,
+						},
+					});
+				}
+			}
 		}, section);
 
 		return () => ctx.revert();

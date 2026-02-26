@@ -33,4 +33,3 @@ const InitialLoader = ({ isLoading }: InitialLoaderProps) => {
 };
 
 export default InitialLoader;
-

@@ -81,7 +81,7 @@ export default function FeaturedTours() {
 	useGsapContext(sectionRef, () => {
 		const heading = headingRef.current;
 		const headingNodes = heading?.children;
-		if (headingNodes?.length && heading) {
+		if (heading && headingNodes?.length) {
 			gsap.from(headingNodes, {
 				y: 72,
 				opacity: 0,
@@ -102,7 +102,7 @@ export default function FeaturedTours() {
 
 		const grid = cardsRef.current;
 		const cards = grid?.querySelectorAll<HTMLElement>("[data-tour-card]");
-		if (cards?.length && grid) {
+		if (grid && cards?.length) {
 			gsap.from(cards, {
 				y: 56,
 				opacity: 0,

@@ -15,7 +15,6 @@ export default function Hero() {
 	const subRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		if (typeof window === "undefined") return;
 		if (prefersReducedMotion()) return;
 		gsap.registerPlugin(ScrollTrigger);
 
@@ -31,12 +30,12 @@ export default function Hero() {
 				.from(tagRef.current, { y: 30, opacity: 0, duration: 0.8 }, "-=1.4")
 				.from(line1.current, { y: "110%", duration: 1.2 }, "-=1.2")
 				.from(line2.current, { y: "110%", duration: 1.2 }, "-=1.0")
-				.from(line3.current, { y: "110%", duration: 1.2 }, "-=1.0")
-				.from(
-					subRef.current!.children,
-					{ y: 30, opacity: 0, duration: 0.8, stagger: 0.15 },
-					"-=0.6",
-				);
+				.from(line3.current, { y: "110%", duration: 1.2 }, "-=1.0");
+
+			const subChildren = subRef.current?.children;
+			if (subChildren?.length) {
+				tl.from(subChildren, { y: 30, opacity: 0, duration: 0.8, stagger: 0.15 }, "-=0.6");
+			}
 
 			gsap.to([line1.current, line2.current, line3.current], {
 				yPercent: -36,
