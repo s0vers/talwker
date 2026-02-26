@@ -1,182 +1,165 @@
 "use client";
 
-import { useRef } from "react";
 import Image from "next/image";
-import Autoplay from "embla-carousel-autoplay";
-import {
-	Carousel,
-	CarouselContent,
-	CarouselItem,
-} from "../ui/carousel";
-import { LuStar, LuClock, LuUsers, LuMapPin } from "react-icons/lu";
+import { useEffect, useRef } from "react";
+import { gsap, ScrollTrigger } from "@/lib/useGsap";
+import { LuClock, LuStar, LuArrowRight } from "react-icons/lu";
 
-const TOURS: Tour[] = [
+const TOURS = [
 	{
-		id: 1,
 		title: "Bali Cultural Immersion",
-		destination: "Bali, Indonesia",
-		image: "/image.jpg",
-		price: 1299,
-		originalPrice: 1599,
-		duration: "7 Days / 6 Nights",
-		groupSize: "Max 12",
+		location: "Bali, Indonesia",
+		duration: "7 Days",
+		price: "$1,299",
+		oldPrice: "$1,599",
 		rating: 4.9,
-		reviews: 234,
-		highlights: ["Temple Tours", "Rice Terraces", "Cooking Class"],
+		tags: ["Temples", "Rice Terraces", "Cooking"],
 	},
 	{
-		id: 2,
 		title: "Greek Island Odyssey",
-		destination: "Santorini & Mykonos",
-		image: "/image.jpg",
-		price: 2199,
-		originalPrice: 2799,
-		duration: "10 Days / 9 Nights",
-		groupSize: "Max 16",
+		location: "Santorini & Mykonos",
+		duration: "10 Days",
+		price: "$2,199",
+		oldPrice: "$2,799",
 		rating: 4.8,
-		reviews: 189,
-		highlights: ["Sunset Cruise", "Wine Tasting", "Beach Hopping"],
+		tags: ["Sunset Cruise", "Wine Tasting"],
 	},
 	{
-		id: 3,
 		title: "Patagonia Expedition",
-		destination: "Torres del Paine, Chile",
-		image: "/image.jpg",
-		price: 3499,
-		duration: "12 Days / 11 Nights",
-		groupSize: "Max 8",
+		location: "Torres del Paine",
+		duration: "12 Days",
+		price: "$3,499",
 		rating: 5.0,
-		reviews: 97,
-		highlights: ["Glacier Trek", "Wildlife Safari", "Camping"],
-	},
-	{
-		id: 4,
-		title: "Japan Heritage Trail",
-		destination: "Tokyo to Kyoto",
-		image: "/image.jpg",
-		price: 2899,
-		originalPrice: 3299,
-		duration: "9 Days / 8 Nights",
-		groupSize: "Max 14",
-		rating: 4.9,
-		reviews: 312,
-		highlights: ["Tea Ceremony", "Mt. Fuji", "Bamboo Forest"],
+		tags: ["Glacier Trek", "Wildlife", "Camping"],
 	},
 ];
 
 export default function FeaturedTours() {
-	const plugin = useRef(Autoplay({ delay: 5000, stopOnInteraction: true }));
+	const sectionRef = useRef<HTMLElement>(null);
+	const headRef = useRef<HTMLDivElement>(null);
+	const cardsRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		if (typeof window === "undefined") return;
+		gsap.registerPlugin(ScrollTrigger);
+
+		const ctx = gsap.context(() => {
+			gsap.from(headRef.current!.children, {
+				y: 60,
+				opacity: 0,
+				duration: 0.9,
+				stagger: 0.1,
+				ease: "power3.out",
+				scrollTrigger: { trigger: headRef.current, start: "top 85%" },
+			});
+
+			gsap.from(cardsRef.current!.children, {
+				y: 80,
+				opacity: 0,
+				duration: 0.9,
+				stagger: 0.2,
+				ease: "power3.out",
+				scrollTrigger: { trigger: cardsRef.current, start: "top 80%" },
+			});
+		}, sectionRef);
+
+		return () => ctx.revert();
+	}, []);
 
 	return (
-		<section id="tours" className="bg-white py-24">
-			<div className="mx-auto max-w-7xl px-4 md:px-6">
-				<div className="mb-14 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
-					<div>
-						<p className="mb-3 text-sm font-semibold uppercase tracking-widest text-sky-500">
-							Curated For You
-						</p>
-						<h2 className="mb-4 text-4xl font-bold text-gray-900 md:text-5xl">
-							Featured Tours
+		<section
+			id="tours"
+			ref={sectionRef}
+			className="section-spacing section-padding bg-neutral-900"
+		>
+			<div className="mx-auto max-w-[1400px]">
+				<div ref={headRef}>
+					<div className="label-sm mb-4 text-orange-400">Curated Tours</div>
+					<div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+						<h2 className="heading-lg max-w-2xl text-white">
+							Journeys designed for
+							<br />
+							the <span className="italic text-orange-400">extraordinary</span>
 						</h2>
-						<p className="max-w-xl text-gray-500">
-							Our most popular tour packages, designed for extraordinary
-							experiences at unbeatable value.
-						</p>
+						<a
+							href="#"
+							className="group flex items-center gap-2 text-sm font-medium text-white/60 transition-colors hover:text-orange-400"
+						>
+							View all tours
+							<LuArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+						</a>
 					</div>
-					<a
-						href="#"
-						className="shrink-0 rounded-full border-2 border-sky-500 px-6 py-2.5 text-sm font-semibold text-sky-500 transition-all hover:bg-sky-500 hover:text-white"
-					>
-						View All Tours
-					</a>
 				</div>
 
-				<Carousel
-					opts={{ align: "start", loop: true }}
-					plugins={[plugin.current]}
-					className="w-full"
+				<div
+					ref={cardsRef}
+					className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3"
 				>
-					<CarouselContent className="-ml-4">
-						{TOURS.map((tour) => (
-							<CarouselItem
-								key={tour.id}
-								className="pl-4 md:basis-1/2 lg:basis-1/3"
-							>
-								<div className="group h-full overflow-hidden rounded-2xl bg-white shadow-md transition-all duration-300 hover:shadow-xl">
-									<div className="relative h-56 overflow-hidden">
-										<Image
-											src={tour.image}
-											alt={tour.title}
-											fill
-											className="object-cover transition-transform duration-500 group-hover:scale-110"
-										/>
-										<div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-										{tour.originalPrice && (
-											<span className="absolute right-4 top-4 rounded-full bg-red-500 px-3 py-1 text-xs font-bold text-white">
-												Save $
-												{(tour.originalPrice - tour.price).toLocaleString()}
-											</span>
-										)}
-										<div className="absolute bottom-4 left-4 flex items-center gap-1.5 rounded-full bg-white/20 px-3 py-1 backdrop-blur-sm">
-											<LuMapPin className="h-3.5 w-3.5 text-white" />
-											<span className="text-xs font-medium text-white">
-												{tour.destination}
-											</span>
-										</div>
+					{TOURS.map((tour) => (
+						<div
+							key={tour.title}
+							className="group cursor-pointer overflow-hidden rounded-2xl bg-neutral-800/60 backdrop-blur-sm transition-all duration-500 hover:bg-neutral-800"
+						>
+							<div className="relative h-56 overflow-hidden">
+								<Image
+									src="/image.jpg"
+									alt={tour.title}
+									fill
+									className="object-cover transition-transform duration-700 group-hover:scale-110"
+								/>
+								<div className="absolute inset-0 bg-gradient-to-t from-neutral-900/60 to-transparent" />
+								{tour.oldPrice && (
+									<span className="absolute right-4 top-4 rounded-full bg-orange-500 px-3 py-1 text-[11px] font-bold text-white">
+										Save ${(parseInt(tour.oldPrice.replace(/\D/g, "")) - parseInt(tour.price.replace(/\D/g, ""))).toLocaleString()}
+									</span>
+								)}
+							</div>
+
+							<div className="p-6">
+								<p className="text-xs font-medium text-neutral-500">
+									{tour.location}
+								</p>
+								<h3 className="mt-2 text-xl font-bold text-white">
+									{tour.title}
+								</h3>
+
+								<div className="mt-4 flex flex-wrap gap-2">
+									{tour.tags.map((tag) => (
+										<span
+											key={tag}
+											className="rounded-full bg-neutral-700/50 px-3 py-1 text-[11px] font-medium text-neutral-400"
+										>
+											{tag}
+										</span>
+									))}
+								</div>
+
+								<div className="mt-6 flex items-center justify-between border-t border-neutral-700/50 pt-5">
+									<div className="flex items-center gap-4 text-sm text-neutral-500">
+										<span className="flex items-center gap-1">
+											<LuClock className="h-3.5 w-3.5" />
+											{tour.duration}
+										</span>
+										<span className="flex items-center gap-1">
+											<LuStar className="h-3.5 w-3.5 fill-orange-400 text-orange-400" />
+											{tour.rating}
+										</span>
 									</div>
-
-									<div className="p-5">
-										<h3 className="mb-3 text-lg font-bold text-gray-900">
-											{tour.title}
-										</h3>
-
-										<div className="mb-4 flex flex-wrap gap-2">
-											{tour.highlights.map((hl) => (
-												<span
-													key={hl}
-													className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600"
-												>
-													{hl}
-												</span>
-											))}
-										</div>
-
-										<div className="mb-4 flex items-center gap-4 text-sm text-gray-500">
-											<span className="flex items-center gap-1">
-												<LuClock className="h-3.5 w-3.5" />
-												{tour.duration}
-											</span>
-											<span className="flex items-center gap-1">
-												<LuUsers className="h-3.5 w-3.5" />
-												{tour.groupSize}
-											</span>
-										</div>
-
-										<div className="flex items-center justify-between border-t border-gray-200 pt-4">
-											<div className="flex items-center gap-1">
-												<LuStar className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-												<span className="text-sm font-bold text-gray-900">{tour.rating}</span>
-												<span className="text-xs text-gray-500">
-													({tour.reviews})
-												</span>
-											</div>
-											<div className="text-right">
-												{tour.originalPrice && (
-													<p className="text-xs text-gray-400 line-through">
-														${tour.originalPrice.toLocaleString()}
-													</p>
-												)}
-												<p className="text-xl font-bold text-sky-500">
-													${tour.price.toLocaleString()}
-												</p>
-											</div>
-										</div>
+									<div className="text-right">
+										{tour.oldPrice && (
+											<p className="text-xs text-neutral-600 line-through">
+												{tour.oldPrice}
+											</p>
+										)}
+										<p className="text-xl font-bold text-orange-400">
+											{tour.price}
+										</p>
 									</div>
 								</div>
-							</CarouselItem>
-						))}
-					</CarouselContent>
-				</Carousel>
+							</div>
+						</div>
+					))}
+				</div>
 			</div>
 		</section>
 	);

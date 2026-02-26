@@ -1,149 +1,150 @@
 "use client";
 
 import Image from "next/image";
-import { LuStar, LuClock, LuArrowRight } from "react-icons/lu";
+import { useEffect, useRef } from "react";
+import { gsap, ScrollTrigger } from "@/lib/useGsap";
+import { LuArrowUpRight } from "react-icons/lu";
 
-const DESTINATIONS: Destination[] = [
-	{
-		id: 1,
-		name: "Bali",
-		country: "Indonesia",
-		image: "/image.jpg",
-		price: 1299,
-		rating: 4.9,
-		duration: "7 Days",
-		tag: "Popular",
-	},
-	{
-		id: 2,
-		name: "Santorini",
-		country: "Greece",
-		image: "/image.jpg",
-		price: 1899,
-		rating: 4.8,
-		duration: "5 Days",
-		tag: "Trending",
-	},
-	{
-		id: 3,
-		name: "Patagonia",
-		country: "Chile",
-		image: "/image.jpg",
-		price: 2499,
-		rating: 4.9,
-		duration: "10 Days",
-	},
-	{
-		id: 4,
-		name: "Kyoto",
-		country: "Japan",
-		image: "/image.jpg",
-		price: 1599,
-		rating: 4.7,
-		duration: "6 Days",
-		tag: "New",
-	},
-	{
-		id: 5,
-		name: "Amalfi Coast",
-		country: "Italy",
-		image: "/image.jpg",
-		price: 2199,
-		rating: 4.8,
-		duration: "8 Days",
-	},
-	{
-		id: 6,
-		name: "Maldives",
-		country: "Indian Ocean",
-		image: "/image.jpg",
-		price: 3199,
-		rating: 5.0,
-		duration: "5 Days",
-		tag: "Luxury",
-	},
+const DESTINATIONS = [
+	{ name: "Bali", country: "Indonesia", price: "$1,299", tag: "Popular" },
+	{ name: "Santorini", country: "Greece", price: "$1,899", tag: "Trending" },
+	{ name: "Kyoto", country: "Japan", price: "$1,599", tag: "Cultural" },
+	{ name: "Patagonia", country: "Chile", price: "$2,499", tag: "Adventure" },
 ];
 
 export default function Destinations() {
+	const sectionRef = useRef<HTMLElement>(null);
+	const headingRef = useRef<HTMLDivElement>(null);
+	const cardsRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		if (typeof window === "undefined") return;
+		gsap.registerPlugin(ScrollTrigger);
+
+		const ctx = gsap.context(() => {
+			gsap.from(headingRef.current!.children, {
+				y: 80,
+				opacity: 0,
+				duration: 1,
+				stagger: 0.1,
+				ease: "power3.out",
+				scrollTrigger: {
+					trigger: headingRef.current,
+					start: "top 85%",
+				},
+			});
+
+			const cards = cardsRef.current!.children;
+			gsap.from(cards, {
+				y: 100,
+				opacity: 0,
+				duration: 0.9,
+				stagger: 0.15,
+				ease: "power3.out",
+				scrollTrigger: {
+					trigger: cardsRef.current,
+					start: "top 80%",
+				},
+			});
+
+			Array.from(cards).forEach((card) => {
+				const img = card.querySelector("img");
+				if (img) {
+					gsap.to(img, {
+						yPercent: -8,
+						ease: "none",
+						scrollTrigger: {
+							trigger: card,
+							start: "top bottom",
+							end: "bottom top",
+							scrub: true,
+						},
+					});
+				}
+			});
+		}, sectionRef);
+
+		return () => ctx.revert();
+	}, []);
+
 	return (
-		<section id="destinations" className="bg-white py-24">
-			<div className="mx-auto max-w-7xl px-4 md:px-6">
-				<div className="mb-14 text-center">
-					<p className="mb-3 text-sm font-semibold uppercase tracking-widest text-sky-500">
-						Explore the World
-					</p>
-					<h2 className="mb-4 text-4xl font-bold text-gray-900 md:text-5xl">
-						Popular Destinations
-					</h2>
-					<p className="mx-auto max-w-2xl text-gray-500">
-						Handpicked destinations loved by thousands of travelers. Your next
-						unforgettable adventure starts here.
-					</p>
+		<section
+			id="destinations"
+			ref={sectionRef}
+			className="section-spacing section-padding bg-neutral-50"
+		>
+			<div className="mx-auto max-w-[1400px]">
+				<div ref={headingRef}>
+					<div className="label-sm mb-4">Featured Destinations</div>
+					<div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+						<h2 className="heading-lg max-w-2xl text-neutral-900">
+							Places that leave
+							<br />
+							you <span className="italic text-orange-500">speechless</span>
+						</h2>
+						<p className="body-lg max-w-sm">
+							Handpicked locations for extraordinary experiences. Every
+							journey tells a story.
+						</p>
+					</div>
 				</div>
 
-				<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-					{DESTINATIONS.map((dest) => (
+				<div
+					ref={cardsRef}
+					className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"
+				>
+					{DESTINATIONS.map((dest, i) => (
 						<div
-							key={dest.id}
-							className="group cursor-pointer overflow-hidden rounded-2xl bg-white shadow-md transition-all duration-300 hover:shadow-xl"
+							key={dest.name}
+							className={`group relative cursor-pointer overflow-hidden rounded-2xl ${
+								i === 0 ? "sm:col-span-2 sm:row-span-2" : ""
+							}`}
 						>
-							<div className="relative h-64 overflow-hidden">
+							<div
+								className={`relative overflow-hidden ${
+									i === 0 ? "h-[500px] md:h-full" : "h-[360px]"
+								}`}
+							>
 								<Image
-									src={dest.image}
+									src="/image.jpg"
 									alt={dest.name}
 									fill
-									className="object-cover transition-transform duration-500 group-hover:scale-110"
+									className="object-cover transition-transform duration-700 group-hover:scale-105"
 								/>
-								<div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+								<div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+							</div>
 
-								{dest.tag && (
-									<span className="absolute left-4 top-4 rounded-full bg-yellow-400 px-3 py-1 text-xs font-bold text-gray-900">
-										{dest.tag}
-									</span>
-								)}
-
-								<div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+							<div className="absolute inset-x-0 bottom-0 p-6">
+								<span className="mb-3 inline-block rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white/80 backdrop-blur-sm">
+									{dest.tag}
+								</span>
+								<div className="flex items-end justify-between">
 									<div>
-										<h3 className="text-2xl font-bold text-white">
+										<h3
+											className={`font-bold text-white ${
+												i === 0 ? "text-3xl md:text-4xl" : "text-2xl"
+											}`}
+										>
 											{dest.name}
 										</h3>
-										<p className="text-sm text-white/80">{dest.country}</p>
+										<p className="mt-1 text-sm text-white/60">
+											{dest.country}
+										</p>
 									</div>
-									<div className="flex items-center gap-1 rounded-full bg-white/20 px-3 py-1 backdrop-blur-sm">
-										<LuStar className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
-										<span className="text-sm font-semibold text-white">
-											{dest.rating}
-										</span>
+									<div className="text-right">
+										<p className="text-xs text-white/50">from</p>
+										<p className="text-lg font-bold text-white">
+											{dest.price}
+										</p>
 									</div>
 								</div>
 							</div>
 
-							<div className="flex items-center justify-between p-5">
-								<div className="flex items-center gap-4">
-									<div className="flex items-center gap-1.5 text-gray-500">
-										<LuClock className="h-4 w-4" />
-										<span className="text-sm">{dest.duration}</span>
-									</div>
-								</div>
-								<div className="text-right">
-									<p className="text-xs text-gray-500">From</p>
-									<p className="text-xl font-bold text-sky-500">
-										${dest.price.toLocaleString()}
-									</p>
-								</div>
+							<div className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/0 text-white/0 transition-all duration-300 group-hover:bg-white group-hover:text-neutral-900">
+								<LuArrowUpRight className="h-5 w-5" />
 							</div>
 						</div>
 					))}
-				</div>
-
-				<div className="mt-12 text-center">
-					<a
-						href="#"
-						className="group inline-flex items-center gap-2 rounded-full border-2 border-sky-500 px-8 py-3 text-sm font-semibold text-sky-500 transition-all hover:bg-sky-500 hover:text-white"
-					>
-						View All Destinations
-						<LuArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-					</a>
 				</div>
 			</div>
 		</section>
