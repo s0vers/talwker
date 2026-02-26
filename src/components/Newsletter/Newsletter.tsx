@@ -1,16 +1,57 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useRef } from "react";
 import { LuSend } from "react-icons/lu";
+import { gsap, prefersReducedMotion, ScrollTrigger } from "@/lib/useGsap";
 
 export default function Newsletter() {
+	const sectionRef = useRef<HTMLElement>(null);
+	const cardRef = useRef<HTMLDivElement>(null);
+	const contentRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		if (typeof window === "undefined" || prefersReducedMotion()) return;
+		gsap.registerPlugin(ScrollTrigger);
+
+		const ctx = gsap.context(() => {
+			const card = cardRef.current;
+			const content = contentRef.current;
+			if (!card || !content) return;
+
+			gsap.from(card, {
+				scale: 0.96,
+				opacity: 0,
+				duration: 1,
+				ease: "power3.out",
+				scrollTrigger: { trigger: card, start: "top 85%" },
+			});
+
+			gsap.from(content.children, {
+				y: 48,
+				opacity: 0,
+				duration: 0.9,
+				stagger: 0.1,
+				ease: "power3.out",
+				delay: 0.15,
+				scrollTrigger: { trigger: content, start: "top 85%" },
+			});
+		}, sectionRef);
+
+		return () => ctx.revert();
+	}, []);
+
 	return (
 		<section
 			id="newsletter"
+			ref={sectionRef}
 			className="relative overflow-hidden bg-[#070707] py-28 md:py-36"
 		>
 			<div className="mx-auto max-w-[1600px] pad-x">
-				<div className="relative overflow-hidden rounded-[2rem] border border-white/10">
+				<div
+					ref={cardRef}
+					className="relative overflow-hidden rounded-[2rem] border border-white/10"
+				>
 					<div className="absolute inset-0">
 						<Image
 							src="/image.jpg"
@@ -23,7 +64,10 @@ export default function Newsletter() {
 					<div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/55 to-orange-500/45" />
 					<div className="absolute -right-24 -top-20 h-80 w-80 rounded-full bg-orange-500/15 blur-3xl" />
 
-					<div className="relative px-8 py-16 text-center md:px-16 md:py-24">
+					<div
+						ref={contentRef}
+						className="relative px-8 py-16 text-center md:px-16 md:py-24"
+					>
 						<p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500">
 							Stay in the Loop
 						</p>
