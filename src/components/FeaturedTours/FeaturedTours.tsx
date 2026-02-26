@@ -1,14 +1,9 @@
 "use client";
 
-import { useRef } from "react";
 import Image from "next/image";
-import Autoplay from "embla-carousel-autoplay";
-import {
-	Carousel,
-	CarouselContent,
-	CarouselItem,
-} from "../ui/carousel";
+import { useEffect, useRef } from "react";
 import { LuStar, LuClock, LuUsers, LuMapPin } from "react-icons/lu";
+import { gsap, prefersReducedMotion, ScrollTrigger } from "@/lib/useGsap";
 
 type Tour = {
 	id: number;
@@ -79,118 +74,183 @@ const TOURS: Tour[] = [
 ];
 
 export default function FeaturedTours() {
-	const plugin = useRef(Autoplay({ delay: 5000, stopOnInteraction: true }));
+	const sectionRef = useRef<HTMLElement>(null);
+	const headerRef = useRef<HTMLDivElement>(null);
+	const gridRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		if (typeof window === "undefined") return;
+		if (prefersReducedMotion()) return;
+		gsap.registerPlugin(ScrollTrigger);
+
+		const ctx = gsap.context(() => {
+			const headerNodes = headerRef.current?.children;
+			if (headerNodes?.length) {
+				gsap.from(headerNodes, {
+					y: 56,
+					opacity: 0,
+					stagger: 0.14,
+					duration: 0.95,
+					ease: "power3.out",
+					scrollTrigger: {
+						trigger: headerRef.current,
+						start: "top 82%",
+						toggleActions: "play none none none",
+					},
+				});
+			}
+
+			const cards = gsap.utils.toArray<HTMLElement>("[data-tour-card]");
+			ScrollTrigger.create({
+				trigger: gridRef.current,
+				start: "top 80%",
+				once: true,
+				onEnter: () => {
+					gsap.from(cards, {
+						y: 110,
+						opacity: 0,
+						rotateX: 8,
+						transformOrigin: "top center",
+						duration: 1.1,
+						ease: "power4.out",
+						stagger: 0.12,
+					});
+				},
+			});
+
+			const mm = gsap.matchMedia();
+			mm.add("(min-width: 1024px)", () => {
+				if (!sectionRef.current || !headerRef.current) return;
+
+				ScrollTrigger.create({
+					trigger: sectionRef.current,
+					start: "top top+=84",
+					end: "+=220",
+					pin: headerRef.current,
+					pinSpacing: false,
+					scrub: true,
+				});
+			});
+		}, sectionRef);
+
+		return () => ctx.revert();
+	}, []);
 
 	return (
-		<section id="tours" className="bg-white py-24">
-			<div className="mx-auto max-w-7xl px-4 md:px-6">
-				<div className="mb-14 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+		<section ref={sectionRef} id="tours" className="bg-[#0b0b0b] py-28 md:py-36">
+			<div className="mx-auto max-w-[1600px] pad-x">
+				<div
+					ref={headerRef}
+					className="mb-16 flex flex-col items-start justify-between gap-8 md:mb-20 md:flex-row md:items-end"
+				>
 					<div>
-						<p className="mb-3 text-sm font-semibold uppercase tracking-widest text-sky-500">
+						<p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500">
 							Curated For You
 						</p>
-						<h2 className="mb-4 text-4xl font-bold text-gray-900 md:text-5xl">
+						<h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-bold leading-[0.95] tracking-tighter text-white">
 							Featured Tours
+							<span className="font-light italic text-orange-500">.</span>
 						</h2>
-						<p className="max-w-xl text-gray-500">
+						<p className="mt-6 max-w-xl text-sm leading-relaxed text-white/35 md:text-base">
 							Our most popular tour packages, designed for extraordinary
 							experiences at unbeatable value.
 						</p>
 					</div>
 					<a
 						href="#"
-						className="shrink-0 rounded-full border-2 border-sky-500 px-6 py-2.5 text-sm font-semibold text-sky-500 transition-all hover:bg-sky-500 hover:text-white"
+						className="group shrink-0 rounded-full border border-white/20 px-7 py-3 text-[12px] font-semibold uppercase tracking-[0.18em] text-white/70 transition-all duration-500 hover:border-orange-500 hover:bg-orange-500 hover:text-white"
 					>
 						View All Tours
 					</a>
 				</div>
 
-				<Carousel
-					opts={{ align: "start", loop: true }}
-					plugins={[plugin.current]}
-					className="w-full"
-				>
-					<CarouselContent className="-ml-4">
-						{TOURS.map((tour) => (
-							<CarouselItem
-								key={tour.id}
-								className="pl-4 md:basis-1/2 lg:basis-1/3"
-							>
-								<div className="group h-full overflow-hidden rounded-2xl bg-white shadow-md transition-all duration-300 hover:shadow-xl">
-									<div className="relative h-56 overflow-hidden">
-										<Image
-											src={tour.image}
-											alt={tour.title}
-											fill
-											className="object-cover transition-transform duration-500 group-hover:scale-110"
-										/>
-										<div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-										{tour.originalPrice && (
-											<span className="absolute right-4 top-4 rounded-full bg-red-500 px-3 py-1 text-xs font-bold text-white">
-												Save $
-												{(tour.originalPrice - tour.price).toLocaleString()}
-											</span>
-										)}
-										<div className="absolute bottom-4 left-4 flex items-center gap-1.5 rounded-full bg-white/20 px-3 py-1 backdrop-blur-sm">
-											<LuMapPin className="h-3.5 w-3.5 text-white" />
-											<span className="text-xs font-medium text-white">
-												{tour.destination}
-											</span>
-										</div>
+				<div ref={gridRef} className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
+					{TOURS.map((tour) => (
+						<div
+							key={tour.id}
+							data-tour-card
+							className="group h-full overflow-hidden rounded-3xl border border-white/10 bg-[#101010] transition-all duration-500 hover:-translate-y-1 hover:border-white/20"
+						>
+							<div className="relative h-64 overflow-hidden">
+								<Image
+									src={tour.image}
+									alt={tour.title}
+									fill
+									sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
+									className="object-cover transition-transform duration-700 group-hover:scale-105"
+								/>
+								<div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+								{tour.originalPrice && (
+									<span className="absolute right-4 top-4 rounded-full border border-white/20 bg-black/35 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/85 backdrop-blur-md">
+										Save $
+										{(tour.originalPrice - tour.price).toLocaleString()}
+									</span>
+								)}
+								<div className="absolute bottom-5 left-4 right-4 flex items-center justify-between gap-3">
+									<div className="flex items-center gap-1.5 rounded-full border border-white/20 bg-black/35 px-3 py-1.5 backdrop-blur-md">
+										<LuMapPin className="h-3.5 w-3.5 text-orange-500" />
+										<span className="text-xs font-medium text-white/85">
+											{tour.destination}
+										</span>
 									</div>
-
-									<div className="p-5">
-										<h3 className="mb-3 text-lg font-bold text-gray-900">
-											{tour.title}
-										</h3>
-
-										<div className="mb-4 flex flex-wrap gap-2">
-											{tour.highlights.map((hl) => (
-												<span
-													key={hl}
-													className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600"
-												>
-													{hl}
-												</span>
-											))}
-										</div>
-
-										<div className="mb-4 flex items-center gap-4 text-sm text-gray-500">
-											<span className="flex items-center gap-1">
-												<LuClock className="h-3.5 w-3.5" />
-												{tour.duration}
-											</span>
-											<span className="flex items-center gap-1">
-												<LuUsers className="h-3.5 w-3.5" />
-												{tour.groupSize}
-											</span>
-										</div>
-
-										<div className="flex items-center justify-between border-t border-gray-200 pt-4">
-											<div className="flex items-center gap-1">
-												<LuStar className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-												<span className="text-sm font-bold text-gray-900">{tour.rating}</span>
-												<span className="text-xs text-gray-500">
-													({tour.reviews})
-												</span>
-											</div>
-											<div className="text-right">
-												{tour.originalPrice && (
-													<p className="text-xs text-gray-400 line-through">
-														${tour.originalPrice.toLocaleString()}
-													</p>
-												)}
-												<p className="text-xl font-bold text-sky-500">
-													${tour.price.toLocaleString()}
-												</p>
-											</div>
-										</div>
+									<div className="flex items-center gap-1 rounded-full border border-white/20 bg-black/35 px-3 py-1.5 backdrop-blur-md">
+										<LuStar className="h-3.5 w-3.5 fill-orange-500 text-orange-500" />
+										<span className="text-xs font-semibold text-white">
+											{tour.rating}
+										</span>
+										<span className="text-xs text-white/50">
+											({tour.reviews})
+										</span>
 									</div>
 								</div>
-							</CarouselItem>
-						))}
-					</CarouselContent>
-				</Carousel>
+							</div>
+
+							<div className="p-6">
+								<h3 className="mb-3 text-2xl font-semibold leading-tight tracking-tight text-white">
+									{tour.title}
+								</h3>
+
+								<div className="mb-5 flex flex-wrap gap-2">
+									{tour.highlights.map((hl) => (
+										<span
+											key={hl}
+											className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.12em] text-white/55"
+										>
+											{hl}
+										</span>
+									))}
+								</div>
+
+								<div className="mb-5 grid grid-cols-2 gap-4 text-xs text-white/55">
+									<span className="flex items-center gap-1.5">
+										<LuClock className="h-3.5 w-3.5 text-orange-500" />
+										{tour.duration}
+									</span>
+									<span className="flex items-center gap-1.5">
+										<LuUsers className="h-3.5 w-3.5 text-orange-500" />
+										{tour.groupSize}
+									</span>
+								</div>
+
+								<div className="flex items-end justify-between border-t border-white/10 pt-5">
+									<div className="text-[11px] uppercase tracking-[0.14em] text-white/40">
+										Starting at
+									</div>
+									<div className="text-right">
+										{tour.originalPrice && (
+											<p className="text-xs text-white/30 line-through">
+												${tour.originalPrice.toLocaleString()}
+											</p>
+										)}
+										<p className="text-2xl font-semibold tracking-tight text-orange-500">
+											${tour.price.toLocaleString()}
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
 			</div>
 		</section>
 	);

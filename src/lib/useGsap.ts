@@ -1,11 +1,98 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { DependencyList, RefObject, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 if (typeof window !== "undefined") {
 	gsap.registerPlugin(ScrollTrigger);
+}
+
+export function prefersReducedMotion() {
+	if (typeof window === "undefined") return false;
+	return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+export function useGsapContext(
+	scopeRef: RefObject<Element>,
+	animation: () => void,
+	deps: DependencyList = [],
+) {
+	useEffect(() => {
+		if (typeof window === "undefined" || !scopeRef.current || prefersReducedMotion()) return;
+		gsap.registerPlugin(ScrollTrigger);
+		const ctx = gsap.context(animation, scopeRef);
+		return () => ctx.revert();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, deps);
+}
+
+type StaggerRevealOptions = {
+	y?: number;
+	scale?: number;
+	duration?: number;
+	stagger?: number;
+	start?: string;
+	ease?: string;
+};
+
+export function createStaggerReveal(
+	targets: gsap.TweenTarget,
+	trigger: Element | string | null | undefined,
+	options: StaggerRevealOptions = {},
+) {
+	const {
+		y = 60,
+		scale = 1,
+		duration = 0.9,
+		stagger = 0.1,
+		start = "top 82%",
+		ease = "power3.out",
+	} = options;
+
+	return gsap.from(targets, {
+		y,
+		scale,
+		opacity: 0,
+		duration,
+		stagger,
+		ease,
+		scrollTrigger: {
+			trigger: trigger ?? undefined,
+			start,
+			toggleActions: "play none none none",
+		},
+	});
+}
+
+type ParallaxOptions = {
+	fromY?: number;
+	toY?: number;
+	fromScale?: number;
+	toScale?: number;
+};
+
+export function createElementParallax(
+	element: gsap.TweenTarget,
+	trigger: Element | string | null | undefined,
+	options: ParallaxOptions = {},
+) {
+	const { fromY = -10, toY = 10, fromScale = 1.08, toScale = 1.02 } = options;
+	return gsap.fromTo(
+		element,
+		{ yPercent: fromY, scale: fromScale },
+		{
+			yPercent: toY,
+			scale: toScale,
+			ease: "none",
+			scrollTrigger: {
+				trigger: trigger ?? undefined,
+				start: "top bottom",
+				end: "bottom top",
+				scrub: true,
+			},
+		},
+	);
 }
 
 export function useParallax(speed = 0.3) {
