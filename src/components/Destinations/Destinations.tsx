@@ -104,7 +104,7 @@ export default function Destinations() {
 
 			const totalScroll = () => {
 				const scrollWidth = track.scrollWidth;
-				const viewport = window.innerWidth;
+				const viewport = track.parentElement?.clientWidth ?? window.innerWidth;
 				return Math.max(0, scrollWidth - viewport);
 			};
 
