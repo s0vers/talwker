@@ -79,27 +79,6 @@ export default function FeaturedTours() {
 	const cardsRef = useRef<HTMLDivElement>(null);
 
 	useGsapContext(sectionRef, () => {
-		const heading = headingRef.current;
-		const headingNodes = heading?.children;
-		if (heading && headingNodes?.length) {
-			gsap.from(headingNodes, {
-				y: 72,
-				opacity: 0,
-				scale: 0.96,
-				rotationX: 10,
-				transformOrigin: "center bottom",
-				duration: 1.05,
-				stagger: 0.11,
-				ease: "power4.out",
-				immediateRender: false,
-				scrollTrigger: {
-					trigger: heading,
-					start: "top 82%",
-					toggleActions: "play none none none",
-				},
-			});
-		}
-
 		const grid = cardsRef.current;
 		const cards = grid?.querySelectorAll<HTMLElement>("[data-tour-card]");
 		if (grid && cards?.length) {

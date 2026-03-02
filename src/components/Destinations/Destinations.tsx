@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { LuStar, LuClock, LuArrowRight } from "react-icons/lu";
-import { createStaggerReveal, gsap, prefersReducedMotion, ScrollTrigger } from "@/lib/useGsap";
+import { gsap, prefersReducedMotion, ScrollTrigger } from "@/lib/useGsap";
 
 type Destination = {
 	id: number;
@@ -88,15 +88,6 @@ export default function Destinations() {
 		gsap.registerPlugin(ScrollTrigger);
 
 		const ctx = gsap.context(() => {
-			const headingNodes = headingRef.current?.children;
-			if (headingNodes?.length) {
-				createStaggerReveal(headingNodes, headingRef.current, {
-					y: 56,
-					duration: 0.95,
-					stagger: 0.12,
-				});
-			}
-
 			const section = sectionRef.current;
 			const track = trackRef.current;
 			const heading = headingRef.current;
