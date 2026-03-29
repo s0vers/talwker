@@ -6,7 +6,8 @@ import type {
 	SeoDefaults,
 } from "@/shared/types/seo";
 
-const FALLBACK_SITE_URL = "https://talkwer.com";
+/** Default when `NEXT_PUBLIC_SITE_URL` is unset (e.g. local / preview). Production: https://talwker.vercel.app */
+const FALLBACK_SITE_URL = "https://talwker.vercel.app";
 
 function normalizeSiteUrl(url: string): string {
 	return url.endsWith("/") ? url.slice(0, -1) : url;
