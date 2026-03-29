@@ -1,0 +1,36 @@
+---
+description: Talkwer no-design-change refactor contract
+globs: src/**/*.{ts,tsx,css}
+alwaysApply: false
+---
+
+# Talkwer visual contract
+
+## Purpose
+
+Guardrails for refactors where code quality changes are allowed but design changes
+are not.
+
+## Non-negotiables
+
+- Keep existing visual identity: dark editorial palette, orange accent usage,
+  type scale intent, and section order.
+- Preserve existing spacing rhythm and layout width behavior (`pad-x`,
+  `max-w-[1600px]`, section paddings).
+- Preserve current animation intent and timing feel unless fixing accessibility
+  via reduced-motion fallbacks.
+- Do not swap template families (Talkwer and Voyager styles must stay separate).
+
+## Allowed changes
+
+- Move code, extract components, split files, and normalize data/types.
+- Replace duplicated markup with reusable primitives when rendered output remains
+  equivalent.
+- Improve semantics/accessibility without changing the visual surface.
+
+## Verification checklist
+
+- Compare before/after class composition and section hierarchy.
+- Confirm no new colors/typography scales introduced to active homepage.
+- Validate that major above-the-fold and section CTA visuals remain unchanged.
+

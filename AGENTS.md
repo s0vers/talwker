@@ -11,10 +11,17 @@ This is a **Next.js 16 static blog/magazine site** ("Talkwer") with no backend, 
 | Install deps | `pnpm install` |
 | Dev server | `pnpm dev` (port 3000) |
 | Lint | `pnpm lint` |
+| Filename check | `pnpm check:filenames` |
+| Image fill/sizes check | `pnpm check:image-sizes` |
+| Dependency audit | `pnpm deps:audit` |
+| Dependency outdated report | `pnpm deps:outdated` |
+| Verify all gates | `pnpm verify` |
 | Build | `pnpm build` |
 | Prod serve | `pnpm start` (port 3000, requires build first) |
 
-See `README.md` for more details.
+CI runs `pnpm verify` via `.github/workflows/verify.yml`.
+
+See `docs/README.md` for more details.
 
 ### Notes
 

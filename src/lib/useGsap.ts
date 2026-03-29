@@ -1,6 +1,6 @@
 "use client";
 
-import { DependencyList, RefObject, useEffect, useRef } from "react";
+import { useEffect, useRef, type DependencyList, type RefObject } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 

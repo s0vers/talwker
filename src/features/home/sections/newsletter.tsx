@@ -1,0 +1,113 @@
+"use client";
+
+import Image from "next/image";
+import { useRef } from "react";
+import { LuSend } from "react-icons/lu";
+import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
+import { NEWSLETTER_COPY } from "@/features/home/content/section-copy";
+
+export default function Newsletter() {
+	const sectionRef = useRef<HTMLElement>(null);
+	const cardRef = useRef<HTMLDivElement>(null);
+	const contentRef = useRef<HTMLDivElement>(null);
+
+	useGsapContext(
+		sectionRef,
+		() => {
+			if (prefersReducedMotion()) return;
+			const card = cardRef.current;
+			const content = contentRef.current;
+			if (!card || !content) return;
+
+			gsap.from(card, {
+				scale: 0.96,
+				opacity: 0,
+				duration: 1,
+				ease: "power3.out",
+				scrollTrigger: { trigger: card, start: "top 85%" },
+			});
+
+			gsap.from(content.children, {
+				y: 48,
+				opacity: 0,
+				duration: 0.9,
+				stagger: 0.1,
+				ease: "power3.out",
+				delay: 0.15,
+				scrollTrigger: { trigger: content, start: "top 85%" },
+			});
+		},
+		[],
+	);
+
+	return (
+		<section
+			id="newsletter"
+			ref={sectionRef}
+			aria-labelledby="newsletter-title"
+			className="relative overflow-hidden bg-[#070707] py-28 md:py-36"
+		>
+			<div className="mx-auto max-w-[1600px] pad-x">
+				<div
+					ref={cardRef}
+					className="relative overflow-hidden rounded-4xl border border-white/10"
+				>
+					<div className="absolute inset-0">
+						<Image
+							src="/image.jpg"
+							alt="Subscribe background"
+							fill
+							sizes="(max-width: 768px) 100vw, 80vw"
+							className="object-cover"
+						/>
+					</div>
+					<div className="absolute inset-0 bg-linear-to-br from-black/85 via-black/55 to-orange-500/45" />
+					<div className="absolute -right-24 -top-20 h-80 w-80 rounded-full bg-orange-500/15 blur-3xl" />
+
+					<div
+						ref={contentRef}
+						className="relative px-8 py-16 text-center md:px-16 md:py-24"
+					>
+						<p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500">
+							{NEWSLETTER_COPY.label}
+						</p>
+						<h2
+							id="newsletter-title"
+							className="text-[clamp(2rem,5vw,4rem)] font-bold leading-[0.95] tracking-tighter text-white"
+						>
+							{NEWSLETTER_COPY.title}
+						</h2>
+						<p className="mx-auto mb-10 mt-6 max-w-xl text-sm leading-relaxed text-white/75 md:text-base">
+							{NEWSLETTER_COPY.description}
+						</p>
+
+						<div className="mx-auto flex max-w-md flex-col gap-3 sm:flex-row">
+							<label htmlFor="newsletter-email" className="sr-only">
+								Email address
+							</label>
+							<input
+								id="newsletter-email"
+								type="email"
+								placeholder={NEWSLETTER_COPY.inputPlaceholder}
+								autoComplete="email"
+								className="flex-1 rounded-full border border-white/20 bg-white/10 px-6 py-3.5 text-sm text-white placeholder:text-white/55 backdrop-blur-md transition-shadow duration-200 focus:outline-none focus:ring-2 focus:ring-orange-500/60"
+							/>
+							<button
+								type="button"
+								className="flex items-center justify-center gap-2 rounded-full bg-orange-500 px-8 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-orange-400"
+							>
+								<LuSend className="h-4 w-4" />
+								{NEWSLETTER_COPY.subscribeLabel}
+							</button>
+						</div>
+
+						<p className="mt-4 text-xs text-white/60">
+							{NEWSLETTER_COPY.disclaimer}
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	);
+}
+

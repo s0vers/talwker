@@ -1,0 +1,57 @@
+import type { Tour } from "@/shared/types/domain";
+import { defineTours } from "@/lib/content-guards";
+
+export const TOURS: Tour[] = defineTours([
+	{
+		id: 1,
+		title: "Bali Cultural Immersion",
+		destination: "Bali, Indonesia",
+		image: "/image.jpg",
+		price: 1299,
+		originalPrice: 1599,
+		duration: "7 Days / 6 Nights",
+		groupSize: "Max 12",
+		rating: 4.9,
+		reviews: 234,
+		highlights: ["Temple Tours", "Rice Terraces", "Cooking Class"],
+	},
+	{
+		id: 2,
+		title: "Greek Island Odyssey",
+		destination: "Santorini & Mykonos",
+		image: "/image.jpg",
+		price: 2199,
+		originalPrice: 2799,
+		duration: "10 Days / 9 Nights",
+		groupSize: "Max 16",
+		rating: 4.8,
+		reviews: 189,
+		highlights: ["Sunset Cruise", "Wine Tasting", "Beach Hopping"],
+	},
+	{
+		id: 3,
+		title: "Patagonia Expedition",
+		destination: "Torres del Paine, Chile",
+		image: "/image.jpg",
+		price: 3499,
+		duration: "12 Days / 11 Nights",
+		groupSize: "Max 8",
+		rating: 5.0,
+		reviews: 97,
+		highlights: ["Glacier Trek", "Wildlife Safari", "Camping"],
+	},
+	{
+		id: 4,
+		title: "Japan Heritage Trail",
+		destination: "Tokyo to Kyoto",
+		image: "/image.jpg",
+		price: 2899,
+		originalPrice: 3299,
+		duration: "9 Days / 8 Nights",
+		groupSize: "Max 14",
+		rating: 4.9,
+		reviews: 312,
+		highlights: ["Tea Ceremony", "Mt. Fuji", "Bamboo Forest"],
+	},
+]);
+

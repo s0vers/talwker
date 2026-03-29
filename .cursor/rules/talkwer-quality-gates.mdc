@@ -1,0 +1,25 @@
+---
+description: Talkwer quality gates for refactors and releases
+globs: src/**/*.{ts,tsx,css}
+alwaysApply: false
+---
+
+# Talkwer quality gates
+
+## Required checks
+
+- `pnpm verify`
+- `pnpm lint`
+- `pnpm typecheck`
+- `pnpm build`
+- `pnpm check:filenames`
+- `pnpm check:image-sizes`
+
+## Review checklist
+
+- No visual regressions on active homepage sections.
+- No duplicate domain types across feature files.
+- No placeholder links (`href="#"`) in active UX paths.
+- Accessibility checklist reviewed (`docs/ACCESSIBILITY_CHECKLIST.md`).
+- Release checklist reviewed (`docs/RELEASE_CHECKLIST.md`).
+

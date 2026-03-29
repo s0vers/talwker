@@ -1,0 +1,34 @@
+---
+description: Talkwer component reusability and abstraction thresholds
+globs: src/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# Talkwer reusability rules
+
+## Reuse what repeats
+
+Extract a shared primitive when all are true:
+
+- Pattern appears in 3+ places.
+- Visual and behavior contract are stable.
+- API can stay small and explicit.
+
+## Keep bespoke sections bespoke
+
+- Hero storytelling and section-specific motion can remain custom.
+- Do not force one generic component to cover unrelated layout patterns.
+
+## Preferred extraction order
+
+1. Shared types and static content.
+2. Heading/CTA/badge primitives.
+3. Section shells and card scaffolds.
+4. Animation helpers.
+
+## Anti-patterns
+
+- Prop-heavy universal components with many boolean flags.
+- Copy-pasting class strings across sections when a stable primitive exists.
+- Premature abstraction of one-off markup.
+

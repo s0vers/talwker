@@ -1,0 +1,30 @@
+---
+description: Talkwer GSAP animation contract and accessibility guardrails
+globs: src/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# Talkwer motion contract
+
+## Animation baseline
+
+- Use helpers from `@/lib/useGsap` for ScrollTrigger lifecycle safety.
+- Prefer `useGsapContext` for scoped setup and automatic cleanup.
+- Always clean up via context revert on unmount.
+- Keep animation values unchanged during refactors (duration/ease/start/end).
+
+## Hook decision rule
+
+- Use `useGsapContext` for all GSAP/ScrollTrigger section animations.
+- Use plain `useEffect` only for non-GSAP side effects.
+
+## Accessibility
+
+- Respect reduced-motion with `prefersReducedMotion()`.
+- Skip non-essential animation when reduced-motion is enabled.
+
+## Performance
+
+- Avoid duplicate ScrollTrigger registrations in component trees.
+- Keep timeline creation scoped to the section refs.
+
