@@ -13,8 +13,8 @@ export function prefersReducedMotion() {
 	return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
-export function useGsapContext(
-	scopeRef: RefObject<Element>,
+export function useGsapContext<T extends Element>(
+	scopeRef: RefObject<T | null>,
 	animation: () => void,
 	deps: DependencyList = [],
 ) {
