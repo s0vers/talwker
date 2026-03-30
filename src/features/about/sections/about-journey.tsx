@@ -114,7 +114,11 @@ export default function AboutJourney() {
 										<h3 className="mt-2 text-xl font-bold tracking-tight text-white md:text-2xl">
 											{milestone.title}
 										</h3>
-										<p className="mt-3 max-w-sm text-sm leading-relaxed text-white/40 md:text-base">
+										<p
+											className={`mt-3 max-w-sm text-sm leading-relaxed text-white/40 md:text-base ${
+												isLeft ? "md:ml-auto" : ""
+											}`}
+										>
 											{milestone.description}
 										</p>
 									</div>
