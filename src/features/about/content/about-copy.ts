@@ -1,9 +1,13 @@
 export const ABOUT_HERO_COPY = {
-	tagline: "Our Story",
-	titleLines: ["We exist to", "inspire the", "art of"],
-	titleAccent: "wandering.",
+	tagline: "Est. 2010",
+	headlinePre: "We are",
+	headlineAccent: "wanderers",
+	headlinePost: "We are",
+	headlineAccent2: "storytellers",
 	description:
 		"Born from a restless love of the unknown, Talkwer connects curious souls with the world's most extraordinary corners.",
+	stat1: { value: "500+", label: "Destinations" },
+	stat2: { value: "15yr", label: "Of Exploration" },
 } as const;
 
 export const ABOUT_STORY_COPY = {
