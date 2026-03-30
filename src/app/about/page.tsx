@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import AboutPage from "@/features/about/about-page";
-import { createPageMetadata } from "@/lib/seo";
+import { createPageMetadata, getBreadcrumbJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
-	title: "About Us",
+	title: "About Talkwer",
 	description:
 		"Discover the story behind Talkwer — our mission, values, and the passionate team crafting extraordinary travel experiences since 2010.",
 	path: "/about",
@@ -17,5 +17,18 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 export default function Page() {
-	return <AboutPage />;
+	const breadcrumbJsonLd = getBreadcrumbJsonLd([
+		{ name: "Home", path: "/" },
+		{ name: "About", path: "/about" },
+	]);
+
+	return (
+		<>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+			/>
+			<AboutPage />
+		</>
+	);
 }
