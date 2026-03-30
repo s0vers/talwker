@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { useRef } from "react";
-import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
 import { ABOUT_HERO_COPY } from "@/features/about/content/about-copy";
+import { useAboutHeroGsap } from "./about-hero-gsap";
 
 export default function AboutHero() {
 	const section = useRef<HTMLElement>(null);
@@ -17,103 +17,18 @@ export default function AboutHero() {
 	const statsRef = useRef<HTMLDivElement>(null);
 	const scrollCue = useRef<HTMLDivElement>(null);
 
-	useGsapContext(
+	useAboutHeroGsap({
 		section,
-		() => {
-			if (prefersReducedMotion()) return;
-
-			const tl = gsap.timeline({
-				defaults: { ease: "power4.out" },
-				delay: 0.3,
-			});
-
-			tl.from(topLineRef.current, {
-				scaleX: 0,
-				duration: 1.2,
-				ease: "power2.inOut",
-			})
-				.from(
-					headPre.current,
-					{ y: "110%", opacity: 0, duration: 1.1 },
-					"-=0.7",
-				)
-				.from(
-					headAccent.current,
-					{ y: "110%", opacity: 0, duration: 1.1 },
-					"-=0.85",
-				)
-				.from(
-					headPost.current,
-					{ y: "110%", opacity: 0, duration: 1.1 },
-					"-=0.85",
-				)
-				.from(
-					headAccent2.current,
-					{ y: "110%", opacity: 0, duration: 1.1 },
-					"-=0.85",
-				)
-				.from(
-					stripRef.current,
-					{
-						clipPath: "inset(0 50% 0 50%)",
-						opacity: 0,
-						duration: 1.4,
-						ease: "power4.inOut",
-					},
-					"-=0.6",
-				)
-				.from(
-					descRef.current,
-					{ y: 30, opacity: 0, duration: 0.9 },
-					"-=0.5",
-				);
-
-			if (statsRef.current?.children.length) {
-				tl.from(
-					statsRef.current.children,
-					{ y: 30, opacity: 0, stagger: 0.1, duration: 0.7 },
-					"-=0.5",
-				);
-			}
-
-			tl.from(
-				scrollCue.current,
-				{ y: 15, opacity: 0, duration: 0.6 },
-				"-=0.3",
-			);
-
-			gsap.to(
-				[
-					headPre.current,
-					headAccent.current,
-					headPost.current,
-					headAccent2.current,
-				],
-				{
-					yPercent: -30,
-					ease: "none",
-					scrollTrigger: {
-						trigger: section.current,
-						start: "top top",
-						end: "bottom top",
-						scrub: true,
-					},
-				},
-			);
-
-			gsap.to(stripRef.current, {
-				scale: 1.06,
-				ease: "none",
-				scrollTrigger: {
-					trigger: section.current,
-					start: "top top",
-					end: "bottom top",
-					scrub: true,
-				},
-			});
-		},
-		[],
-	);
+		topLineRef,
+		headPre,
+		headAccent,
+		headPost,
+		headAccent2,
+		stripRef,
+		descRef,
+		statsRef,
+		scrollCue,
+	});
 
 	return (
 		<section
