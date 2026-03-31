@@ -102,7 +102,7 @@ export default function AboutValues() {
 
 				<div
 					ref={listRef}
-					className="grid gap-5 sm:grid-cols-2 md:gap-6 lg:gap-7"
+					className="grid gap-6 sm:grid-cols-2 md:gap-7 lg:gap-8"
 				>
 					{ABOUT_VALUES.map((val, index) => (
 						<AboutValueCard
