@@ -25,9 +25,9 @@ export default function AboutPhilosophy() {
 				stagger: 0.06,
 				ease: "none",
 				scrollTrigger: {
-					trigger: section.current,
-					start: "top 60%",
-					end: "bottom 40%",
+					trigger: wordsRef.current,
+					start: "top 75%",
+					end: "center 55%",
 					scrub: true,
 				},
 			});
