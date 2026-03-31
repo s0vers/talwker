@@ -137,6 +137,8 @@ export default function AboutStory() {
 								fill
 								sizes="(max-width: 1024px) 100vw, 50vw"
 								className="object-cover"
+								loading="lazy"
+								fetchPriority="low"
 							/>
 						</div>
 						<div className="absolute inset-0 bg-linear-to-t from-[#0e0e0e]/60 via-transparent to-transparent" />
