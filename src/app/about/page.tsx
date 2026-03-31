@@ -3,16 +3,15 @@ import AboutPage from "@/features/about/about-page";
 import { createPageMetadata, getBreadcrumbJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
-	title: "About Talkwer",
+	title: "About",
 	description:
-		"Discover the story behind Talkwer — our mission, values, and the passionate team crafting extraordinary travel experiences since 2010.",
+		"Learn about Talkwer, our editorial approach to modern travel stories, and the team behind the magazine.",
 	path: "/about",
 	keywords: [
 		"about talkwer",
-		"travel company",
-		"our story",
-		"travel team",
-		"sustainable travel",
+		"travel editorial team",
+		"travel magazine mission",
+		"talkwer story",
 	],
 });
 
