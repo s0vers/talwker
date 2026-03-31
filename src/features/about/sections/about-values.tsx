@@ -95,7 +95,7 @@ export default function AboutValues() {
 							<div data-values-rail className="h-full w-full bg-orange-500/80" />
 						</div>
 						<p className="text-[11px] font-semibold tracking-[0.22em] text-white/40 uppercase">
-							Values In Motion
+							Core Principles
 						</p>
 					</div>
 				</div>
