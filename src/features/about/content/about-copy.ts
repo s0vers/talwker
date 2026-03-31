@@ -61,6 +61,8 @@ export const ABOUT_VALUES = [
 	},
 ] as const;
 
+export type AboutValue = (typeof ABOUT_VALUES)[number];
+
 export const ABOUT_JOURNEY = [
 	{
 		year: "2010",

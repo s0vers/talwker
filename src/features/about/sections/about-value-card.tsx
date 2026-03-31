@@ -1,10 +1,4 @@
-type AboutValue = {
-	id: number;
-	number: string;
-	title: string;
-	description: string;
-	accent: string;
-};
+import type { AboutValue } from "@/features/about/content/about-copy";
 
 type AboutValueCardProps = {
 	value: AboutValue;
