@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
 import { ABOUT_VALUES } from "@/features/about/content/about-copy";
+import { AboutValueCard } from "@/features/about/sections/about-value-card";
 
 export default function AboutValues() {
 	const sectionRef = useRef<HTMLElement>(null);
@@ -30,45 +31,30 @@ export default function AboutValues() {
 		const cardsTimeline = gsap.timeline({
 			scrollTrigger: {
 				trigger: section,
-				start: "top 84%",
-				end: "bottom bottom",
-				scrub: 0.65,
+				start: "top 78%",
+				toggleActions: "play none none reverse",
 			},
 		});
 
-		cards.forEach((card, i) => {
-			cardsTimeline.fromTo(
-				card,
-				{
-					y: 80,
-					opacity: 0,
-					rotateZ: i % 2 === 0 ? -1.5 : 1.5,
-					clipPath: "inset(0 0 100% 0 round 1.5rem)",
-				},
-				{
-					y: 0,
-					opacity: 1,
-					rotateZ: 0,
-					clipPath: "inset(0 0 0% 0 round 1.5rem)",
-					duration: 0.85,
-					ease: "power3.out",
-				},
-				i === 0 ? 0 : "<+=0.12",
-			);
-
-			const drift = i % 2 === 0 ? -9 : 9;
-			gsap.to(card, {
-				yPercent: drift,
-				ease: "none",
-				scrollTrigger: {
-					trigger: card,
-					start: "top bottom",
-					end: "bottom top",
-					scrub: 0.7,
-				},
-			});
-
-		});
+		cardsTimeline.fromTo(
+			cards,
+			{
+				y: 52,
+				opacity: 0,
+				scale: 0.96,
+				filter: "blur(10px)",
+			},
+			{
+				y: 0,
+				opacity: 1,
+				scale: 1,
+				filter: "blur(0px)",
+				duration: 0.82,
+				stagger: 0.12,
+				ease: "power2.out",
+				clearProps: "filter"
+			}
+		);
 
 		const rail = section.querySelector<HTMLElement>("[data-values-rail]");
 		if (!rail) return;
@@ -83,8 +69,8 @@ export default function AboutValues() {
 					start: "top 72%",
 					end: "bottom bottom",
 					scrub: true,
-				},
-			},
+				}
+			}
 		);
 	}, []);
 
@@ -119,33 +105,11 @@ export default function AboutValues() {
 					className="grid gap-5 sm:grid-cols-2 md:gap-6 lg:gap-7"
 				>
 					{ABOUT_VALUES.map((val, index) => (
-						<div
+						<AboutValueCard
 							key={val.id}
-							data-value-card
-							className={`group relative overflow-hidden rounded-3xl border border-white/10 bg-[#101010] p-7 shadow-[0_20px_60px_rgba(0,0,0,0.6)] transition-all duration-500 hover:border-orange-500/30 md:p-9 ${
-								index % 2 === 1 ? "sm:translate-y-6" : ""
-							}`}
-						>
-							<div className="absolute -top-12 -right-12 h-40 w-40 rounded-full bg-orange-500/5 blur-3xl transition-all duration-700 group-hover:bg-orange-500/10" />
-
-							<span className="text-[clamp(3.4rem,7vw,6rem)] leading-none font-black text-white/4">
-								{val.number}
-							</span>
-
-							<div className="relative mt-2">
-								<h3 className="text-xl font-bold tracking-tight text-white md:text-[1.65rem]">
-									{val.title}
-								</h3>
-								<p className="mt-3 text-sm leading-relaxed text-white/40 md:text-[15px]">
-									{val.description}
-								</p>
-								<p className="mt-5 text-[12px] font-semibold text-orange-500 italic">
-									{val.accent}
-								</p>
-							</div>
-
-							<div className="absolute bottom-0 left-0 h-1 w-0 bg-orange-500 transition-all duration-700 group-hover:w-full" />
-						</div>
+							value={val}
+							className={index % 2 === 1 ? "sm:translate-y-6" : undefined}
+						/>
 					))}
 				</div>
 			</div>
