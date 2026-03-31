@@ -65,6 +65,7 @@ export default function Hero() {
 					sizes="100vw"
 					className="object-cover"
 					priority
+					loading="eager"
 				/>
 				<div
 					ref={overlayRef}

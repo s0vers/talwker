@@ -98,6 +98,7 @@ export default function AboutHero() {
 							sizes="100vw"
 							className="object-cover"
 							priority
+							loading="eager"
 						/>
 						<div className="absolute inset-0 bg-linear-to-r from-[#050505]/60 via-transparent to-[#050505]/60" />
 					</div>
