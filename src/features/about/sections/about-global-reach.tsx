@@ -10,7 +10,7 @@ import { DottedMap } from "@/components/ui/dotted-map";
 
 export default function AboutGlobalReach() {
 	const section = useRef<HTMLElement>(null);
-	const textRef = useRef<HTMLDivElement>(null);
+	const columnRef = useRef<HTMLDivElement>(null);
 	const mapRef = useRef<HTMLDivElement>(null);
 
 	useGsapContext(
@@ -18,23 +18,59 @@ export default function AboutGlobalReach() {
 		() => {
 			if (prefersReducedMotion()) return;
 
-			if (textRef.current?.children.length) {
-				gsap.from(textRef.current.children, {
-					y: 50,
-					opacity: 0,
-					duration: 0.9,
-					stagger: 0.1,
-					ease: "power3.out",
-					scrollTrigger: { trigger: textRef.current, start: "top 82%" },
+			const col = columnRef.current;
+			if (col && col.children.length >= 4) {
+				const label = col.children[0];
+				const title = col.children[1];
+				const desc = col.children[2];
+				const list = col.children[3];
+
+				const copyTl = gsap.timeline({
+					scrollTrigger: {
+						trigger: col,
+						start: "top 82%",
+						toggleActions: "play none none none",
+					},
 				});
+				copyTl.from(label, {
+					x: -36,
+					opacity: 0,
+					duration: 0.78,
+					ease: "power2.out",
+				});
+				copyTl.from(
+					title,
+					{ y: 44, opacity: 0, duration: 0.98, ease: "power2.out" },
+					"-=0.38",
+				);
+				copyTl.from(
+					desc,
+					{ y: 26, opacity: 0, duration: 0.88, ease: "power2.out" },
+					"-=0.48",
+				);
+				if (list instanceof HTMLElement && list.children.length) {
+					copyTl.from(
+						list.children,
+						{
+							x: -14,
+							opacity: 0,
+							duration: 0.68,
+							stagger: 0.085,
+							ease: "power2.out",
+						},
+						"-=0.42",
+					);
+				}
 			}
 
 			if (mapRef.current) {
 				gsap.from(mapRef.current, {
 					opacity: 0,
-					scale: 0.97,
-					duration: 1.1,
-					ease: "power3.out",
+					y: 36,
+					scale: 0.965,
+					clipPath: "inset(6% 5% 6% 5%)",
+					duration: 1.2,
+					ease: "power3.inOut",
 					scrollTrigger: { trigger: mapRef.current, start: "top 78%" },
 				});
 			}
@@ -46,7 +82,7 @@ export default function AboutGlobalReach() {
 		<section ref={section} className="bg-[#0a0a0a] py-32 md:py-44">
 			<div className="mx-auto max-w-[1600px] pad-x">
 				<div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
-					<div ref={textRef}>
+					<div ref={columnRef} className="min-w-0">
 						<span className="mb-5 inline-block text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500">
 							{ABOUT_GLOBAL_REACH_COPY.label}
 						</span>
@@ -68,13 +104,23 @@ export default function AboutGlobalReach() {
 
 					<div
 						ref={mapRef}
-						className="relative w-full overflow-hidden rounded-3xl border border-white/6 bg-[#080808] p-3 md:p-5"
+						className="relative w-full overflow-hidden rounded-3xl border border-white/6 bg-[#080808] p-3 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] md:p-5"
 					>
-						<div className="aspect-2/1 w-full min-h-[200px]">
+						<div
+							className="pointer-events-none absolute inset-0 rounded-[1.35rem] opacity-40 md:rounded-3xl"
+							style={{
+								background:
+									"radial-gradient(ellipse 80% 55% at 50% 0%, rgba(249,115,22,0.07), transparent 55%)",
+							}}
+							aria-hidden
+						/>
+						<div className="relative aspect-2/1 w-full min-h-[200px]">
 							<DottedMap
 								width={900}
 								height={450}
-								mapSamples={5500}
+								mapSamples={8200}
+								destinationDots={520}
+								destinationDotsSeed={0x7a11ba9}
 								markers={ABOUT_MAP_MARKERS.map((m) => ({
 									lat: m.lat,
 									lng: m.lng,
@@ -84,7 +130,7 @@ export default function AboutGlobalReach() {
 								markerColor="#ffffff"
 								pulse
 								className="block h-full w-full max-h-none"
-								aria-label="World map with partner city markers"
+								aria-label="World map with destination network and hub city markers"
 								role="img"
 							/>
 						</div>

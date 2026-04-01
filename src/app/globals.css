@@ -101,6 +101,43 @@
   }
 }
 
+/* Dotted map — destination twinkle + hub markers (see `dotted-map.tsx`) */
+@keyframes map-dot-blink {
+  0%,
+  100% {
+    opacity: 0.18;
+  }
+  50% {
+    opacity: 0.95;
+  }
+}
+
+@keyframes map-marker-twinkle {
+  0%,
+  100% {
+    opacity: 0.88;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.map-destination-dot {
+  animation: map-dot-blink 2.85s ease-in-out infinite;
+}
+
+.map-marker-core {
+  animation: map-marker-twinkle 2.35s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .map-destination-dot,
+  .map-marker-core {
+    animation: none;
+    opacity: 0.78;
+  }
+}
+
 @theme inline {
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));

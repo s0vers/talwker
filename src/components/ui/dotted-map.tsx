@@ -3,6 +3,40 @@ import { createMap } from "svg-dotted-map"
 
 import { cn } from "@/lib/utils"
 
+/** Deterministic PRNG for stable destination sampling (SSR / hydration safe). */
+function mulberry32(seed: number) {
+  return function next() {
+    let t = (seed += 0x6d2b79f5)
+    t = Math.imul(t ^ (t >>> 15), t | 1)
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61)
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296
+  }
+}
+
+function sampleDestinationPoints(
+  points: ReadonlyArray<{ x: number; y: number }>,
+  count: number,
+  seed: number,
+): { x: number; y: number }[] {
+  if (count <= 0 || points.length === 0) return []
+  const rng = mulberry32(seed)
+  const picked: { x: number; y: number }[] = []
+  const seen = new Set<string>()
+  const target = Math.min(count, points.length)
+  let attempts = 0
+  const maxAttempts = target * 40
+  while (picked.length < target && attempts < maxAttempts) {
+    attempts++
+    const idx = Math.floor(rng() * points.length)
+    const p = points[idx]
+    const key = `${p.x},${p.y}`
+    if (seen.has(key)) continue
+    seen.add(key)
+    picked.push(p)
+  }
+  return picked
+}
+
 export interface Marker {
   lat: number
   lng: number
@@ -29,6 +63,11 @@ export interface DottedMapProps<
   dotRadius?: number
   stagger?: boolean
   pulse?: boolean
+  /** Sample this many land dots and render them as small white “destination” dots (e.g. 500+). */
+  destinationDots?: number
+  /** Seed for deterministic sampling when `destinationDots` is set. */
+  destinationDotsSeed?: number
+  destinationDotClassName?: string
 
   renderMarkerOverlay?: (args: {
     marker: MapMarker<M>
@@ -49,6 +88,9 @@ export function DottedMap<M extends Marker = Marker>({
   dotRadius: dotRadiusProp,
   stagger = true,
   pulse = false,
+  destinationDots = 0,
+  destinationDotsSeed = 0x5a17a1,
+  destinationDotClassName = "map-destination-dot",
   renderMarkerOverlay,
   className,
   style,
@@ -62,6 +104,13 @@ export function DottedMap<M extends Marker = Marker>({
     mapSamples,
   })
   const processedMarkers = addMarkers(markers)
+
+  const destinationPoints = React.useMemo(
+    () => sampleDestinationPoints(points, destinationDots, destinationDotsSeed),
+    [points, destinationDots, destinationDotsSeed],
+  )
+
+  const destDotRadius = dotRadius * 0.42
 
   // Compute stagger helpers in a single, simple pass
   const { xStep, yToRowIndex } = React.useMemo(() => {
@@ -109,6 +158,25 @@ export function DottedMap<M extends Marker = Marker>({
         )
       })}
 
+      {destinationPoints.map((point, index) => {
+        const rowIndex = yToRowIndex.get(point.y) ?? 0
+        const offsetX = stagger && rowIndex % 2 === 1 ? xStep / 2 : 0
+        const x = point.x + offsetX
+        const y = point.y
+        const delayMs = (index * 17) % 3200
+        return (
+          <circle
+            key={`dest-${point.x}-${point.y}-${index}`}
+            cx={x}
+            cy={y}
+            r={destDotRadius}
+            fill={markerColor}
+            className={destinationDotClassName}
+            style={{ animationDelay: `${delayMs}ms` }}
+          />
+        )
+      })}
+
       {processedMarkers.map((marker, index) => {
         const rowIndex = yToRowIndex.get(marker.y) ?? 0
         const offsetX = stagger && rowIndex % 2 === 1 ? xStep / 2 : 0
@@ -123,7 +191,14 @@ export function DottedMap<M extends Marker = Marker>({
 
         return (
           <g key={`${marker.x}-${marker.y}-${index}`}>
-            <circle cx={x} cy={y} r={r} fill={markerColor} />
+            <circle
+              cx={x}
+              cy={y}
+              r={r}
+              fill={markerColor}
+              className="map-marker-core"
+              style={{ animationDelay: `${index * 0.35}s` }}
+            />
 
             {shouldPulse ? (
               <g pointerEvents="none">
