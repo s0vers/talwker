@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
 import {
 	ABOUT_GLOBAL_REACH_COPY,
+	ABOUT_MAP_DOT_VARIANCE,
 	ABOUT_MAP_HUB_SPOKES,
 	ABOUT_MAP_MARKERS,
 } from "@/features/about/content/about-copy";
@@ -122,6 +123,8 @@ export default function AboutGlobalReach() {
 								mapSamples={5600}
 								destinationDots={320}
 								destinationDotsSeed={0x7a11ba9}
+								dotSizeSpread={ABOUT_MAP_DOT_VARIANCE.spread}
+								dotSizeSeed={ABOUT_MAP_DOT_VARIANCE.seed}
 								gridStep={75}
 								gridColor="rgba(255,255,255,0.055)"
 								hubLandSpokes={ABOUT_MAP_HUB_SPOKES}

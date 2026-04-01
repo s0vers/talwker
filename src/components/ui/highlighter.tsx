@@ -1,28 +1,29 @@
 "use client"
 
-import { useLayoutEffect, useRef, useState } from "react"
-import type React from "react"
+import * as React from "react"
 import { useInView } from "motion/react"
 import { annotate } from "rough-notation"
-import { type RoughAnnotation } from "rough-notation/lib/model"
+import type { RoughAnnotation } from "rough-notation/lib/model"
 
-const HIGHLIGHTER_ALPHA = 0.35
+import { cn } from "@/lib/utils"
+
+const THEME_HIGHLIGHTER_ALPHA = 0.34
 
 function readThemeHighlighterColor(): string {
   if (typeof document === "undefined") {
-    return `hsl(199 89% 48% / ${HIGHLIGHTER_ALPHA})`
+    return `hsl(199 89% 48% / ${THEME_HIGHLIGHTER_ALPHA})`
   }
   const hsl = getComputedStyle(document.documentElement)
     .getPropertyValue("--highlighter")
     .trim()
-  if (!hsl) return `hsl(199 89% 48% / ${HIGHLIGHTER_ALPHA})`
-  return `hsl(${hsl} / ${HIGHLIGHTER_ALPHA})`
+  if (!hsl) return `hsl(199 89% 48% / ${THEME_HIGHLIGHTER_ALPHA})`
+  return `hsl(${hsl} / ${THEME_HIGHLIGHTER_ALPHA})`
 }
 
 function useThemeHighlighterColor(): string {
-  const [value, setValue] = useState(() => readThemeHighlighterColor())
+  const [value, setValue] = React.useState(() => readThemeHighlighterColor())
 
-  useLayoutEffect(() => {
+  React.useLayoutEffect(() => {
     const update = () => setValue(readThemeHighlighterColor())
     update()
     const el = document.documentElement
@@ -32,6 +33,18 @@ function useThemeHighlighterColor(): string {
   }, [])
 
   return value
+}
+
+function usePrefersReducedMotion(): boolean {
+  return React.useSyncExternalStore(
+    (onStoreChange) => {
+      const mq = window.matchMedia("(prefers-reduced-motion: reduce)")
+      mq.addEventListener("change", onStoreChange)
+      return () => mq.removeEventListener("change", onStoreChange)
+    },
+    () => window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+    () => false,
+  )
 }
 
 type AnnotationAction =
@@ -55,30 +68,55 @@ interface HighlighterProps {
   isView?: boolean
 }
 
+/** Defaults tuned for dark editorial copy (about story); rough.js keeps organic strokes. */
+function defaultStrokeForAction(action: AnnotationAction): number {
+  if (action === "underline") return 1.65
+  return 1.2
+}
+
+function defaultDurationForAction(
+  action: AnnotationAction,
+  reducedMotion: boolean,
+): number {
+  if (reducedMotion) return 1
+  if (action === "underline") return 820
+  return 960
+}
+
+function defaultPaddingForAction(action: AnnotationAction): number {
+  if (action === "underline") return 3
+  return 5
+}
+
 export function Highlighter({
   children,
   action = "highlight",
   color,
-  strokeWidth = 1.5,
-  animationDuration = 600,
+  strokeWidth,
+  animationDuration,
   iterations = 2,
-  padding = 2,
+  padding,
   multiline = true,
   isView = false,
 }: HighlighterProps) {
-  const elementRef = useRef<HTMLSpanElement>(null)
+  const elementRef = React.useRef<HTMLSpanElement>(null)
   const themeColor = useThemeHighlighterColor()
   const resolvedColor = color ?? themeColor
+  const reducedMotion = usePrefersReducedMotion()
 
   const isInView = useInView(elementRef, {
     once: true,
-    margin: "-10%",
+    margin: "-12%",
   })
 
-  // If isView is false, always show. If isView is true, wait for inView
-  const shouldShow = !isView || isInView
+  const shouldShow = reducedMotion || !isView || isInView
 
-  useLayoutEffect(() => {
+  const resolvedStroke = strokeWidth ?? defaultStrokeForAction(action)
+  const resolvedDuration =
+    animationDuration ?? defaultDurationForAction(action, reducedMotion)
+  const resolvedPadding = padding ?? defaultPaddingForAction(action)
+
+  React.useLayoutEffect(() => {
     const element = elementRef.current
     let annotation: RoughAnnotation | null = null
     let resizeObserver: ResizeObserver | null = null
@@ -87,11 +125,12 @@ export function Highlighter({
       const annotationConfig = {
         type: action,
         color: resolvedColor,
-        strokeWidth,
-        animationDuration,
-        iterations,
-        padding,
+        strokeWidth: resolvedStroke,
+        animationDuration: resolvedDuration,
+        iterations: reducedMotion ? 1 : iterations,
+        padding: resolvedPadding,
         multiline,
+        animate: !reducedMotion,
       }
 
       const currentAnnotation = annotate(element, annotationConfig)
@@ -109,23 +148,25 @@ export function Highlighter({
 
     return () => {
       annotation?.remove()
-      if (resizeObserver) {
-        resizeObserver.disconnect()
-      }
+      resizeObserver?.disconnect()
     }
   }, [
     shouldShow,
     action,
     resolvedColor,
-    strokeWidth,
-    animationDuration,
+    resolvedStroke,
+    resolvedDuration,
     iterations,
-    padding,
+    resolvedPadding,
     multiline,
+    reducedMotion,
   ])
 
   return (
-    <span ref={elementRef} className="relative inline-block bg-transparent">
+    <span
+      ref={elementRef}
+      className={cn("relative inline-block bg-transparent")}
+    >
       {children}
     </span>
   )

@@ -37,6 +37,12 @@ export const ABOUT_MAP_MARKERS = [
 	{ lat: -23.5505, lng: -46.6333, label: "São Paulo" },
 ] as const;
 
+/** Vary only dot radius at fixed positions (silhouette unchanged); seeded for SSR. */
+export const ABOUT_MAP_DOT_VARIANCE = {
+	spread: 0.58,
+	seed: 0xa11ce2e4,
+} as const;
+
 /** Land-dot → nearest hub spokes on the about map (deterministic sampling). */
 export const ABOUT_MAP_HUB_SPOKES = {
 	count: 34,

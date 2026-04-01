@@ -51,6 +51,22 @@ function sampleDestinationPoints(
   return picked
 }
 
+/** Per-index radius multipliers around 1; deterministic for SSR / hydration. */
+function radiusMultipliers(
+  count: number,
+  seed: number,
+  minScale: number,
+  maxScale: number,
+): Float32Array | null {
+  if (count <= 0 || minScale >= maxScale) return null
+  const rng = mulberry32(seed)
+  const arr = new Float32Array(count)
+  for (let i = 0; i < count; i++) {
+    arr[i] = minScale + rng() * (maxScale - minScale)
+  }
+  return arr
+}
+
 function connectionPathD(
   x1: number,
   y1: number,
@@ -168,6 +184,13 @@ export interface DottedMapProps<
   destinationDotsSeed?: number
   destinationDotClassName?: string
 
+  /**
+   * Randomize land + destination dot radii only (cx/cy unchanged). 0 = uniform grid.
+   * Typical 0.4–0.65. Seeded for identical server/client output.
+   */
+  dotSizeSpread?: number
+  dotSizeSeed?: number
+
   /** Draw faint grid lines in viewBox units (e.g. 72 for ~12 columns on a 900-wide map). */
   gridStep?: number
   gridColor?: string
@@ -212,6 +235,8 @@ export function DottedMap<M extends Marker = Marker>({
   destinationDots = 0,
   destinationDotsSeed = 0x5a17a1,
   destinationDotClassName = "map-destination-dot",
+  dotSizeSpread = 0,
+  dotSizeSeed = 0x4b1d4e2f,
   gridStep,
   gridColor = "rgba(255,255,255,0.045)",
   markerConnections,
@@ -240,6 +265,30 @@ export function DottedMap<M extends Marker = Marker>({
   )
 
   const destDotRadius = dotRadius * 0.42
+
+  const spread = Math.min(0.95, Math.max(0, dotSizeSpread))
+
+  const landRadiusMult = React.useMemo(() => {
+    if (spread <= 0 || points.length === 0) return null
+    const wobble = spread * 0.58
+    return radiusMultipliers(
+      points.length,
+      dotSizeSeed ^ 0x243f_6a88,
+      Math.max(0.35, 1 - wobble),
+      1 + spread * 0.72,
+    )
+  }, [dotSizeSeed, points, spread])
+
+  const destRadiusMult = React.useMemo(() => {
+    if (spread <= 0 || destinationPoints.length === 0) return null
+    const wobble = spread * 0.5
+    return radiusMultipliers(
+      destinationPoints.length,
+      dotSizeSeed ^ 0xdead_beef ^ destinationDotsSeed,
+      Math.max(0.38, 1 - wobble),
+      1 + spread * 0.62,
+    )
+  }, [destinationDotsSeed, destinationPoints, dotSizeSeed, spread])
 
   // Compute stagger helpers in a single, simple pass
   const { xStep, yToRowIndex } = React.useMemo(() => {
@@ -388,11 +437,12 @@ export function DottedMap<M extends Marker = Marker>({
       {points.map((point, index) => {
         const rowIndex = yToRowIndex.get(point.y) ?? 0
         const offsetX = stagger && rowIndex % 2 === 1 ? xStep / 2 : 0
+        const rMult = landRadiusMult ? landRadiusMult[index]! : 1
         return (
           <circle
             cx={point.x + offsetX}
             cy={point.y}
-            r={dotRadius}
+            r={dotRadius * rMult}
             fill={dotColor}
             key={`${point.x}-${point.y}-${index}`}
           />
@@ -405,12 +455,13 @@ export function DottedMap<M extends Marker = Marker>({
         const x = point.x + offsetX
         const y = point.y
         const delayMs = (index * 17) % 3200
+        const rMult = destRadiusMult ? destRadiusMult[index]! : 1
         return (
           <circle
             key={`dest-${point.x}-${point.y}-${index}`}
             cx={x}
             cy={y}
-            r={destDotRadius}
+            r={destDotRadius * rMult}
             fill={markerColor}
             className={destinationDotClassName}
             style={{ animationDelay: `${delayMs}ms` }}
