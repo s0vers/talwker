@@ -3,8 +3,13 @@
 import Image from "next/image";
 import { useRef } from "react";
 import { LuStar, LuClock, LuUsers, LuMapPin, LuArrowRight } from "react-icons/lu";
-import { gsap, useGsapContext } from "@/lib/useGsap";
+import {
+	gsap,
+	prefersReducedMotion,
+	useGsapContext,
+} from "@/lib/useGsap";
 import { TOURS } from "@/features/home/content/tours";
+import { FEATURED_TOURS_SECTION } from "@/features/home/content/section-copy";
 import { PillBadge, SectionCta, SectionHeading } from "@/shared/ui";
 
 export default function FeaturedTours() {
@@ -13,6 +18,7 @@ export default function FeaturedTours() {
 	const cardsRef = useRef<HTMLDivElement>(null);
 
 	useGsapContext(sectionRef, () => {
+		if (prefersReducedMotion()) return;
 		const grid = cardsRef.current;
 		const cards = grid?.querySelectorAll<HTMLElement>("[data-tour-card]");
 		if (grid && cards?.length) {
@@ -67,17 +73,17 @@ export default function FeaturedTours() {
 					style={{ perspective: "1000px" }}
 				>
 					<SectionHeading
-						label="Curated For You"
+						label={FEATURED_TOURS_SECTION.label}
 						labelId="featured-tours-label"
-						title="Featured Tours"
+						title={FEATURED_TOURS_SECTION.title}
 						titleId="featured-tours-title"
-						description="Our most popular tour packages, designed for extraordinary experiences at unbeatable value."
+						description={FEATURED_TOURS_SECTION.description}
 						descriptionId="featured-tours-description"
 					/>
 					<SectionCta
 						icon={<LuArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />}
 					>
-						View All Tours
+						{FEATURED_TOURS_SECTION.viewAllCta}
 					</SectionCta>
 				</div>
 
@@ -107,7 +113,7 @@ export default function FeaturedTours() {
 								<div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/20 to-transparent" />
 								{tour.originalPrice && (
 									<span className="absolute right-4 top-4 rounded-full border border-white/20 bg-black/35 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/85 backdrop-blur-md">
-										Save $
+										{FEATURED_TOURS_SECTION.savePrefix}
 										{(tour.originalPrice - tour.price).toLocaleString()}
 									</span>
 								)}
@@ -154,7 +160,7 @@ export default function FeaturedTours() {
 
 								<div className="flex items-end justify-between border-t border-white/10 pt-5">
 									<div className="text-[11px] uppercase tracking-[0.14em] text-white/55">
-										Starting at
+										{FEATURED_TOURS_SECTION.startingAt}
 									</div>
 									<div className="text-right">
 										{tour.originalPrice && (

@@ -2,8 +2,11 @@
 
 import { useRef } from "react";
 import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
-import { ABOUT_VALUES } from "@/features/about/content/about-copy";
-import { AboutValueCard } from "@/features/about/sections/about-value-card";
+import {
+	ABOUT_VALUES,
+	ABOUT_VALUES_SECTION,
+} from "@/features/about/content/about-copy";
+import { AboutValueCard } from "./about-value-card";
 
 export default function AboutValues() {
 	const sectionRef = useRef<HTMLElement>(null);
@@ -23,7 +26,7 @@ export default function AboutValues() {
 				duration: 0.85,
 				stagger: 0.12,
 				ease: "power3.out",
-				scrollTrigger: { trigger: headingRef.current, start: "top 82%" }
+				scrollTrigger: { trigger: headingRef.current, start: "top 82%" },
 			});
 		}
 
@@ -52,8 +55,8 @@ export default function AboutValues() {
 				duration: 0.82,
 				stagger: 0.12,
 				ease: "power2.out",
-				clearProps: "filter"
-			}
+				clearProps: "filter",
+			},
 		);
 
 		const rail = section.querySelector<HTMLElement>("[data-values-rail]");
@@ -69,8 +72,8 @@ export default function AboutValues() {
 					start: "top 72%",
 					end: "bottom bottom",
 					scrub: true,
-				}
-			}
+				},
+			},
 		);
 	}, []);
 
@@ -79,23 +82,25 @@ export default function AboutValues() {
 			<div className="mx-auto grid max-w-[1600px] gap-12 pad-x md:grid-cols-[minmax(240px,0.9fr)_minmax(0,1.25fr)] md:gap-10 lg:gap-16">
 				<div className="md:sticky md:top-28 md:h-fit">
 					<div ref={headingRef}>
-						<span className="mb-5 inline-block text-[11px] font-semibold tracking-[0.25em] text-orange-500 uppercase">
-							What We Stand For
+						<span className="mb-5 inline-block text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500">
+							{ABOUT_VALUES_SECTION.label}
 						</span>
-						<h2 className="text-[clamp(2.2rem,5vw,4.5rem)] leading-[0.95] font-bold tracking-tighter text-white">
-							Our Values
-							<span className="font-light text-orange-500 italic">.</span>
+						<h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-bold leading-[0.95] tracking-tighter text-white">
+							{ABOUT_VALUES_SECTION.title}
+							<span className="font-light italic text-orange-500">
+								{ABOUT_VALUES_SECTION.titleSuffix}
+							</span>
 						</h2>
 						<p className="mt-6 max-w-sm text-sm leading-relaxed text-white/55 md:text-base">
-							Every principle guides how we design journeys and how we partner with people on the ground.
+							{ABOUT_VALUES_SECTION.description}
 						</p>
 					</div>
 					<div className="mt-8 hidden items-center gap-4 md:flex">
 						<div className="h-24 w-px overflow-hidden rounded-full bg-white/10">
 							<div data-values-rail className="h-full w-full bg-orange-500/80" />
 						</div>
-						<p className="text-[11px] font-semibold tracking-[0.22em] text-white/40 uppercase">
-							Core Principles
+						<p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/40">
+							{ABOUT_VALUES_SECTION.railCaption}
 						</p>
 					</div>
 				</div>

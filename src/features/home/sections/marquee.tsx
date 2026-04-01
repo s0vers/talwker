@@ -1,20 +1,8 @@
 "use client";
 
 import { useRef } from "react";
-import { gsap, useGsapContext } from "@/lib/useGsap";
-
-const WORDS = [
-	"Bali",
-	"Santorini",
-	"Kyoto",
-	"Patagonia",
-	"Maldives",
-	"Amalfi",
-	"Iceland",
-	"Morocco",
-	"Peru",
-	"Norway",
-];
+import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
+import { MARQUEE_WORDS } from "@/features/home/content/section-copy";
 
 export default function Marquee() {
 	const track = useRef<HTMLDivElement>(null);
@@ -22,7 +10,7 @@ export default function Marquee() {
 	useGsapContext(
 		track,
 		() => {
-			if (!track.current) return;
+			if (prefersReducedMotion() || !track.current) return;
 			const el = track.current!;
 			const w = el.scrollWidth / 2;
 			gsap.to(el, {
@@ -35,7 +23,7 @@ export default function Marquee() {
 		[],
 	);
 
-	const items = [...WORDS, ...WORDS];
+	const items = [...MARQUEE_WORDS, ...MARQUEE_WORDS];
 
 	return (
 		<div className="overflow-hidden border-y border-white/6 bg-[#0a0a0a] py-6">

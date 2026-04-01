@@ -1,6 +1,7 @@
 import Link from "next/link";
 import {
 	FOOTER_COLUMNS,
+	FOOTER_COPY,
 	LEGAL_LINKS,
 } from "@/features/home/content/section-copy";
 
@@ -16,8 +17,7 @@ export default function Footer() {
 							</span>
 						</Link>
 						<p className="mt-4 max-w-xs text-sm leading-relaxed text-white/55">
-							Crafting unforgettable journeys since 2010. The best stories
-							begin with a single step into the unknown.
+							{FOOTER_COPY.blurb}
 						</p>
 					</div>
 
@@ -45,7 +45,7 @@ export default function Footer() {
 
 				<div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/6 pt-8 md:flex-row">
 					<p className="text-[12px] text-white/60">
-						&copy; 2026 Talkwer. All rights reserved.
+						&copy; {new Date().getFullYear()} {FOOTER_COPY.copyrightRest}
 					</p>
 					<div className="flex gap-6 text-[12px] text-white/60">
 						{LEGAL_LINKS.map((linkLabel) => (

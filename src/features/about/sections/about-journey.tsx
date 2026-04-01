@@ -2,7 +2,10 @@
 
 import { useRef } from "react";
 import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
-import { ABOUT_JOURNEY } from "@/features/about/content/about-copy";
+import {
+	ABOUT_JOURNEY,
+	ABOUT_JOURNEY_SECTION,
+} from "@/features/about/content/about-copy";
 
 export default function AboutJourney() {
 	const section = useRef<HTMLElement>(null);
@@ -20,7 +23,7 @@ export default function AboutJourney() {
 				duration: 1,
 				stagger: 0.12,
 				ease: "power3.out",
-				scrollTrigger: { trigger: headingRef.current, start: "top 80%" }
+				scrollTrigger: { trigger: headingRef.current, start: "top 80%" },
 			});
 		}
 
@@ -35,9 +38,9 @@ export default function AboutJourney() {
 						trigger: milestonesRef.current,
 						start: "top 70%",
 						end: "bottom 30%",
-						scrub: true
-					}
-				}
+						scrub: true,
+					},
+				},
 			);
 		}
 
@@ -54,8 +57,8 @@ export default function AboutJourney() {
 					scrollTrigger: {
 						trigger: item,
 						start: "top 82%",
-						toggleActions: "play none none none"
-					}
+						toggleActions: "play none none none",
+					},
 				});
 
 				const dot = item.querySelector("[data-dot]");
@@ -67,8 +70,8 @@ export default function AboutJourney() {
 						scrollTrigger: {
 							trigger: item,
 							start: "top 80%",
-							toggleActions: "play none none none"
-						}
+							toggleActions: "play none none none",
+						},
 					});
 				}
 			});
@@ -77,14 +80,16 @@ export default function AboutJourney() {
 
 	return (
 		<section ref={section} className="bg-[#0e0e0e] py-32 md:py-44">
-			<div className="pad-x mx-auto max-w-[1600px]">
+			<div className="mx-auto max-w-[1600px] pad-x">
 				<div ref={headingRef} className="mb-20 text-center md:mb-28">
-					<span className="mb-5 inline-block text-[11px] font-semibold tracking-[0.25em] text-orange-500 uppercase">
-						Our Journey
+					<span className="mb-5 inline-block text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500">
+						{ABOUT_JOURNEY_SECTION.label}
 					</span>
-					<h2 className="text-[clamp(2.2rem,5vw,4.5rem)] leading-[0.95] font-bold tracking-tighter text-white">
-						Milestones that shaped us
-						<span className="font-light text-orange-500 italic">.</span>
+					<h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-bold leading-[0.95] tracking-tighter text-white">
+						{ABOUT_JOURNEY_SECTION.title}
+						<span className="font-light italic text-orange-500">
+							{ABOUT_JOURNEY_SECTION.titleSuffix}
+						</span>
 					</h2>
 				</div>
 

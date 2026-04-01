@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { SKIP_TO_MAIN_LABEL } from "@/features/home/content/section-copy";
 import {
 	About,
 	CTA,
@@ -64,7 +65,7 @@ export default function HomePage() {
 				href="#main-content"
 				className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-70 focus:rounded-md focus:bg-black focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
 			>
-				Skip to main content
+				{SKIP_TO_MAIN_LABEL}
 			</a>
 			{/* Initial loader to avoid double-loading feel and let GSAP settle */}
 			<InitialLoader isLoading={isLoading} />

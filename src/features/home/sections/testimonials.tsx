@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { TESTIMONIALS } from "@/features/home/content/testimonials";
+import { TESTIMONIALS_SECTION } from "@/features/home/content/section-copy";
 import { SectionHeading } from "@/shared/ui";
 
 const CARD_MIN_HEIGHT = "min-h-[380px]";
@@ -30,11 +31,11 @@ export default function Testimonials() {
 			<div className="mx-auto max-w-[1600px] pad-x">
 				<div className="mb-16 text-center md:mb-20">
 					<SectionHeading
-						label="Traveler Stories"
+						label={TESTIMONIALS_SECTION.label}
 						labelId="testimonials-label"
-						title="What Our Travelers Say"
+						title={TESTIMONIALS_SECTION.title}
 						titleId="testimonials-title"
-						description="Real stories from real adventurers who trusted Talkwer to craft their perfect getaway."
+						description={TESTIMONIALS_SECTION.description}
 						descriptionId="testimonials-description"
 						descriptionClassName="mx-auto max-w-2xl"
 					/>

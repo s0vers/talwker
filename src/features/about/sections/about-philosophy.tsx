@@ -61,7 +61,7 @@ export default function AboutPhilosophy() {
 			<div className="relative mx-auto max-w-[1600px] pad-x">
 				<div className="mx-auto max-w-5xl text-center">
 					<span className="mb-10 inline-block text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500">
-						Our Philosophy
+						{ABOUT_PHILOSOPHY.label}
 					</span>
 					<div
 						ref={wordsRef}

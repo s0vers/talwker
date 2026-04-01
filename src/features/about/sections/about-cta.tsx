@@ -27,7 +27,7 @@ export default function AboutCTA() {
 	return (
 		<section
 			ref={section}
-			className="relative border-t border-white/[0.06] bg-[#0a0a0a] py-32 md:py-44"
+			className="relative border-t border-white/6 bg-[#0a0a0a] py-32 md:py-44"
 		>
 			<div
 				className="absolute inset-0 opacity-[0.03]"

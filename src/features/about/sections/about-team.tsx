@@ -3,7 +3,10 @@
 import Image from "next/image";
 import { useRef } from "react";
 import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
-import { ABOUT_TEAM } from "@/features/about/content/about-copy";
+import {
+	ABOUT_TEAM,
+	ABOUT_TEAM_SECTION,
+} from "@/features/about/content/about-copy";
 
 export default function AboutTeam() {
 	const section = useRef<HTMLElement>(null);
@@ -73,15 +76,16 @@ export default function AboutTeam() {
 			<div className="mx-auto max-w-[1600px] pad-x">
 				<div ref={headingRef} className="mb-16 text-center md:mb-20">
 					<span className="mb-5 inline-block text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500">
-						The People Behind It
+						{ABOUT_TEAM_SECTION.label}
 					</span>
 					<h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-bold leading-[0.95] tracking-tighter text-white">
-						Meet the Team
-						<span className="font-light italic text-orange-500">.</span>
+						{ABOUT_TEAM_SECTION.title}
+						<span className="font-light italic text-orange-500">
+							{ABOUT_TEAM_SECTION.titleSuffix}
+						</span>
 					</h2>
 					<p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-white/40 md:text-base">
-						Passionate explorers, storytellers, and connectors — united by a
-						shared love for the extraordinary.
+						{ABOUT_TEAM_SECTION.description}
 					</p>
 				</div>
 

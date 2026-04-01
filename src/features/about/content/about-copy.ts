@@ -38,7 +38,32 @@ export const ABOUT_MAP_MARKERS = [
 ] as const;
 
 export const ABOUT_PHILOSOPHY = {
+	label: "Our Philosophy",
 	line: "We believe the best stories are lived, not told. Every journey we craft is an invitation to lose yourself in a place — and return home more found than ever.",
+} as const;
+
+/** Values section heading (cards remain in ABOUT_VALUES) */
+export const ABOUT_VALUES_SECTION = {
+	label: "What We Stand For",
+	title: "Our Values",
+	titleSuffix: ".",
+	description:
+		"Every principle guides how we design journeys and how we partner with people on the ground.",
+	railCaption: "Core Principles",
+} as const;
+
+export const ABOUT_JOURNEY_SECTION = {
+	label: "Our Journey",
+	title: "Milestones that shaped us",
+	titleSuffix: ".",
+} as const;
+
+export const ABOUT_TEAM_SECTION = {
+	label: "The People Behind It",
+	title: "Meet the Team",
+	titleSuffix: ".",
+	description:
+		"Passionate explorers, storytellers, and connectors — united by a shared love for the extraordinary.",
 } as const;
 
 export const ABOUT_VALUES = [

@@ -1,3 +1,5 @@
+import { LOADER_COPY } from "@/features/home/content/section-copy";
+
 type InitialLoaderProps = {
 	isLoading: boolean;
 };
@@ -21,7 +23,7 @@ const InitialLoader = ({ isLoading }: InitialLoaderProps) => {
 				</div>
 				<div className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-white/40">
 					<span className="h-px w-10 bg-white/10" />
-					<span>Crafting journeys</span>
+					<span>{LOADER_COPY.subline}</span>
 					<span className="h-px w-10 bg-white/10" />
 				</div>
 				<div className="relative h-1 w-40 overflow-hidden rounded-full bg-white/10">

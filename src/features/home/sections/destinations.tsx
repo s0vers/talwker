@@ -3,8 +3,13 @@
 import Image from "next/image";
 import { useRef } from "react";
 import { LuStar, LuClock, LuArrowRight } from "react-icons/lu";
-import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
+import {
+	gsap,
+	prefersReducedMotion,
+	useGsapContext,
+} from "@/lib/useGsap";
 import { DESTINATIONS } from "@/features/home/content/destinations";
+import { DESTINATIONS_SECTION } from "@/features/home/content/section-copy";
 import { SectionCta, SectionHeading } from "@/shared/ui";
 
 export default function Destinations() {
@@ -57,11 +62,11 @@ export default function Destinations() {
 				>
 					<SectionHeading
 						containerClassName="max-w-xl"
-						label="Explore the World"
+						label={DESTINATIONS_SECTION.label}
 						labelId="destinations-label"
-						title="Popular Destinations"
+						title={DESTINATIONS_SECTION.title}
 						titleId="destinations-title"
-						description="Handpicked places our travelers keep coming back to. Scroll to glide through the journeys."
+						description={DESTINATIONS_SECTION.description}
 						descriptionId="destinations-description"
 						labelClassName="mb-3"
 						descriptionClassName="mt-4 text-white/55"
@@ -69,7 +74,7 @@ export default function Destinations() {
 					<div className="hidden shrink-0 flex-col items-end text-right text-[11px] uppercase tracking-[0.22em] text-white/35 md:flex">
 						<span className="text-white/55">0{DESTINATIONS.length}</span>
 						<span className="mt-1 h-px w-10 bg-white/15" />
-						<span className="mt-2">Destinations</span>
+						<span className="mt-2">{DESTINATIONS_SECTION.countSuffix}</span>
 					</div>
 				</div>
 
@@ -123,7 +128,7 @@ export default function Destinations() {
 									<div className="flex items-center justify-between">
 										<div className="text-xs text-white/70">
 											<p className="uppercase tracking-[0.18em] text-white/40">
-												From
+												{DESTINATIONS_SECTION.fromLabel}
 											</p>
 											<p className="mt-1 text-base font-semibold tracking-tight text-orange-500">
 												${dest.price.toLocaleString()}
@@ -131,10 +136,10 @@ export default function Destinations() {
 										</div>
 										<button
 											type="button"
-											aria-label={`Explore ${dest.name}`}
+											aria-label={`${DESTINATIONS_SECTION.exploreButtonLabel} ${dest.name}`}
 											className="inline-flex items-center justify-center rounded-full bg-white px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#050505] shadow-[0_10px_25px_rgba(0,0,0,0.6)]"
 										>
-											Explore
+											{DESTINATIONS_SECTION.exploreButtonLabel}
 										</button>
 									</div>
 								</div>
@@ -145,7 +150,7 @@ export default function Destinations() {
 
 				<div className="mt-12 text-center">
 					<SectionCta icon={<LuArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />}>
-						View All Destinations
+						{DESTINATIONS_SECTION.viewAllCta}
 					</SectionCta>
 				</div>
 			</div>

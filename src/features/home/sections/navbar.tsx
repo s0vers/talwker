@@ -3,7 +3,10 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { LuMenu, LuX } from "react-icons/lu";
-import { NAV_LINKS } from "@/features/home/content/section-copy";
+import {
+	NAVBAR_CTA_LABEL,
+	NAV_LINKS,
+} from "@/features/home/content/section-copy";
 
 export default function Navbar() {
 	const [scrolled, setScrolled] = useState(false);
@@ -59,7 +62,7 @@ export default function Navbar() {
 					href="#contact"
 					className="hidden rounded-full border border-white/15 px-6 py-2 text-[12px] font-semibold uppercase tracking-[0.15em] text-white/60 transition-all duration-300 hover:border-orange-500 hover:text-orange-500 md:inline-flex"
 				>
-					Let&apos;s Talk
+					{NAVBAR_CTA_LABEL}
 				</Link>
 
 				<button

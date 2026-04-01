@@ -8,7 +8,10 @@ import {
 	useCountUp,
 	useGsapContext,
 } from "@/lib/useGsap";
-import { ABOUT_COPY } from "@/features/home/content/section-copy";
+import {
+	ABOUT_COPY,
+	ABOUT_HOME_STATS,
+} from "@/features/home/content/section-copy";
 
 function Stat({ value, suffix, label }: { value: number; suffix: string; label: string }) {
 	const numRef = useCountUp(value, 2);
@@ -90,7 +93,7 @@ export default function About() {
 						>
 							{ABOUT_COPY.titleLead}
 							<br />
-							We craft{" "}
+							{ABOUT_COPY.titleLine2Prefix}{" "}
 							<span className="font-light italic text-orange-500">
 								{ABOUT_COPY.titleAccent}
 							</span>
@@ -99,9 +102,14 @@ export default function About() {
 							{ABOUT_COPY.description}
 						</p>
 						<div className="mt-14 grid grid-cols-3 gap-6">
-							<Stat value={500} suffix="+" label="Destinations" />
-							<Stat value={12} suffix="yr" label="Experience" />
-							<Stat value={50} suffix="K" label="Travelers" />
+							{ABOUT_HOME_STATS.map((stat) => (
+								<Stat
+									key={stat.label}
+									value={stat.value}
+									suffix={stat.suffix}
+									label={stat.label}
+								/>
+							))}
 						</div>
 					</div>
 
