@@ -64,6 +64,10 @@ export const metadata: Metadata = createPageMetadata({
 - Index/follow defaults to `true` and should only be disabled deliberately.
 - Canonical, Open Graph URL, and Twitter image should all derive from the same canonical/source path.
 
+## Dynamic routes (`searchParams`)
+
+For pages that depend on the query string (e.g. `/destinations?q=…&tag=luxury`), keep `src/app/.../page.tsx` as a **Server Component** that awaits `searchParams`, computes props, and passes them into a client feature shell. Do not duplicate metadata per query variant unless product requires it; one canonical metadata object for the route is the default.
+
 ## JSON-LD baseline
 
 Layout includes:

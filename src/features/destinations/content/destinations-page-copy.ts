@@ -28,4 +28,39 @@ export const DESTINATIONS_GRID = {
 	paginationPage: "Page",
 	paginationOf: "of",
 	paginationGoToPage: "Go to page",
+	searchPlaceholder: "Search by place, country, or vibe…",
+	/** Visible field label (matches filter column heading for alignment). */
+	searchFieldLabel: "Search",
+	filterLabel: "Filter",
+	filterAll: "All destinations",
+	filterTagPopular: "Popular",
+	filterTagTrending: "Trending",
+	filterTagNew: "New",
+	filterTagLuxury: "Luxury",
+	filterUnder2000: "Under $2,000",
+	searchButton: "Search",
+	clearFilters: "Clear filters",
+	quickSearchesLabel: "Popular searches",
+	noResults: "No destinations match that search. Try another keyword or filter.",
+} as const;
+
+/** Preset chips: apply search and/or filter in one tap. */
+export const DESTINATIONS_GRID_QUICK_SEARCHES = [
+	{ id: "bali", label: "Bali", query: "bali" },
+	{ id: "japan", label: "Japan", query: "japan" },
+	{ id: "italy", label: "Italy", query: "italy" },
+	{ id: "luxury", label: "Luxury", tag: "Luxury" as const },
+	{ id: "under2k", label: "Under $2k", maxPrice: 2000 },
+] as const;
+
+export const DESTINATIONS_CTA_COPY = {
+	label: "Beyond the map",
+	titleLead: "Ready for",
+	titleAccent: "the full trip?",
+	description:
+		"Pair a place with a hand-built itinerary or see how travelers experienced it on the ground.",
+	primaryAction: "Browse tours",
+	primaryHref: "/tours",
+	secondaryAction: "Read stories",
+	secondaryHref: "/stories",
 } as const;

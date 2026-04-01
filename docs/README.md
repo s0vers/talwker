@@ -25,7 +25,8 @@ Talkwer is a static Next.js 16 travel showcase with a feature-first architecture
 - Keep design and animation behavior unchanged unless explicitly requested.
 - Keep feature files in kebab-case under `src/features/*`.
 - Keep reusable app-level UI primitives in `src/shared/ui`.
-- Keep static feature content centralized in `src/features/home/content`.
+- **Content split:** shared catalog-style data the whole app uses (e.g. destination records) may live under `src/features/home/content/`. Page-specific copy and constants live under `src/features/<feature>/content/` (see `about/content`, `destinations/content`).
+- **Routes:** `src/app/<segment>/page.tsx` stays thin — import the feature entry from `src/features/<feature>/` and pass data only.
 
 ## Extended docs
 

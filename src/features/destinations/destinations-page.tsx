@@ -3,9 +3,20 @@
 import { useEffect, useState } from "react";
 import { Navbar, Footer, InitialLoader } from "@/features/home/sections";
 import { SKIP_TO_MAIN_LABEL } from "@/features/home/content/section-copy";
-import { DestinationsGrid, DestinationsHero } from "@/features/destinations/sections";
+import { DestinationsCTA, DestinationsGrid, DestinationsHero } from "@/features/destinations/sections";
+import type {
+	DestinationsGridComputed,
+	DestinationsListParsed,
+	DestinationsQuickLink,
+} from "@/features/destinations/lib/destinations-list-params";
 
-export default function DestinationsPage() {
+export type DestinationsPageProps = {
+	list: DestinationsListParsed;
+	grid: DestinationsGridComputed;
+	quickLinks: DestinationsQuickLink[];
+};
+
+export default function DestinationsPage({ list, grid, quickLinks }: DestinationsPageProps) {
 	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
@@ -59,7 +70,8 @@ export default function DestinationsPage() {
 			<Navbar />
 			<main id="main-content">
 				<DestinationsHero />
-				<DestinationsGrid />
+				<DestinationsGrid list={list} grid={grid} quickLinks={quickLinks} />
+				<DestinationsCTA />
 			</main>
 			<Footer />
 		</div>

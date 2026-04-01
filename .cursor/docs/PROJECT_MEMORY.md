@@ -31,7 +31,7 @@ Load broad docs only when necessary.
 
 - Keep Talkwer design unchanged unless explicitly requested.
 - Prefer focused reuse over generic abstractions.
-- Keep feature content data centralized and typed.
-- Keep feature file names kebab-case.
+- Keep feature content typed: shared catalogs in `src/features/home/content/` when reused; page-only copy in `src/features/<feature>/content/`.
+- Keep feature file names kebab-case; optional `lib/` under a feature for URL/pure logic (see `destinations/lib`).
 - Run `pnpm verify` before finalizing refactors.
 

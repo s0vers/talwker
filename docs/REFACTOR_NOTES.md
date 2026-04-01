@@ -55,6 +55,13 @@
 - Intentionally removed test/Playwright setup for a simpler frontend showcase
   handoff.
 
+## Destinations index (`/destinations`)
+
+- Feature module under `src/features/destinations/` with `destinations-page.tsx`, hero/grid sections, `content/destinations-page-copy.ts`, and `lib/` for list URL parsing, pagination math, and client scroll alignment.
+- Destination **records** stay in `src/features/home/content/destinations.ts` (shared with the home section); the dedicated page adds search/filter UI only.
+- List URLs use `q`, `tag`, `maxPrice`, `page` (legacy `filter=` still parsed). Fragment `#destinations-results` targets the card grid; client navigations use `router.push` / `<Link scroll={false}>` to avoid scroll-to-top.
+- Toolbar select uses **Base UI** (`@base-ui/react/select`) via `src/components/ui/select.tsx` with `modal={false}` to avoid body scroll-lock layout shift.
+
 ## Verification completed
 
 - `pnpm lint` passed.

@@ -174,16 +174,26 @@
   * {
     @apply border-border;
   }
-  body {
-    @apply bg-background text-foreground antialiased;
-    font-feature-settings: "rlig" 1, "calt" 1;
-    overflow-x: hidden;
-  }
+  /*
+    Match the in-app shell (`bg-[#050505]`) on the canvas. Modal overlays that lock
+    body scroll (e.g. some Radix primitives) add padding for the scrollbar; if
+    html/body used the light `--background` token, that strip read as a white bar.
+    `scrollbar-gutter: stable` reserves the gutter. Our Select uses Base UI with
+    `modal={false}` so the page does not scroll-lock when the list opens.
+  */
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    scrollbar-gutter: stable;
+    background-color: #050505;
+  }
+  body {
+    @apply text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    overflow-x: hidden;
+    background-color: #050505;
   }
   ::selection {
     @apply bg-orange-500 text-white;

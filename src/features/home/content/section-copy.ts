@@ -96,9 +96,9 @@ export const CTA_COPY = {
 
 export const NAV_LINKS = [
 	{ href: "/destinations", label: "Destinations" },
-	{ href: "#tours", label: "Tours" },
+	{ href: "/tours", label: "Tours" },
 	{ href: "/about", label: "About" },
-	{ href: "#testimonials", label: "Stories" },
+	{ href: "/stories", label: "Stories" },
 ] as const;
 
 export const FOOTER_COLUMNS = {

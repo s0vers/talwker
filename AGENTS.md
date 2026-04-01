@@ -21,7 +21,7 @@ This is a **Next.js 16 static blog/magazine site** ("Talkwer") with no backend, 
 
 CI runs `pnpm verify` via `.github/workflows/verify.yml`.
 
-See `docs/README.md` for more details.
+See `docs/README.md` and `docs/INDEX.md` for structure, content split, and the new-route checklist.
 
 ### Notes
 
@@ -30,6 +30,7 @@ See `docs/README.md` for more details.
 - The lockfile was generated with an older pnpm version. `pnpm install` regenerates it automatically; this is expected and harmless.
 - No environment variables or secrets are required.
 - **Styling:** Tailwind CSS **v4** with `@tailwindcss/postcss`. Design tokens, `@plugin "tailwindcss-animate"`, class-based `dark` variant, and shadcn-style colors live in `src/app/globals.css` (`@import`, `@theme`, `@layer`). There is no `tailwind.config.ts`.
+- **Features:** Page modules live under `src/features/<name>/` (entry `*-page.tsx`, `sections/`, optional `content/` and `lib/`). App routes under `src/app/<segment>/page.tsx` should stay thin and import feature entries.
 
 ### Dev server CSS caveat
 

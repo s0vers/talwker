@@ -8,7 +8,7 @@ alwaysApply: false
 
 ## Folder intent
 
-- `src/features/*`: feature-level composition and feature-owned content data.
+- `src/features/*`: feature-level composition. Use `src/features/<name>/content/` for page-specific copy; `src/features/<name>/lib/` for feature-local hooks and pure helpers. Shared catalog data used on multiple routes may live in `src/features/home/content/`.
 - `src/shared/*`: reusable primitives, shared domain types, and reusable helpers.
 - `src/components/ui/*`: shadcn primitives and low-level UI building blocks.
 

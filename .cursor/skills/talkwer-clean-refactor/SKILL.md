@@ -19,11 +19,11 @@ Use when asked to improve code quality, modularity, or reuse without redesign.
 ## Checklist
 
 1. Confirm no-design-change constraint.
-2. Extract duplicate types/content into shared modules.
+2. Extract duplicate types/content into shared modules (feature `lib/` or `shared/` per `talkwer-architecture.mdc`).
 3. Extract stable repeated UI patterns into small primitives.
 4. Keep bespoke sections custom.
-5. Validate imports follow feature/shared boundaries.
-6. Run lint, typecheck, and build.
+5. Validate imports follow feature/shared boundaries (`@/shared/*` never imports `@/features/*`).
+6. Run `pnpm verify` (or at minimum lint, typecheck, and build).
 
 ## Output format
 

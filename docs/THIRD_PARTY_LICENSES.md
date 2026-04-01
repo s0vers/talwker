@@ -34,6 +34,14 @@ Copyright and permission notices for Magic UI apply to the corresponding source 
 
 Used by `src/components/ui/dotted-map.tsx` via `createMap` / `addMarkers` for projected land dots and marker positions.
 
+## Base UI (MIT)
+
+**Package:** `@base-ui/react` (see `package.json`)  
+**Project:** [MUI Base UI](https://github.com/mui/base-ui)  
+**License:** MIT — see `node_modules/@base-ui/react/LICENSE` after install  
+
+Used by `src/components/ui/select.tsx` (headless Select composition) for the destinations toolbar and any other consumers of that primitive.
+
 ## Full dependency license texts
 
 Install dependencies (`pnpm install`), then inspect `node_modules/<package>/LICENSE` (or `LICENSE.md`) for each package. For SPDX metadata, many packages also declare `"license"` in their `package.json`.

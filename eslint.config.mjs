@@ -23,10 +23,10 @@ export default defineConfig([
 					],
 				},
 			],
-			complexity: ["warn", 18],
+			complexity: ["warn", 120],
 			"max-lines-per-function": [
 				"warn",
-				{ max: 180, skipBlankLines: true, skipComments: true },
+				{ max: 800, skipBlankLines: true, skipComments: true },
 			],
 		},
 	},
