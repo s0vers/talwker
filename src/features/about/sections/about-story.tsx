@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useRef } from "react";
 import {
 	gsap,
@@ -8,10 +7,10 @@ import {
 	useGsapContext,
 	useCountUp,
 } from "@/lib/useGsap";
-import {
-	ABOUT_STORY_COPY,
-	ABOUT_STATS,
-} from "@/features/about/content/about-copy";
+import { ABOUT_STORY_COPY, ABOUT_STATS } from "@/features/about/content/about-copy";
+import { Highlighter } from "@/components/ui/highlighter";
+
+const HIGHLIGHT_ORANGE = "hsl(25 95% 53% / 0.38)";
 
 function StatItem({
 	value,
@@ -24,19 +23,23 @@ function StatItem({
 }) {
 	const numRef = useCountUp(value, 2);
 	return (
-		<div className="border-l border-white/10 pl-6">
-			<div className="flex items-baseline gap-1">
+		<div className="flex flex-col items-center justify-center px-2 text-center sm:px-3 md:px-4">
+			<div className="flex items-baseline justify-center gap-0.5 tabular-nums">
 				<span
 					ref={numRef}
 					className="text-3xl font-bold text-white md:text-4xl lg:text-5xl"
 				>
 					0
 				</span>
-				<span className="text-xl font-bold text-orange-500 md:text-2xl">
-					{suffix}
-				</span>
+				{suffix ? (
+					<span className="text-xl font-bold text-orange-500 md:text-2xl">
+						{suffix}
+					</span>
+				) : null}
 			</div>
-			<p className="mt-1 text-[13px] text-white/30">{label}</p>
+			<p className="mt-1.5 max-w-52 text-[13px] leading-snug text-white/40">
+				{label}
+			</p>
 		</div>
 	);
 }
@@ -44,7 +47,6 @@ function StatItem({
 export default function AboutStory() {
 	const section = useRef<HTMLElement>(null);
 	const textRef = useRef<HTMLDivElement>(null);
-	const imgRef = useRef<HTMLDivElement>(null);
 	const statsRef = useRef<HTMLDivElement>(null);
 
 	useGsapContext(
@@ -63,29 +65,6 @@ export default function AboutStory() {
 				});
 			}
 
-			if (imgRef.current) {
-				gsap.from(imgRef.current, {
-					clipPath: "inset(0 100% 0 0)",
-					duration: 1.6,
-					ease: "power4.inOut",
-					scrollTrigger: { trigger: imgRef.current, start: "top 75%" },
-				});
-
-				const img = imgRef.current.querySelector("img");
-				if (img) {
-					gsap.to(img, {
-						yPercent: -15,
-						ease: "none",
-						scrollTrigger: {
-							trigger: section.current,
-							start: "top bottom",
-							end: "bottom top",
-							scrub: true,
-						},
-					});
-				}
-			}
-
 			if (statsRef.current?.children.length) {
 				gsap.from(statsRef.current.children, {
 					y: 40,
@@ -101,62 +80,74 @@ export default function AboutStory() {
 	);
 
 	return (
-		<section ref={section} className="bg-[#0e0e0e] py-32 md:py-44">
+		<section ref={section} className="bg-[#0e0e0e] py-36 md:py-48">
 			<div className="mx-auto max-w-[1600px] pad-x">
-				<div className="grid items-start gap-16 lg:grid-cols-2 lg:gap-24">
-					<div ref={textRef}>
-						<span className="mb-5 inline-block text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500">
-							{ABOUT_STORY_COPY.label}
+				<div className="mx-auto w-full max-w-4xl">
+					<div ref={textRef} className="text-center">
+					<span className="mb-8 inline-block text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500 md:mb-10">
+						{ABOUT_STORY_COPY.label}
+					</span>
+					<h2 className="text-balance text-[clamp(2.2rem,5vw,4.5rem)] font-bold leading-[0.95] tracking-tighter text-white">
+						{ABOUT_STORY_COPY.titleLead}
+						<br />
+						<span className="font-light italic text-orange-500">
+							{ABOUT_STORY_COPY.titleAccent}
 						</span>
-						<h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-bold leading-[0.95] tracking-tighter text-white">
-							{ABOUT_STORY_COPY.titleLead}
-							<br />
-							<span className="font-light italic text-orange-500">
-								{ABOUT_STORY_COPY.titleAccent}
-							</span>
-						</h2>
-						{ABOUT_STORY_COPY.paragraphs.map((p, i) => (
-							<p
-								key={i}
-								className="mt-6 max-w-lg text-sm leading-relaxed text-white/40 md:text-base"
-							>
-								{p}
-							</p>
-						))}
+					</h2>
+					<p className="mt-10 text-pretty text-sm leading-relaxed text-white/40 md:mt-12 md:text-base">
+						In 2010, a small group of friends — tired of cookie‑cutter package
+						holidays — set out to prove that travel could be{" "}
+						<Highlighter
+							isView
+							action="highlight"
+							color={HIGHLIGHT_ORANGE}
+							multiline
+						>
+							more personal, more meaningful, more alive
+						</Highlighter>
+						.
+					</p>
+					<p className="mt-8 text-pretty text-sm leading-relaxed text-white/40 md:text-base">
+						What started as a shared spreadsheet of hidden gems quickly grew into
+						Talkwer: a platform where{" "}
+						<Highlighter
+							isView
+							action="underline"
+							color={HIGHLIGHT_ORANGE}
+							multiline
+						>
+							every itinerary is a story
+						</Highlighter>
+						, every destination a chapter waiting to be written.
+					</p>
+					<p className="mt-8 text-pretty text-sm leading-relaxed text-white/40 md:text-base">
+						Today, we partner with local guides, boutique stays, and cultural
+						ambassadors across{" "}
+						<Highlighter
+							isView
+							action="highlight"
+							color={HIGHLIGHT_ORANGE}
+							multiline
+						>
+							six continents
+						</Highlighter>{" "}
+						to craft journeys that leave travelers changed — not just tanned.
+					</p>
 					</div>
 
 					<div
-						ref={imgRef}
-						className="relative overflow-hidden rounded-3xl"
-						style={{ clipPath: "inset(0 0% 0 0)" }}
+						ref={statsRef}
+						className="mt-24 grid grid-cols-2 gap-y-10 gap-x-4 md:mt-32 md:grid-cols-4 md:gap-y-0 md:divide-x md:divide-white/10"
 					>
-						<div className="relative h-[500px] overflow-hidden lg:h-[700px]">
-							<Image
-								src="/image.jpg"
-								alt={ABOUT_STORY_COPY.imageAlt}
-								fill
-								sizes="(max-width: 1024px) 100vw, 50vw"
-								className="object-cover"
-								loading="lazy"
-								fetchPriority="low"
+						{ABOUT_STATS.map((stat) => (
+							<StatItem
+								key={stat.label}
+								value={stat.value}
+								suffix={stat.suffix}
+								label={stat.label}
 							/>
-						</div>
-						<div className="absolute inset-0 bg-linear-to-t from-[#0e0e0e]/60 via-transparent to-transparent" />
+						))}
 					</div>
-				</div>
-
-				<div
-					ref={statsRef}
-					className="mt-20 grid grid-cols-2 gap-8 md:mt-28 md:grid-cols-4"
-				>
-					{ABOUT_STATS.map((stat) => (
-						<StatItem
-							key={stat.label}
-							value={stat.value}
-							suffix={stat.suffix}
-							label={stat.label}
-						/>
-					))}
 				</div>
 			</div>
 		</section>

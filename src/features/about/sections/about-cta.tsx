@@ -27,7 +27,7 @@ export default function AboutCTA() {
 	return (
 		<section
 			ref={section}
-			className="relative bg-[#0a0a0a] py-32 md:py-44"
+			className="relative border-t border-white/[0.06] bg-[#0a0a0a] py-32 md:py-44"
 		>
 			<div
 				className="absolute inset-0 opacity-[0.03]"
@@ -36,6 +36,10 @@ export default function AboutCTA() {
 						"radial-gradient(circle, #fff 1px, transparent 1px)",
 					backgroundSize: "30px 30px",
 				}}
+			/>
+			<div
+				className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-orange-500/25 to-transparent"
+				aria-hidden
 			/>
 
 			<div

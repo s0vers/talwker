@@ -12,7 +12,6 @@ export type AboutHeroGsapRefs = {
 	headAccent2: RefObject<HTMLDivElement | null>;
 	stripRef: RefObject<HTMLDivElement | null>;
 	descRef: RefObject<HTMLParagraphElement | null>;
-	statsRef: RefObject<HTMLDivElement | null>;
 	scrollCue: RefObject<HTMLDivElement | null>;
 };
 
@@ -26,7 +25,6 @@ export function useAboutHeroGsap(refs: AboutHeroGsapRefs) {
 		headAccent2,
 		stripRef,
 		descRef,
-		statsRef,
 		scrollCue,
 	} = refs;
 
@@ -80,14 +78,6 @@ export function useAboutHeroGsap(refs: AboutHeroGsapRefs) {
 					{ y: 30, opacity: 0, duration: 0.9 },
 					"-=0.5",
 				);
-
-			if (statsRef.current?.children.length) {
-				tl.from(
-					statsRef.current.children,
-					{ y: 30, opacity: 0, stagger: 0.1, duration: 0.7 },
-					"-=0.5",
-				);
-			}
 
 			tl.from(
 				scrollCue.current,

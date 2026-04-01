@@ -1,10 +1,38 @@
 "use client"
 
-import { useLayoutEffect, useRef } from "react"
+import { useLayoutEffect, useRef, useState } from "react"
 import type React from "react"
 import { useInView } from "motion/react"
 import { annotate } from "rough-notation"
 import { type RoughAnnotation } from "rough-notation/lib/model"
+
+const HIGHLIGHTER_ALPHA = 0.35
+
+function readThemeHighlighterColor(): string {
+  if (typeof document === "undefined") {
+    return `hsl(199 89% 48% / ${HIGHLIGHTER_ALPHA})`
+  }
+  const hsl = getComputedStyle(document.documentElement)
+    .getPropertyValue("--highlighter")
+    .trim()
+  if (!hsl) return `hsl(199 89% 48% / ${HIGHLIGHTER_ALPHA})`
+  return `hsl(${hsl} / ${HIGHLIGHTER_ALPHA})`
+}
+
+function useThemeHighlighterColor(): string {
+  const [value, setValue] = useState(() => readThemeHighlighterColor())
+
+  useLayoutEffect(() => {
+    const update = () => setValue(readThemeHighlighterColor())
+    update()
+    const el = document.documentElement
+    const observer = new MutationObserver(update)
+    observer.observe(el, { attributes: true, attributeFilter: ["class"] })
+    return () => observer.disconnect()
+  }, [])
+
+  return value
+}
 
 type AnnotationAction =
   | "highlight"
@@ -30,7 +58,7 @@ interface HighlighterProps {
 export function Highlighter({
   children,
   action = "highlight",
-  color = "#ffd1dc",
+  color,
   strokeWidth = 1.5,
   animationDuration = 600,
   iterations = 2,
@@ -39,6 +67,8 @@ export function Highlighter({
   isView = false,
 }: HighlighterProps) {
   const elementRef = useRef<HTMLSpanElement>(null)
+  const themeColor = useThemeHighlighterColor()
+  const resolvedColor = color ?? themeColor
 
   const isInView = useInView(elementRef, {
     once: true,
@@ -56,7 +86,7 @@ export function Highlighter({
     if (shouldShow && element) {
       const annotationConfig = {
         type: action,
-        color,
+        color: resolvedColor,
         strokeWidth,
         animationDuration,
         iterations,
@@ -86,7 +116,7 @@ export function Highlighter({
   }, [
     shouldShow,
     action,
-    color,
+    resolvedColor,
     strokeWidth,
     animationDuration,
     iterations,

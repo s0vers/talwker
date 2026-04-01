@@ -14,7 +14,6 @@ export default function AboutHero() {
 	const headAccent2 = useRef<HTMLDivElement>(null);
 	const stripRef = useRef<HTMLDivElement>(null);
 	const descRef = useRef<HTMLParagraphElement>(null);
-	const statsRef = useRef<HTMLDivElement>(null);
 	const scrollCue = useRef<HTMLDivElement>(null);
 
 	useAboutHeroGsap({
@@ -26,7 +25,6 @@ export default function AboutHero() {
 		headAccent2,
 		stripRef,
 		descRef,
-		statsRef,
 		scrollCue,
 	});
 
@@ -103,33 +101,12 @@ export default function AboutHero() {
 						<div className="absolute inset-0 bg-linear-to-r from-[#050505]/60 via-transparent to-[#050505]/60" />
 					</div>
 
-					<div className="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
-						<p
-							ref={descRef}
-							className="max-w-lg text-sm leading-relaxed text-white/40 md:text-base"
-						>
-							{ABOUT_HERO_COPY.description}
-						</p>
-
-						<div ref={statsRef} className="flex gap-10 md:gap-14">
-							<div className="border-l border-white/10 pl-5">
-								<p className="text-2xl font-bold text-white md:text-3xl">
-									{ABOUT_HERO_COPY.stat1.value}
-								</p>
-								<p className="mt-1 text-[11px] uppercase tracking-[0.2em] text-white/30">
-									{ABOUT_HERO_COPY.stat1.label}
-								</p>
-							</div>
-							<div className="border-l border-white/10 pl-5">
-								<p className="text-2xl font-bold text-white md:text-3xl">
-									{ABOUT_HERO_COPY.stat2.value}
-								</p>
-								<p className="mt-1 text-[11px] uppercase tracking-[0.2em] text-white/30">
-									{ABOUT_HERO_COPY.stat2.label}
-								</p>
-							</div>
-						</div>
-					</div>
+					<p
+						ref={descRef}
+						className="max-w-2xl text-sm leading-relaxed text-white/40 md:text-base"
+					>
+						{ABOUT_HERO_COPY.description}
+					</p>
 
 					<div
 						ref={scrollCue}

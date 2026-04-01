@@ -25,6 +25,7 @@ export interface DottedMapProps<
   markers?: M[]
   dotColor?: string
   markerColor?: string
+  /** Radius in SVG viewBox units; omit to scale with `width` (tuned for the default 150×75 map). */
   dotRadius?: number
   stagger?: boolean
   pulse?: boolean
@@ -45,7 +46,7 @@ export function DottedMap<M extends Marker = Marker>({
   markers = [],
   dotColor = "currentColor",
   markerColor = "#FF6900",
-  dotRadius = 0.2,
+  dotRadius: dotRadiusProp,
   stagger = true,
   pulse = false,
   renderMarkerOverlay,
@@ -53,6 +54,8 @@ export function DottedMap<M extends Marker = Marker>({
   style,
   ...svgProps
 }: DottedMapProps<M>) {
+  const dotRadius = dotRadiusProp ?? (0.2 * width) / 150
+
   const { points, addMarkers } = createMap({
     width,
     height,

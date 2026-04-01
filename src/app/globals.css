@@ -32,6 +32,9 @@
     --input: 214 32% 91%;
     --ring: 199 89% 48%;
 
+    /* Rough-notation / marker highlights — primary hue, readable on light bg */
+    --highlighter: 199 89% 48%;
+
     --radius: 0.75rem;
   }
 
@@ -63,6 +66,8 @@
     --border: 215 25% 17%;
     --input: 215 25% 17%;
     --ring: 199 89% 48%;
+
+    --highlighter: 199 75% 58%;
   }
 }
 

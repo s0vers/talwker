@@ -5,11 +5,12 @@ import { Navbar, Footer, InitialLoader } from "@/features/home/sections";
 import {
 	AboutHero,
 	AboutStory,
+	AboutGlobalReach,
 	AboutPhilosophy,
 	AboutValues,
 	AboutJourney,
 	AboutTeam,
-	AboutCTA
+	AboutCTA,
 } from "@/features/about/sections";
 
 export default function AboutPage() {
@@ -67,6 +68,7 @@ export default function AboutPage() {
 			<main id="main-content">
 				<AboutHero />
 				<AboutStory />
+				<AboutGlobalReach />
 				<AboutPhilosophy />
 				<AboutValues />
 				<AboutJourney />

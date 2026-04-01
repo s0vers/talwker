@@ -6,8 +6,6 @@ export const ABOUT_HERO_COPY = {
 	headlineAccent2: "storytellers",
 	description:
 		"Born from a restless love of the unknown, Talkwer connects curious souls with the world's most extraordinary corners.",
-	stat1: { value: "500+", label: "Destinations" },
-	stat2: { value: "15yr", label: "Of Exploration" },
 } as const;
 
 export const ABOUT_STORY_COPY = {
@@ -21,6 +19,23 @@ export const ABOUT_STORY_COPY = {
 	],
 	imageAlt: "Talkwer team exploring a coastal trail at sunrise",
 } as const;
+
+export const ABOUT_GLOBAL_REACH_COPY = {
+	label: "Where We Meet You",
+	titleLead: "A network that spans",
+	titleAccent: "the globe.",
+	description:
+		"From neighbourhood guides to remote trailheads, our partners anchor every journey in real places — so you always land somewhere that matters.",
+} as const;
+
+/** Cities shown on the dotted map (lat, lng) */
+export const ABOUT_MAP_MARKERS = [
+	{ lat: 40.7128, lng: -74.006, label: "New York" },
+	{ lat: 51.5074, lng: -0.1278, label: "London" },
+	{ lat: 35.6762, lng: 139.6503, label: "Tokyo" },
+	{ lat: -33.8688, lng: 151.2093, label: "Sydney" },
+	{ lat: -23.5505, lng: -46.6333, label: "São Paulo" },
+] as const;
 
 export const ABOUT_PHILOSOPHY = {
 	line: "We believe the best stories are lived, not told. Every journey we craft is an invitation to lose yourself in a place — and return home more found than ever.",
