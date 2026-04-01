@@ -1,10 +1,39 @@
 "use client";
 
+import { useRef } from "react";
 import { DESTINATIONS_PAGE_HERO } from "@/features/destinations/content/destinations-page-copy";
+import { useDestinationsHeroEntrance } from "./destinations-hero-gsap";
 
 export default function DestinationsHero() {
+	const sectionRef = useRef<HTMLElement>(null);
+	const svgRef = useRef<SVGSVGElement>(null);
+	const railRef = useRef<HTMLDivElement>(null);
+	const kickerLineRef = useRef<HTMLSpanElement>(null);
+	const kickerRef = useRef<HTMLParagraphElement>(null);
+	const title1Ref = useRef<HTMLSpanElement>(null);
+	const title2Ref = useRef<HTMLSpanElement>(null);
+	const descRef = useRef<HTMLParagraphElement>(null);
+	const scrollCueRef = useRef<HTMLDivElement>(null);
+	const passRef = useRef<HTMLDivElement>(null);
+	const coordsRef = useRef<HTMLUListElement>(null);
+
+	useDestinationsHeroEntrance({
+		section: sectionRef,
+		svgRef,
+		railRef,
+		kickerLineRef,
+		kickerRef,
+		title1Ref,
+		title2Ref,
+		descRef,
+		scrollCueRef,
+		passRef,
+		coordsRef,
+	});
+
 	return (
 		<section
+			ref={sectionRef}
 			aria-labelledby="destinations-hero-title"
 			className="relative min-h-[min(92vh,880px)] overflow-hidden bg-[#050505] text-white"
 		>
@@ -45,6 +74,7 @@ export default function DestinationsHero() {
 			/>
 
 			<svg
+				ref={svgRef}
 				className="pointer-events-none absolute -right-[12%] top-1/2 hidden h-[min(90vw,520px)] w-[min(90vw,520px)] -translate-y-1/2 text-white/10 lg:block"
 				viewBox="0 0 200 200"
 				aria-hidden
@@ -92,6 +122,7 @@ export default function DestinationsHero() {
 				<div className="grid items-end gap-14 lg:grid-cols-12 lg:gap-10">
 					<div className="relative lg:col-span-7">
 						<div
+							ref={railRef}
 							className="absolute -left-2 top-0 hidden h-full max-h-[320px] text-[10px] font-medium uppercase tracking-[0.35em] text-white/35 md:block"
 							style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
 							aria-hidden
@@ -100,8 +131,15 @@ export default function DestinationsHero() {
 						</div>
 
 						<div className="md:pl-10">
-							<p className="mb-8 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500">
-								<span className="h-px w-8 bg-orange-500/50" aria-hidden />
+							<p
+								ref={kickerRef}
+								className="mb-8 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500"
+							>
+								<span
+									ref={kickerLineRef}
+									className="inline-block h-px w-8 origin-left bg-orange-500/50"
+									aria-hidden
+								/>
 								{DESTINATIONS_PAGE_HERO.kicker}
 							</p>
 
@@ -109,19 +147,28 @@ export default function DestinationsHero() {
 								id="destinations-hero-title"
 								className="m-0 max-w-[18ch] text-left font-normal text-[clamp(2.75rem,8.5vw,5.75rem)] leading-[0.92] tracking-tight"
 							>
-								<span className="block font-semibold text-white">
+								<span ref={title1Ref} className="block font-semibold text-white">
 									{DESTINATIONS_PAGE_HERO.titleLine1}
 								</span>
-								<span className="mt-1 block font-light italic text-orange-500">
+								<span
+									ref={title2Ref}
+									className="mt-1 block font-light italic text-orange-500"
+								>
 									{DESTINATIONS_PAGE_HERO.titleAccent}
 								</span>
 							</h1>
 
-							<p className="mt-10 max-w-md text-sm leading-relaxed text-white/55 md:text-base md:leading-relaxed">
+							<p
+								ref={descRef}
+								className="mt-10 max-w-md text-sm leading-relaxed text-white/55 md:text-base md:leading-relaxed"
+							>
 								{DESTINATIONS_PAGE_HERO.description}
 							</p>
 
-							<div className="mt-14 flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.2em] text-white/25">
+							<div
+								ref={scrollCueRef}
+								className="mt-14 flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.2em] text-white/25"
+							>
 								<span
 									className="h-12 w-px bg-linear-to-b from-orange-500/50 to-transparent"
 									aria-hidden
@@ -132,7 +179,10 @@ export default function DestinationsHero() {
 					</div>
 
 					<div className="lg:col-span-5">
-						<div className="relative border border-dashed border-white/10 bg-[#0a0a0a]/90 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-md md:p-8">
+						<div
+							ref={passRef}
+							className="relative border border-dashed border-white/10 bg-[#0a0a0a]/90 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-md md:p-8"
+						>
 							<div
 								className="absolute -right-px -top-px h-8 w-8 border-r border-t border-orange-500/40"
 								aria-hidden
@@ -152,7 +202,10 @@ export default function DestinationsHero() {
 								{DESTINATIONS_PAGE_HERO.passMeta}
 							</p>
 
-							<ul className="mt-8 space-y-4 border-t border-white/6 pt-8">
+							<ul
+								ref={coordsRef}
+								className="mt-8 space-y-4 border-t border-white/6 pt-8"
+							>
 								{DESTINATIONS_PAGE_HERO.coordinates.map((row) => (
 									<li
 										key={row.place}
