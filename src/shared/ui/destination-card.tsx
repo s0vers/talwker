@@ -11,32 +11,46 @@ export type DestinationCardProps = {
 	fromLabel?: string;
 	/** Primary action label on the card. */
 	exploreButtonLabel?: string;
+	/**
+	 * `carousel` — horizontal track with min-widths (home section).
+	 * `grid` — full width of cell, no min-width (responsive grid).
+	 */
+	layout?: "carousel" | "grid";
 	className?: string;
 };
 
 const DEFAULT_FROM = "From";
 const DEFAULT_EXPLORE = "Explore";
 
+const carouselShell =
+	"relative isolate h-[460px] min-w-[80vw] cursor-pointer overflow-hidden rounded-[1.9rem] border border-white/10 bg-[#050505] shadow-[0_20px_60px_rgba(0,0,0,0.9)] sm:min-w-[65vw] md:h-[500px] lg:min-w-[380px] xl:min-w-[400px]";
+const gridShell =
+	"relative isolate h-[460px] w-full min-w-0 cursor-pointer overflow-hidden rounded-[1.9rem] border border-white/10 bg-[#050505] shadow-[0_20px_60px_rgba(0,0,0,0.9)] md:h-[500px]";
+
 export function DestinationCard({
 	destination: dest,
 	fromLabel = DEFAULT_FROM,
 	exploreButtonLabel = DEFAULT_EXPLORE,
+	layout = "carousel",
 	className,
 }: DestinationCardProps) {
+	const imageSizes =
+		layout === "grid"
+			? "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
+			: "(max-width: 640px) 100vw, (max-width: 1024px) 60vw, 33vw";
+
 	return (
 		<div
 			data-destination-card
-			className={cn(
-				"relative isolate h-[460px] min-w-[80vw] cursor-pointer overflow-hidden rounded-[1.9rem] border border-white/10 bg-[#050505] shadow-[0_20px_60px_rgba(0,0,0,0.9)] sm:min-w-[65vw] md:h-[500px] lg:min-w-[380px] xl:min-w-[400px]",
-				className,
-			)}
+			data-layout={layout}
+			className={cn(layout === "grid" ? gridShell : carouselShell, className)}
 		>
 			<div className="absolute inset-0 overflow-hidden rounded-[1.9rem]">
 				<Image
 					src={dest.image}
 					alt={dest.name}
 					fill
-					sizes="(max-width: 640px) 100vw, (max-width: 1024px) 60vw, 33vw"
+					sizes={imageSizes}
 					data-destination-image
 					className="object-cover"
 				/>

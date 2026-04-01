@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Navbar, Footer, InitialLoader } from "@/features/home/sections";
 import { SKIP_TO_MAIN_LABEL } from "@/features/home/content/section-copy";
-import { DestinationsHero } from "@/features/destinations/sections";
+import { DestinationsGrid, DestinationsHero } from "@/features/destinations/sections";
 
 export default function DestinationsPage() {
 	const [isLoading, setIsLoading] = useState(true);
@@ -59,6 +59,7 @@ export default function DestinationsPage() {
 			<Navbar />
 			<main id="main-content">
 				<DestinationsHero />
+				<DestinationsGrid />
 			</main>
 			<Footer />
 		</div>

@@ -17,3 +17,15 @@ export const DESTINATIONS_PAGE_HERO = {
 	passFooter: "Boarding: explorers & daydreamers",
 	scrollCue: "Scroll for the collection",
 } as const;
+
+export const DESTINATIONS_GRID = {
+	label: "The collection",
+	title: "Every destination we stand behind",
+	description:
+		"Same handpicked places as on the home page — here in a clear grid so you can scan the full set at a glance.",
+	paginationPrevious: "Previous",
+	paginationNext: "Next",
+	paginationPage: "Page",
+	paginationOf: "of",
+	paginationGoToPage: "Go to page",
+} as const;
