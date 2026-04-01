@@ -95,7 +95,7 @@ export const CTA_COPY = {
 } as const;
 
 export const NAV_LINKS = [
-	{ href: "#destinations", label: "Destinations" },
+	{ href: "/destinations", label: "Destinations" },
 	{ href: "#tours", label: "Tours" },
 	{ href: "/about", label: "About" },
 	{ href: "#testimonials", label: "Stories" },

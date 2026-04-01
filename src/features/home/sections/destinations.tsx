@@ -91,7 +91,10 @@ export default function Destinations() {
 				</div>
 
 				<div className="mt-12 text-center">
-					<SectionCta icon={<LuArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />}>
+					<SectionCta
+						href="/destinations"
+						icon={<LuArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />}
+					>
 						{DESTINATIONS_SECTION.viewAllCta}
 					</SectionCta>
 				</div>
