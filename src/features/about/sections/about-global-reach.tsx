@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
 import {
 	ABOUT_GLOBAL_REACH_COPY,
+	ABOUT_MAP_HUB_SPOKES,
 	ABOUT_MAP_MARKERS,
 } from "@/features/about/content/about-copy";
 import { DottedMap } from "@/components/ui/dotted-map";
@@ -118,9 +119,14 @@ export default function AboutGlobalReach() {
 							<DottedMap
 								width={900}
 								height={450}
-								mapSamples={8200}
-								destinationDots={520}
+								mapSamples={5600}
+								destinationDots={320}
 								destinationDotsSeed={0x7a11ba9}
+								gridStep={75}
+								gridColor="rgba(255,255,255,0.055)"
+								hubLandSpokes={ABOUT_MAP_HUB_SPOKES}
+								connectionColor="rgba(249, 115, 22, 0.42)"
+								connectionCurve={16}
 								markers={ABOUT_MAP_MARKERS.map((m) => ({
 									lat: m.lat,
 									lng: m.lng,
@@ -130,7 +136,7 @@ export default function AboutGlobalReach() {
 								markerColor="#ffffff"
 								pulse
 								className="block h-full w-full max-h-none"
-								aria-label="World map with destination network and hub city markers"
+								aria-label="World map with animated routes from regional points to hub cities"
 								role="img"
 							/>
 						</div>

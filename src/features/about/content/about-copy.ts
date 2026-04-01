@@ -37,6 +37,13 @@ export const ABOUT_MAP_MARKERS = [
 	{ lat: -23.5505, lng: -46.6333, label: "São Paulo" },
 ] as const;
 
+/** Land-dot → nearest hub spokes on the about map (deterministic sampling). */
+export const ABOUT_MAP_HUB_SPOKES = {
+	count: 34,
+	seed: 0x5f2a9c1e,
+	minDistanceFromHub: 36,
+} as const;
+
 export const ABOUT_PHILOSOPHY = {
 	label: "Our Philosophy",
 	line: "We believe the best stories are lived, not told. Every journey we craft is an invitation to lose yourself in a place — and return home more found than ever.",

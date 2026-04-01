@@ -130,6 +130,8 @@
   animation: map-marker-twinkle 2.35s ease-in-out infinite;
 }
 
+/* Route lines: static track + SMIL-animated dash on `.map-connection-pulse` (see `dotted-map.tsx`) */
+
 @media (prefers-reduced-motion: reduce) {
   .map-destination-dot,
   .map-marker-core {
