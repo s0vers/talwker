@@ -23,7 +23,7 @@ export function MovementCulturePulse({ model }: Props) {
 		<section className="relative py-14 pad-x md:py-20" data-story-scene="culture">
 			<div className="mx-auto max-w-[1600px]">
 				<div className="grid gap-10 md:gap-12 lg:grid-cols-12 lg:items-end">
-					<div className="lg:col-span-5">
+					<div className="lg:order-2 lg:col-span-5 lg:flex lg:flex-col lg:justify-end lg:pl-4 xl:pl-10">
 						<p className={storyKickerClass}>{model.culturePulse.kicker}</p>
 						<h2 className="mt-3 text-3xl font-semibold leading-tight md:text-5xl">{model.culturePulse.title}</h2>
 						<p className="mt-4 max-w-lg text-sm leading-relaxed text-white/80 md:text-base">
@@ -31,7 +31,7 @@ export function MovementCulturePulse({ model }: Props) {
 						</p>
 					</div>
 
-					<div className="relative min-h-0 lg:col-span-7">
+					<div className="relative min-h-0 lg:order-1 lg:col-span-7">
 						{images.length === 1 ? (
 							<div className={`overflow-hidden rounded-[1.2rem] ${storyMediaBorderClass}`} data-story-item>
 								<Image

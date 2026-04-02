@@ -33,13 +33,21 @@ export function MovementAtmosphere({ model }: Props) {
 						{model.destinationLabel}
 					</div>
 					<div className="absolute inset-x-0 bottom-0 p-6 md:p-10">
-						<p className={`mb-3 ${storyKickerOnImageClass}`}>{model.atmosphere.kicker}</p>
-						<h1 className="max-w-5xl text-4xl font-semibold leading-[1.03] md:text-7xl" data-story-line>
-							{model.atmosphere.title}
-						</h1>
-						<p className="mt-5 max-w-2xl text-sm leading-relaxed text-white/85 md:text-base" data-story-line>
-							{model.atmosphere.body}
-						</p>
+						<p className={`mb-4 md:mb-6 ${storyKickerOnImageClass}`}>{model.atmosphere.kicker}</p>
+						<div className="grid gap-6 md:grid-cols-12 md:items-end md:gap-8">
+							<h1
+								className="max-w-5xl text-4xl font-semibold leading-[1.03] md:col-span-7 md:max-w-none md:text-6xl lg:text-7xl"
+								data-story-line
+							>
+								{model.atmosphere.title}
+							</h1>
+							<p
+								className="max-w-2xl text-sm leading-relaxed text-white/85 md:col-span-5 md:max-w-none md:border-l md:border-orange-500/35 md:pl-6 md:text-base md:leading-relaxed"
+								data-story-line
+							>
+								{model.atmosphere.body}
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>
