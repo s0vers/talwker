@@ -7,6 +7,29 @@ export type Destination = {
 	rating: number;
 	duration: string;
 	tag?: string;
+	heroIntro?: string;
+	bestMonths?: string;
+	atmosphere?: string;
+	languages?: string;
+	currency?: string;
+	cultureHighlights?: string[];
+	signaturePlaces?: Array<{
+		name: string;
+		narrative: string;
+		image?: string;
+	}>;
+	moodPlans?: Array<{
+		title: string;
+		summary: string;
+		moments: string[];
+	}>;
+	practical?: {
+		transport?: string;
+		budget?: string;
+		connectivity?: string;
+		safety?: string;
+	};
+	gallery?: string[];
 };
 
 export type Tour = {

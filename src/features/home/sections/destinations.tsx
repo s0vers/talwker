@@ -8,6 +8,7 @@ import {
 	useGsapContext,
 } from "@/lib/useGsap";
 import { DESTINATIONS } from "@/features/home/content/destinations";
+import { destinationToSlug } from "@/features/destinations/lib/destination-slug";
 import { DESTINATIONS_SECTION } from "@/features/home/content/section-copy";
 import { DestinationCard, SectionCta, SectionHeading } from "@/shared/ui";
 
@@ -85,6 +86,7 @@ export default function Destinations() {
 								destination={dest}
 								fromLabel={DESTINATIONS_SECTION.fromLabel}
 								exploreButtonLabel={DESTINATIONS_SECTION.exploreButtonLabel}
+								href={`/destinations/${destinationToSlug(dest)}`}
 							/>
 						))}
 					</div>

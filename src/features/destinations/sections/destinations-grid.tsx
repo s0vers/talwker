@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { DESTINATIONS_SECTION } from "@/features/home/content/section-copy";
 import { DESTINATIONS_GRID } from "@/features/destinations/content/destinations-page-copy";
+import { destinationToSlug } from "@/features/destinations/lib/destination-slug";
 import {
 	DESTINATIONS_GRID_RESULTS_ID,
 	type DestinationsGridComputed,
@@ -67,6 +68,7 @@ export default function DestinationsGrid({ list, grid, quickLinks }: Destination
 										layout="grid"
 										fromLabel={DESTINATIONS_SECTION.fromLabel}
 										exploreButtonLabel={DESTINATIONS_SECTION.exploreButtonLabel}
+										href={`/destinations/${destinationToSlug(dest)}`}
 									/>
 								</li>
 							))}

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { LuStar, LuClock } from "react-icons/lu";
 import type { Destination } from "@/shared/types/domain";
 import { cn } from "@/lib/utils";
@@ -16,6 +17,7 @@ export type DestinationCardProps = {
 	 * `grid` — full width of cell, no min-width (responsive grid).
 	 */
 	layout?: "carousel" | "grid";
+	href?: string;
 	className?: string;
 };
 
@@ -32,6 +34,7 @@ export function DestinationCard({
 	fromLabel = DEFAULT_FROM,
 	exploreButtonLabel = DEFAULT_EXPLORE,
 	layout = "carousel",
+	href,
 	className,
 }: DestinationCardProps) {
 	const imageSizes =
@@ -39,7 +42,7 @@ export function DestinationCard({
 			? "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
 			: "(max-width: 640px) 100vw, (max-width: 1024px) 60vw, 33vw";
 
-	return (
+	const shell = (
 		<div
 			data-destination-card
 			data-layout={layout}
@@ -89,15 +92,21 @@ export function DestinationCard({
 							${dest.price.toLocaleString()}
 						</p>
 					</div>
-					<button
-						type="button"
-						aria-label={`${exploreButtonLabel} ${dest.name}`}
-						className="inline-flex items-center justify-center rounded-full bg-white px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#050505] shadow-[0_10px_25px_rgba(0,0,0,0.6)]"
-					>
+					<span className="inline-flex items-center justify-center rounded-full bg-white px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#050505] shadow-[0_10px_25px_rgba(0,0,0,0.6)]">
 						{exploreButtonLabel}
-					</button>
+					</span>
 				</div>
 			</div>
 		</div>
 	);
+
+	if (href) {
+		return (
+			<Link href={href} aria-label={`${exploreButtonLabel} ${dest.name}`} className="block">
+				{shell}
+			</Link>
+		);
+	}
+
+	return shell;
 }
