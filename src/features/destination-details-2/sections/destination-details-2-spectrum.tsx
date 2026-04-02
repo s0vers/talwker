@@ -30,11 +30,11 @@ export function DestinationDetails2Spectrum({ model }: { model: DestinationNarra
 				</div>
 
 				<div
-					className="grid grid-cols-1 gap-3 md:grid-cols-3 md:items-stretch md:gap-3 md:h-[min(52vh,36rem)] md:min-h-[20rem] lg:min-h-[22rem]"
+					className="grid grid-cols-1 gap-3 md:grid-cols-3 md:items-stretch md:gap-3 md:h-[min(52vh,36rem)] md:min-h-80 lg:min-h-88"
 					data-d2-stagger
 				>
 					<div
-						className="relative aspect-[4/3] min-h-0 w-full overflow-hidden rounded-sm border border-white/10 md:col-span-2 md:aspect-auto md:h-full"
+						className="relative aspect-4/3 min-h-0 w-full overflow-hidden rounded-sm border border-white/10 md:col-span-2 md:aspect-auto md:h-full"
 						data-d2-item
 					>
 						<div className="absolute inset-0" data-d2-media>

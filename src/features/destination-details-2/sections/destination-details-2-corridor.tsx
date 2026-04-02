@@ -34,7 +34,7 @@ export function DestinationDetails2Corridor({ model }: { model: DestinationNarra
 							<p className={"mt-6 " + destinationDetails2BodyClass}>{livingGeography.body}</p>
 						</div>
 						<div className="mt-10 grid gap-4 sm:grid-cols-2" data-d2-stagger>
-							<div className="relative aspect-[4/5] overflow-hidden rounded-sm border border-white/10" data-d2-item>
+							<div className="relative aspect-4/5 overflow-hidden rounded-sm border border-white/10" data-d2-item>
 								<div className="absolute inset-0" data-d2-media>
 									<Image
 										src={livingGeography.context.src}
@@ -45,7 +45,7 @@ export function DestinationDetails2Corridor({ model }: { model: DestinationNarra
 									/>
 								</div>
 							</div>
-							<div className="relative aspect-[4/5] overflow-hidden rounded-sm border border-white/10" data-d2-item>
+							<div className="relative aspect-4/5 overflow-hidden rounded-sm border border-white/10" data-d2-item>
 								<div className="absolute inset-0" data-d2-media>
 									<Image
 										src={livingGeography.documentary.src}
@@ -92,7 +92,7 @@ export function DestinationDetails2Corridor({ model }: { model: DestinationNarra
 								{peoplePortrait.portraits.map((p) => (
 									<li
 										key={p.src}
-										className="relative h-48 min-h-[12rem] w-full min-w-0 overflow-hidden rounded-sm border border-white/12 md:h-52"
+										className="relative h-48 min-h-48 w-full min-w-0 overflow-hidden rounded-sm border border-white/12 md:h-52"
 										data-d2-item
 									>
 										<div className="absolute inset-0" data-d2-media>

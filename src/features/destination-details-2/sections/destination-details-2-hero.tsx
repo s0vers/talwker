@@ -21,7 +21,7 @@ export function DestinationDetails2Hero({ model }: { model: DestinationNarrative
 								src={atmosphere.hero.src}
 								alt={atmosphere.hero.alt}
 								fill
-								className="object-cover [transform:translateZ(0)] scale-[1.08]"
+								className="object-cover transform-[translateZ(0)] scale-[1.08]"
 								priority
 								sizes="(max-width: 1024px) 100vw, 50vw"
 							/>

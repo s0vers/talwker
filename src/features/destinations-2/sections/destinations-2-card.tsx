@@ -21,7 +21,7 @@ export function Destinations2Card({ destination, href }: Destinations2CardProps)
 				"transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-orange-500/35 hover:shadow-[0_28px_80px_rgba(0,0,0,0.55)]",
 			)}
 		>
-			<div className="relative aspect-[4/3] w-full overflow-hidden">
+			<div className="relative aspect-4/3 w-full overflow-hidden">
 				<Image
 					src={image}
 					alt={`${name}, ${country}`}

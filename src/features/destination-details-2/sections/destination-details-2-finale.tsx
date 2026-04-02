@@ -15,7 +15,7 @@ export function DestinationDetails2Finale({ model }: { model: DestinationNarrati
 		>
 			<div className="mx-auto max-w-[1600px] pad-x">
 				<div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
-					<div className="relative aspect-[16/11] overflow-hidden rounded-sm border border-white/10" data-d2-reveal>
+					<div className="relative aspect-16/11 overflow-hidden rounded-sm border border-white/10" data-d2-reveal>
 						<div className="absolute inset-0" data-d2-media>
 							<Image
 								src={reflectiveClose.closingImage.src}
