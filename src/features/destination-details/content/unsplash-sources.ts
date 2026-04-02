@@ -21,10 +21,9 @@ export const UNSPLASH_IMAGE_SOURCES = [
 		license: "Unsplash License (open use)",
 	},
 	{
-		file: "/unsplash-texture-detail.jpg",
-		sourceUrl:
-			"https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=1600&q=80",
-		author: "Unsplash contributor",
+		file: "/unsplash-texture-underwater-cave.jpg",
+		sourceUrl: "https://unsplash.com/photos/a-scuba-diver-swims-through-an-underwater-cave-yx7TJle8LhM",
+		author: "NEOM",
 		license: "Unsplash License (open use)",
 	},
 	{

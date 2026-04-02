@@ -14,14 +14,14 @@ export function EditorialMotifLayer({ label, dense = false }: Props) {
 				<path
 					d="M32 126 C204 58 331 236 482 248 C638 262 744 120 920 188 C1040 236 1130 332 1168 492 C1214 686 1010 718 920 846 C816 988 852 1166 706 1308 C554 1456 306 1400 180 1548 C122 1618 106 1700 100 1766"
 					stroke="currentColor"
-					className="text-white/30"
+					className="text-orange-500/30"
 					strokeWidth={dense ? 3 : 2}
 					strokeLinecap="round"
 				/>
 				<text
 					x="68"
 					y="1700"
-					className="fill-white/40 text-[42px] tracking-[0.4em] uppercase"
+					className="fill-orange-500/35 text-[42px] tracking-[0.4em] uppercase"
 					data-story-motif-label
 				>
 					{label}

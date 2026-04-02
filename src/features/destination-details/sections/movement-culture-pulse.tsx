@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { storyKickerClass, storyMediaBorderClass } from "@/features/destination-details/lib/story-ui-classes";
 import type { DestinationNarrativeViewModel } from "@/features/destination-details/lib/story-types";
 
 type Props = {
@@ -23,7 +24,7 @@ export function MovementCulturePulse({ model }: Props) {
 			<div className="mx-auto max-w-[1600px]">
 				<div className="grid gap-10 md:gap-12 lg:grid-cols-12 lg:items-end">
 					<div className="lg:col-span-5">
-						<p className="text-xs uppercase tracking-[0.3em] text-white/60">{model.culturePulse.kicker}</p>
+						<p className={storyKickerClass}>{model.culturePulse.kicker}</p>
 						<h2 className="mt-3 text-3xl font-semibold leading-tight md:text-5xl">{model.culturePulse.title}</h2>
 						<p className="mt-4 max-w-lg text-sm leading-relaxed text-white/80 md:text-base">
 							{model.culturePulse.body}
@@ -32,22 +33,22 @@ export function MovementCulturePulse({ model }: Props) {
 
 					<div className="relative min-h-0 lg:col-span-7">
 						{images.length === 1 ? (
-							<div className="overflow-hidden rounded-[1.2rem] border border-white/20" data-story-item>
+							<div className={`overflow-hidden rounded-[1.2rem] ${storyMediaBorderClass}`} data-story-item>
 								<Image
 									src={images[0].src}
 									alt={images[0].alt}
 									width={1400}
 									height={900}
-									className="aspect-[16/10] w-full object-cover"
+									className="aspect-16/10 w-full object-cover"
 									sizes="(min-width: 1024px) 50vw, 90vw"
 								/>
 							</div>
 						) : (
-							<div className="relative min-h-[22rem] sm:min-h-[26rem] lg:min-h-[30rem]">
+							<div className="relative min-h-88 sm:min-h-104 lg:min-h-120">
 								{images.map((image, idx) => (
 									<div
 										key={`${image.src}-${idx}`}
-										className={`absolute overflow-hidden rounded-[1.2rem] border border-white/20 ${COLLAGE_LAYERS[idx] ?? COLLAGE_LAYERS[COLLAGE_LAYERS.length - 1]}`}
+										className={`absolute overflow-hidden rounded-[1.2rem] ${storyMediaBorderClass} ${COLLAGE_LAYERS[idx] ?? COLLAGE_LAYERS[COLLAGE_LAYERS.length - 1]}`}
 										data-story-item
 										data-story-media
 									>

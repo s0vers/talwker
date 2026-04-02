@@ -105,7 +105,7 @@ export function StorySectionsMotion({ children }: Props) {
 			);
 		}
 
-		if (sections.length > 1 && !prefersReducedMotion()) {
+		if (sections.length > 1) {
 			sections.forEach((section) => {
 				gsap.fromTo(
 					section,
