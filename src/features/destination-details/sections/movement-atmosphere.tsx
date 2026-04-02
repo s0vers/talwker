@@ -7,9 +7,13 @@ type Props = {
 
 export function MovementAtmosphere({ model }: Props) {
 	return (
-		<section className="relative min-h-[94svh] pb-16 pt-14 pad-x md:pb-20 md:pt-20">
+		<section className="relative min-h-[94svh] pb-16 pt-14 pad-x md:pb-20 md:pt-20" data-story-scene="atmosphere">
 			<div className="mx-auto max-w-[1600px]">
-				<div className="relative overflow-hidden rounded-[2rem] border border-white/15" data-story-reveal>
+				<div
+					className="relative overflow-hidden rounded-[2rem] border border-white/15"
+					data-story-reveal
+					data-story-media
+				>
 					<Image
 						src={model.atmosphere.hero.src}
 						alt={model.atmosphere.hero.alt}

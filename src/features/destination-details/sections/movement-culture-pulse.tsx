@@ -19,7 +19,7 @@ export function MovementCulturePulse({ model }: Props) {
 	const images = model.culturePulse.cultureImages.filter(Boolean);
 
 	return (
-		<section className="relative py-14 pad-x md:py-20">
+		<section className="relative py-14 pad-x md:py-20" data-story-scene="culture">
 			<div className="mx-auto max-w-[1600px]">
 				<div className="grid gap-10 md:gap-12 lg:grid-cols-12 lg:items-end">
 					<div className="lg:col-span-5">
@@ -49,6 +49,7 @@ export function MovementCulturePulse({ model }: Props) {
 										key={`${image.src}-${idx}`}
 										className={`absolute overflow-hidden rounded-[1.2rem] border border-white/20 ${COLLAGE_LAYERS[idx] ?? COLLAGE_LAYERS[COLLAGE_LAYERS.length - 1]}`}
 										data-story-item
+										data-story-media
 									>
 										<Image
 											src={image.src}

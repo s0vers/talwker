@@ -7,7 +7,7 @@ type Props = {
 
 export function MovementPeoplePortrait({ model }: Props) {
 	return (
-		<section className="px-4 py-14 md:px-8 md:py-20">
+		<section className="px-4 py-14 md:px-8 md:py-20" data-story-scene="people">
 			<div className="mb-8 max-w-2xl">
 				<p className="text-xs uppercase tracking-[0.3em] text-white/60">{model.peoplePortrait.kicker}</p>
 				<h2 className="mt-3 text-3xl font-semibold leading-tight md:text-5xl">{model.peoplePortrait.title}</h2>
@@ -19,6 +19,7 @@ export function MovementPeoplePortrait({ model }: Props) {
 						key={`${portrait.src}-${index}`}
 						className="overflow-hidden rounded-[1.25rem] border border-white/15 bg-white/[0.02]"
 						data-story-reveal
+						data-story-media
 					>
 						<Image
 							src={portrait.src}

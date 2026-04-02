@@ -69,7 +69,6 @@ export const FALLBACK_STORY_SEED: DestinationNarrativeSeed = {
 	},
 	images: {
 		documentary: [UNSPLASH_EDITORIAL_SET.portraitA, UNSPLASH_EDITORIAL_SET.portraitB],
-		context: [UNSPLASH_EDITORIAL_SET.market, UNSPLASH_EDITORIAL_SET.culture],
 		texture: [UNSPLASH_EDITORIAL_SET.texture],
 	},
 };

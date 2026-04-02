@@ -18,7 +18,12 @@ export function EditorialMotifLayer({ label, dense = false }: Props) {
 					strokeWidth={dense ? 3 : 2}
 					strokeLinecap="round"
 				/>
-				<text x="68" y="1700" className="fill-white/40 text-[42px] tracking-[0.4em] uppercase">
+				<text
+					x="68"
+					y="1700"
+					className="fill-white/40 text-[42px] tracking-[0.4em] uppercase"
+					data-story-motif-label
+				>
 					{label}
 				</text>
 			</svg>

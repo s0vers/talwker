@@ -182,11 +182,11 @@ export default function Navbar() {
 
 	return (
 		<header
-			className={`fixed top-0 w-full transition-all duration-700 ${
+			className={`fixed top-0 w-full transition-[background-color] duration-300 ease-out ${
 				showMobileLayer ? "z-110" : "z-50"
 			} ${
 				scrolled
-					? "bg-[#0a0a0a]/90 backdrop-blur-xl"
+					? "bg-[#0a0a0a]/92 backdrop-blur-md"
 					: "bg-transparent"
 			}`}
 		>

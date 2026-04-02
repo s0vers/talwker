@@ -7,9 +7,9 @@ type Props = {
 
 export function MovementReflectiveClose({ model }: Props) {
 	return (
-		<section className="relative pb-20 pt-14 pad-x md:pb-28 md:pt-24">
+		<section className="relative pb-20 pt-14 pad-x md:pb-28 md:pt-24" data-story-scene="close">
 			<div className="mx-auto max-w-[1600px] border-t border-white/10 pt-8 md:pt-10">
-				<div className="relative overflow-hidden" data-story-reveal>
+				<div className="relative overflow-hidden" data-story-reveal data-story-media>
 					<Image
 						src={model.reflectiveClose.closingImage.src}
 						alt={model.reflectiveClose.closingImage.alt}

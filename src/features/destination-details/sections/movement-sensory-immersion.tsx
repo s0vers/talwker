@@ -7,7 +7,7 @@ type Props = {
 
 export function MovementSensoryImmersion({ model }: Props) {
 	return (
-		<section className="px-4 py-14 md:px-8 md:py-20">
+		<section className="px-4 py-14 md:px-8 md:py-20" data-story-scene="sensory">
 			<div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center">
 				<div className="space-y-5">
 					<p className="text-xs uppercase tracking-[0.3em] text-white/60">{model.sensoryImmersion.kicker}</p>
@@ -16,7 +16,12 @@ export function MovementSensoryImmersion({ model }: Props) {
 				</div>
 				<div className="grid grid-cols-2 gap-3">
 					{model.sensoryImmersion.textures.map((texture, idx) => (
-						<div key={`${texture.src}-${idx}`} className="overflow-hidden rounded-2xl border border-white/20" data-story-card>
+						<div
+							key={`${texture.src}-${idx}`}
+							className="overflow-hidden rounded-2xl border border-white/20"
+							data-story-card
+							data-story-media
+						>
 							<Image
 								src={texture.src}
 								alt={texture.alt}

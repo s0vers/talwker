@@ -49,13 +49,13 @@ function collectSourceImages(destination: Destination): string[] {
 	return [
 		destination.image,
 		...(destination.gallery ?? []),
-		"/travel-europe-tourism-bougainvillea-village.jpg",
-		"/low-angle-shot-buildings-houses-amalfi-coast-captured-italy.jpg",
-		"/northern-light-aurora-borealis-godafoss-waterfall-winter-iceland.jpg",
-		"/laguna-del-inca-lake-surrounded-by-high-mountains-covered-snow-chile.jpg",
-		"/vertical-high-angle-shot-white-buildings-santorini-greece.jpg",
 		"/set-cottages-ocean-blue-sky.jpg",
 		"/sun-idyllic-beautiful-relax-sky.jpg",
+		"/travel-europe-tourism-bougainvillea-village.jpg",
+		"/vertical-high-angle-shot-white-buildings-santorini-greece.jpg",
+		"/low-angle-shot-buildings-houses-amalfi-coast-captured-italy.jpg",
+		"/laguna-del-inca-lake-surrounded-by-high-mountains-covered-snow-chile.jpg",
+		"/northern-light-aurora-borealis-godafoss-waterfall-winter-iceland.jpg",
 	];
 }
 
@@ -84,6 +84,13 @@ export function getDestinationStoryViewModel(destination: Destination): Destinat
 	const documentary = getRoleImages("documentary", seed, sourceImages, 3, "/image.jpg");
 	const context = getRoleImages("context", seed, sourceImages, 2, "/image.jpg");
 	const texture = getRoleImages("texture", seed, sourceImages, 4, "/image.jpg");
+	const contextExpanded =
+		context.length > 1
+			? context
+			: [
+					context[0],
+					createImage(pickByIndex(sourceImages, 5, hero?.src ?? "/image.jpg"), "context"),
+				];
 
 	return {
 		destinationLabel: `${destination.name}, ${destination.country}`,
@@ -96,8 +103,8 @@ export function getDestinationStoryViewModel(destination: Destination): Destinat
 		},
 		livingGeography: {
 			...seed.livingGeography,
-			context: context[0],
-			documentary: documentary[0] ?? context[0],
+			context: contextExpanded[0],
+			documentary: documentary[0] ?? contextExpanded[0],
 		},
 		peoplePortrait: {
 			...seed.peoplePortrait,
@@ -105,16 +112,16 @@ export function getDestinationStoryViewModel(destination: Destination): Destinat
 		},
 		culturePulse: {
 			...seed.culturePulse,
-			cultureImages: [...context, ...texture].slice(0, 3),
-			anchor: context[0],
+			cultureImages: [...contextExpanded, ...texture].slice(0, 3),
+			anchor: contextExpanded[0],
 		},
 		sensoryImmersion: {
 			...seed.sensoryImmersion,
-			textures: [...texture, ...context].slice(0, 2),
+			textures: [...texture, ...contextExpanded].slice(0, 2),
 		},
 		reflectiveClose: {
 			...seed.reflectiveClose,
-			closingImage: context[1] ?? context[0],
+			closingImage: contextExpanded[1] ?? contextExpanded[0],
 		},
 	};
 }
