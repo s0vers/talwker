@@ -203,7 +203,24 @@ Run `pnpm verify` after wiring. For visual QA, prefer **`pnpm build && pnpm star
 
 ---
 
-## 9. Quick reference map
+## 9. Destination details v3 (`/destinations-3/[slug]`)
+
+**Intent:** Same Talkwer shell principles (dark canvas, orange accent, long-form, `InitialLoader`, soft `EditorialCtaBand` at the end) with a **different information architecture**: people-first framing, culture “threads,” **named place dossiers** (coordinates with index numerals), and optional **field notes** (languages, season, movement) framed as editorial context—not booking.
+
+**Data:** `getDestinationDetails3ViewModel` in `src/features/destination-details-3/lib/details-3-view-model.ts` merges:
+
+- Seeds in `content/details-3-seeds.ts` (keyed by slug first segment, same rule as v1 story copy).
+- When set on `Destination`: `cultureHighlights[]`, `signaturePlaces[]`, and light `fieldNotes` from `languages`, `bestMonths`, `practical.transport`.
+
+**UI:** `d3-ui-classes.ts` (mono index + sans headlines), sections `D3Hero`, `D3People`, `D3Culture`, `D3Places`, `D3FieldNotes` (omitted if empty), `D3Close`. Motion: `lib/d3-scroll-motion.ts` + `D3MotionRoot` using **`data-d3-*`** only.
+
+**List index:** `src/features/destinations-3/` → `/destinations-3` links into this story route.
+
+**CTA:** `content/destination-details-3-cta-copy.ts` — slightly softer closing copy than the default tour CTA.
+
+---
+
+## 10. Quick reference map
 
 | Topic | Primary files |
 |--------|----------------|
@@ -218,10 +235,11 @@ Run `pnpm verify` after wiring. For visual QA, prefer **`pnpm build && pnpm star
 | Page entry | `destination-details-page.tsx` |
 | CTA copy | `content/destination-details-cta-copy.ts` |
 | Route | `src/app/destinations/[slug]/page.tsx` |
+| Details v3 | `src/features/destination-details-3/`, `src/app/destinations-3/[slug]/page.tsx` |
 
 ---
 
-## 10. Further reading
+## 11. Further reading
 
 - [MDN: `<main>` landmark](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main) — one primary content landmark per document; aligns with moving chrome to `layout.tsx`.
 - [WCAG 2.4.1 Bypass Blocks](https://www.w3.org/WAI/WCAG22/Understanding/bypass-blocks.html) — skip link targets `#main-content`.

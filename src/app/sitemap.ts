@@ -24,6 +24,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			priority: 0.75,
 		},
 		{
+			url: resolveCanonicalUrl("/destinations-3"),
+			changeFrequency: "weekly",
+			priority: 0.72,
+		},
+		{
 			url: resolveCanonicalUrl("/tours"),
 			changeFrequency: "weekly",
 			priority: 0.8,
