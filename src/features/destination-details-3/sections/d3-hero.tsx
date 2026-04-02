@@ -7,7 +7,7 @@ export function D3Hero({ model }: { model: DestinationDetails3ViewModel }) {
 
 	return (
 		<section className="relative overflow-hidden border-b border-white/10 bg-[#030303]" aria-labelledby="d3-hero-heading">
-			<div className="relative mx-auto max-w-[1600px]">
+			<div className="relative mx-auto">
 				<div className="relative aspect-21/9 min-h-[220px] w-full sm:aspect-2/1 sm:min-h-[280px] lg:aspect-21/8 lg:min-h-[320px]">
 					<div className="absolute inset-0 overflow-hidden" data-d3-hero-media-root>
 						<div className="absolute inset-0" data-d3-media>
@@ -30,7 +30,7 @@ export function D3Hero({ model }: { model: DestinationDetails3ViewModel }) {
 						aria-hidden
 					/>
 
-					<div className="absolute inset-x-0 top-0 flex items-start justify-between gap-4 pad-x pt-6 md:pt-8">
+					<div className="absolute inset-x-0 bottom-2 flex items-start justify-between gap-4 pad-x pt-6 md:pt-8 mx-auto max-w-[1600px]">
 						<p className={d3KickerClass}>Field guide</p>
 						<p className="max-w-56 text-right text-[11px] font-medium uppercase tracking-[0.14em] text-white/55 md:text-xs">
 							{destinationLabel}

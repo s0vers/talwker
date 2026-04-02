@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { DESTINATIONS_3_PAGE_HERO } from "@/features/destinations-3/content/destinations-3-page-copy";
+import { DESTINATIONS_3_PAGE_SHELL } from "@/features/destinations-3/lib/destinations-3-page-shell";
 
 const LIST_HERO_IMAGE_SRC = "/vertical-high-angle-shot-white-buildings-santorini-greece.jpg";
 
@@ -8,8 +9,8 @@ export function Destinations3Hero() {
 
 	return (
 		<section className="border-b border-white/10 bg-[#050505] text-white" aria-labelledby="destinations-3-hero-title">
-			<div className="relative mx-auto max-w-[1600px]">
-				<div className="relative aspect-21/10 min-h-[220px] w-full sm:aspect-2/1 sm:min-h-[280px] lg:aspect-21/9 lg:min-h-[320px]">
+			<div>
+				<div className="relative aspect-21/10 min-h-[220px] w-full overflow-hidden rounded-sm sm:aspect-2/1 sm:min-h-[280px] lg:aspect-21/9 lg:min-h-[320px]">
 					<Image
 						src={LIST_HERO_IMAGE_SRC}
 						alt=""
@@ -27,7 +28,7 @@ export function Destinations3Hero() {
 						aria-hidden
 					/>
 
-					<div className="absolute inset-x-0 top-0 flex justify-center pt-8 md:pt-10">
+					<div className="absolute inset-x-0 bottom-2 flex justify-center pt-8 md:pt-10">
 						<p className="max-w-[90vw] text-center font-mono text-[10px] font-medium uppercase tracking-[0.38em] text-white/80">
 							<span className="text-orange-300">{h.rail}</span>
 							<span className="mx-2 text-white/35" aria-hidden>
@@ -37,7 +38,7 @@ export function Destinations3Hero() {
 						</p>
 					</div>
 
-					<div className="absolute inset-x-0 bottom-0 px-6 pb-10 pt-16 md:px-10 md:pb-14 md:pt-20">
+					<div className="absolute inset-x-0 bottom-0 pb-10 pt-16 md:pb-14 md:pt-20">
 						<h1
 							id="destinations-3-hero-title"
 							className="mx-auto max-w-[22ch] text-center text-[clamp(1.85rem,5.2vw,3.5rem)] font-semibold leading-[1.08] tracking-[-0.02em] text-white sm:max-w-[28ch]"
@@ -48,7 +49,7 @@ export function Destinations3Hero() {
 					</div>
 				</div>
 
-				<div className="border-t border-white/10 bg-[#080808] px-6 py-12 text-center md:px-10 md:py-14">
+				<div className="border-t border-white/10 bg-[#080808] py-12 text-center md:py-14">
 					<p className="mx-auto max-w-lg text-sm leading-relaxed text-white/60 md:max-w-xl md:text-base">
 						{h.lede}
 					</p>

@@ -11,6 +11,7 @@ import {
 import { useDestinationsResultsScroll } from "@/features/destinations/lib/use-destinations-results-scroll";
 import { DESTINATIONS_3_GRID } from "@/features/destinations-3/content/destinations-3-page-copy";
 import { DESTINATIONS_3_LIST_PATH } from "@/features/destinations-3/lib/destinations-3-list-path";
+import { DESTINATIONS_3_PAGE_SHELL } from "@/features/destinations-3/lib/destinations-3-page-shell";
 import { Destinations3Card } from "@/features/destinations-3/sections/destinations-3-card";
 import { Destinations3GridPagination } from "@/features/destinations-3/sections/destinations-3-grid-pagination";
 import { Destinations3GridToolbar } from "@/features/destinations-3/sections/destinations-3-grid-toolbar";
@@ -28,7 +29,7 @@ export function Destinations3Grid({ list, grid, quickLinks }: Destinations3GridP
 
 	return (
 		<section aria-labelledby="destinations-3-grid-title" className="bg-[#030303] py-14 md:py-20">
-			<div className="mx-auto max-w-[1600px] pad-x">
+			<div className={DESTINATIONS_3_PAGE_SHELL}>
 				<header className="mb-10 md:mb-12">
 					<h2
 						id="destinations-3-grid-title"
