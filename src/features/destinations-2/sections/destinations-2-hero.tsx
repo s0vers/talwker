@@ -1,0 +1,54 @@
+"use client";
+
+import { DESTINATIONS_2_PAGE_HERO } from "@/features/destinations-2/content/destinations-2-page-copy";
+
+export function Destinations2Hero() {
+	return (
+		<section
+			aria-labelledby="destinations-2-hero-title"
+			className="relative overflow-hidden border-b border-orange-500/15 bg-[#030303] text-white"
+		>
+			<div
+				className="pointer-events-none absolute -left-24 top-0 h-[140%] w-[55%] rotate-[-8deg] bg-[linear-gradient(135deg,rgba(249,115,22,0.07),transparent_55%)]"
+				aria-hidden
+			/>
+			<div
+				className="pointer-events-none absolute bottom-0 right-0 h-64 w-64 rounded-full bg-orange-500/5 blur-3xl"
+				aria-hidden
+			/>
+
+			<div className="relative mx-auto max-w-[1600px] pad-x py-20 md:py-28 lg:py-32">
+				<div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-end">
+					<div>
+						<p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-orange-400/90">
+							{DESTINATIONS_2_PAGE_HERO.rail}
+						</p>
+						<p className="mt-4 text-xs uppercase tracking-[0.22em] text-white/45">{DESTINATIONS_2_PAGE_HERO.kicker}</p>
+						<h1
+							id="destinations-2-hero-title"
+							className="mt-6 max-w-3xl font-serif text-4xl font-medium leading-[1.08] tracking-tight md:text-6xl lg:text-7xl"
+						>
+							{DESTINATIONS_2_PAGE_HERO.title}{" "}
+							<span className="text-orange-400/95">{DESTINATIONS_2_PAGE_HERO.titleAccent}</span>
+						</h1>
+						<p className="mt-8 max-w-xl text-base leading-relaxed text-white/60 md:text-lg">{DESTINATIONS_2_PAGE_HERO.lede}</p>
+					</div>
+
+					<div className="flex flex-col gap-4 rounded-lg border border-white/10 bg-black/40 p-6 backdrop-blur-sm">
+						<div className="flex justify-between gap-6 border-b border-white/10 pb-4">
+							<div>
+								<p className="text-[10px] uppercase tracking-[0.2em] text-white/40">{DESTINATIONS_2_PAGE_HERO.statA.label}</p>
+								<p className="mt-1 font-serif text-xl text-white">{DESTINATIONS_2_PAGE_HERO.statA.value}</p>
+							</div>
+							<div className="text-right">
+								<p className="text-[10px] uppercase tracking-[0.2em] text-white/40">{DESTINATIONS_2_PAGE_HERO.statB.label}</p>
+								<p className="mt-1 font-serif text-xl text-orange-300/95">{DESTINATIONS_2_PAGE_HERO.statB.value}</p>
+							</div>
+						</div>
+						<p className="text-xs leading-relaxed text-white/45">{DESTINATIONS_2_PAGE_HERO.footnote}</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	);
+}

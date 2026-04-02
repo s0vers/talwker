@@ -19,7 +19,8 @@ import {
 } from "@/features/destinations/content/destinations-page-copy";
 import {
 	buildDestinationsListHref,
-	DESTINATIONS_LIST_CLEAR_HREF,
+	DEFAULT_DESTINATIONS_LIST_PATH,
+	getDestinationsListClearHref,
 	destinationsListHasActiveRefinements,
 	normalizeDestinationsSearchForm,
 	type DestinationsListParsed,
@@ -49,7 +50,7 @@ function DestinationsGridToolbarInner({ list, quickLinks }: DestinationsGridTool
 	const { tag: hiddenTag, maxPrice: hiddenMaxPrice } = selectKeyToFormFields(selectKey);
 
 	const hrefById = Object.fromEntries(quickLinks.map((l) => [l.id, l.href] as const));
-	const clearHref = DESTINATIONS_LIST_CLEAR_HREF;
+	const clearHref = getDestinationsListClearHref();
 	const showClear = destinationsListHasActiveRefinements(list);
 
 	function handleSearchSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -170,7 +171,7 @@ function DestinationsGridToolbarInner({ list, quickLinks }: DestinationsGridTool
 				</p>
 				<div className="flex flex-wrap gap-2" role="group" aria-label={DESTINATIONS_GRID.quickSearchesLabel}>
 					{DESTINATIONS_GRID_QUICK_SEARCHES.map((item) => {
-						const href = hrefById[item.id] ?? "/destinations";
+						const href = hrefById[item.id] ?? DEFAULT_DESTINATIONS_LIST_PATH;
 						const active = isQuickSearchActive(list, item);
 						return (
 							<Link

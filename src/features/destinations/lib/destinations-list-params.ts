@@ -6,11 +6,20 @@ export const PAGE_SIZE = 8;
 /** Fragment + scroll target: the card grid / empty state (not the section header or toolbar). */
 export const DESTINATIONS_GRID_RESULTS_ID = "destinations-results";
 
+/** Base path for the default destinations browse page (`/destinations`). */
+export const DEFAULT_DESTINATIONS_LIST_PATH = "/destinations";
+
 /**
  * Reset URL for “Clear filters” — no query and **no hash** so scroll alignment does not run
  * and the viewport stays where the user already is.
  */
-export const DESTINATIONS_LIST_CLEAR_HREF = "/destinations";
+export const DESTINATIONS_LIST_CLEAR_HREF = DEFAULT_DESTINATIONS_LIST_PATH;
+
+export function getDestinationsListClearHref(
+	listPath: string = DEFAULT_DESTINATIONS_LIST_PATH,
+): string {
+	return listPath;
+}
 
 export const FILTER_ALL = "all";
 
@@ -149,9 +158,12 @@ export function buildDestinationsListQueryString(p: DestinationsListParsed): str
 	return u.toString();
 }
 
-export function buildDestinationsListHref(p: DestinationsListParsed): string {
+export function buildDestinationsListHref(
+	p: DestinationsListParsed,
+	listPath: string = DEFAULT_DESTINATIONS_LIST_PATH,
+): string {
 	const qs = buildDestinationsListQueryString(p);
-	const path = qs ? `/destinations?${qs}` : "/destinations";
+	const path = qs ? `${listPath}?${qs}` : listPath;
 	return `${path}#${DESTINATIONS_GRID_RESULTS_ID}`;
 }
 
@@ -210,7 +222,9 @@ export function isQuickSearchActive(
 	return false;
 }
 
-export function getDestinationsQuickSearchLinks(): DestinationsQuickLink[] {
+export function getDestinationsQuickSearchLinks(
+	listPath: string = DEFAULT_DESTINATIONS_LIST_PATH,
+): DestinationsQuickLink[] {
 	return DESTINATIONS_GRID_QUICK_SEARCHES.map((item) => {
 		let q = "";
 		let filter = FILTER_ALL;
@@ -224,7 +238,7 @@ export function getDestinationsQuickSearchLinks(): DestinationsQuickLink[] {
 		return {
 			id: item.id,
 			label: item.label,
-			href: buildDestinationsListHref({ q, filter, page: 1 }),
+			href: buildDestinationsListHref({ q, filter, page: 1 }, listPath),
 		};
 	});
 }
