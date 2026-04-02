@@ -1,14 +1,14 @@
 "use client";
 
 import { useRef, type ReactNode } from "react";
-import { bindDestinationDetails3Scroll } from "@/features/destination-details-3/lib/d3-scroll-motion";
+import { bindDestinationDetails3Scroll } from "@/features/destination-details-3/lib/destination-details-3-scroll-motion";
 import { useGsapContext } from "@/lib/useGsap";
 
 type Props = {
 	children: ReactNode;
 };
 
-export function D3MotionRoot({ children }: Props) {
+export function DestinationDetails3MotionRoot({ children }: Props) {
 	const scopeRef = useRef<HTMLDivElement | null>(null);
 
 	useGsapContext(scopeRef, () => {

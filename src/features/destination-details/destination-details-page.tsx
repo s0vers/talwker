@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { getDestinationDetailsTourCta } from "@/features/destination-details/content/destination-details-cta-copy";
-import { getDestinationStoryViewModel } from "@/features/destination-details/lib/story-view-model";
+import { getDestinationDetailsViewModel } from "@/features/destination-details/lib/destination-details-view-model";
 import {
-	EditorialCompositionCoastal,
-	EditorialCompositionMountain,
-	StorySectionsMotion,
+	DestinationDetailsCoastalLayout,
+	DestinationDetailsMountainLayout,
+	DestinationDetailsSectionsMotion,
 } from "@/features/destination-details/sections";
 import { InitialLoader } from "@/features/home/sections";
 import type { Destination } from "@/shared/types/domain";
@@ -56,18 +56,18 @@ export default function DestinationDetailsPage({ destination }: DestinationDetai
 		};
 	}, []);
 
-	const model = getDestinationStoryViewModel(destination);
+	const model = getDestinationDetailsViewModel(destination);
 	const tourCta = getDestinationDetailsTourCta(destination);
-	const StoryComposition =
-		model.variant === "mountain" ? EditorialCompositionMountain : EditorialCompositionCoastal;
+	const NarrativeLayout =
+		model.variant === "mountain" ? DestinationDetailsMountainLayout : DestinationDetailsCoastalLayout;
 
 	return (
 		<>
 			<InitialLoader isLoading={isLoading} />
 			<div className="relative min-h-screen overflow-hidden">
-				<StorySectionsMotion>
-					<StoryComposition model={model} />
-				</StorySectionsMotion>
+				<DestinationDetailsSectionsMotion>
+					<NarrativeLayout model={model} />
+				</DestinationDetailsSectionsMotion>
 				<EditorialCtaBand
 					showTopFrame
 					headingId={`destination-tour-cta-${tourCta.slug}`}

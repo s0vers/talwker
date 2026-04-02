@@ -2,13 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { getDestinationDetailsTourCta } from "@/features/destination-details/content/destination-details-cta-copy";
-import { getDestinationStoryViewModel } from "@/features/destination-details/lib/story-view-model";
+import { getDestinationDetailsViewModel } from "@/features/destination-details/lib/destination-details-view-model";
 import {
-	D2Corridor,
-	D2Finale,
-	D2Hero,
-	D2MotionRoot,
-	D2Spectrum,
+	DestinationDetails2Corridor,
+	DestinationDetails2Finale,
+	DestinationDetails2Hero,
+	DestinationDetails2MotionRoot,
+	DestinationDetails2Spectrum,
 } from "@/features/destination-details-2/sections";
 import { InitialLoader } from "@/features/home/sections";
 import type { Destination } from "@/shared/types/domain";
@@ -58,19 +58,19 @@ export default function DestinationDetails2Page({ destination }: DestinationDeta
 		};
 	}, []);
 
-	const model = getDestinationStoryViewModel(destination);
+	const model = getDestinationDetailsViewModel(destination);
 	const tourCta = getDestinationDetailsTourCta(destination);
 
 	return (
 		<>
 			<InitialLoader isLoading={isLoading} />
 			<div className="relative min-h-screen overflow-hidden bg-[#020202]">
-				<D2MotionRoot>
-					<D2Hero model={model} />
-					<D2Corridor model={model} />
-					<D2Spectrum model={model} />
-					<D2Finale model={model} />
-				</D2MotionRoot>
+				<DestinationDetails2MotionRoot>
+					<DestinationDetails2Hero model={model} />
+					<DestinationDetails2Corridor model={model} />
+					<DestinationDetails2Spectrum model={model} />
+					<DestinationDetails2Finale model={model} />
+				</DestinationDetails2MotionRoot>
 				<EditorialCtaBand
 					showTopFrame
 					headingId={`destination-2-tour-cta-${tourCta.slug}`}

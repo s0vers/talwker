@@ -1,24 +1,33 @@
 import Image from "next/image";
-import { d3BodyClass, d3KickerClass, d3RuleClass } from "@/features/destination-details-3/lib/d3-ui-classes";
+import {
+	destinationDetails3BodyClass,
+	destinationDetails3KickerClass,
+	destinationDetails3RuleClass,
+	destinationDetails3SectionHeadingClass,
+} from "@/features/destination-details-3/lib/destination-details-3-ui-classes";
 import type { DestinationDetails3ViewModel } from "@/features/destination-details-3/lib/details-3-types";
 
-export function D3Cadence({ model }: { model: DestinationDetails3ViewModel }) {
+export function DestinationDetails3Cadence({ model }: { model: DestinationDetails3ViewModel }) {
 	const { cadence, cadenceAside } = model;
 	if (!cadence.length) return null;
 
 	return (
-		<section className="border-b border-white/10 bg-[#030303] py-16 md:py-24" aria-labelledby="d3-cadence-heading">
+		<section
+			className="border-b border-white/10 bg-[#030303] py-16 md:py-24"
+			aria-labelledby="destination-details-3-cadence-title"
+		>
 			<div className="mx-auto max-w-[1600px] pad-x">
 				<div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,38%)] lg:items-stretch lg:gap-12 xl:gap-16">
 					<div className="flex min-h-0 flex-col gap-10 lg:gap-12">
 						<header className="max-w-2xl" data-d3-reveal="fade">
-							<div className={d3RuleClass} aria-hidden />
-							<p className={"mt-6 " + d3KickerClass}>Daily cadence</p>
-							<h2 id="d3-cadence-heading" className="mt-4 text-2xl font-semibold text-white md:text-3xl lg:text-4xl">
+							<div className={destinationDetails3RuleClass} aria-hidden />
+							<p className={"mt-6 " + destinationDetails3KickerClass}>Daily cadence</p>
+							<h2 id="destination-details-3-cadence-title" className={destinationDetails3SectionHeadingClass}>
 								When the place changes its mind
 							</h2>
-							<p className={"mt-4 max-w-xl " + d3BodyClass}>
-								Public life has hinges — not “best times to visit,” but how the same pavement holds different social contracts.
+							<p className={"mt-4 max-w-xl " + destinationDetails3BodyClass}>
+								Public life has hinges — not “best times to visit,” but how the same pavement holds different
+								social contracts.
 							</p>
 						</header>
 
@@ -33,10 +42,10 @@ export function D3Cadence({ model }: { model: DestinationDetails3ViewModel }) {
 										className="absolute -left-8 top-1.5 flex h-3 w-3 -translate-x-[calc(50%-0.5px)] rounded-full border-2 border-orange-500/60 bg-[#030303] md:-left-10"
 										aria-hidden
 									/>
-									<p className="font-mono text-[10px] font-semibold uppercase tracking-[0.26em] text-orange-400/90">
+									<p className="text-[10px] font-semibold uppercase tracking-[0.26em] text-orange-500">
 										{i + 1 < 10 ? `0${i + 1}` : i + 1} · {item.phase}
 									</p>
-									<p className={"mt-4 max-w-3xl lg:max-w-2xl " + d3BodyClass}>{item.text}</p>
+									<p className={"mt-4 max-w-3xl lg:max-w-2xl " + destinationDetails3BodyClass}>{item.text}</p>
 								</li>
 							))}
 						</ol>
@@ -52,7 +61,7 @@ export function D3Cadence({ model }: { model: DestinationDetails3ViewModel }) {
 								src={cadenceAside.src}
 								alt={cadenceAside.alt}
 								fill
-								className="object-cover [transform:translateZ(0)] scale-[1.03]"
+								className="object-cover transform-[translateZ(0)] scale-[1.03]"
 								sizes="(max-width: 1024px) 100vw, 38vw"
 							/>
 						</div>
@@ -60,7 +69,7 @@ export function D3Cadence({ model }: { model: DestinationDetails3ViewModel }) {
 							className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/55 via-transparent to-black/25"
 							aria-hidden
 						/>
-						<p className="absolute bottom-4 left-4 right-4 font-mono text-[9px] uppercase tracking-[0.2em] text-white/50">
+						<p className="absolute bottom-4 left-4 right-4 text-[9px] font-medium uppercase tracking-[0.2em] text-white/50">
 							Through the day
 						</p>
 					</aside>

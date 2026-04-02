@@ -1,3 +1,3 @@
-export { StorySectionsMotion } from "@/features/destination-details/sections/story-sections-motion";
-export { EditorialCompositionCoastal } from "@/features/destination-details/sections/editorial-composition-coastal";
-export { EditorialCompositionMountain } from "@/features/destination-details/sections/editorial-composition-mountain";
+export { DestinationDetailsSectionsMotion } from "@/features/destination-details/sections/destination-details-sections-motion";
+export { DestinationDetailsCoastalLayout } from "@/features/destination-details/sections/destination-details-layout-coastal";
+export { DestinationDetailsMountainLayout } from "@/features/destination-details/sections/destination-details-layout-mountain";

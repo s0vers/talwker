@@ -4,15 +4,15 @@ import { useEffect, useState } from "react";
 import { getDestinationDetails3TourCta } from "@/features/destination-details-3/content/destination-details-3-cta-copy";
 import { getDestinationDetails3ViewModel } from "@/features/destination-details-3/lib/details-3-view-model";
 import {
-	D3Cadence,
-	D3Close,
-	D3Counterpoint,
-	D3Culture,
-	D3Hero,
-	D3Ledger,
-	D3MotionRoot,
-	D3People,
-	D3Places,
+	DestinationDetails3Cadence,
+	DestinationDetails3Close,
+	DestinationDetails3Counterpoint,
+	DestinationDetails3Culture,
+	DestinationDetails3Hero,
+	DestinationDetails3Ledger,
+	DestinationDetails3MotionRoot,
+	DestinationDetails3People,
+	DestinationDetails3Places,
 } from "@/features/destination-details-3/sections";
 import { InitialLoader } from "@/features/home/sections";
 import type { Destination } from "@/shared/types/domain";
@@ -69,16 +69,16 @@ export default function DestinationDetails3Page({ destination }: DestinationDeta
 		<>
 			<InitialLoader isLoading={isLoading} />
 			<div className="relative min-h-screen overflow-hidden bg-[#020202]">
-				<D3MotionRoot>
-					<D3Hero model={model} />
-					<D3People model={model} />
-					<D3Culture model={model} />
-					<D3Cadence model={model} />
-					<D3Places model={model} />
-					<D3Counterpoint model={model} />
-					<D3Ledger model={model} />
-					<D3Close model={model} />
-				</D3MotionRoot>
+				<DestinationDetails3MotionRoot>
+					<DestinationDetails3Hero model={model} />
+					<DestinationDetails3People model={model} />
+					<DestinationDetails3Culture model={model} />
+					<DestinationDetails3Cadence model={model} />
+					<DestinationDetails3Places model={model} />
+					<DestinationDetails3Counterpoint model={model} />
+					<DestinationDetails3Ledger model={model} />
+					<DestinationDetails3Close model={model} />
+				</DestinationDetails3MotionRoot>
 				<EditorialCtaBand
 					showTopFrame
 					headingId={`destination-3-tour-cta-${tourCta.slug}`}

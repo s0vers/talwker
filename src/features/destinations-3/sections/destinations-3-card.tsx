@@ -34,7 +34,7 @@ export function Destinations3Card({ destination, href }: Destinations3CardProps)
 					aria-hidden
 				/>
 				{tag ? (
-					<span className="absolute bottom-3 right-3 rounded-sm bg-black/55 px-2 py-1 text-[9px] font-semibold uppercase tracking-[0.18em] text-orange-200/90">
+					<span className="absolute bottom-3 right-3 rounded-sm bg-black/55 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-orange-500">
 						{tag}
 					</span>
 				) : null}
@@ -42,10 +42,10 @@ export function Destinations3Card({ destination, href }: Destinations3CardProps)
 
 			<div className="flex flex-1 flex-col gap-2 p-5">
 				<div>
-					<p className="text-[11px] font-medium uppercase tracking-[0.14em] text-white/40">{country}</p>
-					<h3 className="mt-1 text-xl font-semibold tracking-tight text-white md:text-2xl">{name}</h3>
+					<p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/40">{country}</p>
+					<h3 className="mt-1 text-xl font-semibold leading-tight tracking-tight text-white md:text-2xl">{name}</h3>
 				</div>
-				<p className="mt-auto pt-3 text-xs text-white/48">{duration}</p>
+				<p className="mt-auto pt-3 text-xs leading-relaxed text-white/55">{duration}</p>
 			</div>
 		</Link>
 	);

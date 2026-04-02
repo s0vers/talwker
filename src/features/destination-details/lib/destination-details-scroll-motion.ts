@@ -3,10 +3,10 @@ import { gsap, prefersReducedMotion } from "@/lib/useGsap";
 const TOGGLE_ON_ENTER = { toggleActions: "play none none none" } as const;
 
 /**
- * GSAP + ScrollTrigger choreography for destination narrative sections.
- * Called inside `useGsapContext` with the motion wrapper element.
+ * GSAP + ScrollTrigger choreography for destination details (v1) narrative sections.
+ * Called inside `useGsapContext` with `DestinationDetailsSectionsMotion` root.
  */
-export function bindDestinationStoryScroll(root: HTMLElement): void {
+export function bindDestinationDetailsScroll(root: HTMLElement): void {
 	const sections = gsap.utils.toArray<HTMLElement>("[data-story-scene]", root);
 	const lines = gsap.utils.toArray<HTMLElement>("[data-story-line]", root);
 	const reveals = gsap.utils.toArray<HTMLElement>("[data-story-reveal]", root);

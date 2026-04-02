@@ -1,4 +1,4 @@
-import type { DestinationNarrativeSeed, NarrativeImage } from "@/features/destination-details/lib/story-types";
+import type { DestinationNarrativeSeed, NarrativeImage } from "@/features/destination-details/lib/destination-details-types";
 
 const UNSPLASH_EDITORIAL_SET: Record<string, NarrativeImage> = {
 	portraitA: {

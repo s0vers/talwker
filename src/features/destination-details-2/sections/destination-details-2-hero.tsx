@@ -1,12 +1,18 @@
 import Image from "next/image";
-import { d2BodyClass, d2KickerClass } from "@/features/destination-details-2/lib/d2-ui-classes";
-import type { DestinationNarrativeViewModel } from "@/features/destination-details/lib/story-types";
+import {
+	destinationDetails2BodyClass,
+	destinationDetails2KickerClass,
+} from "@/features/destination-details-2/lib/destination-details-2-ui-classes";
+import type { DestinationNarrativeViewModel } from "@/features/destination-details/lib/destination-details-types";
 
-export function D2Hero({ model }: { model: DestinationNarrativeViewModel }) {
+export function DestinationDetails2Hero({ model }: { model: DestinationNarrativeViewModel }) {
 	const { atmosphere, destinationLabel } = model;
 
 	return (
-		<section className="relative border-b border-white/10 bg-[#020202] text-white" aria-labelledby="d2-hero-heading">
+		<section
+			className="relative border-b border-white/10 bg-[#020202] text-white"
+			aria-labelledby="destination-details-2-hero-title"
+		>
 			<div className="mx-auto grid max-w-[1600px] gap-0 lg:grid-cols-[1.05fr_0.95fr]">
 				<div className="relative min-h-[52vh] overflow-hidden lg:min-h-[min(88vh,920px)]">
 					<div className="absolute inset-0" data-d2-hero-media-root>
@@ -30,17 +36,23 @@ export function D2Hero({ model }: { model: DestinationNarrativeViewModel }) {
 					</p>
 				</div>
 
-				<div className="flex flex-col justify-end gap-6 pad-x py-12 lg:py-16 lg:pl-12 lg:pr-10" data-d2-hero-pane>
+				<div
+					className="flex flex-col justify-end gap-6 pad-x py-12 lg:py-16 lg:pl-12 lg:pr-10"
+					data-d2-hero-pane
+				>
 					<div>
-						{atmosphere.kicker ? <p className={d2KickerClass}>{atmosphere.kicker}</p> : null}
+						{atmosphere.kicker ? <p className={destinationDetails2KickerClass}>{atmosphere.kicker}</p> : null}
 						<h1
-							id="d2-hero-heading"
-							className="mt-5 font-serif text-4xl font-medium leading-[1.05] tracking-tight md:text-5xl lg:text-6xl"
+							id="destination-details-2-hero-title"
+							className={
+								(atmosphere.kicker ? "mt-5 " : "mt-6 ") +
+								"text-[clamp(2rem,5vw,3.75rem)] font-semibold leading-[1.05] tracking-tight md:text-5xl lg:text-6xl"
+							}
 						>
 							{atmosphere.title}
 						</h1>
 					</div>
-					<div className={d2BodyClass}>
+					<div className={destinationDetails2BodyClass}>
 						<p>{atmosphere.body}</p>
 					</div>
 				</div>

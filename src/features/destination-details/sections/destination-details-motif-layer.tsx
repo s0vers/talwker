@@ -3,7 +3,8 @@ type Props = {
 	dense?: boolean;
 };
 
-export function EditorialMotifLayer({ label, dense = false }: Props) {
+/** Fixed SVG path + watermark label behind narrative content (motion hooks on `data-story-motif-label`). */
+export function DestinationDetailsMotifLayer({ label, dense = false }: Props) {
 	return (
 		<div
 			aria-hidden="true"

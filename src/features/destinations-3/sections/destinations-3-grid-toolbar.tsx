@@ -84,7 +84,7 @@ function Destinations3GridToolbarInner({ list, quickLinks }: Destinations3GridTo
 									"rounded-full px-4 py-2 text-[11px] font-medium transition-colors md:px-5",
 									active
 										? "bg-orange-500/18 text-orange-100"
-										: "bg-white/[0.04] text-white/65 hover:bg-white/[0.08] hover:text-white",
+										: "bg-white/4 text-white/65 hover:bg-white/8 hover:text-white",
 								)}
 							>
 								{item.label}

@@ -19,7 +19,8 @@ are not.
   `max-w-[1600px]`, section paddings).
 - Preserve current animation intent and timing feel unless fixing accessibility
   via reduced-motion fallbacks.
-- Do not swap template families (Talkwer and Voyager styles must stay separate).
+- Use one type family site-wide (Inter from `layout.tsx`); parallel destination
+  layouts differ by composition and motion, not by loading serif/mono stacks.
 
 ## Allowed changes
 

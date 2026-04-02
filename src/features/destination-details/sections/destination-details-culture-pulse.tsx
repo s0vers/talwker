@@ -1,18 +1,21 @@
 import Image from "next/image";
-import { storyKickerClass, storyMediaBorderClass } from "@/features/destination-details/lib/story-ui-classes";
-import type { DestinationNarrativeSectionProps } from "@/features/destination-details/lib/story-types";
+import {
+	destinationDetailsBodyClass,
+	destinationDetailsKickerClass,
+	destinationDetailsMediaBorderClass,
+	destinationDetailsSectionHeadingClass,
+} from "@/features/destination-details/lib/destination-details-ui-classes";
+import type { DestinationNarrativeSectionProps } from "@/features/destination-details/lib/destination-details-types";
 
 /** Overlap collage: back → mid → front (z-index). Positions tuned so layers read as one cluster, not random stacks. */
 const COLLAGE_LAYERS = [
-	// Back: wide left anchor (reads first, sits behind)
 	"left-0 bottom-0 z-[1] h-[86%] w-[64%] max-w-none",
-	// Mid: right stack, overlaps the back plane
 	"right-0 bottom-[2%] z-[2] h-[70%] w-[52%] max-w-none",
-	// Front accent: upper-left float (smaller, completes the triangle)
 	"left-[6%] top-0 z-[3] h-[44%] w-[38%] max-w-none shadow-[0_24px_60px_-12px_rgba(0,0,0,0.65)]",
 ] as const;
 
-export function MovementCulturePulse({ model }: DestinationNarrativeSectionProps) {
+/** Chapter: culture copy + image collage or single anchor. */
+export function DestinationDetailsCulturePulse({ model }: DestinationNarrativeSectionProps) {
 	const images = model.culturePulse.cultureImages.filter(Boolean);
 
 	return (
@@ -20,16 +23,14 @@ export function MovementCulturePulse({ model }: DestinationNarrativeSectionProps
 			<div className="mx-auto max-w-[1600px]">
 				<div className="grid gap-10 md:gap-12 lg:grid-cols-12 lg:items-end">
 					<div className="lg:order-2 lg:col-span-5 lg:flex lg:flex-col lg:justify-end lg:pl-4 xl:pl-10">
-						<p className={storyKickerClass}>{model.culturePulse.kicker}</p>
-						<h2 className="mt-3 text-3xl font-semibold leading-tight md:text-5xl">{model.culturePulse.title}</h2>
-						<p className="mt-4 max-w-lg text-sm leading-relaxed text-white/80 md:text-base">
-							{model.culturePulse.body}
-						</p>
+						<p className={destinationDetailsKickerClass}>{model.culturePulse.kicker}</p>
+						<h2 className={"mt-3 " + destinationDetailsSectionHeadingClass}>{model.culturePulse.title}</h2>
+						<p className={"mt-4 max-w-lg " + destinationDetailsBodyClass}>{model.culturePulse.body}</p>
 					</div>
 
 					<div className="relative min-h-0 lg:order-1 lg:col-span-7">
 						{images.length === 1 ? (
-							<div className={`overflow-hidden rounded-[1.2rem] ${storyMediaBorderClass}`} data-story-item>
+							<div className={`overflow-hidden rounded-[1.2rem] ${destinationDetailsMediaBorderClass}`} data-story-item>
 								<Image
 									src={images[0].src}
 									alt={images[0].alt}
@@ -44,7 +45,7 @@ export function MovementCulturePulse({ model }: DestinationNarrativeSectionProps
 								{images.map((image, idx) => (
 									<div
 										key={`${image.src}-${idx}`}
-										className={`absolute overflow-hidden rounded-[1.2rem] ${storyMediaBorderClass} ${COLLAGE_LAYERS[idx] ?? COLLAGE_LAYERS[COLLAGE_LAYERS.length - 1]}`}
+										className={`absolute overflow-hidden rounded-[1.2rem] ${destinationDetailsMediaBorderClass} ${COLLAGE_LAYERS[idx] ?? COLLAGE_LAYERS[COLLAGE_LAYERS.length - 1]}`}
 										data-story-item
 										data-story-media
 									>

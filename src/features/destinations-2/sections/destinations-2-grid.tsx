@@ -31,7 +31,7 @@ export function Destinations2Grid({ list, grid, quickLinks }: Destinations2GridP
 			<div className="mx-auto max-w-[1600px] pad-x">
 				<header className="mb-2 max-w-2xl">
 					<p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-orange-500/85">{DESTINATIONS_2_GRID.label}</p>
-					<h2 id="destinations-2-grid-title" className="mt-4 font-serif text-3xl font-medium text-white md:text-4xl">
+					<h2 id="destinations-2-grid-title" className="mt-4 text-3xl font-semibold tracking-tight text-white md:text-4xl">
 						{DESTINATIONS_2_GRID.title}
 					</h2>
 					<p className="mt-4 text-sm leading-relaxed text-white/50 md:text-base">{DESTINATIONS_2_GRID.description}</p>

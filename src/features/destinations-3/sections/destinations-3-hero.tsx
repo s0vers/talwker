@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { DESTINATIONS_3_PAGE_HERO } from "@/features/destinations-3/content/destinations-3-page-copy";
-import { DESTINATIONS_3_PAGE_SHELL } from "@/features/destinations-3/lib/destinations-3-page-shell";
 
 const LIST_HERO_IMAGE_SRC = "/vertical-high-angle-shot-white-buildings-santorini-greece.jpg";
 
@@ -29,8 +28,8 @@ export function Destinations3Hero() {
 					/>
 
 					<div className="absolute inset-x-0 bottom-2 flex justify-center pt-8 md:pt-10">
-						<p className="max-w-[90vw] text-center font-mono text-[10px] font-medium uppercase tracking-[0.38em] text-white/80">
-							<span className="text-orange-300">{h.rail}</span>
+						<p className="max-w-[90vw] text-center text-[10px] font-semibold uppercase tracking-[0.28em] text-white/80">
+							<span className="text-orange-500">{h.rail}</span>
 							<span className="mx-2 text-white/35" aria-hidden>
 								·
 							</span>
@@ -41,16 +40,16 @@ export function Destinations3Hero() {
 					<div className="absolute inset-x-0 bottom-0 pb-10 pt-16 md:pb-14 md:pt-20">
 						<h1
 							id="destinations-3-hero-title"
-							className="mx-auto max-w-[22ch] text-center text-[clamp(1.85rem,5.2vw,3.5rem)] font-semibold leading-[1.08] tracking-[-0.02em] text-white sm:max-w-[28ch]"
+							className="mx-auto max-w-[22ch] text-center text-[clamp(2rem,5.5vw,3.75rem)] font-semibold leading-[1.08] tracking-tight text-white sm:max-w-[28ch]"
 						>
 							{h.title}{" "}
-							<span className="text-orange-400">{h.titleAccent}</span>
+							<span className="text-orange-500">{h.titleAccent}</span>
 						</h1>
 					</div>
 				</div>
 
 				<div className="border-t border-white/10 bg-[#080808] py-12 text-center md:py-14">
-					<p className="mx-auto max-w-lg text-sm leading-relaxed text-white/60 md:max-w-xl md:text-base">
+					<p className="mx-auto max-w-lg text-sm leading-relaxed text-white/55 md:max-w-xl md:text-base md:leading-relaxed">
 						{h.lede}
 					</p>
 				</div>

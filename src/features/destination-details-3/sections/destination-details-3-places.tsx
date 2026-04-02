@@ -1,21 +1,30 @@
 import Image from "next/image";
-import { d3BodyClass, d3IndexClass, d3KickerClass, d3RuleClass } from "@/features/destination-details-3/lib/d3-ui-classes";
+import {
+	destinationDetails3BodyClass,
+	destinationDetails3IndexClass,
+	destinationDetails3KickerClass,
+	destinationDetails3RuleClass,
+	destinationDetails3SectionHeadingClass,
+} from "@/features/destination-details-3/lib/destination-details-3-ui-classes";
 import type { DestinationDetails3ViewModel } from "@/features/destination-details-3/lib/details-3-types";
 import { cn } from "@/lib/utils";
 
-export function D3Places({ model }: { model: DestinationDetails3ViewModel }) {
+export function DestinationDetails3Places({ model }: { model: DestinationDetails3ViewModel }) {
 	const { places } = model;
 
 	return (
-		<section className="border-b border-white/10 bg-[#050505] py-16 md:py-24" aria-labelledby="d3-places-heading">
+		<section
+			className="border-b border-white/10 bg-[#050505] py-16 md:py-24"
+			aria-labelledby="destination-details-3-places-title"
+		>
 			<div className="mx-auto max-w-[1600px] pad-x">
 				<header className="mb-14 max-w-2xl" data-d3-reveal="down">
-					<div className={d3RuleClass} aria-hidden />
-					<p className={"mt-6 " + d3KickerClass}>Named coordinates</p>
-					<h2 id="d3-places-heading" className="mt-4 text-2xl font-semibold md:text-4xl">
+					<div className={destinationDetails3RuleClass} aria-hidden />
+					<p className={"mt-6 " + destinationDetails3KickerClass}>Named coordinates</p>
+					<h2 id="destination-details-3-places-title" className={destinationDetails3SectionHeadingClass}>
 						Places worth understanding slowly
 					</h2>
-					<p className={"mt-4 " + d3BodyClass}>
+					<p className={"mt-4 " + destinationDetails3BodyClass}>
 						Short dossiers — neighborhoods, edges, and thresholds locals use to read the map.
 					</p>
 				</header>
@@ -26,11 +35,11 @@ export function D3Places({ model }: { model: DestinationDetails3ViewModel }) {
 							key={`${place.index}-${place.name}`}
 							className="grid items-center gap-8 md:grid-cols-[auto_minmax(0,1fr)] md:gap-12 lg:gap-16"
 						>
-							<div className="flex min-w-[5rem] flex-col gap-2 md:w-28" data-d3-reveal="zoom">
-								<span className={d3IndexClass} aria-hidden>
+							<div className="flex min-w-20 flex-col gap-2 md:w-28" data-d3-reveal="zoom">
+								<span className={destinationDetails3IndexClass} aria-hidden>
 									{place.index}
 								</span>
-								<span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/35">coordinate</span>
+								<span className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/35">coordinate</span>
 							</div>
 							<div
 								className={cn(
@@ -39,7 +48,7 @@ export function D3Places({ model }: { model: DestinationDetails3ViewModel }) {
 								)}
 								data-d3-stagger={i % 2 === 0 ? "split" : "split-reverse"}
 							>
-								<div className="relative aspect-[4/3] overflow-hidden rounded-sm border border-white/10" data-d3-item>
+								<div className="relative aspect-4/3 overflow-hidden rounded-sm border border-white/10" data-d3-item>
 									<div className="absolute inset-0" data-d3-media>
 										<Image
 											src={place.imageSrc}
@@ -51,8 +60,8 @@ export function D3Places({ model }: { model: DestinationDetails3ViewModel }) {
 									</div>
 								</div>
 								<div data-d3-item>
-									<h3 className="text-xl font-semibold text-white md:text-2xl">{place.name}</h3>
-									<p className={"mt-4 " + d3BodyClass}>{place.narrative}</p>
+									<h3 className="text-xl font-semibold tracking-tight text-white md:text-2xl">{place.name}</h3>
+									<p className={"mt-4 " + destinationDetails3BodyClass}>{place.narrative}</p>
 								</div>
 							</div>
 						</li>

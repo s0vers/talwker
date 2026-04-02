@@ -34,7 +34,7 @@ export function Destinations2Card({ destination, href }: Destinations2CardProps)
 					aria-hidden
 				/>
 				{tag ? (
-					<span className="absolute left-3 top-3 rounded border border-white/20 bg-black/50 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-orange-200/95">
+					<span className="absolute left-3 top-3 rounded border border-white/20 bg-black/50 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-orange-500">
 						{tag}
 					</span>
 				) : null}
@@ -45,12 +45,12 @@ export function Destinations2Card({ destination, href }: Destinations2CardProps)
 
 			<div className="flex flex-1 flex-col gap-2 p-5">
 				<div>
-					<p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-white/40">{country}</p>
-					<h3 className="mt-1 font-serif text-2xl font-medium tracking-tight text-white">{name}</h3>
+					<p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/40">{country}</p>
+					<h3 className="mt-1 text-2xl font-semibold leading-tight tracking-tight text-white">{name}</h3>
 				</div>
 				<div className="mt-auto flex items-end justify-between gap-3 border-t border-white/10 pt-4 text-xs text-white/55">
 					<span>{duration}</span>
-					<span className="font-semibold tabular-nums text-orange-300/95">${price.toLocaleString()}</span>
+					<span className="font-semibold tabular-nums text-orange-500">${price.toLocaleString()}</span>
 				</div>
 			</div>
 		</Link>

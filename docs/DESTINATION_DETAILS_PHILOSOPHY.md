@@ -15,7 +15,7 @@ The page is not a “card grid of facts.” It is a **long-form magazine narrati
 5. **Sensory immersion** — Texture, sound, light—what photos cannot fully carry.
 6. **Reflective close** — Quiet landing: understanding over highlights.
 
-Copy is authored to be **specific and grounded** (names of roles, institutions, rhythms). The fallback seed in `content/story-copy.ts` encodes this voice; per-destination entries override tone while keeping structure.
+Copy is authored to be **specific and grounded** (names of roles, institutions, rhythms). The fallback seed in `content/destination-details-narrative-copy.ts` encodes this voice; per-destination entries override tone while keeping structure.
 
 **Design inspiration (intangible, portable):**
 
@@ -31,20 +31,20 @@ When you build *details-2*, preserve **the six-chapter spine** and **people-firs
 
 ```
 Destination (domain)
-    → getDestinationStoryViewModel(destination)
+    → getDestinationDetailsViewModel(destination)
         → DestinationNarrativeViewModel
-            → EditorialCompositionCoastal | EditorialCompositionMountain
-                → six Movement* sections
+            → DestinationDetailsCoastalLayout | DestinationDetailsMountainLayout
+                → six chapter sections (atmosphere … reflective close)
 ```
 
 | Layer | Responsibility |
 |--------|----------------|
 | `shared/types/domain` `Destination` | Source of truth: name, country, images, gallery, etc. |
-| `content/story-copy.ts` | Per-destination **narrative seed** (`DestinationNarrativeSeed`): copy + optional image overrides. |
-| `lib/story-view-model.ts` | Merges seed + inferred images + variant; produces **`DestinationNarrativeViewModel`**. |
-| `sections/editorial-composition-*.tsx` | Chooses **section order** and **vertical rhythm** (coastal vs mountain). |
-| `sections/movement-*.tsx` | Renders one “chapter”; owns layout and `data-story-*` hooks for motion. |
-| `sections/story-sections-motion.tsx` | Client wrapper: runs GSAP once per page instance. |
+| `content/destination-details-narrative-copy.ts` | Per-destination **narrative seed** (`DestinationNarrativeSeed`): copy + optional image overrides. |
+| `lib/destination-details-view-model.ts` | Merges seed + inferred images + variant; produces **`DestinationNarrativeViewModel`**. |
+| `sections/destination-details-layout-*.tsx` | Chooses **chapter order** and **vertical rhythm** (coastal vs mountain). |
+| `sections/destination-details-*.tsx` (chapter files) | Renders one narrative chapter; owns layout and `data-story-*` hooks for motion. |
+| `sections/destination-details-sections-motion.tsx` | Client wrapper: runs GSAP once per page instance. |
 | `destination-details-page.tsx` | Composes story + `EditorialCtaBand` (tours CTA). |
 
 **Slug → seed key:** `getSeed()` uses the **first segment** of the slug (`bali` from `bali-indonesia`). New destinations need either a matching key in `DESTINATION_STORY_COPY` or they fall back to `FALLBACK_STORY_SEED`.
@@ -53,7 +53,7 @@ Destination (domain)
 
 ## 3. Types and content contract
 
-Defined in `lib/story-types.ts`.
+Defined in `lib/destination-details-types.ts`.
 
 ### Narrative variant
 
@@ -69,11 +69,11 @@ Defined in `lib/story-types.ts`.
 | `texture` | Detail, material, close surface. |
 | `context` | Street, landscape, situational wide shots. |
 
-`DestinationNarrativeViewModel` **assigns concrete images to each movement** (hero, context strips, portrait grid, culture collage, sensory pair, closing image). Authors can supply `images` on the seed by role; otherwise the view model **picks from** `destination.image`, `gallery`, and a small set of shared stock paths.
+`DestinationNarrativeViewModel` **assigns concrete images to each chapter** (hero, context strips, portrait grid, culture collage, sensory pair, closing image). Authors can supply `images` on the seed by role; otherwise the view model **picks from** `destination.image`, `gallery`, and a small set of shared stock paths.
 
-### Movement copy shape
+### Chapter copy shape
 
-Each movement uses `MovementCopy`: `kicker?`, `title`, `body`, optional `pullQuote` (people section).
+Each chapter uses `NarrativeChapterCopy`: `kicker?`, `title`, `body`, optional `pullQuote` (people section).
 
 For *details-2*, you can **reuse the same types** and view model so content stays one source of truth; only the **presentation components** change.
 
@@ -81,19 +81,19 @@ For *details-2*, you can **reuse the same types** and view model so content stay
 
 ## 4. Coastal vs mountain compositions (spatial philosophy)
 
-Both compositions render the **same six movement components** but differ in **order** and **vertical stacking tension**.
+Both layouts render the **same six chapter components** but differ in **order** and **vertical stacking tension**.
 
-**Coastal** (`editorial-composition-coastal.tsx`):
+**Coastal** (`destination-details-layout-coastal.tsx` → `DestinationDetailsCoastalLayout`):
 
 - Order: Atmosphere → Living geography → People → Culture → Sensory → Close.
 - Spacing: `space-y-6 md:space-y-10` — **breathing room**, chapter-like separation.
-- Motif: `EditorialMotifLayer` default density (`dense={false}`).
+- Motif: `DestinationDetailsMotifLayer` default density (`dense={false}`).
 
-**Mountain** (`editorial-composition-mountain.tsx`):
+**Mountain** (`destination-details-layout-mountain.tsx` → `DestinationDetailsMountainLayout`):
 
 - Order: Atmosphere → **People** → Living geography → … (people promoted earlier).
 - Spacing: `-space-y-2 md:-space-y-4` — **tighter overlap**, cliff-face stacking.
-- Motif: `EditorialMotifLayer` **`dense`** — stronger stroke, higher opacity.
+- Motif: `DestinationDetailsMotifLayer` **`dense`** — stronger stroke, higher opacity.
 
 **Takeaway for details-2:** Variant is not “theme skin only”—it is **pacing and priority**. Your second layout could introduce a third “rhythm preset” (e.g. `editorial` / `minimal`) that only changes **composition wrapper** + **CSS**, still fed by the same `model`.
 
@@ -103,22 +103,22 @@ Both compositions render the **same six movement components** but differ in **or
 
 ### Shared classes
 
-`lib/story-ui-classes.ts` centralizes **accent alignment** with the rest of Talkwer:
+`lib/destination-details-ui-classes.ts` centralizes **accent alignment** with the rest of Talkwer:
 
-- Kickers: `storyKickerClass`, `storyKickerOnImageClass`
-- Frames: `storyFrameRingClass`, `storyMediaBorderClass`
-- Quote: `storyQuoteBorderClass`
-- Micro labels: `storyMicroRailClass`, `storyStatBorderClass`
+- Kickers: `destinationDetailsKickerClass`, `destinationDetailsKickerOnImageClass`
+- Frames: `destinationDetailsFrameRingClass`, `destinationDetailsMediaBorderClass`
+- Quote: `destinationDetailsQuoteBorderClass`
+- Micro labels: `destinationDetailsMicroRailClass`, `destinationDetailsStatBorderClass`, `destinationDetailsStatLabelClass`
 
-Orange is intentionally **rim light / accent** (`orange-400`–`orange-500` at low alpha), not full fills.
+Orange is intentionally **rim light / accent** (`orange-500` at low alpha), not full fills.
 
 ### Motif layer
 
-`editorial-motif-layer.tsx` draws an SVG path + **uppercase destination name** as large watermark text. The text node uses **`data-story-motif-label`** so `story-scroll-motion.ts` can scrub `y` and opacity on scroll.
+`destination-details-motif-layer.tsx` (`DestinationDetailsMotifLayer`) draws an SVG path + **uppercase destination name** as large watermark text. The text node uses **`data-story-motif-label`** so `destination-details-scroll-motion.ts` can scrub `y` and opacity on scroll.
 
 ### Section shell
 
-Movement sections use:
+Chapter sections use:
 
 - `data-story-scene="<name>"` — scene identity (e.g. `atmosphere`, `people`); used for **section-level clip/scrub** and to **skip parallax on atmosphere hero media**.
 - `data-story-line` — title/body lines for staggered reveal.
@@ -129,9 +129,9 @@ Max content width is typically **`max-w-[1600px]`** with horizontal padding via 
 
 ---
 
-## 6. Motion contract (`lib/story-scroll-motion.ts`)
+## 6. Motion contract (`lib/destination-details-scroll-motion.ts`)
 
-`StorySectionsMotion` mounts **`bindDestinationStoryScroll(root)`** inside `useGsapContext` (see `.cursor/docs/motion-lifecycle.md` if present).
+`DestinationDetailsSectionsMotion` mounts **`bindDestinationDetailsScroll(root)`** inside `useGsapContext` (see `.cursor/docs/motion-lifecycle.md` if present).
 
 Behaviors (abbreviated):
 
@@ -148,7 +148,7 @@ Behaviors (abbreviated):
 
 **Implications for details-2:**
 
-- If you change DOM structure, **preserve the same `data-story-*` attributes** on analogous elements, or **fork** `bindDestinationStoryScroll` into e.g. `bindDestinationStoryScrollV2` with a new selector map.
+- If you change DOM structure, **preserve the same `data-story-*` attributes** on analogous elements, or **fork** `bindDestinationDetailsScroll` into e.g. `bindDestinationDetails2Scroll` with a new selector map.
 - New layouts that **remove** scene wrappers lose the clip/scene handoff unless you replace it with CSS or a different timeline.
 
 ---
@@ -156,7 +156,7 @@ Behaviors (abbreviated):
 ## 7. Page entry and shell
 
 - Route: `src/app/destinations/[slug]/page.tsx` resolves `Destination`, injects breadcrumb JSON-LD, renders `DestinationDetailsPage`.
-- `destination-details-page.tsx` builds the view model, picks composition by `model.variant`, wraps story in `StorySectionsMotion`, and appends **`EditorialCtaBand`** from `shared/ui` using `getDestinationDetailsTourCta(destination)`.
+- `destination-details-page.tsx` builds the view model, picks `DestinationDetailsCoastalLayout` or `DestinationDetailsMountainLayout` by `model.variant`, wraps content in `DestinationDetailsSectionsMotion`, and appends **`EditorialCtaBand`** from `shared/ui` using `getDestinationDetailsTourCta(destination)`.
 
 Global **Navbar / Footer / `<main>`** live in `src/app/layout.tsx`; the feature page only supplies **inner** content.
 
@@ -168,17 +168,17 @@ Use this when you want **same philosophy, different look and alignments**.
 
 ### Keep stable
 
-1. **Six-movement narrative arc** and copy types (`DestinationNarrativeSeed` / `DestinationNarrativeViewModel`).
-2. **Single view model builder** (`getDestinationStoryViewModel`) unless details-2 needs different image rules (then extend with a flag or parallel mapper).
+1. **Six-chapter narrative arc** and copy types (`DestinationNarrativeSeed` / `DestinationNarrativeViewModel`).
+2. **Single view model builder** (`getDestinationDetailsViewModel`) unless details-2 needs different image rules (then extend with a flag or parallel mapper).
 3. **Image roles** semantics—so CMS/authors do not relearn a new taxonomy per layout.
 4. **Accessibility:** one logical `<h1>` in the hero; subsequent sections use `<h2>`; images have meaningful `alt` from the model.
 
 ### Swap or fork deliberately
 
-1. **Composition file** — e.g. `editorial-composition-v2.tsx` that imports either the same `Movement*` components with new wrappers, or **`MovementV2*`** siblings.
-2. **Layout-only tokens** — new `story-ui-classes-v2.ts` for typography, gutters, border radius, and alignment (left rail vs centered vs split asymmetric grid).
-3. **Motion** — either reuse `bindDestinationStoryScroll` with the same hooks, or duplicate and tune scrub ranges / clip-path for a flatter or more aggressive feel.
-4. **Motif** — replace `EditorialMotifLayer` with a different background system (grain, grid, typographic index numbers) while keeping **one focal brand accent** so it still feels like Talkwer.
+1. **Layout file** — e.g. `destination-details-2-*-layout.tsx` that imports either the same shared chapter components with new wrappers, or **`DestinationDetails2*`** section siblings.
+2. **Layout-only tokens** — parallel `destination-details-2-ui-classes.ts` for typography, gutters, border radius, and alignment (left rail vs centered vs split asymmetric grid).
+3. **Motion** — either reuse `bindDestinationDetailsScroll` with the same hooks, or duplicate and tune scrub ranges / clip-path for a flatter or more aggressive feel.
+4. **Motif** — replace `DestinationDetailsMotifLayer` with a different background system (grain, grid, typographic index numbers) while keeping **one focal brand accent** so it still feels like Talkwer.
 
 ### Suggested file layout (parallel feature)
 
@@ -186,12 +186,12 @@ Use this when you want **same philosophy, different look and alignments**.
 src/features/destination-details-2/
   destination-details-2-page.tsx
   sections/
-    story-sections-motion.tsx        # optional: calls bindDestinationStoryScrollV2
-    editorial-composition-v2.tsx
-    movement-*-v2.tsx              # or shared movement + layout primitives
+    destination-details-2-sections-motion.tsx        # optional: parallel to v1 motion
+    destination-details-2-*-layout.tsx
+    destination-details-2-*.tsx    # section chapters or shared primitives
   lib/
-    story-ui-classes-v2.ts
-    story-scroll-motion-v2.ts
+    destination-details-2-ui-classes.ts
+    destination-details-2-scroll-motion.ts
 ```
 
 Route option A: **`/destinations/[slug]/v2`** with a dedicated `page.tsx` under `src/app/destinations/[slug]/v2/page.tsx`.  
@@ -212,7 +212,7 @@ Run `pnpm verify` after wiring. For visual QA, prefer **`pnpm build && pnpm star
 - Seeds in `content/details-3-seeds.ts` (keyed by slug first segment, same rule as v1 story copy).
 - When set on `Destination`: `cultureHighlights[]`, `signaturePlaces[]`.
 
-**UI:** `d3-ui-classes.ts` (mono index + sans headlines), sections `D3Hero`, `D3People`, `D3Culture`, **`D3Cadence`** (day rhythm, v3-only), `D3Places`, **`D3Counterpoint`** (two coexisting “readings,” v3-only), **`D3Ledger`** (margin notes / social read, v3-only), `D3Close`. Motion: `lib/d3-scroll-motion.ts` + `D3MotionRoot` using **`data-d3-*`** only.
+**UI:** `lib/destination-details-3-ui-classes.ts` (Inter throughout; tabular index numerals for coordinates), sections `DestinationDetails3Hero`, `DestinationDetails3People`, `DestinationDetails3Culture`, **`DestinationDetails3Cadence`** (day rhythm, v3-only), `DestinationDetails3Places`, **`DestinationDetails3Counterpoint`** (two coexisting “readings,” v3-only), **`DestinationDetails3Ledger`** (margin notes / social read, v3-only), `DestinationDetails3Close`. Motion: `lib/destination-details-3-scroll-motion.ts` + `DestinationDetails3MotionRoot` using **`data-d3-*`** only.
 
 **v3 content fields** (in `details-3-seeds.ts`): `cadence[]`, `counterpoint`, `ledger[]` — inherited from `FALLBACK_DETAILS_3_SEED` wherever a seed uses `...FALLBACK`; override per destination for bespoke rhythm.
 
@@ -226,14 +226,14 @@ Run `pnpm verify` after wiring. For visual QA, prefer **`pnpm build && pnpm star
 
 | Topic | Primary files |
 |--------|----------------|
-| Copy + seeds | `content/story-copy.ts`, `content/unsplash-sources.ts` |
-| View model | `lib/story-view-model.ts` |
-| Types | `lib/story-types.ts` |
-| UI tokens | `lib/story-ui-classes.ts` |
-| Motion | `lib/story-scroll-motion.ts`, `sections/story-sections-motion.tsx` |
-| Variants | `sections/editorial-composition-coastal.tsx`, `editorial-composition-mountain.tsx` |
-| Motif | `sections/editorial-motif-layer.tsx` |
-| Movements | `sections/movement-*.tsx` |
+| Copy + seeds | `content/destination-details-narrative-copy.ts`, `content/unsplash-sources.ts` |
+| View model | `lib/destination-details-view-model.ts` |
+| Types | `lib/destination-details-types.ts` |
+| UI tokens | `lib/destination-details-ui-classes.ts` |
+| Motion | `lib/destination-details-scroll-motion.ts`, `sections/destination-details-sections-motion.tsx` |
+| Variants | `sections/destination-details-layout-coastal.tsx`, `destination-details-layout-mountain.tsx` |
+| Motif | `sections/destination-details-motif-layer.tsx` |
+| Chapters | `sections/destination-details-atmosphere.tsx`, `…-living-geography.tsx`, `…-people-portrait.tsx`, `…-culture-pulse.tsx`, `…-sensory-immersion.tsx`, `…-reflective-close.tsx` |
 | Page entry | `destination-details-page.tsx` |
 | CTA copy | `content/destination-details-cta-copy.ts` |
 | Route | `src/app/destinations/[slug]/page.tsx` |

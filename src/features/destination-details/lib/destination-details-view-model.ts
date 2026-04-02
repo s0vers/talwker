@@ -1,11 +1,14 @@
-import { DESTINATION_STORY_COPY, FALLBACK_STORY_SEED } from "@/features/destination-details/content/story-copy";
+import {
+	DESTINATION_STORY_COPY,
+	FALLBACK_STORY_SEED,
+} from "@/features/destination-details/content/destination-details-narrative-copy";
 import type {
 	DestinationNarrativeSeed,
 	DestinationNarrativeViewModel,
 	ImageRole,
 	NarrativeImage,
 	NarrativeVariant,
-} from "@/features/destination-details/lib/story-types";
+} from "@/features/destination-details/lib/destination-details-types";
 import { destinationToSlug } from "@/features/destinations/lib/destination-slug";
 import type { Destination } from "@/shared/types/domain";
 
@@ -76,7 +79,7 @@ function getRoleImages(
 	return [createImage(pickByIndex(baseImages, defaultIndex, fallback), role)];
 }
 
-export function getDestinationStoryViewModel(destination: Destination): DestinationNarrativeViewModel {
+export function getDestinationDetailsViewModel(destination: Destination): DestinationNarrativeViewModel {
 	const seed = getSeed(destination);
 	const sourceImages = collectSourceImages(destination);
 	const variant = seed.variant ?? inferVariant(destination);
