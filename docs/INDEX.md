@@ -9,6 +9,7 @@
 - `docs/PERFORMANCE_BUDGETS.md` — performance budgets and image discipline.
 - `docs/DEPENDENCY_GOVERNANCE.md` — dependency update and security audit policy.
 - `docs/RELEASE_CHECKLIST.md` — release gate checklist.
+- `docs/DESTINATION_DETAILS_PHILOSOPHY.md` — destination story page editorial philosophy, data model, motion hooks, and checklist for a second layout (`destination-details-2`).
 
 ## AI/project memory docs
 

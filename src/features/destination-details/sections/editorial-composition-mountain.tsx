@@ -1,4 +1,4 @@
-import type { DestinationNarrativeViewModel } from "@/features/destination-details/lib/story-types";
+import type { DestinationNarrativeSectionProps } from "@/features/destination-details/lib/story-types";
 import { EditorialMotifLayer } from "@/features/destination-details/sections/editorial-motif-layer";
 import { MovementAtmosphere } from "@/features/destination-details/sections/movement-atmosphere";
 import { MovementCulturePulse } from "@/features/destination-details/sections/movement-culture-pulse";
@@ -7,11 +7,7 @@ import { MovementPeoplePortrait } from "@/features/destination-details/sections/
 import { MovementReflectiveClose } from "@/features/destination-details/sections/movement-reflective-close";
 import { MovementSensoryImmersion } from "@/features/destination-details/sections/movement-sensory-immersion";
 
-type Props = {
-	model: DestinationNarrativeViewModel;
-};
-
-export function EditorialCompositionMountain({ model }: Props) {
+export function EditorialCompositionMountain({ model }: DestinationNarrativeSectionProps) {
 	return (
 		<div className="relative mx-auto max-w-[1600px]">
 			<EditorialMotifLayer label={model.motifLabel} dense />

@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Navbar, Footer, InitialLoader } from "@/features/home/sections";
-import { SKIP_TO_MAIN_LABEL } from "@/features/home/content/section-copy";
+import { InitialLoader } from "@/features/home/sections";
 import { STORIES_PAGE_COPY } from "@/features/stories/content/stories-page-copy";
 
 export default function StoriesPage() {
@@ -47,46 +46,34 @@ export default function StoriesPage() {
 	}, []);
 
 	return (
-		<div className="relative bg-[#050505] text-white">
-			<a
-				href="#main-content"
-				className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-70 focus:rounded-md focus:bg-black focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
-			>
-				{SKIP_TO_MAIN_LABEL}
-			</a>
-
+		<>
 			<InitialLoader isLoading={isLoading} />
-
-			<Navbar />
-			<main id="main-content">
-				<section
-					aria-labelledby="stories-page-title"
-					className="border-t border-white/10 bg-[#070707] pad-x py-28 md:py-36"
-				>
-					<div className="mx-auto max-w-[1600px]">
-						<p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-orange-500">
-							{STORIES_PAGE_COPY.kicker}
-						</p>
-						<h1
-							id="stories-page-title"
-							className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-white md:text-6xl"
-						>
-							{STORIES_PAGE_COPY.title}
-						</h1>
-						<p className="mt-6 max-w-2xl text-base text-white/55 md:text-lg">
-							{STORIES_PAGE_COPY.description}
-						</p>
-						<Link
-							href={STORIES_PAGE_COPY.homeAnchorHref}
-							className="mt-10 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-orange-400 transition-colors hover:text-orange-300"
-						>
-							{STORIES_PAGE_COPY.homeAnchorLabel}
-							<span aria-hidden>→</span>
-						</Link>
-					</div>
-				</section>
-			</main>
-			<Footer />
-		</div>
+			<section
+				aria-labelledby="stories-page-title"
+				className="border-t border-white/10 bg-[#070707] pad-x py-28 md:py-36"
+			>
+				<div className="mx-auto max-w-[1600px]">
+					<p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-orange-500">
+						{STORIES_PAGE_COPY.kicker}
+					</p>
+					<h1
+						id="stories-page-title"
+						className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-white md:text-6xl"
+					>
+						{STORIES_PAGE_COPY.title}
+					</h1>
+					<p className="mt-6 max-w-2xl text-base text-white/55 md:text-lg">
+						{STORIES_PAGE_COPY.description}
+					</p>
+					<Link
+						href={STORIES_PAGE_COPY.homeAnchorHref}
+						className="mt-10 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-orange-400 transition-colors hover:text-orange-300"
+					>
+						{STORIES_PAGE_COPY.homeAnchorLabel}
+						<span aria-hidden>→</span>
+					</Link>
+				</div>
+			</section>
+		</>
 	);
 }

@@ -3,13 +3,9 @@ import {
 	storyFrameRingClass,
 	storyKickerOnImageClass,
 } from "@/features/destination-details/lib/story-ui-classes";
-import type { DestinationNarrativeViewModel } from "@/features/destination-details/lib/story-types";
+import type { DestinationNarrativeSectionProps } from "@/features/destination-details/lib/story-types";
 
-type Props = {
-	model: DestinationNarrativeViewModel;
-};
-
-export function MovementAtmosphere({ model }: Props) {
+export function MovementAtmosphere({ model }: DestinationNarrativeSectionProps) {
 	return (
 		<section className="relative min-h-[94svh] pb-16 pt-14 pad-x md:pb-20 md:pt-20" data-story-scene="atmosphere">
 			<div className="mx-auto max-w-[1600px]">

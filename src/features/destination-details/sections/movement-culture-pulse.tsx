@@ -1,10 +1,6 @@
 import Image from "next/image";
 import { storyKickerClass, storyMediaBorderClass } from "@/features/destination-details/lib/story-ui-classes";
-import type { DestinationNarrativeViewModel } from "@/features/destination-details/lib/story-types";
-
-type Props = {
-	model: DestinationNarrativeViewModel;
-};
+import type { DestinationNarrativeSectionProps } from "@/features/destination-details/lib/story-types";
 
 /** Overlap collage: back → mid → front (z-index). Positions tuned so layers read as one cluster, not random stacks. */
 const COLLAGE_LAYERS = [
@@ -16,7 +12,7 @@ const COLLAGE_LAYERS = [
 	"left-[6%] top-0 z-[3] h-[44%] w-[38%] max-w-none shadow-[0_24px_60px_-12px_rgba(0,0,0,0.65)]",
 ] as const;
 
-export function MovementCulturePulse({ model }: Props) {
+export function MovementCulturePulse({ model }: DestinationNarrativeSectionProps) {
 	const images = model.culturePulse.cultureImages.filter(Boolean);
 
 	return (

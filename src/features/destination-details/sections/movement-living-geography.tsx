@@ -3,16 +3,11 @@ import {
 	storyFrameRingClass,
 	storyKickerClass,
 	storyMediaBorderClass,
-	storyMicroRailClass,
 	storyStatBorderClass,
 } from "@/features/destination-details/lib/story-ui-classes";
-import type { DestinationNarrativeViewModel } from "@/features/destination-details/lib/story-types";
+import type { DestinationNarrativeSectionProps } from "@/features/destination-details/lib/story-types";
 
-type Props = {
-	model: DestinationNarrativeViewModel;
-};
-
-export function MovementLivingGeography({ model }: Props) {
+export function MovementLivingGeography({ model }: DestinationNarrativeSectionProps) {
 	return (
 		<section className="py-14 pad-x md:py-20" data-story-scene="geography">
 			<div className="mx-auto grid max-w-[1600px] gap-8 md:grid-cols-[1.08fr_0.92fr] md:gap-12">

@@ -1,12 +1,8 @@
 import Image from "next/image";
 import { storyKickerClass, storyMediaBorderClass } from "@/features/destination-details/lib/story-ui-classes";
-import type { DestinationNarrativeViewModel } from "@/features/destination-details/lib/story-types";
+import type { DestinationNarrativeSectionProps } from "@/features/destination-details/lib/story-types";
 
-type Props = {
-	model: DestinationNarrativeViewModel;
-};
-
-export function MovementSensoryImmersion({ model }: Props) {
+export function MovementSensoryImmersion({ model }: DestinationNarrativeSectionProps) {
 	return (
 		<section className="py-14 pad-x md:py-20" data-story-scene="sensory">
 			<div className="mx-auto max-w-[1600px]">

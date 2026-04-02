@@ -1,17 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { SKIP_TO_MAIN_LABEL } from "@/features/home/content/section-copy";
 import {
 	About,
 	CTA,
 	Destinations,
 	FeaturedTours,
-	Footer,
 	Hero,
 	InitialLoader,
 	Marquee,
-	Navbar,
 	Newsletter,
 	Testimonials,
 } from "@/features/home/sections";
@@ -60,29 +57,16 @@ export default function HomePage() {
 	}, []);
 
 	return (
-		<div className="relative bg-[#050505] text-white">
-			<a
-				href="#main-content"
-				className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-70 focus:rounded-md focus:bg-black focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
-			>
-				{SKIP_TO_MAIN_LABEL}
-			</a>
-			{/* Initial loader to avoid double-loading feel and let GSAP settle */}
+		<>
 			<InitialLoader isLoading={isLoading} />
-
-			<Navbar />
-			<main id="main-content">
-				<Hero />
-				<Marquee />
-				<Destinations />
-				<About />
-				<FeaturedTours />
-				<Testimonials />
-				<Newsletter />
-				<CTA />
-			</main>
-			<Footer />
-		</div>
+			<Hero />
+			<Marquee />
+			<Destinations />
+			<About />
+			<FeaturedTours />
+			<Testimonials />
+			<Newsletter />
+			<CTA />
+		</>
 	);
 }
-

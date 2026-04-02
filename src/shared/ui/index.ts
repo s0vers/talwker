@@ -1,5 +1,7 @@
 export { SectionHeading } from "./section-heading";
 export { SectionCta } from "./section-cta";
+export { EditorialCtaBand } from "./editorial-cta-band";
+export type { EditorialCtaBandAction, EditorialCtaBandProps } from "./editorial-cta-band";
 export { PillBadge } from "./pill-badge";
 export { DestinationCard } from "./destination-card";
 export type { DestinationCardProps } from "./destination-card";

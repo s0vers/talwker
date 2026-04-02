@@ -1,12 +1,8 @@
 import Image from "next/image";
 import { storyKickerOnImageClass } from "@/features/destination-details/lib/story-ui-classes";
-import type { DestinationNarrativeViewModel } from "@/features/destination-details/lib/story-types";
+import type { DestinationNarrativeSectionProps } from "@/features/destination-details/lib/story-types";
 
-type Props = {
-	model: DestinationNarrativeViewModel;
-};
-
-export function MovementReflectiveClose({ model }: Props) {
+export function MovementReflectiveClose({ model }: DestinationNarrativeSectionProps) {
 	return (
 		<section className="relative pb-20 pt-14 pad-x md:pb-28 md:pt-24" data-story-scene="close">
 			<div className="mx-auto max-w-[1600px] border-t border-orange-500/20 pt-8 md:pt-10">

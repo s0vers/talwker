@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Navbar, Footer, InitialLoader } from "@/features/home/sections";
-import { SKIP_TO_MAIN_LABEL } from "@/features/home/content/section-copy";
+import { InitialLoader } from "@/features/home/sections";
 import { DestinationsCTA, DestinationsGrid, DestinationsHero } from "@/features/destinations/sections";
 import type {
 	DestinationsGridComputed,
@@ -57,23 +56,11 @@ export default function DestinationsPage({ list, grid, quickLinks }: Destination
 	}, []);
 
 	return (
-		<div className="relative bg-[#050505] text-white">
-			<a
-				href="#main-content"
-				className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-70 focus:rounded-md focus:bg-black focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
-			>
-				{SKIP_TO_MAIN_LABEL}
-			</a>
-
+		<>
 			<InitialLoader isLoading={isLoading} />
-
-			<Navbar />
-			<main id="main-content">
-				<DestinationsHero />
-				<DestinationsGrid list={list} grid={grid} quickLinks={quickLinks} />
-				<DestinationsCTA />
-			</main>
-			<Footer />
-		</div>
+			<DestinationsHero />
+			<DestinationsGrid list={list} grid={grid} quickLinks={quickLinks} />
+			<DestinationsCTA />
+		</>
 	);
 }

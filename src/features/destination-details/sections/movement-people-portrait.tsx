@@ -4,13 +4,9 @@ import {
 	storyMediaBorderClass,
 	storyQuoteBorderClass,
 } from "@/features/destination-details/lib/story-ui-classes";
-import type { DestinationNarrativeViewModel } from "@/features/destination-details/lib/story-types";
+import type { DestinationNarrativeSectionProps } from "@/features/destination-details/lib/story-types";
 
-type Props = {
-	model: DestinationNarrativeViewModel;
-};
-
-export function MovementPeoplePortrait({ model }: Props) {
+export function MovementPeoplePortrait({ model }: DestinationNarrativeSectionProps) {
 	return (
 		<section className="px-4 py-14 md:px-8 md:py-20" data-story-scene="people">
 			<div className="mb-8 max-w-2xl">
