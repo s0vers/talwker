@@ -72,22 +72,6 @@ export function getDestinationDetails3ViewModel(destination: Destination): Desti
 		};
 	});
 
-	const fieldFromDomain: { label: string; value: string }[] = [];
-	if (destination.languages) {
-		fieldFromDomain.push({ label: "Languages", value: destination.languages });
-	}
-	if (destination.bestMonths) {
-		fieldFromDomain.push({ label: "Light & season", value: destination.bestMonths });
-	}
-	if (destination.practical?.transport) {
-		fieldFromDomain.push({ label: "Moving through", value: destination.practical.transport });
-	}
-
-	const fieldNotes =
-		fieldFromDomain.length > 0
-			? [...fieldFromDomain, ...(baseSeed.fieldNotes ?? [])]
-			: (baseSeed.fieldNotes ?? null);
-
 	const heroImage = pickByIndex(sourceImages, 0, fallbackImg);
 	let cadenceAsideSrc = pickByIndex(sourceImages, 2, fallbackImg);
 	if (cadenceAsideSrc === heroImage) {
@@ -110,7 +94,6 @@ export function getDestinationDetails3ViewModel(destination: Destination): Desti
 		culture,
 		places,
 		close: baseSeed.close,
-		fieldNotes: fieldNotes && fieldNotes.length > 0 ? fieldNotes : null,
 		cadence: baseSeed.cadence,
 		cadenceAside: {
 			src: cadenceAsideSrc,

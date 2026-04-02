@@ -9,11 +9,6 @@ export type Details3PlaceSeed = {
 	image?: string;
 };
 
-export type Details3FieldNote = {
-	label: string;
-	value: string;
-};
-
 export type Details3CadencePhase = {
 	phase: string;
 	text: string;
@@ -50,7 +45,6 @@ export type DestinationDetails3Seed = {
 		title: string;
 		body: string;
 	};
-	fieldNotes?: Details3FieldNote[];
 	cadence: Details3CadencePhase[];
 	counterpoint: Details3Counterpoint;
 	ledger: Details3LedgerLine[];
@@ -86,7 +80,6 @@ export type DestinationDetails3ViewModel = {
 		title: string;
 		body: string;
 	};
-	fieldNotes: Details3FieldNote[] | null;
 	cadence: Details3CadencePhase[];
 	cadenceAside: { src: string; alt: string };
 	counterpoint: Details3Counterpoint;

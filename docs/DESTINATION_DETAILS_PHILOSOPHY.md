@@ -205,14 +205,14 @@ Run `pnpm verify` after wiring. For visual QA, prefer **`pnpm build && pnpm star
 
 ## 9. Destination details v3 (`/destinations-3/[slug]`)
 
-**Intent:** Same Talkwer shell principles (dark canvas, orange accent, long-form, `InitialLoader`, soft `EditorialCtaBand` at the end) with a **different information architecture**: people-first framing, culture “threads,” **named place dossiers** (coordinates with index numerals), and optional **field notes** (languages, season, movement) framed as editorial context—not booking.
+**Intent:** Same Talkwer shell principles (dark canvas, orange accent, long-form, `InitialLoader`, soft `EditorialCtaBand` at the end) with a **different information architecture**: people-first framing, culture “threads,” and **named place dossiers** (coordinates with index numerals).
 
 **Data:** `getDestinationDetails3ViewModel` in `src/features/destination-details-3/lib/details-3-view-model.ts` merges:
 
 - Seeds in `content/details-3-seeds.ts` (keyed by slug first segment, same rule as v1 story copy).
-- When set on `Destination`: `cultureHighlights[]`, `signaturePlaces[]`, and light `fieldNotes` from `languages`, `bestMonths`, `practical.transport`.
+- When set on `Destination`: `cultureHighlights[]`, `signaturePlaces[]`.
 
-**UI:** `d3-ui-classes.ts` (mono index + sans headlines), sections `D3Hero`, `D3People`, `D3Culture`, **`D3Cadence`** (day rhythm, v3-only), `D3Places`, **`D3Counterpoint`** (two coexisting “readings,” v3-only), `D3FieldNotes` (omitted if empty), **`D3Ledger`** (margin notes / social read, v3-only), `D3Close`. Motion: `lib/d3-scroll-motion.ts` + `D3MotionRoot` using **`data-d3-*`** only.
+**UI:** `d3-ui-classes.ts` (mono index + sans headlines), sections `D3Hero`, `D3People`, `D3Culture`, **`D3Cadence`** (day rhythm, v3-only), `D3Places`, **`D3Counterpoint`** (two coexisting “readings,” v3-only), **`D3Ledger`** (margin notes / social read, v3-only), `D3Close`. Motion: `lib/d3-scroll-motion.ts` + `D3MotionRoot` using **`data-d3-*`** only.
 
 **v3 content fields** (in `details-3-seeds.ts`): `cadence[]`, `counterpoint`, `ledger[]` — inherited from `FALLBACK_DETAILS_3_SEED` wherever a seed uses `...FALLBACK`; override per destination for bespoke rhythm.
 

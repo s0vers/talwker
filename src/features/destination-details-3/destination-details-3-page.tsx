@@ -8,7 +8,6 @@ import {
 	D3Close,
 	D3Counterpoint,
 	D3Culture,
-	D3FieldNotes,
 	D3Hero,
 	D3Ledger,
 	D3MotionRoot,
@@ -77,7 +76,6 @@ export default function DestinationDetails3Page({ destination }: DestinationDeta
 					<D3Cadence model={model} />
 					<D3Places model={model} />
 					<D3Counterpoint model={model} />
-					<D3FieldNotes model={model} />
 					<D3Ledger model={model} />
 					<D3Close model={model} />
 				</D3MotionRoot>

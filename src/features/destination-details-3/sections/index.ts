@@ -5,6 +5,5 @@ export { D3Culture } from "./d3-culture";
 export { D3Cadence } from "./d3-cadence";
 export { D3Places } from "./d3-places";
 export { D3Counterpoint } from "./d3-counterpoint";
-export { D3FieldNotes } from "./d3-field-notes";
 export { D3Ledger } from "./d3-ledger";
 export { D3Close } from "./d3-close";

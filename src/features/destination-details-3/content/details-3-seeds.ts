@@ -48,10 +48,6 @@ export const FALLBACK_DETAILS_3_SEED: DestinationDetails3Seed = {
 		title: "You leave with fewer highlights and more understanding.",
 		body: "People first, then landscape, then the quiet details that outlast any itinerary — the ones no one sells because they belong to everyday life.",
 	},
-	fieldNotes: [
-		{ label: "Languages", value: "Ask which language is used for jokes, not only menus." },
-		{ label: "Seasons", value: "Light and crowds shift the same street twice a year — visit twice in your mind before you go once in person." },
-	],
 	cadence: [
 		{
 			phase: "First light",
