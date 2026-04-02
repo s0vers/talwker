@@ -1,7 +1,6 @@
 import { destinationToSlug } from "@/features/destinations/lib/destination-slug";
 import type { Destination } from "@/shared/types/domain";
 
-/** Softer end-of-story framing for the v3 field-guide layout */
 export function getDestinationDetails3TourCta(destination: Destination) {
 	const slug = destinationToSlug(destination);
 	const { name, country } = destination;

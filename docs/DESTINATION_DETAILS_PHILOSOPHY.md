@@ -212,7 +212,9 @@ Run `pnpm verify` after wiring. For visual QA, prefer **`pnpm build && pnpm star
 - Seeds in `content/details-3-seeds.ts` (keyed by slug first segment, same rule as v1 story copy).
 - When set on `Destination`: `cultureHighlights[]`, `signaturePlaces[]`, and light `fieldNotes` from `languages`, `bestMonths`, `practical.transport`.
 
-**UI:** `d3-ui-classes.ts` (mono index + sans headlines), sections `D3Hero`, `D3People`, `D3Culture`, `D3Places`, `D3FieldNotes` (omitted if empty), `D3Close`. Motion: `lib/d3-scroll-motion.ts` + `D3MotionRoot` using **`data-d3-*`** only.
+**UI:** `d3-ui-classes.ts` (mono index + sans headlines), sections `D3Hero`, `D3People`, `D3Culture`, **`D3Cadence`** (day rhythm, v3-only), `D3Places`, **`D3Counterpoint`** (two coexisting “readings,” v3-only), `D3FieldNotes` (omitted if empty), **`D3Ledger`** (margin notes / social read, v3-only), `D3Close`. Motion: `lib/d3-scroll-motion.ts` + `D3MotionRoot` using **`data-d3-*`** only.
+
+**v3 content fields** (in `details-3-seeds.ts`): `cadence[]`, `counterpoint`, `ledger[]` — inherited from `FALLBACK_DETAILS_3_SEED` wherever a seed uses `...FALLBACK`; override per destination for bespoke rhythm.
 
 **List index:** `src/features/destinations-3/` → `/destinations-3` links into this story route.
 

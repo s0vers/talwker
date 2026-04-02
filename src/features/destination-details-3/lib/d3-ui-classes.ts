@@ -1,5 +1,3 @@
-/** Typography and accent tokens for destination-details-3 (field-guide layout). */
-
 export const d3KickerClass =
 	"font-mono text-[10px] font-semibold uppercase tracking-[0.28em] text-orange-400/90";
 

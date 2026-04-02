@@ -89,6 +89,13 @@ export function getDestinationDetails3ViewModel(destination: Destination): Desti
 			: (baseSeed.fieldNotes ?? null);
 
 	const heroImage = pickByIndex(sourceImages, 0, fallbackImg);
+	let cadenceAsideSrc = pickByIndex(sourceImages, 2, fallbackImg);
+	if (cadenceAsideSrc === heroImage) {
+		cadenceAsideSrc = pickByIndex(sourceImages, 3, fallbackImg);
+	}
+	if (cadenceAsideSrc === heroImage) {
+		cadenceAsideSrc = pickByIndex(sourceImages, 1, fallbackImg);
+	}
 
 	return {
 		destinationLabel: `${destination.name}, ${destination.country}`,
@@ -104,5 +111,12 @@ export function getDestinationDetails3ViewModel(destination: Destination): Desti
 		places,
 		close: baseSeed.close,
 		fieldNotes: fieldNotes && fieldNotes.length > 0 ? fieldNotes : null,
+		cadence: baseSeed.cadence,
+		cadenceAside: {
+			src: cadenceAsideSrc,
+			alt: `Light and rhythm — ${destination.name}, ${destination.country}`,
+		},
+		counterpoint: baseSeed.counterpoint,
+		ledger: baseSeed.ledger,
 	};
 }

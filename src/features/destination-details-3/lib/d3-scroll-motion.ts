@@ -2,10 +2,6 @@ import { gsap, prefersReducedMotion } from "@/lib/useGsap";
 
 const ENTER = { toggleActions: "play none none none" } as const;
 
-/**
- * Scroll choreography for `destination-details-3`.
- * Hooks: `data-d3-line`, `data-d3-reveal`, `data-d3-stagger` + `data-d3-item`, `data-d3-media`, hero `data-d3-hero-*`.
- */
 export function bindDestinationDetails3Scroll(root: HTMLElement): void {
 	const lineEls = gsap.utils.toArray<HTMLElement>("[data-d3-line]", root);
 	lineEls.forEach((line, i) => {

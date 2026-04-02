@@ -14,7 +14,23 @@ export type Details3FieldNote = {
 	value: string;
 };
 
-/** Authoring shape in `details-3-seeds.ts` */
+export type Details3CadencePhase = {
+	phase: string;
+	text: string;
+};
+
+export type Details3Counterpoint = {
+	kicker: string;
+	headline: string;
+	sideA: { title: string; body: string };
+	sideB: { title: string; body: string };
+};
+
+export type Details3LedgerLine = {
+	label: string;
+	note: string;
+};
+
 export type DestinationDetails3Seed = {
 	hero: {
 		kicker: string;
@@ -35,6 +51,9 @@ export type DestinationDetails3Seed = {
 		body: string;
 	};
 	fieldNotes?: Details3FieldNote[];
+	cadence: Details3CadencePhase[];
+	counterpoint: Details3Counterpoint;
+	ledger: Details3LedgerLine[];
 };
 
 export type Details3PlaceResolved = {
@@ -68,4 +87,8 @@ export type DestinationDetails3ViewModel = {
 		body: string;
 	};
 	fieldNotes: Details3FieldNote[] | null;
+	cadence: Details3CadencePhase[];
+	cadenceAside: { src: string; alt: string };
+	counterpoint: Details3Counterpoint;
+	ledger: Details3LedgerLine[];
 };

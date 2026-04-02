@@ -4,10 +4,13 @@ import { useEffect, useState } from "react";
 import { getDestinationDetails3TourCta } from "@/features/destination-details-3/content/destination-details-3-cta-copy";
 import { getDestinationDetails3ViewModel } from "@/features/destination-details-3/lib/details-3-view-model";
 import {
+	D3Cadence,
 	D3Close,
+	D3Counterpoint,
 	D3Culture,
 	D3FieldNotes,
 	D3Hero,
+	D3Ledger,
 	D3MotionRoot,
 	D3People,
 	D3Places,
@@ -71,8 +74,11 @@ export default function DestinationDetails3Page({ destination }: DestinationDeta
 					<D3Hero model={model} />
 					<D3People model={model} />
 					<D3Culture model={model} />
+					<D3Cadence model={model} />
 					<D3Places model={model} />
+					<D3Counterpoint model={model} />
 					<D3FieldNotes model={model} />
+					<D3Ledger model={model} />
 					<D3Close model={model} />
 				</D3MotionRoot>
 				<EditorialCtaBand

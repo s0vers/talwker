@@ -3,8 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { LuSearch, LuX } from "react-icons/lu";
-import { Button } from "@/components/ui/button";
+import { LuArrowRight, LuX } from "react-icons/lu";
 import { Input } from "@/components/ui/input";
 import {
 	Select,
@@ -30,10 +29,10 @@ import { DESTINATIONS_3_GRID } from "@/features/destinations-3/content/destinati
 import { DESTINATIONS_3_LIST_PATH } from "@/features/destinations-3/lib/destinations-3-list-path";
 import { cn } from "@/lib/utils";
 
-const surface =
-	"border-white/12 bg-[#111]/80 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] placeholder:text-white/35";
-
 const selectItem = "rounded-sm text-white data-highlighted:bg-white/10 data-highlighted:text-white";
+
+const underlineField =
+	"h-11 rounded-none border-0 border-b border-white/18 bg-transparent px-0 text-white shadow-none outline-none ring-0 transition-colors placeholder:text-white/35 focus-visible:border-orange-500/55 focus-visible:ring-0";
 
 export type Destinations3GridToolbarProps = {
 	list: DestinationsListParsed;
@@ -62,14 +61,43 @@ function Destinations3GridToolbarInner({ list, quickLinks }: Destinations3GridTo
 	}
 
 	return (
-		<div className="mb-12 space-y-8 border-l-2 border-orange-500/22 pl-6 md:mb-16">
+		<div className="mb-12 space-y-10 md:mb-16 md:space-y-12">
+			<div>
+				<p className="mb-3 text-xs font-medium text-white/50">{DESTINATIONS_3_GRID.quickSearchesLabel}</p>
+				<div
+					className="flex flex-wrap gap-2 md:gap-2.5"
+					role="group"
+					aria-label={DESTINATIONS_3_GRID.quickSearchesLabel}
+				>
+					{DESTINATIONS_GRID_QUICK_SEARCHES.map((item) => {
+						const href = hrefById[item.id] ?? DESTINATIONS_3_LIST_PATH;
+						const active = isQuickSearchActive(list, item);
+						return (
+							<Link
+								key={item.id}
+								href={href}
+								scroll={false}
+								className={cn(
+									"rounded-full px-4 py-2 text-[11px] font-medium transition-colors md:px-5",
+									active
+										? "bg-orange-500/18 text-orange-100"
+										: "bg-white/[0.04] text-white/65 hover:bg-white/[0.08] hover:text-white",
+								)}
+							>
+								{item.label}
+							</Link>
+						);
+					})}
+				</div>
+			</div>
+
 			<form onSubmit={handleSearchSubmit} role="search" aria-label="Search destinations">
 				<input type="hidden" name="tag" value={hiddenTag} aria-hidden />
 				<input type="hidden" name="maxPrice" value={hiddenMaxPrice} aria-hidden />
 
-				<div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:gap-6">
+				<div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:gap-8">
 					<div className="min-w-0 flex-1">
-						<label htmlFor="destinations-3-search" className="mb-2 block text-[10px] uppercase tracking-[0.2em] text-white/45">
+						<label htmlFor="destinations-3-search" className="sr-only">
 							{DESTINATIONS_3_GRID.searchFieldLabel}
 						</label>
 						<Input
@@ -80,103 +108,78 @@ function Destinations3GridToolbarInner({ list, quickLinks }: Destinations3GridTo
 							onChange={(e) => setQDraft(e.target.value)}
 							placeholder={DESTINATIONS_3_GRID.searchPlaceholder}
 							autoComplete="off"
-							className={cn(surface, "h-11 rounded-sm")}
+							className={underlineField}
 						/>
-						<div className="min-h-5 pt-2">
-							<Link
-								href={clearHref}
-								scroll={false}
-								tabIndex={showClear ? 0 : -1}
-								aria-hidden={!showClear}
-								className={cn(
-									"inline-flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-[0.14em] text-white/45 transition-colors hover:text-orange-300",
-									!showClear && "pointer-events-none invisible",
-								)}
-							>
-								<LuX className="size-3 shrink-0 opacity-80" aria-hidden />
-								{DESTINATIONS_3_GRID.clearFilters}
-							</Link>
+					</div>
+
+					<div className="flex w-full items-end gap-3 sm:gap-4 lg:w-auto lg:shrink-0">
+						<div className="min-w-0 flex-1 sm:max-w-48 lg:w-48 lg:flex-none">
+							<label htmlFor="destinations-3-filter" className="sr-only">
+								{DESTINATIONS_3_GRID.filterLabel}
+							</label>
+							<Select value={selectKey} onValueChange={(v) => setSelectKey(v as DestinationsSelectKey)}>
+								<SelectTrigger
+									id="destinations-3-filter"
+									className={cn(
+										underlineField,
+										"h-11 justify-between border-b border-white/18 px-0 focus:border-orange-500/55",
+									)}
+								>
+									<SelectValue />
+								</SelectTrigger>
+								<SelectContent
+									position="popper"
+									sideOffset={8}
+									className="border-white/12 bg-[#0e0e0e] text-white"
+								>
+									<SelectItem value="all" className={selectItem}>
+										{DESTINATIONS_3_GRID.filterAll}
+									</SelectItem>
+									<SelectItem value="popular" className={selectItem}>
+										{DESTINATIONS_3_GRID.filterTagPopular}
+									</SelectItem>
+									<SelectItem value="trending" className={selectItem}>
+										{DESTINATIONS_3_GRID.filterTagTrending}
+									</SelectItem>
+									<SelectItem value="new" className={selectItem}>
+										{DESTINATIONS_3_GRID.filterTagNew}
+									</SelectItem>
+									<SelectItem value="luxury" className={selectItem}>
+										{DESTINATIONS_3_GRID.filterTagLuxury}
+									</SelectItem>
+									<SelectItem value="under2000" className={selectItem}>
+										{DESTINATIONS_3_GRID.filterUnder2000}
+									</SelectItem>
+								</SelectContent>
+							</Select>
 						</div>
-					</div>
 
-					<div className="w-full shrink-0 lg:w-52">
-						<label htmlFor="destinations-3-filter" className="mb-2 block text-[10px] uppercase tracking-[0.2em] text-white/45">
-							{DESTINATIONS_3_GRID.filterLabel}
-						</label>
-						<Select value={selectKey} onValueChange={(v) => setSelectKey(v as DestinationsSelectKey)}>
-							<SelectTrigger id="destinations-3-filter" className={cn(surface, "h-11 w-full rounded-sm")}>
-								<SelectValue />
-							</SelectTrigger>
-							<SelectContent
-								position="popper"
-								sideOffset={8}
-								className="border-white/12 bg-[#0e0e0e] text-white"
-							>
-								<SelectItem value="all" className={selectItem}>
-									{DESTINATIONS_3_GRID.filterAll}
-								</SelectItem>
-								<SelectItem value="popular" className={selectItem}>
-									{DESTINATIONS_3_GRID.filterTagPopular}
-								</SelectItem>
-								<SelectItem value="trending" className={selectItem}>
-									{DESTINATIONS_3_GRID.filterTagTrending}
-								</SelectItem>
-								<SelectItem value="new" className={selectItem}>
-									{DESTINATIONS_3_GRID.filterTagNew}
-								</SelectItem>
-								<SelectItem value="luxury" className={selectItem}>
-									{DESTINATIONS_3_GRID.filterTagLuxury}
-								</SelectItem>
-								<SelectItem value="under2000" className={selectItem}>
-									{DESTINATIONS_3_GRID.filterUnder2000}
-								</SelectItem>
-							</SelectContent>
-						</Select>
-					</div>
-
-					<div className="flex shrink-0 flex-col">
-						<span
-							className="mb-2 hidden text-[10px] uppercase tracking-[0.2em] text-white/45 lg:block lg:invisible"
-							aria-hidden
-						>
-							{DESTINATIONS_3_GRID.filterLabel}
-						</span>
-						<Button
+						<button
 							type="submit"
-							variant="outline"
-							className="h-11 shrink-0 rounded-sm border-orange-500/50 bg-orange-500/10 px-6 text-[10px] font-semibold uppercase tracking-[0.2em] text-orange-300 hover:bg-orange-500/20"
+							className="group flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-orange-500/15 text-orange-200 transition-colors hover:bg-orange-500/25"
+							aria-label={DESTINATIONS_3_GRID.searchButton}
 						>
-							<LuSearch className="mr-2 h-4 w-4" aria-hidden />
-							{DESTINATIONS_3_GRID.searchButton}
-						</Button>
+							<LuArrowRight className="size-5 transition-transform group-hover:translate-x-0.5" aria-hidden />
+						</button>
 					</div>
+				</div>
+
+				<div className="mt-3 flex min-h-5 items-center gap-4">
+					<Link
+						href={clearHref}
+						scroll={false}
+						tabIndex={showClear ? 0 : -1}
+						aria-hidden={!showClear}
+						className={cn(
+							"inline-flex items-center gap-1.5 text-xs text-white/45 transition-colors hover:text-orange-300",
+							!showClear && "pointer-events-none invisible",
+						)}
+					>
+						<LuX className="size-3.5 shrink-0 opacity-80" aria-hidden />
+						{DESTINATIONS_3_GRID.clearFilters}
+					</Link>
 				</div>
 			</form>
-
-			<div>
-				<p className="mb-3 text-[10px] uppercase tracking-[0.2em] text-white/40">{DESTINATIONS_3_GRID.quickSearchesLabel}</p>
-				<div className="flex flex-wrap gap-2" role="group" aria-label={DESTINATIONS_3_GRID.quickSearchesLabel}>
-					{DESTINATIONS_GRID_QUICK_SEARCHES.map((item) => {
-						const href = hrefById[item.id] ?? DESTINATIONS_3_LIST_PATH;
-						const active = isQuickSearchActive(list, item);
-						return (
-							<Link
-								key={item.id}
-								href={href}
-								scroll={false}
-								className={cn(
-									"rounded-sm border px-3 py-2 text-xs font-medium transition-colors",
-									active
-										? "border-orange-500/60 bg-orange-500/10 text-orange-200"
-										: "border-white/12 text-white/65 hover:border-white/25 hover:text-white",
-								)}
-							>
-								{item.label}
-							</Link>
-						);
-					})}
-				</div>
-			</div>
 		</div>
 	);
 }

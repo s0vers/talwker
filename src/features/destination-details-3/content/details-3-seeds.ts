@@ -52,6 +52,62 @@ export const FALLBACK_DETAILS_3_SEED: DestinationDetails3Seed = {
 		{ label: "Languages", value: "Ask which language is used for jokes, not only menus." },
 		{ label: "Seasons", value: "Light and crowds shift the same street twice a year — visit twice in your mind before you go once in person." },
 	],
+	cadence: [
+		{
+			phase: "First light",
+			text: "Deliveries, ovens, and prayers claim the same hour. The street sounds different before language wakes up — more metal, fewer performances.",
+		},
+		{
+			phase: "Middle hours",
+			text: "Work and errands overlap with visitors who move faster than the pavement allows. Locals route around the rush without announcing it.",
+		},
+		{
+			phase: "Dusk handoff",
+			text: "Shop shutters, school bags, and the second wave of social life. What looks like “closing” is often a shift change, not an ending.",
+		},
+		{
+			phase: "After hours",
+			text: "Quiet is negotiated: a neighbor’s TV, a late kitchen, a dog that knows everyone’s schedule. The night belongs to residents first.",
+		},
+	],
+	counterpoint: {
+		kicker: "Counterpoint",
+		headline: "Two readings of the same street — both true.",
+		sideA: {
+			title: "The generous read",
+			body: "Strangers are fed, pointed in the right direction, and forgiven for small mistakes. Hospitality is a practiced reflex — sometimes muscle memory from harder decades.",
+		},
+		sideB: {
+			title: "The protective read",
+			body: "The same street tests patience when income depends on visitors. Politeness can be a fence: warmth with limits, curiosity without obligation.",
+		},
+	},
+	ledger: [
+		{
+			label: "Greeting",
+			note: "Notice whether people answer with a full stop or a question — it maps how open the conversation is allowed to be.",
+		},
+		{
+			label: "Silence",
+			note: "Quiet can mean respect, discomfort, or focus. Let it sit before you fill it.",
+		},
+		{
+			label: "Queues",
+			note: "Order is often social, not painted on the floor. Watch who defers to whom.",
+		},
+		{
+			label: "Cameras",
+			note: "Some thresholds are not stages. If you would not photograph it at home without asking, assume the same here.",
+		},
+		{
+			label: "Children",
+			note: "Kids in public space belong to a village, not to your frame. Smile with your eyes first.",
+		},
+		{
+			label: "Leaving",
+			note: "A clean exit — time kept, gate closed, table cleared — is remembered longer than a compliment.",
+		},
+	],
 };
 
 export const DESTINATION_DETAILS_3_SEEDS: Record<string, DestinationDetails3Seed> = {
