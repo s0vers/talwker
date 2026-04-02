@@ -14,6 +14,11 @@ import {
 } from "@/components/ui/select";
 import { DESTINATIONS_GRID_QUICK_SEARCHES } from "@/features/destinations/content/destinations-page-copy";
 import {
+	DESTINATIONS_SELECT_CONTENT_CLASS,
+	DESTINATIONS_SELECT_ITEM_CLASS,
+	DESTINATIONS_SELECT_TRIGGER_SURFACE,
+} from "@/features/destinations/lib/destinations-select-classes";
+import {
 	buildDestinationsListHref,
 	destinationsListHasActiveRefinements,
 	getDestinationsListClearHref,
@@ -28,8 +33,6 @@ import {
 import { DESTINATIONS_3_GRID } from "@/features/destinations-3/content/destinations-3-page-copy";
 import { DESTINATIONS_3_LIST_PATH } from "@/features/destinations-3/lib/destinations-3-list-path";
 import { cn } from "@/lib/utils";
-
-const selectItem = "rounded-sm text-white data-highlighted:bg-white/10 data-highlighted:text-white";
 
 const underlineField =
 	"h-11 rounded-none border-0 border-b border-white/18 bg-transparent px-0 text-white shadow-none outline-none ring-0 transition-colors placeholder:text-white/35 focus-visible:border-orange-500/55 focus-visible:ring-0";
@@ -95,7 +98,7 @@ function Destinations3GridToolbarInner({ list, quickLinks }: Destinations3GridTo
 				<input type="hidden" name="tag" value={hiddenTag} aria-hidden />
 				<input type="hidden" name="maxPrice" value={hiddenMaxPrice} aria-hidden />
 
-				<div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:gap-8">
+				<div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:gap-8">
 					<div className="min-w-0 flex-1">
 						<label htmlFor="destinations-3-search" className="sr-only">
 							{DESTINATIONS_3_GRID.searchFieldLabel}
@@ -112,42 +115,32 @@ function Destinations3GridToolbarInner({ list, quickLinks }: Destinations3GridTo
 						/>
 					</div>
 
-					<div className="flex w-full items-end gap-3 sm:gap-4 lg:w-auto lg:shrink-0">
-						<div className="min-w-0 flex-1 sm:max-w-48 lg:w-48 lg:flex-none">
+					<div className="flex w-full items-center gap-3 sm:gap-4 lg:w-auto lg:shrink-0">
+						<div className="min-w-0 flex-1 sm:max-w-48 lg:w-56 lg:flex-none">
 							<label htmlFor="destinations-3-filter" className="sr-only">
 								{DESTINATIONS_3_GRID.filterLabel}
 							</label>
 							<Select value={selectKey} onValueChange={(v) => setSelectKey(v as DestinationsSelectKey)}>
-								<SelectTrigger
-									id="destinations-3-filter"
-									className={cn(
-										underlineField,
-										"h-11 justify-between border-b border-white/18 px-0 focus:border-orange-500/55",
-									)}
-								>
+								<SelectTrigger id="destinations-3-filter" className={cn(DESTINATIONS_SELECT_TRIGGER_SURFACE, "w-full")}>
 									<SelectValue />
 								</SelectTrigger>
-								<SelectContent
-									position="popper"
-									sideOffset={8}
-									className="border-white/12 bg-[#0e0e0e] text-white"
-								>
-									<SelectItem value="all" className={selectItem}>
+								<SelectContent position="popper" sideOffset={8} className={DESTINATIONS_SELECT_CONTENT_CLASS}>
+									<SelectItem value="all" className={DESTINATIONS_SELECT_ITEM_CLASS}>
 										{DESTINATIONS_3_GRID.filterAll}
 									</SelectItem>
-									<SelectItem value="popular" className={selectItem}>
+									<SelectItem value="popular" className={DESTINATIONS_SELECT_ITEM_CLASS}>
 										{DESTINATIONS_3_GRID.filterTagPopular}
 									</SelectItem>
-									<SelectItem value="trending" className={selectItem}>
+									<SelectItem value="trending" className={DESTINATIONS_SELECT_ITEM_CLASS}>
 										{DESTINATIONS_3_GRID.filterTagTrending}
 									</SelectItem>
-									<SelectItem value="new" className={selectItem}>
+									<SelectItem value="new" className={DESTINATIONS_SELECT_ITEM_CLASS}>
 										{DESTINATIONS_3_GRID.filterTagNew}
 									</SelectItem>
-									<SelectItem value="luxury" className={selectItem}>
+									<SelectItem value="luxury" className={DESTINATIONS_SELECT_ITEM_CLASS}>
 										{DESTINATIONS_3_GRID.filterTagLuxury}
 									</SelectItem>
-									<SelectItem value="under2000" className={selectItem}>
+									<SelectItem value="under2000" className={DESTINATIONS_SELECT_ITEM_CLASS}>
 										{DESTINATIONS_3_GRID.filterUnder2000}
 									</SelectItem>
 								</SelectContent>
@@ -156,7 +149,7 @@ function Destinations3GridToolbarInner({ list, quickLinks }: Destinations3GridTo
 
 						<button
 							type="submit"
-							className="group flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-orange-500/15 text-orange-200 transition-colors hover:bg-orange-500/25"
+							className="group flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-orange-500/15 text-orange-200 transition-colors hover:bg-orange-500/25"
 							aria-label={DESTINATIONS_3_GRID.searchButton}
 						>
 							<LuArrowRight className="size-5 transition-transform group-hover:translate-x-0.5" aria-hidden />

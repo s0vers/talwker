@@ -7,7 +7,7 @@ export function D3Culture({ model }: { model: DestinationDetails3ViewModel }) {
 	return (
 		<section className="border-b border-white/10 bg-[#040404] py-16 md:py-24" aria-labelledby="d3-culture-heading">
 			<div className="mx-auto max-w-[1600px] pad-x">
-				<header className="mb-12 max-w-xl" data-d3-reveal>
+				<header className="mb-12 max-w-xl" data-d3-reveal="fade">
 					<div className={d3RuleClass} aria-hidden />
 					<p className={"mt-6 " + d3KickerClass}>Culture</p>
 					<h2 id="d3-culture-heading" className="mt-4 text-2xl font-semibold md:text-3xl">
@@ -18,7 +18,7 @@ export function D3Culture({ model }: { model: DestinationDetails3ViewModel }) {
 					</p>
 				</header>
 
-				<div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3" data-d3-stagger>
+				<div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3" data-d3-stagger="drift">
 					{culture.map((item) => (
 						<article
 							key={item.title}

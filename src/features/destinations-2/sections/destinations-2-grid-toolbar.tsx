@@ -19,6 +19,11 @@ import {
 	DESTINATIONS_GRID_QUICK_SEARCHES,
 } from "@/features/destinations/content/destinations-page-copy";
 import {
+	DESTINATIONS_SELECT_CONTENT_CLASS,
+	DESTINATIONS_SELECT_ITEM_CLASS,
+	DESTINATIONS_SELECT_TRIGGER_SURFACE,
+} from "@/features/destinations/lib/destinations-select-classes";
+import {
 	buildDestinationsListHref,
 	getDestinationsListClearHref,
 	destinationsListHasActiveRefinements,
@@ -34,8 +39,6 @@ import { cn } from "@/lib/utils";
 
 const surface =
 	"border-white/12 bg-[#111]/80 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] placeholder:text-white/35";
-
-const selectItem = "rounded-sm text-white data-highlighted:bg-white/10 data-highlighted:text-white";
 
 export type Destinations2GridToolbarProps = {
 	list: DestinationsListParsed;
@@ -69,7 +72,7 @@ function Destinations2GridToolbarInner({ list, quickLinks }: Destinations2GridTo
 				<input type="hidden" name="tag" value={hiddenTag} aria-hidden />
 				<input type="hidden" name="maxPrice" value={hiddenMaxPrice} aria-hidden />
 
-				<div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:gap-6">
+				<div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:gap-6">
 					<div className="min-w-0 flex-1">
 						<label htmlFor="destinations-2-search" className="mb-2 block text-[10px] uppercase tracking-[0.2em] text-white/45">
 							{DESTINATIONS_2_GRID.searchFieldLabel}
@@ -82,7 +85,7 @@ function Destinations2GridToolbarInner({ list, quickLinks }: Destinations2GridTo
 							onChange={(e) => setQDraft(e.target.value)}
 							placeholder={DESTINATIONS_2_GRID.searchPlaceholder}
 							autoComplete="off"
-							className={cn(surface, "h-11 rounded-sm")}
+							className={cn(surface, "h-12 rounded-sm")}
 						/>
 						<div className="min-h-5 pt-2">
 							<Link
@@ -106,30 +109,26 @@ function Destinations2GridToolbarInner({ list, quickLinks }: Destinations2GridTo
 							{DESTINATIONS_2_GRID.filterLabel}
 						</label>
 						<Select value={selectKey} onValueChange={(v) => setSelectKey(v as DestinationsSelectKey)}>
-							<SelectTrigger id="destinations-2-filter" className={cn(surface, "h-11 w-full rounded-sm")}>
+							<SelectTrigger id="destinations-2-filter" className={cn(DESTINATIONS_SELECT_TRIGGER_SURFACE, "w-full")}>
 								<SelectValue />
 							</SelectTrigger>
-							<SelectContent
-								position="popper"
-								sideOffset={8}
-								className="border-white/12 bg-[#0e0e0e] text-white"
-							>
-								<SelectItem value="all" className={selectItem}>
+							<SelectContent position="popper" sideOffset={8} className={DESTINATIONS_SELECT_CONTENT_CLASS}>
+								<SelectItem value="all" className={DESTINATIONS_SELECT_ITEM_CLASS}>
 									{DESTINATIONS_2_GRID.filterAll}
 								</SelectItem>
-								<SelectItem value="popular" className={selectItem}>
+								<SelectItem value="popular" className={DESTINATIONS_SELECT_ITEM_CLASS}>
 									{DESTINATIONS_2_GRID.filterTagPopular}
 								</SelectItem>
-								<SelectItem value="trending" className={selectItem}>
+								<SelectItem value="trending" className={DESTINATIONS_SELECT_ITEM_CLASS}>
 									{DESTINATIONS_2_GRID.filterTagTrending}
 								</SelectItem>
-								<SelectItem value="new" className={selectItem}>
+								<SelectItem value="new" className={DESTINATIONS_SELECT_ITEM_CLASS}>
 									{DESTINATIONS_2_GRID.filterTagNew}
 								</SelectItem>
-								<SelectItem value="luxury" className={selectItem}>
+								<SelectItem value="luxury" className={DESTINATIONS_SELECT_ITEM_CLASS}>
 									{DESTINATIONS_2_GRID.filterTagLuxury}
 								</SelectItem>
-								<SelectItem value="under2000" className={selectItem}>
+								<SelectItem value="under2000" className={DESTINATIONS_SELECT_ITEM_CLASS}>
 									{DESTINATIONS_2_GRID.filterUnder2000}
 								</SelectItem>
 							</SelectContent>
@@ -146,7 +145,7 @@ function Destinations2GridToolbarInner({ list, quickLinks }: Destinations2GridTo
 						<Button
 							type="submit"
 							variant="outline"
-							className="h-11 shrink-0 rounded-sm border-orange-500/50 bg-orange-500/10 px-6 text-[10px] font-semibold uppercase tracking-[0.2em] text-orange-300 hover:bg-orange-500/20"
+							className="h-12 shrink-0 rounded-sm border-orange-500/50 bg-orange-500/10 px-6 text-[10px] font-semibold uppercase tracking-[0.2em] text-orange-300 hover:bg-orange-500/20"
 						>
 							<LuSearch className="mr-2 h-4 w-4" aria-hidden />
 							{DESTINATIONS_2_GRID.searchButton}

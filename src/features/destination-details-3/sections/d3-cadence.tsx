@@ -11,7 +11,7 @@ export function D3Cadence({ model }: { model: DestinationDetails3ViewModel }) {
 			<div className="mx-auto max-w-[1600px] pad-x">
 				<div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,38%)] lg:items-stretch lg:gap-12 xl:gap-16">
 					<div className="flex min-h-0 flex-col gap-10 lg:gap-12">
-						<header className="max-w-2xl" data-d3-reveal>
+						<header className="max-w-2xl" data-d3-reveal="fade">
 							<div className={d3RuleClass} aria-hidden />
 							<p className={"mt-6 " + d3KickerClass}>Daily cadence</p>
 							<h2 id="d3-cadence-heading" className="mt-4 text-2xl font-semibold text-white md:text-3xl lg:text-4xl">
@@ -24,7 +24,11 @@ export function D3Cadence({ model }: { model: DestinationDetails3ViewModel }) {
 
 						<ol className="relative space-y-0 border-l border-orange-500/20 pl-8 md:pl-10" role="list">
 							{cadence.map((item, i) => (
-								<li key={item.phase} className="relative pb-14 last:pb-0 md:pb-16" data-d3-reveal>
+								<li
+									key={item.phase}
+									className="relative pb-14 last:pb-0 md:pb-16"
+									data-d3-reveal={i % 2 === 0 ? "left" : "right"}
+								>
 									<span
 										className="absolute -left-8 top-1.5 flex h-3 w-3 -translate-x-[calc(50%-0.5px)] rounded-full border-2 border-orange-500/60 bg-[#030303] md:-left-10"
 										aria-hidden
@@ -41,7 +45,7 @@ export function D3Cadence({ model }: { model: DestinationDetails3ViewModel }) {
 					<aside
 						className="relative aspect-4/5 w-full min-h-0 overflow-hidden rounded-sm border border-white/10 lg:sticky lg:top-28 lg:aspect-auto lg:h-full"
 						aria-label="Cadence visual"
-						data-d3-reveal
+						data-d3-reveal="zoom"
 					>
 						<div className="absolute inset-0" data-d3-media>
 							<Image

@@ -1,36 +1,55 @@
+import Image from "next/image";
 import { DESTINATIONS_3_PAGE_HERO } from "@/features/destinations-3/content/destinations-3-page-copy";
+
+const LIST_HERO_IMAGE_SRC = "/vertical-high-angle-shot-white-buildings-santorini-greece.jpg";
 
 export function Destinations3Hero() {
 	const h = DESTINATIONS_3_PAGE_HERO;
 
 	return (
-		<section
-			aria-labelledby="destinations-3-hero-title"
-			className="relative overflow-hidden border-b border-white/8 bg-[#020202] text-white"
-		>
-			<div
-				className="pointer-events-none absolute right-0 top-0 h-[min(70vh,520px)] w-[min(55vw,480px)] translate-x-1/4 -translate-y-1/4 rounded-full bg-orange-500/[0.04] blur-3xl"
-				aria-hidden
-			/>
+		<section className="border-b border-white/10 bg-[#050505] text-white" aria-labelledby="destinations-3-hero-title">
+			<div className="relative mx-auto max-w-[1600px]">
+				<div className="relative aspect-21/10 min-h-[220px] w-full sm:aspect-2/1 sm:min-h-[280px] lg:aspect-21/9 lg:min-h-[320px]">
+					<Image
+						src={LIST_HERO_IMAGE_SRC}
+						alt=""
+						fill
+						className="object-cover"
+						priority
+						sizes="(max-width: 1600px) 100vw, 1600px"
+					/>
+					<div
+						className="pointer-events-none absolute inset-0 bg-linear-to-t from-black via-black/55 to-black/25"
+						aria-hidden
+					/>
+					<div
+						className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_80%_at_50%_100%,rgba(0,0,0,0.85),transparent_55%)]"
+						aria-hidden
+					/>
 
-			<div className="relative mx-auto max-w-[1600px] pad-x py-16 md:py-24 lg:py-28">
-				<p className="text-xs font-medium uppercase tracking-[0.2em] text-orange-400/90">
-					{h.rail}
-					<span className="mx-2 text-white/25" aria-hidden>
-						·
-					</span>
-					<span className="text-white/45">{h.kicker}</span>
-				</p>
+					<div className="absolute inset-x-0 top-0 flex justify-center pt-8 md:pt-10">
+						<p className="max-w-[90vw] text-center font-mono text-[10px] font-medium uppercase tracking-[0.38em] text-white/80">
+							<span className="text-orange-300">{h.rail}</span>
+							<span className="mx-2 text-white/35" aria-hidden>
+								·
+							</span>
+							<span className="text-white/55">{h.kicker}</span>
+						</p>
+					</div>
 
-				<div className="pt-8 md:pt-10">
-					<h1
-						id="destinations-3-hero-title"
-						className="max-w-[19ch] text-[clamp(2.25rem,6.5vw,4.75rem)] font-semibold leading-[0.98] tracking-tight md:max-w-[24ch] lg:max-w-none lg:text-[clamp(3.25rem,5.8vw,5.5rem)]"
-					>
-						<span className="block text-white">{h.title}</span>
-						<span className="mt-1 block text-orange-400/95 lg:mt-2">{h.titleAccent}</span>
-					</h1>
-					<p className="mt-8 max-w-2xl text-base leading-relaxed text-white/65 md:mt-10 md:text-lg">
+					<div className="absolute inset-x-0 bottom-0 px-6 pb-10 pt-16 md:px-10 md:pb-14 md:pt-20">
+						<h1
+							id="destinations-3-hero-title"
+							className="mx-auto max-w-[22ch] text-center text-[clamp(1.85rem,5.2vw,3.5rem)] font-semibold leading-[1.08] tracking-[-0.02em] text-white sm:max-w-[28ch]"
+						>
+							{h.title}{" "}
+							<span className="text-orange-400">{h.titleAccent}</span>
+						</h1>
+					</div>
+				</div>
+
+				<div className="border-t border-white/10 bg-[#080808] px-6 py-12 text-center md:px-10 md:py-14">
+					<p className="mx-auto max-w-lg text-sm leading-relaxed text-white/60 md:max-w-xl md:text-base">
 						{h.lede}
 					</p>
 				</div>

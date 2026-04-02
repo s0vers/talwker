@@ -18,6 +18,11 @@ import {
 	DESTINATIONS_GRID_QUICK_SEARCHES,
 } from "@/features/destinations/content/destinations-page-copy";
 import {
+	DESTINATIONS_SELECT_CONTENT_CLASS,
+	DESTINATIONS_SELECT_ITEM_CLASS,
+	DESTINATIONS_SELECT_TRIGGER_SURFACE,
+} from "@/features/destinations/lib/destinations-select-classes";
+import {
 	buildDestinationsListHref,
 	DEFAULT_DESTINATIONS_LIST_PATH,
 	getDestinationsListClearHref,
@@ -32,11 +37,7 @@ import {
 } from "@/features/destinations/lib/destinations-list-params";
 import { cn } from "@/lib/utils";
 
-const surfaceControl =
-	"border-white/15 bg-black/35 text-white shadow-[0_1px_0_rgba(255,255,255,0.04)] placeholder:text-white/35";
-
-const selectMenuItem =
-	"rounded-full text-white data-highlighted:bg-white/10 data-highlighted:text-white";
+const surfaceControl = cn(DESTINATIONS_SELECT_TRIGGER_SURFACE, "placeholder:text-white/35");
 
 export type DestinationsGridToolbarProps = {
 	list: DestinationsListParsed;
@@ -116,27 +117,23 @@ function DestinationsGridToolbarInner({ list, quickLinks }: DestinationsGridTool
 							<SelectTrigger id="destinations-filter" className={cn(surfaceControl, "w-full")}>
 								<SelectValue />
 							</SelectTrigger>
-							<SelectContent
-								position="popper"
-								sideOffset={8}
-								className="border-white/15 bg-[#0c0c0c] text-white shadow-[0_24px_80px_rgba(0,0,0,0.85)]"
-							>
-								<SelectItem value="all" className={selectMenuItem}>
+							<SelectContent position="popper" sideOffset={8} className={DESTINATIONS_SELECT_CONTENT_CLASS}>
+								<SelectItem value="all" className={DESTINATIONS_SELECT_ITEM_CLASS}>
 									{DESTINATIONS_GRID.filterAll}
 								</SelectItem>
-								<SelectItem value="popular" className={selectMenuItem}>
+								<SelectItem value="popular" className={DESTINATIONS_SELECT_ITEM_CLASS}>
 									{DESTINATIONS_GRID.filterTagPopular}
 								</SelectItem>
-								<SelectItem value="trending" className={selectMenuItem}>
+								<SelectItem value="trending" className={DESTINATIONS_SELECT_ITEM_CLASS}>
 									{DESTINATIONS_GRID.filterTagTrending}
 								</SelectItem>
-								<SelectItem value="new" className={selectMenuItem}>
+								<SelectItem value="new" className={DESTINATIONS_SELECT_ITEM_CLASS}>
 									{DESTINATIONS_GRID.filterTagNew}
 								</SelectItem>
-								<SelectItem value="luxury" className={selectMenuItem}>
+								<SelectItem value="luxury" className={DESTINATIONS_SELECT_ITEM_CLASS}>
 									{DESTINATIONS_GRID.filterTagLuxury}
 								</SelectItem>
-								<SelectItem value="under2000" className={selectMenuItem}>
+								<SelectItem value="under2000" className={DESTINATIONS_SELECT_ITEM_CLASS}>
 									{DESTINATIONS_GRID.filterUnder2000}
 								</SelectItem>
 							</SelectContent>

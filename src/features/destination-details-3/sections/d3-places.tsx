@@ -9,7 +9,7 @@ export function D3Places({ model }: { model: DestinationDetails3ViewModel }) {
 	return (
 		<section className="border-b border-white/10 bg-[#050505] py-16 md:py-24" aria-labelledby="d3-places-heading">
 			<div className="mx-auto max-w-[1600px] pad-x">
-				<header className="mb-14 max-w-2xl" data-d3-reveal>
+				<header className="mb-14 max-w-2xl" data-d3-reveal="down">
 					<div className={d3RuleClass} aria-hidden />
 					<p className={"mt-6 " + d3KickerClass}>Named coordinates</p>
 					<h2 id="d3-places-heading" className="mt-4 text-2xl font-semibold md:text-4xl">
@@ -26,7 +26,7 @@ export function D3Places({ model }: { model: DestinationDetails3ViewModel }) {
 							key={`${place.index}-${place.name}`}
 							className="grid items-center gap-8 md:grid-cols-[auto_minmax(0,1fr)] md:gap-12 lg:gap-16"
 						>
-							<div className="flex min-w-[5rem] flex-col gap-2 md:w-28" data-d3-reveal>
+							<div className="flex min-w-[5rem] flex-col gap-2 md:w-28" data-d3-reveal="zoom">
 								<span className={d3IndexClass} aria-hidden>
 									{place.index}
 								</span>
@@ -37,6 +37,7 @@ export function D3Places({ model }: { model: DestinationDetails3ViewModel }) {
 									"grid gap-6 md:grid-cols-2 md:gap-8",
 									i % 2 === 1 && "[&>*:first-child]:md:order-2 [&>*:last-child]:md:order-1",
 								)}
+								data-d3-stagger={i % 2 === 0 ? "split" : "split-reverse"}
 							>
 								<div className="relative aspect-[4/3] overflow-hidden rounded-sm border border-white/10" data-d3-item>
 									<div className="absolute inset-0" data-d3-media>
@@ -49,7 +50,7 @@ export function D3Places({ model }: { model: DestinationDetails3ViewModel }) {
 										/>
 									</div>
 								</div>
-								<div data-d3-reveal>
+								<div data-d3-item>
 									<h3 className="text-xl font-semibold text-white md:text-2xl">{place.name}</h3>
 									<p className={"mt-4 " + d3BodyClass}>{place.narrative}</p>
 								</div>

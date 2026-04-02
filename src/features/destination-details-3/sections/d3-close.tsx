@@ -7,7 +7,7 @@ export function D3Close({ model }: { model: DestinationDetails3ViewModel }) {
 	return (
 		<section className="bg-[#040404] py-16 text-white md:py-24" aria-labelledby="d3-close-heading">
 			<div className="mx-auto max-w-[1600px] pad-x">
-				<div className="mx-auto max-w-2xl text-center" data-d3-reveal>
+				<div className="mx-auto max-w-2xl text-center" data-d3-reveal="rise">
 					<div className={d3RuleClass + " mx-auto"} aria-hidden />
 					{close.kicker ? <p className={"mt-8 " + d3KickerClass}>{close.kicker}</p> : null}
 					<h2 id="d3-close-heading" className="mt-4 text-2xl font-semibold md:text-3xl">

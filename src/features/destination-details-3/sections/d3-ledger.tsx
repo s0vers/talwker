@@ -8,7 +8,7 @@ export function D3Ledger({ model }: { model: DestinationDetails3ViewModel }) {
 	return (
 		<section className="border-b border-white/10 bg-[#040404] py-16 md:py-24" aria-labelledby="d3-ledger-heading">
 			<div className="mx-auto max-w-[1600px] pad-x">
-				<header className="mb-10 max-w-2xl md:mb-14" data-d3-reveal>
+				<header className="mb-10 max-w-2xl md:mb-14" data-d3-reveal="left">
 					<div className={d3RuleClass} aria-hidden />
 					<p className={"mt-6 " + d3KickerClass}>Margin notes</p>
 					<h2 id="d3-ledger-heading" className="mt-4 text-2xl font-semibold text-white md:text-3xl">
@@ -21,7 +21,7 @@ export function D3Ledger({ model }: { model: DestinationDetails3ViewModel }) {
 
 				<ul
 					className="list-none divide-y divide-white/10 border border-white/10 rounded-sm bg-black/25"
-					data-d3-stagger
+					data-d3-stagger="snap"
 				>
 					{ledger.map((row) => (
 						<li
