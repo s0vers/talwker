@@ -15,7 +15,7 @@ export const DESTINATIONS_2_GRID = {
 	label: "Atlas",
 	title: "Pick a place; open its dossier",
 	description:
-		"Each tile routes to `/destinations-2/[slug]` — the alternate long-form layout — not the primary story page.",
+		"Choose a tile to open that place's dossier — our second long-form layout, with a different rhythm from the main destination story.",
 	paginationPrevious: "Back",
 	paginationNext: "Ahead",
 	paginationPage: "Sheet",

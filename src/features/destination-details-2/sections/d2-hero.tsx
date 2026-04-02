@@ -8,30 +8,39 @@ export function D2Hero({ model }: { model: DestinationNarrativeViewModel }) {
 	return (
 		<section className="relative border-b border-white/10 bg-[#020202] text-white" aria-labelledby="d2-hero-heading">
 			<div className="mx-auto grid max-w-[1600px] gap-0 lg:grid-cols-[1.05fr_0.95fr]">
-				<div className="relative min-h-[52vh] lg:min-h-[min(88vh,920px)]">
-					<Image
-						src={atmosphere.hero.src}
-						alt={atmosphere.hero.alt}
-						fill
-						className="object-cover"
-						priority
-						sizes="(max-width: 1024px) 100vw, 50vw"
-					/>
-					<div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/25 to-transparent lg:bg-linear-to-t lg:from-black/75 lg:via-transparent lg:to-transparent" />
-					{/* Bottom-left: avoids fixed header (h-20) + logo overlap in the top-left */}
-					<p className="absolute bottom-6 left-6 z-10 rounded border border-white/15 bg-black/55 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.25em] text-white/85 backdrop-blur-sm md:bottom-8 md:left-8">
+				<div className="relative min-h-[52vh] overflow-hidden lg:min-h-[min(88vh,920px)]">
+					<div className="absolute inset-0" data-d2-hero-media-root>
+						<div className="absolute inset-0" data-d2-media>
+							<Image
+								src={atmosphere.hero.src}
+								alt={atmosphere.hero.alt}
+								fill
+								className="object-cover [transform:translateZ(0)] scale-[1.08]"
+								priority
+								sizes="(max-width: 1024px) 100vw, 50vw"
+							/>
+						</div>
+					</div>
+					<div className="pointer-events-none absolute inset-0 bg-linear-to-r from-black/80 via-black/25 to-transparent lg:bg-linear-to-t lg:from-black/75 lg:via-transparent lg:to-transparent" />
+					<p
+						className="absolute bottom-6 left-6 z-10 rounded border border-white/15 bg-black/55 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.25em] text-white/85 backdrop-blur-sm md:bottom-8 md:left-8"
+						data-d2-hero-badge
+					>
 						{destinationLabel}
 					</p>
 				</div>
 
-				<div className="flex flex-col justify-end gap-6 pad-x py-12 lg:py-16 lg:pl-12 lg:pr-10">
-					<div data-d2-line>
+				<div className="flex flex-col justify-end gap-6 pad-x py-12 lg:py-16 lg:pl-12 lg:pr-10" data-d2-hero-pane>
+					<div>
 						{atmosphere.kicker ? <p className={d2KickerClass}>{atmosphere.kicker}</p> : null}
-						<h1 id="d2-hero-heading" className="mt-5 font-serif text-4xl font-medium leading-[1.05] tracking-tight md:text-5xl lg:text-6xl">
+						<h1
+							id="d2-hero-heading"
+							className="mt-5 font-serif text-4xl font-medium leading-[1.05] tracking-tight md:text-5xl lg:text-6xl"
+						>
 							{atmosphere.title}
 						</h1>
 					</div>
-					<div className={d2BodyClass} data-d2-reveal>
+					<div className={d2BodyClass}>
 						<p>{atmosphere.body}</p>
 					</div>
 				</div>

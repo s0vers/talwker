@@ -10,13 +10,15 @@ export function D2Finale({ model }: { model: DestinationNarrativeViewModel }) {
 			<div className="mx-auto max-w-[1600px] pad-x">
 				<div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
 					<div className="relative aspect-[16/11] overflow-hidden rounded-sm border border-white/10" data-d2-reveal>
-						<Image
-							src={reflectiveClose.closingImage.src}
-							alt={reflectiveClose.closingImage.alt}
-							fill
-							className="object-cover"
-							sizes="(max-width: 1024px) 100vw, 50vw"
-						/>
+						<div className="absolute inset-0" data-d2-media>
+							<Image
+								src={reflectiveClose.closingImage.src}
+								alt={reflectiveClose.closingImage.alt}
+								fill
+								className="object-cover scale-[1.06]"
+								sizes="(max-width: 1024px) 100vw, 50vw"
+							/>
+						</div>
 					</div>
 					<div data-d2-line>
 						{reflectiveClose.kicker ? <p className={d2KickerClass}>{reflectiveClose.kicker}</p> : null}

@@ -19,31 +19,41 @@ export function D2Spectrum({ model }: { model: DestinationNarrativeViewModel }) 
 
 				<div
 					className="grid grid-cols-1 gap-3 md:grid-cols-3 md:items-stretch md:gap-3 md:h-[min(52vh,36rem)] md:min-h-[20rem] lg:min-h-[22rem]"
-					data-d2-reveal
+					data-d2-stagger
 				>
-					<div className="relative aspect-[4/3] min-h-0 w-full overflow-hidden rounded-sm border border-white/10 md:col-span-2 md:aspect-auto md:h-full">
-						<Image
-							src={culturePulse.anchor.src}
-							alt={culturePulse.anchor.alt}
-							fill
-							className="object-cover"
-							sizes="(max-width: 768px) 100vw, 66vw"
-						/>
+					<div
+						className="relative aspect-[4/3] min-h-0 w-full overflow-hidden rounded-sm border border-white/10 md:col-span-2 md:aspect-auto md:h-full"
+						data-d2-item
+					>
+						<div className="absolute inset-0" data-d2-media>
+							<Image
+								src={culturePulse.anchor.src}
+								alt={culturePulse.anchor.alt}
+								fill
+								className="object-cover scale-[1.06]"
+								sizes="(max-width: 768px) 100vw, 66vw"
+							/>
+						</div>
 					</div>
 					{/* Right rail: two images stacked, each ½ of the column height (matches wireframe). */}
-					<div className="grid min-h-[300px] grid-rows-2 gap-3 md:h-full md:min-h-0 md:grid-rows-[1fr_1fr]">
+					<div
+						className="grid min-h-[300px] grid-rows-2 gap-3 md:h-full md:min-h-0 md:grid-rows-[1fr_1fr]"
+						data-d2-item
+					>
 						{cultureSides.map((img) => (
 							<div
 								key={img.src}
 								className="relative h-full min-h-32 overflow-hidden rounded-sm border border-white/10 md:min-h-0"
 							>
-								<Image
-									src={img.src}
-									alt={img.alt}
-									fill
-									className="object-cover"
-									sizes="(max-width: 768px) 100vw, 34vw"
-								/>
+								<div className="absolute inset-0" data-d2-media>
+									<Image
+										src={img.src}
+										alt={img.alt}
+										fill
+										className="object-cover scale-[1.06]"
+										sizes="(max-width: 768px) 100vw, 34vw"
+									/>
+								</div>
 							</div>
 						))}
 					</div>
@@ -57,20 +67,23 @@ export function D2Spectrum({ model }: { model: DestinationNarrativeViewModel }) 
 					</div>
 					<div
 						className="grid min-h-[min(52vh,28rem)] grid-cols-2 gap-3 sm:gap-4 md:min-h-[min(56vh,32rem)] lg:min-h-[min(60vh,36rem)]"
-						data-d2-reveal
+						data-d2-stagger
 					>
 						{sensoryImmersion.textures.map((t) => (
 							<div
 								key={t.src}
 								className="relative min-h-0 overflow-hidden rounded-sm border border-white/10"
+								data-d2-item
 							>
-								<Image
-									src={t.src}
-									alt={t.alt}
-									fill
-									className="object-cover"
-									sizes="(max-width: 1024px) 46vw, 42vw"
-								/>
+								<div className="absolute inset-0" data-d2-media>
+									<Image
+										src={t.src}
+										alt={t.alt}
+										fill
+										className="object-cover scale-[1.06]"
+										sizes="(max-width: 1024px) 46vw, 42vw"
+									/>
+								</div>
 							</div>
 						))}
 					</div>
