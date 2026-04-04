@@ -210,7 +210,7 @@ export default function Navbar() {
 				</nav>
 
 				<Link
-					href="#contact"
+					href="/contact"
 					className="hidden rounded-full border border-white/15 px-6 py-2 text-[12px] font-semibold uppercase tracking-[0.15em] text-white/60 transition-all duration-300 hover:border-orange-500 hover:text-orange-500 md:inline-flex"
 				>
 					{NAVBAR_CTA_LABEL}

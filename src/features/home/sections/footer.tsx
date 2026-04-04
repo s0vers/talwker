@@ -29,13 +29,22 @@ export default function Footer() {
 							<ul aria-label={`${title} links`} className="mt-5 space-y-3">
 								{links.map((l) => (
 									<li key={l}>
-										<button
-											type="button"
-											aria-label={`${title}: ${l}`}
-											className="text-sm text-white/55 transition-colors hover:text-white/80"
-										>
-											{l}
-										</button>
+										{l === "Contact" ? (
+											<Link
+												href="/contact"
+												className="text-sm text-white/55 transition-colors hover:text-white/80"
+											>
+												{l}
+											</Link>
+										) : (
+											<button
+												type="button"
+												aria-label={`${title}: ${l}`}
+												className="text-sm text-white/55 transition-colors hover:text-white/80"
+											>
+												{l}
+											</button>
+										)}
 									</li>
 								))}
 							</ul>
