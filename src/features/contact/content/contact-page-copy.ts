@@ -14,9 +14,10 @@ export const CONTACT_HERO_COPY = {
 } as const;
 
 export const CONTACT_CHANNELS_COPY = {
+	sectionEyebrow: "Direct lines",
 	sectionTitle: "How to reach us",
 	sectionDescription:
-		"Pick the channel that fits your note so the right desk sees it first.",
+		"One inbox per desk. Choose the line that matches your note — we route from there.",
 	channels: [
 		{
 			id: "editorial",

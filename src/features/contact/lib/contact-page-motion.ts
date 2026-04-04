@@ -9,47 +9,6 @@ if (typeof window !== "undefined") {
 	gsap.registerPlugin(ScrollTrigger);
 }
 
-function createBlurStaggerScroll(
-	root: HTMLElement,
-	selector: string,
-	options: {
-		y?: number;
-		scale?: number;
-		blur?: number;
-		stagger?: number;
-		duration?: number;
-		start?: string;
-	} = {},
-) {
-	const targets = gsap.utils.toArray<HTMLElement>(selector, root);
-	if (!targets.length) return;
-
-	const {
-		y = 52,
-		scale = 0.96,
-		blur = 14,
-		stagger = 0.12,
-		duration = 0.95,
-		start = "top 82%",
-	} = options;
-
-	gsap.from(targets, {
-		y,
-		scale,
-		opacity: 0,
-		filter: `blur(${blur}px)`,
-		duration,
-		stagger,
-		ease: "power4.out",
-		immediateRender: false,
-		scrollTrigger: {
-			trigger: root,
-			start,
-			toggleActions: "play none none none",
-		},
-	});
-}
-
 /** Hero entrance after loader — layered timeline with blur, 3D card, bar draw, word stagger */
 export function useContactHeroEntrance(
 	sectionRef: RefObject<HTMLElement | null>,
@@ -354,14 +313,75 @@ export function useContactChannelsScrollMotion(sectionRef: RefObject<HTMLElement
 		if (typeof window === "undefined" || !root || prefersReducedMotion()) return;
 
 		const ctx = gsap.context(() => {
-			createBlurStaggerScroll(root, "[data-contact-channel-reveal]", {
-				y: 56,
-				scale: 0.94,
-				blur: 16,
-				stagger: 0.14,
-				duration: 1,
-				start: "top 80%",
+			const eyebrow = root.querySelector("[data-contact-ch-eyebrow]");
+			const title = root.querySelector("[data-contact-ch-title]");
+			const desc = root.querySelector("[data-contact-ch-desc]");
+			const cards = gsap.utils.toArray<HTMLElement>("[data-contact-ch-card]", root);
+			const social = root.querySelector("[data-contact-ch-social]");
+
+			const tl = gsap.timeline({
+				defaults: { ease: "power3.out" },
+				scrollTrigger: {
+					trigger: root,
+					start: "top 82%",
+					toggleActions: "play none none none",
+				},
 			});
+
+			if (eyebrow) {
+				tl.fromTo(
+					eyebrow,
+					{ autoAlpha: 0, x: -16 },
+					{ autoAlpha: 1, x: 0, duration: 0.55 },
+					0,
+				);
+			}
+
+			if (title) {
+				tl.fromTo(
+					title,
+					{ autoAlpha: 0, y: 32, clipPath: "inset(0 0 100% 0)" },
+					{ autoAlpha: 1, y: 0, clipPath: "inset(0 0 0% 0)", duration: 0.75 },
+					0.08,
+				);
+			}
+
+			if (desc) {
+				tl.fromTo(
+					desc,
+					{ autoAlpha: 0, y: 18 },
+					{ autoAlpha: 1, y: 0, duration: 0.6 },
+					0.22,
+				);
+			}
+
+			if (cards.length) {
+				tl.fromTo(
+					cards,
+					{
+						autoAlpha: 0,
+						y: 40,
+						scale: 0.97,
+					},
+					{
+						autoAlpha: 1,
+						y: 0,
+						scale: 1,
+						duration: 0.78,
+						stagger: 0.11,
+					},
+					0.28,
+				);
+			}
+
+			if (social) {
+				tl.fromTo(
+					social,
+					{ autoAlpha: 0, y: 28 },
+					{ autoAlpha: 1, y: 0, duration: 0.65, ease: "power2.out" },
+					cards.length ? "-=0.4" : 0.35,
+				);
+			}
 		}, root);
 
 		return () => ctx.revert();
