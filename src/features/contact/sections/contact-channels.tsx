@@ -7,7 +7,7 @@ import {
 	CONTACT_CHANNELS_COPY,
 	CONTACT_SOCIAL_COPY,
 } from "@/features/contact/content/contact-page-copy";
-import { useContactScrollReveal } from "@/features/contact/lib/contact-page-motion";
+import { useContactChannelsScrollMotion } from "@/features/contact/lib/contact-page-motion";
 
 function mailtoHref(email: string, subject: string) {
 	const q = new URLSearchParams({ subject });
@@ -16,7 +16,7 @@ function mailtoHref(email: string, subject: string) {
 
 export default function ContactChannels() {
 	const sectionRef = useRef<HTMLElement>(null);
-	useContactScrollReveal(sectionRef, "[data-contact-channel-reveal]");
+	useContactChannelsScrollMotion(sectionRef);
 
 	return (
 		<section

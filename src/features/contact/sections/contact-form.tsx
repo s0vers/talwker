@@ -16,7 +16,7 @@ import {
 	buildContactMailtoHref,
 	inboxForFormTopic,
 } from "@/features/contact/lib/contact-form-mailto";
-import { useContactScrollReveal } from "@/features/contact/lib/contact-page-motion";
+import { useContactFormScrollMotion } from "@/features/contact/lib/contact-page-motion";
 import { cn } from "@/lib/utils";
 
 const fieldSurface =
@@ -52,7 +52,7 @@ function topicLabelForValue(value: string) {
 
 export default function ContactForm() {
 	const sectionRef = useRef<HTMLElement>(null);
-	useContactScrollReveal(sectionRef, "[data-contact-form-reveal]");
+	useContactFormScrollMotion(sectionRef);
 
 	const formId = useId();
 	const nameId = `${formId}-name`;
@@ -95,38 +95,42 @@ export default function ContactForm() {
 					<div className="grid gap-12 lg:grid-cols-12 lg:gap-16 lg:items-start">
 						<div className="lg:col-span-5">
 							<p
-								data-contact-form-reveal
-								className="text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500 will-change-transform"
+								data-contact-form-intro
+								className="text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500 will-change-[filter,opacity,transform]"
 							>
 								{CONTACT_FORM_COPY.eyebrow}
 							</p>
 							<h2
-								data-contact-form-reveal
+								data-contact-form-intro
 								id="contact-form-heading"
-								className="mt-4 text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-tighter text-white will-change-transform"
+								className="mt-4 text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-tighter text-white will-change-[filter,opacity,transform]"
 							>
 								{CONTACT_FORM_COPY.title}
 							</h2>
 							<p
-								data-contact-form-reveal
-								className="mt-4 max-w-md text-sm leading-relaxed text-white/70 will-change-transform md:text-base"
+								data-contact-form-intro
+								className="mt-4 max-w-md text-sm leading-relaxed text-white/70 will-change-[filter,opacity,transform] md:text-base"
 							>
 								{CONTACT_FORM_COPY.description}
 							</p>
 							<div
-								data-contact-form-reveal
+								data-contact-form-intro
 								className="mt-10 hidden h-px w-24 bg-linear-to-r from-orange-500/80 to-transparent lg:block"
 								aria-hidden
 							/>
 						</div>
 
-						<div className="lg:col-span-7">
+						<div className="lg:col-span-7 [perspective:1800px]">
 							<div
-								data-contact-form-reveal
-								className="rounded-3xl border border-white/6 bg-linear-to-b from-white/[0.05] to-transparent p-6 shadow-[0_40px_120px_rgba(0,0,0,0.35)] will-change-transform md:p-10"
+								data-contact-form-panel
+								className="rounded-3xl border border-white/6 bg-linear-to-b from-white/[0.05] to-transparent p-6 shadow-[0_40px_120px_rgba(0,0,0,0.35)] will-change-[filter,opacity,transform] md:p-10"
+								style={{ transformStyle: "preserve-3d" }}
 							>
 								<form onSubmit={handleSubmit}>
-									<div className="grid gap-6 md:grid-cols-2">
+									<div
+										data-contact-form-field
+										className="grid gap-6 md:grid-cols-2 will-change-[filter,opacity,transform]"
+									>
 										<div className="md:col-span-1">
 											<FieldLabel htmlFor={nameId}>
 												{CONTACT_FORM_COPY.nameLabel}
@@ -163,7 +167,10 @@ export default function ContactForm() {
 										</div>
 									</div>
 
-									<div className="mt-6">
+									<div
+										data-contact-form-field
+										className="mt-6 will-change-[filter,opacity,transform]"
+									>
 										<FieldLabel htmlFor={topicId}>
 											{CONTACT_FORM_COPY.topicLabel}
 										</FieldLabel>
@@ -197,7 +204,10 @@ export default function ContactForm() {
 										<input type="hidden" name="topic" value={topic} />
 									</div>
 
-									<div className="mt-6">
+									<div
+										data-contact-form-field
+										className="mt-6 will-change-[filter,opacity,transform]"
+									>
 										<FieldLabel htmlFor={messageId}>
 											{CONTACT_FORM_COPY.messageLabel}
 										</FieldLabel>
@@ -214,7 +224,10 @@ export default function ContactForm() {
 										/>
 									</div>
 
-									<div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+									<div
+										data-contact-form-field
+										className="mt-8 flex flex-col gap-4 will-change-[filter,opacity,transform] sm:flex-row sm:items-end sm:justify-between"
+									>
 										<Button
 											type="submit"
 											size="lg"
