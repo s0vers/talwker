@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { Select as SelectPrimitive } from "@base-ui/react/select";
+import type { SelectRootProps } from "@base-ui/react/select";
 import { Check, ChevronDown, ChevronUp } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -9,9 +10,17 @@ import { cn } from "@/lib/utils";
 /**
  * Base UI Select with `modal={false}` by default so opening the list does not lock
  * body scroll (avoids layout shift / horizontal jump with scrollbar gutter).
+ *
+ * Typed wrapper matching Base UI’s “Typed wrapper component” pattern (`Select.Root.Props<Value, Multiple>`).
+ * Use `items` on the root so `Select.Value` shows the item label; use `name` for the built-in hidden input.
+ *
+ * @see https://base-ui.com/react/components/select
  */
-function Select({ modal = false, ...props }: React.ComponentProps<typeof SelectPrimitive.Root>) {
-	return <SelectPrimitive.Root modal={modal} {...props} />;
+function Select<Value, Multiple extends boolean | undefined = false>({
+	modal = false,
+	...props
+}: SelectRootProps<Value, Multiple>) {
+	return <SelectPrimitive.Root<Value, Multiple> modal={modal} {...props} />;
 }
 
 const SelectGroup = SelectPrimitive.Group;

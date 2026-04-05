@@ -71,6 +71,15 @@ export const CONTACT_FORM_COPY = {
 	submitHint: "Opens your email app with a draft addressed to us.",
 } as const;
 
+export type ContactFormTopicValue =
+	(typeof CONTACT_FORM_COPY.topics)[number]["value"];
+
+/** Base UI `Select.Root` `items` — drives label lookup for `Select.Value` (see Base UI Select docs). */
+export const CONTACT_FORM_TOPIC_ITEMS: ReadonlyArray<{
+	value: ContactFormTopicValue;
+	label: string;
+}> = CONTACT_FORM_COPY.topics.map((t) => ({ value: t.value, label: t.label }));
+
 export const CONTACT_SOCIAL_COPY = {
 	title: "Elsewhere",
 	description: "Day-to-day dispatches and behind-the-scenes travel.",

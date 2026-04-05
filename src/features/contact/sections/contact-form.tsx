@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useRef, useState } from "react";
+import { useId, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -11,7 +11,11 @@ import {
 	SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { CONTACT_FORM_COPY } from "@/features/contact/content/contact-page-copy";
+import {
+	CONTACT_FORM_COPY,
+	CONTACT_FORM_TOPIC_ITEMS,
+	type ContactFormTopicValue,
+} from "@/features/contact/content/contact-page-copy";
 import {
 	buildContactMailtoHref,
 	inboxForFormTopic,
@@ -27,6 +31,8 @@ const selectItemClass =
 
 const selectContentClass =
 	"border-white/15 bg-[#0c0c0c] text-white shadow-[0_24px_80px_rgba(0,0,0,0.85)]";
+
+const DEFAULT_TOPIC = CONTACT_FORM_COPY.topics[0].value;
 
 function FieldLabel({
 	htmlFor,
@@ -45,8 +51,15 @@ function FieldLabel({
 	);
 }
 
-function topicLabelForValue(value: string) {
-	const row = CONTACT_FORM_COPY.topics.find((t) => t.value === value);
+function topicFromFormData(fd: FormData): ContactFormTopicValue {
+	const raw = fd.get("topic");
+	if (typeof raw !== "string") return DEFAULT_TOPIC;
+	const match = CONTACT_FORM_TOPIC_ITEMS.find((i) => i.value === raw);
+	return match?.value ?? DEFAULT_TOPIC;
+}
+
+function topicLabelForValue(value: ContactFormTopicValue) {
+	const row = CONTACT_FORM_TOPIC_ITEMS.find((t) => t.value === value);
 	return row?.label ?? value;
 }
 
@@ -60,8 +73,6 @@ export default function ContactForm() {
 	const topicId = `${formId}-topic`;
 	const messageId = `${formId}-message`;
 
-	const [topic, setTopic] = useState<string>(CONTACT_FORM_COPY.topics[0].value);
-
 	function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
 		e.preventDefault();
 		const form = e.currentTarget;
@@ -69,6 +80,7 @@ export default function ContactForm() {
 		const name = String(fd.get("name") ?? "").trim();
 		const email = String(fd.get("email") ?? "").trim();
 		const message = String(fd.get("message") ?? "").trim();
+		const topic = topicFromFormData(fd);
 		const inbox = inboxForFormTopic(topic);
 		const topicLabel = topicLabelForValue(topic);
 
@@ -120,10 +132,10 @@ export default function ContactForm() {
 							/>
 						</div>
 
-						<div className="lg:col-span-7 [perspective:1800px]">
+						<div className="lg:col-span-7 perspective-[1800px]">
 							<div
 								data-contact-form-panel
-								className="rounded-3xl border border-white/6 bg-linear-to-b from-white/[0.05] to-transparent p-6 shadow-[0_40px_120px_rgba(0,0,0,0.35)] will-change-[filter,opacity,transform] md:p-10"
+								className="rounded-3xl border border-white/6 bg-linear-to-b from-white/5 to-transparent p-6 shadow-[0_40px_120px_rgba(0,0,0,0.35)] will-change-[filter,opacity,transform] md:p-10"
 								style={{ transformStyle: "preserve-3d" }}
 							>
 								<form onSubmit={handleSubmit}>
@@ -174,7 +186,12 @@ export default function ContactForm() {
 										<FieldLabel htmlFor={topicId}>
 											{CONTACT_FORM_COPY.topicLabel}
 										</FieldLabel>
-										<Select value={topic} onValueChange={setTopic}>
+										<Select<ContactFormTopicValue>
+											name="topic"
+											defaultValue={DEFAULT_TOPIC}
+											required
+											items={CONTACT_FORM_TOPIC_ITEMS}
+										>
 											<SelectTrigger
 												id={topicId}
 												className={cn(
@@ -183,14 +200,16 @@ export default function ContactForm() {
 												)}
 												aria-label={CONTACT_FORM_COPY.topicLabel}
 											>
-												<SelectValue placeholder={CONTACT_FORM_COPY.topicPlaceholder} />
+												<SelectValue
+													placeholder={CONTACT_FORM_COPY.topicPlaceholder}
+												/>
 											</SelectTrigger>
 											<SelectContent
 												position="popper"
 												sideOffset={8}
 												className={selectContentClass}
 											>
-												{CONTACT_FORM_COPY.topics.map((t) => (
+												{CONTACT_FORM_TOPIC_ITEMS.map((t) => (
 													<SelectItem
 														key={t.value}
 														value={t.value}
@@ -201,7 +220,6 @@ export default function ContactForm() {
 												))}
 											</SelectContent>
 										</Select>
-										<input type="hidden" name="topic" value={topic} />
 									</div>
 
 									<div
