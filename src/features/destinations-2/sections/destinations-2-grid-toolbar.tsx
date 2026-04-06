@@ -72,8 +72,8 @@ function Destinations2GridToolbarInner({ list, quickLinks }: Destinations2GridTo
 				<input type="hidden" name="tag" value={hiddenTag} aria-hidden />
 				<input type="hidden" name="maxPrice" value={hiddenMaxPrice} aria-hidden />
 
-				<div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:gap-6">
-					<div className="min-w-0 flex-1">
+				<div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_13rem_auto] lg:items-end lg:gap-6">
+					<div className="min-w-0">
 						<label htmlFor="destinations-2-search" className="mb-2 block text-[10px] uppercase tracking-[0.2em] text-white/45">
 							{DESTINATIONS_2_GRID.searchFieldLabel}
 						</label>
@@ -87,29 +87,14 @@ function Destinations2GridToolbarInner({ list, quickLinks }: Destinations2GridTo
 							autoComplete="off"
 							className={cn(surface, "h-12 rounded-sm")}
 						/>
-						<div className="min-h-5 pt-2">
-							<Link
-								href={clearHref}
-								scroll={false}
-								tabIndex={showClear ? 0 : -1}
-								aria-hidden={!showClear}
-								className={cn(
-									"inline-flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-[0.14em] text-white/45 transition-colors hover:text-orange-300",
-									!showClear && "pointer-events-none invisible",
-								)}
-							>
-								<LuX className="size-3 shrink-0 opacity-80" aria-hidden />
-								{DESTINATIONS_2_GRID.clearFilters}
-							</Link>
-						</div>
 					</div>
 
-					<div className="w-full shrink-0 lg:w-52">
+					<div className="w-full">
 						<label htmlFor="destinations-2-filter" className="mb-2 block text-[10px] uppercase tracking-[0.2em] text-white/45">
 							{DESTINATIONS_2_GRID.filterLabel}
 						</label>
 						<Select value={selectKey} onValueChange={(v) => setSelectKey(v as DestinationsSelectKey)}>
-							<SelectTrigger id="destinations-2-filter" className={cn(DESTINATIONS_SELECT_TRIGGER_SURFACE, "w-full")}>
+							<SelectTrigger id="destinations-2-filter" className={cn(DESTINATIONS_SELECT_TRIGGER_SURFACE, "h-12 w-full")}>
 								<SelectValue />
 							</SelectTrigger>
 							<SelectContent position="popper" sideOffset={8} className={DESTINATIONS_SELECT_CONTENT_CLASS}>
@@ -135,22 +120,32 @@ function Destinations2GridToolbarInner({ list, quickLinks }: Destinations2GridTo
 						</Select>
 					</div>
 
-					<div className="flex shrink-0 flex-col">
-						<span
-							className="mb-2 hidden text-[10px] uppercase tracking-[0.2em] text-white/45 lg:block lg:invisible"
-							aria-hidden
-						>
-							{DESTINATIONS_2_GRID.filterLabel}
-						</span>
+					<div className="flex lg:justify-end">
 						<Button
 							type="submit"
 							variant="outline"
-							className="h-12 shrink-0 rounded-sm border-orange-500/50 bg-orange-500/10 px-6 text-[10px] font-semibold uppercase tracking-[0.2em] text-orange-300 hover:bg-orange-500/20"
+							className="h-12 w-full rounded-sm border-orange-500/50 bg-orange-500/10 px-6 text-[10px] font-semibold uppercase tracking-[0.2em] text-orange-300 hover:bg-orange-500/20 lg:w-auto"
 						>
 							<LuSearch className="mr-2 h-4 w-4" aria-hidden />
 							{DESTINATIONS_2_GRID.searchButton}
 						</Button>
 					</div>
+				</div>
+
+				<div className="min-h-5 pt-2">
+					<Link
+						href={clearHref}
+						scroll={false}
+						tabIndex={showClear ? 0 : -1}
+						aria-hidden={!showClear}
+						className={cn(
+							"inline-flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-[0.14em] text-white/45 transition-colors hover:text-orange-300",
+							!showClear && "pointer-events-none invisible",
+						)}
+					>
+						<LuX className="size-3 shrink-0 opacity-80" aria-hidden />
+						{DESTINATIONS_2_GRID.clearFilters}
+					</Link>
 				</div>
 			</form>
 
