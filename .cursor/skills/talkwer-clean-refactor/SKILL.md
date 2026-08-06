@@ -10,10 +10,9 @@ Use when asked to improve code quality, modularity, or reuse without redesign.
 
 ## Minimal context bundle
 
-- `.cursor/docs/PROJECT_MEMORY.md`
-- `.cursor/rules/talkwer-visual-contract.mdc`
+- `AGENTS.md`
 - `.cursor/rules/talkwer-architecture.mdc`
-- `.cursor/rules/talkwer-reusability.mdc`
+- `.cursor/rules/talkwer-design.mdc`
 - target files only
 
 ## Checklist

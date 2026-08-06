@@ -10,8 +10,9 @@ Use before declaring refactor work complete.
 
 ## Minimal context bundle
 
-- `.cursor/docs/PROJECT_MEMORY.md`
-- `.cursor/rules/talkwer-quality-gates.mdc`
+- `AGENTS.md`
+- `.cursor/rules/talkwer-quality.mdc`
+- `.cursor/rules/talkwer-design.mdc`
 - changed files
 
 ## Checklist
