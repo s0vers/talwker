@@ -1,0 +1,54 @@
+---
+description: Talkwer quality gates and GSAP motion lifecycle contract
+globs: src/**/*.{ts,tsx,css}
+alwaysApply: false
+---
+
+# Talkwer quality
+
+## Required checks
+
+- `pnpm verify`
+- `pnpm lint`
+- `pnpm typecheck`
+- `pnpm build`
+- `pnpm check:filenames`
+- `pnpm check:image-sizes`
+
+## Review checklist
+
+- No visual regressions on active homepage sections.
+- No duplicate domain types across feature files.
+- No placeholder links (`href="#"`) in active UX paths.
+- Accessibility checklist reviewed (`docs/ACCESSIBILITY_CHECKLIST.md`).
+- Release checklist reviewed (`docs/RELEASE_CHECKLIST.md`).
+
+## Motion lifecycle
+
+### Default pattern
+
+- Prefer `useGsapContext(scopeRef, animation, deps)` from `@/lib/useGsap`.
+- Keep timeline/tween values unchanged during refactors (duration, easing, start/end, scrub).
+- Keep target refs scoped to the section root.
+- Always clean up via context revert on unmount.
+
+### Hook decision rule
+
+- Use `useGsapContext` for all GSAP/ScrollTrigger section animations.
+- Use plain `useEffect` only for non-GSAP side effects (navbar scroll state, DOM listeners, etc.).
+
+### Accessibility
+
+- Respect reduced-motion with `prefersReducedMotion()`.
+- Skip non-essential animation when reduced-motion is enabled.
+
+### Performance
+
+- Avoid duplicate ScrollTrigger registrations in component trees.
+- Keep timeline creation scoped to the section refs.
+
+### Invariants
+
+- No visual drift during refactors.
+- No timing/easing/trigger drift during refactors.
+- No leaked triggers or stale contexts after navigation/unmount.
