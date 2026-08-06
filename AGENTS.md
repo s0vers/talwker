@@ -4,6 +4,13 @@
 
 This is a **Next.js 16 static blog/magazine site** ("Talkwer") with no backend, database, or external service dependencies.
 
+### Where truth lives
+
+- Commands / runtime: this file.
+- Structure and checklists: `docs/INDEX.md`, `docs/README.md`.
+- Enforceable contracts: `.cursor/rules/talkwer-architecture.mdc`, `talkwer-design.mdc`, `talkwer-quality.mdc`.
+- Process specs/plans: `docs/superpowers/`. Local Superpowers runtime: `.superpowers/` (gitignored).
+
 ### Quick reference
 
 | Action | Command |
