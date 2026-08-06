@@ -35,3 +35,6 @@ lighthouse-report*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Superpowers local runtime (brainstorm companion, SDD progress, etc.)
+.superpowers/
