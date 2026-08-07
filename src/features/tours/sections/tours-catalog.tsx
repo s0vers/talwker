@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 import { TOURS_CATALOG } from "@/features/tours/content/tours-page-copy";
+import { formatTourPrice } from "@/features/tours/lib/format-tour-price";
 import { getTourSlug } from "@/features/tours/lib/tour-slug";
 import { toursMatchDestinationFilter } from "@/features/tours/lib/tours-list-params";
 import {
@@ -17,10 +18,6 @@ type ToursCatalogProps = {
 	tours: Tour[];
 	destinationFilter?: string;
 };
-
-function formatPrice(price: number): string {
-	return `$${price.toLocaleString("en-US")}`;
-}
 
 export default function ToursCatalog({
 	tours,
@@ -73,20 +70,20 @@ export default function ToursCatalog({
 					) : null}
 				</div>
 
-				<ul className="flex flex-col border-t border-white/10">
+				<ul className="flex flex-col gap-3 md:gap-3.5">
 					{tours.map((tour) => {
 						const slug = getTourSlug(tour);
 						const thumb = tour.panelImage ?? tour.image;
 
 						return (
-							<li key={tour.id} className="border-b border-white/10">
+							<li key={tour.id}>
 								<Link
 									href={`/tours/${slug}`}
 									data-tour-row
 									aria-label={`${TOURS_CATALOG.openLabel}: ${tour.title}`}
-									className="group grid gap-4 py-5 transition-colors hover:bg-white/[0.02] sm:grid-cols-[7.5rem_minmax(0,1fr)_auto] sm:items-center sm:gap-6 sm:py-6 md:grid-cols-[9rem_minmax(0,1fr)_auto]"
+									className="group grid gap-4 rounded-2xl border border-orange-500/15 bg-[#0a0a0a] p-4 transition-[border-color,background-color] duration-300 hover:border-orange-500/35 hover:bg-orange-500/3 sm:grid-cols-[7.5rem_minmax(0,1fr)_auto] sm:items-center sm:gap-6 sm:p-5 md:grid-cols-[9rem_minmax(0,1fr)_auto]"
 								>
-									<div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-white/10 sm:aspect-[5/4] sm:h-[4.75rem] sm:w-full">
+									<div className="relative aspect-4/3 overflow-hidden rounded-xl border border-white/10 sm:aspect-5/4 sm:h-[4.75rem] sm:w-full">
 										<Image
 											src={thumb}
 											alt=""
@@ -113,7 +110,7 @@ export default function ToursCatalog({
 											<span>
 												{TOURS_CATALOG.fromPrefix}{" "}
 												<span className="text-orange-400">
-													{formatPrice(tour.price)}
+													{formatTourPrice(tour.price)}
 												</span>
 											</span>
 										</p>

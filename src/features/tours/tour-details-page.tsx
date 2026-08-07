@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { InitialLoader } from "@/features/home/sections";
 import {
 	TourDetailsDays,
@@ -8,6 +7,7 @@ import {
 	TourDetailsMobileBar,
 	TourDetailsSheet,
 } from "@/features/tours/sections";
+import { useToursPageLoader } from "@/features/tours/lib/use-tours-page-loader";
 import type { Tour } from "@/shared/types/domain";
 
 export type TourDetailsPageProps = {
@@ -15,44 +15,7 @@ export type TourDetailsPageProps = {
 };
 
 export default function TourDetailsPage({ tour }: TourDetailsPageProps) {
-	const [isLoading, setIsLoading] = useState(true);
-
-	useEffect(() => {
-		const originalOverflow = document.body.style.overflow;
-		document.body.style.overflow = "hidden";
-		const mountedAt = Date.now();
-		const MIN_LOADER_MS = 200;
-
-		const clearLoading = () => {
-			setIsLoading(false);
-			document.body.style.overflow = originalOverflow;
-		};
-
-		const onReady = () => {
-			const elapsed = Date.now() - mountedAt;
-			const remaining = Math.max(0, MIN_LOADER_MS - elapsed);
-			if (remaining === 0) {
-				clearLoading();
-				return;
-			}
-			window.setTimeout(clearLoading, remaining);
-		};
-
-		if (document.readyState === "complete") {
-			const timeout = setTimeout(onReady, 0);
-			return () => clearTimeout(timeout);
-		}
-
-		const handleLoad = () => onReady();
-		window.addEventListener("load", handleLoad);
-		const timeout = setTimeout(onReady, 1200);
-
-		return () => {
-			window.removeEventListener("load", handleLoad);
-			clearTimeout(timeout);
-			document.body.style.overflow = originalOverflow;
-		};
-	}, []);
+	const isLoading = useToursPageLoader();
 
 	return (
 		<>
@@ -61,9 +24,9 @@ export default function TourDetailsPage({ tour }: TourDetailsPageProps) {
 				<TourDetailsHero tour={tour} />
 				<div className="mx-auto grid max-w-[1600px] gap-10 pad-x py-12 md:py-16 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-stretch lg:gap-12 xl:grid-cols-[minmax(0,1fr)_22rem]">
 					<div className="min-w-0">
-						<TourDetailsDays tour={tour} />
+						<TourDetailsDays key={tour.slug} tour={tour} />
 					</div>
-					{/* Column must stretch with itinerary height — sticky needs that tall containing block */}
+					{/* Stretch with itinerary so sticky sheet has a tall containing block */}
 					<div className="relative min-w-0">
 						<TourDetailsSheet tour={tour} />
 					</div>

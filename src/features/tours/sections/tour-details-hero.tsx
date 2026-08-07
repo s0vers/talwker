@@ -3,20 +3,13 @@
 import Image from "next/image";
 import { useRef } from "react";
 import { TOUR_DETAILS_HERO } from "@/features/tours/content/tour-details-copy";
+import { formatTourPrice } from "@/features/tours/lib/format-tour-price";
 import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
 import type { Tour } from "@/shared/types/domain";
 
 type TourDetailsHeroProps = {
 	tour: Tour;
 };
-
-function formatPrice(price: number): string {
-	return `$${price.toLocaleString("en-US")}`;
-}
-
-function dayCount(tour: Tour): number {
-	return tour.itinerary.length;
-}
 
 export default function TourDetailsHero({ tour }: TourDetailsHeroProps) {
 	const sectionRef = useRef<HTMLElement>(null);
@@ -92,7 +85,7 @@ export default function TourDetailsHero({ tour }: TourDetailsHeroProps) {
 
 					<div
 						data-hero-item
-						className="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 sm:aspect-[5/4] lg:aspect-auto lg:min-h-[22rem] lg:h-full lg:max-h-[28rem]"
+						className="relative aspect-16/10 overflow-hidden rounded-xl border border-white/10 sm:aspect-5/4 lg:aspect-auto lg:h-full lg:min-h-88 lg:max-h-112"
 					>
 						<Image
 							src={tour.image}
@@ -114,7 +107,7 @@ export default function TourDetailsHero({ tour }: TourDetailsHeroProps) {
 							{TOUR_DETAILS_HERO.factsDays}
 						</dt>
 						<dd className="mt-1.5 text-lg font-semibold tabular-nums text-white">
-							{dayCount(tour)}
+							{tour.itinerary.length}
 						</dd>
 					</div>
 					<div className="bg-[#050505] px-4 py-4 sm:px-5">
@@ -122,7 +115,7 @@ export default function TourDetailsHero({ tour }: TourDetailsHeroProps) {
 							{TOUR_DETAILS_HERO.factsFrom}
 						</dt>
 						<dd className="mt-1.5 text-lg font-semibold tabular-nums text-orange-400">
-							{formatPrice(tour.price)}
+							{formatTourPrice(tour.price)}
 						</dd>
 					</div>
 					<div className="bg-[#050505] px-4 py-4 sm:px-5">
