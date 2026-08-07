@@ -1,9 +1,7 @@
 export { default as ToursHero } from "./tours-hero";
-export { default as ToursDeparturePanels } from "./tours-departure-panels";
+export { default as ToursCatalog } from "./tours-catalog";
 export { default as ToursCTA } from "./tours-cta";
 export { default as TourDetailsHero } from "./tour-details-hero";
-export { default as TourDetailsSummary } from "./tour-details-summary";
-export { default as TourDetailsItinerary } from "./tour-details-itinerary";
-export { default as TourDetailsIncludes } from "./tour-details-includes";
-export { default as TourDetailsRail } from "./tour-details-rail";
-export { TourDetailsMotionRoot } from "./tour-details-motion-root";
+export { default as TourDetailsDays } from "./tour-details-days";
+export { default as TourDetailsSheet } from "./tour-details-sheet";
+export { default as TourDetailsMobileBar } from "./tour-details-mobile-bar";
