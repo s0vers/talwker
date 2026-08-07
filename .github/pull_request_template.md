@@ -14,7 +14,8 @@
 
 ## Docs and Rules Sync
 
-- [ ] Updated docs/rules/memory if paths or conventions changed
+- [ ] Updated `docs/` and `.cursor/rules/` if paths or conventions changed
+- [ ] Added/updated Superpowers spec or plan under `docs/superpowers/` when process docs changed
 - [ ] Confirmed `AGENTS.md` command table is still accurate
 - [ ] Release checklist alignment validated (`docs/RELEASE_CHECKLIST.md`)
 

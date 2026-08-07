@@ -10,9 +10,8 @@ Use when asked to review reusable components, modularity, or architecture qualit
 
 ## Minimal context bundle
 
-- `.cursor/docs/PROJECT_MEMORY.md`
+- `AGENTS.md`
 - `.cursor/rules/talkwer-architecture.mdc`
-- `.cursor/rules/talkwer-reusability.mdc`
 - `src/components/ui/**/*`
 - `src/features/**/*`
 - `src/shared/**/*`

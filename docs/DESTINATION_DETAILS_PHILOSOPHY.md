@@ -131,7 +131,7 @@ Max content width is typically **`max-w-[1600px]`** with horizontal padding via 
 
 ## 6. Motion contract (`lib/destination-details-scroll-motion.ts`)
 
-`DestinationDetailsSectionsMotion` mounts **`bindDestinationDetailsScroll(root)`** inside `useGsapContext` (see `.cursor/docs/motion-lifecycle.md` if present).
+`DestinationDetailsSectionsMotion` mounts **`bindDestinationDetailsScroll(root)`** inside `useGsapContext` (see `.cursor/rules/talkwer-quality.mdc`).
 
 Behaviors (abbreviated):
 
@@ -245,5 +245,5 @@ Run `pnpm verify` after wiring. For visual QA, prefer **`pnpm build && pnpm star
 
 - [MDN: `<main>` landmark](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main) — one primary content landmark per document; aligns with moving chrome to `layout.tsx`.
 - [WCAG 2.4.1 Bypass Blocks](https://www.w3.org/WAI/WCAG22/Understanding/bypass-blocks.html) — skip link targets `#main-content`.
-- Project motion notes: `.cursor/docs/motion-lifecycle.md` (if present).
+- Project motion notes: `.cursor/rules/talkwer-quality.mdc`.
 - New route/module checklist: `docs/INDEX.md`.

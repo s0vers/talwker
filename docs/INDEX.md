@@ -3,19 +3,26 @@
 ## Project docs
 
 - `docs/README.md` — project overview and getting started.
-- `docs/REFACTOR_NOTES.md` — migration and architecture evolution notes.
 - `docs/ACCESSIBILITY_CHECKLIST.md` — section-level a11y baseline and release usage.
 - `docs/SEO_PLAYBOOK.md` — metadata architecture and route implementation pattern.
 - `docs/PERFORMANCE_BUDGETS.md` — performance budgets and image discipline.
 - `docs/DEPENDENCY_GOVERNANCE.md` — dependency update and security audit policy.
 - `docs/RELEASE_CHECKLIST.md` — release gate checklist.
-- `docs/DESTINATION_DETAILS_PHILOSOPHY.md` — destination story page editorial philosophy, data model, motion hooks, and parallel layouts (`destination-details-2`, `destination-details-3`).
+- `docs/DESTINATION_DETAILS_PHILOSOPHY.md` — destination story page editorial philosophy, data model, motion hooks, and parallel layouts.
+- `docs/THIRD_PARTY_LICENSES.md` — third-party license notes.
 
-## AI/project memory docs
+## Agent contracts
 
-- `.cursor/docs/PROJECT_MEMORY.md` — compact memory entrypoint.
-- `.cursor/docs/DESIGN_MEMORY.md` — design/system reference.
-- `.cursor/docs/motion-lifecycle.md` — GSAP lifecycle usage guide.
+- `AGENTS.md` — commands, runtime notes, and entry pointer.
+- `.cursor/rules/talkwer-architecture.mdc` — feature/shared boundaries and reuse thresholds.
+- `.cursor/rules/talkwer-design.mdc` — visual language and no-design-change contract.
+- `.cursor/rules/talkwer-quality.mdc` — verify gates and GSAP lifecycle.
+
+## Superpowers
+
+- `docs/superpowers/specs/` — committed design specs (process history).
+- `docs/superpowers/plans/` — committed implementation plans.
+- `.superpowers/` — local runtime only (gitignored).
 
 ## New page/module checklist
 
@@ -36,14 +43,14 @@
 
 ## Maintenance checklist
 
-1. If paths move, update `docs/` and `.cursor/docs/` references together.
-2. If standards change, update matching `.cursor/rules/*.mdc` files in the same PR.
+1. If paths move, update `docs/` and `.cursor/rules/` references together.
+2. If standards change, update the matching `.cursor/rules/*.mdc` file in the same PR.
 3. Keep `AGENTS.md` command table aligned with `package.json` scripts.
 4. Confirm CI workflow (`.github/workflows/verify.yml`) uses the same `pnpm verify` gate.
+5. Specs and plans for process work go under `docs/superpowers/`; do not commit `.superpowers/`.
 
 ## Naming exception policy
 
 - `scripts/check-kebab-case.mjs` enforces kebab-case in `src/features`.
 - Framework-reserved basenames (`page`, `layout`, `loading`, `error`, `not-found`, `route`) are allowed.
 - Any new exception must be justified in PR notes before updating the script allowlist.
-
