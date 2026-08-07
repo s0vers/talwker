@@ -2,15 +2,12 @@
 
 import Link from "next/link";
 import { TOUR_DETAILS_SHEET } from "@/features/tours/content/tour-details-copy";
+import { formatTourPrice } from "@/features/tours/lib/format-tour-price";
 import type { Tour } from "@/shared/types/domain";
 
 type TourDetailsSheetProps = {
 	tour: Tour;
 };
-
-function formatPrice(price: number): string {
-	return `$${price.toLocaleString("en-US")}`;
-}
 
 export default function TourDetailsSheet({ tour }: TourDetailsSheetProps) {
 	return (
@@ -22,10 +19,10 @@ export default function TourDetailsSheet({ tour }: TourDetailsSheetProps) {
 				{TOUR_DETAILS_SHEET.fromLabel}
 			</p>
 			<p className="mt-2 text-3xl font-semibold tracking-tight text-orange-400">
-				{formatPrice(tour.price)}
+				{formatTourPrice(tour.price)}
 				{tour.originalPrice ? (
 					<span className="ml-3 text-base font-medium text-white/30 line-through">
-						{formatPrice(tour.originalPrice)}
+						{formatTourPrice(tour.originalPrice)}
 					</span>
 				) : null}
 			</p>
@@ -55,7 +52,10 @@ export default function TourDetailsSheet({ tour }: TourDetailsSheetProps) {
 							key={item}
 							className="flex gap-2 text-sm leading-snug text-white/60"
 						>
-							<span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-orange-500" aria-hidden />
+							<span
+								className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-orange-500"
+								aria-hidden
+							/>
 							{item}
 						</li>
 					))}

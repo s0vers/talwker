@@ -13,7 +13,6 @@ export const TOURS_CATALOG = {
 		"No itinerary is tagged to that destination yet — showing the full roster instead.",
 	fromPrefix: "from",
 	openLabel: "Open trip",
-	ratingPrefix: "Rated",
 } as const;
 
 export const TOURS_CTA_COPY = {

@@ -1,8 +1,6 @@
 /** Copy for tour trip-sheet detail pages. */
 export const TOUR_DETAILS_HERO = {
 	kicker: "Trip sheet",
-	fromPrefix: "from",
-	ratingPrefix: "Rated",
 	routeWhyLabel: "Why this route",
 	factsDays: "Days",
 	factsFrom: "From",
@@ -27,7 +25,6 @@ export const TOUR_DETAILS_SHEET = {
 export const TOUR_DETAILS_DAYS = {
 	label: "Itinerary",
 	title: "Day by day",
-	dayPrefix: "Day",
 	expandHint: "Show day",
 	collapseHint: "Hide day",
 	overnightLabel: "Overnight",
@@ -35,6 +32,4 @@ export const TOUR_DETAILS_DAYS = {
 
 export const TOUR_DETAILS_MOBILE_BAR = {
 	fromPrefix: "From",
-	inquireLabel: "Inquire",
-	inquireHref: "/contact",
 } as const;
