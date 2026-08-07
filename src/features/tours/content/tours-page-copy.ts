@@ -1,10 +1,17 @@
 /** Copy for the dedicated tours catalog index. */
 export const TOURS_PAGE_HERO = {
-	kicker: "Tours",
-	title: "Where we take you",
+	kicker: "Operated routes",
+	titleLine1: "The days",
+	titleAccent: "we run",
 	description:
-		"Operated itineraries with fixed pacing, small groups, and a reason for every day — not destination mood pieces.",
+		"Fixed pacing, small groups, and a reason for every day — operated itineraries, not destination mood pieces.",
+	scrollCue: "Open a trip sheet",
+	boardEyebrow: "Departure board",
+	boardMeta: "on file",
+	boardHint: "Day count · open for the sequence",
 	filterLabel: "Filtered by",
+	daysSuffix: "days",
+	dayMarks: ["01", "02", "03", "04", "05", "06", "07"] as const,
 } as const;
 
 export const TOURS_CATALOG = {

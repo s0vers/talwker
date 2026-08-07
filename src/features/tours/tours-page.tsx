@@ -16,7 +16,7 @@ export default function ToursPage({ tours, destinationFilter }: ToursPageProps) 
 	return (
 		<>
 			<InitialLoader isLoading={isLoading} />
-			<ToursHero destinationFilter={destinationFilter} />
+			<ToursHero tours={tours} destinationFilter={destinationFilter} />
 			<ToursCatalog tours={tours} destinationFilter={destinationFilter} />
 			<ToursCTA />
 		</>
