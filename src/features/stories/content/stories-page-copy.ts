@@ -7,19 +7,24 @@ export const STORIES_PAGE_HERO = {
 		"Honest essays from travelers who went with us — the messy, luminous moments that never make the brochure.",
 } as const;
 
-export const STORIES_ISSUE_INDEX = {
+export const STORIES_INDEX_COPY = {
 	featuredLabel: "Featured",
 	railLabel: "More stories",
 	readCta: "Read the essay",
 	minutesSuffix: "min read",
+	countSuffix: "essays",
+	sectionHeading: "Stories",
 } as const;
 
 export const STORY_DETAIL_COPY = {
-	relatedLabel: "Keep going",
-	relatedDestinationCta: "Open destination",
-	relatedTourCta: "View itinerary",
 	backToIndex: "All stories",
 	bylinePrefix: "By",
+	relatedLabel: "Keep going",
+	relatedHeading: "Where the essay points next",
+	destinationKind: "Destination",
+	tourKind: "Tour",
+	relatedDestinationCta: "Open destination",
+	relatedTourCta: "View itinerary",
 } as const;
 
 export const STORIES_CTA_COPY = {

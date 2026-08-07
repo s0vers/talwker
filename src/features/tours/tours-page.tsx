@@ -2,7 +2,7 @@
 
 import { InitialLoader } from "@/features/home/sections";
 import { ToursCTA, ToursCatalog, ToursHero } from "@/features/tours/sections";
-import { useToursPageLoader } from "@/features/tours/lib/use-tours-page-loader";
+import { useInitialPageLoader } from "@/lib/use-initial-page-loader";
 import type { Tour } from "@/shared/types/domain";
 
 export type ToursPageProps = {
@@ -11,7 +11,7 @@ export type ToursPageProps = {
 };
 
 export default function ToursPage({ tours, destinationFilter }: ToursPageProps) {
-	const isLoading = useToursPageLoader();
+	const isLoading = useInitialPageLoader();
 
 	return (
 		<>

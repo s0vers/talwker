@@ -3,7 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
-import { STORIES_ISSUE_INDEX } from "@/features/stories/content/stories-page-copy";
+import { STORIES_INDEX_COPY } from "@/features/stories/content/stories-page-copy";
+import { formatStoryIndex } from "@/features/stories/lib/format-story-index";
 import { getStorySlug } from "@/features/stories/lib/story-slug";
 import {
 	createStaggerReveal,
@@ -15,10 +16,6 @@ import type { Story } from "@/shared/types/domain";
 type StoriesIssueGridProps = {
 	stories: Story[];
 };
-
-function formatIndex(index: number): string {
-	return String(index + 1).padStart(2, "0");
-}
 
 export default function StoriesIssueGrid({ stories }: StoriesIssueGridProps) {
 	const sectionRef = useRef<HTMLElement>(null);
@@ -57,28 +54,24 @@ export default function StoriesIssueGrid({ stories }: StoriesIssueGridProps) {
 	return (
 		<section
 			ref={sectionRef}
-			aria-labelledby="stories-issue-heading"
+			aria-labelledby="stories-index-heading"
 			className="border-t border-white/10 bg-[#070707] text-white"
 		>
 			<div className="mx-auto max-w-[1600px] pad-x py-16 md:py-24">
 				<div className="mb-10 flex items-end justify-between gap-6 md:mb-14">
 					<div>
 						<p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-orange-500">
-							{STORIES_ISSUE_INDEX.featuredLabel}
+							{STORIES_INDEX_COPY.featuredLabel}
 						</p>
-						<h2
-							id="stories-issue-heading"
-							className="sr-only"
-						>
-							Stories
+						<h2 id="stories-index-heading" className="sr-only">
+							{STORIES_INDEX_COPY.sectionHeading}
 						</h2>
 					</div>
 					<p className="font-mono text-[11px] uppercase tracking-[0.16em] text-white/35">
-						{stories.length} essays
+						{stories.length} {STORIES_INDEX_COPY.countSuffix}
 					</p>
 				</div>
 
-				{/* Featured lead */}
 				<article data-st-lead className="group">
 					<Link
 						href={`/stories/${featuredSlug}`}
@@ -101,7 +94,7 @@ export default function StoriesIssueGrid({ stories }: StoriesIssueGridProps) {
 
 						<div className="flex flex-col justify-end pb-1">
 							<p className="font-mono text-[11px] uppercase tracking-[0.16em] text-white/40">
-								[{formatIndex(0)}]
+								[{formatStoryIndex(0)}]
 								<span className="mx-2 text-white/20" aria-hidden>
 									·
 								</span>
@@ -118,21 +111,20 @@ export default function StoriesIssueGrid({ stories }: StoriesIssueGridProps) {
 								<span className="mx-2 text-white/20" aria-hidden>
 									|
 								</span>
-								{featured.readMinutes} {STORIES_ISSUE_INDEX.minutesSuffix}
+								{featured.readMinutes} {STORIES_INDEX_COPY.minutesSuffix}
 							</p>
 							<span className="mt-8 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-orange-400 transition-colors group-hover:text-orange-300">
-								{STORIES_ISSUE_INDEX.readCta}
+								{STORIES_INDEX_COPY.readCta}
 								<span aria-hidden>→</span>
 							</span>
 						</div>
 					</Link>
 				</article>
 
-				{/* Secondary rail */}
 				{rest.length > 0 ? (
 					<div className="mt-16 border-t border-white/10 pt-12 md:mt-20 md:pt-16">
 						<p className="mb-8 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/40">
-							{STORIES_ISSUE_INDEX.railLabel}
+							{STORIES_INDEX_COPY.railLabel}
 						</p>
 
 						<ul className="flex flex-col gap-10 md:snap-x md:snap-mandatory md:flex-row md:gap-6 md:overflow-x-auto md:pb-4 md:[-ms-overflow-style:none] md:[scrollbar-width:none] md:[&::-webkit-scrollbar]:hidden">
@@ -159,7 +151,7 @@ export default function StoriesIssueGrid({ stories }: StoriesIssueGridProps) {
 											</div>
 											<div>
 												<p className="font-mono text-[11px] uppercase tracking-[0.16em] text-orange-500/90">
-													[{formatIndex(index + 1)}]
+													[{formatStoryIndex(index + 1)}]
 												</p>
 												<h3 className="mt-2 text-xl font-semibold tracking-tight text-white transition-colors group-hover:text-orange-400 md:text-2xl">
 													{story.title}
@@ -172,7 +164,7 @@ export default function StoriesIssueGrid({ stories }: StoriesIssueGridProps) {
 													<span className="mx-2 text-white/15" aria-hidden>
 														·
 													</span>
-													{story.readMinutes} {STORIES_ISSUE_INDEX.minutesSuffix}
+													{story.readMinutes} {STORIES_INDEX_COPY.minutesSuffix}
 												</p>
 											</div>
 										</Link>
