@@ -1,11 +1,11 @@
 /** Copy for the dedicated stories index and article chrome. */
-export const STORIES_PAGE_COPY = {
-	kicker: "From the road",
-	title: "Stories",
+export const STORIES_PAGE_HERO = {
+	kicker: "Field notes",
+	titleLine1: "Notes from",
+	titleAccent: "the road",
 	description:
-		"Honest notes from travelers who went with us — the messy, luminous moments that never make the brochure.",
-	homeAnchorLabel: "Traveler voices on home",
-	homeAnchorHref: "/#testimonials",
+		"Honest essays from travelers who went with us — the messy, luminous moments that never make the brochure.",
+	scrollCue: "Read this issue",
 } as const;
 
 export const STORIES_ISSUE_INDEX = {

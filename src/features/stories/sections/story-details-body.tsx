@@ -45,7 +45,7 @@ function BodyBlock({ block }: { block: StoryBodyBlock }) {
 					src={block.src}
 					alt={block.alt}
 					fill
-					sizes="(max-width: 768px) 100vw, 720px"
+					sizes="(max-width: 768px) 100vw, 960px"
 					className="object-cover"
 				/>
 			</div>
@@ -81,7 +81,7 @@ export default function StoryDetailsBody({ story }: StoryDetailsBodyProps) {
 			aria-label="Story body"
 			className="border-b border-white/10 bg-[#0a0a0a] text-white"
 		>
-			<div className="mx-auto max-w-[720px] space-y-10 pad-x py-16 md:space-y-12 md:py-24">
+			<div className="mx-auto max-w-[960px] space-y-10 pad-x py-16 md:space-y-12 md:py-24">
 				{story.body.map((block, index) => (
 					<BodyBlock key={`${block.type}-${index}`} block={block} />
 				))}
