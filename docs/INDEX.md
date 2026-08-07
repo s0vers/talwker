@@ -23,6 +23,7 @@
 - `docs/superpowers/specs/` — committed design specs (process history).
 - `docs/superpowers/plans/` — committed implementation plans.
 - `.superpowers/` — local runtime only (gitignored).
+- Spec/plan: `docs/superpowers/specs/2026-08-07-stories-tours-pages-and-polish-design.md`, `docs/superpowers/plans/2026-08-07-stories-tours-pages-and-polish.md`.
 
 ## New page/module checklist
 
