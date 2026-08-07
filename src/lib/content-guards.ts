@@ -69,6 +69,10 @@ export function defineTours(value: Tour[]): Tour[] {
 				isNonEmptyString(day.body),
 				`tour[${index}].itinerary[${dayIndex}].body`,
 			);
+			assert(
+				isNonEmptyString(day.image),
+				`tour[${index}].itinerary[${dayIndex}].image`,
+			);
 		});
 		assert(Array.isArray(tour.includes), `tour[${index}].includes`);
 		assert(tour.includes.length > 0, `tour[${index}].includes.length`);
@@ -80,6 +84,9 @@ export function defineTours(value: Tour[]): Tour[] {
 				isNonEmptyString(tour.destinationSlug),
 				`tour[${index}].destinationSlug`,
 			);
+		}
+		if (tour.panelImage !== undefined) {
+			assert(isNonEmptyString(tour.panelImage), `tour[${index}].panelImage`);
 		}
 		if (tour.originalPrice !== undefined) {
 			assert(
