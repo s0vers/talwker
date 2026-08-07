@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { InitialLoader } from "@/features/home/sections";
-import { ToursCTA, ToursDeparturePanels, ToursHero } from "@/features/tours/sections";
+import { ToursCTA, ToursCatalog, ToursHero } from "@/features/tours/sections";
 import type { Tour } from "@/shared/types/domain";
 
 export type ToursPageProps = {
@@ -54,7 +54,7 @@ export default function ToursPage({ tours, destinationFilter }: ToursPageProps) 
 		<>
 			<InitialLoader isLoading={isLoading} />
 			<ToursHero destinationFilter={destinationFilter} />
-			<ToursDeparturePanels tours={tours} destinationFilter={destinationFilter} />
+			<ToursCatalog tours={tours} destinationFilter={destinationFilter} />
 			<ToursCTA />
 		</>
 	);

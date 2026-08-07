@@ -10,19 +10,8 @@ type TourDetailsHeroProps = {
 	tour: Tour;
 };
 
-const SUMMARY_MAX = 140;
-
 function formatPrice(price: number): string {
 	return `$${price.toLocaleString("en-US")}`;
-}
-
-function oneLineSummary(summary: string): string {
-	const trimmed = summary.trim();
-	if (trimmed.length <= SUMMARY_MAX) return trimmed;
-	const cut = trimmed.slice(0, SUMMARY_MAX);
-	const lastSpace = cut.lastIndexOf(" ");
-	const base = lastSpace > 80 ? cut.slice(0, lastSpace) : cut;
-	return `${base.replace(/[.,;:\s]+$/, "")}…`;
 }
 
 export default function TourDetailsHero({ tour }: TourDetailsHeroProps) {
@@ -35,10 +24,10 @@ export default function TourDetailsHero({ tour }: TourDetailsHeroProps) {
 			const nodes = sectionRef.current?.querySelectorAll("[data-hero-item]");
 			if (!nodes?.length) return;
 			gsap.from(nodes, {
-				y: 32,
+				y: 24,
 				opacity: 0,
-				duration: 0.9,
-				stagger: 0.09,
+				duration: 0.8,
+				stagger: 0.07,
 				ease: "power3.out",
 			});
 		},
@@ -49,80 +38,90 @@ export default function TourDetailsHero({ tour }: TourDetailsHeroProps) {
 		<section
 			ref={sectionRef}
 			aria-labelledby="tour-details-title"
-			className="relative min-h-[85svh] overflow-hidden border-b border-white/10 bg-[#050505] text-white md:min-h-[100svh]"
+			className="relative border-b border-white/10 bg-[#050505] text-white"
 		>
-			<div className="absolute inset-0">
-				<Image
-					src={tour.image}
-					alt={tour.title}
-					fill
-					priority
-					sizes="100vw"
-					className="object-cover"
-				/>
-				<div
-					className="pointer-events-none absolute inset-0 bg-linear-to-t from-black via-black/55 to-black/35"
-					aria-hidden
-				/>
-				<div
-					className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_45%_at_20%_100%,rgba(249,115,22,0.14),transparent_55%)]"
-					aria-hidden
-				/>
-			</div>
+			<div className="relative mx-auto grid max-w-[1600px] gap-8 pad-x pb-12 pt-28 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] md:items-end md:gap-12 md:pb-16 md:pt-36">
+				<div className="relative aspect-[16/11] overflow-hidden rounded-2xl border border-white/10 md:aspect-[5/4] md:max-h-[min(50svh,28rem)]">
+					<Image
+						src={tour.image}
+						alt={tour.title}
+						fill
+						priority
+						sizes="(max-width: 768px) 100vw, 55vw"
+						className="object-cover"
+					/>
+					<div
+						className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent"
+						aria-hidden
+					/>
+				</div>
 
-			<div className="relative mx-auto flex min-h-[85svh] max-w-[1600px] flex-col justify-end pad-x pb-14 pt-32 md:min-h-[100svh] md:pb-20 md:pt-40">
-				<p
-					data-hero-item
-					className="text-[11px] font-semibold uppercase tracking-[0.22em] text-orange-500"
-				>
-					{TOUR_DETAILS_HERO.kicker}
-				</p>
-
-				<p
-					data-hero-item
-					className="mt-5 text-sm font-medium tracking-wide text-white/70 md:text-base"
-				>
-					{tour.destination}
-				</p>
-
-				<h1
-					data-hero-item
-					id="tour-details-title"
-					className="mt-3 max-w-4xl text-[clamp(2.25rem,5.5vw,4.25rem)] font-semibold leading-[1.05] tracking-tight text-white"
-				>
-					{tour.title}
-				</h1>
-
-				<p
-					data-hero-item
-					className="mt-5 max-w-2xl text-sm leading-relaxed text-white/60 md:text-base"
-				>
-					{oneLineSummary(tour.summary)}
-				</p>
-
-				<p
-					data-hero-item
-					className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[11px] uppercase tracking-[0.14em] text-white/55 md:text-xs"
-				>
-					<span>{tour.duration}</span>
-					<span className="text-white/20" aria-hidden>
-						|
-					</span>
-					<span>{tour.groupSize}</span>
-					<span className="text-white/20" aria-hidden>
-						|
-					</span>
-					<span>
-						{TOUR_DETAILS_HERO.fromPrefix}{" "}
-						<span className="text-orange-400">{formatPrice(tour.price)}</span>
-					</span>
-					<span className="text-white/20" aria-hidden>
-						|
-					</span>
-					<span>
-						{TOUR_DETAILS_HERO.ratingPrefix} {tour.rating.toFixed(1)}
-					</span>
-				</p>
+				<div>
+					<p
+						data-hero-item
+						className="text-[11px] font-semibold uppercase tracking-[0.22em] text-orange-500"
+					>
+						{TOUR_DETAILS_HERO.kicker}
+					</p>
+					<p
+						data-hero-item
+						className="mt-4 text-sm font-medium text-white/65 md:text-base"
+					>
+						{tour.destination}
+					</p>
+					<h1
+						data-hero-item
+						id="tour-details-title"
+						className="mt-2 text-[clamp(1.85rem,4vw,3.25rem)] font-semibold leading-[1.1] tracking-tight text-white"
+					>
+						{tour.title}
+					</h1>
+					<p
+						data-hero-item
+						className="mt-5 max-w-xl text-sm leading-relaxed text-white/55 md:text-base"
+					>
+						{tour.summary}
+					</p>
+					<p
+						data-hero-item
+						className="mt-6 font-mono text-[11px] uppercase tracking-[0.14em] text-white/45"
+					>
+						<span>{tour.duration}</span>
+						<span className="mx-2 text-white/20" aria-hidden>
+							·
+						</span>
+						<span>{tour.groupSize}</span>
+						<span className="mx-2 text-white/20" aria-hidden>
+							·
+						</span>
+						<span>
+							{TOUR_DETAILS_HERO.fromPrefix}{" "}
+							<span className="text-orange-400">{formatPrice(tour.price)}</span>
+						</span>
+						<span className="mx-2 text-white/20" aria-hidden>
+							·
+						</span>
+						<span>
+							{TOUR_DETAILS_HERO.ratingPrefix} {tour.rating.toFixed(1)}
+						</span>
+					</p>
+					{tour.highlights.length > 0 ? (
+						<ul
+							data-hero-item
+							className="mt-6 flex flex-wrap gap-2"
+							aria-label="Highlights"
+						>
+							{tour.highlights.map((item) => (
+								<li
+									key={item}
+									className="rounded-full border border-white/12 bg-white/[0.03] px-3 py-1 text-[11px] font-medium tracking-wide text-white/70"
+								>
+									{item}
+								</li>
+							))}
+						</ul>
+					) : null}
+				</div>
 			</div>
 		</section>
 	);

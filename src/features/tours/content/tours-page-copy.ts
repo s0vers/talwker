@@ -1,17 +1,19 @@
-/** Copy for the dedicated tours departure index. */
+/** Copy for the dedicated tours catalog index. */
 export const TOURS_PAGE_HERO = {
 	kicker: "Departures",
-	title: "Routes worth the ticket",
-	description: "Full itineraries. Small groups. Open a panel and step into the days.",
-	filterLabel: "Showing",
+	title: "Compare the routes",
+	description:
+		"Duration, group size, and price up front — open a trip sheet when one fits.",
+	filterLabel: "Filtered by",
 } as const;
 
-export const TOURS_DEPARTURE_PANELS = {
-	heading: "Departure panels",
+export const TOURS_CATALOG = {
+	heading: "On the roster",
 	emptyFilterNote:
 		"No itinerary is tagged to that destination yet — showing the full roster instead.",
 	fromPrefix: "From",
-	openLabel: "Open itinerary",
+	openLabel: "Open trip sheet",
+	ratingPrefix: "Rated",
 } as const;
 
 export const TOURS_CTA_COPY = {

@@ -1,33 +1,32 @@
-/** Copy for individual tour dossier detail pages. */
+/** Copy for tour trip-sheet detail pages. */
 export const TOUR_DETAILS_HERO = {
-	kicker: "Departure file",
+	kicker: "Trip sheet",
 	fromPrefix: "from",
 	ratingPrefix: "Rated",
 } as const;
 
-export const TOUR_DETAILS_RAIL = {
-	ariaLabel: "Tour day navigation",
-	dayPrefix: "Day",
-	includesLabel: "Includes",
-} as const;
-
-export const TOUR_DETAILS_SUMMARY = {
-	label: "Brief",
-	highlightsLabel: "On this route",
-} as const;
-
-export const TOUR_DETAILS_ITINERARY = {
-	label: "Day ledger",
-	title: "How the days unfold",
-	dayPrefix: "Day",
-} as const;
-
-export const TOUR_DETAILS_INCLUDES = {
-	label: "What travels with you",
-	title: "Included",
-	inquireLabel: "Inquire about this departure",
+export const TOUR_DETAILS_SHEET = {
+	ariaLabel: "Trip summary",
+	fromLabel: "From",
+	durationLabel: "Duration",
+	groupLabel: "Group",
+	ratingLabel: "Rating",
+	includesLabel: "Included",
+	inquireLabel: "Inquire",
 	inquireHref: "/contact",
-	mailtoLabel: "Or email hello@talkwer.com",
+	mailtoLabel: "Email hello@talkwer.com",
 	mailtoHref: "mailto:hello@talkwer.com?subject=Tour%20inquiry",
 	destinationLinkPrefix: "Explore",
+} as const;
+
+export const TOUR_DETAILS_DAYS = {
+	label: "Itinerary",
+	title: "Day by day",
+	dayPrefix: "Day",
+} as const;
+
+export const TOUR_DETAILS_MOBILE_BAR = {
+	fromPrefix: "From",
+	inquireLabel: "Inquire",
+	inquireHref: "/contact",
 } as const;
