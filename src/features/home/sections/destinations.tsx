@@ -53,7 +53,7 @@ export default function Destinations() {
 			ref={sectionRef}
 			id="destinations"
 			aria-labelledby="destinations-title"
-			className="bg-[#070707] py-28 md:py-36"
+			className="bg-[#050505] py-28 md:py-36"
 		>
 			<div className="mx-auto max-w-[1600px] pad-x">
 				<div
@@ -104,4 +104,3 @@ export default function Destinations() {
 		</section>
 	);
 }
-
