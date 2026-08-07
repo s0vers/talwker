@@ -2,6 +2,7 @@ import Link from "next/link";
 import {
 	FOOTER_COLUMNS,
 	FOOTER_COPY,
+	FOOTER_LINK_HREF,
 	LEGAL_LINKS,
 } from "@/features/home/content/section-copy";
 
@@ -27,26 +28,23 @@ export default function Footer() {
 								{title}
 							</h3>
 							<ul aria-label={`${title} links`} className="mt-5 space-y-3">
-								{links.map((l) => (
-									<li key={l}>
-										{l === "Contact" ? (
-											<Link
-												href="/contact"
-												className="text-sm text-white/55 transition-colors hover:text-white/80"
-											>
-												{l}
-											</Link>
-										) : (
-											<button
-												type="button"
-												aria-label={`${title}: ${l}`}
-												className="text-sm text-white/55 transition-colors hover:text-white/80"
-											>
-												{l}
-											</button>
-										)}
-									</li>
-								))}
+								{links.map((l) => {
+									const href = FOOTER_LINK_HREF[l];
+									return (
+										<li key={l}>
+											{href ? (
+												<Link
+													href={href}
+													className="text-sm text-white/55 transition-colors hover:text-white/80"
+												>
+													{l}
+												</Link>
+											) : (
+												<span className="text-sm text-white/35">{l}</span>
+											)}
+										</li>
+									);
+								})}
 							</ul>
 						</div>
 					))}
@@ -73,4 +71,3 @@ export default function Footer() {
 		</footer>
 	);
 }
-
