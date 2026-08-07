@@ -11,6 +11,59 @@ function setActiveRailTarget(root: HTMLElement, targetHash: string) {
 	});
 }
 
+function collectTrackTargets(root: HTMLElement): { el: HTMLElement; hash: string }[] {
+	const chapters = Array.from(
+		root.querySelectorAll<HTMLElement>("[data-tour-day][id]"),
+	);
+	const includes = root.querySelector<HTMLElement>("#tour-includes");
+	const trackTargets = chapters.map((el) => ({
+		el,
+		hash: `#${el.id}`,
+	}));
+	if (includes) {
+		trackTargets.push({ el: includes, hash: "#tour-includes" });
+	}
+	return trackTargets;
+}
+
+/**
+ * Active-chip sync without GSAP — used when `prefers-reduced-motion` skips
+ * `useGsapContext` / ScrollTrigger entirely.
+ */
+export function bindTourDetailsRailObserver(root: HTMLElement): () => void {
+	const trackTargets = collectTrackTargets(root);
+	if (trackTargets[0]) {
+		setActiveRailTarget(root, trackTargets[0].hash);
+	}
+
+	const ratios = new Map<Element, number>();
+	const observer = new IntersectionObserver(
+		(entries) => {
+			for (const entry of entries) {
+				ratios.set(entry.target, entry.isIntersecting ? entry.intersectionRatio : 0);
+			}
+			let bestHash: string | null = null;
+			let bestRatio = 0;
+			for (const { el, hash } of trackTargets) {
+				const ratio = ratios.get(el) ?? 0;
+				if (ratio > bestRatio) {
+					bestRatio = ratio;
+					bestHash = hash;
+				}
+			}
+			if (bestHash) setActiveRailTarget(root, bestHash);
+		},
+		{
+			// Approximate ScrollTrigger "top/bottom center" band without GSAP.
+			rootMargin: "-40% 0px -40% 0px",
+			threshold: [0, 0.25, 0.5, 0.75, 1],
+		},
+	);
+
+	trackTargets.forEach(({ el }) => observer.observe(el));
+	return () => observer.disconnect();
+}
+
 /**
  * Rail sync + light media scrub for tour day chapters.
  * Call inside `useGsapContext` (or a scoped gsap.context).
@@ -19,16 +72,8 @@ function setActiveRailTarget(root: HTMLElement, targetHash: string) {
  */
 export function bindTourDetailsScroll(root: HTMLElement): void {
 	const chapters = gsap.utils.toArray<HTMLElement>("[data-tour-day][id]", root);
-	const includes = root.querySelector<HTMLElement>("#tour-includes");
 	const media = gsap.utils.toArray<HTMLElement>("[data-tour-day-media]", root);
-
-	const trackTargets: { el: HTMLElement; hash: string }[] = chapters.map((el) => ({
-		el,
-		hash: `#${el.id}`,
-	}));
-	if (includes) {
-		trackTargets.push({ el: includes, hash: "#tour-includes" });
-	}
+	const trackTargets = collectTrackTargets(root);
 
 	trackTargets.forEach(({ el, hash }) => {
 		ScrollTrigger.create({

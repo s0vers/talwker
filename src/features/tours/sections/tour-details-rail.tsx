@@ -43,7 +43,8 @@ export default function TourDetailsRail({ tour }: TourDetailsRailProps) {
 			aria-label={TOUR_DETAILS_RAIL.ariaLabel}
 			className={cn(
 				"z-20 border-b border-white/10 bg-[#050505]/95 backdrop-blur-md",
-				"sticky top-0",
+				// Navbar is `h-20` (fixed); clear it on mobile. Desktop keeps side-rail offset.
+				"sticky top-20",
 				"lg:sticky lg:top-28 lg:self-start lg:border-b-0 lg:border-r lg:border-white/10 lg:bg-transparent lg:backdrop-blur-none",
 			)}
 		>

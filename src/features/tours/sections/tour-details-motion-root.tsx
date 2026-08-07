@@ -1,8 +1,11 @@
 "use client";
 
-import { useRef, type ReactNode } from "react";
-import { bindTourDetailsScroll } from "@/features/tours/lib/tour-details-scroll";
-import { useGsapContext } from "@/lib/useGsap";
+import { useEffect, useRef, type ReactNode } from "react";
+import {
+	bindTourDetailsRailObserver,
+	bindTourDetailsScroll,
+} from "@/features/tours/lib/tour-details-scroll";
+import { prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
 
 type TourDetailsMotionRootProps = {
 	children: ReactNode;
@@ -14,6 +17,13 @@ export function TourDetailsMotionRoot({
 	tourSlug,
 }: TourDetailsMotionRootProps) {
 	const scopeRef = useRef<HTMLDivElement>(null);
+
+	// `useGsapContext` no-ops under reduced motion; keep rail active-chip sync via IO.
+	useEffect(() => {
+		const root = scopeRef.current;
+		if (!root || !prefersReducedMotion()) return;
+		return bindTourDetailsRailObserver(root);
+	}, [tourSlug]);
 
 	useGsapContext(
 		scopeRef,
