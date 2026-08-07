@@ -1,18 +1,18 @@
 /** Copy for the dedicated tours catalog index. */
 export const TOURS_PAGE_HERO = {
-	kicker: "Departures",
-	title: "Compare the routes",
+	kicker: "Tours",
+	title: "Where we take you",
 	description:
-		"Duration, group size, and price up front — open a trip sheet when one fits.",
+		"Operated itineraries with fixed pacing, small groups, and a reason for every day — not destination mood pieces.",
 	filterLabel: "Filtered by",
 } as const;
 
 export const TOURS_CATALOG = {
-	heading: "On the roster",
+	heading: "Routes",
 	emptyFilterNote:
 		"No itinerary is tagged to that destination yet — showing the full roster instead.",
-	fromPrefix: "From",
-	openLabel: "Open trip sheet",
+	fromPrefix: "from",
+	openLabel: "Open trip",
 	ratingPrefix: "Rated",
 } as const;
 

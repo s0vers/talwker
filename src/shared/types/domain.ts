@@ -32,11 +32,30 @@ export type Destination = {
 	gallery?: string[];
 };
 
+/** Expanded accordion panel composition — not one shared template. */
+export type TourDayPanel =
+	| "arrival"
+	| "split"
+	| "journal"
+	| "options"
+	| "logistics";
+
 export type TourItineraryDay = {
 	day: number;
 	title: string;
+	/** Short line shown in the collapsed row. */
 	body: string;
 	image: string;
+	/** Ops chips: Transfer · Hotel · Breakfast — not destination mood. */
+	chips?: string[];
+	panel: TourDayPanel;
+	/** Expanded prose for the open panel. */
+	detail: string;
+	/** Pace / operator callout. */
+	note?: string;
+	overnight?: string;
+	/** Free-day choices (options panel). */
+	options?: string[];
 };
 
 export type Tour = {
@@ -55,6 +74,8 @@ export type Tour = {
 	reviews?: number;
 	highlights: string[];
 	summary: string;
+	/** Why the days are ordered this way — tours job, not destination essay. */
+	routeWhy: string;
 	itinerary: TourItineraryDay[];
 	includes: string[];
 };

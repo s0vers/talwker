@@ -3,6 +3,11 @@ export const TOUR_DETAILS_HERO = {
 	kicker: "Trip sheet",
 	fromPrefix: "from",
 	ratingPrefix: "Rated",
+	routeWhyLabel: "Why this route",
+	factsDays: "Days",
+	factsFrom: "From",
+	factsGroup: "Group",
+	factsRated: "Rated",
 } as const;
 
 export const TOUR_DETAILS_SHEET = {
@@ -23,6 +28,9 @@ export const TOUR_DETAILS_DAYS = {
 	label: "Itinerary",
 	title: "Day by day",
 	dayPrefix: "Day",
+	expandHint: "Show day",
+	collapseHint: "Hide day",
+	overnightLabel: "Overnight",
 } as const;
 
 export const TOUR_DETAILS_MOBILE_BAR = {

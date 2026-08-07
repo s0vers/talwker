@@ -185,14 +185,15 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
+    /* clip (not hidden) — keeps horizontal bleed clipped without breaking position:sticky */
+    overflow-x: clip;
     scrollbar-gutter: stable;
     background-color: #050505;
   }
   body {
     @apply text-foreground antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
-    overflow-x: hidden;
+    overflow-x: clip;
     background-color: #050505;
   }
   ::selection {
