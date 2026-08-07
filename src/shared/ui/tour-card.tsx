@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { LuStar, LuClock, LuUsers, LuMapPin } from "react-icons/lu";
 import type { Tour } from "@/shared/types/domain";
 import { cn } from "@/lib/utils";
@@ -12,6 +13,8 @@ export type TourCardProps = {
 	savePrefix?: string;
 	/** Label above the price column (e.g. "Starting at"). */
 	startingAt?: string;
+	/** When set, the whole card navigates to this href. */
+	href?: string;
 	className?: string;
 };
 
@@ -22,9 +25,10 @@ export function TourCard({
 	tour,
 	savePrefix = DEFAULT_SAVE_PREFIX,
 	startingAt = DEFAULT_STARTING_AT,
+	href,
 	className,
 }: TourCardProps) {
-	return (
+	const shell = (
 		<div
 			data-tour-card
 			className={cn(
@@ -105,4 +109,14 @@ export function TourCard({
 			</div>
 		</div>
 	);
+
+	if (href) {
+		return (
+			<Link href={href} aria-label={tour.title} className="block h-full">
+				{shell}
+			</Link>
+		);
+	}
+
+	return shell;
 }
