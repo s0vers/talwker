@@ -5,6 +5,12 @@ export const TOUR_DETAILS_HERO = {
 	ratingPrefix: "Rated",
 } as const;
 
+export const TOUR_DETAILS_RAIL = {
+	ariaLabel: "Tour day navigation",
+	dayPrefix: "Day",
+	includesLabel: "Includes",
+} as const;
+
 export const TOUR_DETAILS_SUMMARY = {
 	label: "Brief",
 	highlightsLabel: "On this route",

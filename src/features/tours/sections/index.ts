@@ -5,3 +5,5 @@ export { default as TourDetailsHero } from "./tour-details-hero";
 export { default as TourDetailsSummary } from "./tour-details-summary";
 export { default as TourDetailsItinerary } from "./tour-details-itinerary";
 export { default as TourDetailsIncludes } from "./tour-details-includes";
+export { default as TourDetailsRail } from "./tour-details-rail";
+export { TourDetailsMotionRoot } from "./tour-details-motion-root";

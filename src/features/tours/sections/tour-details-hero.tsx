@@ -10,8 +10,19 @@ type TourDetailsHeroProps = {
 	tour: Tour;
 };
 
+const SUMMARY_MAX = 140;
+
 function formatPrice(price: number): string {
 	return `$${price.toLocaleString("en-US")}`;
+}
+
+function oneLineSummary(summary: string): string {
+	const trimmed = summary.trim();
+	if (trimmed.length <= SUMMARY_MAX) return trimmed;
+	const cut = trimmed.slice(0, SUMMARY_MAX);
+	const lastSpace = cut.lastIndexOf(" ");
+	const base = lastSpace > 80 ? cut.slice(0, lastSpace) : cut;
+	return `${base.replace(/[.,;:\s]+$/, "")}…`;
 }
 
 export default function TourDetailsHero({ tour }: TourDetailsHeroProps) {
@@ -38,7 +49,7 @@ export default function TourDetailsHero({ tour }: TourDetailsHeroProps) {
 		<section
 			ref={sectionRef}
 			aria-labelledby="tour-details-title"
-			className="relative min-h-[70svh] overflow-hidden border-b border-white/10 bg-[#050505] text-white"
+			className="relative min-h-[85svh] overflow-hidden border-b border-white/10 bg-[#050505] text-white md:min-h-[100svh]"
 		>
 			<div className="absolute inset-0">
 				<Image
@@ -59,7 +70,7 @@ export default function TourDetailsHero({ tour }: TourDetailsHeroProps) {
 				/>
 			</div>
 
-			<div className="relative mx-auto flex min-h-[70svh] max-w-[1600px] flex-col justify-end pad-x pb-14 pt-32 md:pb-20 md:pt-40">
+			<div className="relative mx-auto flex min-h-[85svh] max-w-[1600px] flex-col justify-end pad-x pb-14 pt-32 md:min-h-[100svh] md:pb-20 md:pt-40">
 				<p
 					data-hero-item
 					className="text-[11px] font-semibold uppercase tracking-[0.22em] text-orange-500"
@@ -81,6 +92,13 @@ export default function TourDetailsHero({ tour }: TourDetailsHeroProps) {
 				>
 					{tour.title}
 				</h1>
+
+				<p
+					data-hero-item
+					className="mt-5 max-w-2xl text-sm leading-relaxed text-white/60 md:text-base"
+				>
+					{oneLineSummary(tour.summary)}
+				</p>
 
 				<p
 					data-hero-item
