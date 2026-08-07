@@ -29,4 +29,5 @@ export const TOUR_DETAILS_INCLUDES = {
 	inquireHref: "/contact",
 	mailtoLabel: "Or email hello@talkwer.com",
 	mailtoHref: "mailto:hello@talkwer.com?subject=Tour%20inquiry",
+	destinationLinkPrefix: "Explore",
 } as const;

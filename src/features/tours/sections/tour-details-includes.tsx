@@ -16,6 +16,9 @@ type TourDetailsIncludesProps = {
 
 export default function TourDetailsIncludes({ tour }: TourDetailsIncludesProps) {
 	const sectionRef = useRef<HTMLElement>(null);
+	const destinationHref = tour.destinationSlug
+		? `/destinations/${tour.destinationSlug}`
+		: null;
 
 	useGsapContext(
 		sectionRef,
@@ -55,19 +58,22 @@ export default function TourDetailsIncludes({ tour }: TourDetailsIncludesProps) 
 
 				<ul
 					data-includes-item
-					className="max-w-2xl divide-y divide-white/10 border-y border-white/10"
+					className="grid max-w-4xl gap-x-12 sm:grid-cols-2"
 				>
 					{tour.includes.map((item) => (
 						<li
 							key={item}
-							className="py-4 text-sm leading-relaxed text-white/70 md:text-base"
+							className="border-t border-white/10 py-4 text-sm leading-relaxed text-white/70 md:text-base"
 						>
 							{item}
 						</li>
 					))}
 				</ul>
 
-				<div data-includes-item className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
+				<div
+					data-includes-item
+					className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8"
+				>
 					<Link
 						href={TOUR_DETAILS_INCLUDES.inquireHref}
 						className="inline-flex items-center gap-2 border border-orange-500/80 bg-orange-500 px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-black transition-colors hover:bg-orange-400"
@@ -82,6 +88,18 @@ export default function TourDetailsIncludes({ tour }: TourDetailsIncludesProps) 
 						{TOUR_DETAILS_INCLUDES.mailtoLabel}
 					</a>
 				</div>
+
+				{destinationHref ? (
+					<p data-includes-item className="mt-10 max-w-xl text-sm text-white/45">
+						<Link
+							href={destinationHref}
+							className="underline-offset-4 transition-colors hover:text-orange-400 hover:underline"
+						>
+							{TOUR_DETAILS_INCLUDES.destinationLinkPrefix} {tour.destination}
+							<span aria-hidden> →</span>
+						</Link>
+					</p>
+				) : null}
 			</div>
 		</section>
 	);
