@@ -5,12 +5,11 @@ export const STORIES_PAGE_HERO = {
 	titleAccent: "the road",
 	description:
 		"Honest essays from travelers who went with us — the messy, luminous moments that never make the brochure.",
-	scrollCue: "Read this issue",
 } as const;
 
 export const STORIES_ISSUE_INDEX = {
-	featuredLabel: "Lead essay",
-	railLabel: "Also in this issue",
+	featuredLabel: "Featured",
+	railLabel: "More stories",
 	readCta: "Read the essay",
 	minutesSuffix: "min read",
 } as const;

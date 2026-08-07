@@ -56,7 +56,7 @@ export default function StoriesPage({ stories }: StoriesPageProps) {
 	return (
 		<>
 			<InitialLoader isLoading={isLoading} />
-			<StoriesHero />
+			<StoriesHero runEntrance={!isLoading} />
 			<StoriesIssueGrid stories={stories} />
 			<StoriesCTA />
 		</>

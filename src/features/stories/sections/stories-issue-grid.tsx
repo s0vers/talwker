@@ -70,7 +70,7 @@ export default function StoriesIssueGrid({ stories }: StoriesIssueGridProps) {
 							id="stories-issue-heading"
 							className="sr-only"
 						>
-							Stories in this issue
+							Stories
 						</h2>
 					</div>
 					<p className="font-mono text-[11px] uppercase tracking-[0.16em] text-white/35">
