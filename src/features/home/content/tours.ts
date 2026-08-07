@@ -36,7 +36,7 @@ export const TOURS: Tour[] = defineTours([
 				day: 3,
 				title: "Rice terrace morning",
 				body: "Walk the edges at cooler hours; afternoon free.",
-				image: "/travel-europe-tourism-bougainvillea-village.jpg",
+				image: "/sun-idyllic-beautiful-relax-sky.jpg",
 			},
 			{
 				day: 4,
@@ -54,7 +54,7 @@ export const TOURS: Tour[] = defineTours([
 				day: 6,
 				title: "Open day",
 				body: "Optional spa, bike, or village walk — your call.",
-				image: "/unsplash-local-portrait-a.jpg",
+				image: "/unsplash-culture-ritual.jpg",
 			},
 			{
 				day: 7,
@@ -78,7 +78,7 @@ export const TOURS: Tour[] = defineTours([
 		destination: "Santorini & Mykonos",
 		destinationSlug: "santorini-greece",
 		image: "/vertical-high-angle-shot-white-buildings-santorini-greece.jpg",
-		panelImage: "/low-angle-shot-buildings-houses-amalfi-coast-captured-italy.jpg",
+		panelImage: "/vertical-high-angle-shot-white-buildings-santorini-greece.jpg",
 		price: 2199,
 		originalPrice: 2799,
 		duration: "10 Days / 9 Nights",
@@ -123,19 +123,19 @@ export const TOURS: Tour[] = defineTours([
 				day: 6,
 				title: "Beach circuit",
 				body: "Hop the better coves with a guide who knows the wind.",
-				image: "/low-angle-shot-buildings-houses-amalfi-coast-captured-italy.jpg",
+				image: "/set-cottages-ocean-blue-sky.jpg",
 			},
 			{
 				day: 7,
 				title: "Open island day",
 				body: "Optional Delos, beach club, or old town wandering.",
-				image: "/unsplash-market-culture.jpg",
+				image: "/travel-europe-tourism-bougainvillea-village.jpg",
 			},
 			{
 				day: 8,
 				title: "Mykonos by night",
 				body: "Late dinner plan; no forced club crawl.",
-				image: "/unsplash-local-portrait-b.jpg",
+				image: "/vertical-high-angle-shot-white-buildings-santorini-greece.jpg",
 			},
 			{
 				day: 9,
@@ -166,7 +166,7 @@ export const TOURS: Tour[] = defineTours([
 		destinationSlug: "patagonia-chile",
 		image: "/laguna-del-inca-lake-surrounded-by-high-mountains-covered-snow-chile.jpg",
 		panelImage:
-			"/northern-light-aurora-borealis-godafoss-waterfall-winter-iceland.jpg",
+			"/laguna-del-inca-lake-surrounded-by-high-mountains-covered-snow-chile.jpg",
 		price: 3499,
 		duration: "12 Days / 11 Nights",
 		groupSize: "Max 8",
@@ -194,7 +194,7 @@ export const TOURS: Tour[] = defineTours([
 				title: "Base towers day hike",
 				body: "Classic approach with turnaround timed for weather.",
 				image:
-					"/northern-light-aurora-borealis-godafoss-waterfall-winter-iceland.jpg",
+					"/laguna-del-inca-lake-surrounded-by-high-mountains-covered-snow-chile.jpg",
 			},
 			{
 				day: 4,
@@ -207,7 +207,7 @@ export const TOURS: Tour[] = defineTours([
 				day: 5,
 				title: "Wildlife morning",
 				body: "Guanaco, condor windows — optics and patience over chase.",
-				image: "/unsplash-local-portrait-a.jpg",
+				image: "/sun-idyllic-beautiful-relax-sky.jpg",
 			},
 			{
 				day: 6,
@@ -226,25 +226,25 @@ export const TOURS: Tour[] = defineTours([
 				title: "Grey sector",
 				body: "Lake crossing or shore trek depending on conditions.",
 				image:
-					"/northern-light-aurora-borealis-godafoss-waterfall-winter-iceland.jpg",
+					"/laguna-del-inca-lake-surrounded-by-high-mountains-covered-snow-chile.jpg",
 			},
 			{
 				day: 9,
 				title: "Camp reset",
 				body: "Shorter day, hot meal, and packing for the exit.",
-				image: "/set-cottages-ocean-blue-sky.jpg",
+				image: "/image.jpg",
 			},
 			{
 				day: 10,
 				title: "Southern roads",
 				body: "Leave the park; lodge night with showers that feel earned.",
-				image: "/travel-europe-tourism-bougainvillea-village.jpg",
+				image: "/sun-idyllic-beautiful-relax-sky.jpg",
 			},
 			{
 				day: 11,
 				title: "Open day south",
 				body: "Optional museum, cafe hours, or a last shoreline walk.",
-				image: "/unsplash-market-culture.jpg",
+				image: "/unsplash-texture-underwater-cave.jpg",
 			},
 			{
 				day: 12,
@@ -268,7 +268,7 @@ export const TOURS: Tour[] = defineTours([
 		destination: "Tokyo to Kyoto",
 		destinationSlug: "kyoto-japan",
 		image: "/cherry-blossoms-spring-chureito-pagoda-fuji-mountain-japan.jpg",
-		panelImage: "/unsplash-culture-ritual.jpg",
+		panelImage: "/cherry-blossoms-spring-chureito-pagoda-fuji-mountain-japan.jpg",
 		price: 2899,
 		originalPrice: 3299,
 		duration: "9 Days / 8 Nights",
@@ -313,19 +313,19 @@ export const TOURS: Tour[] = defineTours([
 				day: 6,
 				title: "Tea ceremony",
 				body: "Hosted session with context, not a photo-op only stop.",
-				image: "/unsplash-local-portrait-b.jpg",
+				image: "/unsplash-culture-ritual.jpg",
 			},
 			{
 				day: 7,
 				title: "Arashiyama light",
 				body: "Bamboo path early; afternoon open for markets or rest.",
-				image: "/travel-europe-tourism-bougainvillea-village.jpg",
+				image: "/unsplash-market-culture.jpg",
 			},
 			{
 				day: 8,
 				title: "Open Kyoto day",
 				body: "Optional day trip or neighborhood deep dive — your call.",
-				image: "/set-cottages-ocean-blue-sky.jpg",
+				image: "/cherry-blossoms-spring-chureito-pagoda-fuji-mountain-japan.jpg",
 			},
 			{
 				day: 9,
