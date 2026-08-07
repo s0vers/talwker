@@ -6,10 +6,10 @@ const MIN_LOADER_MS = 200;
 const FALLBACK_READY_MS = 1200;
 
 /**
- * Shared InitialLoader gate for `/tours` and `/tours/[slug]`.
+ * Shared InitialLoader gate for page entries.
  * Locks body scroll while loading, then clears on window load (or fallback).
  */
-export function useToursPageLoader(): boolean {
+export function useInitialPageLoader(): boolean {
 	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {

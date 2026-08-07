@@ -2,37 +2,47 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
 import {
-	STORIES_ISSUE_INDEX,
+	STORIES_INDEX_COPY,
 	STORY_DETAIL_COPY,
 } from "@/features/stories/content/stories-page-copy";
-import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
+import { prefersReducedMotion } from "@/lib/useGsap";
 import type { Story } from "@/shared/types/domain";
 
 type StoryDetailsHeroProps = {
 	story: Story;
+	runEntrance?: boolean;
 };
 
-export default function StoryDetailsHero({ story }: StoryDetailsHeroProps) {
+export default function StoryDetailsHero({
+	story,
+	runEntrance = true,
+}: StoryDetailsHeroProps) {
 	const sectionRef = useRef<HTMLElement>(null);
 
-	useGsapContext(
-		sectionRef,
-		() => {
-			if (prefersReducedMotion()) return;
-			const nodes = sectionRef.current?.querySelectorAll("[data-st-opener]");
-			if (!nodes?.length) return;
+	useLayoutEffect(() => {
+		const root = sectionRef.current;
+		if (typeof window === "undefined" || !root || !runEntrance) return;
+		if (prefersReducedMotion()) return;
+
+		const nodes = root.querySelectorAll("[data-st-opener]");
+		if (!nodes.length) return;
+
+		const ctx = gsap.context(() => {
 			gsap.from(nodes, {
 				y: 36,
 				opacity: 0,
 				duration: 0.95,
 				stagger: 0.09,
 				ease: "power3.out",
+				delay: 0.08,
 			});
-		},
-		[story.slug],
-	);
+		}, root);
+
+		return () => ctx.revert();
+	}, [runEntrance, story.slug]);
 
 	return (
 		<section
@@ -102,7 +112,7 @@ export default function StoryDetailsHero({ story }: StoryDetailsHeroProps) {
 						|
 					</span>
 					<span>
-						{story.readMinutes} {STORIES_ISSUE_INDEX.minutesSuffix}
+						{story.readMinutes} {STORIES_INDEX_COPY.minutesSuffix}
 					</span>
 				</p>
 			</div>

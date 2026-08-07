@@ -17,12 +17,14 @@
 - `.cursor/rules/talkwer-architecture.mdc` — feature/shared boundaries and reuse thresholds.
 - `.cursor/rules/talkwer-design.mdc` — visual language and no-design-change contract.
 - `.cursor/rules/talkwer-quality.mdc` — verify gates and GSAP lifecycle.
+- `.cursor/rules/talkwer-superpowers.mdc` — always-on: Superpowers specs/plans/execution must clone an existing feature (thin app route + `features/<name>/` entry, `sections/`, `content/`, optional `lib/`); no raw invented page structure.
 
 ## Superpowers
 
 - `docs/superpowers/specs/` — committed design specs (process history).
 - `docs/superpowers/plans/` — committed implementation plans.
 - `.superpowers/` — local runtime only (gitignored).
+- Before writing or executing a spec/plan: follow `talkwer-superpowers.mdc` and the new-route checklist below; name a reference feature in the Architecture line.
 - Spec/plan: `docs/superpowers/specs/2026-08-07-stories-tours-pages-and-polish-design.md`, `docs/superpowers/plans/2026-08-07-stories-tours-pages-and-polish.md`.
 
 ## New page/module checklist
@@ -45,7 +47,7 @@
 ## Maintenance checklist
 
 1. If paths move, update `docs/` and `.cursor/rules/` references together.
-2. If standards change, update the matching `.cursor/rules/*.mdc` file in the same PR.
+2. If standards change, update the matching `.cursor/rules/*.mdc` file in the same PR (include `talkwer-superpowers.mdc` when process/org expectations change).
 3. Keep `AGENTS.md` command table aligned with `package.json` scripts.
 4. Confirm CI workflow (`.github/workflows/verify.yml`) uses the same `pnpm verify` gate.
 5. Specs and plans for process work go under `docs/superpowers/`; do not commit `.superpowers/`.

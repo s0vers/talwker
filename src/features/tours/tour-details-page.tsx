@@ -7,7 +7,7 @@ import {
 	TourDetailsMobileBar,
 	TourDetailsSheet,
 } from "@/features/tours/sections";
-import { useToursPageLoader } from "@/features/tours/lib/use-tours-page-loader";
+import { useInitialPageLoader } from "@/lib/use-initial-page-loader";
 import type { Tour } from "@/shared/types/domain";
 
 export type TourDetailsPageProps = {
@@ -15,7 +15,7 @@ export type TourDetailsPageProps = {
 };
 
 export default function TourDetailsPage({ tour }: TourDetailsPageProps) {
-	const isLoading = useToursPageLoader();
+	const isLoading = useInitialPageLoader();
 
 	return (
 		<>
