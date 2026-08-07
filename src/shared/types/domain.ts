@@ -32,10 +32,18 @@ export type Destination = {
 	gallery?: string[];
 };
 
+export type TourItineraryDay = {
+	day: number;
+	title: string;
+	body: string;
+};
+
 export type Tour = {
 	id: number;
+	slug: string;
 	title: string;
 	destination: string;
+	destinationSlug?: string;
 	image: string;
 	price: number;
 	originalPrice?: number;
@@ -44,6 +52,9 @@ export type Tour = {
 	rating: number;
 	reviews?: number;
 	highlights: string[];
+	summary: string;
+	itinerary: TourItineraryDay[];
+	includes: string[];
 };
 
 export type Testimonial = {

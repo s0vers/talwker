@@ -96,6 +96,7 @@ export default function FeaturedTours() {
 						<TourCard
 							key={tour.id}
 							tour={tour}
+							href={`/tours/${tour.slug}`}
 							savePrefix={FEATURED_TOURS_SECTION.savePrefix}
 							startingAt={FEATURED_TOURS_SECTION.startingAt}
 						/>

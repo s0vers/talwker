@@ -34,6 +34,7 @@ export function defineDestinations(value: Destination[]): Destination[] {
 export function defineTours(value: Tour[]): Tour[] {
 	value.forEach((tour, index) => {
 		assert(isPositiveNumber(tour.id), `tour[${index}].id`);
+		assert(isNonEmptyString(tour.slug), `tour[${index}].slug`);
 		assert(isNonEmptyString(tour.title), `tour[${index}].title`);
 		assert(isNonEmptyString(tour.destination), `tour[${index}].destination`);
 		assert(isNonEmptyString(tour.image), `tour[${index}].image`);
@@ -49,6 +50,31 @@ export function defineTours(value: Tour[]): Tour[] {
 				`tour[${index}].highlights[${highlightIndex}]`,
 			);
 		});
+		assert(isNonEmptyString(tour.summary), `tour[${index}].summary`);
+		assert(Array.isArray(tour.itinerary), `tour[${index}].itinerary`);
+		assert(tour.itinerary.length > 0, `tour[${index}].itinerary.length`);
+		tour.itinerary.forEach((day, dayIndex) => {
+			assert(isPositiveNumber(day.day), `tour[${index}].itinerary[${dayIndex}].day`);
+			assert(
+				isNonEmptyString(day.title),
+				`tour[${index}].itinerary[${dayIndex}].title`,
+			);
+			assert(
+				isNonEmptyString(day.body),
+				`tour[${index}].itinerary[${dayIndex}].body`,
+			);
+		});
+		assert(Array.isArray(tour.includes), `tour[${index}].includes`);
+		assert(tour.includes.length > 0, `tour[${index}].includes.length`);
+		tour.includes.forEach((item, itemIndex) => {
+			assert(isNonEmptyString(item), `tour[${index}].includes[${itemIndex}]`);
+		});
+		if (tour.destinationSlug !== undefined) {
+			assert(
+				isNonEmptyString(tour.destinationSlug),
+				`tour[${index}].destinationSlug`,
+			);
+		}
 		if (tour.originalPrice !== undefined) {
 			assert(
 				isPositiveNumber(tour.originalPrice),
