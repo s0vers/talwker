@@ -83,7 +83,7 @@ export default function ToursDossierList({
 								<Link
 									href={`/tours/${slug}`}
 									data-tour-row
-									className="group grid gap-4 py-8 transition-colors hover:bg-white/[0.02] md:grid-cols-[auto_minmax(0,1fr)_auto] md:items-start md:gap-8 md:py-10"
+									className="group grid gap-4 py-8 transition-colors hover:bg-white/[0.02] md:grid-cols-[auto_minmax(0,1fr)] md:items-start md:gap-8 md:py-10"
 								>
 									<span className="font-mono text-xs tracking-[0.18em] text-orange-500/90 md:pt-1">
 										[{formatIndex(index)}]
