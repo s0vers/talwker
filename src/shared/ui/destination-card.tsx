@@ -25,9 +25,9 @@ const DEFAULT_FROM = "From";
 const DEFAULT_EXPLORE = "Explore";
 
 const carouselShell =
-	"relative isolate h-[460px] min-w-[80vw] cursor-pointer overflow-hidden rounded-[1.9rem] border border-white/10 bg-[#050505] shadow-[0_20px_60px_rgba(0,0,0,0.9)] sm:min-w-[65vw] md:h-[500px] lg:min-w-[380px] xl:min-w-[400px]";
+	"relative isolate h-[460px] min-w-[80vw] cursor-pointer overflow-hidden rounded-[1.9rem] border border-white/10 bg-[#050505] sm:min-w-[65vw] md:h-[500px] lg:min-w-[380px] xl:min-w-[400px]";
 const gridShell =
-	"relative isolate h-[460px] w-full min-w-0 cursor-pointer overflow-hidden rounded-[1.9rem] border border-white/10 bg-[#050505] shadow-[0_20px_60px_rgba(0,0,0,0.9)] md:h-[500px]";
+	"relative isolate h-[460px] w-full min-w-0 cursor-pointer overflow-hidden rounded-[1.9rem] border border-white/10 bg-[#050505] md:h-[500px]";
 
 export function DestinationCard({
 	destination: dest,
