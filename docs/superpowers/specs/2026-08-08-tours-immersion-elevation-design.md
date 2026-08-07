@@ -1,7 +1,7 @@
 # Tours Immersion Elevation — Design
 
 Date: 2026-08-08  
-Status: awaiting user review  
+Status: approved  
 Scope: Elevate `/tours` index and `/tours/[slug]` detail only (Approach C → vertical cinematic journey). Same branch as stories/tours ship (`feat/stories-tours-pages-and-polish`).
 
 ## Goal
