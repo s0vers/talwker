@@ -78,7 +78,7 @@ export default function Destinations() {
 					</div>
 				</div>
 
-				<div className="relative overflow-hidden">
+				<div className="relative overflow-hidden bg-[#050505]">
 					<div ref={trackRef} className="flex gap-6 md:gap-8">
 						{DESTINATIONS.map((dest) => (
 							<DestinationCard
