@@ -80,6 +80,7 @@ export default function FeaturedTours() {
 						descriptionId="featured-tours-description"
 					/>
 					<SectionCta
+						href="/tours"
 						icon={<LuArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />}
 					>
 						{FEATURED_TOURS_SECTION.viewAllCta}

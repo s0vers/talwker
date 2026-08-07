@@ -93,7 +93,7 @@ export default function ContactChannels() {
 										asChild
 										variant="outline"
 										size="lg"
-										className="mt-6 w-full border-white/15 bg-white/[0.02] text-white/90 transition-colors duration-300 group-hover:border-orange-500/50 group-hover:bg-orange-500/10 group-hover:text-orange-400 md:w-auto"
+										className="mt-6 w-full border-white/15 bg-white/[0.02] text-white/90 transition-[border-color,background-color,color] duration-300 hover:border-white/35 hover:bg-white/[0.05] hover:text-white group-hover:border-white/30 md:w-auto"
 									>
 										<a
 											href={mailtoHref(ch.email, ch.mailtoSubject)}
