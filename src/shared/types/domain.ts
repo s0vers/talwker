@@ -36,6 +36,7 @@ export type TourItineraryDay = {
 	day: number;
 	title: string;
 	body: string;
+	image: string;
 };
 
 export type Tour = {
@@ -45,6 +46,7 @@ export type Tour = {
 	destination: string;
 	destinationSlug?: string;
 	image: string;
+	panelImage?: string;
 	price: number;
 	originalPrice?: number;
 	duration: string;
