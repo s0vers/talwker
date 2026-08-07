@@ -6,7 +6,8 @@ import {
 	TourDetailsHero,
 	TourDetailsIncludes,
 	TourDetailsItinerary,
-	TourDetailsSummary,
+	TourDetailsMotionRoot,
+	TourDetailsRail,
 } from "@/features/tours/sections";
 import type { Tour } from "@/shared/types/domain";
 
@@ -57,11 +58,17 @@ export default function TourDetailsPage({ tour }: TourDetailsPageProps) {
 	return (
 		<>
 			<InitialLoader isLoading={isLoading} />
-			<div className="relative min-h-screen overflow-hidden bg-[#050505]">
-				<TourDetailsHero tour={tour} />
-				<TourDetailsSummary tour={tour} />
-				<TourDetailsItinerary tour={tour} />
-				<TourDetailsIncludes tour={tour} />
+			<div className="relative min-h-screen overflow-x-hidden bg-[#050505]">
+				<TourDetailsMotionRoot tourSlug={tour.slug}>
+					<TourDetailsHero tour={tour} />
+					<div className="relative lg:grid lg:grid-cols-[12rem_minmax(0,1fr)]">
+						<TourDetailsRail tour={tour} />
+						<div>
+							<TourDetailsItinerary tour={tour} />
+							<TourDetailsIncludes tour={tour} />
+						</div>
+					</div>
+				</TourDetailsMotionRoot>
 			</div>
 		</>
 	);

@@ -36,8 +36,9 @@ export default function TourDetailsIncludes({ tour }: TourDetailsIncludesProps) 
 	return (
 		<section
 			ref={sectionRef}
+			id="tour-includes"
 			aria-labelledby="tour-details-includes-heading"
-			className="bg-[#0a0a0a] text-white"
+			className="scroll-mt-24 bg-[#0a0a0a] text-white lg:scroll-mt-8"
 		>
 			<div className="mx-auto max-w-[1600px] pad-x py-16 md:py-24">
 				<div data-includes-item className="mb-10 md:mb-12">
