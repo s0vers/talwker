@@ -20,7 +20,7 @@ export default function TourDetailsItinerary({ tour }: TourDetailsItineraryProps
 					key={`${tour.slug}-day-${entry.day}`}
 					id={`tour-day-${entry.day}`}
 					data-tour-day
-					className="relative min-h-[100svh] scroll-mt-16 overflow-hidden border-b border-white/10 text-white lg:scroll-mt-0"
+					className="relative min-h-[100svh] scroll-mt-20 overflow-hidden border-b border-white/10 text-white lg:scroll-mt-0"
 				>
 					<div className="absolute inset-0 overflow-hidden">
 						<div data-tour-day-media className="absolute inset-0 scale-105 will-change-transform">
