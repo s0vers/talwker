@@ -1,4 +1,10 @@
-import type { Destination, Testimonial, Tour } from "@/shared/types/domain";
+import type {
+	Destination,
+	Story,
+	StoryBodyBlock,
+	Testimonial,
+	Tour,
+} from "@/shared/types/domain";
 
 function isNonEmptyString(value: unknown): value is string {
 	return typeof value === "string" && value.trim().length > 0;
@@ -101,6 +107,65 @@ export function defineTestimonials(value: Testimonial[]): Testimonial[] {
 		assert(isPositiveNumber(testimonial.rating), `testimonial[${index}].rating`);
 		assert(isNonEmptyString(testimonial.text), `testimonial[${index}].text`);
 		assert(isNonEmptyString(testimonial.trip), `testimonial[${index}].trip`);
+	});
+
+	return value;
+}
+
+function assertStoryBodyBlock(
+	block: StoryBodyBlock,
+	storyIndex: number,
+	blockIndex: number,
+): void {
+	const path = `story[${storyIndex}].body[${blockIndex}]`;
+	assert(
+		block && typeof block === "object" && "type" in block,
+		`${path}.type`,
+	);
+
+	switch (block.type) {
+		case "paragraph":
+		case "pullquote":
+			assert(isNonEmptyString(block.text), `${path}.text`);
+			break;
+		case "image":
+			assert(isNonEmptyString(block.src), `${path}.src`);
+			assert(isNonEmptyString(block.alt), `${path}.alt`);
+			break;
+		default: {
+			const _exhaustive: never = block;
+			assert(false, `${path}: unknown block type ${JSON.stringify(_exhaustive)}`);
+		}
+	}
+}
+
+export function defineStories(value: Story[]): Story[] {
+	value.forEach((story, index) => {
+		assert(isPositiveNumber(story.id), `story[${index}].id`);
+		assert(isNonEmptyString(story.slug), `story[${index}].slug`);
+		assert(isNonEmptyString(story.title), `story[${index}].title`);
+		assert(isNonEmptyString(story.dek), `story[${index}].dek`);
+		assert(isNonEmptyString(story.heroImage), `story[${index}].heroImage`);
+		assert(isNonEmptyString(story.author), `story[${index}].author`);
+		assert(isNonEmptyString(story.location), `story[${index}].location`);
+		assert(isPositiveNumber(story.readMinutes), `story[${index}].readMinutes`);
+		assert(Array.isArray(story.body), `story[${index}].body`);
+		assert(story.body.length > 0, `story[${index}].body.length`);
+		story.body.forEach((block, blockIndex) => {
+			assertStoryBodyBlock(block, index, blockIndex);
+		});
+		if (story.relatedDestinationSlug !== undefined) {
+			assert(
+				isNonEmptyString(story.relatedDestinationSlug),
+				`story[${index}].relatedDestinationSlug`,
+			);
+		}
+		if (story.relatedTourId !== undefined) {
+			assert(
+				isPositiveNumber(story.relatedTourId),
+				`story[${index}].relatedTourId`,
+			);
+		}
 	});
 
 	return value;

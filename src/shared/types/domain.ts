@@ -72,3 +72,22 @@ export type Stat = {
 	label: string;
 };
 
+export type StoryBodyBlock =
+	| { type: "paragraph"; text: string }
+	| { type: "pullquote"; text: string }
+	| { type: "image"; src: string; alt: string };
+
+export type Story = {
+	id: number;
+	slug: string;
+	title: string;
+	dek: string;
+	heroImage: string;
+	author: string;
+	location: string;
+	readMinutes: number;
+	body: StoryBodyBlock[];
+	relatedDestinationSlug?: string;
+	relatedTourId?: number;
+};
+
