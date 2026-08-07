@@ -1,11 +1,16 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { InitialLoader } from "@/features/home/sections";
-import { TOURS_PAGE_COPY } from "@/features/tours/content/tours-page-copy";
+import { ToursCTA, ToursDossierList, ToursHero } from "@/features/tours/sections";
+import type { Tour } from "@/shared/types/domain";
 
-export default function ToursPage() {
+export type ToursPageProps = {
+	tours: Tour[];
+	destinationFilter?: string;
+};
+
+export default function ToursPage({ tours, destinationFilter }: ToursPageProps) {
 	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
@@ -48,32 +53,9 @@ export default function ToursPage() {
 	return (
 		<>
 			<InitialLoader isLoading={isLoading} />
-			<section
-				aria-labelledby="tours-page-title"
-				className="border-t border-white/10 bg-[#070707] pad-x py-28 md:py-36"
-			>
-				<div className="mx-auto max-w-[1600px]">
-					<p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-orange-500">
-						{TOURS_PAGE_COPY.kicker}
-					</p>
-					<h1
-						id="tours-page-title"
-						className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-white md:text-6xl"
-					>
-						{TOURS_PAGE_COPY.title}
-					</h1>
-					<p className="mt-6 max-w-2xl text-base text-white/55 md:text-lg">
-						{TOURS_PAGE_COPY.description}
-					</p>
-					<Link
-						href={TOURS_PAGE_COPY.homeAnchorHref}
-						className="mt-10 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-orange-400 transition-colors hover:text-orange-300"
-					>
-						{TOURS_PAGE_COPY.homeAnchorLabel}
-						<span aria-hidden>→</span>
-					</Link>
-				</div>
-			</section>
+			<ToursHero destinationFilter={destinationFilter} />
+			<ToursDossierList tours={tours} destinationFilter={destinationFilter} />
+			<ToursCTA />
 		</>
 	);
 }
