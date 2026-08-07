@@ -9,6 +9,10 @@ type PageProps = {
 	params: Promise<{ slug: string }>;
 };
 
+function toImagePath(path: string): `/${string}` {
+	return (path.startsWith("/") ? path : `/${path}`) as `/${string}`;
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
 	const { slug } = await params;
 	const tour = findTourBySlug(TOURS, slug);
@@ -25,6 +29,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 		title: tour.title,
 		description: tour.summary,
 		path: `/tours/${getTourSlug(tour)}`,
+		imagePath: toImagePath(tour.image),
 		keywords: [
 			tour.title,
 			tour.destination,
