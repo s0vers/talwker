@@ -59,7 +59,7 @@ export function ExperiencesHero({ activeCategory, onCategoryChange }: Experience
 		<section
 			ref={containerRef}
 			aria-labelledby="experiences-hero-title"
-			className="relative min-h-[60vh] flex items-center bg-[#050505] text-white pt-28 pb-16 pad-x overflow-hidden border-b border-white/6"
+			className="relative min-h-[60vh] flex items-center bg-[#050505] text-white overflow-hidden border-b border-white/6"
 		>
 			{/* Bespoke Ambient Glow & Mesh Overlay */}
 			<div
@@ -75,7 +75,7 @@ export function ExperiencesHero({ activeCategory, onCategoryChange }: Experience
 				aria-hidden
 			/>
 
-			<div className="relative z-10 mx-auto max-w-[1600px] w-full">
+			<div className="relative z-10 mx-auto max-w-[1600px] pad-x pt-28 pb-16 md:pt-36 md:pb-20 w-full">
 				<div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
 					{/* Left Column: Unique Editorial Title & Copy */}
 					<div ref={contentRef} className="lg:col-span-7 space-y-6">

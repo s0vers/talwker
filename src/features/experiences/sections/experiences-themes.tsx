@@ -19,16 +19,16 @@ export function ExperiencesThemes({ activeCategory, onSelectExperience }: Experi
 	return (
 		<section className="bg-[#050505] text-white py-16 md:py-24">
 			<div className="pad-x mx-auto max-w-[1600px]">
-				<div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4">
+				<div className="mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
 					<div>
-						<p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-500">
+						<p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-orange-500">
 							Explore Collection
 						</p>
-						<h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">
+						<h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl text-white">
 							Signature Experiences ({filteredCatalog.length})
 						</h2>
 					</div>
-					<p className="text-sm text-white/50">
+					<p className="max-w-md text-sm text-white/50 md:text-right">
 						Click any experience to open the interactive itinerary overview or route directly to full tour details.
 					</p>
 				</div>
