@@ -28,7 +28,7 @@ export function ExperiencesThemes({ activeCategory, onSelectExperience }: Experi
 							Signature Experiences ({filteredCatalog.length})
 						</h2>
 					</div>
-					<p className="text-sm text-white/50 max-w-sm">
+					<p className="text-sm text-white/50">
 						Click any experience to open the interactive itinerary overview or route directly to full tour details.
 					</p>
 				</div>

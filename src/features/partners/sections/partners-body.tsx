@@ -27,7 +27,7 @@ export function PartnersBody() {
 				{/* Partner Quote Callout */}
 				<div className="rounded-2xl border border-white/10 bg-[#0a0a0a] p-8 md:p-12 text-center relative overflow-hidden">
 					<Quote className="h-12 w-12 text-orange-500/20 mx-auto mb-4" />
-					<p className="max-w-3xl mx-auto text-lg sm:text-xl md:text-2xl font-serif italic text-white/90 leading-relaxed">
+					<p className="text-lg sm:text-xl md:text-2xl font-serif italic text-white/90 leading-relaxed">
 						&ldquo;{PARTNERS_TESTIMONIAL.quote}&rdquo;
 					</p>
 					<div className="mt-6">
@@ -38,7 +38,7 @@ export function PartnersBody() {
 
 				{/* Interactive Partner Inquiry Form */}
 				<div id="partner-form" className="rounded-2xl border border-white/10 bg-[#0a0a0a] p-8 md:p-12 shadow-2xl">
-					<div className="max-w-2xl mb-8">
+					<div className="mb-8">
 						<p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-500">
 							Application Form
 						</p>

@@ -39,10 +39,10 @@ export function PartnersHero() {
 				<p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500">
 					{PARTNERS_HERO.eyebrow}
 				</p>
-				<h1 className="mt-4 max-w-4xl text-[clamp(2.5rem,6vw,5.5rem)] font-bold leading-[0.95] tracking-tight text-white">
+				<h1 className="mt-4 text-[clamp(2.5rem,6vw,5.5rem)] font-bold leading-[0.95] tracking-tight text-white">
 					{PARTNERS_HERO.title}
 				</h1>
-				<p className="mt-6 max-w-2xl text-base sm:text-lg text-white/60 leading-relaxed">
+				<p className="mt-6 text-base sm:text-lg text-white/60 leading-relaxed">
 					{PARTNERS_HERO.description}
 				</p>
 
