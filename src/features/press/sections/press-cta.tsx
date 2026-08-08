@@ -1,13 +1,9 @@
-"use client";
-
-import { PRESS_CTA } from "@/features/press/content/press-copy";
 import { EditorialCtaBand } from "@/shared/ui";
+import { PRESS_CTA } from "../content/press-copy";
 
-export default function PressCTA() {
+export function PressCTA() {
 	return (
 		<EditorialCtaBand
-			showTopFrame
-			headingId="press-cta-title"
 			label={PRESS_CTA.label}
 			titleLead={PRESS_CTA.titleLead}
 			titleAccent={PRESS_CTA.titleAccent}
@@ -20,6 +16,7 @@ export default function PressCTA() {
 				label: PRESS_CTA.secondaryAction,
 				href: PRESS_CTA.secondaryHref,
 			}}
+			showTopFrame
 		/>
 	);
 }
