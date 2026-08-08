@@ -135,10 +135,10 @@ export function PolicyDocument({
 				</div>
 
 				{/* Main 2-Column Section (Sticky TOC + Content) */}
-				<div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-6">
+				<div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-6 items-start">
 					{/* Left Column: Sticky Sidebar Table of Contents */}
-					<aside className="lg:col-span-4 hidden lg:block">
-						<div className="sticky top-28 space-y-6 rounded-2xl border border-white/10 bg-[#0a0a0a] p-6">
+					<aside className="lg:col-span-4 hidden lg:block sticky top-28 self-start">
+						<div className="space-y-6 rounded-2xl border border-white/10 bg-[#0a0a0a] p-6 shadow-xl">
 							<p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/40">
 								Table of Contents
 							</p>
