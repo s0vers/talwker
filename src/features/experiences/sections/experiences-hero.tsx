@@ -21,15 +21,18 @@ export function ExperiencesHero({ activeCategory, onCategoryChange }: Experience
 	useGsapContext(
 		containerRef,
 		() => {
-			if (prefersReducedMotion() || !contentRef.current) return;
+			if (prefersReducedMotion()) return;
 			const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-			tl.from(contentRef.current.children, {
-				y: 35,
-				opacity: 0,
-				duration: 0.8,
-				stagger: 0.1,
-			});
+			if (contentRef.current) {
+				tl.from(contentRef.current.children, {
+					y: 35,
+					opacity: 0,
+					duration: 0.8,
+					stagger: 0.1,
+					clearProps: "all",
+				});
+			}
 
 			if (cardsStackRef.current) {
 				tl.from(
@@ -40,6 +43,7 @@ export function ExperiencesHero({ activeCategory, onCategoryChange }: Experience
 						opacity: 0,
 						duration: 0.8,
 						stagger: 0.15,
+						clearProps: "all", // Prevents cards from disappearing or sticking at opacity 0!
 					},
 					"-=0.5",
 				);
@@ -125,9 +129,9 @@ export function ExperiencesHero({ activeCategory, onCategoryChange }: Experience
 						</div>
 					</div>
 
-					{/* Right Column: Unique Layered Floating Cards Stack */}
+					{/* Right Column: Layered Floating Cards Stack */}
 					<div className="lg:col-span-5 relative py-6 lg:py-0">
-						<div ref={cardsStackRef} className="relative aspect-4/3 w-full max-w-md mx-auto">
+						<div ref={cardsStackRef} className="relative aspect-4/3 w-full max-w-md mx-auto min-h-[300px]">
 							{featuredStack.map((item, index) => {
 								const rotationClass =
 									index === 0
@@ -169,7 +173,7 @@ export function ExperiencesHero({ activeCategory, onCategoryChange }: Experience
 					</div>
 				</div>
 
-				{/* Unique Filter Toolbar Bar */}
+				{/* Category Filter Bar */}
 				<div className="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
 					<div>
 						<p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/40">
