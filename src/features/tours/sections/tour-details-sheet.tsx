@@ -13,7 +13,7 @@ export default function TourDetailsSheet({ tour }: TourDetailsSheetProps) {
 	return (
 		<aside
 			aria-label={TOUR_DETAILS_SHEET.ariaLabel}
-			className="rounded-2xl border border-white/12 bg-[#0a0a0a] p-6 text-white lg:sticky lg:top-28 lg:self-start lg:z-10 lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto lg:overscroll-contain lg:p-7 shadow-2xl"
+			className="rounded-2xl border border-white/12 bg-[#0a0a0a] p-6 text-white lg:sticky lg:top-28 lg:h-fit lg:z-10 lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto lg:overscroll-contain lg:p-7 shadow-2xl"
 		>
 			<p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/40">
 				{TOUR_DETAILS_SHEET.fromLabel}
