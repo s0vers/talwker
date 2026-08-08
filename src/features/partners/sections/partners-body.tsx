@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle2, Send, Quote } from "lucide-react";
+import { CheckCircle2, Send, Quote, Building2, MapPin, Award } from "lucide-react";
 import { PARTNERS_TESTIMONIAL } from "../content/partners-copy";
 
 export function PartnersBody() {
@@ -24,15 +24,48 @@ export function PartnersBody() {
 	return (
 		<section className="bg-[#050505] text-white py-16 md:py-24 border-t border-white/6">
 			<div className="pad-x mx-auto max-w-[1600px] space-y-16">
-				{/* Partner Quote Callout */}
-				<div className="rounded-2xl border border-white/10 bg-[#0a0a0a] p-8 md:p-12 text-center relative overflow-hidden">
-					<Quote className="h-12 w-12 text-orange-500/20 mx-auto mb-4" />
-					<p className="text-lg sm:text-xl md:text-2xl font-serif italic text-white/90 leading-relaxed">
-						&ldquo;{PARTNERS_TESTIMONIAL.quote}&rdquo;
-					</p>
-					<div className="mt-6">
-						<p className="text-sm font-semibold text-white">{PARTNERS_TESTIMONIAL.name}</p>
-						<p className="text-xs text-orange-500">{PARTNERS_TESTIMONIAL.role}</p>
+				{/* Bespoke 2-Column Partner Property Spotlight (100% Unique Layout) */}
+				<div className="rounded-3xl border border-white/10 bg-[#0a0a0a] p-8 md:p-12 shadow-2xl relative overflow-hidden">
+					<div className="grid items-center gap-10 lg:grid-cols-12">
+						{/* Left Column: Property Badge & Location */}
+						<div className="lg:col-span-4 rounded-2xl border border-white/10 bg-[#121212] p-6 space-y-4">
+							<div className="flex items-center justify-between border-b border-white/10 pb-3">
+								<span className="text-[10px] font-bold uppercase tracking-[0.2em] text-orange-500 flex items-center gap-1.5">
+									<Building2 className="h-3.5 w-3.5" /> Guild Spotlight
+								</span>
+								<span className="text-[10px] text-emerald-400 font-semibold flex items-center gap-1">
+									<Award className="h-3 w-3" /> Accredited
+								</span>
+							</div>
+
+							<div>
+								<h4 className="text-lg font-bold text-white">Patagonia Glacial Lodge</h4>
+								<p className="text-xs text-white/50 flex items-center gap-1 mt-1">
+									<MapPin className="h-3 w-3 text-orange-500" /> Aysén Region, Chile
+								</p>
+							</div>
+
+							<div className="pt-2 border-t border-white/10 text-xs space-y-1">
+								<p className="font-semibold text-white">{PARTNERS_TESTIMONIAL.name}</p>
+								<p className="text-white/50 text-[11px]">{PARTNERS_TESTIMONIAL.role}</p>
+							</div>
+						</div>
+
+						{/* Right Column: Large Serif Quote & Impact Metrics */}
+						<div className="lg:col-span-8 space-y-6">
+							<Quote className="h-8 w-8 text-orange-500/40" />
+							<p className="text-xl sm:text-2xl font-serif italic text-white/95 leading-relaxed">
+								&ldquo;{PARTNERS_TESTIMONIAL.quote}&rdquo;
+							</p>
+
+							<div className="flex flex-wrap gap-4 pt-4 border-t border-white/10 text-xs text-white/60">
+								<span className="font-mono text-orange-400 font-bold">94%</span> Repeat Guest Engagement
+								<span>·</span>
+								<span className="font-mono text-white font-bold">4.8 Days</span> Avg Guest Stay
+								<span>·</span>
+								<span className="font-mono text-emerald-400 font-bold">Zero-Waste</span> Certified
+							</div>
+						</div>
 					</div>
 				</div>
 
