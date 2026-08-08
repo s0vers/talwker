@@ -18,12 +18,12 @@ export function FaqHero({ searchQuery, onSearchChange }: FaqHeroProps) {
 				<h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl text-white">
 					{FAQ_HERO.title}
 				</h1>
-				<p className="mt-4 max-w-2xl text-base text-white/60 leading-relaxed">
+				<p className="mt-4 text-base text-white/60 leading-relaxed">
 					{FAQ_HERO.description}
 				</p>
 
 				{/* Search Bar Input */}
-				<div className="mt-8 relative max-w-2xl">
+				<div className="mt-8 relative w-full">
 					<div className="relative flex items-center">
 						<Search className="absolute left-4 h-5 w-5 text-white/40 pointer-events-none" />
 						<input

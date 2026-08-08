@@ -78,7 +78,7 @@ export function PolicyDocument({
 		<article className="bg-[#050505] text-white pt-28 pb-24 md:pt-36 md:pb-32">
 			<div className="pad-x mx-auto max-w-[1600px]">
 				{/* Top Header */}
-				<div className="max-w-3xl pb-12 border-b border-white/10">
+				<div className="pb-12 border-b border-white/10">
 					<div className="flex items-center gap-3">
 						<p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500">
 							{eyebrow}
