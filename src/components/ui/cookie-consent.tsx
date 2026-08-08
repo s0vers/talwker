@@ -1,11 +1,28 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useSyncExternalStore } from "react";
 import { CookieIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const CONSENT_STORAGE_KEY = "talkwer_cookie_consent";
+
+function subscribe(callback: () => void) {
+	window.addEventListener("storage", callback);
+	return () => window.removeEventListener("storage", callback);
+}
+
+function getSnapshot(): string {
+	try {
+		return localStorage.getItem(CONSENT_STORAGE_KEY) ?? "none";
+	} catch {
+		return "none";
+	}
+}
+
+function getServerSnapshot(): string {
+	return "server";
+}
 
 export type CookieConsentProps = {
 	variant?: "small" | "default";
@@ -20,38 +37,25 @@ export function CookieConsent({
 	onDeclineCallback,
 	className,
 }: CookieConsentProps) {
-	const [isOpen, setIsOpen] = useState<boolean>(false);
-	const [mounted, setMounted] = useState<boolean>(false);
-
-	useEffect(() => {
-		setMounted(true);
-		try {
-			const saved = localStorage.getItem(CONSENT_STORAGE_KEY);
-			if (!saved) {
-				setIsOpen(true);
-			}
-		} catch {
-			setIsOpen(true);
-		}
-	}, []);
+	const consent = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
 	const handleAccept = () => {
 		try {
 			localStorage.setItem(CONSENT_STORAGE_KEY, "accepted");
+			window.dispatchEvent(new Event("storage"));
 		} catch {}
-		setIsOpen(false);
 		onAcceptCallback?.();
 	};
 
 	const handleDecline = () => {
 		try {
 			localStorage.setItem(CONSENT_STORAGE_KEY, "declined");
+			window.dispatchEvent(new Event("storage"));
 		} catch {}
-		setIsOpen(false);
 		onDeclineCallback?.();
 	};
 
-	if (!mounted || !isOpen) return null;
+	if (consent !== "none") return null;
 
 	return (
 		<aside
