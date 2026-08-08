@@ -103,10 +103,19 @@ export const NAV_LINKS = [
 ] as const;
 
 export const FOOTER_COLUMNS = {
-	Explore: ["Destinations", "Tours", "Experiences", "Blog"],
+	Explore: ["Destinations", "Tours", "Stories", "Experiences"],
 	Company: ["About", "Careers", "Press", "Partners"],
 	Support: ["FAQ", "Booking Policy", "Cancellation", "Contact"],
 } as const;
+
+/** Labels with real routes. Unmapped labels stay non-navigating (no fake pages). */
+export const FOOTER_LINK_HREF: Record<string, string | undefined> = {
+	Destinations: "/destinations",
+	Tours: "/tours",
+	Stories: "/stories",
+	About: "/about",
+	Contact: "/contact",
+};
 
 export const LEGAL_LINKS = ["Privacy", "Terms", "Cookies"] as const;
 

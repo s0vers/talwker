@@ -1,0 +1,51 @@
+---
+description: Superpowers must match Talkwer organization — no raw invented page/module structure
+alwaysApply: true
+---
+
+# Talkwer Superpowers — match existing code
+
+When brainstorming, writing specs/plans under `docs/superpowers/`, or executing those plans: **clone Talkwer’s existing organization**. Do not invent a parallel layout, dump UI in `src/app`, or freestyle a page as one-off markup.
+
+## Mandatory before any new page or feature work
+
+1. Read `docs/INDEX.md` (new-route checklist) and `.cursor/rules/talkwer-architecture.mdc`, `talkwer-design.mdc`, `talkwer-quality.mdc`.
+2. Pick a **reference feature** already in the repo (prefer `about`, `destinations`, or `contact` for index pages; a shipped `[slug]` feature for detail pages).
+3. Specs and plans must name that reference path and mirror its file map (entry, `sections/`, `content/`, optional `lib/`, thin `src/app` route).
+
+## Required shape (non-negotiable)
+
+| Layer | Rule |
+|---|---|
+| Route | `src/app/<segment>/page.tsx` stays thin: metadata/JSON-LD + data load + feature entry import |
+| Feature | `src/features/<name>/<name>-page.tsx` (kebab-case) composes sections only |
+| Sections | `src/features/<name>/sections/*` + `sections/index.ts` when multiple |
+| Copy/data | Page-only → `content/`; shared catalogs → existing home/shared content patterns |
+| Helpers | Feature `lib/` for params/slugs/hooks; no UI in `lib/` |
+| Shared UI | Reuse `@/shared/ui` and `@/components/ui` before new primitives |
+| Design/motion | Tokens/`pad-x`/orange accent/`useGsap` per design + quality rules |
+
+## Spec / plan contracts
+
+- **Architecture** line must state feature-first + thin app routes + named reference feature.
+- **File map** must list concrete paths under `src/features/<name>/…` and thin `src/app/…` only.
+- Task steps may show small diffs; they must not prescribe monolithic route files or new top-level folders outside `features` / `shared` / `components/ui` / `lib`.
+- No unit-test theater: this repo has no test runner — verify with `pnpm typecheck` / `pnpm verify` and `pnpm build && pnpm start` for visual QA (`AGENTS.md`).
+
+## Anti-patterns (reject / rewrite)
+
+- Fat `page.tsx` with section markup, motion, or copy inline
+- New pages that ignore sibling feature folder layout
+- One giant `*-page.tsx` instead of `sections/`
+- Hardcoded colors/spacing that fight `talkwer-design.mdc`
+- New shared components for one-off layout; new GSAP paths outside `useGsap`
+- Plans that “start fresh” when a reference feature already exists
+
+## Rationalizations — all false
+
+| Excuse | Reality |
+|---|---|
+| “Faster to put JSX in the route” | Violates thin-route contract; rewrite into feature modules |
+| “This page is unique so structure can differ” | Composition differs; folder contract does not |
+| “Plan is detailed enough without a reference” | No reference = raw inventing; add one before coding |
+| “We’ll tidy folder structure later” | Structure is the deliverable; fix the plan first |

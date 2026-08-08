@@ -8,7 +8,7 @@ This is a **Next.js 16 static blog/magazine site** ("Talkwer") with no backend, 
 
 - Commands / runtime: this file.
 - Structure and checklists: `docs/INDEX.md`, `docs/README.md`.
-- Enforceable contracts: `.cursor/rules/talkwer-architecture.mdc`, `talkwer-design.mdc`, `talkwer-quality.mdc`.
+- Enforceable contracts: `.cursor/rules/talkwer-architecture.mdc`, `talkwer-design.mdc`, `talkwer-quality.mdc`, `talkwer-superpowers.mdc` (always on — specs/plans/execution must mirror existing feature layout, not invent raw pages).
 - Process specs/plans: `docs/superpowers/`. Local Superpowers runtime: `.superpowers/` (gitignored).
 
 ### Quick reference

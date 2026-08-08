@@ -13,6 +13,54 @@ export function prefersReducedMotion() {
 	return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
+function isSameOriginPathChange(href: string) {
+	try {
+		const url = new URL(href, window.location.href);
+		if (url.origin !== window.location.origin) return false;
+		return (
+			url.pathname !== window.location.pathname ||
+			url.search !== window.location.search
+		);
+	} catch {
+		return false;
+	}
+}
+
+/**
+ * ScrollTrigger `pin` reparents nodes into `.pin-spacer`. React's unmount then
+ * calls removeChild on the pre-pin parent and throws NotFoundError. Effect
+ * cleanup runs too late (after mutation), so revert on capture-phase nav instead.
+ */
+function revertContextBeforeClientNavigation(ctx: gsap.Context) {
+	const revert = () => {
+		ctx.revert();
+	};
+
+	const onClickCapture = (event: MouseEvent) => {
+		if (event.defaultPrevented || event.button !== 0) return;
+		if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+		const target = event.target;
+		if (!(target instanceof Element)) return;
+		const anchor = target.closest("a[href]");
+		if (!(anchor instanceof HTMLAnchorElement)) return;
+		if (anchor.target && anchor.target !== "_self") return;
+		const href = anchor.getAttribute("href");
+		if (!href || href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:")) {
+			return;
+		}
+		if (isSameOriginPathChange(href)) revert();
+	};
+
+	document.addEventListener("click", onClickCapture, true);
+	window.addEventListener("popstate", revert);
+
+	return () => {
+		document.removeEventListener("click", onClickCapture, true);
+		window.removeEventListener("popstate", revert);
+		revert();
+	};
+}
+
 export function useGsapContext<T extends Element>(
 	scopeRef: RefObject<T | null>,
 	animation: () => void,
@@ -22,7 +70,7 @@ export function useGsapContext<T extends Element>(
 		if (typeof window === "undefined" || !scopeRef.current || prefersReducedMotion()) return;
 		gsap.registerPlugin(ScrollTrigger);
 		const ctx = gsap.context(animation, scopeRef);
-		return () => ctx.revert();
+		return revertContextBeforeClientNavigation(ctx);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, deps);
 }

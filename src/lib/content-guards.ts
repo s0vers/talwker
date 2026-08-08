@@ -1,4 +1,10 @@
-import type { Destination, Testimonial, Tour } from "@/shared/types/domain";
+import type {
+	Destination,
+	Story,
+	StoryBodyBlock,
+	Testimonial,
+	Tour,
+} from "@/shared/types/domain";
 
 function isNonEmptyString(value: unknown): value is string {
 	return typeof value === "string" && value.trim().length > 0;
@@ -34,6 +40,7 @@ export function defineDestinations(value: Destination[]): Destination[] {
 export function defineTours(value: Tour[]): Tour[] {
 	value.forEach((tour, index) => {
 		assert(isPositiveNumber(tour.id), `tour[${index}].id`);
+		assert(isNonEmptyString(tour.slug), `tour[${index}].slug`);
 		assert(isNonEmptyString(tour.title), `tour[${index}].title`);
 		assert(isNonEmptyString(tour.destination), `tour[${index}].destination`);
 		assert(isNonEmptyString(tour.image), `tour[${index}].image`);
@@ -49,6 +56,38 @@ export function defineTours(value: Tour[]): Tour[] {
 				`tour[${index}].highlights[${highlightIndex}]`,
 			);
 		});
+		assert(isNonEmptyString(tour.summary), `tour[${index}].summary`);
+		assert(Array.isArray(tour.itinerary), `tour[${index}].itinerary`);
+		assert(tour.itinerary.length > 0, `tour[${index}].itinerary.length`);
+		tour.itinerary.forEach((day, dayIndex) => {
+			assert(isPositiveNumber(day.day), `tour[${index}].itinerary[${dayIndex}].day`);
+			assert(
+				isNonEmptyString(day.title),
+				`tour[${index}].itinerary[${dayIndex}].title`,
+			);
+			assert(
+				isNonEmptyString(day.body),
+				`tour[${index}].itinerary[${dayIndex}].body`,
+			);
+			assert(
+				isNonEmptyString(day.image),
+				`tour[${index}].itinerary[${dayIndex}].image`,
+			);
+		});
+		assert(Array.isArray(tour.includes), `tour[${index}].includes`);
+		assert(tour.includes.length > 0, `tour[${index}].includes.length`);
+		tour.includes.forEach((item, itemIndex) => {
+			assert(isNonEmptyString(item), `tour[${index}].includes[${itemIndex}]`);
+		});
+		if (tour.destinationSlug !== undefined) {
+			assert(
+				isNonEmptyString(tour.destinationSlug),
+				`tour[${index}].destinationSlug`,
+			);
+		}
+		if (tour.panelImage !== undefined) {
+			assert(isNonEmptyString(tour.panelImage), `tour[${index}].panelImage`);
+		}
 		if (tour.originalPrice !== undefined) {
 			assert(
 				isPositiveNumber(tour.originalPrice),
@@ -75,6 +114,65 @@ export function defineTestimonials(value: Testimonial[]): Testimonial[] {
 		assert(isPositiveNumber(testimonial.rating), `testimonial[${index}].rating`);
 		assert(isNonEmptyString(testimonial.text), `testimonial[${index}].text`);
 		assert(isNonEmptyString(testimonial.trip), `testimonial[${index}].trip`);
+	});
+
+	return value;
+}
+
+function assertStoryBodyBlock(
+	block: StoryBodyBlock,
+	storyIndex: number,
+	blockIndex: number,
+): void {
+	const path = `story[${storyIndex}].body[${blockIndex}]`;
+	assert(
+		block && typeof block === "object" && "type" in block,
+		`${path}.type`,
+	);
+
+	switch (block.type) {
+		case "paragraph":
+		case "pullquote":
+			assert(isNonEmptyString(block.text), `${path}.text`);
+			break;
+		case "image":
+			assert(isNonEmptyString(block.src), `${path}.src`);
+			assert(isNonEmptyString(block.alt), `${path}.alt`);
+			break;
+		default: {
+			const _exhaustive: never = block;
+			assert(false, `${path}: unknown block type ${JSON.stringify(_exhaustive)}`);
+		}
+	}
+}
+
+export function defineStories(value: Story[]): Story[] {
+	value.forEach((story, index) => {
+		assert(isPositiveNumber(story.id), `story[${index}].id`);
+		assert(isNonEmptyString(story.slug), `story[${index}].slug`);
+		assert(isNonEmptyString(story.title), `story[${index}].title`);
+		assert(isNonEmptyString(story.dek), `story[${index}].dek`);
+		assert(isNonEmptyString(story.heroImage), `story[${index}].heroImage`);
+		assert(isNonEmptyString(story.author), `story[${index}].author`);
+		assert(isNonEmptyString(story.location), `story[${index}].location`);
+		assert(isPositiveNumber(story.readMinutes), `story[${index}].readMinutes`);
+		assert(Array.isArray(story.body), `story[${index}].body`);
+		assert(story.body.length > 0, `story[${index}].body.length`);
+		story.body.forEach((block, blockIndex) => {
+			assertStoryBodyBlock(block, index, blockIndex);
+		});
+		if (story.relatedDestinationSlug !== undefined) {
+			assert(
+				isNonEmptyString(story.relatedDestinationSlug),
+				`story[${index}].relatedDestinationSlug`,
+			);
+		}
+		if (story.relatedTourId !== undefined) {
+			assert(
+				isPositiveNumber(story.relatedTourId),
+				`story[${index}].relatedTourId`,
+			);
+		}
 	});
 
 	return value;

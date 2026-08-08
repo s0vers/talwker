@@ -1,4 +1,6 @@
 import type { MetadataRoute } from "next";
+import { TOURS } from "@/features/home/content/tours";
+import { STORIES } from "@/features/stories/content/stories";
 import { resolveCanonicalUrl } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -38,10 +40,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			changeFrequency: "weekly",
 			priority: 0.8,
 		},
+		...TOURS.map((tour) => ({
+			url: resolveCanonicalUrl(`/tours/${tour.slug}`),
+			changeFrequency: "monthly" as const,
+			priority: 0.7,
+		})),
 		{
 			url: resolveCanonicalUrl("/stories"),
 			changeFrequency: "weekly",
 			priority: 0.75,
 		},
+		...STORIES.map((story) => ({
+			url: resolveCanonicalUrl(`/stories/${story.slug}`),
+			changeFrequency: "monthly" as const,
+			priority: 0.65,
+		})),
 	];
 }
