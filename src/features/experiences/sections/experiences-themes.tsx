@@ -3,14 +3,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Clock, Users, ArrowRight } from "lucide-react";
-import { EXPERIENCES_CATALOG, type ExperienceCategory, type ExperienceItem } from "../content/experiences-page-copy";
+import { EXPERIENCES_CATALOG, EXPERIENCE_CATEGORIES, type ExperienceCategory, type ExperienceItem } from "../content/experiences-page-copy";
+import { cn } from "@/lib/utils";
 
 export type ExperiencesThemesProps = {
 	activeCategory: ExperienceCategory;
+	onCategoryChange: (category: ExperienceCategory) => void;
 	onSelectExperience: (experience: ExperienceItem) => void;
 };
 
-export function ExperiencesThemes({ activeCategory, onSelectExperience }: ExperiencesThemesProps) {
+export function ExperiencesThemes({ activeCategory, onCategoryChange, onSelectExperience }: ExperiencesThemesProps) {
 	const filteredCatalog =
 		activeCategory === "all"
 			? EXPERIENCES_CATALOG
@@ -19,7 +21,7 @@ export function ExperiencesThemes({ activeCategory, onSelectExperience }: Experi
 	return (
 		<section className="bg-[#050505] text-white py-16 md:py-24">
 			<div className="pad-x mx-auto max-w-[1600px]">
-				<div className="mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+				<div className="mb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
 					<div>
 						<p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-orange-500">
 							Explore Collection
@@ -31,6 +33,34 @@ export function ExperiencesThemes({ activeCategory, onSelectExperience }: Experi
 					<p className="max-w-md text-sm text-white/50 md:text-right">
 						Click any experience to open the interactive itinerary overview or route directly to full tour details.
 					</p>
+				</div>
+
+				{/* Integrated Category Filter Bar */}
+				<div className="mb-12 pb-8 border-b border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+					<p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/40">
+						Select Experience Format
+					</p>
+
+					<div className="flex flex-wrap gap-2">
+						{EXPERIENCE_CATEGORIES.map((cat) => {
+							const isActive = activeCategory === cat.id;
+							return (
+								<button
+									key={cat.id}
+									type="button"
+									onClick={() => onCategoryChange(cat.id)}
+									className={cn(
+										"rounded-full px-4 py-2 text-xs font-semibold transition-all duration-300",
+										isActive
+											? "bg-orange-500 text-white shadow-md shadow-orange-500/20"
+											: "border border-white/10 bg-[#0a0a0a] text-white/60 hover:border-white/25 hover:text-white",
+									)}
+								>
+									{cat.label}
+								</button>
+							);
+						})}
+					</div>
 				</div>
 
 				{filteredCatalog.length === 0 ? (

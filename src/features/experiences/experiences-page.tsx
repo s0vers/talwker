@@ -17,12 +17,10 @@ export default function ExperiencesPage() {
 
 	return (
 		<main className="min-h-screen bg-[#050505]">
-			<ExperiencesHero
-				activeCategory={activeCategory}
-				onCategoryChange={setActiveCategory}
-			/>
+			<ExperiencesHero />
 			<ExperiencesThemes
 				activeCategory={activeCategory}
+				onCategoryChange={setActiveCategory}
 				onSelectExperience={setSelectedExperience}
 			/>
 			<ExperiencesStyles />
