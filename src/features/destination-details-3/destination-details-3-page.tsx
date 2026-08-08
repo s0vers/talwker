@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { getDestinationDetails3TourCta } from "@/features/destination-details-3/content/destination-details-3-cta-copy";
 import { getDestinationDetails3ViewModel } from "@/features/destination-details-3/lib/details-3-view-model";
 import {
@@ -15,6 +14,7 @@ import {
 	DestinationDetails3Places,
 } from "@/features/destination-details-3/sections";
 import { InitialLoader } from "@/features/home/sections";
+import { useInitialPageLoader } from "@/lib/use-initial-page-loader";
 import type { Destination } from "@/shared/types/domain";
 import { EditorialCtaBand } from "@/shared/ui";
 
@@ -23,44 +23,7 @@ export type DestinationDetails3PageProps = {
 };
 
 export default function DestinationDetails3Page({ destination }: DestinationDetails3PageProps) {
-	const [isLoading, setIsLoading] = useState(true);
-
-	useEffect(() => {
-		const originalOverflow = document.body.style.overflow;
-		document.body.style.overflow = "hidden";
-		const mountedAt = Date.now();
-		const MIN_LOADER_MS = 200;
-
-		const clearLoading = () => {
-			setIsLoading(false);
-			document.body.style.overflow = originalOverflow;
-		};
-
-		const onReady = () => {
-			const elapsed = Date.now() - mountedAt;
-			const remaining = Math.max(0, MIN_LOADER_MS - elapsed);
-			if (remaining === 0) {
-				clearLoading();
-				return;
-			}
-			window.setTimeout(clearLoading, remaining);
-		};
-
-		if (document.readyState === "complete") {
-			const timeout = setTimeout(onReady, 0);
-			return () => clearTimeout(timeout);
-		}
-
-		const handleLoad = () => onReady();
-		window.addEventListener("load", handleLoad);
-		const timeout = setTimeout(onReady, 1200);
-
-		return () => {
-			window.removeEventListener("load", handleLoad);
-			clearTimeout(timeout);
-			document.body.style.overflow = originalOverflow;
-		};
-	}, []);
+	const isLoading = useInitialPageLoader();
 
 	const model = getDestinationDetails3ViewModel(destination);
 	const tourCta = getDestinationDetails3TourCta(destination);
@@ -68,7 +31,7 @@ export default function DestinationDetails3Page({ destination }: DestinationDeta
 	return (
 		<>
 			<InitialLoader isLoading={isLoading} />
-			<div className="relative min-h-screen overflow-hidden bg-[#020202]">
+			<div className="relative min-h-screen overflow-x-clip bg-[#020202]">
 				<DestinationDetails3MotionRoot>
 					<DestinationDetails3Hero model={model} />
 					<DestinationDetails3People model={model} />
