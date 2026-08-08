@@ -1,11 +1,11 @@
-import { Feather, Compass, ShieldCheck, Heart } from "lucide-react";
+import { LuFeather, LuCompass, LuShieldCheck, LuHeart } from "react-icons/lu";
 import { CAREERS_VALUES, type CultureValue } from "../content/careers-copy";
 
 const iconMap = {
-	feather: Feather,
-	compass: Compass,
-	shield: ShieldCheck,
-	heart: Heart,
+	feather: LuFeather,
+	compass: LuCompass,
+	shield: LuShieldCheck,
+	heart: LuHeart,
 };
 
 export function CareersValues() {

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Quote } from "lucide-react";
+import { LuQuote } from "react-icons/lu";
 import { EXPERIENCES_SPOTLIGHT } from "../content/experiences-page-copy";
 
 export function ExperiencesSpotlight() {
@@ -16,7 +16,7 @@ export function ExperiencesSpotlight() {
 							{EXPERIENCES_SPOTLIGHT.title}
 						</h2>
 						<div className="relative pl-6 border-l-2 border-orange-500 my-6">
-							<Quote className="h-8 w-8 text-orange-500/20 absolute -top-4 -left-3 -z-10" />
+							<LuQuote className="h-8 w-8 text-orange-500/20 absolute -top-4 -left-3 -z-10" />
 							<p className="text-base sm:text-lg italic text-white/80 leading-relaxed">
 								&ldquo;{EXPERIENCES_SPOTLIGHT.quote}&rdquo;
 							</p>

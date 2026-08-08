@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { Search, X, HelpCircle } from "lucide-react";
+import { LuSearch, LuX, LuCircleHelp } from "react-icons/lu";
 import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
 import { FAQ_HERO } from "../content/faq-copy";
 
@@ -78,7 +78,7 @@ export function FaqHero({ searchQuery, onSearchChange }: FaqHeroProps) {
 
 			{/* Background Watermark */}
 			<div
-				className="pointer-events-none absolute right-4 top-12 hidden select-none font-mono text-[9vw] font-black uppercase tracking-tighter text-white/[0.015] lg:block"
+				className="pointer-events-none absolute right-4 top-12 hidden select-none text-[9vw] font-black uppercase tracking-tighter text-white/[0.015] lg:block"
 				aria-hidden
 			>
 				KNOWLEDGE
@@ -88,7 +88,7 @@ export function FaqHero({ searchQuery, onSearchChange }: FaqHeroProps) {
 				<div ref={contentRef} className="max-w-3xl space-y-6">
 					<div className="flex items-center gap-3">
 						<span className="inline-flex items-center gap-1.5 rounded-full bg-orange-500/10 border border-orange-500/30 px-3.5 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-400">
-							<HelpCircle className="h-3 w-3 text-orange-500" />
+							<LuCircleHelp className="h-3 w-3 text-orange-500" />
 							05 // Help Center
 						</span>
 						<span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/40">
@@ -101,7 +101,7 @@ export function FaqHero({ searchQuery, onSearchChange }: FaqHeroProps) {
 						className="text-[clamp(2.75rem,6.5vw,5.25rem)] font-bold leading-[0.93] tracking-tight text-white"
 					>
 						Help & Knowledge{" "}
-						<span className="font-serif italic font-normal text-orange-500 block sm:inline">
+						<span className="font-light italic text-orange-500 block sm:inline">
 							Base.
 						</span>
 					</h1>
@@ -113,7 +113,7 @@ export function FaqHero({ searchQuery, onSearchChange }: FaqHeroProps) {
 					{/* Search Input Bar */}
 					<div className="pt-2 max-w-2xl">
 						<div className="relative flex items-center group">
-							<Search className="absolute left-4 h-5 w-5 text-white/40 group-focus-within:text-orange-400 transition-colors pointer-events-none" />
+							<LuSearch className="absolute left-4 h-5 w-5 text-white/40 group-focus-within:text-orange-400 transition-colors pointer-events-none" />
 							<input
 								type="text"
 								value={searchQuery}
@@ -128,7 +128,7 @@ export function FaqHero({ searchQuery, onSearchChange }: FaqHeroProps) {
 									aria-label="Clear search"
 									className="absolute right-4 p-1 rounded-full text-white/40 hover:text-white hover:bg-white/10 transition-colors"
 								>
-									<X className="h-4 w-4" />
+									<LuX className="h-4 w-4" />
 								</button>
 							) : null}
 						</div>

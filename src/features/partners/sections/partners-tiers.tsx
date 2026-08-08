@@ -1,4 +1,4 @@
-import { CheckCircle2 } from "lucide-react";
+import { LuCircleCheck } from "react-icons/lu";
 import { PARTNER_TIERS } from "../content/partners-copy";
 
 export function PartnersTiers() {
@@ -40,7 +40,7 @@ export function PartnersTiers() {
 									<ul className="space-y-2 text-xs text-white/70">
 										{tier.criteria.map((item, idx) => (
 											<li key={idx} className="flex items-start gap-2">
-												<CheckCircle2 className="h-3.5 w-3.5 text-orange-500 shrink-0 mt-0.5" />
+												<LuCircleCheck className="h-3.5 w-3.5 text-orange-500 shrink-0 mt-0.5" />
 												<span>{item}</span>
 											</li>
 										))}

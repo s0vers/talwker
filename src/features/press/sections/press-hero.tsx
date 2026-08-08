@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { Sparkles, Mail, Download, Newspaper, ShieldCheck, ArrowRight } from "lucide-react";
+import { LuSparkles, LuMail, LuDownload, LuNewspaper, LuShieldCheck, LuArrowRight } from "react-icons/lu";
 import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
 import { PRESS_HERO } from "../content/press-copy";
 
@@ -47,7 +47,7 @@ export function PressHero() {
 
 			{/* Background Masthead Watermark */}
 			<div
-				className="pointer-events-none absolute left-0 bottom-4 hidden select-none font-mono text-[11vw] font-black uppercase tracking-tighter text-white/[0.012] lg:block"
+				className="pointer-events-none absolute left-0 bottom-4 hidden select-none text-[11vw] font-black uppercase tracking-tighter text-white/[0.012] lg:block"
 				aria-hidden
 			>
 				NEWSROOM
@@ -58,7 +58,7 @@ export function PressHero() {
 				<div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-4">
 					<div className="flex items-center gap-3">
 						<span className="inline-flex items-center gap-1.5 rounded-full bg-orange-500/10 border border-orange-500/30 px-3.5 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-400">
-							<Sparkles className="h-3 w-3 text-orange-500" />
+							<LuSparkles className="h-3 w-3 text-orange-500" />
 							03 // Press & Media
 						</span>
 						<span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/40">
@@ -66,10 +66,10 @@ export function PressHero() {
 						</span>
 					</div>
 
-					<div className="flex items-center gap-4 text-xs text-white/50 font-mono">
+					<div className="flex items-center gap-4 text-xs text-white/50">
 						<span>DESK: STOCKHOLM & TOKYO</span>
 						<span>·</span>
-						<span className="text-emerald-400 font-semibold">● 24/7 PRESS INQUIRIES</span>
+						<span className="text-orange-400 font-semibold">● 24/7 PRESS INQUIRIES</span>
 					</div>
 				</div>
 
@@ -80,7 +80,7 @@ export function PressHero() {
 						className="text-[clamp(2.75rem,6.5vw,5.5rem)] font-bold leading-[0.92] tracking-tight text-white"
 					>
 						Official Media Center{" "}
-						<span className="font-serif italic font-normal text-orange-500 block sm:inline">
+						<span className="font-light italic text-orange-500 block sm:inline">
 							for Stories & Releases.
 						</span>
 					</h1>
@@ -94,33 +94,33 @@ export function PressHero() {
 				<div className="grid grid-cols-1 gap-4 sm:grid-cols-3 pt-6">
 					<div className="rounded-2xl border border-white/10 bg-[#0a0a0a] p-6 space-y-2 hover:border-orange-500/40 transition-colors">
 						<div className="flex items-center justify-between text-orange-500">
-							<Mail className="h-5 w-5" />
-							<span className="text-[10px] font-semibold uppercase tracking-wider text-emerald-400">&lt; 4h SLA</span>
+							<LuMail className="h-5 w-5" />
+							<span className="text-[10px] font-semibold uppercase tracking-wider text-orange-400">&lt; 4h SLA</span>
 						</div>
 						<p className="text-xs font-semibold uppercase tracking-wider text-white/40">Direct Press Line</p>
-						<a href={`mailto:${PRESS_HERO.pressEmail}`} className="block font-mono text-sm font-bold text-white hover:text-orange-400 transition-colors">
+						<a href={`mailto:${PRESS_HERO.pressEmail}`} className="block text-sm font-bold text-white hover:text-orange-400 transition-colors">
 							{PRESS_HERO.pressEmail}
 						</a>
 					</div>
 
 					<div className="rounded-2xl border border-white/10 bg-[#0a0a0a] p-6 space-y-2 hover:border-orange-500/40 transition-colors">
 						<div className="flex items-center justify-between text-orange-500">
-							<Download className="h-5 w-5" />
+							<LuDownload className="h-5 w-5" />
 							<span className="text-[10px] font-semibold uppercase tracking-wider text-white/40">2026 KIT</span>
 						</div>
 						<p className="text-xs font-semibold uppercase tracking-wider text-white/40">Media Asset Vault</p>
-						<a href="#press-kits" className="inline-flex items-center gap-1.5 font-mono text-sm font-bold text-white hover:text-orange-400 transition-colors">
-							Download Assets <ArrowRight className="h-3.5 w-3.5" />
+						<a href="#press-kits" className="inline-flex items-center gap-1.5 text-sm font-bold text-white hover:text-orange-400 transition-colors">
+							Download Assets <LuArrowRight className="h-3.5 w-3.5" />
 						</a>
 					</div>
 
 					<div className="rounded-2xl border border-white/10 bg-[#0a0a0a] p-6 space-y-2 hover:border-orange-500/40 transition-colors">
 						<div className="flex items-center justify-between text-orange-500">
-							<Newspaper className="h-5 w-5" />
-							<ShieldCheck className="h-4 w-4 text-emerald-400" />
+							<LuNewspaper className="h-5 w-5" />
+							<LuShieldCheck className="h-4 w-4 text-orange-500" />
 						</div>
 						<p className="text-xs font-semibold uppercase tracking-wider text-white/40">Featured Mentions</p>
-						<p className="font-mono text-sm font-bold text-white">Vogue · NYT · Wallpaper*</p>
+						<p className="text-sm font-bold text-white">Vogue · NYT · Wallpaper*</p>
 					</div>
 				</div>
 			</div>

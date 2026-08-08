@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { MapPin, Briefcase, CheckCircle2 } from "lucide-react";
+import { LuMapPin, LuBriefcase, LuCircleCheck } from "react-icons/lu";
 import { OPEN_POSITIONS, type JobPosition } from "../content/careers-copy";
 
 export type CareersBodyProps = {
@@ -69,11 +69,11 @@ export function CareersBody({ onApply }: CareersBodyProps) {
 										</div>
 										<div className="flex items-center gap-4 text-xs text-white/50">
 											<span className="flex items-center gap-1">
-												<MapPin className="h-3.5 w-3.5 text-orange-500" />
+												<LuMapPin className="h-3.5 w-3.5 text-orange-500" />
 												{pos.location}
 											</span>
 											<span className="flex items-center gap-1">
-												<Briefcase className="h-3.5 w-3.5 text-orange-500" />
+												<LuBriefcase className="h-3.5 w-3.5 text-orange-500" />
 												{pos.type}
 											</span>
 										</div>
@@ -91,7 +91,7 @@ export function CareersBody({ onApply }: CareersBodyProps) {
 											<ul className="space-y-2 text-xs text-white/70">
 												{pos.responsibilities.map((item, idx) => (
 													<li key={idx} className="flex items-start gap-2">
-														<CheckCircle2 className="h-3.5 w-3.5 text-orange-500 shrink-0 mt-0.5" />
+														<LuCircleCheck className="h-3.5 w-3.5 text-orange-500 shrink-0 mt-0.5" />
 														<span>{item}</span>
 													</li>
 												))}
@@ -105,7 +105,7 @@ export function CareersBody({ onApply }: CareersBodyProps) {
 											<ul className="space-y-2 text-xs text-white/70">
 												{pos.requirements.map((item, idx) => (
 													<li key={idx} className="flex items-start gap-2">
-														<CheckCircle2 className="h-3.5 w-3.5 text-orange-500 shrink-0 mt-0.5" />
+														<LuCircleCheck className="h-3.5 w-3.5 text-orange-500 shrink-0 mt-0.5" />
 														<span>{item}</span>
 													</li>
 												))}

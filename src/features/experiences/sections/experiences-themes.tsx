@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Clock, Users, ArrowRight } from "lucide-react";
+import { LuClock, LuUsers, LuArrowRight } from "react-icons/lu";
 import { EXPERIENCES_CATALOG, EXPERIENCE_CATEGORIES, type ExperienceCategory, type ExperienceItem } from "../content/experiences-page-copy";
 import { cn } from "@/lib/utils";
 
@@ -108,11 +108,11 @@ export function ExperiencesThemes({ activeCategory, onCategoryChange, onSelectEx
 											{/* Meta bar */}
 											<div className="flex items-center gap-4 text-xs text-white/50 mb-3">
 												<span className="flex items-center gap-1">
-													<Clock className="h-3.5 w-3.5 text-orange-500" />
+													<LuClock className="h-3.5 w-3.5 text-orange-500" />
 													{item.duration}
 												</span>
 												<span className="flex items-center gap-1">
-													<Users className="h-3.5 w-3.5 text-orange-500" />
+													<LuUsers className="h-3.5 w-3.5 text-orange-500" />
 													{item.groupSize}
 												</span>
 											</div>
@@ -138,7 +138,7 @@ export function ExperiencesThemes({ activeCategory, onCategoryChange, onSelectEx
 												href={tourHref}
 												className="inline-flex items-center gap-1 text-xs font-semibold text-white/70 hover:text-white transition-colors"
 											>
-												View Package <ArrowRight className="h-3.5 w-3.5 text-orange-500 transition-transform group-hover:translate-x-1" />
+												View Package <LuArrowRight className="h-3.5 w-3.5 text-orange-500 transition-transform group-hover:translate-x-1" />
 											</Link>
 										</div>
 									</div>

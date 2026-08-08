@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 import { Cross2Icon } from "@radix-ui/react-icons";
-import { Clock, Users, Tag, CheckCircle2 } from "lucide-react";
+import { LuClock, LuUsers, LuTag, LuCircleCheck } from "react-icons/lu";
 import type { ExperienceItem } from "../content/experiences-page-copy";
 
 export type ExperienceModalProps = {
@@ -79,21 +79,21 @@ export function ExperienceModal({ experience, onClose }: ExperienceModalProps) {
 					{/* Meta stats bar */}
 					<div className="grid grid-cols-3 gap-3 rounded-xl border border-white/10 bg-white/5 p-4 text-center sm:text-left">
 						<div className="flex flex-col sm:flex-row items-center gap-2">
-							<Clock className="h-4 w-4 text-orange-500 shrink-0" />
+							<LuClock className="h-4 w-4 text-orange-500 shrink-0" />
 							<div>
 								<p className="text-[10px] uppercase tracking-wider text-white/40 font-medium">Duration</p>
 								<p className="text-sm font-semibold text-white">{experience.duration}</p>
 							</div>
 						</div>
 						<div className="flex flex-col sm:flex-row items-center gap-2">
-							<Users className="h-4 w-4 text-orange-500 shrink-0" />
+							<LuUsers className="h-4 w-4 text-orange-500 shrink-0" />
 							<div>
 								<p className="text-[10px] uppercase tracking-wider text-white/40 font-medium">Capacity</p>
 								<p className="text-sm font-semibold text-white">{experience.groupSize}</p>
 							</div>
 						</div>
 						<div className="flex flex-col sm:flex-row items-center gap-2">
-							<Tag className="h-4 w-4 text-orange-500 shrink-0" />
+							<LuTag className="h-4 w-4 text-orange-500 shrink-0" />
 							<div>
 								<p className="text-[10px] uppercase tracking-wider text-white/40 font-medium">Pricing</p>
 								<p className="text-sm font-semibold text-white">{experience.price}</p>
@@ -113,7 +113,7 @@ export function ExperienceModal({ experience, onClose }: ExperienceModalProps) {
 						<ul className="mt-3 space-y-2">
 							{experience.highlights.map((item, idx) => (
 								<li key={idx} className="flex items-start gap-2.5 text-sm text-white/80">
-									<CheckCircle2 className="h-4 w-4 text-orange-500 shrink-0 mt-0.5" />
+									<LuCircleCheck className="h-4 w-4 text-orange-500 shrink-0 mt-0.5" />
 									<span>{item}</span>
 								</li>
 							))}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { Sparkles, Briefcase, Globe, Heart, ArrowDown } from "lucide-react";
+import { LuSparkles, LuBriefcase, LuGlobe, LuHeart, LuArrowDown } from "react-icons/lu";
 import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
 import { CAREERS_HERO } from "../content/careers-copy";
 
@@ -85,7 +85,7 @@ export function CareersHero() {
 
 			{/* Studio Watermark */}
 			<div
-				className="pointer-events-none absolute right-4 top-12 hidden select-none font-mono text-[9vw] font-black uppercase tracking-tighter text-white/[0.015] lg:block"
+				className="pointer-events-none absolute right-4 top-12 hidden select-none text-[9vw] font-black uppercase tracking-tighter text-white/[0.015] lg:block"
 				aria-hidden
 			>
 				CAREERS
@@ -97,11 +97,11 @@ export function CareersHero() {
 					<div ref={contentRef} className="lg:col-span-7 space-y-6">
 						<div className="flex flex-wrap items-center gap-3">
 							<span className="inline-flex items-center gap-1.5 rounded-full bg-orange-500/10 border border-orange-500/30 px-3.5 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-400">
-								<Sparkles className="h-3 w-3 text-orange-500" />
+								<LuSparkles className="h-3 w-3 text-orange-500" />
 								02 // Careers
 							</span>
-							<span className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 border border-emerald-500/30 px-3 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-emerald-400">
-								<span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+							<span className="inline-flex items-center gap-2 rounded-full bg-orange-500/10 border border-orange-500/30 px-3 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-orange-400">
+								<span className="h-1.5 w-1.5 rounded-full bg-orange-400 animate-pulse" />
 								4 Open Positions
 							</span>
 						</div>
@@ -111,7 +111,7 @@ export function CareersHero() {
 							className="text-[clamp(2.75rem,6.5vw,5.25rem)] font-bold leading-[0.93] tracking-tight text-white"
 						>
 							Shape the future of{" "}
-							<span className="font-serif italic font-normal text-orange-500 block sm:inline">
+							<span className="font-light italic text-orange-500 block sm:inline">
 								slow editorial travel.
 							</span>
 						</h1>
@@ -126,7 +126,7 @@ export function CareersHero() {
 								onClick={scrollToRoles}
 								className="inline-flex items-center gap-2 rounded-full bg-orange-500 px-8 py-3.5 text-xs font-semibold uppercase tracking-widest text-white transition-all hover:bg-orange-600 hover:shadow-xl hover:shadow-orange-500/20"
 							>
-								Explore Open Roles <ArrowDown className="h-4 w-4" />
+								Explore Open Roles <LuArrowDown className="h-4 w-4" />
 							</button>
 						</div>
 					</div>
@@ -139,18 +139,18 @@ export function CareersHero() {
 						>
 							{/* Corner Accents */}
 							<div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-500/40 rounded-tr-2xl" />
-							<div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-emerald-500/30 rounded-bl-2xl" />
+							<div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/30 rounded-bl-2xl" />
 
 							<div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
 								<span className="text-[10px] font-bold uppercase tracking-[0.2em] text-orange-500 flex items-center gap-1.5">
-									<Briefcase className="h-3.5 w-3.5" /> Talkwer Culture Manifesto
+									<LuBriefcase className="h-3.5 w-3.5" /> Talkwer Culture Manifesto
 								</span>
-								<span className="text-[10px] text-white/40 font-mono">EST. 2026</span>
+								<span className="text-[10px] text-white/40">EST. 2026</span>
 							</div>
 
 							<div className="space-y-4 text-xs text-white/75">
 								<div className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/8">
-									<Globe className="h-4 w-4 text-orange-500 shrink-0 mt-0.5" />
+									<LuGlobe className="h-4 w-4 text-orange-500 shrink-0 mt-0.5" />
 									<div>
 										<p className="font-semibold text-white">100% Asynchronous & Remote</p>
 										<p className="text-white/50 text-[11px]">Work from anywhere across 28 countries.</p>
@@ -158,7 +158,7 @@ export function CareersHero() {
 								</div>
 
 								<div className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/8">
-									<Sparkles className="h-4 w-4 text-orange-500 shrink-0 mt-0.5" />
+									<LuSparkles className="h-4 w-4 text-orange-500 shrink-0 mt-0.5" />
 									<div>
 										<p className="font-semibold text-white">$3,500/yr Field Travel Grant</p>
 										<p className="text-white/50 text-[11px]">Annual budget to experience Talkwer tours firsthand.</p>
@@ -166,7 +166,7 @@ export function CareersHero() {
 								</div>
 
 								<div className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/8">
-									<Heart className="h-4 w-4 text-orange-500 shrink-0 mt-0.5" />
+									<LuHeart className="h-4 w-4 text-orange-500 shrink-0 mt-0.5" />
 									<div>
 										<p className="font-semibold text-white">Unlimited Field Leave</p>
 										<p className="text-white/50 text-[11px]">Rest and recharge whenever you need unhurried time.</p>

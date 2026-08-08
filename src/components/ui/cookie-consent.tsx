@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useSyncExternalStore } from "react";
-import { CookieIcon } from "lucide-react";
+import { LuCookie } from "react-icons/lu";
 import { cn } from "@/lib/utils";
 
 const CONSENT_STORAGE_KEY = "talkwer_cookie_consent";
@@ -68,7 +68,7 @@ export function CookieConsent({
 		>
 			<div className="flex items-start gap-3">
 				<div className="rounded-xl bg-orange-500/10 p-2.5 text-orange-500 shrink-0 mt-0.5">
-					<CookieIcon className="h-5 w-5" />
+					<LuCookie className="h-5 w-5" />
 				</div>
 				<div className="flex-1 space-y-1">
 					<h2 className="text-sm font-semibold tracking-tight text-white">We value your privacy</h2>
