@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { SKIP_TO_MAIN_LABEL } from "@/features/home/content/section-copy";
 import { Footer, Navbar } from "@/features/home/sections";
+import { SiteCookieConsent } from "@/shared/ui";
 import {
 	createBaseMetadata,
 	getOrganizationJsonLd,
@@ -42,7 +43,9 @@ export default function RootLayout({
 					{children}
 				</main>
 				<Footer />
+				<SiteCookieConsent />
 			</body>
 		</html>
 	);
 }
+
