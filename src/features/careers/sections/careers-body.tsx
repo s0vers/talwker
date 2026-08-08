@@ -20,7 +20,7 @@ export function CareersBody({ onApply }: CareersBodyProps) {
 			: OPEN_POSITIONS.filter((pos) => pos.department === selectedDept);
 
 	return (
-		<section className="bg-[#050505] text-white py-16 md:py-24 border-t border-white/6">
+		<section id="open-positions" className="bg-[#050505] text-white py-16 md:py-24 border-t border-white/6 scroll-mt-20">
 			<div className="pad-x mx-auto max-w-[1600px]">
 				<div className="mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
 					<div>
