@@ -1,8 +1,8 @@
 "use client";
 
-import { useLayoutEffect, type RefObject } from "react";
+import type { RefObject } from "react";
 import gsap from "gsap";
-import { prefersReducedMotion } from "@/lib/useGsap";
+import { useGsapContext } from "@/lib/useGsap";
 
 export type StoriesHeroGsapRefs = {
 	section: RefObject<HTMLElement | null>;
@@ -29,12 +29,11 @@ export function useStoriesHeroEntrance(
 		glowRef,
 	} = refs;
 
-	useLayoutEffect(() => {
-		const root = section.current;
-		if (typeof window === "undefined" || !root || !runEntrance) return;
-		if (prefersReducedMotion()) return;
+	useGsapContext(
+		section,
+		() => {
+			if (!runEntrance) return;
 
-		const ctx = gsap.context(() => {
 			const tl = gsap.timeline({
 				defaults: { ease: "power3.out" },
 				delay: 0.08,
@@ -53,17 +52,18 @@ export function useStoriesHeroEntrance(
 				kickerRef.current,
 				{ opacity: 0, y: 14, duration: 0.65 },
 				0.06,
-			).from(
-				ruleRef.current,
-				{
-					scaleX: 0,
-					opacity: 0,
-					duration: 0.85,
-					transformOrigin: "left center",
-					ease: "power2.inOut",
-				},
-				0.12,
 			)
+				.from(
+					ruleRef.current,
+					{
+						scaleX: 0,
+						opacity: 0,
+						duration: 0.85,
+						transformOrigin: "left center",
+						ease: "power2.inOut",
+					},
+					0.12,
+				)
 				.from(
 					title1Ref.current,
 					{ y: "110%", opacity: 0, duration: 1.05, ease: "power4.out" },
@@ -79,17 +79,7 @@ export function useStoriesHeroEntrance(
 					{ opacity: 0, y: 22, duration: 0.9, ease: "sine.out" },
 					0.48,
 				);
-		}, root);
-
-		return () => ctx.revert();
-	}, [
-		section,
-		runEntrance,
-		kickerRef,
-		ruleRef,
-		title1Ref,
-		title2Ref,
-		descRef,
-		glowRef,
-	]);
+		},
+		[runEntrance],
+	);
 }
