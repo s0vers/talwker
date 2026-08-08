@@ -60,11 +60,50 @@ export function FaqHero({ searchQuery, onSearchChange }: FaqHeroProps) {
 			aria-labelledby="faq-hero-title"
 			className="relative bg-[#050505] text-white pt-28 pb-16 md:pt-36 md:pb-20 border-b border-white/6 overflow-hidden"
 		>
-			{/* Ambient Warm Support Glow */}
+			{/* Dual-Temperature Luminous Ambient Glow (Orange + Slate Cyan) */}
 			<div
-				className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_75%_55%_at_20%_-10%,rgba(249,115,22,0.12),transparent_60%)]"
+				className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_55%_at_15%_-10%,rgba(249,115,22,0.13),transparent_60%)]"
 				aria-hidden
 			/>
+			<div
+				className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_50%_45%_at_85%_90%,rgba(56,189,248,0.06),transparent_60%)]"
+				aria-hidden
+			/>
+
+			{/* Search Radar Arcs SVG Overlay */}
+			<svg
+				className="pointer-events-none absolute left-[-100px] top-[-50px] h-[500px] w-[500px] text-orange-500/10 opacity-40"
+				viewBox="0 0 200 200"
+				aria-hidden
+			>
+				<circle
+					cx="100"
+					cy="100"
+					r="80"
+					fill="none"
+					stroke="currentColor"
+					strokeWidth="0.4"
+					strokeDasharray="4 8"
+					className="origin-center motion-reduce:animate-none motion-safe:animate-[spin_120s_linear_infinite]"
+				/>
+				<circle
+					cx="100"
+					cy="100"
+					r="55"
+					fill="none"
+					stroke="currentColor"
+					strokeWidth="0.25"
+					opacity="0.6"
+				/>
+			</svg>
+
+			{/* Background Watermark */}
+			<div
+				className="pointer-events-none absolute right-4 top-12 hidden select-none font-mono text-[9vw] font-black uppercase tracking-tighter text-white/[0.015] lg:block"
+				aria-hidden
+			>
+				KNOWLEDGE
+			</div>
 
 			<div className="relative z-10 mx-auto max-w-[1600px] pad-x">
 				<div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
@@ -123,7 +162,7 @@ export function FaqHero({ searchQuery, onSearchChange }: FaqHeroProps) {
 					<div className="lg:col-span-5 relative">
 						<div
 							ref={topicsCardRef}
-							className="rounded-2xl border border-white/12 bg-[#0a0a0a]/90 p-6 sm:p-8 shadow-2xl backdrop-blur-md space-y-4"
+							className="rounded-2xl border border-white/12 bg-[#0a0a0a]/90 p-6 sm:p-8 shadow-2xl backdrop-blur-md space-y-4 group hover:border-orange-500/40 transition-colors duration-300"
 						>
 							<div className="flex items-center justify-between border-b border-white/10 pb-4">
 								<span className="text-[10px] font-bold uppercase tracking-[0.2em] text-orange-500 flex items-center gap-1.5">
