@@ -1,13 +1,9 @@
-"use client";
-
-import { PARTNERS_CTA } from "@/features/partners/content/partners-copy";
 import { EditorialCtaBand } from "@/shared/ui";
+import { PARTNERS_CTA } from "../content/partners-copy";
 
-export default function PartnersCTA() {
+export function PartnersCTA() {
 	return (
 		<EditorialCtaBand
-			showTopFrame
-			headingId="partners-cta-title"
 			label={PARTNERS_CTA.label}
 			titleLead={PARTNERS_CTA.titleLead}
 			titleAccent={PARTNERS_CTA.titleAccent}
@@ -20,6 +16,7 @@ export default function PartnersCTA() {
 				label: PARTNERS_CTA.secondaryAction,
 				href: PARTNERS_CTA.secondaryHref,
 			}}
+			showTopFrame
 		/>
 	);
 }
