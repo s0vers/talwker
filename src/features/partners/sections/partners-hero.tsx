@@ -80,7 +80,7 @@ export function PartnersHero() {
 				</div>
 
 				{/* High-Contrast Partner Network Stats Strip */}
-				<div className="grid grid-cols-1 gap-4 sm:grid-cols-3 pt-8 border-t border-white/10 max-w-5xl mx-auto">
+				<div className="grid grid-cols-1 gap-4 sm:grid-cols-3 pt-8 max-w-5xl mx-auto">
 					{PARTNERS_HERO.stats.map((stat, idx) => (
 						<div
 							key={idx}
