@@ -23,8 +23,8 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" data-scroll-behavior="smooth">
-			<body className={inter.className}>
+		<html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
+			<body className={inter.className} suppressHydrationWarning>
 				<script
 					type="application/ld+json"
 					dangerouslySetInnerHTML={{

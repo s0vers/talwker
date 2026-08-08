@@ -27,7 +27,7 @@ export function PressHero() {
 	return (
 		<section
 			ref={containerRef}
-			className="relative min-h-[48vh] flex items-center bg-[#050505] text-white pt-28 pb-16 pad-x overflow-hidden border-b border-white/6"
+			className="relative min-h-[48vh] flex items-center bg-[#050505] text-white overflow-hidden border-b border-white/6"
 		>
 			<div
 				className="pointer-events-none absolute inset-0 opacity-[0.03]"
@@ -36,7 +36,7 @@ export function PressHero() {
 					backgroundSize: "30px 30px",
 				}}
 			/>
-			<div ref={contentRef} className="relative mx-auto max-w-[1600px] w-full">
+			<div ref={contentRef} className="relative z-10 mx-auto max-w-[1600px] pad-x pt-28 pb-16 md:pt-36 md:pb-20 w-full">
 				<div className="flex items-center gap-3">
 					<p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500">
 						{PRESS_HERO.eyebrow}
