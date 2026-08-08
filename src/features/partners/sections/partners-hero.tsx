@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { ArrowDown } from "lucide-react";
+import { LuArrowDown } from "react-icons/lu";
 import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
 import { PARTNERS_HERO } from "../content/partners-copy";
 
@@ -59,7 +59,7 @@ export function PartnersHero() {
 						className="text-[clamp(2.75rem,6.5vw,5.5rem)] font-bold leading-[0.92] tracking-tight text-white"
 					>
 						Uniting the world’s finest{" "}
-						<span className="font-serif italic font-normal text-orange-500 block sm:inline">
+						<span className="font-light italic text-orange-500 block sm:inline">
 							boutique hosts & guides.
 						</span>
 					</h1>
@@ -74,7 +74,7 @@ export function PartnersHero() {
 							onClick={scrollToForm}
 							className="inline-flex items-center gap-2 rounded-full bg-orange-500 px-9 py-4 text-xs font-semibold uppercase tracking-widest text-white transition-all hover:bg-orange-600 hover:shadow-2xl hover:shadow-orange-500/30"
 						>
-							Apply for Partnership <ArrowDown className="h-4 w-4" />
+							Apply for Partnership <LuArrowDown className="h-4 w-4" />
 						</button>
 					</div>
 				</div>

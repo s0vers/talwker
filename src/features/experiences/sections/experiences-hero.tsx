@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
-import { Sparkles, Layers, Compass, ArrowRight } from "lucide-react";
+import { LuSparkles, LuLayers, LuCompass, LuArrowRight } from "react-icons/lu";
 import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
 import { EXPERIENCES_HERO, EXPERIENCES_CATALOG } from "../content/experiences-page-copy";
 import { cn } from "@/lib/utils";
@@ -74,7 +74,7 @@ export function ExperiencesHero() {
 					<div ref={contentRef} className="lg:col-span-7 space-y-6">
 						<div className="flex items-center gap-3">
 							<span className="inline-flex items-center gap-1.5 rounded-full bg-orange-500/10 border border-orange-500/30 px-3.5 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-400">
-								<Sparkles className="h-3 w-3 text-orange-500" />
+								<LuSparkles className="h-3 w-3 text-orange-500" />
 								01 // Discovery
 							</span>
 							<span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/40">
@@ -87,7 +87,7 @@ export function ExperiencesHero() {
 							className="text-[clamp(2.75rem,6.5vw,5.25rem)] font-bold leading-[0.93] tracking-tight text-white"
 						>
 							The Art of{" "}
-							<span className="font-serif italic font-normal text-orange-500 block sm:inline">
+							<span className="font-light italic text-orange-500 block sm:inline">
 								Unrushed Travel.
 							</span>
 						</h1>
@@ -99,10 +99,10 @@ export function ExperiencesHero() {
 						{/* Feature Pills */}
 						<div className="flex flex-wrap gap-4 pt-2 text-xs text-white/70">
 							<span className="inline-flex items-center gap-2 rounded-xl bg-white/5 border border-white/10 px-3.5 py-2">
-								<Layers className="h-4 w-4 text-orange-500" /> 6 Signature Formats
+								<LuLayers className="h-4 w-4 text-orange-500" /> 6 Signature Formats
 							</span>
 							<span className="inline-flex items-center gap-2 rounded-xl bg-white/5 border border-white/10 px-3.5 py-2">
-								<Compass className="h-4 w-4 text-orange-500" /> Max 8–16 Guests
+								<LuCompass className="h-4 w-4 text-orange-500" /> Max 8–16 Guests
 							</span>
 						</div>
 
@@ -111,7 +111,7 @@ export function ExperiencesHero() {
 								href={EXPERIENCES_HERO.primaryHref}
 								className="inline-flex items-center gap-2 rounded-full bg-orange-500 px-8 py-3.5 text-xs font-semibold uppercase tracking-widest text-white transition-all hover:bg-orange-600 hover:shadow-xl hover:shadow-orange-500/20"
 							>
-								{EXPERIENCES_HERO.primaryAction} <ArrowRight className="h-4 w-4" />
+								{EXPERIENCES_HERO.primaryAction} <LuArrowRight className="h-4 w-4" />
 							</Link>
 							<Link
 								href={EXPERIENCES_HERO.secondaryHref}

@@ -1,4 +1,4 @@
-import { ExternalLink } from "lucide-react";
+import { LuExternalLink } from "react-icons/lu";
 import { PRESS_ARTICLES } from "../content/press-copy";
 
 export function PressCoverage() {
@@ -44,7 +44,7 @@ export function PressCoverage() {
 
 							<div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-orange-500">
 								<span>{article.linkText}</span>
-								<ExternalLink className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+								<LuExternalLink className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
 							</div>
 						</article>
 					))}

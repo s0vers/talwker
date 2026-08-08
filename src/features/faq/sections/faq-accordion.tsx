@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { ArrowRight, HelpCircle } from "lucide-react";
+import { LuArrowRight, LuCircleHelp } from "react-icons/lu";
 import { FAQ_GROUPS } from "../content/faq-copy";
 
 export type FaqAccordionProps = {
@@ -69,7 +69,7 @@ export function FaqAccordion({ searchQuery, onClearSearch }: FaqAccordionProps) 
 				{/* Accordion Groups */}
 				{filteredGroups.length === 0 ? (
 					<div className="rounded-2xl border border-white/10 bg-[#0a0a0a] p-12 text-center space-y-4">
-						<HelpCircle className="mx-auto h-12 w-12 text-white/30" />
+						<LuCircleHelp className="mx-auto h-12 w-12 text-white/30" />
 						<h3 className="text-lg font-bold text-white">No matching questions found</h3>
 						<p className="text-xs text-white/60 max-w-sm mx-auto">
 							We couldn&apos;t find any questions matching &ldquo;{searchQuery}&rdquo;. Try adjusting your search query or clear the filter.
@@ -107,7 +107,7 @@ export function FaqAccordion({ searchQuery, onClearSearch }: FaqAccordionProps) 
 														href={item.linkHref}
 														className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-orange-500 hover:text-orange-400"
 													>
-														{item.linkLabel} <ArrowRight className="h-3.5 w-3.5" />
+														{item.linkLabel} <LuArrowRight className="h-3.5 w-3.5" />
 													</Link>
 												</div>
 											) : null}
