@@ -108,16 +108,29 @@ export const FOOTER_COLUMNS = {
 	Support: ["FAQ", "Booking Policy", "Cancellation", "Contact"],
 } as const;
 
-/** Labels with real routes. Unmapped labels stay non-navigating (no fake pages). */
+/** Labels with real routes. All footer items now navigate. */
 export const FOOTER_LINK_HREF: Record<string, string | undefined> = {
 	Destinations: "/destinations",
 	Tours: "/tours",
 	Stories: "/stories",
+	Experiences: "/experiences",
 	About: "/about",
+	Careers: "/careers",
+	Press: "/press",
+	Partners: "/partners",
+	FAQ: "/faq",
+	"Booking Policy": "/booking-policy",
+	Cancellation: "/cancellation",
 	Contact: "/contact",
 };
 
 export const LEGAL_LINKS = ["Privacy", "Terms", "Cookies"] as const;
+
+export const LEGAL_LINK_HREF = {
+	Privacy: "/privacy",
+	Terms: "/terms",
+	Cookies: "/cookies",
+} as const;
 
 export const FOOTER_COPY = {
 	blurb:
@@ -125,3 +138,4 @@ export const FOOTER_COPY = {
 	/** Shown after © {year} */
 	copyrightRest: "Talkwer. All rights reserved.",
 } as const;
+
