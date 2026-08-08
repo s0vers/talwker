@@ -1,0 +1,66 @@
+"use client";
+
+import Link from "next/link";
+import { useRef } from "react";
+import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
+import { EXPERIENCES_HERO } from "../content/experiences-page-copy";
+
+export function ExperiencesHero() {
+	const containerRef = useRef<HTMLElement>(null);
+	const contentRef = useRef<HTMLDivElement>(null);
+
+	useGsapContext(
+		containerRef,
+		() => {
+			if (prefersReducedMotion() || !contentRef.current) return;
+			gsap.from(contentRef.current.children, {
+				y: 40,
+				opacity: 0,
+				duration: 0.9,
+				stagger: 0.12,
+				ease: "power3.out",
+			});
+		},
+		[],
+	);
+
+	return (
+		<section
+			ref={containerRef}
+			className="relative min-h-[60vh] flex items-center bg-[#050505] text-white pt-32 pb-20 pad-x overflow-hidden"
+		>
+			<div
+				className="pointer-events-none absolute inset-0 opacity-[0.03]"
+				style={{
+					backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)",
+					backgroundSize: "30px 30px",
+				}}
+			/>
+			<div ref={contentRef} className="relative mx-auto max-w-[1600px] w-full">
+				<p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500">
+					{EXPERIENCES_HERO.eyebrow}
+				</p>
+				<h1 className="mt-4 max-w-4xl text-[clamp(2.5rem,6vw,5.5rem)] font-bold leading-[0.95] tracking-tight text-white">
+					{EXPERIENCES_HERO.title}
+				</h1>
+				<p className="mt-6 max-w-2xl text-lg text-white/60 leading-relaxed">
+					{EXPERIENCES_HERO.description}
+				</p>
+				<div className="mt-10 flex flex-wrap gap-4 items-center">
+					<Link
+						href={EXPERIENCES_HERO.primaryHref}
+						className="inline-flex items-center gap-2 rounded-full bg-orange-500 px-8 py-3.5 text-xs font-semibold uppercase tracking-widest text-white transition-all hover:bg-orange-600 hover:shadow-xl hover:shadow-orange-500/20"
+					>
+						{EXPERIENCES_HERO.primaryAction} →
+					</Link>
+					<Link
+						href={EXPERIENCES_HERO.secondaryHref}
+						className="inline-flex items-center rounded-full border border-white/15 px-8 py-3.5 text-xs font-semibold uppercase tracking-widest text-white/70 transition-all hover:border-white/40 hover:text-white"
+					>
+						{EXPERIENCES_HERO.secondaryAction}
+					</Link>
+				</div>
+			</div>
+		</section>
+	);
+}
