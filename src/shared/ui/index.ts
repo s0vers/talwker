@@ -7,4 +7,6 @@ export { DestinationCard } from "./destination-card";
 export type { DestinationCardProps } from "./destination-card";
 export { TourCard } from "./tour-card";
 export type { TourCardProps } from "./tour-card";
+export { PolicyDocument } from "./policy-document";
+export type { PolicyDocumentProps, PolicySection } from "./policy-document";
 
