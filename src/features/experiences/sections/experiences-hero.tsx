@@ -5,15 +5,10 @@ import Link from "next/link";
 import { useRef } from "react";
 import { Sparkles, Layers, Compass, ArrowRight } from "lucide-react";
 import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
-import { EXPERIENCES_HERO, EXPERIENCE_CATEGORIES, EXPERIENCES_CATALOG, type ExperienceCategory } from "../content/experiences-page-copy";
+import { EXPERIENCES_HERO, EXPERIENCES_CATALOG } from "../content/experiences-page-copy";
 import { cn } from "@/lib/utils";
 
-export type ExperiencesHeroProps = {
-	activeCategory: ExperienceCategory;
-	onCategoryChange: (category: ExperienceCategory) => void;
-};
-
-export function ExperiencesHero({ activeCategory, onCategoryChange }: ExperiencesHeroProps) {
+export function ExperiencesHero() {
 	const containerRef = useRef<HTMLElement>(null);
 	const contentRef = useRef<HTMLDivElement>(null);
 	const cardsStackRef = useRef<HTMLDivElement>(null);
@@ -22,30 +17,28 @@ export function ExperiencesHero({ activeCategory, onCategoryChange }: Experience
 		containerRef,
 		() => {
 			if (prefersReducedMotion()) return;
-			const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+			const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
 
 			if (contentRef.current) {
 				tl.from(contentRef.current.children, {
-					y: 35,
+					y: 28,
 					opacity: 0,
-					duration: 0.8,
-					stagger: 0.1,
+					duration: 0.85,
+					stagger: 0.08,
 					clearProps: "all",
 				});
 			}
 
 			if (cardsStackRef.current) {
 				tl.from(
-					cardsStackRef.current.children,
+					cardsStackRef.current,
 					{
-						scale: 0.9,
-						y: 30,
+						y: 32,
 						opacity: 0,
-						duration: 0.8,
-						stagger: 0.15,
-						clearProps: "all", // Prevents cards from disappearing or sticking at opacity 0!
+						duration: 1.0,
+						clearProps: "all",
 					},
-					"-=0.5",
+					"-=0.6",
 				);
 			}
 		},
@@ -59,7 +52,7 @@ export function ExperiencesHero({ activeCategory, onCategoryChange }: Experience
 		<section
 			ref={containerRef}
 			aria-labelledby="experiences-hero-title"
-			className="relative min-h-[60vh] flex items-center bg-[#050505] text-white overflow-hidden border-b border-white/6"
+			className="relative min-h-[55vh] flex items-center bg-[#050505] text-white overflow-hidden border-b border-white/6"
 		>
 			{/* Bespoke Ambient Glow & Mesh Overlay */}
 			<div
@@ -129,9 +122,9 @@ export function ExperiencesHero({ activeCategory, onCategoryChange }: Experience
 						</div>
 					</div>
 
-					{/* Right Column: Layered Floating Cards Stack */}
+					{/* Right Column: Hardware-Accelerated Visual Cards Stack */}
 					<div className="lg:col-span-5 relative py-6 lg:py-0">
-						<div ref={cardsStackRef} className="relative aspect-4/3 w-full max-w-md mx-auto min-h-[300px]">
+						<div ref={cardsStackRef} className="relative aspect-4/3 w-full max-w-md mx-auto min-h-[300px] transform-gpu">
 							{featuredStack.map((item, index) => {
 								const rotationClass =
 									index === 0
@@ -144,7 +137,7 @@ export function ExperiencesHero({ activeCategory, onCategoryChange }: Experience
 									<div
 										key={item.id}
 										className={cn(
-											"absolute inset-0 overflow-hidden rounded-2xl border border-white/15 bg-[#0a0a0a] shadow-2xl transition-all duration-500 ease-out cursor-pointer",
+											"absolute inset-0 overflow-hidden rounded-2xl border border-white/15 bg-[#0a0a0a] shadow-2xl transition-transform duration-500 ease-out transform-gpu cursor-pointer",
 											rotationClass,
 										)}
 									>
@@ -170,36 +163,6 @@ export function ExperiencesHero({ activeCategory, onCategoryChange }: Experience
 								);
 							})}
 						</div>
-					</div>
-				</div>
-
-				{/* Category Filter Bar */}
-				<div className="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-					<div>
-						<p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/40">
-							Select Experience Format
-						</p>
-					</div>
-
-					<div className="flex flex-wrap gap-2">
-						{EXPERIENCE_CATEGORIES.map((cat) => {
-							const isActive = activeCategory === cat.id;
-							return (
-								<button
-									key={cat.id}
-									type="button"
-									onClick={() => onCategoryChange(cat.id)}
-									className={cn(
-										"rounded-full px-4 py-2 text-xs font-semibold transition-all duration-300",
-										isActive
-											? "bg-orange-500 text-white shadow-md shadow-orange-500/20"
-											: "border border-white/10 bg-[#0a0a0a] text-white/60 hover:border-white/25 hover:text-white",
-									)}
-								>
-									{cat.label}
-								</button>
-							);
-						})}
 					</div>
 				</div>
 			</div>
