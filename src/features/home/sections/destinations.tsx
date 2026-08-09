@@ -135,7 +135,7 @@ export default function Destinations() {
 					/>
 				</div>
 
-				<div className="mt-12 text-center">
+				<div className="mt-16 text-center">
 					<SectionCta
 						href="/destinations"
 						icon={

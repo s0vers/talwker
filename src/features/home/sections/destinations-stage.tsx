@@ -71,6 +71,7 @@ export function DestinationsStage({
 				}
 			}}
 		>
+			{/* Stage only — filmstrip lives outside so CTA can never collide with thumbs */}
 			<div
 				role="region"
 				aria-roledescription="carousel"
@@ -110,7 +111,6 @@ export function DestinationsStage({
 					e.stopPropagation();
 				}}
 			>
-				{/* Crossfade: stack images; only active is opaque */}
 				{destinations.map((item, index) => (
 					<div
 						key={item.id}
@@ -130,9 +130,9 @@ export function DestinationsStage({
 						/>
 					</div>
 				))}
-				<div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-transparent" />
+				<div className="absolute inset-0 bg-gradient-to-t from-black via-black/45 to-transparent" />
 
-				<div className="absolute inset-x-0 bottom-0 z-10 flex flex-col gap-5 p-5 md:p-8 md:pb-28">
+				<div className="absolute inset-x-0 bottom-0 z-10 flex flex-col gap-4 p-6 pb-8 md:p-10 md:pb-12">
 					<div aria-live="polite" aria-atomic="true">
 						<p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/45">
 							{dest.country}
@@ -154,23 +154,9 @@ export function DestinationsStage({
 						<LuArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
 					</Link>
 				</div>
-
-				{/* Desktop overlay filmstrip */}
-				<div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 hidden p-5 md:block md:p-6">
-					<div className="pointer-events-auto">
-						<DestinationsFilmstrip
-							destinations={destinations}
-							activeIndex={activeIndex}
-							progress={progress}
-							showProgress={showProgress}
-							onSelect={onSelect}
-						/>
-					</div>
-				</div>
 			</div>
 
-			{/* Mobile filmstrip below stage */}
-			<div className="mt-4 md:hidden">
+			<div className="mt-8 md:mt-10">
 				<DestinationsFilmstrip
 					destinations={destinations}
 					activeIndex={activeIndex}
