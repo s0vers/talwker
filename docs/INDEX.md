@@ -26,6 +26,7 @@
 - `.superpowers/` — local runtime only (gitignored).
 - Before writing or executing a spec/plan: follow `talkwer-superpowers.mdc` and the new-route checklist below; name a reference feature in the Architecture line.
 - Spec/plan: `docs/superpowers/specs/2026-08-07-stories-tours-pages-and-polish-design.md`, `docs/superpowers/plans/2026-08-07-stories-tours-pages-and-polish.md`.
+- Spec/plan: `docs/superpowers/specs/2026-08-09-home-destinations-stage-filmstrip-design.md`, `docs/superpowers/plans/2026-08-09-home-destinations-stage-filmstrip.md`.
 
 ## New page/module checklist
 
