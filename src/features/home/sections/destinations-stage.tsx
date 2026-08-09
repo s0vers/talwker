@@ -43,8 +43,12 @@ export function DestinationsStage({
 	return (
 		<div
 			className={cn("relative", className)}
-			onMouseEnter={() => onPauseChange(true)}
-			onMouseLeave={() => onPauseChange(false)}
+			onPointerEnter={(e) => {
+				if (e.pointerType === "mouse") onPauseChange(true);
+			}}
+			onPointerLeave={(e) => {
+				if (e.pointerType === "mouse") onPauseChange(false);
+			}}
 			onFocusCapture={() => onPauseChange(true)}
 			onBlurCapture={(e) => {
 				if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
@@ -69,7 +73,6 @@ export function DestinationsStage({
 				}}
 				onPointerDown={(e) => {
 					pointerStartX.current = e.clientX;
-					onPauseChange(true);
 				}}
 				onPointerUp={(e) => {
 					const start = pointerStartX.current;
