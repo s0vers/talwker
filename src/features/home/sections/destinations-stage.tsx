@@ -34,6 +34,13 @@ export function DestinationsStage({
 	const dest = destinations[activeIndex]!;
 	const href = `/destinations/${destinationToSlug(dest)}`;
 	const pointerStartX = useRef<number | null>(null);
+	const didSwipe = useRef(false);
+	const hoverPaused = useRef(false);
+	const focusPaused = useRef(false);
+
+	const syncPause = () => {
+		onPauseChange(hoverPaused.current || focusPaused.current);
+	};
 
 	const go = (next: number) => {
 		const len = destinations.length;
@@ -44,15 +51,23 @@ export function DestinationsStage({
 		<div
 			className={cn("relative", className)}
 			onPointerEnter={(e) => {
-				if (e.pointerType === "mouse") onPauseChange(true);
+				if (e.pointerType !== "mouse") return;
+				hoverPaused.current = true;
+				syncPause();
 			}}
 			onPointerLeave={(e) => {
-				if (e.pointerType === "mouse") onPauseChange(false);
+				if (e.pointerType !== "mouse") return;
+				hoverPaused.current = false;
+				syncPause();
 			}}
-			onFocusCapture={() => onPauseChange(true)}
+			onFocusCapture={() => {
+				focusPaused.current = true;
+				syncPause();
+			}}
 			onBlurCapture={(e) => {
 				if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
-					onPauseChange(false);
+					focusPaused.current = false;
+					syncPause();
 				}
 			}}
 		>
@@ -73,6 +88,7 @@ export function DestinationsStage({
 				}}
 				onPointerDown={(e) => {
 					pointerStartX.current = e.clientX;
+					didSwipe.current = false;
 				}}
 				onPointerUp={(e) => {
 					const start = pointerStartX.current;
@@ -80,10 +96,18 @@ export function DestinationsStage({
 					if (start == null) return;
 					const delta = e.clientX - start;
 					if (Math.abs(delta) < SWIPE_THRESHOLD_PX) return;
+					didSwipe.current = true;
 					go(delta < 0 ? activeIndex + 1 : activeIndex - 1);
 				}}
 				onPointerCancel={() => {
 					pointerStartX.current = null;
+					didSwipe.current = false;
+				}}
+				onClickCapture={(e) => {
+					if (!didSwipe.current) return;
+					didSwipe.current = false;
+					e.preventDefault();
+					e.stopPropagation();
 				}}
 			>
 				{/* Crossfade: stack images; only active is opaque */}
@@ -92,7 +116,7 @@ export function DestinationsStage({
 						key={item.id}
 						aria-hidden={index !== activeIndex}
 						className={cn(
-							"absolute inset-0 transition-opacity duration-500 ease-out",
+							"absolute inset-0 transition-opacity duration-500 ease-out motion-reduce:duration-0",
 							index === activeIndex ? "opacity-100" : "opacity-0",
 						)}
 					>
