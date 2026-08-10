@@ -50,11 +50,13 @@ export const DESTINATIONS_SECTION = {
 	label: "Explore the World",
 	title: "Popular Destinations",
 	description:
-		"Handpicked places our travelers keep coming back to. Scroll to glide through the journeys.",
+		"Four handpicked places to start with — then browse the full map when you're ready.",
 	countSuffix: "Destinations",
 	viewAllCta: "View All Destinations",
 	fromLabel: "From",
 	exploreButtonLabel: "Explore",
+	stageRegionLabel: "Featured destinations",
+	filmstripLabel: "Choose a featured destination",
 } as const;
 
 export const FEATURED_TOURS_SECTION = {
