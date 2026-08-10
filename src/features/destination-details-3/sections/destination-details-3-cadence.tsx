@@ -52,7 +52,7 @@ export function DestinationDetails3Cadence({ model }: { model: DestinationDetail
 					</div>
 
 					<aside
-						className="relative aspect-4/5 w-full min-h-0 overflow-hidden rounded-sm border border-white/10 lg:sticky lg:top-28 lg:aspect-auto lg:h-full"
+						className="relative aspect-4/5 w-full min-h-0 overflow-hidden rounded-sm border border-white/10 lg:sticky lg:top-28 lg:aspect-auto lg:h-fit"
 						aria-label="Cadence visual"
 						data-d3-reveal="zoom"
 					>

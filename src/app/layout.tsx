@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { SKIP_TO_MAIN_LABEL } from "@/features/home/content/section-copy";
 import { Footer, Navbar } from "@/features/home/sections";
+import { SiteCookieConsent } from "@/shared/ui";
 import {
 	createBaseMetadata,
 	getOrganizationJsonLd,
@@ -22,8 +23,8 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" data-scroll-behavior="smooth">
-			<body className={inter.className}>
+		<html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
+			<body className={inter.className} suppressHydrationWarning>
 				<script
 					type="application/ld+json"
 					dangerouslySetInnerHTML={{
@@ -42,7 +43,9 @@ export default function RootLayout({
 					{children}
 				</main>
 				<Footer />
+				<SiteCookieConsent />
 			</body>
 		</html>
 	);
 }
+

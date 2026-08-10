@@ -55,5 +55,56 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			changeFrequency: "monthly" as const,
 			priority: 0.65,
 		})),
+		{
+			url: resolveCanonicalUrl("/experiences"),
+			changeFrequency: "weekly",
+			priority: 0.78,
+		},
+		{
+			url: resolveCanonicalUrl("/careers"),
+			changeFrequency: "monthly",
+			priority: 0.5,
+		},
+		{
+			url: resolveCanonicalUrl("/press"),
+			changeFrequency: "monthly",
+			priority: 0.5,
+		},
+		{
+			url: resolveCanonicalUrl("/partners"),
+			changeFrequency: "monthly",
+			priority: 0.5,
+		},
+		{
+			url: resolveCanonicalUrl("/faq"),
+			changeFrequency: "monthly",
+			priority: 0.55,
+		},
+		{
+			url: resolveCanonicalUrl("/booking-policy"),
+			changeFrequency: "yearly",
+			priority: 0.4,
+		},
+		{
+			url: resolveCanonicalUrl("/cancellation"),
+			changeFrequency: "yearly",
+			priority: 0.4,
+		},
+		{
+			url: resolveCanonicalUrl("/privacy"),
+			changeFrequency: "yearly",
+			priority: 0.4,
+		},
+		{
+			url: resolveCanonicalUrl("/terms"),
+			changeFrequency: "yearly",
+			priority: 0.4,
+		},
+		{
+			url: resolveCanonicalUrl("/cookies"),
+			changeFrequency: "yearly",
+			priority: 0.4,
+		},
 	];
 }
+
