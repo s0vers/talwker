@@ -50,13 +50,19 @@ export const DESTINATIONS_SECTION = {
 	label: "Explore the World",
 	title: "Popular Destinations",
 	description:
-		"Four handpicked places to start with — then browse the full map when you're ready.",
+		"Handpicked extraordinary places — filter by style or browse our featured spotlight showcase.",
+	spotlightBadge: "Spotlight Showcase",
 	countSuffix: "Destinations",
 	viewAllCta: "View All Destinations",
 	fromLabel: "From",
-	exploreButtonLabel: "Explore",
-	stageRegionLabel: "Featured destinations",
+	exploreButtonLabel: "Explore Destination",
+	stageRegionLabel: "Featured destinations spotlight stage",
 	filmstripLabel: "Choose a featured destination",
+	filterCategories: ["All", "Popular", "Trending", "Luxury", "New"] as const,
+	pauseAutoplayLabel: "Pause slideshow",
+	playAutoplayLabel: "Play slideshow",
+	prevSlideLabel: "Previous destination",
+	nextSlideLabel: "Next destination",
 } as const;
 
 export const FEATURED_TOURS_SECTION = {
