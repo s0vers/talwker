@@ -4,6 +4,7 @@ import {
 	FOOTER_COPY,
 	FOOTER_LINK_HREF,
 	LEGAL_LINKS,
+	LEGAL_LINK_HREF,
 } from "@/features/home/content/section-copy";
 
 export default function Footer() {
@@ -56,14 +57,13 @@ export default function Footer() {
 					</p>
 					<div className="flex gap-6 text-[12px] text-white/60">
 						{LEGAL_LINKS.map((linkLabel) => (
-							<button
+							<Link
 								key={linkLabel}
-								type="button"
-								aria-label={`View ${linkLabel.toLowerCase()}`}
-								className="hover:text-white/80"
+								href={LEGAL_LINK_HREF[linkLabel]}
+								className="hover:text-white/80 transition-colors"
 							>
 								{linkLabel}
-							</button>
+							</Link>
 						))}
 					</div>
 				</div>
@@ -71,3 +71,4 @@ export default function Footer() {
 		</footer>
 	);
 }
+

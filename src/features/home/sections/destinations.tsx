@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { LuArrowRight } from "react-icons/lu";
 import {
 	gsap,
@@ -8,42 +8,98 @@ import {
 	useGsapContext,
 } from "@/lib/useGsap";
 import { DESTINATIONS } from "@/features/home/content/destinations";
-import { destinationToSlug } from "@/features/destinations/lib/destination-slug";
+import { getFeaturedDestinations } from "@/features/home/content/featured-destinations";
 import { DESTINATIONS_SECTION } from "@/features/home/content/section-copy";
-import { DestinationCard, SectionCta, SectionHeading } from "@/shared/ui";
+import { DestinationsStage } from "@/features/home/sections/destinations-stage";
+import { cn } from "@/lib/utils";
+import { SectionCta, SectionHeading } from "@/shared/ui";
+
+const AUTOPLAY_MS = 5000;
+const featured = getFeaturedDestinations();
+
+function subscribeReducedMotion(onStoreChange: () => void) {
+	const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+	mq.addEventListener("change", onStoreChange);
+	return () => mq.removeEventListener("change", onStoreChange);
+}
 
 export default function Destinations() {
 	const sectionRef = useRef<HTMLElement>(null);
 	const headingRef = useRef<HTMLDivElement>(null);
-	const trackRef = useRef<HTMLDivElement>(null);
+	const stageWrapRef = useRef<HTMLDivElement>(null);
+
+	const [selectedCategory, setSelectedCategory] = useState<string>("All");
+	const [activeIndex, setActiveIndex] = useState(0);
+	const [paused, setPaused] = useState(false);
+	const [progress, setProgress] = useState(0);
+
+	const reduceMotion = useSyncExternalStore(
+		subscribeReducedMotion,
+		prefersReducedMotion,
+		() => false,
+	);
+
+	const activeDestinations = useMemo(() => {
+		if (selectedCategory === "All") return featured;
+		const filtered = DESTINATIONS.filter((d) => d.tag === selectedCategory);
+		return filtered.length > 0 ? filtered : featured;
+	}, [selectedCategory]);
+
+	useEffect(() => {
+		if (reduceMotion || paused) {
+			const reset = requestAnimationFrame(() => setProgress(0));
+			return () => cancelAnimationFrame(reset);
+		}
+		let frame = 0;
+		const started = performance.now();
+		const tick = (now: number) => {
+			const elapsed = now - started;
+			const ratio = Math.min(1, elapsed / AUTOPLAY_MS);
+			setProgress(ratio);
+			if (ratio >= 1) {
+				setActiveIndex((i) => (i + 1) % activeDestinations.length);
+				return;
+			}
+			frame = requestAnimationFrame(tick);
+		};
+		frame = requestAnimationFrame(tick);
+		return () => cancelAnimationFrame(frame);
+	}, [activeIndex, paused, reduceMotion, activeDestinations]);
 
 	useGsapContext(
 		sectionRef,
 		() => {
 			if (prefersReducedMotion()) return;
-			const section = sectionRef.current;
-			const track = trackRef.current;
 			const heading = headingRef.current;
-			if (!section || !track) return;
-
-			const totalScroll = () => {
-				const scrollWidth = track.scrollWidth;
-				const viewport = track.parentElement?.clientWidth ?? window.innerWidth;
-				return Math.max(0, scrollWidth - viewport);
-			};
-
-			gsap.to(track, {
-				x: () => -totalScroll(),
-				ease: "none",
-				scrollTrigger: {
-					trigger: heading ?? section,
-					start: "top top+=120",
-					end: () => `+=${totalScroll()}`,
-					pin: section,
-					scrub: true,
-					invalidateOnRefresh: true,
-				},
-			});
+			const stage = stageWrapRef.current;
+			if (heading) {
+				gsap.from(heading, {
+					y: 28,
+					opacity: 0,
+					duration: 0.9,
+					ease: "power3.out",
+					immediateRender: false,
+					scrollTrigger: {
+						trigger: heading,
+						start: "top 80%",
+						toggleActions: "play none none none",
+					},
+				});
+			}
+			if (stage) {
+				gsap.from(stage, {
+					y: 40,
+					opacity: 0,
+					duration: 1,
+					ease: "power3.out",
+					immediateRender: false,
+					scrollTrigger: {
+						trigger: stage,
+						start: "top 82%",
+						toggleActions: "play none none none",
+					},
+				});
+			}
 		},
 		[],
 	);
@@ -53,12 +109,12 @@ export default function Destinations() {
 			ref={sectionRef}
 			id="destinations"
 			aria-labelledby="destinations-title"
-			className="bg-[#050505] py-28 md:py-36"
+			className="bg-[#050505] py-28 md:py-36 overflow-hidden"
 		>
 			<div className="mx-auto max-w-[1600px] pad-x">
 				<div
 					ref={headingRef}
-					className="mb-10 flex flex-col gap-4 md:mb-14 md:flex-row md:items-end md:justify-between"
+					className="mb-8 flex flex-col gap-6 md:mb-12 md:flex-row md:items-end md:justify-between"
 				>
 					<SectionHeading
 						containerClassName="max-w-xl"
@@ -71,31 +127,61 @@ export default function Destinations() {
 						labelClassName="mb-3"
 						descriptionClassName="mt-4 text-white/55"
 					/>
-					<div className="hidden shrink-0 flex-col items-end text-right text-[11px] uppercase tracking-[0.22em] text-white/35 md:flex">
-						<span className="text-white/55">0{DESTINATIONS.length}</span>
-						<span className="mt-1 h-px w-10 bg-white/15" />
-						<span className="mt-2">{DESTINATIONS_SECTION.countSuffix}</span>
+
+					<div className="flex flex-col items-start gap-4 md:items-end">
+						<div className="inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-orange-400">
+							<span className="relative flex h-2 w-2">
+								<span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400 opacity-75" />
+								<span className="relative inline-flex h-2 w-2 rounded-full bg-orange-500" />
+							</span>
+							{DESTINATIONS_SECTION.spotlightBadge}
+						</div>
+
+						{/* Category Filter Tabs */}
+						<div className="flex flex-wrap items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.03] p-1.5 backdrop-blur-md">
+							{DESTINATIONS_SECTION.filterCategories.map((cat) => {
+								const active = selectedCategory === cat;
+								return (
+									<button
+										key={cat}
+										type="button"
+										onClick={() => {
+											setSelectedCategory(cat);
+											setActiveIndex(0);
+										}}
+										className={cn(
+											"rounded-full px-3.5 py-1 text-xs font-semibold uppercase tracking-wider transition-all duration-300 outline-none focus-visible:ring-2 focus-visible:ring-orange-500",
+											active
+												? "bg-orange-500 text-black shadow-md shadow-orange-500/25"
+												: "text-white/60 hover:bg-white/10 hover:text-white",
+										)}
+									>
+										{cat}
+									</button>
+								);
+							})}
+						</div>
 					</div>
 				</div>
 
-				<div className="relative overflow-hidden bg-[#050505]">
-					<div ref={trackRef} className="flex gap-6 md:gap-8">
-						{DESTINATIONS.map((dest) => (
-							<DestinationCard
-								key={dest.id}
-								destination={dest}
-								fromLabel={DESTINATIONS_SECTION.fromLabel}
-								exploreButtonLabel={DESTINATIONS_SECTION.exploreButtonLabel}
-								href={`/destinations/${destinationToSlug(dest)}`}
-							/>
-						))}
-					</div>
+				<div ref={stageWrapRef}>
+					<DestinationsStage
+						destinations={activeDestinations}
+						activeIndex={activeIndex}
+						progress={progress}
+						showProgress={!reduceMotion && !paused}
+						onSelect={setActiveIndex}
+						onPauseChange={setPaused}
+						isPaused={paused}
+					/>
 				</div>
 
-				<div className="mt-12 text-center">
+				<div className="mt-16 text-center">
 					<SectionCta
 						href="/destinations"
-						icon={<LuArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />}
+						icon={
+							<LuArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+						}
 					>
 						{DESTINATIONS_SECTION.viewAllCta}
 					</SectionCta>
@@ -104,3 +190,4 @@ export default function Destinations() {
 		</section>
 	);
 }
+

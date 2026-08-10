@@ -7,19 +7,21 @@ const FALLBACK_READY_MS = 1200;
 
 /**
  * Shared InitialLoader gate for page entries.
- * Locks body scroll while loading, then clears on window load (or fallback).
+ * Clears loading state on window load (or fallback) without mutating body overflow,
+ * preserving CSS position: sticky calculation on page mount.
  */
 export function useInitialPageLoader(): boolean {
 	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
-		const originalOverflow = document.body.style.overflow;
-		document.body.style.overflow = "hidden";
 		const mountedAt = Date.now();
 
 		const clearLoading = () => {
 			setIsLoading(false);
-			document.body.style.overflow = originalOverflow;
+			// Force a subtle scroll/resize trigger so browser layout engine re-evaluates sticky bounds
+			if (typeof window !== "undefined") {
+				window.dispatchEvent(new Event("resize"));
+			}
 		};
 
 		const onReady = () => {
@@ -35,7 +37,6 @@ export function useInitialPageLoader(): boolean {
 			const timeout = window.setTimeout(onReady, 0);
 			return () => {
 				window.clearTimeout(timeout);
-				document.body.style.overflow = originalOverflow;
 			};
 		}
 
@@ -46,7 +47,6 @@ export function useInitialPageLoader(): boolean {
 		return () => {
 			window.removeEventListener("load", handleLoad);
 			window.clearTimeout(timeout);
-			document.body.style.overflow = originalOverflow;
 		};
 	}, []);
 
