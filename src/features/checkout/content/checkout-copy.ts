@@ -7,6 +7,7 @@ export const CHECKOUT_COPY = {
 	signInLabel: "Sign in",
 	registerLabel: "Create account",
 	demoAuthHint: "Optional — checkout works as a guest.",
+	demoAuthFlash: "Demo only — no account is created.",
 	cardNumberLabel: "Card number",
 	expiryLabel: "Expiry",
 	cvcLabel: "CVC",

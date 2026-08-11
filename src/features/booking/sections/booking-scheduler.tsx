@@ -1,5 +1,6 @@
 "use client";
 
+import { buildSlotIso } from "@/features/booking/lib/build-slot-iso";
 import { Calendar } from "@/features/booking/sections/calendar";
 import type { Tour } from "@/shared/types/domain";
 import {
@@ -60,10 +61,8 @@ export function BookingScheduler({ tour }: BookingSchedulerProps) {
 	const handleChangeDate = (next: DateValue) => {
 		setDate(next as CalendarDate);
 		const url = new URL(window.location.href);
-		url.searchParams.set(
-			"date",
-			next.toDate(timeZone).toISOString().split("T")[0],
-		);
+		// CalendarDate#toString is YYYY-MM-DD in the selected calendar day (not UTC-shifted).
+		url.searchParams.set("date", next.toString());
 		url.searchParams.delete("slot");
 		pushSearch(router, url);
 	};
@@ -92,17 +91,13 @@ export function BookingScheduler({ tour }: BookingSchedulerProps) {
 			hours = 0;
 		}
 
-		const currentDate = date.toDate(timeZone);
-		currentDate.setHours(hours, minutes);
+		const slotIso = buildSlotIso(date, hours, minutes, timeZone);
 
 		const url = new URL(window.location.href);
 		if (!url.searchParams.get("date")) {
-			url.searchParams.set(
-				"date",
-				date.toDate(timeZone).toISOString().split("T")[0],
-			);
+			url.searchParams.set("date", date.toString());
 		}
-		url.searchParams.set("slot", currentDate.toISOString());
+		url.searchParams.set("slot", slotIso);
 		pushSearch(router, url);
 	};
 

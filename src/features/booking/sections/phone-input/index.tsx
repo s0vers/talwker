@@ -20,10 +20,10 @@ import parsePhoneNumberFromString, {
 } from "libphonenumber-js";
 import { Check, ChevronsUpDown } from "lucide-react";
 import * as React from "react";
-import { countries } from "./countries";
+import { type PhoneCountry, countries } from "./countries";
 import { useStateHistory } from "./use-state-history";
 
-export type Country = (typeof countries)[number];
+export type Country = PhoneCountry;
 
 export type PhoneData = {
 	phoneNumber?: E164Number;
