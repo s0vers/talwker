@@ -1,32 +1,54 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useSyncExternalStore } from "react";
 import { useRouter } from "next/navigation";
 import { CHECKOUT_SUCCESS_COPY } from "@/features/checkout/content/checkout-copy";
 import {
-	type BookingConfirmation,
+	BOOKING_CONFIRMATION_KEY,
 	readBookingConfirmation,
 } from "@/features/checkout/lib/confirmation-id";
 import { CheckoutSuccessBody } from "@/features/checkout/sections";
 
+const SERVER_SNAPSHOT = "__server__";
+
+function subscribe(onStoreChange: () => void) {
+	window.addEventListener("storage", onStoreChange);
+	return () => window.removeEventListener("storage", onStoreChange);
+}
+
+function getConfirmationRaw(): string | null {
+	try {
+		return sessionStorage.getItem(BOOKING_CONFIRMATION_KEY);
+	} catch {
+		return null;
+	}
+}
+
+function getServerSnapshot(): string {
+	return SERVER_SNAPSHOT;
+}
+
 export default function CheckoutSuccessPage() {
 	const router = useRouter();
-	const [confirmation, setConfirmation] = useState<BookingConfirmation | null>(
-		null,
+	const raw = useSyncExternalStore(
+		subscribe,
+		getConfirmationRaw,
+		getServerSnapshot,
 	);
-	const [ready, setReady] = useState(false);
+	const isServer = raw === SERVER_SNAPSHOT;
+	const confirmation = useMemo(() => {
+		if (!raw || isServer) return null;
+		return readBookingConfirmation();
+	}, [raw, isServer]);
 
 	useEffect(() => {
-		const data = readBookingConfirmation();
-		if (!data) {
+		if (isServer) return;
+		if (!confirmation) {
 			router.replace("/tours");
-			return;
 		}
-		setConfirmation(data);
-		setReady(true);
-	}, [router]);
+	}, [confirmation, isServer, router]);
 
-	if (!ready || !confirmation) {
+	if (isServer || !confirmation) {
 		return (
 			<main className="flex min-h-[100svh] items-center justify-center bg-[#050505] text-white/40">
 				{CHECKOUT_SUCCESS_COPY.redirectingLabel}
