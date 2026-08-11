@@ -46,6 +46,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			priority: 0.7,
 		})),
 		{
+			url: resolveCanonicalUrl("/booking"),
+			changeFrequency: "monthly",
+			priority: 0.55,
+		},
+		{
+			url: resolveCanonicalUrl("/checkout"),
+			changeFrequency: "yearly",
+			priority: 0.3,
+		},
+		{
+			url: resolveCanonicalUrl("/checkout/success"),
+			changeFrequency: "yearly",
+			priority: 0.2,
+		},
+		{
+			url: resolveCanonicalUrl("/login"),
+			changeFrequency: "yearly",
+			priority: 0.4,
+		},
+		{
+			url: resolveCanonicalUrl("/register"),
+			changeFrequency: "yearly",
+			priority: 0.4,
+		},
+		{
 			url: resolveCanonicalUrl("/stories"),
 			changeFrequency: "weekly",
 			priority: 0.75,
