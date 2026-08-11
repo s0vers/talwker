@@ -33,6 +33,7 @@
     "@react-aria/calendar": "^3.10.1",
     "@react-aria/focus": "^3.22.1",
     "@react-aria/i18n": "^3.13.1",
+    "@react-aria/utils": "^3.34.1",
     "@react-aria/visually-hidden": "^3.9.1",
     "@react-stately/calendar": "^3.10.1",
     "class-variance-authority": "^0.7.1",
