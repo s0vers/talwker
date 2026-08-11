@@ -1,8 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { getBookingHref } from "@/features/booking/lib/booking-href";
 import { TOUR_DETAILS_SHEET } from "@/features/tours/content/tour-details-copy";
 import { formatTourPrice } from "@/features/tours/lib/format-tour-price";
+import { getTourSlug } from "@/features/tours/lib/tour-slug";
 import type { Tour } from "@/shared/types/domain";
 
 type TourDetailsSheetProps = {
@@ -64,7 +66,7 @@ export default function TourDetailsSheet({ tour }: TourDetailsSheetProps) {
 
 			<div className="mt-8 flex flex-col gap-3">
 				<Link
-					href={TOUR_DETAILS_SHEET.inquireHref}
+					href={getBookingHref(getTourSlug(tour))}
 					className="inline-flex items-center justify-center rounded-full bg-orange-500 px-6 py-3 text-[12px] font-semibold uppercase tracking-[0.16em] text-white transition-colors hover:bg-orange-400"
 				>
 					{TOUR_DETAILS_SHEET.inquireLabel}

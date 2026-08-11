@@ -16,7 +16,6 @@ export const TOUR_DETAILS_SHEET = {
 	ratingLabel: "Rating",
 	includesLabel: "Included",
 	inquireLabel: "Inquire",
-	inquireHref: "/contact",
 	mailtoLabel: "Email hello@talkwer.com",
 	mailtoHref: "mailto:hello@talkwer.com?subject=Tour%20inquiry",
 	destinationLinkPrefix: "Explore",
