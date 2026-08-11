@@ -1,0 +1,31 @@
+export const CHECKOUT_COPY = {
+	title: "Checkout",
+	feeLabel: "Agent consult",
+	feeAmount: "$25",
+	feeNote: "Demo fee — no charge is processed.",
+	confirmLabel: "Confirm booking",
+	signInLabel: "Sign in",
+	registerLabel: "Create account",
+	demoAuthHint: "Optional — checkout works as a guest.",
+	cardNumberLabel: "Card number",
+	expiryLabel: "Expiry",
+	cvcLabel: "CVC",
+	cardNumberPlaceholder: "4242 4242 4242 4242",
+	expiryPlaceholder: "MM/YY",
+	cvcPlaceholder: "123",
+	cardError: "Enter card number, expiry, and CVC.",
+	summaryTourLabel: "Tour",
+	summarySlotLabel: "Consult time",
+	summaryGuestLabel: "Guest",
+	summaryTimezoneLabel: "Timezone",
+	redirectingLabel: "Redirecting…",
+} as const;
+
+export const CHECKOUT_SUCCESS_COPY = {
+	title: "Consult reserved",
+	body: "This is a demo confirmation. No payment was taken and no calendar invite was sent.",
+	homeLabel: "Back home",
+	tourLabel: "View tour",
+	confirmationLabel: "Confirmation",
+	redirectingLabel: "Redirecting…",
+} as const;
