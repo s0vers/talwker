@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import CheckoutPage from "@/features/checkout/checkout-page";
+import { CHECKOUT_COPY } from "@/features/checkout/content/checkout-copy";
 import { createPageMetadata, getBreadcrumbJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
@@ -22,7 +24,15 @@ export default function Page() {
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
 			/>
-			<CheckoutPage />
+			<Suspense
+				fallback={
+					<main className="flex min-h-[100svh] items-center justify-center bg-[#050505] text-white/40">
+						{CHECKOUT_COPY.redirectingLabel}
+					</main>
+				}
+			>
+				<CheckoutPage />
+			</Suspense>
 		</>
 	);
 }

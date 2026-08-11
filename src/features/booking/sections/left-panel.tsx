@@ -70,11 +70,13 @@ export function LeftPanel({
 							<p>
 								{new Date(slotParam).toLocaleString(locale, {
 									dateStyle: "full",
+									timeZone,
 								})}
 							</p>
 							<p>
 								{new Date(slotParam).toLocaleString(locale, {
 									timeStyle: "short",
+									timeZone,
 								})}
 							</p>
 						</div>

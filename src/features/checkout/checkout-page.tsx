@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useSyncExternalStore } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import {
 	BOOKING_HANDOFF_KEY,
 	readBookingHandoff,
@@ -30,6 +30,8 @@ function getServerSnapshot(): string {
 
 export default function CheckoutPage() {
 	const router = useRouter();
+	const searchParams = useSearchParams();
+	const showDemoFlash = searchParams.get("demo") === "1";
 	const raw = useSyncExternalStore(subscribe, getHandoffRaw, getServerSnapshot);
 	const isServer = raw === SERVER_SNAPSHOT;
 	const handoff = useMemo(() => {
@@ -61,6 +63,12 @@ export default function CheckoutPage() {
 				<h1 className="mt-4 text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-tighter text-white">
 					{CHECKOUT_COPY.title}
 				</h1>
+
+				{showDemoFlash ? (
+					<p className="mt-4 text-sm text-orange-400" role="status">
+						{CHECKOUT_COPY.demoAuthFlash}
+					</p>
+				) : null}
 
 				<div className="mt-10 grid gap-8">
 					<CheckoutSummary handoff={handoff} />

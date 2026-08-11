@@ -7,6 +7,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { AUTH_REGISTER_COPY } from "@/features/auth/content/auth-copy";
 import { safeNextPath } from "@/features/auth/lib/safe-next-path";
+import {
+	AUTH_DEMO_REDIRECT_MS,
+	withDemoQuery,
+} from "@/features/auth/lib/with-demo-query";
 import { cn } from "@/lib/utils";
 
 const fieldSurface =
@@ -48,7 +52,11 @@ export function RegisterForm() {
 	function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
 		e.preventDefault();
 		setMessage(AUTH_REGISTER_COPY.demoMessage);
-		if (next) router.push(next);
+		if (!next) return;
+		const target = withDemoQuery(next);
+		window.setTimeout(() => {
+			router.push(target);
+		}, AUTH_DEMO_REDIRECT_MS);
 	}
 
 	return (
