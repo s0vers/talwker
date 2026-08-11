@@ -16,7 +16,7 @@ import type { Tour } from "@/shared/types/domain";
 import { UserPlus, X } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import * as React from "react";
-import { PhoneInput } from "./phone-input";
+import { PhoneInput, getPhoneData } from "./phone-input";
 
 type Guest = {
 	email: string;
@@ -65,8 +65,17 @@ export function FormPanel({
 		const phone = String(formData.get("phone") ?? "").trim();
 		const notesValue = String(formData.get("notes") ?? notes).trim();
 
-		if (!name || !email || !phone) {
-			setError("Name, email, and phone are required.");
+		const phoneData = getPhoneData(phone);
+		const hasValidPhone = Boolean(
+			phone && phoneData.nationalNumber && phoneData.isValid,
+		);
+
+		if (!name || !email || !hasValidPhone) {
+			setError(
+				!name || !email
+					? "Name, email, and phone are required."
+					: "Enter a valid phone number (not just the country code).",
+			);
 			return;
 		}
 
