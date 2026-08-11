@@ -30,7 +30,6 @@ export default function FeaturedTours() {
 				duration: 1,
 				stagger: 0.12,
 				ease: "power4.out",
-				immediateRender: false,
 				scrollTrigger: {
 					trigger: grid,
 					start: "top 78%",
@@ -46,7 +45,6 @@ export default function FeaturedTours() {
 						scale: 1.12,
 						duration: 1.1,
 						ease: "power3.out",
-						immediateRender: false,
 						scrollTrigger: {
 							trigger: card,
 							start: "top 85%",

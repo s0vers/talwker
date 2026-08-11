@@ -27,6 +27,8 @@ export function DestinationsFilmstrip({
 		<div
 			role="group"
 			aria-label={DESTINATIONS_SECTION.filmstripLabel}
+			data-scrollbar-none
+			style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
 			className={cn(
 				"flex flex-nowrap gap-3 overflow-x-auto pb-3 pt-1 scrollbar-none sm:gap-3.5 lg:flex-col lg:overflow-x-visible lg:pb-0 lg:pt-0",
 				className,
@@ -94,7 +96,10 @@ export function DestinationsFilmstrip({
 								className="absolute inset-x-3 bottom-0 h-0.5 overflow-hidden rounded-full bg-white/10"
 							>
 								<span
-									className="block h-full origin-left bg-orange-500 transition-transform duration-75"
+									className={cn(
+										"block h-full origin-left bg-orange-500",
+										progress > 0 ? "transition-transform duration-75" : "transition-none",
+									)}
 									style={{
 										transform: `scaleX(${Math.min(1, Math.max(0, progress))})`,
 									}}

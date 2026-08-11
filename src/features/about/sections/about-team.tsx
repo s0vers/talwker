@@ -41,7 +41,6 @@ export default function AboutTeam() {
 					duration: 1,
 					stagger: 0.12,
 					ease: "power4.out",
-					immediateRender: false,
 					scrollTrigger: {
 						trigger: gridRef.current,
 						start: "top 78%",
@@ -57,7 +56,6 @@ export default function AboutTeam() {
 							scale: 1.15,
 							duration: 1.2,
 							ease: "power3.out",
-							immediateRender: false,
 							scrollTrigger: {
 								trigger: card,
 								start: "top 85%",

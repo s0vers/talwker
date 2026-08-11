@@ -31,7 +31,6 @@ export type DestinationsStageProps = {
 };
 
 const SWIPE_THRESHOLD_PX = 48;
-
 export function DestinationsStage({
 	destinations,
 	activeIndex,
@@ -61,7 +60,7 @@ export function DestinationsStage({
 	return (
 		<div
 			className={cn(
-				"relative isolate rounded-[2.5rem] border border-white/10 bg-[#080808] p-4 sm:p-6 lg:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.8)]",
+				"relative isolate rounded-[1.75rem] sm:rounded-[2.5rem] border border-white/10 bg-[#080808] p-3 sm:p-6 lg:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.8)]",
 				className,
 			)}
 			onPointerEnter={(e) => {
@@ -89,14 +88,14 @@ export function DestinationsStage({
 			<div className="pointer-events-none absolute -left-16 -top-16 h-80 w-80 rounded-full bg-orange-500/10 blur-[100px]" />
 			<div className="pointer-events-none absolute -bottom-16 -right-16 h-80 w-80 rounded-full bg-orange-500/5 blur-[120px]" />
 
-			<div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-8 items-stretch">
+			<div className="grid grid-cols-1 gap-5 lg:grid-cols-12 lg:gap-8 items-stretch">
 				{/* Main Spotlight Canvas (Left) */}
 				<div
 					role="region"
 					aria-roledescription="carousel"
 					aria-label={DESTINATIONS_SECTION.stageRegionLabel}
 					tabIndex={0}
-					className="relative min-h-[460px] overflow-hidden rounded-[2rem] border border-white/10 bg-[#050505] outline-none focus-visible:ring-2 focus-visible:ring-orange-500 md:min-h-[540px] xl:min-h-[580px] lg:col-span-7 xl:col-span-8 flex flex-col justify-between"
+					className="relative min-h-[480px] sm:min-h-[520px] md:min-h-[540px] xl:min-h-[580px] overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-white/10 bg-[#050505] outline-none focus-visible:ring-2 focus-visible:ring-orange-500 lg:col-span-7 xl:col-span-8 flex flex-col justify-between"
 					onKeyDown={(e) => {
 						if (e.key === "ArrowRight") {
 							e.preventDefault();
@@ -146,10 +145,7 @@ export function DestinationsStage({
 								fill
 								priority={index === 0}
 								sizes="(max-width: 1024px) 100vw, 65vw"
-								className={cn(
-									"object-cover transition-transform duration-1000 ease-out",
-									index === activeIndex ? "scale-105" : "scale-100",
-								)}
+								className="object-cover"
 							/>
 						</div>
 					))}
@@ -159,55 +155,54 @@ export function DestinationsStage({
 					<div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/30" />
 
 					{/* Top Frosted Bar */}
-					<div className="relative z-10 flex flex-wrap items-center justify-between gap-3 p-5 sm:p-7">
-						<span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/60 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-white/90 backdrop-blur-md shadow-lg">
-							<LuMapPin className="h-3.5 w-3.5 text-orange-500" />
-							{dest.country}
-							{dest.tag ? ` · ${dest.tag}` : null}
+					<div className="relative z-10 flex items-center justify-between gap-2 p-3.5 sm:p-7">
+						<span className="inline-flex max-w-[55%] items-center gap-1.5 truncate rounded-full border border-white/15 bg-black/60 px-2.5 py-1 sm:px-3.5 sm:py-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-white/90 backdrop-blur-md shadow-lg">
+							<LuMapPin className="h-3.5 w-3.5 text-orange-500 shrink-0" />
+							<span className="truncate">{dest.country}{dest.tag ? ` · ${dest.tag}` : null}</span>
 						</span>
 
-						<div className="flex items-center gap-2">
-							<span className="inline-flex items-center gap-1 rounded-full border border-white/15 bg-black/60 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-md">
-								<LuStar className="h-3.5 w-3.5 fill-orange-500 text-orange-500" />
+						<div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
+							<span className="inline-flex items-center gap-1 rounded-full border border-white/15 bg-black/60 px-2 py-1 sm:px-3 sm:py-1.5 text-[11px] sm:text-xs font-semibold text-white backdrop-blur-md">
+								<LuStar className="h-3 w-3 sm:h-3.5 sm:w-3.5 fill-orange-500 text-orange-500 shrink-0" />
 								{dest.rating}
 							</span>
-							<span className="inline-flex items-center gap-1 rounded-full border border-white/15 bg-black/60 px-3 py-1.5 text-xs font-medium text-white/80 backdrop-blur-md">
-								<LuClock className="h-3.5 w-3.5 text-orange-400" />
+							<span className="inline-flex items-center gap-1 rounded-full border border-white/15 bg-black/60 px-2 py-1 sm:px-3 sm:py-1.5 text-[11px] sm:text-xs font-medium text-white/80 backdrop-blur-md">
+								<LuClock className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-orange-400 shrink-0" />
 								{dest.duration}
 							</span>
 						</div>
 					</div>
 
 					{/* Bottom Content Overlay */}
-					<div className="relative z-10 flex flex-col justify-end p-5 pb-7 sm:p-8 sm:pb-9 lg:p-10">
+					<div className="relative z-10 flex flex-col justify-end p-4 pb-5 sm:p-8 sm:pb-9 lg:p-10">
 						<div aria-live="polite" aria-atomic="true">
-							<div className="flex items-center gap-3">
+							<div className="flex items-center gap-2.5">
 								<span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-orange-400">
 									0{activeIndex + 1} / 0{destinations.length}
 								</span>
-								<span className="h-px w-8 bg-orange-500/40" />
-								<span className="text-xs font-semibold uppercase tracking-widest text-white/60">
+								<span className="h-px w-6 sm:w-8 bg-orange-500/40" />
+								<span className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-white/60">
 									{DESTINATIONS_SECTION.fromLabel} ${dest.price.toLocaleString()}
 								</span>
 							</div>
 
-							<h3 className="mt-2 text-[clamp(2.25rem,4.5vw,3.75rem)] font-extrabold tracking-tight text-white leading-[1.05]">
+							<h3 className="mt-2 text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-white leading-[1.05]">
 								{dest.name}
 							</h3>
 						</div>
 
 						{/* Action Controls Row */}
-						<div className="mt-6 flex flex-wrap items-center justify-between gap-4">
+						<div className="mt-5 flex items-center justify-between gap-2.5">
 							<Link
 								href={href}
-								className="group inline-flex items-center gap-2.5 rounded-full bg-orange-500 px-6 py-3 text-sm font-semibold text-black transition-all duration-300 hover:bg-orange-400 shadow-[0_10px_25px_rgba(249,115,22,0.35)] hover:shadow-[0_12px_30px_rgba(249,115,22,0.5)]"
+								className="group inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-orange-500 px-4 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold text-black transition-all duration-300 hover:bg-orange-400 shadow-[0_10px_25px_rgba(249,115,22,0.35)] hover:shadow-[0_12px_30px_rgba(249,115,22,0.5)] truncate text-center"
 							>
-								{DESTINATIONS_SECTION.exploreButtonLabel}
-								<LuArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+								<span className="truncate">{DESTINATIONS_SECTION.exploreButtonLabel}</span>
+								<LuArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 transition-transform group-hover:translate-x-1" />
 							</Link>
 
 							{/* Manual Navigation & Pause Controls */}
-							<div className="flex items-center gap-2">
+							<div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
 								<button
 									type="button"
 									aria-label={
@@ -216,29 +211,29 @@ export function DestinationsStage({
 											: DESTINATIONS_SECTION.pauseAutoplayLabel
 									}
 									onClick={() => onPauseChange(!isPaused)}
-									className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md transition-colors hover:border-orange-500 hover:bg-orange-500 hover:text-black"
+									className="inline-flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md transition-colors hover:border-orange-500 hover:bg-orange-500 hover:text-black"
 								>
 									{isPaused ? (
-										<LuPlay className="h-4 w-4 translate-x-0.5" />
+										<LuPlay className="h-3.5 w-3.5 sm:h-4 sm:w-4 translate-x-0.5" />
 									) : (
-										<LuPause className="h-4 w-4" />
+										<LuPause className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
 									)}
 								</button>
 								<button
 									type="button"
 									aria-label={DESTINATIONS_SECTION.prevSlideLabel}
 									onClick={() => go(activeIndex - 1)}
-									className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md transition-colors hover:border-orange-500 hover:bg-orange-500 hover:text-black"
+									className="inline-flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md transition-colors hover:border-orange-500 hover:bg-orange-500 hover:text-black"
 								>
-									<LuChevronLeft className="h-5 w-5" />
+									<LuChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
 								</button>
 								<button
 									type="button"
 									aria-label={DESTINATIONS_SECTION.nextSlideLabel}
 									onClick={() => go(activeIndex + 1)}
-									className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md transition-colors hover:border-orange-500 hover:bg-orange-500 hover:text-black"
+									className="inline-flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md transition-colors hover:border-orange-500 hover:bg-orange-500 hover:text-black"
 								>
-									<LuChevronRight className="h-5 w-5" />
+									<LuChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
 								</button>
 							</div>
 						</div>

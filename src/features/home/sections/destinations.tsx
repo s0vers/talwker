@@ -45,6 +45,11 @@ export default function Destinations() {
 		return filtered.length > 0 ? filtered : featured;
 	}, [selectedCategory]);
 
+	const handleSelectDestination = (index: number) => {
+		setProgress(0);
+		setActiveIndex(index);
+	};
+
 	useEffect(() => {
 		if (reduceMotion || paused) {
 			const reset = requestAnimationFrame(() => setProgress(0));
@@ -57,6 +62,7 @@ export default function Destinations() {
 			const ratio = Math.min(1, elapsed / AUTOPLAY_MS);
 			setProgress(ratio);
 			if (ratio >= 1) {
+				setProgress(0);
 				setActiveIndex((i) => (i + 1) % activeDestinations.length);
 				return;
 			}
@@ -72,30 +78,16 @@ export default function Destinations() {
 			if (prefersReducedMotion()) return;
 			const heading = headingRef.current;
 			const stage = stageWrapRef.current;
-			if (heading) {
-				gsap.from(heading, {
-					y: 28,
-					opacity: 0,
-					duration: 0.9,
-					ease: "power3.out",
-					immediateRender: false,
-					scrollTrigger: {
-						trigger: heading,
-						start: "top 80%",
-						toggleActions: "play none none none",
-					},
-				});
-			}
-			if (stage) {
-				gsap.from(stage, {
-					y: 40,
+			if (heading && stage) {
+				gsap.from([heading, stage], {
+					y: 36,
 					opacity: 0,
 					duration: 1,
+					stagger: 0.15,
 					ease: "power3.out",
-					immediateRender: false,
 					scrollTrigger: {
-						trigger: stage,
-						start: "top 82%",
+						trigger: sectionRef.current,
+						start: "top 78%",
 						toggleActions: "play none none none",
 					},
 				});
@@ -109,7 +101,7 @@ export default function Destinations() {
 			ref={sectionRef}
 			id="destinations"
 			aria-labelledby="destinations-title"
-			className="bg-[#050505] py-28 md:py-36 overflow-hidden"
+			className="bg-[#050505] py-20 md:py-36 overflow-hidden"
 		>
 			<div className="mx-auto max-w-[1600px] pad-x">
 				<div
@@ -138,7 +130,7 @@ export default function Destinations() {
 						</div>
 
 						{/* Category Filter Tabs */}
-						<div className="flex flex-wrap items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.03] p-1.5 backdrop-blur-md">
+						<div className="flex max-w-full items-center gap-1.5 overflow-x-auto rounded-full border border-white/10 bg-white/[0.03] p-1.5 scrollbar-none backdrop-blur-md">
 							{DESTINATIONS_SECTION.filterCategories.map((cat) => {
 								const active = selectedCategory === cat;
 								return (
@@ -147,10 +139,10 @@ export default function Destinations() {
 										type="button"
 										onClick={() => {
 											setSelectedCategory(cat);
-											setActiveIndex(0);
+											handleSelectDestination(0);
 										}}
 										className={cn(
-											"rounded-full px-3.5 py-1 text-xs font-semibold uppercase tracking-wider transition-all duration-300 outline-none focus-visible:ring-2 focus-visible:ring-orange-500",
+											"shrink-0 rounded-full px-3.5 py-1 text-xs font-semibold uppercase tracking-wider transition-all duration-300 outline-none focus-visible:ring-2 focus-visible:ring-orange-500",
 											active
 												? "bg-orange-500 text-black shadow-md shadow-orange-500/25"
 												: "text-white/60 hover:bg-white/10 hover:text-white",
@@ -170,7 +162,7 @@ export default function Destinations() {
 						activeIndex={activeIndex}
 						progress={progress}
 						showProgress={!reduceMotion && !paused}
-						onSelect={setActiveIndex}
+						onSelect={handleSelectDestination}
 						onPauseChange={setPaused}
 						isPaused={paused}
 					/>
