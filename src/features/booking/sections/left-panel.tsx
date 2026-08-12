@@ -106,16 +106,12 @@ export function LeftPanel({
 					}}
 					items={TIME_ZONE_ITEMS}
 				>
-					<SelectTrigger className="h-10 w-fit rounded-xl border-white/15 bg-white/5 text-white hover:bg-white/10">
+					<SelectTrigger className="h-10 w-fit">
 						<SelectValue placeholder="Select time zone" />
 					</SelectTrigger>
-					<SelectContent className="max-h-72 w-fit border-white/10 bg-[#0a0a0a] text-white">
+					<SelectContent className="max-h-72 w-64 sm:w-72">
 						{TIME_ZONE_ITEMS.map((item) => (
-							<SelectItem
-								key={item.value}
-								value={item.value}
-								className="rounded-lg text-white focus:bg-white/10 data-highlighted:bg-white/10"
-							>
+							<SelectItem key={item.value} value={item.value}>
 								{item.label}
 							</SelectItem>
 						))}

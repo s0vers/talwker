@@ -39,19 +39,9 @@ export function RightPanel({
 				>
 					{dayName} <span className="text-white/55">{dayNumber}</span>
 				</p>
-				<TabsList className="grid w-fit grid-cols-2 border border-white/10 bg-white/5">
-					<TabsTrigger
-						value="12"
-						className="data-[state=active]:bg-orange-500 data-[state=active]:text-white"
-					>
-						12h
-					</TabsTrigger>
-					<TabsTrigger
-						value="24"
-						className="data-[state=active]:bg-orange-500 data-[state=active]:text-white"
-					>
-						24h
-					</TabsTrigger>
+				<TabsList className="grid w-fit grid-cols-2">
+					<TabsTrigger value="12">12h</TabsTrigger>
+					<TabsTrigger value="24">24h</TabsTrigger>
 				</TabsList>
 			</div>
 			{["12", "24"].map((time) => (
@@ -73,7 +63,7 @@ export function RightPanel({
 										)
 									}
 									key={availableTime[time as "12" | "24"]}
-									className="border-white/15 bg-transparent text-white hover:border-orange-500/50 hover:bg-orange-500/10 hover:text-white"
+									className="h-10 rounded-xl border-white/15 bg-transparent font-medium text-white transition-all hover:border-orange-500/50 hover:bg-orange-500/10 hover:text-white"
 								>
 									{availableTime[time as "12" | "24"]}
 								</Button>

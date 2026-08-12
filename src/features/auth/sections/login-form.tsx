@@ -11,10 +11,7 @@ import {
 	AUTH_DEMO_REDIRECT_MS,
 	withDemoQuery,
 } from "@/features/auth/lib/with-demo-query";
-import { cn } from "@/lib/utils";
-
-const fieldSurface =
-	"border-white/15 bg-white/[0.04] text-white shadow-[0_1px_0_rgba(255,255,255,0.04)]";
+import { Lock, Mail, Sparkles } from "lucide-react";
 
 function FieldLabel({
 	htmlFor,
@@ -44,9 +41,17 @@ export function LoginForm() {
 	const formId = useId();
 	const emailId = `${formId}-email`;
 	const passwordId = `${formId}-password`;
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
 	const [message, setMessage] = useState<string | null>(null);
 
 	const next = safeNextPath(searchParams.get("next"));
+
+	const handleFillDemo = () => {
+		setEmail("explorer@talkwer.com");
+		setPassword("wanderlust2026");
+		setMessage(null);
+	};
 
 	function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
 		e.preventDefault();
@@ -59,38 +64,65 @@ export function LoginForm() {
 	}
 
 	return (
-		<div className="rounded-3xl border border-white/6 bg-linear-to-b from-white/5 to-transparent p-6 shadow-[0_40px_120px_rgba(0,0,0,0.35)] md:p-8">
+		<div className="rounded-3xl border border-white/[0.08] bg-[#0a0a0a] p-6 shadow-[0_32px_96px_rgba(0,0,0,0.5)] md:p-8">
+			{/* Quick Fill Demo Banner */}
+			<div className="mb-6 flex items-center justify-between rounded-2xl border border-orange-500/20 bg-orange-500/10 px-3.5 py-2.5 text-xs text-orange-300">
+				<div className="flex items-center gap-2">
+					<Sparkles className="size-4 shrink-0 text-orange-400" />
+					<span>Quick demo sign-in?</span>
+				</div>
+				<Button
+					type="button"
+					variant="ghost"
+					size="sm"
+					onClick={handleFillDemo}
+					className="h-7 rounded-lg bg-orange-500/20 px-2.5 text-xs font-medium text-orange-200 hover:bg-orange-500/30 hover:text-white"
+				>
+					Autofill Demo
+				</Button>
+			</div>
+
 			<form onSubmit={handleSubmit} noValidate>
 				<div>
 					<FieldLabel htmlFor={emailId}>{AUTH_LOGIN_COPY.emailLabel}</FieldLabel>
-					<Input
-						id={emailId}
-						name="email"
-						type="email"
-						autoComplete="email"
-						required
-						placeholder={AUTH_LOGIN_COPY.emailPlaceholder}
-						className={cn(fieldSurface, "rounded-2xl placeholder:text-white/35")}
-					/>
+					<div className="relative">
+						<Input
+							id={emailId}
+							name="email"
+							type="email"
+							autoComplete="email"
+							required
+							value={email}
+							onChange={(e) => setEmail(e.target.value)}
+							placeholder={AUTH_LOGIN_COPY.emailPlaceholder}
+							className="pl-10"
+						/>
+						<Mail className="absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-white/40" />
+					</div>
 				</div>
 
 				<div className="mt-6">
 					<FieldLabel htmlFor={passwordId}>
 						{AUTH_LOGIN_COPY.passwordLabel}
 					</FieldLabel>
-					<Input
-						id={passwordId}
-						name="password"
-						type="password"
-						autoComplete="current-password"
-						required
-						placeholder={AUTH_LOGIN_COPY.passwordPlaceholder}
-						className={cn(fieldSurface, "rounded-2xl placeholder:text-white/35")}
-					/>
+					<div className="relative">
+						<Input
+							id={passwordId}
+							name="password"
+							type="password"
+							autoComplete="current-password"
+							required
+							value={password}
+							onChange={(e) => setPassword(e.target.value)}
+							placeholder={AUTH_LOGIN_COPY.passwordPlaceholder}
+							className="pl-10"
+						/>
+						<Lock className="absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-white/40" />
+					</div>
 				</div>
 
 				{message ? (
-					<p className="mt-4 text-sm text-orange-400" role="status">
+					<p className="mt-4 text-sm font-medium text-orange-400" role="status">
 						{message}
 					</p>
 				) : null}
@@ -99,7 +131,7 @@ export function LoginForm() {
 					<Button
 						type="submit"
 						size="lg"
-						className="w-full rounded-full bg-orange-500 text-white hover:bg-orange-500/90"
+						className="h-12 w-full rounded-full bg-orange-500 font-semibold text-white transition-colors hover:bg-orange-500/90"
 					>
 						{AUTH_LOGIN_COPY.submitLabel}
 					</Button>
