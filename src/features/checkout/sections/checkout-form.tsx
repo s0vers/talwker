@@ -14,6 +14,7 @@ import {
 	createConfirmationId,
 	writeBookingConfirmation,
 } from "@/features/checkout/lib/confirmation-id";
+import { FieldLabel } from "@/shared/ui";
 import {
 	Calendar,
 	CheckCircle,
@@ -24,23 +25,6 @@ import {
 } from "lucide-react";
 
 const AUTH_NEXT = "/checkout";
-
-function FieldLabel({
-	htmlFor,
-	children,
-}: {
-	htmlFor: string;
-	children: React.ReactNode;
-}) {
-	return (
-		<label
-			htmlFor={htmlFor}
-			className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.2em] text-white/50"
-		>
-			{children}
-		</label>
-	);
-}
 
 export function CheckoutForm() {
 	const router = useRouter();

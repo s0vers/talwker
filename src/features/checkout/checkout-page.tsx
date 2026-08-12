@@ -1,52 +1,30 @@
 "use client";
 
-import { useEffect, useMemo, useSyncExternalStore } from "react";
+import { useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import {
 	BOOKING_HANDOFF_KEY,
-	readBookingHandoff,
+	parseBookingHandoff,
 } from "@/features/booking/lib/booking-handoff";
 import { CHECKOUT_COPY } from "@/features/checkout/content/checkout-copy";
+import { useSessionStorageJson } from "@/features/checkout/lib/use-session-storage-json";
 import { CheckoutForm, CheckoutSummary } from "@/features/checkout/sections";
-
-const SERVER_SNAPSHOT = "__server__";
-
-function subscribe(onStoreChange: () => void) {
-	window.addEventListener("storage", onStoreChange);
-	return () => window.removeEventListener("storage", onStoreChange);
-}
-
-function getHandoffRaw(): string | null {
-	try {
-		return sessionStorage.getItem(BOOKING_HANDOFF_KEY);
-	} catch {
-		return null;
-	}
-}
-
-function getServerSnapshot(): string {
-	return SERVER_SNAPSHOT;
-}
 
 export default function CheckoutPage() {
 	const router = useRouter();
 	const searchParams = useSearchParams();
 	const showDemoFlash = searchParams.get("demo") === "1";
-	const raw = useSyncExternalStore(subscribe, getHandoffRaw, getServerSnapshot);
-	const isServer = raw === SERVER_SNAPSHOT;
-	const handoff = useMemo(() => {
-		if (!raw || isServer) return null;
-		return readBookingHandoff();
-	}, [raw, isServer]);
+	const { ready, value: handoff } = useSessionStorageJson(
+		BOOKING_HANDOFF_KEY,
+		parseBookingHandoff,
+	);
 
 	useEffect(() => {
-		if (isServer) return;
-		if (!handoff) {
-			router.replace("/tours");
-		}
-	}, [handoff, isServer, router]);
+		if (!ready) return;
+		if (!handoff) router.replace("/tours");
+	}, [ready, handoff, router]);
 
-	if (isServer || !handoff) {
+	if (!ready || !handoff) {
 		return (
 			<main className="flex min-h-[100svh] items-center justify-center bg-[#050505] text-white/40">
 				{CHECKOUT_COPY.redirectingLabel}

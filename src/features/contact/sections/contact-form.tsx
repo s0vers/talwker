@@ -22,6 +22,7 @@ import {
 } from "@/features/contact/lib/contact-form-mailto";
 import { useContactFormScrollMotion } from "@/features/contact/lib/contact-page-motion";
 import { cn } from "@/lib/utils";
+import { FieldLabel } from "@/shared/ui";
 
 const fieldSurface =
 	"border-white/15 bg-white/[0.04] text-white shadow-[0_1px_0_rgba(255,255,255,0.04)]";
@@ -33,23 +34,6 @@ const selectContentClass =
 	"border-white/15 bg-[#0c0c0c] text-white shadow-[0_24px_80px_rgba(0,0,0,0.85)]";
 
 const DEFAULT_TOPIC = CONTACT_FORM_COPY.topics[0].value;
-
-function FieldLabel({
-	htmlFor,
-	children,
-}: {
-	htmlFor: string;
-	children: React.ReactNode;
-}) {
-	return (
-		<label
-			htmlFor={htmlFor}
-			className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.2em] text-white/50"
-		>
-			{children}
-		</label>
-	);
-}
 
 function topicFromFormData(fd: FormData): ContactFormTopicValue {
 	const raw = fd.get("topic");

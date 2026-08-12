@@ -12,6 +12,16 @@ export type BookingHandoff = {
 	guestEmails: string[];
 };
 
+export function parseBookingHandoff(raw: string): BookingHandoff | null {
+	try {
+		const parsed = JSON.parse(raw) as BookingHandoff;
+		if (!parsed.tourSlug || !parsed.slotIso || !parsed.guestEmail) return null;
+		return parsed;
+	} catch {
+		return null;
+	}
+}
+
 export function writeBookingHandoff(payload: BookingHandoff): void {
 	sessionStorage.setItem(BOOKING_HANDOFF_KEY, JSON.stringify(payload));
 }
@@ -20,13 +30,7 @@ export function readBookingHandoff(): BookingHandoff | null {
 	if (typeof window === "undefined") return null;
 	const raw = sessionStorage.getItem(BOOKING_HANDOFF_KEY);
 	if (!raw) return null;
-	try {
-		const parsed = JSON.parse(raw) as BookingHandoff;
-		if (!parsed.tourSlug || !parsed.slotIso || !parsed.guestEmail) return null;
-		return parsed;
-	} catch {
-		return null;
-	}
+	return parseBookingHandoff(raw);
 }
 
 export function clearBookingHandoff(): void {

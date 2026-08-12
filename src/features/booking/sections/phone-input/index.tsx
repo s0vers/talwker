@@ -20,7 +20,7 @@ import parsePhoneNumberFromString, {
 } from "libphonenumber-js";
 import { Check, ChevronsUpDown } from "lucide-react";
 import * as React from "react";
-import { type PhoneCountry, countries } from "./countries";
+import { type PhoneCountry, countries } from "@/features/booking/content/phone-countries";
 import { useStateHistory } from "./use-state-history";
 
 export type Country = PhoneCountry;
@@ -71,7 +71,7 @@ export function PhoneInput({
 	required = true,
 	...rest
 }: PhoneInputProps) {
-	const asYouType = new AsYouType();
+	const asYouType = React.useMemo(() => new AsYouType(), []);
 	const inputRef = React.useRef<HTMLInputElement>(null);
 	const [value, handlers, history] = useStateHistory(valueProp);
 	const [query, setQuery] = React.useState("");

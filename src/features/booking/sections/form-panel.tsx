@@ -9,7 +9,6 @@ import { Textarea } from "@/components/ui/textarea";
 import {
 	Tooltip,
 	TooltipContent,
-	TooltipProvider,
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
 import type { Tour } from "@/shared/types/domain";
@@ -19,6 +18,7 @@ import * as React from "react";
 import { PhoneInput, getPhoneData } from "./phone-input";
 
 type Guest = {
+	id: string;
 	email: string;
 };
 
@@ -42,15 +42,20 @@ export function FormPanel({
 	const [error, setError] = React.useState<string | null>(null);
 
 	const addGuest = () => {
-		setGuests([...guests, { email: "" }]);
+		setGuests([
+			...guests,
+			{ id: crypto.randomUUID(), email: "" },
+		]);
 	};
 
-	const removeGuest = (index: number) => {
-		setGuests(guests.filter((_, i) => i !== index));
+	const removeGuest = (id: string) => {
+		setGuests(guests.filter((guest) => guest.id !== id));
 	};
 
-	const handleGuestChange = (index: number, email: string) => {
-		setGuests(guests.map((guest, i) => (i === index ? { email } : guest)));
+	const handleGuestChange = (id: string, email: string) => {
+		setGuests(
+			guests.map((guest) => (guest.id === id ? { ...guest, email } : guest)),
+		);
 	};
 
 	const hasGuests = guests.length > 0;
@@ -156,7 +161,7 @@ export function FormPanel({
 					<div className="flex flex-col gap-1">
 						{guests.map((guest, index) => (
 							<div
-								key={index}
+								key={guest.id}
 								className="relative flex items-center space-x-2"
 							>
 								<Input
@@ -164,25 +169,23 @@ export function FormPanel({
 									type="email"
 									placeholder="Email"
 									value={guest.email}
-									onChange={(e) => handleGuestChange(index, e.target.value)}
+									onChange={(e) => handleGuestChange(guest.id, e.target.value)}
 								/>
-								<TooltipProvider>
-									<Tooltip>
-										<TooltipTrigger asChild>
-											<button
-												type="button"
-												className="absolute right-3 top-1/2 -translate-y-1/2 p-1"
-												onClick={() => removeGuest(index)}
-												aria-label="Remove email"
-											>
-												<X className="size-4 cursor-pointer text-white/60 transition-colors hover:text-white" />
-											</button>
-										</TooltipTrigger>
-										<TooltipContent>
-											Remove email
-										</TooltipContent>
-									</Tooltip>
-								</TooltipProvider>
+								<Tooltip>
+									<TooltipTrigger asChild>
+										<button
+											type="button"
+											className="absolute right-3 top-1/2 -translate-y-1/2 p-1"
+											onClick={() => removeGuest(guest.id)}
+											aria-label="Remove email"
+										>
+											<X className="size-4 cursor-pointer text-white/60 transition-colors hover:text-white" />
+										</button>
+									</TooltipTrigger>
+									<TooltipContent>
+										Remove email
+									</TooltipContent>
+								</Tooltip>
 							</div>
 						))}
 					</div>

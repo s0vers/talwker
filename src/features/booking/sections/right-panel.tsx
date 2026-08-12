@@ -5,7 +5,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import type { DateValue } from "@react-aria/calendar";
 import { useLocale } from "@react-aria/i18n";
-import { availableTimes } from "./available-times";
+import { availableTimes } from "@/features/booking/content/available-times";
 
 export function RightPanel({
 	date,

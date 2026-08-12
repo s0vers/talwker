@@ -1,6 +1,7 @@
 "use client";
 
-import { buildSlotIso } from "@/features/booking/lib/build-slot-iso";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { slotIsoFromAvailableTime } from "@/features/booking/lib/parse-available-time";
 import { Calendar } from "@/features/booking/sections/calendar";
 import type { Tour } from "@/shared/types/domain";
 import {
@@ -61,37 +62,14 @@ export function BookingScheduler({ tour }: BookingSchedulerProps) {
 	const handleChangeDate = (next: DateValue) => {
 		setDate(next as CalendarDate);
 		const url = new URL(window.location.href);
-		// CalendarDate#toString is YYYY-MM-DD in the selected calendar day (not UTC-shifted).
 		url.searchParams.set("date", next.toString());
 		url.searchParams.delete("slot");
 		pushSearch(router, url);
 	};
 
 	const handleChangeAvailableTime = (time: string) => {
-		const timeValue = time.split(":").join(" ");
-
-		const match = timeValue.match(/^(\d{1,2}) (\d{2})([ap]m)?$/i);
-		if (!match) {
-			console.error("Invalid time format");
-			return;
-		}
-
-		let hours = Number.parseInt(match[1], 10);
-		const minutes = Number.parseInt(match[2], 10);
-		const isPM = match[3] && match[3].toLowerCase() === "pm";
-
-		if (isPM && (hours < 1 || hours > 12)) {
-			console.error("Time out of range (1-12) in 12-hour format");
-			return;
-		}
-
-		if (isPM && hours !== 12) {
-			hours += 12;
-		} else if (!isPM && hours === 12) {
-			hours = 0;
-		}
-
-		const slotIso = buildSlotIso(date, hours, minutes, timeZone);
+		const slotIso = slotIsoFromAvailableTime(date, time, timeZone);
+		if (!slotIso) return;
 
 		const url = new URL(window.location.href);
 		if (!url.searchParams.get("date")) {
@@ -110,34 +88,36 @@ export function BookingScheduler({ tour }: BookingSchedulerProps) {
 	const showForm = !!dateParam && !!slotParam;
 
 	return (
-		<div className="mx-auto w-full max-w-max rounded-md border border-white/[0.06] bg-[#0a0a0a] px-8 py-6 text-white">
-			<div className="flex gap-6">
-				<LeftPanel
-					showForm={showForm}
-					timeZone={timeZone}
-					setTimeZone={setTimeZone}
-					tour={tour}
-				/>
-				{!showForm ? (
-					<>
-						<Calendar
-							minValue={today(getLocalTimeZone())}
-							defaultValue={today(getLocalTimeZone())}
-							value={date}
-							onChange={handleChangeDate}
-							onFocusChange={(focused) => setFocusedDate(focused)}
-						/>
-						<RightPanel
-							date={date}
-							timeZone={timeZone}
-							weeksInMonth={weeksInMonth}
-							handleChangeAvailableTime={handleChangeAvailableTime}
-						/>
-					</>
-				) : (
-					<FormPanel tour={tour} timeZone={timeZone} onBack={handleBack} />
-				)}
+		<TooltipProvider delayDuration={200}>
+			<div className="mx-auto w-full max-w-max rounded-md border border-white/[0.06] bg-[#0a0a0a] px-8 py-6 text-white">
+				<div className="flex gap-6">
+					<LeftPanel
+						showForm={showForm}
+						timeZone={timeZone}
+						setTimeZone={setTimeZone}
+						tour={tour}
+					/>
+					{!showForm ? (
+						<>
+							<Calendar
+								minValue={today(getLocalTimeZone())}
+								defaultValue={today(getLocalTimeZone())}
+								value={date}
+								onChange={handleChangeDate}
+								onFocusChange={(focused) => setFocusedDate(focused)}
+							/>
+							<RightPanel
+								date={date}
+								timeZone={timeZone}
+								weeksInMonth={weeksInMonth}
+								handleChangeAvailableTime={handleChangeAvailableTime}
+							/>
+						</>
+					) : (
+						<FormPanel tour={tour} timeZone={timeZone} onBack={handleBack} />
+					)}
+				</div>
 			</div>
-		</div>
+		</TooltipProvider>
 	);
 }
