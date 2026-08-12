@@ -115,7 +115,6 @@ export function FormPanel({
 					value={guestName}
 					onChange={(e) => setGuestName(e.target.value)}
 					required
-					className="rounded-xl border-white/15 bg-white/5 text-white placeholder:text-white/35"
 				/>
 			</div>
 			<div className="flex flex-col space-y-1.5">
@@ -129,7 +128,6 @@ export function FormPanel({
 					value={guestEmail}
 					onChange={(e) => setGuestEmail(e.target.value)}
 					required
-					className="rounded-xl border-white/15 bg-white/5 text-white placeholder:text-white/35"
 				/>
 			</div>
 			<div className="flex flex-col space-y-1.5">
@@ -148,7 +146,6 @@ export function FormPanel({
 					value={notes}
 					onChange={(e) => setNotes(e.target.value)}
 					placeholder="Please share anything that will help prepare for our meeting"
-					className="border-white/15 bg-white/5 text-white placeholder:text-white/35"
 				/>
 			</div>
 			{hasGuests && (
@@ -168,21 +165,20 @@ export function FormPanel({
 									placeholder="Email"
 									value={guest.email}
 									onChange={(e) => handleGuestChange(index, e.target.value)}
-									className="rounded-xl border-white/15 bg-white/5 text-white placeholder:text-white/35"
 								/>
 								<TooltipProvider>
 									<Tooltip>
 										<TooltipTrigger asChild>
 											<button
 												type="button"
-												className="absolute right-2 top-1/2 -translate-y-1/2"
+												className="absolute right-3 top-1/2 -translate-y-1/2 p-1"
 												onClick={() => removeGuest(index)}
 												aria-label="Remove email"
 											>
-												<X className="size-4 cursor-pointer text-white/60 hover:text-white" />
+												<X className="size-4 cursor-pointer text-white/60 transition-colors hover:text-white" />
 											</button>
 										</TooltipTrigger>
-										<TooltipContent className="border border-white/10 bg-[#0a0a0a] text-white">
+										<TooltipContent>
 											Remove email
 										</TooltipContent>
 									</Tooltip>
@@ -201,24 +197,24 @@ export function FormPanel({
 				<UserPlus className="mr-2 size-4" />
 				Add guests
 			</Button>
-			<p className="my-4 text-xs text-white/50">
+			<p className="my-2 text-xs text-white/50">
 				By proceeding, you agree to our{" "}
 				<span className="text-white/80">Terms</span> and{" "}
 				<span className="text-white/80">Privacy Policy</span>.
 			</p>
-			{error && <p className="text-sm text-orange-400">{error}</p>}
-			<div className="flex justify-end gap-2">
+			{error && <p className="text-sm font-medium text-orange-400">{error}</p>}
+			<div className="flex justify-end gap-2 pt-2">
 				<Button
 					type="button"
 					variant="ghost"
 					onClick={onBack}
-					className="text-white/80 hover:bg-white/10 hover:text-white"
+					className="rounded-full text-white/80 hover:bg-white/10 hover:text-white"
 				>
 					Back
 				</Button>
 				<Button
 					type="submit"
-					className="bg-orange-500 text-white hover:bg-orange-600"
+					className="rounded-full bg-orange-500 px-6 font-medium text-white transition-colors hover:bg-orange-500/90"
 				>
 					{BOOKING_COPY.continueLabel}
 				</Button>

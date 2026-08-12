@@ -56,23 +56,27 @@ export default function CheckoutPage() {
 
 	return (
 		<main className="min-h-[100svh] bg-[#050505] text-white">
-			<div className="pad-x mx-auto max-w-[960px] py-16 md:py-24">
+			<div className="pad-x mx-auto max-w-[1280px] py-12 md:py-20">
 				<p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500">
-					Booking
+					Checkout & Confirmation
 				</p>
-				<h1 className="mt-4 text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-tighter text-white">
+				<h1 className="mt-2 text-[clamp(2rem,4vw,3.25rem)] font-bold tracking-tighter text-white">
 					{CHECKOUT_COPY.title}
 				</h1>
 
 				{showDemoFlash ? (
-					<p className="mt-4 text-sm text-orange-400" role="status">
+					<p className="mt-3 text-sm font-medium text-orange-400" role="status">
 						{CHECKOUT_COPY.demoAuthFlash}
 					</p>
 				) : null}
 
-				<div className="mt-10 grid gap-8">
-					<CheckoutSummary handoff={handoff} />
-					<CheckoutForm />
+				<div className="mt-8 grid grid-cols-1 items-start gap-8 lg:grid-cols-12 lg:gap-12">
+					<div className="order-2 lg:order-1 lg:col-span-7">
+						<CheckoutForm />
+					</div>
+					<div className="order-1 lg:order-2 lg:col-span-5 lg:sticky lg:top-28">
+						<CheckoutSummary handoff={handoff} />
+					</div>
 				</div>
 			</div>
 		</main>

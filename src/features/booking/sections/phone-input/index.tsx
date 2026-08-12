@@ -159,18 +159,23 @@ export function PhoneInput({
 						variant="outline"
 						role="combobox"
 						aria-expanded={openCommand}
-						className="w-max items-center justify-between whitespace-nowrap border-white/15 bg-white/5 text-white hover:bg-white/10 hover:text-white"
+						className="h-12 w-max shrink-0 items-center justify-between gap-2 whitespace-nowrap rounded-xl border-white/15 bg-white/5 px-3.5 text-white hover:bg-white/10 hover:text-white focus-visible:border-orange-500/50 focus-visible:ring-2 focus-visible:ring-orange-500/25"
 					>
 						{selectedCountry?.name ? (
-							<span className="relative top-0.5">{selectedCountry.emoji}</span>
+							<span className="flex items-center gap-1.5 text-sm font-medium">
+								<span className="text-base">{selectedCountry.emoji}</span>
+								<span className="text-xs font-semibold text-white/70">
+									+{selectedCountry.phone_code}
+								</span>
+							</span>
 						) : (
 							"Select country"
 						)}
-						<ChevronsUpDown className="ml-2 size-4 shrink-0 opacity-50" />
+						<ChevronsUpDown className="size-4 shrink-0 opacity-50" />
 					</Button>
 				</PopoverTrigger>
 				<PopoverContent
-					className="w-max border-white/10 bg-[#0a0a0a] p-0 text-white"
+					className="w-72 border-white/10 bg-[#0a0a0a] p-0 text-white shadow-2xl rounded-2xl sm:w-80"
 					align="start"
 				>
 					<div className="border-b border-white/10 p-2">
@@ -178,10 +183,10 @@ export function PhoneInput({
 							value={query}
 							onChange={(e) => setQuery(e.target.value)}
 							placeholder="Search country..."
-							className="h-9 rounded-xl border-white/15 bg-white/5 text-white placeholder:text-white/35"
+							className="h-9 rounded-lg border-white/15 bg-white/5 text-sm text-white placeholder:text-white/35"
 						/>
 					</div>
-					<ScrollArea className="h-[300px]">
+					<ScrollArea className="h-[280px]">
 						<ul className="p-1">
 							{filteredCountries.length === 0 ? (
 								<li className="px-3 py-2 text-sm text-white/50">
@@ -193,7 +198,7 @@ export function PhoneInput({
 										<button
 											type="button"
 											className={cn(
-												"flex w-full items-center rounded-lg px-2 py-1.5 text-left text-sm text-white hover:bg-white/10",
+												"flex w-full items-center rounded-lg px-2.5 py-2 text-left text-sm text-white transition-colors hover:bg-white/10",
 											)}
 											onClick={() => {
 												if (inputRef.current) {
@@ -208,16 +213,16 @@ export function PhoneInput({
 										>
 											<Check
 												className={cn(
-													"mr-2 size-4",
+													"mr-2 size-4 shrink-0 text-orange-500",
 													countryCode === country.iso2
 														? "opacity-100"
 														: "opacity-0",
 												)}
 											/>
-											<span className="mr-2">{country.emoji}</span>
-											{country.name}
-											<span className="ml-1 text-white/50">
-												(+{country.phone_code})
+											<span className="mr-2 text-base">{country.emoji}</span>
+											<span className="truncate">{country.name}</span>
+											<span className="ml-auto text-xs text-white/50">
+												+{country.phone_code}
 											</span>
 										</button>
 									</li>
@@ -240,7 +245,7 @@ export function PhoneInput({
 				onKeyDown={handleKeyDown}
 				required={required}
 				aria-required={required}
-				className="rounded-xl border-white/15 bg-white/5 text-white placeholder:text-white/35"
+				className="h-12 rounded-xl border-white/15 bg-white/5 text-white placeholder:text-white/35"
 				{...rest}
 			/>
 		</div>
