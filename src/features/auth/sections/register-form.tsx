@@ -1,39 +1,19 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { AUTH_REGISTER_COPY } from "@/features/auth/content/auth-copy";
+import { authHref } from "@/features/auth/lib/auth-href";
 import { safeNextPath } from "@/features/auth/lib/safe-next-path";
 import {
 	AUTH_DEMO_REDIRECT_MS,
 	withDemoQuery,
 } from "@/features/auth/lib/with-demo-query";
+import { FieldLabel } from "@/shared/ui";
 import { Lock, Mail, Sparkles, User } from "lucide-react";
-
-function FieldLabel({
-	htmlFor,
-	children,
-}: {
-	htmlFor: string;
-	children: React.ReactNode;
-}) {
-	return (
-		<label
-			htmlFor={htmlFor}
-			className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.2em] text-white/50"
-		>
-			{children}
-		</label>
-	);
-}
-
-function authHref(path: "/login" | "/register", next: string | null) {
-	if (!next) return path;
-	return `${path}?next=${encodeURIComponent(next)}`;
-}
 
 export function RegisterForm() {
 	const router = useRouter();
@@ -47,8 +27,15 @@ export function RegisterForm() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [message, setMessage] = useState<string | null>(null);
+	const redirectTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
 	const next = safeNextPath(searchParams.get("next"));
+
+	useEffect(() => {
+		return () => {
+			if (redirectTimer.current) clearTimeout(redirectTimer.current);
+		};
+	}, []);
 
 	const handleFillDemo = () => {
 		setName("Alex Explorer");
@@ -62,7 +49,8 @@ export function RegisterForm() {
 		setMessage(AUTH_REGISTER_COPY.demoMessage);
 		if (!next) return;
 		const target = withDemoQuery(next);
-		window.setTimeout(() => {
+		if (redirectTimer.current) clearTimeout(redirectTimer.current);
+		redirectTimer.current = setTimeout(() => {
 			router.push(target);
 		}, AUTH_DEMO_REDIRECT_MS);
 	}

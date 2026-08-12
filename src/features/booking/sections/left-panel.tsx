@@ -11,14 +11,13 @@ import {
 import {
 	Tooltip,
 	TooltipContent,
-	TooltipProvider,
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
 import type { Tour } from "@/shared/types/domain";
 import { useLocale } from "@react-aria/i18n";
 import { CalendarIcon, Clock4, Video } from "lucide-react";
 import { useSearchParams } from "next/navigation";
-import { timeZones } from "./time-zones";
+import { timeZones } from "@/features/booking/content/time-zones";
 
 const TIME_ZONE_ITEMS = timeZones.map((tz) => ({
 	value: tz.tzCode,
@@ -43,18 +42,16 @@ export function LeftPanel({
 	return (
 		<div className="flex w-[280px] flex-col gap-4 border-r border-white/[0.06] pr-6">
 			<div className="grid gap-1">
-				<TooltipProvider>
-					<Tooltip>
-						<TooltipTrigger asChild>
-							<span className="inline-flex size-6 items-center justify-center rounded-full border border-white/15 bg-orange-500/15 text-[10px] font-semibold uppercase tracking-wider text-orange-400">
-								tw
-							</span>
-						</TooltipTrigger>
-						<TooltipContent className="border border-white/10 bg-[#0a0a0a] text-white">
-							{BOOKING_COPY.brand}
-						</TooltipContent>
-					</Tooltip>
-				</TooltipProvider>
+				<Tooltip>
+					<TooltipTrigger asChild>
+						<span className="inline-flex size-6 items-center justify-center rounded-full border border-white/15 bg-orange-500/15 text-[10px] font-semibold uppercase tracking-wider text-orange-400">
+							tw
+						</span>
+					</TooltipTrigger>
+					<TooltipContent className="border border-white/10 bg-[#0a0a0a] text-white">
+						{BOOKING_COPY.brand}
+					</TooltipContent>
+				</Tooltip>
 				<p className="text-sm font-semibold text-white/70">
 					{BOOKING_COPY.brand}
 					<span className="text-orange-500">.</span>
@@ -88,16 +85,14 @@ export function LeftPanel({
 				</div>
 				<div className="flex items-center text-white/90">
 					<Video className="mr-2 size-4 text-orange-500" aria-hidden />
-					<TooltipProvider>
-						<Tooltip>
-							<TooltipTrigger asChild>
-								<p className="text-sm font-semibold">{BOOKING_COPY.meetingType}</p>
-							</TooltipTrigger>
-							<TooltipContent className="border border-white/10 bg-[#0a0a0a] text-white">
-								{BOOKING_COPY.meetingTypeTooltip}
-							</TooltipContent>
-						</Tooltip>
-					</TooltipProvider>
+					<Tooltip>
+						<TooltipTrigger asChild>
+							<p className="text-sm font-semibold">{BOOKING_COPY.meetingType}</p>
+						</TooltipTrigger>
+						<TooltipContent className="border border-white/10 bg-[#0a0a0a] text-white">
+							{BOOKING_COPY.meetingTypeTooltip}
+						</TooltipContent>
+					</Tooltip>
 				</div>
 				<Select
 					value={timeZone}
