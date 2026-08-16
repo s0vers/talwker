@@ -12,3 +12,5 @@ export type { PolicyDocumentProps, PolicySection } from "./policy-document";
 export { SiteCookieConsent } from "./site-cookie-consent";
 export { FieldLabel } from "./field-label";
 export { LanguageSwitcher } from "./language-switcher";
+export { ButtonWithIcon } from "./button-with-icon";
+export type { ButtonWithIconProps } from "./button-with-icon";

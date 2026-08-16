@@ -5,8 +5,7 @@ import { useRef } from "react";
 import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
 import { cn } from "@/lib/utils";
 
-const primaryClassName =
-	"group inline-flex items-center gap-3 rounded-full bg-orange-500 px-10 py-4 text-[13px] font-semibold uppercase tracking-widest text-white transition-all duration-500 hover:bg-orange-600 hover:shadow-2xl hover:shadow-orange-500/25";
+import { ButtonWithIcon } from "./button-with-icon";
 
 const secondaryClassName =
 	"rounded-full border border-white/10 px-10 py-4 text-[13px] font-semibold uppercase tracking-widest text-white/40 transition-all duration-300 hover:border-white/30 hover:text-white";
@@ -39,27 +38,31 @@ function CtaControl({
 	action: EditorialCtaBandAction;
 	variant: "primary" | "secondary";
 }) {
-	const className =
-		variant === "primary" ? cn(primaryClassName, "group") : secondaryClassName;
-	const arrow = (
-		<span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden>
-			→
-		</span>
-	);
+	if (variant === "primary") {
+		return (
+			<ButtonWithIcon
+				href={action.href}
+				onClick={action.onClick}
+				variant="orange"
+				size="lg"
+				className="shadow-2xl shadow-orange-500/25"
+			>
+				{action.label}
+			</ButtonWithIcon>
+		);
+	}
 
 	if (action.href) {
 		return (
-			<Link href={action.href} className={className} onClick={action.onClick}>
+			<Link href={action.href} className={secondaryClassName} onClick={action.onClick}>
 				{action.label}
-				{variant === "primary" ? arrow : null}
 			</Link>
 		);
 	}
 
 	return (
-		<button type="button" className={className} onClick={action.onClick}>
+		<button type="button" className={secondaryClassName} onClick={action.onClick}>
 			{action.label}
-			{variant === "primary" ? arrow : null}
 		</button>
 	);
 }
