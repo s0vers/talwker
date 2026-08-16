@@ -4,7 +4,7 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react
 import { createPortal } from "react-dom";
 import { useTranslations } from "next-intl";
 import gsap from "gsap";
-import { LuChevronDown, LuCompass, LuGrid, LuLayoutTemplate, LuMenu, LuX } from "react-icons/lu";
+import { LuChevronDown, LuCompass, LuLayoutGrid, LuLayoutTemplate, LuMenu, LuX } from "react-icons/lu";
 import { Link } from "@/i18n/navigation";
 import { prefersReducedMotion } from "@/lib/useGsap";
 import { LanguageSwitcher } from "@/shared/ui";
@@ -273,7 +273,7 @@ export default function Navbar() {
 		{
 			href: "/destinations",
 			title: t("destinationsStandard"),
-			icon: LuGrid,
+			icon: LuLayoutGrid,
 			description: "Classic grid layout with interactive style filters",
 		},
 		{
