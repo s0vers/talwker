@@ -53,7 +53,7 @@ export function createPageMetadata(config: SeoConfig): Metadata {
 		title,
 		description,
 		path = "/",
-		canonicalPath = path,
+		canonicalPath,
 		imagePath = SEO_DEFAULTS.defaultImagePath,
 		keywords = SEO_DEFAULTS.defaultKeywords,
 		index = true,
@@ -63,7 +63,8 @@ export function createPageMetadata(config: SeoConfig): Metadata {
 		locale = "en",
 	} = config;
 
-	const cleanPath = path === "/" ? "" : path.startsWith("/") ? path : `/${path}`;
+	const targetPath = canonicalPath ?? path;
+	const cleanPath = targetPath === "/" ? "" : targetPath.startsWith("/") ? targetPath : `/${targetPath}`;
 	const canonicalUrl = resolveCanonicalUrl(
 		locale === "en" ? `${cleanPath || "/"}` : `/${locale}${cleanPath}`,
 	);
