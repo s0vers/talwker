@@ -130,6 +130,7 @@ export function DestinationsStage({
 								alt=""
 								fill
 								priority={index === 0}
+								loading={index === 0 ? "eager" : undefined}
 								sizes="(max-width: 1024px) 100vw, 65vw"
 								className="object-cover"
 							/>

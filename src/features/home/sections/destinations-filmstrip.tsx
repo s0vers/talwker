@@ -55,6 +55,8 @@ export function DestinationsFilmstrip({
 								src={dest.image}
 								alt=""
 								fill
+								priority={index === 0}
+								loading={index === 0 ? "eager" : "lazy"}
 								sizes="(max-width: 768px) 100px, 120px"
 								className={cn(
 									"object-cover transition-transform duration-500 group-hover:scale-105",
