@@ -2,16 +2,13 @@
 
 import Image from "next/image";
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import {
 	gsap,
 	prefersReducedMotion,
 	useCountUp,
 	useGsapContext,
 } from "@/lib/useGsap";
-import {
-	ABOUT_COPY,
-	ABOUT_HOME_STATS,
-} from "@/features/home/content/section-copy";
 
 function Stat({ value, suffix, label }: { value: number; suffix: string; label: string }) {
 	const numRef = useCountUp(value, 2);
@@ -27,9 +24,16 @@ function Stat({ value, suffix, label }: { value: number; suffix: string; label: 
 }
 
 export default function About() {
+	const t = useTranslations("Home.about");
 	const section = useRef<HTMLElement>(null);
 	const textRef = useRef<HTMLDivElement>(null);
 	const imgRef = useRef<HTMLDivElement>(null);
+
+	const stats = [
+		{ value: 500, suffix: "+", label: t("statDestinations") },
+		{ value: 15, suffix: "", label: t("statExperience") },
+		{ value: 50, suffix: "k+", label: t("statTravelers") },
+	];
 
 	useGsapContext(
 		section,
@@ -95,24 +99,24 @@ export default function About() {
 				<div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-24">
 					<div ref={textRef}>
 						<span className="mb-5 inline-block text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500">
-							{ABOUT_COPY.label}
+							{t("label")}
 						</span>
 						<h2
 							id="about-title"
 							className="text-[clamp(2.2rem,5vw,4.5rem)] font-bold leading-[0.95] tracking-tighter text-white"
 						>
-							{ABOUT_COPY.titleLead}
+							{t("titleLead")}
 							<br />
-							{ABOUT_COPY.titleLine2Prefix}{" "}
+							{t("titleLine2Prefix")}{" "}
 							<span className="font-light italic text-orange-500">
-								{ABOUT_COPY.titleAccent}
+								{t("titleAccent")}
 							</span>
 						</h2>
 						<p className="mt-8 max-w-md text-base leading-relaxed text-white/35">
-							{ABOUT_COPY.description}
+							{t("description")}
 						</p>
 						<div className="mt-14 grid grid-cols-3 gap-6">
-							{ABOUT_HOME_STATS.map((stat) => (
+							{stats.map((stat) => (
 								<Stat
 									key={stat.label}
 									value={stat.value}
@@ -140,7 +144,7 @@ export default function About() {
 						<div className="absolute bottom-6 left-6 rounded-xl bg-[#0a0a0a]/80 p-5 backdrop-blur-xl">
 							<p className="text-3xl font-bold text-white">4.9</p>
 							<p className="text-[12px] text-white/40">
-								{ABOUT_COPY.ratingSummary}
+								{t("ratingSummary")}
 							</p>
 						</div>
 					</div>

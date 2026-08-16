@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import { LuStar, LuQuote } from "react-icons/lu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -13,12 +14,12 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
 import { TESTIMONIALS } from "@/features/home/content/testimonials";
-import { TESTIMONIALS_SECTION } from "@/features/home/content/section-copy";
 import { SectionHeading } from "@/shared/ui";
 
 const CARD_MIN_HEIGHT = "min-h-[380px]";
 
 export default function Testimonials() {
+	const t = useTranslations("Home.testimonials");
 	const sectionRef = useRef<HTMLElement>(null);
 	const headingRef = useRef<HTMLDivElement>(null);
 	const carouselRef = useRef<HTMLDivElement>(null);
@@ -75,11 +76,11 @@ export default function Testimonials() {
 			<div className="mx-auto max-w-[1600px] pad-x">
 				<div ref={headingRef} className="mb-16 text-center md:mb-20">
 					<SectionHeading
-						label={TESTIMONIALS_SECTION.label}
+						label={t("label")}
 						labelId="testimonials-label"
-						title={TESTIMONIALS_SECTION.title}
+						title={t("title")}
 						titleId="testimonials-title"
-						description={TESTIMONIALS_SECTION.description}
+						description={t("description")}
 						descriptionId="testimonials-description"
 						descriptionClassName="mx-auto max-w-2xl"
 					/>
@@ -96,9 +97,9 @@ export default function Testimonials() {
 						className="relative"
 					>
 						<CarouselContent className="-ml-4 md:-ml-6">
-							{TESTIMONIALS.map((t) => (
+							{TESTIMONIALS.map((item) => (
 								<CarouselItem
-									key={t.id}
+									key={item.id}
 									className="pl-4 md:basis-1/3 md:pl-6"
 								>
 									<div
@@ -107,7 +108,7 @@ export default function Testimonials() {
 										<LuQuote className="mb-4 h-8 w-8 shrink-0 text-orange-500/60" />
 
 										<div className="mb-4 flex shrink-0 gap-1">
-											{Array.from({ length: t.rating }).map((_, i) => (
+											{Array.from({ length: item.rating }).map((_, i) => (
 												<LuStar
 													key={i}
 													className="h-4 w-4 fill-orange-500 text-orange-500"
@@ -116,14 +117,14 @@ export default function Testimonials() {
 										</div>
 
 										<p className="mb-7 min-h-18 flex-1 text-sm leading-relaxed text-white/65 line-clamp-4">
-											&ldquo;{t.text}&rdquo;
+											&ldquo;{item.text}&rdquo;
 										</p>
 
 										<div className="flex shrink-0 items-center gap-3 border-t border-white/10 pt-5">
 											<Avatar className="h-11 w-11">
-												<AvatarImage src={t.avatar} alt={t.name} />
+												<AvatarImage src={item.avatar} alt={item.name} />
 												<AvatarFallback className="bg-white/10 text-white">
-													{t.name
+													{item.name
 														.split(" ")
 														.map((n) => n[0])
 														.join("")}
@@ -131,14 +132,14 @@ export default function Testimonials() {
 											</Avatar>
 											<div className="min-w-0">
 												<p className="truncate text-sm font-semibold text-white">
-													{t.name}
+													{item.name}
 												</p>
-												<p className="truncate text-xs text-white/45">{t.location}</p>
+												<p className="truncate text-xs text-white/45">{item.location}</p>
 											</div>
 										</div>
 
 										<p className="mt-4 inline-block shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.12em] text-white/60">
-											{t.trip}
+											{item.trip}
 										</p>
 									</div>
 								</CarouselItem>

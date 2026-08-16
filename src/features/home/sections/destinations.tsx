@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useTranslations } from "next-intl";
 import { LuArrowRight } from "react-icons/lu";
 import {
 	gsap,
@@ -9,7 +10,6 @@ import {
 } from "@/lib/useGsap";
 import { DESTINATIONS } from "@/features/home/content/destinations";
 import { getFeaturedDestinations } from "@/features/home/content/featured-destinations";
-import { DESTINATIONS_SECTION } from "@/features/home/content/section-copy";
 import { DestinationsStage } from "@/features/home/sections/destinations-stage";
 import { cn } from "@/lib/utils";
 import { SectionCta, SectionHeading } from "@/shared/ui";
@@ -23,6 +23,7 @@ function subscribeReducedMotion(onStoreChange: () => void) {
 }
 
 export default function Destinations() {
+	const t = useTranslations("Home.destinations");
 	const featured = getFeaturedDestinations();
 	const sectionRef = useRef<HTMLElement>(null);
 	const headingRef = useRef<HTMLDivElement>(null);
@@ -32,6 +33,14 @@ export default function Destinations() {
 	const [activeIndex, setActiveIndex] = useState(0);
 	const [paused, setPaused] = useState(false);
 	const [progress, setProgress] = useState(0);
+
+	const filterCategories = [
+		{ key: "All", label: t("filterAll") },
+		{ key: "Popular", label: t("filterPopular") },
+		{ key: "Trending", label: t("filterTrending") },
+		{ key: "Luxury", label: t("filterLuxury") },
+		{ key: "New", label: t("filterNew") },
+	];
 
 	const reduceMotion = useSyncExternalStore(
 		subscribeReducedMotion,
@@ -114,11 +123,11 @@ export default function Destinations() {
 				>
 					<SectionHeading
 						containerClassName="max-w-xl"
-						label={DESTINATIONS_SECTION.label}
+						label={t("label")}
 						labelId="destinations-label"
-						title={DESTINATIONS_SECTION.title}
+						title={t("title")}
 						titleId="destinations-title"
-						description={DESTINATIONS_SECTION.description}
+						description={t("description")}
 						descriptionId="destinations-description"
 						labelClassName="mb-3"
 						descriptionClassName="mt-4 text-white/55"
@@ -130,19 +139,19 @@ export default function Destinations() {
 								<span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400 opacity-75" />
 								<span className="relative inline-flex h-2 w-2 rounded-full bg-orange-500" />
 							</span>
-							{DESTINATIONS_SECTION.spotlightBadge}
+							{t("spotlightBadge")}
 						</div>
 
 						{/* Category Filter Tabs */}
 						<div className="flex max-w-full items-center gap-1.5 overflow-x-auto rounded-full border border-white/10 bg-white/[0.03] p-1.5 scrollbar-none backdrop-blur-md">
-							{DESTINATIONS_SECTION.filterCategories.map((cat) => {
-								const active = selectedCategory === cat;
+							{filterCategories.map((cat) => {
+								const active = selectedCategory === cat.key;
 								return (
 									<button
-										key={cat}
+										key={cat.key}
 										type="button"
 										onClick={() => {
-											setSelectedCategory(cat);
+											setSelectedCategory(cat.key);
 											handleSelectDestination(0);
 										}}
 										className={cn(
@@ -152,7 +161,7 @@ export default function Destinations() {
 												: "text-white/60 hover:bg-white/10 hover:text-white",
 										)}
 									>
-										{cat}
+										{cat.label}
 									</button>
 								);
 							})}
@@ -179,7 +188,7 @@ export default function Destinations() {
 							<LuArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
 						}
 					>
-						{DESTINATIONS_SECTION.viewAllCta}
+						{t("viewAllCta")}
 					</SectionCta>
 				</div>
 			</div>

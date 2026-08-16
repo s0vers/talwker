@@ -2,11 +2,12 @@
 
 import Image from "next/image";
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
-import { HERO_COPY } from "@/features/home/content/section-copy";
 import { ButtonWithIcon } from "@/shared/ui";
 
 export default function Hero() {
+	const t = useTranslations("Home.hero");
 	const section = useRef<HTMLElement>(null);
 	const imgWrap = useRef<HTMLDivElement>(null);
 	const overlayRef = useRef<HTMLDivElement>(null);
@@ -81,30 +82,30 @@ export default function Hero() {
 			<div className="relative z-10 flex h-full flex-col justify-end pad-x pb-10 pt-28 md:pb-14 md:pt-32">
 				<div ref={tagRef} className="mb-6">
 					<span className="inline-block rounded-full border border-white/20 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.25em] text-white/50">
-						{HERO_COPY.tagline}
+						{t("tagline")}
 					</span>
 				</div>
 
 				<div className="overflow-hidden">
 					<h1 ref={line1} className="text-[clamp(2.15rem,10vw,9rem)] font-bold leading-[0.9] tracking-tighter text-white">
-						{HERO_COPY.titleLines[0]}
+						{t("titleLines1")}
 					</h1>
 				</div>
 				<div className="overflow-hidden">
 					<h1 ref={line2} className="text-[clamp(2.15rem,10vw,9rem)] font-bold leading-[0.9] tracking-tighter text-white">
-						{HERO_COPY.titleLines[1]}
+						{t("titleLines2")}
 					</h1>
 				</div>
 				<div className="overflow-hidden">
 					<h1 ref={line3} className="text-[clamp(2.15rem,10vw,9rem)] font-bold leading-[0.9] tracking-tighter">
-						<span className="text-white">{HERO_COPY.titleLines[2]}</span>{" "}
-						<span className="font-light italic text-orange-500">{HERO_COPY.titleAccent}</span>
+						<span className="text-white">{t("titleLines3")}</span>{" "}
+						<span className="font-light italic text-orange-500">{t("titleAccent")}</span>
 					</h1>
 				</div>
 
 				<div ref={subRef} className="mt-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
 					<p className="max-w-sm text-sm leading-relaxed text-white/40">
-						{HERO_COPY.description}
+						{t("description")}
 					</p>
 					<ButtonWithIcon
 						href="#destinations"
@@ -112,7 +113,7 @@ export default function Hero() {
 						size="lg"
 						className="shrink-0 shadow-xl shadow-orange-500/20"
 					>
-						{HERO_COPY.exploreLabel}
+						{t("explore")}
 					</ButtonWithIcon>
 				</div>
 			</div>

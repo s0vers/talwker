@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import { LuArrowRight } from "react-icons/lu";
 import {
 	gsap,
@@ -8,10 +9,10 @@ import {
 	useGsapContext,
 } from "@/lib/useGsap";
 import { TOURS } from "@/features/home/content/tours";
-import { FEATURED_TOURS_SECTION } from "@/features/home/content/section-copy";
 import { SectionCta, SectionHeading, TourCard } from "@/shared/ui";
 
 export default function FeaturedTours() {
+	const t = useTranslations("Home.tours");
 	const sectionRef = useRef<HTMLElement>(null);
 	const headingRef = useRef<HTMLDivElement>(null);
 	const cardsRef = useRef<HTMLDivElement>(null);
@@ -82,18 +83,18 @@ export default function FeaturedTours() {
 					className="mb-16 flex flex-col items-start justify-between gap-8 md:mb-20 md:flex-row md:items-end"
 				>
 					<SectionHeading
-						label={FEATURED_TOURS_SECTION.label}
+						label={t("label")}
 						labelId="featured-tours-label"
-						title={FEATURED_TOURS_SECTION.title}
+						title={t("title")}
 						titleId="featured-tours-title"
-						description={FEATURED_TOURS_SECTION.description}
+						description={t("description")}
 						descriptionId="featured-tours-description"
 					/>
 					<SectionCta
 						href="/tours"
 						icon={<LuArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />}
 					>
-						{FEATURED_TOURS_SECTION.viewAllCta}
+						{t("viewAllCta")}
 					</SectionCta>
 				</div>
 
@@ -106,8 +107,8 @@ export default function FeaturedTours() {
 							key={tour.id}
 							tour={tour}
 							href={`/tours/${tour.slug}`}
-							savePrefix={FEATURED_TOURS_SECTION.savePrefix}
-							startingAt={FEATURED_TOURS_SECTION.startingAt}
+							savePrefix={t("savePrefix")}
+							startingAt={t("startingAt")}
 						/>
 					))}
 				</div>

@@ -2,11 +2,12 @@
 
 import Image from "next/image";
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import { LuSend } from "react-icons/lu";
 import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
-import { NEWSLETTER_COPY } from "@/features/home/content/section-copy";
 
 export default function Newsletter() {
+	const t = useTranslations("Home.newsletter");
 	const sectionRef = useRef<HTMLElement>(null);
 	const cardRef = useRef<HTMLDivElement>(null);
 	const contentRef = useRef<HTMLDivElement>(null);
@@ -79,16 +80,16 @@ export default function Newsletter() {
 						className="relative px-8 py-16 text-center md:px-16 md:py-24"
 					>
 						<p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500">
-							{NEWSLETTER_COPY.label}
+							{t("label")}
 						</p>
 						<h2
 							id="newsletter-title"
 							className="text-[clamp(2rem,5vw,4rem)] font-bold leading-[0.95] tracking-tighter text-white"
 						>
-							{NEWSLETTER_COPY.title}
+							{t("title")}
 						</h2>
 						<p className="mx-auto mb-10 mt-6 max-w-xl text-sm leading-relaxed text-white/75 md:text-base">
-							{NEWSLETTER_COPY.description}
+							{t("description")}
 						</p>
 
 						<div className="mx-auto flex max-w-md flex-col gap-3 sm:flex-row">
@@ -98,7 +99,7 @@ export default function Newsletter() {
 							<input
 								id="newsletter-email"
 								type="email"
-								placeholder={NEWSLETTER_COPY.inputPlaceholder}
+								placeholder={t("placeholder")}
 								autoComplete="email"
 								className="flex-1 rounded-full border border-white/20 bg-white/10 px-6 py-3.5 text-sm text-white placeholder:text-white/55 backdrop-blur-md transition-shadow duration-200 focus:outline-none focus:ring-2 focus:ring-orange-500/60"
 							/>
@@ -107,12 +108,12 @@ export default function Newsletter() {
 								className="flex items-center justify-center gap-2 rounded-full bg-orange-500 px-8 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-orange-400"
 							>
 								<LuSend className="h-4 w-4" />
-								{NEWSLETTER_COPY.subscribeLabel}
+								{t("subscribe")}
 							</button>
 						</div>
 
 						<p className="mt-4 text-xs text-white/60">
-							{NEWSLETTER_COPY.disclaimer}
+							{t("disclaimer")}
 						</p>
 					</div>
 				</div>
