@@ -45,16 +45,10 @@ export function DestinationsStage({
 	const href = `/destinations/${destinationToSlug(dest)}`;
 	const pointerStartX = useRef<number | null>(null);
 	const didSwipe = useRef(false);
-	const hoverPaused = useRef(false);
-	const focusPaused = useRef(false);
-
-	const syncPause = () => {
-		onPauseChange(hoverPaused.current || focusPaused.current);
-	};
 
 	const go = (next: number) => {
 		const len = destinations.length;
-		onSelect(((next % len) + len) % len);
+		onSelect((next + len) % len);
 	};
 
 	return (
@@ -64,23 +58,15 @@ export function DestinationsStage({
 				className,
 			)}
 			onPointerEnter={(e) => {
-				if (e.pointerType !== "mouse") return;
-				hoverPaused.current = true;
-				syncPause();
+				if (e.pointerType === "mouse") onPauseChange(true);
 			}}
 			onPointerLeave={(e) => {
-				if (e.pointerType !== "mouse") return;
-				hoverPaused.current = false;
-				syncPause();
+				if (e.pointerType === "mouse") onPauseChange(false);
 			}}
-			onFocusCapture={() => {
-				focusPaused.current = true;
-				syncPause();
-			}}
+			onFocusCapture={() => onPauseChange(true)}
 			onBlurCapture={(e) => {
 				if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
-					focusPaused.current = false;
-					syncPause();
+					onPauseChange(false);
 				}
 			}}
 		>
