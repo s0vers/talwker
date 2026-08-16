@@ -1,10 +1,12 @@
+"use client";
+
 import Image from "next/image";
-import { DESTINATIONS_3_PAGE_HERO } from "@/features/destinations-3/content/destinations-3-page-copy";
+import { useTranslations } from "next-intl";
 
 const LIST_HERO_IMAGE_SRC = "/vertical-high-angle-shot-white-buildings-santorini-greece.jpg";
 
 export function Destinations3Hero() {
-	const h = DESTINATIONS_3_PAGE_HERO;
+	const t = useTranslations("Destinations3.hero");
 
 	return (
 		<section className="border-b border-white/10 bg-[#050505] text-white" aria-labelledby="destinations-3-hero-title">
@@ -29,11 +31,11 @@ export function Destinations3Hero() {
 
 					<div className="absolute inset-x-0 bottom-2 flex justify-center pt-8 md:pt-10">
 						<p className="max-w-[90vw] text-center text-[10px] font-semibold uppercase tracking-[0.28em] text-white/80">
-							<span className="text-orange-500">{h.rail}</span>
+							<span className="text-orange-500">{t("rail")}</span>
 							<span className="mx-2 text-white/35" aria-hidden>
 								·
 							</span>
-							<span className="text-white/55">{h.kicker}</span>
+							<span className="text-white/55">{t("kicker")}</span>
 						</p>
 					</div>
 
@@ -42,15 +44,15 @@ export function Destinations3Hero() {
 							id="destinations-3-hero-title"
 							className="mx-auto max-w-[22ch] text-center text-[clamp(2rem,5.5vw,3.75rem)] font-semibold leading-[1.08] tracking-tight text-white sm:max-w-[28ch]"
 						>
-							{h.title}{" "}
-							<span className="text-orange-500">{h.titleAccent}</span>
+							{t("title")}{" "}
+							<span className="text-orange-500">{t("titleAccent")}</span>
 						</h1>
 					</div>
 				</div>
 
 				<div className="border-t border-white/10 bg-[#080808] py-12 text-center md:py-14">
 					<p className="mx-auto max-w-lg text-sm leading-relaxed text-white/55 md:max-w-xl md:text-base md:leading-relaxed">
-						{h.lede}
+						{t("lede")}
 					</p>
 				</div>
 			</div>

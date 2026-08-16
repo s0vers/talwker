@@ -1,8 +1,8 @@
 "use client";
 
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import { DESTINATIONS_SECTION } from "@/features/home/content/section-copy";
-import { DESTINATIONS_GRID } from "@/features/destinations/content/destinations-page-copy";
 import { destinationToSlug } from "@/features/destinations/lib/destination-slug";
 import {
 	DESTINATIONS_GRID_RESULTS_ID,
@@ -22,6 +22,7 @@ export type DestinationsGridProps = {
 };
 
 export default function DestinationsGrid({ list, grid, quickLinks }: DestinationsGridProps) {
+	const t = useTranslations("Destinations.grid");
 	const { pageItems, totalPages, currentPage, filteredCount } = grid;
 	const resultsRef = useRef<HTMLDivElement>(null);
 	useDestinationsResultsScroll(resultsRef, list);
@@ -31,16 +32,16 @@ export default function DestinationsGrid({ list, grid, quickLinks }: Destination
 			<div className="mx-auto max-w-[1600px] pad-x">
 				<header className="mb-10 md:mb-14">
 					<p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-orange-500">
-						{DESTINATIONS_GRID.label}
+						{t("label")}
 					</p>
 					<h2
 						id="destinations-grid-title"
 						className="mt-3 text-3xl font-semibold tracking-tight text-white md:text-4xl"
 					>
-						{DESTINATIONS_GRID.title}
+						{t("title")}
 					</h2>
 					<p className="mt-4 max-w-2xl text-sm text-white/55 md:text-base">
-						{DESTINATIONS_GRID.description}
+						{t("description")}
 					</p>
 				</header>
 
@@ -54,7 +55,7 @@ export default function DestinationsGrid({ list, grid, quickLinks }: Destination
 				>
 					{filteredCount === 0 ? (
 						<p className="rounded-xl border border-white/10 bg-black/25 px-6 py-12 text-center text-sm text-white/55">
-							{DESTINATIONS_GRID.noResults}
+							{t("noResults")}
 						</p>
 					) : (
 						<ul

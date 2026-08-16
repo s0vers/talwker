@@ -1,10 +1,12 @@
 "use client";
 
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import { DESTINATIONS_PAGE_HERO } from "@/features/destinations/content/destinations-page-copy";
 import { useDestinationsHeroEntrance } from "./destinations-hero-gsap";
 
 export default function DestinationsHero() {
+	const t = useTranslations("Destinations.hero");
 	const sectionRef = useRef<HTMLElement>(null);
 	const svgRef = useRef<SVGSVGElement>(null);
 	const railRef = useRef<HTMLDivElement>(null);
@@ -127,7 +129,7 @@ export default function DestinationsHero() {
 							style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
 							aria-hidden
 						>
-							{DESTINATIONS_PAGE_HERO.verticalRail}
+							{t("verticalRail")}
 						</div>
 
 						<div className="md:pl-10">
@@ -140,7 +142,7 @@ export default function DestinationsHero() {
 									className="inline-block h-px w-8 origin-left bg-orange-500/50"
 									aria-hidden
 								/>
-								{DESTINATIONS_PAGE_HERO.kicker}
+								{t("kicker")}
 							</p>
 
 							<h1
@@ -148,13 +150,13 @@ export default function DestinationsHero() {
 								className="m-0 max-w-[18ch] text-left font-normal text-[clamp(2.75rem,8.5vw,5.75rem)] leading-[0.92] tracking-tight"
 							>
 								<span ref={title1Ref} className="block font-semibold text-white">
-									{DESTINATIONS_PAGE_HERO.titleLine1}
+									{t("titleLine1")}
 								</span>
 								<span
 									ref={title2Ref}
 									className="mt-1 block font-light italic text-orange-500"
 								>
-									{DESTINATIONS_PAGE_HERO.titleAccent}
+									{t("titleAccent")}
 								</span>
 							</h1>
 
@@ -162,7 +164,7 @@ export default function DestinationsHero() {
 								ref={descRef}
 								className="mt-10 max-w-md text-sm leading-relaxed text-white/55 md:text-base md:leading-relaxed"
 							>
-								{DESTINATIONS_PAGE_HERO.description}
+								{t("description")}
 							</p>
 
 							<div
@@ -173,7 +175,7 @@ export default function DestinationsHero() {
 									className="h-12 w-px bg-linear-to-b from-orange-500/50 to-transparent"
 									aria-hidden
 								/>
-								<span>{DESTINATIONS_PAGE_HERO.scrollCue}</span>
+								<span>{t("scrollCue")}</span>
 							</div>
 						</div>
 					</div>
@@ -193,13 +195,13 @@ export default function DestinationsHero() {
 							/>
 
 							<p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-orange-500">
-								{DESTINATIONS_PAGE_HERO.passEyebrow}
+								{t("passEyebrow")}
 							</p>
 							<p className="mt-4 text-[clamp(1.1rem,3.5vw,1.35rem)] font-semibold uppercase tracking-[0.12em] text-white/90">
-								{DESTINATIONS_PAGE_HERO.passTitle}
+								{t("passTitle")}
 							</p>
 							<p className="mt-2 text-[10px] font-medium uppercase tracking-[0.18em] text-white/35">
-								{DESTINATIONS_PAGE_HERO.passMeta}
+								{t("passMeta")}
 							</p>
 
 							<ul
@@ -220,7 +222,7 @@ export default function DestinationsHero() {
 							</ul>
 
 							<p className="mt-8 border-t border-dashed border-white/8 pt-6 text-[10px] font-medium uppercase tracking-[0.2em] text-white/30">
-								{DESTINATIONS_PAGE_HERO.passFooter}
+								{t("passFooter")}
 							</p>
 						</div>
 					</div>

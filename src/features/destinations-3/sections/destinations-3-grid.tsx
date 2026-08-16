@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import { destinationToSlug } from "@/features/destinations/lib/destination-slug";
 import {
 	DESTINATIONS_GRID_RESULTS_ID,
@@ -9,7 +10,6 @@ import {
 	type DestinationsQuickLink,
 } from "@/features/destinations/lib/destinations-list-params";
 import { useDestinationsResultsScroll } from "@/features/destinations/lib/use-destinations-results-scroll";
-import { DESTINATIONS_3_GRID } from "@/features/destinations-3/content/destinations-3-page-copy";
 import { DESTINATIONS_3_LIST_PATH } from "@/features/destinations-3/lib/destinations-3-list-path";
 import { DESTINATIONS_3_PAGE_SHELL } from "@/features/destinations-3/lib/destinations-3-page-shell";
 import { Destinations3Card } from "@/features/destinations-3/sections/destinations-3-card";
@@ -23,6 +23,7 @@ export type Destinations3GridProps = {
 };
 
 export function Destinations3Grid({ list, grid, quickLinks }: Destinations3GridProps) {
+	const t = useTranslations("Destinations3.grid");
 	const { pageItems, totalPages, currentPage, filteredCount } = grid;
 	const resultsRef = useRef<HTMLDivElement>(null);
 	useDestinationsResultsScroll(resultsRef, list);
@@ -35,10 +36,10 @@ export function Destinations3Grid({ list, grid, quickLinks }: Destinations3GridP
 						id="destinations-3-grid-title"
 						className="text-2xl font-semibold leading-tight tracking-tight text-white md:text-3xl lg:text-4xl"
 					>
-						{DESTINATIONS_3_GRID.title}
+						{t("title")}
 					</h2>
 					<p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/52 md:text-base">
-						{DESTINATIONS_3_GRID.description}
+						{t("description")}
 					</p>
 				</header>
 
@@ -52,7 +53,7 @@ export function Destinations3Grid({ list, grid, quickLinks }: Destinations3GridP
 				>
 					{filteredCount === 0 ? (
 						<p className="rounded-sm bg-white/3 px-6 py-14 text-center text-sm text-white/48">
-							{DESTINATIONS_3_GRID.noResults}
+							{t("noResults")}
 						</p>
 					) : (
 						<ul className="grid list-none grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3" role="list">

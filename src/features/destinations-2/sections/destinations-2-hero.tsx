@@ -1,8 +1,10 @@
 "use client";
 
-import { DESTINATIONS_2_PAGE_HERO } from "@/features/destinations-2/content/destinations-2-page-copy";
+import { useTranslations } from "next-intl";
 
 export function Destinations2Hero() {
+	const t = useTranslations("Destinations2.hero");
+
 	return (
 		<section
 			aria-labelledby="destinations-2-hero-title"
@@ -21,20 +23,20 @@ export function Destinations2Hero() {
 				<div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-end">
 					<div>
 						<p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500">
-							{DESTINATIONS_2_PAGE_HERO.rail}
+							{t("rail")}
 						</p>
 						<p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/45">
-							{DESTINATIONS_2_PAGE_HERO.kicker}
+							{t("kicker")}
 						</p>
 						<h1
 							id="destinations-2-hero-title"
 							className="mt-6 max-w-3xl text-[clamp(2.25rem,6vw,4.5rem)] font-medium leading-[1.08] tracking-tight md:text-6xl lg:text-7xl"
 						>
-							{DESTINATIONS_2_PAGE_HERO.title}{" "}
-							<span className="text-orange-500">{DESTINATIONS_2_PAGE_HERO.titleAccent}</span>
+							{t("title")}{" "}
+							<span className="text-orange-500">{t("titleAccent")}</span>
 						</h1>
 						<p className="mt-8 max-w-xl text-sm leading-relaxed text-white/55 md:text-base md:leading-relaxed">
-							{DESTINATIONS_2_PAGE_HERO.lede}
+							{t("lede")}
 						</p>
 					</div>
 
@@ -42,18 +44,18 @@ export function Destinations2Hero() {
 						<div className="flex justify-between gap-6 border-b border-white/10 pb-4">
 							<div>
 								<p className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/40">
-									{DESTINATIONS_2_PAGE_HERO.statA.label}
+									{t("statALabel")}
 								</p>
-								<p className="mt-1 text-xl font-semibold text-white">{DESTINATIONS_2_PAGE_HERO.statA.value}</p>
+								<p className="mt-1 text-xl font-semibold text-white">{t("statAValue")}</p>
 							</div>
 							<div className="text-right">
 								<p className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/40">
-									{DESTINATIONS_2_PAGE_HERO.statB.label}
+									{t("statBLabel")}
 								</p>
-								<p className="mt-1 text-xl font-semibold text-orange-500">{DESTINATIONS_2_PAGE_HERO.statB.value}</p>
+								<p className="mt-1 text-xl font-semibold text-orange-500">{t("statBValue")}</p>
 							</div>
 						</div>
-						<p className="text-xs leading-relaxed text-white/45">{DESTINATIONS_2_PAGE_HERO.footnote}</p>
+						<p className="text-xs leading-relaxed text-white/45">{t("footnote")}</p>
 					</div>
 				</div>
 			</div>
