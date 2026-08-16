@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { LuArrowRight } from "react-icons/lu";
 import {
 	gsap,
@@ -15,7 +15,6 @@ import { cn } from "@/lib/utils";
 import { SectionCta, SectionHeading } from "@/shared/ui";
 
 const AUTOPLAY_MS = 5000;
-const featured = getFeaturedDestinations();
 
 function subscribeReducedMotion(onStoreChange: () => void) {
 	const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -24,6 +23,7 @@ function subscribeReducedMotion(onStoreChange: () => void) {
 }
 
 export default function Destinations() {
+	const featured = getFeaturedDestinations();
 	const sectionRef = useRef<HTMLElement>(null);
 	const headingRef = useRef<HTMLDivElement>(null);
 	const stageWrapRef = useRef<HTMLDivElement>(null);
@@ -39,11 +39,10 @@ export default function Destinations() {
 		() => false,
 	);
 
-	const activeDestinations = useMemo(() => {
-		if (selectedCategory === "All") return featured;
-		const filtered = DESTINATIONS.filter((d) => d.tag === selectedCategory);
-		return filtered.length > 0 ? filtered : featured;
-	}, [selectedCategory]);
+	const activeDestinations =
+		selectedCategory === "All"
+			? featured
+			: DESTINATIONS.filter((d) => d.tag === selectedCategory);
 
 	const handleSelectDestination = (index: number) => {
 		setProgress(0);
