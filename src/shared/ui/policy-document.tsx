@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { type ReactNode, useState, useEffect } from "react";
 import { LuPrinter, LuLink2, LuShieldCheck, LuArrowRight, LuCircleCheck } from "react-icons/lu";
 import { cn } from "@/lib/utils";

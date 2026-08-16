@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { LuClock, LuUsers, LuArrowRight } from "react-icons/lu";
 import { EXPERIENCES_CATALOG, EXPERIENCE_CATEGORIES, type ExperienceCategory, type ExperienceItem } from "../content/experiences-page-copy";
 import { cn } from "@/lib/utils";

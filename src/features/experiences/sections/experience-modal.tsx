@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useEffect } from "react";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import { LuClock, LuUsers, LuTag, LuCircleCheck } from "react-icons/lu";

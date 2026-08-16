@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
 import { DESTINATIONS_2_GRID } from "@/features/destinations-2/content/destinations-2-page-copy";
 import { DESTINATIONS_2_LIST_PATH } from "@/features/destinations-2/lib/destinations-2-list-path";

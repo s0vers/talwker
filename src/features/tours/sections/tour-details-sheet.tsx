@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { getBookingHref } from "@/features/booking/lib/booking-href";
 import { TOUR_DETAILS_SHEET } from "@/features/tours/content/tour-details-copy";
 import { formatTourPrice } from "@/features/tours/lib/format-tour-price";

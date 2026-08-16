@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useRef, type ReactNode } from "react";
 import { STORY_DETAIL_COPY } from "@/features/stories/content/stories-page-copy";
 import {

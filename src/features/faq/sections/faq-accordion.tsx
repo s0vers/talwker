@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { LuArrowRight, LuCircleHelp } from "react-icons/lu";
 import { FAQ_GROUPS } from "../content/faq-copy";

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
 import {
 	buildDestinationsListHref,

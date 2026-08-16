@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useRef } from "react";
 import { TOURS_CATALOG } from "@/features/tours/content/tours-page-copy";
 import { formatTourPrice } from "@/features/tours/lib/format-tour-price";

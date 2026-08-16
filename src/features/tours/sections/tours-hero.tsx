@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useRef } from "react";
 import { TOURS_PAGE_HERO } from "@/features/tours/content/tours-page-copy";
 import { getTourSlug } from "@/features/tours/lib/tour-slug";

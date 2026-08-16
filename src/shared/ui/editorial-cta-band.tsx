@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useRef } from "react";
 import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
 import { cn } from "@/lib/utils";

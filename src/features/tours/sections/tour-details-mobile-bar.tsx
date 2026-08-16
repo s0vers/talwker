@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { getBookingHref } from "@/features/booking/lib/booking-href";
 import {
 	TOUR_DETAILS_MOBILE_BAR,
