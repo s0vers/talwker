@@ -25,9 +25,9 @@ const DEFAULT_FROM = "From";
 const DEFAULT_EXPLORE = "Explore";
 
 const carouselShell =
-	"relative isolate h-[460px] min-w-[80vw] cursor-pointer overflow-hidden rounded-[1.9rem] border border-white/10 bg-[#050505] sm:min-w-[65vw] md:h-[500px] lg:min-w-[380px] xl:min-w-[400px]";
+	"group relative isolate h-[460px] min-w-[80vw] cursor-pointer overflow-hidden rounded-[1.9rem] border border-white/10 bg-[#050505] sm:min-w-[65vw] md:h-[500px] lg:min-w-[380px] xl:min-w-[400px] transition-[transform,border-color,box-shadow] duration-300 ease-out hover:-translate-y-1.5 hover:border-white/25 transform-gpu";
 const gridShell =
-	"relative isolate h-[460px] w-full min-w-0 cursor-pointer overflow-hidden rounded-[1.9rem] border border-white/10 bg-[#050505] md:h-[500px]";
+	"group relative isolate h-[460px] w-full min-w-0 cursor-pointer overflow-hidden rounded-[1.9rem] border border-white/10 bg-[#050505] md:h-[500px] transition-[transform,border-color,box-shadow] duration-300 ease-out hover:-translate-y-1.5 hover:border-white/25 transform-gpu";
 
 export function DestinationCard({
 	destination: dest,
@@ -48,14 +48,14 @@ export function DestinationCard({
 			data-layout={layout}
 			className={cn(layout === "grid" ? gridShell : carouselShell, className)}
 		>
-			<div className="absolute inset-0 overflow-hidden rounded-[1.9rem]">
+			<div className="absolute inset-0 overflow-hidden rounded-[1.9rem] isolate">
 				<Image
 					src={dest.image}
 					alt={dest.name}
 					fill
 					sizes={imageSizes}
 					data-destination-image
-					className="object-cover"
+					className="object-cover transition-transform duration-500 ease-out group-hover:scale-105 transform-gpu"
 				/>
 			</div>
 			<div className="absolute inset-0 rounded-[1.9rem] bg-linear-to-t from-black/85 via-black/35 to-transparent" />
@@ -68,7 +68,7 @@ export function DestinationCard({
 
 			<div className="absolute inset-x-5 bottom-5 flex flex-col gap-4">
 				<div>
-					<h3 className="text-[1.7rem] font-semibold tracking-tight text-white md:text-[1.9rem]">
+					<h3 className="text-[1.7rem] font-semibold tracking-tight text-white transition-colors duration-200 group-hover:text-orange-400 md:text-[1.9rem]">
 						{dest.name}
 					</h3>
 					<p className="mt-1 text-sm text-white/70">{dest.country}</p>
@@ -92,7 +92,7 @@ export function DestinationCard({
 							${dest.price.toLocaleString()}
 						</p>
 					</div>
-					<span className="inline-flex items-center justify-center rounded-full bg-white px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#050505] shadow-[0_10px_25px_rgba(0,0,0,0.6)]">
+					<span className="inline-flex items-center justify-center rounded-full bg-white px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#050505] shadow-[0_10px_25px_rgba(0,0,0,0.6)] transition-colors duration-200 group-hover:bg-orange-500 group-hover:text-white">
 						{exploreButtonLabel}
 					</span>
 				</div>

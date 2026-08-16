@@ -32,18 +32,17 @@ export function TourCard({
 		<div
 			data-tour-card
 			className={cn(
-				"group h-full overflow-hidden rounded-3xl border border-white/10 bg-[#101010] transition-all duration-500 hover:-translate-y-1 hover:border-white/20",
+				"group relative isolate h-full overflow-hidden rounded-3xl border border-white/10 bg-[#101010] transition-[transform,border-color,box-shadow] duration-300 ease-out hover:-translate-y-1.5 hover:border-white/25 hover:shadow-[0_12px_30px_rgba(0,0,0,0.5)] transform-gpu",
 				className,
 			)}
-			style={{ transformStyle: "preserve-3d" }}
 		>
-			<div className="relative h-64 overflow-hidden" data-tour-card-image>
+			<div className="relative h-64 overflow-hidden rounded-t-3xl isolate" data-tour-card-image>
 				<Image
 					src={tour.image}
 					alt={tour.title}
 					fill
 					sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
-					className="object-cover transition-transform duration-700 group-hover:scale-105"
+					className="object-cover transition-transform duration-500 ease-out group-hover:scale-105 transform-gpu"
 				/>
 				<div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/20 to-transparent" />
 				{tour.originalPrice && (
@@ -70,7 +69,7 @@ export function TourCard({
 			</div>
 
 			<div className="p-6">
-				<h3 className="mb-3 text-2xl font-semibold leading-tight tracking-tight text-white">
+				<h3 className="mb-3 text-2xl font-semibold leading-tight tracking-tight text-white transition-colors duration-200 group-hover:text-orange-400">
 					{tour.title}
 				</h3>
 

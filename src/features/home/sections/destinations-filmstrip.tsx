@@ -44,13 +44,13 @@ export function DestinationsFilmstrip({
 						aria-current={active ? "true" : undefined}
 						onClick={() => onSelect(index)}
 						className={cn(
-							"group relative flex shrink-0 w-[240px] sm:w-[270px] lg:w-full items-center gap-3.5 rounded-2xl border p-2.5 sm:p-3 text-left transition-all duration-300 outline-none focus-visible:ring-2 focus-visible:ring-orange-500",
+							"group relative flex shrink-0 w-[240px] sm:w-[270px] lg:w-full items-center gap-3.5 rounded-2xl border p-2.5 sm:p-3 text-left transition-[border-color,background-color,box-shadow,transform] duration-300 ease-out outline-none focus-visible:ring-2 focus-visible:ring-orange-500 transform-gpu",
 							active
 								? "border-orange-500/80 bg-orange-500/[0.08] shadow-[0_0_25px_rgba(249,115,22,0.18)]"
-								: "border-white/10 bg-white/[0.02] hover:border-white/25 hover:bg-white/[0.05]",
+								: "border-white/10 bg-white/[0.02] hover:border-white/25 hover:bg-white/[0.05] hover:-translate-y-0.5",
 						)}
 					>
-						<div className="relative h-16 w-20 shrink-0 overflow-hidden rounded-xl bg-[#0a0a0a] sm:h-20 sm:w-24">
+						<div className="relative h-16 w-20 shrink-0 overflow-hidden rounded-xl bg-[#0a0a0a] sm:h-20 sm:w-24 isolate">
 							<Image
 								src={dest.image}
 								alt=""
@@ -59,7 +59,7 @@ export function DestinationsFilmstrip({
 								loading={index === 0 ? "eager" : "lazy"}
 								sizes="(max-width: 768px) 100px, 120px"
 								className={cn(
-									"object-cover transition-transform duration-500 group-hover:scale-105",
+									"object-cover transition-transform duration-500 ease-out group-hover:scale-105 transform-gpu",
 									active ? "scale-105" : "scale-100",
 								)}
 							/>
@@ -114,4 +114,3 @@ export function DestinationsFilmstrip({
 		</div>
 	);
 }
-
