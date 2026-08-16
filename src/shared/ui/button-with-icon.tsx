@@ -36,19 +36,22 @@ const variantStyles = {
 
 const sizeStyles = {
 	sm: {
-		button: "h-10 p-1 pl-5 pr-12 group-hover:pl-12 group-hover:pr-5 text-[11px] uppercase tracking-[0.14em]",
-		badge: "w-8 h-8 right-1 group-hover:right-[calc(100%-36px)]",
-		iconSize: 14,
+		button: "h-10 py-1 pl-5 pr-12 text-[11px] uppercase tracking-[0.14em]",
+		badge: "w-7.5 h-7.5 right-1 group-hover:right-[calc(100%-34px)]",
+		textShift: "group-hover:translate-x-6",
+		iconSize: 13,
 	},
 	default: {
-		button: "h-12 p-1 pl-6 pr-14 group-hover:pl-14 group-hover:pr-6 text-[12px] uppercase tracking-[0.16em]",
-		badge: "w-10 h-10 right-1 group-hover:right-[calc(100%-44px)]",
-		iconSize: 16,
+		button: "h-12 py-1 pl-6 pr-14 text-[12px] uppercase tracking-[0.16em]",
+		badge: "w-9.5 h-9.5 right-1.5 group-hover:right-[calc(100%-44px)]",
+		textShift: "group-hover:translate-x-7",
+		iconSize: 15,
 	},
 	lg: {
-		button: "h-14 p-1 pl-8 pr-16 group-hover:pl-16 group-hover:pr-8 text-[13px] uppercase tracking-[0.18em]",
+		button: "h-14 py-1 pl-7 pr-16 text-[13px] uppercase tracking-[0.18em]",
 		badge: "w-11 h-11 right-1.5 group-hover:right-[calc(100%-50px)]",
-		iconSize: 18,
+		textShift: "group-hover:translate-x-8",
+		iconSize: 17,
 	},
 };
 
@@ -67,7 +70,12 @@ export function ButtonWithIcon({
 
 	const content = (
 		<>
-			<span className="relative z-10 font-semibold transition-all duration-500 ease-out">
+			<span
+				className={cn(
+					"relative z-10 font-semibold whitespace-nowrap transition-transform duration-500 ease-out",
+					currentSize.textShift,
+				)}
+			>
 				{children}
 			</span>
 			<div
@@ -83,7 +91,7 @@ export function ButtonWithIcon({
 	);
 
 	const baseClassName = cn(
-		"relative group inline-flex items-center justify-center font-medium rounded-full w-fit overflow-hidden cursor-pointer transition-all duration-500 ease-out outline-none focus-visible:ring-2 focus-visible:ring-orange-500",
+		"relative group inline-flex items-center font-medium rounded-full w-fit overflow-hidden cursor-pointer transition-[background-color,border-color,box-shadow] duration-300 ease-out outline-none focus-visible:ring-2 focus-visible:ring-orange-500 transform-gpu",
 		currentVariant.button,
 		currentSize.button,
 		className,

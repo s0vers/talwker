@@ -35,7 +35,11 @@ export default function Hero() {
 
 			const subChildren = subRef.current?.children;
 			if (subChildren?.length) {
-				tl.from(subChildren, { y: 30, opacity: 0, duration: 0.8, stagger: 0.15 }, "-=0.6");
+				tl.from(
+					subChildren,
+					{ y: 30, opacity: 0, duration: 0.8, stagger: 0.15, clearProps: "opacity,transform" },
+					"-=0.6",
+				);
 			}
 
 			gsap.to([line1.current, line2.current, line3.current], {
