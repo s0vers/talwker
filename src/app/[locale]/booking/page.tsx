@@ -1,16 +1,28 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import { setRequestLocale } from "next-intl/server";
 import BookingPage from "@/features/booking/booking-page";
 import { createPageMetadata, getBreadcrumbJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = createPageMetadata({
-	title: "Book a consult",
-	description: "Schedule a Talkwer agent consult about a specific tour.",
-	path: "/booking",
-	keywords: ["talkwer booking", "tour consult", "agent call"],
-});
+type Props = {
+	params: Promise<{ locale: string }>;
+};
 
-export default function Page() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+	const { locale } = await params;
+	return createPageMetadata({
+		title: "Book a consult",
+		description: "Schedule a Talkwer agent consult about a specific tour.",
+		path: "/booking",
+		locale,
+		keywords: ["talkwer booking", "tour consult", "agent call"],
+	});
+}
+
+export default async function Page({ params }: Props) {
+	const { locale } = await params;
+	setRequestLocale(locale);
+
 	const breadcrumbJsonLd = getBreadcrumbJsonLd([
 		{ name: "Home", path: "/" },
 		{ name: "Book a consult", path: "/booking" },

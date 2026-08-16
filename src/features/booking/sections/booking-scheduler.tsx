@@ -13,7 +13,8 @@ import {
 } from "@internationalized/date";
 import type { DateValue } from "@react-aria/calendar";
 import { useLocale } from "@react-aria/i18n";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "@/i18n/navigation";
+import { useSearchParams } from "next/navigation";
 import * as React from "react";
 import { FormPanel } from "./form-panel";
 import { LeftPanel } from "./left-panel";

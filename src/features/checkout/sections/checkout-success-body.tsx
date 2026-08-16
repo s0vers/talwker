@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { resolveBookingTour } from "@/features/booking/lib/booking-tour";
 import { CHECKOUT_COPY, CHECKOUT_SUCCESS_COPY } from "@/features/checkout/content/checkout-copy";

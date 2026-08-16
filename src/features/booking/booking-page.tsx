@@ -1,6 +1,7 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "@/i18n/navigation";
+import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import { resolveBookingTour } from "@/features/booking/lib/booking-tour";
 import { BookingScheduler } from "@/features/booking/sections";

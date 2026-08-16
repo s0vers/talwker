@@ -1,18 +1,30 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import { setRequestLocale } from "next-intl/server";
 import CheckoutPage from "@/features/checkout/checkout-page";
 import { CHECKOUT_COPY } from "@/features/checkout/content/checkout-copy";
 import { createPageMetadata, getBreadcrumbJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = createPageMetadata({
-	title: "Checkout",
-	description:
-		"Confirm your Talkwer agent consult. Demo checkout — no payment is processed.",
-	path: "/checkout",
-	keywords: ["talkwer checkout", "agent consult", "tour booking"],
-});
+type Props = {
+	params: Promise<{ locale: string }>;
+};
 
-export default function Page() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+	const { locale } = await params;
+	return createPageMetadata({
+		title: "Checkout",
+		description:
+			"Confirm your Talkwer agent consult. Demo checkout — no payment is processed.",
+		path: "/checkout",
+		locale,
+		keywords: ["talkwer checkout", "agent consult", "tour booking"],
+	});
+}
+
+export default async function Page({ params }: Props) {
+	const { locale } = await params;
+	setRequestLocale(locale);
+
 	const breadcrumbJsonLd = getBreadcrumbJsonLd([
 		{ name: "Home", path: "/" },
 		{ name: "Checkout", path: "/checkout" },

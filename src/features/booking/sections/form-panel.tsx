@@ -13,7 +13,8 @@ import {
 } from "@/components/ui/tooltip";
 import type { Tour } from "@/shared/types/domain";
 import { UserPlus, X } from "lucide-react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "@/i18n/navigation";
+import { useSearchParams } from "next/navigation";
 import * as React from "react";
 import { PhoneInput, getPhoneData } from "./phone-input";
 
