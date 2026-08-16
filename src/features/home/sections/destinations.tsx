@@ -51,14 +51,13 @@ export default function Destinations() {
 
 	useEffect(() => {
 		if (reduceMotion || paused) {
-			const reset = requestAnimationFrame(() => setProgress(0));
-			return () => cancelAnimationFrame(reset);
+			const frame = requestAnimationFrame(() => setProgress(0));
+			return () => cancelAnimationFrame(frame);
 		}
-		let frame = 0;
 		const started = performance.now();
+		let frame: number;
 		const tick = (now: number) => {
-			const elapsed = now - started;
-			const ratio = Math.min(1, elapsed / AUTOPLAY_MS);
+			const ratio = Math.min(1, (now - started) / AUTOPLAY_MS);
 			setProgress(ratio);
 			if (ratio >= 1) {
 				setProgress(0);
@@ -69,7 +68,7 @@ export default function Destinations() {
 		};
 		frame = requestAnimationFrame(tick);
 		return () => cancelAnimationFrame(frame);
-	}, [activeIndex, paused, reduceMotion, activeDestinations]);
+	}, [activeIndex, paused, reduceMotion, activeDestinations.length]);
 
 	useGsapContext(
 		sectionRef,

@@ -101,7 +101,7 @@ export function DestinationsFilmstrip({
 										progress > 0 ? "transition-transform duration-75" : "transition-none",
 									)}
 									style={{
-										transform: `scaleX(${Math.min(1, Math.max(0, progress))})`,
+										transform: `scaleX(${progress})`,
 									}}
 								/>
 							</span>
