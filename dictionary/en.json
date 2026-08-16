@@ -1,0 +1,211 @@
+{
+  "Navbar": {
+    "brand": "talkwer",
+    "destinations": "Destinations",
+    "destinationsStandard": "Standard Grid",
+    "destinationsStage": "Stage Showcase",
+    "destinationsCinematic": "Cinematic Explorer",
+    "tours": "Tours",
+    "about": "About",
+    "contact": "Contact",
+    "stories": "Stories",
+    "letsTalk": "Let's Talk",
+    "switchLanguage": "Language",
+    "toggleMenu": "Toggle menu",
+    "mobileNav": "Mobile navigation",
+    "skipToMain": "Skip to main content"
+  },
+  "Footer": {
+    "explore": "Explore",
+    "company": "Company",
+    "support": "Support",
+    "legal": "Legal",
+    "destinations": "Destinations",
+    "tours": "Tours",
+    "stories": "Stories",
+    "experiences": "Experiences",
+    "about": "About",
+    "careers": "Careers",
+    "press": "Press",
+    "partners": "Partners",
+    "faq": "FAQ",
+    "bookingPolicy": "Booking Policy",
+    "cancellation": "Cancellation",
+    "contact": "Contact",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "cookies": "Cookies",
+    "blurb": "Crafting unforgettable journeys since 2010. The best stories begin with a single step into the unknown.",
+    "copyrightRest": "Talkwer. All rights reserved."
+  },
+  "Common": {
+    "explore": "Explore",
+    "viewAll": "View All",
+    "viewAllDestinations": "View All Destinations",
+    "viewAllTours": "View All Tours",
+    "viewAllStories": "View All Stories",
+    "startPlanning": "Start Planning",
+    "browseTours": "Browse Tours",
+    "from": "From",
+    "perPerson": "per person",
+    "days": "days",
+    "save": "Save",
+    "savePrefix": "Save $",
+    "startingAt": "Starting at",
+    "readMore": "Read More",
+    "backHome": "Back to Home",
+    "pageNotFound": "Page Not Found",
+    "pageNotFoundDesc": "The page you are looking for does not exist or has been moved."
+  },
+  "Metadata": {
+    "home": {
+      "title": "Talkwer — Wander. Discover. Share.",
+      "description": "A modern travel platform for the curious soul. Discover destinations, curated tours, and stories from fellow wanderers."
+    },
+    "about": {
+      "title": "About Us — Talkwer",
+      "description": "Learn more about Talkwer's mission, team, and passion for authentic travel experiences."
+    },
+    "destinations": {
+      "title": "Destinations — Talkwer",
+      "description": "Explore extraordinary destinations across the globe with Talkwer."
+    },
+    "destinations2": {
+      "title": "Destinations Showcase — Talkwer",
+      "description": "Immerse yourself in spotlight travel destinations."
+    },
+    "destinations3": {
+      "title": "Cinematic Destinations — Talkwer",
+      "description": "Discover breathtaking places through an immersive travel lens."
+    },
+    "tours": {
+      "title": "Curated Tours — Talkwer",
+      "description": "Handcrafted travel itineraries and guided expeditions designed for unforgettable memories."
+    },
+    "stories": {
+      "title": "Travel Stories & Field Notes — Talkwer",
+      "description": "Inspiring travel narratives, guides, and photography from worldwide explorers."
+    },
+    "contact": {
+      "title": "Contact Us — Talkwer",
+      "description": "Get in touch with our travel designers to plan your next journey."
+    },
+    "experiences": {
+      "title": "Experiences — Talkwer",
+      "description": "Unrivaled cultural, culinary, and outdoor adventures curated by local insiders."
+    },
+    "careers": {
+      "title": "Careers — Talkwer",
+      "description": "Join our passionate global team crafting the future of modern travel."
+    },
+    "press": {
+      "title": "Press & Media — Talkwer",
+      "description": "Latest news, media coverage, and press releases from Talkwer."
+    },
+    "partners": {
+      "title": "Partners — Talkwer",
+      "description": "Collaborate with Talkwer as a travel partner, boutique hotelier, or local guide."
+    },
+    "faq": {
+      "title": "Frequently Asked Questions — Talkwer",
+      "description": "Find answers to common questions about bookings, tours, payments, and travel insurance."
+    },
+    "bookingPolicy": {
+      "title": "Booking Policy — Talkwer",
+      "description": "Understand Talkwer's reservation, deposit, and itinerary confirmation policies."
+    },
+    "cancellation": {
+      "title": "Cancellation Policy — Talkwer",
+      "description": "Details on refunds, trip alterations, and cancellation timelines."
+    },
+    "privacy": {
+      "title": "Privacy Policy — Talkwer",
+      "description": "How we protect and handle your personal information."
+    },
+    "terms": {
+      "title": "Terms of Service — Talkwer",
+      "description": "The terms and conditions governing your use of Talkwer."
+    },
+    "cookies": {
+      "title": "Cookie Policy — Talkwer",
+      "description": "Information on how we use cookies and tracking technologies."
+    }
+  },
+  "Home": {
+    "hero": {
+      "tagline": "Wander · Discover · Share",
+      "titleLines1": "Travel is the",
+      "titleLines2": "only thing you",
+      "titleLines3": "buy that makes",
+      "titleAccent": "you richer.",
+      "description": "Curated journeys to the world's most extraordinary corners. Every trip a story. Every story worth sharing.",
+      "explore": "Explore"
+    },
+    "about": {
+      "label": "About Talkwer",
+      "titleLead": "We don't just plan trips.",
+      "titleLine2Prefix": "We craft",
+      "titleAccent": "memories.",
+      "description": "Founded by a community of passionate wanderers, Talkwer connects curious souls with the world's most extraordinary places. Every itinerary is a story waiting to unfold.",
+      "ratingSummary": "Avg. rating · 3,200 reviews",
+      "statDestinations": "Destinations",
+      "statExperience": "Experience",
+      "statTravelers": "Travelers"
+    },
+    "destinations": {
+      "label": "Explore the World",
+      "title": "Popular Destinations",
+      "description": "Handpicked extraordinary places — filter by style or browse our featured spotlight showcase.",
+      "spotlightBadge": "Spotlight Showcase",
+      "countSuffix": "Destinations",
+      "viewAllCta": "View All Destinations",
+      "fromLabel": "From",
+      "exploreButtonLabel": "Explore Destination",
+      "filterAll": "All",
+      "filterPopular": "Popular",
+      "filterTrending": "Trending",
+      "filterLuxury": "Luxury",
+      "filterNew": "New",
+      "pauseAutoplay": "Pause slideshow",
+      "playAutoplay": "Play slideshow",
+      "prevSlide": "Previous destination",
+      "nextSlide": "Next destination"
+    },
+    "tours": {
+      "label": "Curated For You",
+      "title": "Featured Tours",
+      "description": "Our most popular tour packages, designed for extraordinary experiences at unbeatable value.",
+      "viewAllCta": "View All Tours",
+      "savePrefix": "Save $",
+      "startingAt": "Starting at"
+    },
+    "testimonials": {
+      "label": "Traveler Stories",
+      "title": "What Our Travelers Say",
+      "description": "Real stories from real adventurers who trusted Talkwer to craft their perfect getaway."
+    },
+    "newsletter": {
+      "label": "Stay in the Loop",
+      "title": "Get Exclusive Travel Deals",
+      "description": "Subscribe to our newsletter and be the first to know about flash sales, new destinations, and insider travel tips.",
+      "placeholder": "Enter your email",
+      "subscribe": "Subscribe",
+      "disclaimer": "No spam, ever. Unsubscribe anytime."
+    },
+    "cta": {
+      "label": "Ready?",
+      "titleLead": "Let's plan something",
+      "titleAccent": "extraordinary",
+      "description": "Tell us your dream destination and travel style. We'll craft an itinerary you'll never forget.",
+      "primaryAction": "Start Planning",
+      "secondaryAction": "Browse Tours"
+    }
+  },
+  "Legal": {
+    "cookieTitle": "We respect your privacy",
+    "cookieDescription": "We use cookies to personalize your experience, analyze site traffic, and deliver tailored travel content.",
+    "cookieAccept": "Accept All",
+    "cookieDecline": "Decline Optional",
+    "cookieLearnMore": "Learn More"
+  }
+}

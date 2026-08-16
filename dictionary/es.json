@@ -1,0 +1,211 @@
+{
+  "Navbar": {
+    "brand": "talkwer",
+    "destinations": "Destinos",
+    "destinationsStandard": "Cuadrícula Estándar",
+    "destinationsStage": "Escenario Destacado",
+    "destinationsCinematic": "Explorador Cinemático",
+    "tours": "Tours",
+    "about": "Acerca de",
+    "contact": "Contacto",
+    "stories": "Historias",
+    "letsTalk": "Hablemos",
+    "switchLanguage": "Idioma",
+    "toggleMenu": "Alternar menú",
+    "mobileNav": "Navegación móvil",
+    "skipToMain": "Saltar al contenido principal"
+  },
+  "Footer": {
+    "explore": "Explorar",
+    "company": "Compañía",
+    "support": "Soporte",
+    "legal": "Legal",
+    "destinations": "Destinos",
+    "tours": "Tours",
+    "stories": "Historias",
+    "experiences": "Experiencias",
+    "about": "Acerca de",
+    "careers": "Carreras",
+    "press": "Prensa",
+    "partners": "Socios",
+    "faq": "Preguntas Frecuentes",
+    "bookingPolicy": "Política de Reservas",
+    "cancellation": "Cancelación",
+    "contact": "Contacto",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "cookies": "Cookies",
+    "blurb": "Creando viajes inolvidables desde 2010. Las mejores historias comienzan con un solo paso hacia lo desconocido.",
+    "copyrightRest": "Talkwer. Todos los derechos reservados."
+  },
+  "Common": {
+    "explore": "Explorar",
+    "viewAll": "Ver Todo",
+    "viewAllDestinations": "Ver Todos los Destinos",
+    "viewAllTours": "Ver Todos los Tours",
+    "viewAllStories": "Ver Todas las Historias",
+    "startPlanning": "Comenzar a Planificar",
+    "browseTours": "Explorar Tours",
+    "from": "Desde",
+    "perPerson": "por persona",
+    "days": "días",
+    "save": "Ahorra",
+    "savePrefix": "Ahorra €",
+    "startingAt": "A partir de",
+    "readMore": "Leer Más",
+    "backHome": "Volver al Inicio",
+    "pageNotFound": "Página No Encontrada",
+    "pageNotFoundDesc": "La página que buscas no existe o ha sido trasladada."
+  },
+  "Metadata": {
+    "home": {
+      "title": "Talkwer — Viaja. Descubre. Comparte.",
+      "description": "Una plataforma de viajes moderna para el alma curiosa. Descubre destinos, tours seleccionados e historias de otros viajeros."
+    },
+    "about": {
+      "title": "Acerca de Nosotros — Talkwer",
+      "description": "Conoce más sobre la misión, el equipo y la pasión de Talkwer por experiencias de viaje auténticas."
+    },
+    "destinations": {
+      "title": "Destinos — Talkwer",
+      "description": "Explora destinos extraordinarios alrededor del mundo con Talkwer."
+    },
+    "destinations2": {
+      "title": "Muestra de Destinos — Talkwer",
+      "description": "Sumérgete en destinos de viaje destacados."
+    },
+    "destinations3": {
+      "title": "Destinos Cinemáticos — Talkwer",
+      "description": "Descubre lugares impresionantes a través de un lente de viaje inmersivo."
+    },
+    "tours": {
+      "title": "Tours Seleccionados — Talkwer",
+      "description": "Itinerarios de viaje artesanales y expediciones guiadas diseñadas para recuerdos inolvidables."
+    },
+    "stories": {
+      "title": "Historias de Viaje y Notas de Campo — Talkwer",
+      "description": "Narrativas de viaje inspiradoras, guías y fotografía de exploradores de todo el mundo."
+    },
+    "contact": {
+      "title": "Contáctanos — Talkwer",
+      "description": "Ponte en contacto con nuestros diseñadores de viajes para planificar tu próxima aventura."
+    },
+    "experiences": {
+      "title": "Experiencias — Talkwer",
+      "description": "Aventuras culturales, culinarias y al aire libre inigualables creadas por expertos locales."
+    },
+    "careers": {
+      "title": "Carreras — Talkwer",
+      "description": "Únete a nuestro apasionado equipo global creando el futuro de los viajes modernos."
+    },
+    "press": {
+      "title": "Prensa y Medios — Talkwer",
+      "description": "Últimas noticias, cobertura mediática y comunicados de prensa de Talkwer."
+    },
+    "partners": {
+      "title": "Socios — Talkwer",
+      "description": "Colabora con Talkwer como socio de viajes, hotelero boutique o guía local."
+    },
+    "faq": {
+      "title": "Preguntas Frecuentes — Talkwer",
+      "description": "Encuentra respuestas a preguntas comunes sobre reservas, tours, pagos y seguros de viaje."
+    },
+    "bookingPolicy": {
+      "title": "Política de Reservas — Talkwer",
+      "description": "Conoce las políticas de reservación, depósito y confirmación de itinerarios de Talkwer."
+    },
+    "cancellation": {
+      "title": "Política de Cancelación — Talkwer",
+      "description": "Detalles sobre reembolsos, alteraciones de viaje y plazos de cancelación."
+    },
+    "privacy": {
+      "title": "Política de Privacidad — Talkwer",
+      "description": "Cómo protegemos y gestionamos tu información personal."
+    },
+    "terms": {
+      "title": "Términos de Servicio — Talkwer",
+      "description": "Los términos y condiciones que rigen el uso de Talkwer."
+    },
+    "cookies": {
+      "title": "Política de Cookies — Talkwer",
+      "description": "Información sobre cómo usamos cookies y tecnologías de seguimiento."
+    }
+  },
+  "Home": {
+    "hero": {
+      "tagline": "Viaja · Descubre · Comparte",
+      "titleLines1": "El viaje es lo",
+      "titleLines2": "único que compras",
+      "titleLines3": "que te hace",
+      "titleAccent": "más rico.",
+      "description": "Viajes seleccionados a los rincones más extraordinarios del planeta. Cada viaje, una historia. Cada historia digna de compartirse.",
+      "explore": "Explorar"
+    },
+    "about": {
+      "label": "Acerca de Talkwer",
+      "titleLead": "No solo planeamos viajes.",
+      "titleLine2Prefix": "Creamos",
+      "titleAccent": "recuerdos.",
+      "description": "Fundada por una comunidad de viajeros apasionados, Talkwer conecta almas curiosas con los lugares más extraordinarios del mundo. Cada itinerario es una historia lista para comenzar.",
+      "ratingSummary": "Calificación media · 3.200 reseñas",
+      "statDestinations": "Destinos",
+      "statExperience": "Años de Experiencia",
+      "statTravelers": "Viajeros"
+    },
+    "destinations": {
+      "label": "Explora el Mundo",
+      "title": "Destinos Populares",
+      "description": "Lugares extraordinarios seleccionados a mano — filtra por estilo o navega por nuestro escaparate destacado.",
+      "spotlightBadge": "Escaparate Destacado",
+      "countSuffix": "Destinos",
+      "viewAllCta": "Ver Todos los Destinos",
+      "fromLabel": "Desde",
+      "exploreButtonLabel": "Explorar Destino",
+      "filterAll": "Todos",
+      "filterPopular": "Popular",
+      "filterTrending": "Tendencia",
+      "filterLuxury": "Lujo",
+      "filterNew": "Nuevo",
+      "pauseAutoplay": "Pausar presentación",
+      "playAutoplay": "Reproducir presentación",
+      "prevSlide": "Destino anterior",
+      "nextSlide": "Destino siguiente"
+    },
+    "tours": {
+      "label": "Seleccionado Para Ti",
+      "title": "Tours Destacados",
+      "description": "Nuestros paquetes de tours más populares, diseñados para experiencias extraordinarias a un valor insuperable.",
+      "viewAllCta": "Ver Todos los Tours",
+      "savePrefix": "Ahorra €",
+      "startingAt": "A partir de"
+    },
+    "testimonials": {
+      "label": "Historias de Viajeros",
+      "title": "Lo Que Dicen Nuestros Viajeros",
+      "description": "Historias reales de aventureros reales que confiaron en Talkwer para diseñar su escapada perfecta."
+    },
+    "newsletter": {
+      "label": "Mantente al Día",
+      "title": "Recibe Ofertas Exclusivas de Viaje",
+      "description": "Suscríbete a nuestro boletín y sé el primero en enterarte de ventas relámpago, nuevos destinos y consejos de viaje exclusivos.",
+      "placeholder": "Introduce tu correo electrónico",
+      "subscribe": "Suscribirse",
+      "disclaimer": "Sin spam, nunca. Cancela tu suscripción en cualquier momento."
+    },
+    "cta": {
+      "label": "¿Listo?",
+      "titleLead": "Planeemos algo",
+      "titleAccent": "extraordinario",
+      "description": "Cuéntanos el destino de tus sueños y tu estilo de viaje. Diseñaremos un itinerario que jamás olvidarás.",
+      "primaryAction": "Comenzar a Planificar",
+      "secondaryAction": "Explorar Tours"
+    }
+  },
+  "Legal": {
+    "cookieTitle": "Respetamos tu privacidad",
+    "cookieDescription": "Utilizamos cookies para personalizar tu experiencia, analizar el tráfico del sitio y ofrecer contenido de viaje adaptado a ti.",
+    "cookieAccept": "Aceptar Todo",
+    "cookieDecline": "Rechazar Opcionales",
+    "cookieLearnMore": "Más Información"
+  }
+}

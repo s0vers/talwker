@@ -1,0 +1,211 @@
+{
+  "Navbar": {
+    "brand": "talkwer",
+    "destinations": "目的地",
+    "destinationsStandard": "スタンダードグリッド",
+    "destinationsStage": "ステージショーケース",
+    "destinationsCinematic": "シネマティックエクスプローラー",
+    "tours": "ツアー",
+    "about": "私たちについて",
+    "contact": "お問い合わせ",
+    "stories": "ストーリー",
+    "letsTalk": "旅の相談をする",
+    "switchLanguage": "言語",
+    "toggleMenu": "メニュー切替",
+    "mobileNav": "モバイルナビゲーション",
+    "skipToMain": "メインコンテンツへスキップ"
+  },
+  "Footer": {
+    "explore": "探検する",
+    "company": "会社情報",
+    "support": "サポート",
+    "legal": "規約・ポリシー",
+    "destinations": "目的地",
+    "tours": "ツアー",
+    "stories": "ストーリー",
+    "experiences": "体験",
+    "about": "会社概要",
+    "careers": "採用情報",
+    "press": "プレスリリース",
+    "partners": "パートナー",
+    "faq": "よくある質問",
+    "bookingPolicy": "予約ポリシー",
+    "cancellation": "キャンセル規定",
+    "contact": "お問い合わせ",
+    "privacy": "プライバシーポリシー",
+    "terms": "利用規約",
+    "cookies": "クッキーポリシー",
+    "blurb": "2010年創業。忘れられない旅を創り出す。最高のストーリーは、未知への最初の一歩から始まります。",
+    "copyrightRest": "Talkwer. All rights reserved."
+  },
+  "Common": {
+    "explore": "探索する",
+    "viewAll": "すべて見る",
+    "viewAllDestinations": "すべての目的地を見る",
+    "viewAllTours": "すべてのツアーを見る",
+    "viewAllStories": "すべてのストーリーを見る",
+    "startPlanning": "旅の計画を始める",
+    "browseTours": "ツアーを探す",
+    "from": "料金：",
+    "perPerson": "お一人様",
+    "days": "日間",
+    "save": "お得",
+    "savePrefix": "お得 ¥",
+    "startingAt": "最安",
+    "readMore": "続きを読む",
+    "backHome": "ホームに戻る",
+    "pageNotFound": "ページが見つかりません",
+    "pageNotFoundDesc": "お探しのページは存在しないか、移動した可能性があります。"
+  },
+  "Metadata": {
+    "home": {
+      "title": "Talkwer — 旅する。見つける。分かち合う。",
+      "description": "好奇心旺盛な旅人のためのモダンなトラベルプラットフォーム。魅力的な目的地、厳選ツアー、旅人のストーリーをお届けします。"
+    },
+    "about": {
+      "title": "私たちについて — Talkwer",
+      "description": "Talkwerのミッション、チーム、本物の旅の体験にかける情熱をご紹介します。"
+    },
+    "destinations": {
+      "title": "目的地 — Talkwer",
+      "description": "Talkwerと共に世界中の特別な旅先を探索しましょう。"
+    },
+    "destinations2": {
+      "title": "ディスティネーションショーケース — Talkwer",
+      "description": "注目を集める旅先に浸る体験を。"
+    },
+    "destinations3": {
+      "title": "シネマティックディスティネーション — Talkwer",
+      "description": "圧倒的な映像美で世界の絶景を発見しましょう。"
+    },
+    "tours": {
+      "title": "厳選ツアー — Talkwer",
+      "description": "忘れられない思い出のために作られたハンドクラフトな旅程とガイド付き遠征ツアー。"
+    },
+    "stories": {
+      "title": "旅のストーリーとフィールドノート — Talkwer",
+      "description": "世界中の探検家からの刺激的な旅行記、ガイド、美しい写真。"
+    },
+    "contact": {
+      "title": "お問い合わせ — Talkwer",
+      "description": "専任のトラベルデザイナーにお気軽にご相談ください。"
+    },
+    "experiences": {
+      "title": "特別な体験 — Talkwer",
+      "description": "ローカルの案内人が厳選した唯一無二の文化・食・アウトドアアドベンチャー。"
+    },
+    "careers": {
+      "title": "採用情報 — Talkwer",
+      "description": "モダンな旅の未来を創るグローバルなチームに参加しませんか。"
+    },
+    "press": {
+      "title": "プレス・メディア — Talkwer",
+      "description": "Talkwerの最新ニュース、メディア掲載実績、プレスリリース。"
+    },
+    "partners": {
+      "title": "パートナー — Talkwer",
+      "description": "トラベルパートナー、ブティックホテル、現地ガイドとしてTalkwerと提携。"
+    },
+    "faq": {
+      "title": "よくある質問 — Talkwer",
+      "description": "ご予約、ツアー、お支払い、旅行保険に関するよくある質問にお答えします。"
+    },
+    "bookingPolicy": {
+      "title": "予約ポリシー — Talkwer",
+      "description": "Talkwerのご予約、デポジット、旅程確定に関するポリシー。"
+    },
+    "cancellation": {
+      "title": "キャンセル規定 — Talkwer",
+      "description": "ご返金、日程変更、キャンセル期限に関する詳細。"
+    },
+    "privacy": {
+      "title": "プライバシーポリシー — Talkwer",
+      "description": "お客様の個人情報の保護と管理方法について。"
+    },
+    "terms": {
+      "title": "利用規約 — Talkwer",
+      "description": "Talkwerのご利用に関する利用規約。"
+    },
+    "cookies": {
+      "title": "クッキーポリシー — Talkwer",
+      "description": "当サイトにおけるクッキーおよびトラッキング技術の利用について。"
+    }
+  },
+  "Home": {
+    "hero": {
+      "tagline": "旅する · 見つける · 分かち合う",
+      "titleLines1": "旅は、あなたを",
+      "titleLines2": "もっと豊かにする",
+      "titleLines3": "唯一の",
+      "titleAccent": "買い物である。",
+      "description": "世界で最も特別な場所への厳選された旅。すべての旅に物語があり、すべての物語に語る価値がある。",
+      "explore": "探索する"
+    },
+    "about": {
+      "label": "Talkwerについて",
+      "titleLead": "ただの旅行計画ではありません。",
+      "titleLine2Prefix": "私たちは",
+      "titleAccent": "一生の思い出を紡ぎます。",
+      "description": "情熱的な旅人コミュニティによって設立されたTalkwerは、好奇心旺盛な人々と世界の特別な場所を結びつけます。すべての旅程が、始まるのを待つ物語です。",
+      "ratingSummary": "平均評価 · 3,200件のレビュー",
+      "statDestinations": "目的地",
+      "statExperience": "年の経験",
+      "statTravelers": "旅したお客様"
+    },
+    "destinations": {
+      "label": "世界を探検する",
+      "title": "人気の目的地",
+      "description": "厳選された特別な場所 — スタイルで絞り込むか、注目のショーケースをご覧ください。",
+      "spotlightBadge": "スポットライトショーケース",
+      "countSuffix": "ヶ所の目的地",
+      "viewAllCta": "すべての目的地を見る",
+      "fromLabel": "料金：",
+      "exploreButtonLabel": "目的地を詳しく見る",
+      "filterAll": "すべて",
+      "filterPopular": "人気",
+      "filterTrending": "トレンド",
+      "filterLuxury": "ラグジュアリー",
+      "filterNew": "新着",
+      "pauseAutoplay": "スライドショーを一時停止",
+      "playAutoplay": "スライドショーを再生",
+      "prevSlide": "前の目的地",
+      "nextSlide": "次の目的地"
+    },
+    "tours": {
+      "label": "あなたへのおすすめ",
+      "title": "注目のツアー",
+      "description": "圧倒的な価値で最高の体験をお届けする、最も人気のツアーパッケージ。",
+      "viewAllCta": "すべてのツアーを見る",
+      "savePrefix": "お得 ¥",
+      "startingAt": "最安"
+    },
+    "testimonials": {
+      "label": "旅人のストーリー",
+      "title": "旅人の声",
+      "description": "完璧な旅の設計をTalkwerに託した本物の冒険者たちのリアルな声をご紹介します。"
+    },
+    "newsletter": {
+      "label": "最新情報を受け取る",
+      "title": "限定の旅行お得情報をGET",
+      "description": "ニュースレターに登録して、フラッシュセール、新しい目的地、インサイダー旅情報を誰よりも早く手に入れましょう。",
+      "placeholder": "メールアドレスを入力",
+      "subscribe": "登録する",
+      "disclaimer": "スパムは一切送信しません。いつでも解除可能です。"
+    },
+    "cta": {
+      "label": "準備はできましたか？",
+      "titleLead": "心揺さぶる",
+      "titleAccent": "最高の旅を計画しましょう",
+      "description": "夢の旅先と旅行スタイルをお聞かせください。一生忘れられない旅程をご提案します。",
+      "primaryAction": "旅の計画を始める",
+      "secondaryAction": "ツアーを探す"
+    }
+  },
+  "Legal": {
+    "cookieTitle": "プライバシーを尊重します",
+    "cookieDescription": "体験のパーソナライズ、サイトトラフィックの分析、最適化された旅行コンテンツの提供のためにクッキーを使用しています。",
+    "cookieAccept": "すべて同意する",
+    "cookieDecline": "必須以外を拒否",
+    "cookieLearnMore": "詳細を見る"
+  }
+}
