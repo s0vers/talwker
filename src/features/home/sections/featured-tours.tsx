@@ -16,45 +16,46 @@ export default function FeaturedTours() {
 	const headingRef = useRef<HTMLDivElement>(null);
 	const cardsRef = useRef<HTMLDivElement>(null);
 
-	useGsapContext(sectionRef, () => {
-		if (prefersReducedMotion()) return;
-		const grid = cardsRef.current;
-		const cards = grid?.querySelectorAll<HTMLElement>("[data-tour-card]");
-		if (grid && cards?.length) {
-			gsap.from(cards, {
-				y: 56,
-				opacity: 0,
-				scale: 0.94,
-				rotationY: -8,
-				transformOrigin: "center bottom",
-				duration: 1,
-				stagger: 0.12,
-				ease: "power4.out",
-				scrollTrigger: {
-					trigger: grid,
-					start: "top 78%",
-					toggleActions: "play none none none",
-				},
-			});
+	useGsapContext(
+		sectionRef,
+		() => {
+			if (prefersReducedMotion()) return;
+			const heading = headingRef.current;
+			const grid = cardsRef.current;
+			const cards = grid?.querySelectorAll<HTMLElement>("[data-tour-card]");
 
-			// Image scale-in inside each card (slight zoom settle)
-			cards.forEach((card) => {
-				const imgWrap = card.querySelector<HTMLElement>("[data-tour-card-image]");
-				if (imgWrap) {
-					gsap.from(imgWrap, {
-						scale: 1.12,
-						duration: 1.1,
-						ease: "power3.out",
-						scrollTrigger: {
-							trigger: card,
-							start: "top 85%",
-							toggleActions: "play none none none",
-						},
-					});
-				}
-			});
-		}
-	}, []);
+			if (heading) {
+				gsap.from(heading, {
+					y: 36,
+					opacity: 0,
+					duration: 0.9,
+					ease: "power3.out",
+					scrollTrigger: {
+						trigger: sectionRef.current,
+						start: "top 80%",
+						toggleActions: "play none none none",
+					},
+				});
+			}
+
+			if (grid && cards?.length) {
+				gsap.from(cards, {
+					y: 52,
+					opacity: 0,
+					scale: 0.96,
+					duration: 0.9,
+					stagger: 0.1,
+					ease: "power3.out",
+					scrollTrigger: {
+						trigger: grid,
+						start: "top 82%",
+						toggleActions: "play none none none",
+					},
+				});
+			}
+		},
+		[],
+	);
 
 	return (
 		<section
@@ -67,7 +68,6 @@ export default function FeaturedTours() {
 				<div
 					ref={headingRef}
 					className="mb-16 flex flex-col items-start justify-between gap-8 md:mb-20 md:flex-row md:items-end"
-					style={{ perspective: "1000px" }}
 				>
 					<SectionHeading
 						label={FEATURED_TOURS_SECTION.label}
@@ -88,7 +88,6 @@ export default function FeaturedTours() {
 				<div
 					ref={cardsRef}
 					className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4"
-					style={{ perspective: "1200px" }}
 				>
 					{TOURS.map((tour) => (
 						<TourCard
@@ -104,4 +103,3 @@ export default function FeaturedTours() {
 		</section>
 	);
 }
-
