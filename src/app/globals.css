@@ -204,8 +204,6 @@ body::-webkit-scrollbar-corner,
   background: #050505 !important;
 }
 
-.scrollbar-none,
-[data-scrollbar-none],
 .scrollbar-none::-webkit-scrollbar,
 [data-scrollbar-none]::-webkit-scrollbar {
   display: none !important;
