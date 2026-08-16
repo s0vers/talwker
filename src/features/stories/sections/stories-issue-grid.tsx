@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { useRef } from "react";
-import { STORIES_INDEX_COPY } from "@/features/stories/content/stories-page-copy";
+import { useTranslations } from "next-intl";
 import { formatStoryIndex } from "@/features/stories/lib/format-story-index";
 import { getStorySlug } from "@/features/stories/lib/story-slug";
 import {
@@ -18,6 +18,7 @@ type StoriesIssueGridProps = {
 };
 
 export default function StoriesIssueGrid({ stories }: StoriesIssueGridProps) {
+	const t = useTranslations("Stories.grid");
 	const sectionRef = useRef<HTMLElement>(null);
 	const [featured, ...rest] = stories;
 
@@ -61,14 +62,14 @@ export default function StoriesIssueGrid({ stories }: StoriesIssueGridProps) {
 				<div className="mb-10 flex items-end justify-between gap-6 md:mb-14">
 					<div>
 						<p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-orange-500">
-							{STORIES_INDEX_COPY.featuredLabel}
+							{t("featuredLabel")}
 						</p>
 						<h2 id="stories-index-heading" className="sr-only">
-							{STORIES_INDEX_COPY.sectionHeading}
+							{t("sectionHeading")}
 						</h2>
 					</div>
 					<p className="font-mono text-[11px] uppercase tracking-[0.16em] text-white/35">
-						{stories.length} {STORIES_INDEX_COPY.countSuffix}
+						{stories.length} {t("countSuffix")}
 					</p>
 				</div>
 
@@ -111,10 +112,10 @@ export default function StoriesIssueGrid({ stories }: StoriesIssueGridProps) {
 								<span className="mx-2 text-white/20" aria-hidden>
 									|
 								</span>
-								{featured.readMinutes} {STORIES_INDEX_COPY.minutesSuffix}
+								{featured.readMinutes} {t("minutesSuffix")}
 							</p>
 							<span className="mt-8 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-orange-400 transition-colors group-hover:text-orange-300">
-								{STORIES_INDEX_COPY.readCta}
+								{t("readCta")}
 								<span aria-hidden>→</span>
 							</span>
 						</div>
@@ -124,7 +125,7 @@ export default function StoriesIssueGrid({ stories }: StoriesIssueGridProps) {
 				{rest.length > 0 ? (
 					<div className="mt-16 border-t border-white/10 pt-12 md:mt-20 md:pt-16">
 						<p className="mb-8 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/40">
-							{STORIES_INDEX_COPY.railLabel}
+							{t("railLabel")}
 						</p>
 
 						<ul className="flex flex-col gap-10 md:snap-x md:snap-mandatory md:flex-row md:gap-6 md:overflow-x-auto md:pb-4 md:[-ms-overflow-style:none] md:[scrollbar-width:none] md:[&::-webkit-scrollbar]:hidden">
@@ -164,7 +165,7 @@ export default function StoriesIssueGrid({ stories }: StoriesIssueGridProps) {
 													<span className="mx-2 text-white/15" aria-hidden>
 														·
 													</span>
-													{story.readMinutes} {STORIES_INDEX_COPY.minutesSuffix}
+													{story.readMinutes} {t("minutesSuffix")}
 												</p>
 											</div>
 										</Link>

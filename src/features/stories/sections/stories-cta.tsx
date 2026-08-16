@@ -1,24 +1,26 @@
 "use client";
 
-import { STORIES_CTA_COPY } from "@/features/stories/content/stories-page-copy";
+import { useTranslations } from "next-intl";
 import { EditorialCtaBand } from "@/shared/ui";
 
 export default function StoriesCTA() {
+	const t = useTranslations("Stories.cta");
+
 	return (
 		<EditorialCtaBand
 			showTopFrame
 			headingId="stories-cta-title"
-			label={STORIES_CTA_COPY.label}
-			titleLead={STORIES_CTA_COPY.titleLead}
-			titleAccent={STORIES_CTA_COPY.titleAccent}
-			description={STORIES_CTA_COPY.description}
+			label={t("label")}
+			titleLead={t("titleLead")}
+			titleAccent={t("titleAccent")}
+			description={t("description")}
 			primary={{
-				label: STORIES_CTA_COPY.primaryAction,
-				href: STORIES_CTA_COPY.primaryHref,
+				label: t("primaryAction"),
+				href: "/destinations",
 			}}
 			secondary={{
-				label: STORIES_CTA_COPY.secondaryAction,
-				href: STORIES_CTA_COPY.secondaryHref,
+				label: t("secondaryAction"),
+				href: "/tours",
 			}}
 		/>
 	);

@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { STORIES_PAGE_HERO } from "@/features/stories/content/stories-page-copy";
+import { useTranslations } from "next-intl";
 import { useStoriesHeroEntrance } from "./stories-hero-gsap";
 
 type StoriesHeroProps = {
@@ -9,6 +9,7 @@ type StoriesHeroProps = {
 };
 
 export default function StoriesHero({ runEntrance = true }: StoriesHeroProps) {
+	const t = useTranslations("Stories.hero");
 	const sectionRef = useRef<HTMLElement>(null);
 	const glowRef = useRef<HTMLDivElement>(null);
 	const kickerRef = useRef<HTMLParagraphElement>(null);
@@ -57,7 +58,7 @@ export default function StoriesHero({ runEntrance = true }: StoriesHeroProps) {
 						ref={kickerRef}
 						className="text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500"
 					>
-						{STORIES_PAGE_HERO.kicker}
+						{t("kicker")}
 					</p>
 					<span
 						ref={ruleRef}
@@ -75,7 +76,7 @@ export default function StoriesHero({ runEntrance = true }: StoriesHeroProps) {
 							ref={title1Ref}
 							className="block text-white"
 						>
-							{STORIES_PAGE_HERO.titleLine1}
+							{t("titleLine1")}
 						</span>
 					</span>
 					<span className="mt-1 block overflow-hidden">
@@ -83,7 +84,7 @@ export default function StoriesHero({ runEntrance = true }: StoriesHeroProps) {
 							ref={title2Ref}
 							className="block font-light italic text-orange-500"
 						>
-							{STORIES_PAGE_HERO.titleAccent}
+							{t("titleAccent")}
 						</span>
 					</span>
 				</h1>
@@ -92,7 +93,7 @@ export default function StoriesHero({ runEntrance = true }: StoriesHeroProps) {
 					ref={descRef}
 					className="mt-10 max-w-xl text-sm leading-relaxed text-white/55 md:mt-14 md:text-base"
 				>
-					{STORIES_PAGE_HERO.description}
+					{t("description")}
 				</p>
 			</div>
 		</section>

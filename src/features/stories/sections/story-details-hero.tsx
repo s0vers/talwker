@@ -3,11 +3,8 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { useLayoutEffect, useRef } from "react";
+import { useTranslations } from "next-intl";
 import gsap from "gsap";
-import {
-	STORIES_INDEX_COPY,
-	STORY_DETAIL_COPY,
-} from "@/features/stories/content/stories-page-copy";
 import { prefersReducedMotion } from "@/lib/useGsap";
 import type { Story } from "@/shared/types/domain";
 
@@ -20,6 +17,7 @@ export default function StoryDetailsHero({
 	story,
 	runEntrance = true,
 }: StoryDetailsHeroProps) {
+	const t = useTranslations("StoryDetails");
 	const sectionRef = useRef<HTMLElement>(null);
 
 	useLayoutEffect(() => {
@@ -76,7 +74,7 @@ export default function StoryDetailsHero({
 					className="inline-flex w-fit items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/55 transition-colors hover:text-orange-400"
 				>
 					<span aria-hidden>←</span>
-					{STORY_DETAIL_COPY.backToIndex}
+					{t("backToIndex")}
 				</Link>
 
 				<p
@@ -106,13 +104,13 @@ export default function StoryDetailsHero({
 					className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[11px] uppercase tracking-[0.14em] text-white/50 md:text-xs"
 				>
 					<span>
-						{STORY_DETAIL_COPY.bylinePrefix} {story.author}
+						{t("bylinePrefix")} {story.author}
 					</span>
 					<span className="text-white/20" aria-hidden>
 						|
 					</span>
 					<span>
-						{story.readMinutes} {STORIES_INDEX_COPY.minutesSuffix}
+						{story.readMinutes} {t("minutesSuffix")}
 					</span>
 				</p>
 			</div>
