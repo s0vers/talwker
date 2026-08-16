@@ -186,9 +186,26 @@ export default function Navbar() {
 	const [menuInDom, setMenuInDom] = useState(false);
 	const [destinationsOpen, setDestinationsOpen] = useState(false);
 	const destinationsRef = useRef<HTMLDivElement>(null);
+	const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 	const mobileMenuId = "mobile-navigation";
 
 	const showMobileLayer = open || menuInDom;
+
+	const handleDestinationsEnter = () => {
+		if (dropdownTimeoutRef.current) {
+			clearTimeout(dropdownTimeoutRef.current);
+		}
+		setDestinationsOpen(true);
+	};
+
+	const handleDestinationsLeave = () => {
+		if (dropdownTimeoutRef.current) {
+			clearTimeout(dropdownTimeoutRef.current);
+		}
+		dropdownTimeoutRef.current = setTimeout(() => {
+			setDestinationsOpen(false);
+		}, 180);
+	};
 
 	const onMenuExitComplete = useCallback(() => {
 		setMenuInDom(false);
@@ -311,9 +328,9 @@ export default function Navbar() {
 					{/* Destinations Dropdown */}
 					<div
 						ref={destinationsRef}
-						className="relative"
-						onMouseEnter={() => setDestinationsOpen(true)}
-						onMouseLeave={() => setDestinationsOpen(false)}
+						className="relative py-2"
+						onMouseEnter={handleDestinationsEnter}
+						onMouseLeave={handleDestinationsLeave}
 					>
 						<button
 							type="button"
@@ -332,31 +349,37 @@ export default function Navbar() {
 						</button>
 
 						{destinationsOpen && (
-							<div className="absolute left-1/2 -translate-x-1/2 top-full z-120 mt-2 w-72 origin-top rounded-2xl border border-white/12 bg-[#0c0c0c]/98 p-2 shadow-2xl backdrop-blur-xl animate-in fade-in zoom-in-95 duration-150">
-								<div className="space-y-1">
-									{destinationMenuItems.map((item) => {
-										const Icon = item.icon;
-										return (
-											<Link
-												key={item.href}
-												href={item.href}
-												onClick={() => setDestinationsOpen(false)}
-												className="flex items-start gap-3 rounded-xl p-2.5 transition-colors hover:bg-white/8 group/item"
-											>
-												<div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-orange-400 group-hover/item:border-orange-500/40 group-hover/item:bg-orange-500/10">
-													<Icon className="h-4 w-4" />
-												</div>
-												<div>
-													<p className="text-[13px] font-medium text-white group-hover/item:text-orange-400">
-														{item.title}
-													</p>
-													<p className="text-[11px] text-white/45 leading-snug line-clamp-1">
-														{item.description}
-													</p>
-												</div>
-											</Link>
-										);
-									})}
+							<div
+								className="absolute left-1/2 -translate-x-1/2 top-full z-120 pt-2 w-72 origin-top"
+								onMouseEnter={handleDestinationsEnter}
+								onMouseLeave={handleDestinationsLeave}
+							>
+								<div className="rounded-2xl border border-white/12 bg-[#0c0c0c]/98 p-2 shadow-2xl backdrop-blur-xl animate-in fade-in zoom-in-95 duration-150">
+									<div className="space-y-1">
+										{destinationMenuItems.map((item) => {
+											const Icon = item.icon;
+											return (
+												<Link
+													key={item.href}
+													href={item.href}
+													onClick={() => setDestinationsOpen(false)}
+													className="flex items-start gap-3 rounded-xl p-2.5 transition-colors hover:bg-white/8 group/item"
+												>
+													<div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-orange-400 group-hover/item:border-orange-500/40 group-hover/item:bg-orange-500/10">
+														<Icon className="h-4 w-4" />
+													</div>
+													<div>
+														<p className="text-[13px] font-medium text-white group-hover/item:text-orange-400">
+															{item.title}
+														</p>
+														<p className="text-[11px] text-white/45 leading-snug line-clamp-1">
+															{item.description}
+														</p>
+													</div>
+												</Link>
+											);
+										})}
+									</div>
 								</div>
 							</div>
 						)}

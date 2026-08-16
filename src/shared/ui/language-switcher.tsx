@@ -91,34 +91,36 @@ export function LanguageSwitcher({
 				<div
 					role="listbox"
 					aria-label="Languages"
-					className="absolute right-0 z-120 mt-2 min-w-[140px] origin-top-right rounded-xl border border-white/12 bg-[#0d0d0d]/98 p-1.5 shadow-2xl backdrop-blur-xl animate-in fade-in zoom-in-95 duration-150"
+					className="absolute right-0 z-120 pt-2 min-w-[140px] origin-top-right"
 				>
-					{LOCALES.map((option) => {
-						const isSelected = option.code === currentLocale;
-						return (
-							<button
-								key={option.code}
-								type="button"
-								role="option"
-								aria-selected={isSelected}
-								onClick={() => handleSelectLocale(option.code)}
-								className={cn(
-									"flex w-full items-center justify-between gap-3 rounded-lg px-3 py-2 text-left text-[13px] font-normal transition-colors duration-150",
-									isSelected
-										? "bg-orange-500/15 text-orange-400 font-medium"
-										: "text-white/70 hover:bg-white/8 hover:text-white",
-								)}
-							>
-								<span>{option.label}</span>
-								<span className="flex items-center gap-1.5">
-									<span className="text-[10px] uppercase tracking-wider text-white/40">
-										{option.short}
+					<div className="rounded-xl border border-white/12 bg-[#0d0d0d]/98 p-1.5 shadow-2xl backdrop-blur-xl animate-in fade-in zoom-in-95 duration-150">
+						{LOCALES.map((option) => {
+							const isSelected = option.code === currentLocale;
+							return (
+								<button
+									key={option.code}
+									type="button"
+									role="option"
+									aria-selected={isSelected}
+									onClick={() => handleSelectLocale(option.code)}
+									className={cn(
+										"flex w-full items-center justify-between gap-3 rounded-lg px-3 py-2 text-left text-[13px] font-normal transition-colors duration-150",
+										isSelected
+											? "bg-orange-500/15 text-orange-400 font-medium"
+											: "text-white/70 hover:bg-white/8 hover:text-white",
+									)}
+								>
+									<span>{option.label}</span>
+									<span className="flex items-center gap-1.5">
+										<span className="text-[10px] uppercase tracking-wider text-white/40">
+											{option.short}
+										</span>
+										{isSelected && <LuCheck className="h-3.5 w-3.5 text-orange-400" />}
 									</span>
-									{isSelected && <LuCheck className="h-3.5 w-3.5 text-orange-400" />}
-								</span>
-							</button>
-						);
-					})}
+								</button>
+							);
+						})}
+					</div>
 				</div>
 			)}
 		</div>
