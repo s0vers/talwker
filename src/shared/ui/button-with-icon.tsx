@@ -36,17 +36,17 @@ const variantStyles = {
 
 const sizeStyles = {
 	sm: {
-		button: "h-10 p-1 ps-5 pe-12 hover:ps-12 hover:pe-5 text-[11px] uppercase tracking-[0.14em]",
+		button: "h-10 p-1 pl-5 pr-12 group-hover:pl-12 group-hover:pr-5 text-[11px] uppercase tracking-[0.14em]",
 		badge: "w-8 h-8 right-1 group-hover:right-[calc(100%-36px)]",
 		iconSize: 14,
 	},
 	default: {
-		button: "h-12 p-1 ps-6 pe-14 hover:ps-14 hover:pe-6 text-[12px] uppercase tracking-[0.16em]",
+		button: "h-12 p-1 pl-6 pr-14 group-hover:pl-14 group-hover:pr-6 text-[12px] uppercase tracking-[0.16em]",
 		badge: "w-10 h-10 right-1 group-hover:right-[calc(100%-44px)]",
 		iconSize: 16,
 	},
 	lg: {
-		button: "h-14 p-1 ps-8 pe-16 hover:ps-16 hover:pe-8 text-[13px] uppercase tracking-[0.18em]",
+		button: "h-14 p-1 pl-8 pr-16 group-hover:pl-16 group-hover:pr-8 text-[13px] uppercase tracking-[0.18em]",
 		badge: "w-11 h-11 right-1.5 group-hover:right-[calc(100%-50px)]",
 		iconSize: 18,
 	},

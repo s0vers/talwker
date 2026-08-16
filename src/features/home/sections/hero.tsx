@@ -106,7 +106,7 @@ export default function Hero() {
 						href="#destinations"
 						variant="orange"
 						size="lg"
-						className="self-start shadow-xl shadow-orange-500/20"
+						className="shrink-0 shadow-xl shadow-orange-500/20"
 					>
 						{HERO_COPY.exploreLabel}
 					</ButtonWithIcon>
