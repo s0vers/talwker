@@ -19,23 +19,33 @@ export default function Newsletter() {
 			const content = contentRef.current;
 			if (!card || !content) return;
 
-			gsap.from(card, {
-				scale: 0.96,
-				opacity: 0,
-				duration: 1,
-				ease: "power3.out",
-				scrollTrigger: { trigger: card, start: "top 85%" },
-			});
+			gsap.fromTo(
+				card,
+				{ scale: 0.97, opacity: 0 },
+				{
+					scale: 1,
+					opacity: 1,
+					duration: 0.9,
+					ease: "power3.out",
+					clearProps: "opacity,transform",
+					scrollTrigger: { trigger: card, start: "top 88%", once: true },
+				},
+			);
 
-			gsap.from(content.children, {
-				y: 48,
-				opacity: 0,
-				duration: 0.9,
-				stagger: 0.1,
-				ease: "power3.out",
-				delay: 0.15,
-				scrollTrigger: { trigger: content, start: "top 85%" },
-			});
+			gsap.fromTo(
+				content.children,
+				{ y: 36, opacity: 0 },
+				{
+					y: 0,
+					opacity: 1,
+					duration: 0.8,
+					stagger: 0.08,
+					ease: "power3.out",
+					clearProps: "opacity,transform",
+					delay: 0.1,
+					scrollTrigger: { trigger: content, start: "top 88%", once: true },
+				},
+			);
 		},
 		[],
 	);

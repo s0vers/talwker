@@ -77,18 +77,24 @@ export default function Destinations() {
 			const heading = headingRef.current;
 			const stage = stageWrapRef.current;
 			if (heading && stage) {
-				gsap.from([heading, stage], {
-					y: 36,
-					opacity: 0,
-					duration: 1,
-					stagger: 0.15,
-					ease: "power3.out",
-					scrollTrigger: {
-						trigger: sectionRef.current,
-						start: "top 78%",
-						toggleActions: "play none none none",
+				gsap.fromTo(
+					[heading, stage],
+					{ y: 32, opacity: 0 },
+					{
+						y: 0,
+						opacity: 1,
+						duration: 0.9,
+						stagger: 0.12,
+						ease: "power3.out",
+						clearProps: "opacity,transform",
+						scrollTrigger: {
+							trigger: sectionRef.current,
+							start: "top 85%",
+							toggleActions: "play none none none",
+							once: true,
+						},
 					},
-				});
+				);
 			}
 		},
 		[],

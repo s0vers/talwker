@@ -38,23 +38,33 @@ export default function About() {
 			const textEl = textRef.current;
 			const imgEl = imgRef.current;
 			if (textEl?.children.length) {
-				gsap.from(textEl.children, {
-					y: 60,
-					opacity: 0,
-					duration: 1,
-					stagger: 0.12,
-					ease: "power3.out",
-					scrollTrigger: { trigger: textEl, start: "top 80%" },
-				});
+				gsap.fromTo(
+					textEl.children,
+					{ y: 40, opacity: 0 },
+					{
+						y: 0,
+						opacity: 1,
+						duration: 0.9,
+						stagger: 0.1,
+						ease: "power3.out",
+						clearProps: "opacity,transform",
+						scrollTrigger: { trigger: textEl, start: "top 85%", once: true },
+					},
+				);
 			}
 
 			if (imgEl) {
-				gsap.from(imgEl, {
-					clipPath: "inset(0 100% 0 0)",
-					duration: 1.4,
-					ease: "power4.inOut",
-					scrollTrigger: { trigger: imgEl, start: "top 75%" },
-				});
+				gsap.fromTo(
+					imgEl,
+					{ clipPath: "inset(0 100% 0 0)" },
+					{
+						clipPath: "inset(0 0% 0 0)",
+						duration: 1.4,
+						ease: "power4.inOut",
+						clearProps: "clipPath",
+						scrollTrigger: { trigger: imgEl, start: "top 80%", once: true },
+					},
+				);
 
 				const img = imgEl.querySelector("img");
 				if (img) {

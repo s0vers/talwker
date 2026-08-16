@@ -25,33 +25,45 @@ export default function FeaturedTours() {
 			const cards = grid?.querySelectorAll<HTMLElement>("[data-tour-card]");
 
 			if (heading) {
-				gsap.from(heading, {
-					y: 36,
-					opacity: 0,
-					duration: 0.9,
-					ease: "power3.out",
-					scrollTrigger: {
-						trigger: sectionRef.current,
-						start: "top 80%",
-						toggleActions: "play none none none",
+				gsap.fromTo(
+					heading,
+					{ y: 32, opacity: 0 },
+					{
+						y: 0,
+						opacity: 1,
+						duration: 0.8,
+						ease: "power3.out",
+						clearProps: "opacity,transform",
+						scrollTrigger: {
+							trigger: sectionRef.current,
+							start: "top 85%",
+							toggleActions: "play none none none",
+							once: true,
+						},
 					},
-				});
+				);
 			}
 
 			if (grid && cards?.length) {
-				gsap.from(cards, {
-					y: 52,
-					opacity: 0,
-					scale: 0.96,
-					duration: 0.9,
-					stagger: 0.1,
-					ease: "power3.out",
-					scrollTrigger: {
-						trigger: grid,
-						start: "top 82%",
-						toggleActions: "play none none none",
+				gsap.fromTo(
+					cards,
+					{ y: 44, opacity: 0, scale: 0.97 },
+					{
+						y: 0,
+						opacity: 1,
+						scale: 1,
+						duration: 0.8,
+						stagger: 0.1,
+						ease: "power3.out",
+						clearProps: "opacity,transform",
+						scrollTrigger: {
+							trigger: grid,
+							start: "top 85%",
+							toggleActions: "play none none none",
+							once: true,
+						},
 					},
-				});
+				);
 			}
 		},
 		[],

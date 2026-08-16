@@ -82,14 +82,19 @@ export function EditorialCtaBand({
 		sectionRef,
 		() => {
 			if (prefersReducedMotion() || !headRef.current) return;
-			gsap.from(headRef.current.children, {
-				y: 60,
-				opacity: 0,
-				duration: 1,
-				stagger: 0.12,
-				ease: "power3.out",
-				scrollTrigger: { trigger: headRef.current, start: "top 80%" },
-			});
+			gsap.fromTo(
+				headRef.current.children,
+				{ y: 40, opacity: 0 },
+				{
+					y: 0,
+					opacity: 1,
+					duration: 0.9,
+					stagger: 0.1,
+					ease: "power3.out",
+					clearProps: "opacity,transform",
+					scrollTrigger: { trigger: headRef.current, start: "top 85%", once: true },
+				},
+			);
 		},
 		[],
 	);
