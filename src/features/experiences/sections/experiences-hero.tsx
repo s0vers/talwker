@@ -3,12 +3,14 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import { LuSparkles, LuLayers, LuCompass, LuArrowRight } from "react-icons/lu";
 import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
-import { EXPERIENCES_HERO, EXPERIENCES_CATALOG } from "../content/experiences-page-copy";
+import { EXPERIENCES_CATALOG } from "../content/experiences-page-copy";
 import { cn } from "@/lib/utils";
 
 export function ExperiencesHero() {
+	const t = useTranslations("Experiences.hero");
 	const containerRef = useRef<HTMLElement>(null);
 	const contentRef = useRef<HTMLDivElement>(null);
 	const cardsStackRef = useRef<HTMLDivElement>(null);
@@ -75,10 +77,10 @@ export function ExperiencesHero() {
 						<div className="flex items-center gap-3">
 							<span className="inline-flex items-center gap-1.5 rounded-full bg-orange-500/10 border border-orange-500/30 px-3.5 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-400">
 								<LuSparkles className="h-3 w-3 text-orange-500" />
-								01 // Discovery
+								{t("eyebrow")}
 							</span>
 							<span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/40">
-								Catalog 2026
+								{t("catalogTag")}
 							</span>
 						</div>
 
@@ -86,38 +88,38 @@ export function ExperiencesHero() {
 							id="experiences-hero-title"
 							className="text-[clamp(2.75rem,6.5vw,5.25rem)] font-bold leading-[0.93] tracking-tight text-white"
 						>
-							The Art of{" "}
+							{t("titleLine1")}{" "}
 							<span className="font-light italic text-orange-500 block sm:inline">
-								Unrushed Travel.
+								{t("titleAccent")}
 							</span>
 						</h1>
 
 						<p className="text-base sm:text-lg text-white/60 leading-relaxed max-w-xl">
-							{EXPERIENCES_HERO.description}
+							{t("description")}
 						</p>
 
 						{/* Feature Pills */}
 						<div className="flex flex-wrap gap-4 pt-2 text-xs text-white/70">
 							<span className="inline-flex items-center gap-2 rounded-xl bg-white/5 border border-white/10 px-3.5 py-2">
-								<LuLayers className="h-4 w-4 text-orange-500" /> 6 Signature Formats
+								<LuLayers className="h-4 w-4 text-orange-500" /> {t("formatsPill")}
 							</span>
 							<span className="inline-flex items-center gap-2 rounded-xl bg-white/5 border border-white/10 px-3.5 py-2">
-								<LuCompass className="h-4 w-4 text-orange-500" /> Max 8–16 Guests
+								<LuCompass className="h-4 w-4 text-orange-500" /> {t("guestsPill")}
 							</span>
 						</div>
 
 						<div className="pt-4 flex flex-wrap gap-4 items-center">
 							<Link
-								href={EXPERIENCES_HERO.primaryHref}
+								href="/tours"
 								className="inline-flex items-center gap-2 rounded-full bg-orange-500 px-8 py-3.5 text-xs font-semibold uppercase tracking-widest text-white transition-all hover:bg-orange-600 hover:shadow-xl hover:shadow-orange-500/20"
 							>
-								{EXPERIENCES_HERO.primaryAction} <LuArrowRight className="h-4 w-4" />
+								{t("primaryAction")} <LuArrowRight className="h-4 w-4" />
 							</Link>
 							<Link
-								href={EXPERIENCES_HERO.secondaryHref}
+								href="/contact"
 								className="inline-flex items-center rounded-full border border-white/15 px-8 py-3.5 text-xs font-semibold uppercase tracking-widest text-white/70 transition-all hover:border-white/40 hover:text-white"
 							>
-								{EXPERIENCES_HERO.secondaryAction}
+								{t("secondaryAction")}
 							</Link>
 						</div>
 					</div>

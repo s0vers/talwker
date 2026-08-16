@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useRef } from "react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -48,6 +49,7 @@ function topicLabelForValue(value: ContactFormTopicValue) {
 }
 
 export default function ContactForm() {
+	const t = useTranslations("Contact.form");
 	const sectionRef = useRef<HTMLElement>(null);
 	useContactFormScrollMotion(sectionRef);
 
@@ -94,20 +96,20 @@ export default function ContactForm() {
 								data-contact-form-intro
 								className="text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500 will-change-[filter,opacity,transform]"
 							>
-								{CONTACT_FORM_COPY.eyebrow}
+								{t("eyebrow")}
 							</p>
 							<h2
 								data-contact-form-intro
 								id="contact-form-heading"
 								className="mt-4 text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-tighter text-white will-change-[filter,opacity,transform]"
 							>
-								{CONTACT_FORM_COPY.title}
+								{t("title")}
 							</h2>
 							<p
 								data-contact-form-intro
 								className="mt-4 max-w-md text-sm leading-relaxed text-white/70 will-change-[filter,opacity,transform] md:text-base"
 							>
-								{CONTACT_FORM_COPY.description}
+								{t("description")}
 							</p>
 							<div
 								data-contact-form-intro
@@ -129,7 +131,7 @@ export default function ContactForm() {
 									>
 										<div className="md:col-span-1">
 											<FieldLabel htmlFor={nameId}>
-												{CONTACT_FORM_COPY.nameLabel}
+												{t("nameLabel")}
 											</FieldLabel>
 											<Input
 												id={nameId}
@@ -137,7 +139,7 @@ export default function ContactForm() {
 												type="text"
 												autoComplete="name"
 												required
-												placeholder={CONTACT_FORM_COPY.namePlaceholder}
+												placeholder={t("namePlaceholder")}
 												className={cn(
 													fieldSurface,
 													"rounded-2xl placeholder:text-white/35",
@@ -146,7 +148,7 @@ export default function ContactForm() {
 										</div>
 										<div className="md:col-span-1">
 											<FieldLabel htmlFor={emailId}>
-												{CONTACT_FORM_COPY.emailLabel}
+												{t("emailLabel")}
 											</FieldLabel>
 											<Input
 												id={emailId}
@@ -154,7 +156,7 @@ export default function ContactForm() {
 												type="email"
 												autoComplete="email"
 												required
-												placeholder={CONTACT_FORM_COPY.emailPlaceholder}
+												placeholder={t("emailPlaceholder")}
 												className={cn(
 													fieldSurface,
 													"rounded-2xl placeholder:text-white/35",
@@ -168,7 +170,7 @@ export default function ContactForm() {
 										className="mt-6 will-change-[filter,opacity,transform]"
 									>
 										<FieldLabel htmlFor={topicId}>
-											{CONTACT_FORM_COPY.topicLabel}
+											{t("topicLabel")}
 										</FieldLabel>
 										<Select<ContactFormTopicValue>
 											name="topic"
@@ -182,10 +184,10 @@ export default function ContactForm() {
 													fieldSurface,
 													"rounded-2xl data-placeholder:text-white/35",
 												)}
-												aria-label={CONTACT_FORM_COPY.topicLabel}
+												aria-label={t("topicLabel")}
 											>
 												<SelectValue
-													placeholder={CONTACT_FORM_COPY.topicPlaceholder}
+													placeholder={t("topicPlaceholder")}
 												/>
 											</SelectTrigger>
 											<SelectContent
@@ -193,13 +195,13 @@ export default function ContactForm() {
 												sideOffset={8}
 												className={selectContentClass}
 											>
-												{CONTACT_FORM_TOPIC_ITEMS.map((t) => (
+												{CONTACT_FORM_TOPIC_ITEMS.map((item) => (
 													<SelectItem
-														key={t.value}
-														value={t.value}
+														key={item.value}
+														value={item.value}
 														className={selectItemClass}
 													>
-														{t.label}
+														{item.label}
 													</SelectItem>
 												))}
 											</SelectContent>
@@ -211,14 +213,14 @@ export default function ContactForm() {
 										className="mt-6 will-change-[filter,opacity,transform]"
 									>
 										<FieldLabel htmlFor={messageId}>
-											{CONTACT_FORM_COPY.messageLabel}
+											{t("messageLabel")}
 										</FieldLabel>
 										<Textarea
 											id={messageId}
 											name="message"
 											required
 											rows={6}
-											placeholder={CONTACT_FORM_COPY.messagePlaceholder}
+											placeholder={t("messagePlaceholder")}
 											className={cn(
 												fieldSurface,
 												"placeholder:text-white/35",
@@ -235,10 +237,10 @@ export default function ContactForm() {
 											size="lg"
 											className="w-full rounded-full bg-orange-500 text-white hover:bg-orange-500/90 sm:w-auto sm:min-w-[200px]"
 										>
-											{CONTACT_FORM_COPY.submitLabel}
+											{t("submitLabel")}
 										</Button>
 										<p className="max-w-xs text-center text-[12px] leading-relaxed text-white/45 sm:text-right">
-											{CONTACT_FORM_COPY.submitHint}
+											{t("submitHint")}
 										</p>
 									</div>
 								</form>

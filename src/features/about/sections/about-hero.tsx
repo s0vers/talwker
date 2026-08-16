@@ -2,10 +2,11 @@
 
 import Image from "next/image";
 import { useRef } from "react";
-import { ABOUT_HERO_COPY } from "@/features/about/content/about-copy";
+import { useTranslations } from "next-intl";
 import { useAboutHeroGsap } from "./about-hero-gsap";
 
 export default function AboutHero() {
+	const t = useTranslations("About.hero");
 	const section = useRef<HTMLElement>(null);
 	const topLineRef = useRef<HTMLDivElement>(null);
 	const headPre = useRef<HTMLDivElement>(null);
@@ -44,7 +45,7 @@ export default function AboutHero() {
 
 					<div className="flex items-center gap-4 md:gap-6">
 						<span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500">
-							{ABOUT_HERO_COPY.tagline}
+							{t("tagline")}
 						</span>
 						<span className="h-px flex-1 bg-white/10" />
 					</div>
@@ -55,7 +56,7 @@ export default function AboutHero() {
 								ref={headPre}
 								className="text-[clamp(2.5rem,9vw,8rem)] font-bold leading-[0.88] tracking-tighter text-white"
 							>
-								{ABOUT_HERO_COPY.headlinePre}
+								{t("headlinePre")}
 							</div>
 						</div>
 						<div className="overflow-hidden">
@@ -63,7 +64,7 @@ export default function AboutHero() {
 								ref={headAccent}
 								className="text-[clamp(2.5rem,9vw,8rem)] font-light italic leading-[0.88] tracking-tighter text-orange-500"
 							>
-								{ABOUT_HERO_COPY.headlineAccent}
+								{t("headlineAccent")}
 							</div>
 						</div>
 						<div className="mt-2 overflow-hidden md:mt-4">
@@ -71,7 +72,7 @@ export default function AboutHero() {
 								ref={headPost}
 								className="text-[clamp(2.5rem,9vw,8rem)] font-bold leading-[0.88] tracking-tighter text-white"
 							>
-								{ABOUT_HERO_COPY.headlinePost}
+								{t("headlinePost")}
 							</div>
 						</div>
 						<div className="overflow-hidden">
@@ -79,7 +80,7 @@ export default function AboutHero() {
 								ref={headAccent2}
 								className="text-[clamp(2.5rem,9vw,8rem)] font-light italic leading-[0.88] tracking-tighter text-orange-500"
 							>
-								{ABOUT_HERO_COPY.headlineAccent2}
+								{t("headlineAccent2")}
 							</div>
 						</div>
 					</div>
@@ -105,7 +106,7 @@ export default function AboutHero() {
 						ref={descRef}
 						className="max-w-2xl text-sm leading-relaxed text-white/40 md:text-base"
 					>
-						{ABOUT_HERO_COPY.description}
+						{t("description")}
 					</p>
 
 					<div
@@ -113,7 +114,7 @@ export default function AboutHero() {
 						className="mt-16 flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.2em] text-white/25"
 					>
 						<span className="h-10 w-px bg-white/15" />
-						<span>Scroll to explore</span>
+						<span>{t("scrollCue")}</span>
 					</div>
 				</div>
 			</div>
