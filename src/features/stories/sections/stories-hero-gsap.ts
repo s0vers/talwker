@@ -2,7 +2,7 @@
 
 import type { RefObject } from "react";
 import gsap from "gsap";
-import { useGsapContext } from "@/lib/useGsap";
+import { prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
 
 export type StoriesHeroGsapRefs = {
 	section: RefObject<HTMLElement | null>;
@@ -32,7 +32,7 @@ export function useStoriesHeroEntrance(
 	useGsapContext(
 		section,
 		() => {
-			if (!runEntrance) return;
+			if (!runEntrance || prefersReducedMotion()) return;
 
 			const tl = gsap.timeline({
 				defaults: { ease: "power3.out" },
