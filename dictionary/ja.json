@@ -1,6 +1,11 @@
 {
   "Navbar": {
     "brand": "talkwer",
+    "home": "ホーム",
+    "homeJournal": "エディトリアル ジャーナル",
+    "homeJournalDesc": "クラシックなエディトリアルレイアウトとスポットライトステージ",
+    "homeAtelier": "エクスペディション アトリエ",
+    "homeAtelierDesc": "キュレーションされたビジュアルフォリオとアーカイブ資料",
     "destinations": "目的地",
     "destinationsStandard": "スタンダードグリッド",
     "destinationsStage": "ステージショーケース",

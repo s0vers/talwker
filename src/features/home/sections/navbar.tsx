@@ -4,7 +4,16 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react
 import { createPortal } from "react-dom";
 import { useTranslations } from "next-intl";
 import gsap from "gsap";
-import { LuChevronDown, LuCompass, LuLayoutGrid, LuLayoutTemplate, LuMenu, LuX } from "react-icons/lu";
+import {
+	LuChevronDown,
+	LuCompass,
+	LuLayers,
+	LuLayoutGrid,
+	LuLayoutTemplate,
+	LuMenu,
+	LuSparkles,
+	LuX,
+} from "react-icons/lu";
 import { Link } from "@/i18n/navigation";
 import { prefersReducedMotion } from "@/lib/useGsap";
 import { LanguageSwitcher } from "@/shared/ui";
@@ -25,6 +34,7 @@ function MobileNavPortal({
 }) {
 	const t = useTranslations("Navbar");
 	const rootRef = useRef<HTMLDivElement>(null);
+	const [homeExpanded, setHomeExpanded] = useState(false);
 	const [destinationsExpanded, setDestinationsExpanded] = useState(false);
 
 	useLayoutEffect(() => {
@@ -83,6 +93,11 @@ function MobileNavPortal({
 
 	if (typeof document === "undefined" || !showPortal) return null;
 
+	const homeOptions = [
+		{ href: "/", label: t("homeJournal") },
+		{ href: "/home-2", label: t("homeAtelier") },
+	];
+
 	const destinationOptions = [
 		{ href: "/destinations", label: t("destinationsStandard") },
 		{ href: "/destinations-2", label: t("destinationsStage") },
@@ -99,6 +114,38 @@ function MobileNavPortal({
 			className="fixed inset-0 z-100 flex flex-col items-center justify-center gap-6 overflow-y-auto bg-[#0a0a0a] px-6 py-12 md:hidden"
 		>
 			<div className="flex w-full max-w-sm flex-col items-center gap-5">
+				{/* Home Expandable Section */}
+				<div className="nav-anim-item flex w-full flex-col items-center">
+					<button
+						type="button"
+						onClick={() => setHomeExpanded((prev) => !prev)}
+						className="flex items-center gap-2 text-2xl font-light text-white transition-colors hover:text-orange-500"
+					>
+						<span>{t("home")}</span>
+						<LuChevronDown
+							className={cn(
+								"h-5 w-5 text-white/50 transition-transform duration-200",
+								homeExpanded && "rotate-180 text-orange-400",
+							)}
+						/>
+					</button>
+
+					{homeExpanded && (
+						<div className="mt-3 flex flex-col items-center gap-2.5 rounded-xl border border-white/10 bg-white/5 p-3 w-full motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-top-2 duration-150">
+							{homeOptions.map((opt) => (
+								<Link
+									key={opt.href}
+									href={opt.href}
+									onClick={onNavigate}
+									className="text-base text-white/80 transition-colors hover:text-orange-400"
+								>
+									{opt.label}
+								</Link>
+							))}
+						</div>
+					)}
+				</div>
+
 				{/* Destinations Expandable Section */}
 				<div className="nav-anim-item flex w-full flex-col items-center">
 					<button
@@ -184,12 +231,31 @@ export default function Navbar() {
 	const [scrolled, setScrolled] = useState(false);
 	const [open, setOpen] = useState(false);
 	const [menuInDom, setMenuInDom] = useState(false);
+	const [homeOpen, setHomeOpen] = useState(false);
 	const [destinationsOpen, setDestinationsOpen] = useState(false);
+	const homeRef = useRef<HTMLDivElement>(null);
 	const destinationsRef = useRef<HTMLDivElement>(null);
+	const homeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 	const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 	const mobileMenuId = "mobile-navigation";
 
 	const showMobileLayer = open || menuInDom;
+
+	const handleHomeEnter = () => {
+		if (homeTimeoutRef.current) {
+			clearTimeout(homeTimeoutRef.current);
+		}
+		setHomeOpen(true);
+	};
+
+	const handleHomeLeave = () => {
+		if (homeTimeoutRef.current) {
+			clearTimeout(homeTimeoutRef.current);
+		}
+		homeTimeoutRef.current = setTimeout(() => {
+			setHomeOpen(false);
+		}, 180);
+	};
 
 	const handleDestinationsEnter = () => {
 		if (dropdownTimeoutRef.current) {
@@ -244,6 +310,12 @@ export default function Navbar() {
 	useEffect(() => {
 		const handleClickOutside = (event: MouseEvent) => {
 			if (
+				homeRef.current &&
+				!homeRef.current.contains(event.target as Node)
+			) {
+				setHomeOpen(false);
+			}
+			if (
 				destinationsRef.current &&
 				!destinationsRef.current.contains(event.target as Node)
 			) {
@@ -254,6 +326,7 @@ export default function Navbar() {
 		const handleKeyDown = (event: KeyboardEvent) => {
 			if (event.key === "Escape") {
 				if (open) closeMobileNav();
+				setHomeOpen(false);
 				setDestinationsOpen(false);
 			}
 		};
@@ -285,6 +358,21 @@ export default function Navbar() {
 		mq.addEventListener("change", closeOnDesktop);
 		return () => mq.removeEventListener("change", closeOnDesktop);
 	}, [open, closeMobileNav]);
+
+	const homeMenuItems = [
+		{
+			href: "/",
+			title: t("homeJournal"),
+			icon: LuSparkles,
+			description: t("homeJournalDesc"),
+		},
+		{
+			href: "/home-2",
+			title: t("homeAtelier"),
+			icon: LuLayers,
+			description: t("homeAtelierDesc"),
+		},
+	];
 
 	const destinationMenuItems = [
 		{
@@ -325,6 +413,71 @@ export default function Navbar() {
 				</Link>
 
 				<nav aria-label="Primary navigation" className="hidden items-center gap-8 lg:gap-10 md:flex">
+					{/* Home Dropdown */}
+					<div
+						ref={homeRef}
+						className="relative py-2"
+						onMouseEnter={handleHomeEnter}
+						onMouseLeave={handleHomeLeave}
+					>
+						<button
+							type="button"
+							onClick={() => setHomeOpen((prev) => !prev)}
+							aria-expanded={homeOpen}
+							aria-haspopup="true"
+							className="group inline-flex items-center gap-1.5 text-[13px] font-medium uppercase tracking-[0.18em] text-white/50 transition-colors duration-200 hover:text-white focus:outline-none"
+						>
+							<span className={cn(homeOpen && "text-white")}>{t("home")}</span>
+							<LuChevronDown
+								className={cn(
+									"h-3.5 w-3.5 text-white/40 transition-transform duration-200 group-hover:text-orange-400",
+									homeOpen && "rotate-180 text-orange-400",
+								)}
+							/>
+						</button>
+
+						{homeOpen && (
+							<div
+								className="absolute left-1/2 -translate-x-1/2 top-full z-120 pt-2 w-72 origin-top"
+								onMouseEnter={handleHomeEnter}
+								onMouseLeave={handleHomeLeave}
+							>
+								<div
+									role="menu"
+									aria-label={t("home")}
+									className="rounded-2xl border border-white/12 bg-[#0c0c0c]/98 p-2 shadow-2xl backdrop-blur-xl motion-safe:animate-in motion-safe:fade-in motion-safe:zoom-in-95 duration-150"
+								>
+									<div className="space-y-1">
+										{homeMenuItems.map((item) => {
+											const Icon = item.icon;
+											return (
+												<Link
+													key={item.href}
+													href={item.href}
+													role="menuitem"
+													onClick={() => setHomeOpen(false)}
+													className="flex items-start gap-3 rounded-xl p-2.5 transition-colors hover:bg-white/8 group/item"
+												>
+													<div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-orange-400 group-hover/item:border-orange-500/40 group-hover/item:bg-orange-500/10">
+														<Icon className="h-4 w-4" />
+													</div>
+													<div>
+														<p className="text-[13px] font-medium text-white group-hover/item:text-orange-400">
+															{item.title}
+														</p>
+														<p className="text-[11px] text-white/45 leading-snug line-clamp-1">
+															{item.description}
+														</p>
+													</div>
+												</Link>
+											);
+										})}
+									</div>
+								</div>
+							</div>
+						)}
+					</div>
+
 					{/* Destinations Dropdown */}
 					<div
 						ref={destinationsRef}
@@ -455,3 +608,4 @@ export default function Navbar() {
 		</header>
 	);
 }
+

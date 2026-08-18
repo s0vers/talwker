@@ -1,6 +1,11 @@
 {
   "Navbar": {
     "brand": "talkwer",
+    "home": "Home",
+    "homeJournal": "Editorial Journal",
+    "homeJournalDesc": "Classic editorial layout & spotlight stage",
+    "homeAtelier": "Expedition Atelier",
+    "homeAtelierDesc": "Curated visual folio & archival dossiers",
     "destinations": "Destinations",
     "destinationsStandard": "Standard Grid",
     "destinationsStage": "Stage Showcase",

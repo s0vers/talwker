@@ -1,6 +1,11 @@
 {
   "Navbar": {
     "brand": "talkwer",
+    "home": "Inicio",
+    "homeJournal": "Diario Editorial",
+    "homeJournalDesc": "Diseño editorial clásico y escenario destacado",
+    "homeAtelier": "Atelier de Expedición",
+    "homeAtelierDesc": "Folio visual curado y expedientes de archivo",
     "destinations": "Destinos",
     "destinationsStandard": "Cuadrícula Estándar",
     "destinationsStage": "Escaparate Escénico",
