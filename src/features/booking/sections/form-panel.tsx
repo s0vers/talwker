@@ -108,7 +108,7 @@ export function FormPanel({
 
 	return (
 		<form
-			className="flex w-[360px] flex-col gap-5"
+			className="flex w-full max-w-[360px] flex-col gap-5"
 			onSubmit={handleContinue}
 			noValidate
 		>

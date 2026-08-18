@@ -41,7 +41,7 @@ export function LeftPanel({
 	const slotParam = searchParams.get("slot");
 
 	return (
-		<div className="flex w-[280px] flex-col gap-4 border-r border-white/[0.06] pr-6">
+		<div className="flex w-full lg:w-[280px] flex-col gap-4 border-b lg:border-b-0 lg:border-r border-white/[0.06] pb-6 lg:pb-0 pr-0 lg:pr-6">
 			<div className="grid gap-1">
 				<Tooltip>
 					<TooltipTrigger asChild>
