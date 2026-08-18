@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import {
-	LuCheckCircle2,
+	LuCircleCheck,
 	LuClock,
 	LuCompass,
 	LuFlame,
@@ -184,7 +184,7 @@ export function AtelierArchetypes() {
 							<div className="space-y-2 pt-1">
 								{activeArchetype.highlights.map((h, i) => (
 									<div key={i} className="flex items-start gap-2 text-xs text-white/70">
-										<LuCheckCircle2 className="h-3.5 w-3.5 text-orange-400 shrink-0 mt-0.5" />
+										<LuCircleCheck className="h-3.5 w-3.5 text-orange-400 shrink-0 mt-0.5" />
 										<span>{h}</span>
 									</div>
 								))}
