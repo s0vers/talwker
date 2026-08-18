@@ -159,7 +159,7 @@ export default function FeaturedTours() {
 										className={cn(
 											"rounded-full px-3.5 py-1 text-xs font-semibold uppercase tracking-wider transition-all duration-300 outline-none focus-visible:ring-2 focus-visible:ring-orange-500",
 											active
-												? "bg-orange-500 text-black shadow-md shadow-orange-500/25"
+												? "bg-orange-500 text-white shadow-md shadow-orange-500/25"
 												: "text-white/60 hover:bg-white/10 hover:text-white",
 										)}
 									>

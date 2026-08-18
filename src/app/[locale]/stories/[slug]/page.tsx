@@ -7,6 +7,7 @@ import { DESTINATIONS } from "@/features/home/content/destinations";
 import { TOURS } from "@/features/home/content/tours";
 import { STORIES } from "@/features/stories/content/stories";
 import { findStoryBySlug, getStorySlug } from "@/features/stories/lib/story-slug";
+import { getLocalizedStory } from "@/features/stories/lib/localized-stories";
 import StoryDetailsPage from "@/features/stories/story-details-page";
 import { getTourSlug } from "@/features/tours/lib/tour-slug";
 import {
@@ -25,16 +26,23 @@ function toImagePath(path: string): `/${string}` {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
 	const { locale, slug } = await params;
-	const story = findStoryBySlug(STORIES, slug);
+	const rawStory = findStoryBySlug(STORIES, slug);
 
-	if (!story) {
+	if (!rawStory) {
+		const notFoundTitles: Record<string, string> = {
+			en: "Story not found",
+			es: "Historia no encontrada",
+			ja: "記事が見つかりません",
+		};
 		return createPageMetadata({
-			title: "Story not found",
+			title: notFoundTitles[locale] ?? notFoundTitles.en,
 			description: "The story you requested could not be found.",
 			path: `/stories/${slug}`,
 			locale,
 		});
 	}
+
+	const story = getLocalizedStory(rawStory, locale);
 
 	return createPageMetadata({
 		title: story.title,
@@ -66,11 +74,12 @@ export default async function Page({ params }: PageProps) {
 	const { locale, slug } = await params;
 	setRequestLocale(locale);
 
-	const story = findStoryBySlug(STORIES, slug);
-	if (!story) {
+	const rawStory = findStoryBySlug(STORIES, slug);
+	if (!rawStory) {
 		notFound();
 	}
 
+	const story = getLocalizedStory(rawStory, locale);
 	const storySlug = getStorySlug(story);
 	const destination = story.relatedDestinationSlug
 		? findDestinationBySlug(DESTINATIONS, story.relatedDestinationSlug)

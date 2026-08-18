@@ -104,13 +104,13 @@ export const AccordionTrigger = React.forwardRef<
 	const { value, isOpen } = React.useContext(AccordionItemContext);
 
 	return (
-		<h3 className="flex">
+		<h3 className="flex w-full">
 			<button
 				ref={ref}
 				type="button"
 				onClick={() => onValueChange?.(value)}
 				className={cn(
-					"flex flex-1 items-center justify-between py-5 text-left text-base font-semibold transition-all hover:text-orange-500 [&[data-state=open]>svg]:rotate-180",
+					"flex flex-1 w-full cursor-pointer items-center justify-between py-5 text-left text-base font-semibold transition-all hover:text-orange-500 [&[data-state=open]>svg]:rotate-180",
 					className,
 				)}
 				data-state={isOpen ? "open" : "closed"}

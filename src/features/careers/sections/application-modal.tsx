@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import { LuCircleCheck } from "react-icons/lu";
 import {
@@ -22,6 +23,7 @@ const EMPTY_FORM = {
 };
 
 export function ApplicationModal({ position, onClose }: ApplicationModalProps) {
+	const t = useTranslations("Careers");
 	const formId = useId();
 	const nameId = `${formId}-name`;
 	const emailId = `${formId}-email`;
@@ -112,7 +114,7 @@ export function ApplicationModal({ position, onClose }: ApplicationModalProps) {
 							htmlFor={nameId}
 							className="block text-xs font-semibold uppercase tracking-wider text-white/60 mb-1.5"
 						>
-							Full Name *
+							{t("modal.fullNameLabel")}
 						</label>
 						<input
 							id={nameId}
@@ -121,7 +123,7 @@ export function ApplicationModal({ position, onClose }: ApplicationModalProps) {
 							autoComplete="name"
 							value={formData.fullName}
 							onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-							placeholder="e.g. Elena Vance"
+							placeholder={t("modal.fullNamePlaceholder")}
 							className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-2.5 text-sm text-white placeholder:text-white/30 focus:border-orange-500 focus:outline-none"
 						/>
 					</div>
@@ -131,7 +133,7 @@ export function ApplicationModal({ position, onClose }: ApplicationModalProps) {
 							htmlFor={emailId}
 							className="block text-xs font-semibold uppercase tracking-wider text-white/60 mb-1.5"
 						>
-							Email Address *
+							{t("modal.emailLabel")}
 						</label>
 						<input
 							id={emailId}
@@ -140,7 +142,7 @@ export function ApplicationModal({ position, onClose }: ApplicationModalProps) {
 							autoComplete="email"
 							value={formData.email}
 							onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-							placeholder="elena@example.com"
+							placeholder={t("modal.emailPlaceholder")}
 							className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-2.5 text-sm text-white placeholder:text-white/30 focus:border-orange-500 focus:outline-none"
 						/>
 					</div>
@@ -150,7 +152,7 @@ export function ApplicationModal({ position, onClose }: ApplicationModalProps) {
 							htmlFor={portfolioId}
 							className="block text-xs font-semibold uppercase tracking-wider text-white/60 mb-1.5"
 						>
-							Portfolio / LinkedIn / GitHub URL *
+							{t("modal.portfolioLabel")}
 						</label>
 						<input
 							id={portfolioId}
@@ -158,7 +160,7 @@ export function ApplicationModal({ position, onClose }: ApplicationModalProps) {
 							required
 							value={formData.portfolioUrl}
 							onChange={(e) => setFormData({ ...formData, portfolioUrl: e.target.value })}
-							placeholder="https://portfolio.example.com"
+							placeholder={t("modal.portfolioPlaceholder")}
 							className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-2.5 text-sm text-white placeholder:text-white/30 focus:border-orange-500 focus:outline-none"
 						/>
 					</div>
@@ -168,7 +170,7 @@ export function ApplicationModal({ position, onClose }: ApplicationModalProps) {
 							htmlFor={noteId}
 							className="block text-xs font-semibold uppercase tracking-wider text-white/60 mb-1.5"
 						>
-							Short Introduction & Why Talkwer *
+							{t("modal.coverLabel")}
 						</label>
 						<textarea
 							id={noteId}
@@ -176,7 +178,7 @@ export function ApplicationModal({ position, onClose }: ApplicationModalProps) {
 							rows={4}
 							value={formData.coverNote}
 							onChange={(e) => setFormData({ ...formData, coverNote: e.target.value })}
-							placeholder="Tell us about your background and what draws you to our work..."
+							placeholder={t("modal.coverPlaceholder")}
 							className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-2.5 text-sm text-white placeholder:text-white/30 focus:border-orange-500 focus:outline-none"
 						/>
 					</div>
@@ -186,7 +188,7 @@ export function ApplicationModal({ position, onClose }: ApplicationModalProps) {
 							type="submit"
 							className="w-full rounded-full bg-orange-500 py-3 text-xs font-semibold uppercase tracking-widest text-white hover:bg-orange-600 transition-colors"
 						>
-							Open Email Draft
+							{t("modal.submitApp")}
 						</button>
 						<p className="flex items-start gap-2 text-[11px] leading-relaxed text-white/45">
 							<LuCircleCheck className="mt-0.5 h-3.5 w-3.5 shrink-0 text-orange-500" aria-hidden />

@@ -164,8 +164,8 @@ export default function Testimonials() {
 								</CarouselItem>
 							))}
 						</CarouselContent>
-						<CarouselPrevious className="-left-4 border-white/20 bg-[#0d0d0d] text-white transition-colors hover:border-orange-500 hover:bg-orange-500 hover:text-black md:-left-12" />
-						<CarouselNext className="-right-4 border-white/20 bg-[#0d0d0d] text-white transition-colors hover:border-orange-500 hover:bg-orange-500 hover:text-black md:-right-12" />
+						<CarouselPrevious className="-left-4 border-white/20 bg-[#0d0d0d] text-white transition-colors hover:border-orange-500 hover:bg-orange-500 hover:text-white md:-left-12" />
+						<CarouselNext className="-right-4 border-white/20 bg-[#0d0d0d] text-white transition-colors hover:border-orange-500 hover:bg-orange-500 hover:text-white md:-right-12" />
 					</Carousel>
 				</div>
 			</div>

@@ -774,22 +774,120 @@
     "haveAccountPrompt": "¿Ya tienes una cuenta?",
     "createAccountLink": "Crear cuenta",
     "signInLink": "Iniciar sesión",
-    "demoMessage": "Modo demostración — las credenciales se simulan localmente."
+    "demoMessage": "Modo demostración — las credenciales se simulan localmente.",
+    "tagline": "Explora. Descubre. Comparte.",
+    "quote": "“Cada destino tiene una historia esperando ser descubierta.”",
+    "perk1": "Acceso exclusivo a expediciones selectas e itinerarios boutique",
+    "perk2": "Horarios adaptados a tu zona horaria y confirmación inmediata",
+    "perk3": "Servicio de conserjería personalizado y acceso directo a guías locales",
+    "communityBadge": "Comunidad de Viajeros Verificada",
+    "communityRating": "4.9 / 5.0",
+    "demoQuickPrompt": "¿Iniciar sesión de prueba?",
+    "demoAutofill": "Autorrellenar Demo",
+    "demoRegisterPrompt": "¿Probando el registro?",
+    "demoRegisterAutofill": "Autorrellenar Perfil",
+    "magazineTag": "talkwer. magazine"
   },
   "FAQ": {
     "hero": {
+      "badge": "05 // Centro de Ayuda",
+      "deskLabel": "Mesa de Búsqueda en Directo",
+      "titleLead": "Base de Ayuda y",
+      "titleAccent": "Conocimiento.",
       "eyebrow": "Ayuda y Soporte",
       "title": "Preguntas Frecuentes",
       "description": "Busca en nuestra base de conocimientos o explora respuestas por categoría: reservas, ritmo de viaje, seguridad y viajes a medida.",
       "searchPlaceholder": "Buscar preguntas (ej. depósito, cancelación, tamaño del grupo, seguro)..."
     },
+    "tabAll": "Todos los Temas",
+    "tabBooking": "Reservas",
+    "tabTravel": "Viaje y Ritmo",
+    "tabSafety": "Seguridad y Seguros",
+    "tabCustom": "Viajes a Medida",
+    "noResultsTitle": "No se encontraron preguntas coincidentes",
+    "noResultsDesc": "No encontramos preguntas que coincidan con tu búsqueda. Intenta ajustar los términos o restablece el filtro.",
+    "clearFilter": "Limpiar Filtro de Búsqueda",
     "bookingCategory": "Reservas y Pagos",
     "travelCategory": "Ritmo de Viaje y Logística",
     "safetyCategory": "Seguridad, Seguros y Cancelaciones",
-    "customCategory": "Viajes Privados y a Medida"
+    "customCategory": "Viajes Privados y a Medida",
+    "cta": {
+      "label": "¿Aún Tienes Dudas?",
+      "titleLead": "¿No encuentras lo que",
+      "titleAccent": "estás buscando?",
+      "description": "Nuestros asesores y guías locales están disponibles para ayudarte a planificar tu viaje o resolver cualquier detalle.",
+      "primaryAction": "Contactar con Soporte",
+      "secondaryAction": "Explorar Expediciones"
+    },
+    "groups": {
+      "booking": "Reservas y Pagos",
+      "travel": "Ritmo de Viaje y Logística",
+      "safety": "Seguridad, Seguros y Cancelaciones",
+      "custom": "Viajes Privados y a Medida"
+    },
+    "items": {
+      "how-book": {
+        "question": "¿Cómo reservo una plaza en una expedición de Talkwer?",
+        "answer": "Selecciona el viaje deseado en Tours o envía una solicitud a través de Contacto. Una vez confirmadas las fechas y el número de viajeros, emitimos una confirmación escrita y gestionamos el depósito según nuestra Política de Reservas.",
+        "linkLabel": "Leer Política de Reservas"
+      },
+      "deposit-rules": {
+        "question": "¿Cuál es la política de depósitos y plazos de pago?",
+        "answer": "La mayoría de las salidas requieren un depósito del 25% en la confirmación para asegurar alojamientos boutique y traslados locales. El saldo restante se abona 60 días antes de la salida.",
+        "linkLabel": "Ver Política de Reservas"
+      },
+      "payment-methods": {
+        "question": "¿Qué métodos de pago aceptan?",
+        "answer": "Aceptamos las principales tarjetas de crédito (Visa, MasterCard, Amex), transferencias bancarias directas y pagos certificados sin recargos ocultos de procesamiento."
+      },
+      "group-size": {
+        "question": "¿Qué tamaño tienen los grupos en las expediciones de Talkwer?",
+        "answer": "Limitamos estrictamente el tamaño de los grupos entre 8 y 16 viajeros (según el terreno del destino) para preservar un ritmo pausado y auténticamente editorial.",
+        "linkLabel": "Explorar Tours"
+      },
+      "fitness-pacing": {
+        "question": "¿Qué nivel de condición física se requiere?",
+        "answer": "Cada página de tour detalla una escala de actividad que va desde 'Ritmo Relajado' (paseos costeros y urbanos) hasta 'Expedición Activa' (rutas de alta montaña). Consulta con nuestro equipo si requieres una valoración personalizada.",
+        "linkLabel": "Consultar con Nuestro Equipo"
+      },
+      "solo-travelers": {
+        "question": "¿Aceptan viajeros en solitario? ¿Hay suplemento individual?",
+        "answer": "Más del 40% de los viajeros de Talkwer viajan solos. Ofrecemos opciones de habitación individual a precio de coste, sin recargos abusivos por viaje en solitario."
+      },
+      "inclusions-exclusions": {
+        "question": "¿Qué está incluido en el precio de la expedición?",
+        "answer": "Se incluyen los alojamientos, experiencias guiadas exclusivas, traslados terrestres, guías expertos locales y las comidas especificadas en la ficha. Los vuelos internacionales se cotizan aparte."
+      },
+      "cancellation-policy": {
+        "question": "¿Qué sucede si necesito cancelar o reprogramar mi viaje?",
+        "answer": "Las cancelaciones realizadas con 60 o más días de antelación reciben un reembolso íntegro menos los gastos de gestión administrativa. Los cambios de fecha están contemplados en nuestra Política de Cancelación.",
+        "linkLabel": "Leer Política de Cancelación"
+      },
+      "travel-insurance": {
+        "question": "¿Es obligatorio el seguro de viaje para las expediciones de Talkwer?",
+        "answer": "El seguro de viaje integral con cobertura médica, evacuación de emergencia y cancelación es obligatorio para todos los participantes en itinerarios activos o remotos."
+      },
+      "health-safety": {
+        "question": "¿Cómo gestionan situaciones médicas en regiones remotas?",
+        "answer": "Todos nuestros guías portan comunicadores satelitales, botiquines de primeros auxilios y protocolos de evacuación de emergencia verificados antes de cada salida."
+      },
+      "custom-trip": {
+        "question": "¿Puede Talkwer diseñar un viaje privado a medida para mi familia o grupo?",
+        "answer": "Sí. Nuestro equipo editorial diseña itinerarios privados personalizados para familias, parejas y grupos cerrados de 2 a 20 viajeros.",
+        "linkLabel": "Solicitar Viaje a Medida"
+      },
+      "lead-time": {
+        "question": "¿Con cuánta antelación se debe planificar un itinerario a medida?",
+        "answer": "Recomendamos contactar entre 3 y 6 meses antes de la fecha prevista de salida, especialmente para temporadas altas en Japón, Grecia o la Patagonia."
+      }
+    }
   },
   "Careers": {
     "hero": {
+      "badge": "06 // Carreras",
+      "liveDesk": "Estudio Talkwer · Talento Global",
+      "titleLead": "Construye la nueva era del",
+      "titleAccent": "viaje con sentido.",
       "eyebrow": "Carreras en Talkwer",
       "title": "Diseña el Futuro del Viaje Editorial",
       "description": "Talkwer es un estudio de viajes independiente. Creamos itinerarios artesanales, guías de campo extensas y herramientas digitales para viajeros conscientes.",
@@ -797,10 +895,166 @@
       "stipendLabel": "Beca Anual de Viaje",
       "leaveLabel": "Permiso de Campo Remunerado"
     },
+    "valuesLabel": "Cómo Trabajamos",
+    "valuesTitleLead": "Principios basados en",
+    "valuesTitleAccent": "maestría y autonomía.",
+    "valuesDesc": "Somos un equipo pequeño y comprometido de diseñadores, escritores, desarrolladores y creadores de expediciones.",
+    "perksLabel": "Beneficios y Privilegios",
+    "perksTitleLead": "Pensados para una vida en",
+    "perksTitleAccent": "movimiento.",
+    "perksDesc": "Creemos que para crear experiencias extraordinarias hay que vivirlas. Así es como invertimos en tu desarrollo.",
+    "positionsLabel": "Puestos Abiertos",
+    "positionsTitleLead": "Encuentra tu lugar en el",
+    "positionsTitleAccent": "equipo.",
+    "positionsDesc": "Explora nuestras vacantes en redacción, producto, operaciones y diseño de expediciones.",
+    "filterAll": "Todos los Departamentos",
+    "filterEditorial": "Editorial y Contenido",
+    "filterProduct": "Producto e Ingeniería",
+    "filterOperations": "Operaciones y Asesoría",
+    "filterDesign": "Diseño de Expediciones",
+    "applyRole": "Postular a este puesto",
     "valuesHeading": "Cómo Trabajamos",
     "perksHeading": "Beneficios y Privilegios",
     "openRolesHeading": "Puestos Abiertos",
     "applyNow": "Postular a este puesto",
+    "responsibilitiesHeading": "Responsabilidades Clave",
+    "requirementsHeading": "Requisitos y Perfil",
+    "values": {
+      "autonomy": {
+        "title": "Autonomía y Maestría",
+        "desc": "Confiamos en personas excepcionales para hacer su mejor trabajo sin microgestión. Define tus horarios, elige tu base y entrega excelencia."
+      },
+      "field": {
+        "title": "Investigación sobre el Terreno",
+        "desc": "No escribimos sobre lugares desde escritorios. Nuestro equipo viaja constantemente para probar rutas, conocer guías locales y verificar alojamientos."
+      },
+      "craft": {
+        "title": "Oficio sin Concesiones",
+        "desc": "Desde la tipografía e imágenes hasta la prosa editorial y la arquitectura de software, nos obsesionan los detalles que elevan la experiencia."
+      },
+      "stewardship": {
+        "title": "Custodia Sostenible",
+        "desc": "Priorizamos el viaje de bajo impacto, la compensación justa a socios y las relaciones duraderas con las comunidades que visitamos."
+      }
+    },
+    "perks": {
+      "stipend": {
+        "tag": "EXPLORAR",
+        "title": "Beca Anual de Viaje de $4,000",
+        "desc": "Explora los destinos que cubrimos. Usa tu estipendio para salidas de Talkwer o investigación cultural de campo independiente."
+      },
+      "remote": {
+        "tag": "FLEXIBILIDAD",
+        "title": "100% Remoto y Flexible",
+        "desc": "Trabaja desde cualquier lugar con conexión a internet estable. Nos coordinamos en diversas zonas horarias con flujos asíncronos."
+      },
+      "health": {
+        "tag": "BIENESTAR",
+        "title": "Salud y Bienestar Integral",
+        "desc": "Cobertura médica, dental y de bienestar emocional adaptada al sistema sanitario de tu país de residencia."
+      },
+      "equipment": {
+        "tag": "EQUIPO",
+        "title": "Equipamiento y Oficina en Casa",
+        "desc": "Asignación para hardware de primer nivel ($2,500) renovada cada dos años, más un subsidio mensual para gastos de oficina remota."
+      },
+      "sabbatical": {
+        "tag": "EXPEDICIÓN",
+        "title": "Año Sabático de Investigación",
+        "desc": "Tras dos años en el equipo, disfruta de un viaje de campo inmersivo de 3 semanas 100% financiado a cualquier destino de Talkwer."
+      },
+      "learning": {
+        "tag": "MAESTRÍA",
+        "title": "Formación y Crecimiento",
+        "desc": "Presupuesto anual de $1,500 para libros, cursos especializados, talleres de fotografía o clases de idiomas."
+      }
+    },
+    "positions": {
+      "senior-expedition-editor": {
+        "title": "Editor Senior de Expediciones",
+        "department": "Editorial",
+        "location": "Remoto (UTC-5 a UTC+2)",
+        "type": "Jornada Completa",
+        "summary": "Lidera la narrativa de nuestros catálogos en los Países Nórdicos, los Alpes y la Patagonia. Encarga reportajes a fotógrafos de campo y redacta crónicas inmersivas.",
+        "responsibilities": [
+          "Dirigir la voz editorial en dossiers de destino de múltiples entregas",
+          "Coordinar con guías culturales locales y fotógrafos de campo",
+          "Supervisar el calendario de publicaciones y procesos de verificación de datos"
+        ],
+        "requirements": [
+          "Más de 5 años de experiencia en periodismo de viajes narrativo o edición editorial",
+          "Trayectoria contrastada editando crónicas y ensayos extensos",
+          "Gran sensibilidad visual y agudo instinto editorial colaborativo"
+        ]
+      },
+      "full-stack-engineer": {
+        "title": "Ingeniero Web Full-Stack (Next.js)",
+        "department": "Ingeniería",
+        "location": "Remoto (Global)",
+        "type": "Jornada Completa",
+        "summary": "Construye la próxima generación de nuestra revista digital, mapas interactivos y componentes editoriales de alto rendimiento con Next.js 16, TypeScript y GSAP.",
+        "responsibilities": [
+          "Arquitecturar componentes de UI elegantes con ricas microanimaciones",
+          "Optimizar el rendimiento de renderizado estático en todas las rutas",
+          "Colaborar con diseñadores en maquetaciones editoriales impecables"
+        ],
+        "requirements": [
+          "Más de 3 años de experiencia en producción con React moderno, TypeScript y Next.js",
+          "Dominio profundo de maquetación CSS, rendimiento web y animación",
+          "Pasión por el detalle tipográfico, la accesibilidad y el código limpio"
+        ]
+      },
+      "operations-concierge": {
+        "title": "Conserje de Experiencias y Operaciones",
+        "department": "Operaciones",
+        "location": "Remoto (Europa o América)",
+        "type": "Jornada Completa",
+        "summary": "Acompaña a los viajeros en la planificación de reservas, ajustes personalizados de itinerarios y preparación previa al viaje con esmero editorial y discreción.",
+        "responsibilities": [
+          "Gestionar la comunicación previa con los huéspedes y peticiones a medida",
+          "Coordinar con alojamientos boutique y guías colaboradores locales",
+          "Resolver la logística de viaje y asegurar transiciones perfectas en destino"
+        ],
+        "requirements": [
+          "Más de 3 años en hotelería boutique, viajes de expedición o funciones de conserjería",
+          "Excelentes habilidades de comunicación escrita (se valoran idiomas adicionales)",
+          "Enfoque sereno y resolutivo en situaciones dinámicas"
+        ]
+      },
+      "lead-destination-designer": {
+        "title": "Diseñador Principal de Rutas y Destinos",
+        "department": "Diseño y Producto",
+        "location": "Remoto / Campo (Viaje ~25%)",
+        "type": "Jornada Completa",
+        "summary": "Explora nuevos corredores de viaje, selecciona alojamientos familiares boutique, forja alianzas con artesanos locales y diseña itinerarios inolvidables día a día.",
+        "responsibilities": [
+          "Explorar y testear sobre el terreno nuevas rutas de viaje a nivel global",
+          "Establecer acuerdos con alojamientos independientes y anfitriones culturales",
+          "Elaborar notas de ruta detalladas, tablas de tiempos y perfiles de elevación"
+        ],
+        "requirements": [
+          "Más de 4 años en creación de viajes de aventura o itinerarios a medida",
+          "Amplia experiencia internacional en viajes y exploración de rutas",
+          "Firme compromiso con modelos de turismo sostenible y de bajo impacto"
+        ]
+      }
+    },
+    "modal": {
+      "title": "Postular a {title}",
+      "description": "Envíanos tus datos y porfolio. Nuestro equipo revisa todas las candidaturas directamente.",
+      "fullNameLabel": "Nombre Completo *",
+      "fullNamePlaceholder": "Elena Rostova",
+      "emailLabel": "Correo Electrónico *",
+      "emailPlaceholder": "elena@ejemplo.com",
+      "portfolioLabel": "Porfolio / Enlace de LinkedIn *",
+      "portfolioPlaceholder": "https://...",
+      "coverLabel": "¿Por qué Talkwer? *",
+      "coverPlaceholder": "Cuéntanos sobre tu trayectoria, tus viajes favoritos y qué aportarías a este puesto...",
+      "submitApp": "Enviar Candidatura",
+      "submitting": "Enviando Candidatura…",
+      "close": "Cerrar",
+      "successMessage": "¡Candidatura enviada! Nuestro equipo se pondrá en contacto contigo en un plazo de 3 días laborables."
+    },
     "cta": {
       "label": "¿No encuentras tu puesto?",
       "titleLead": "¿Tienes un talento",
@@ -812,20 +1066,201 @@
   },
   "Press": {
     "hero": {
+      "badge": "07 // Prensa y Medios",
+      "deskLabel": "Mesa Editorial · Gestión de Prensa",
+      "titleLead": "Noticias, Crónicas y",
+      "titleAccent": "Recursos de Marca.",
       "eyebrow": "Prensa y Medios",
       "title": "Noticias, Cobertura Editorial y Recursos de Marca",
       "description": "Recursos para medios, comunicados de prensa, créditos fotográficos y contacto para periodistas que cubren el viaje contemporáneo.",
       "primaryAction": "Descargar Kit de Prensa",
       "secondaryAction": "Contactar con Prensa"
+    },
+    "coverage": {
+      "label": "Cobertura Reciente",
+      "titleLead": "Talkwer en los",
+      "titleAccent": "titulares.",
+      "description": "Reportajes, reseñas y menciones editoriales en medios internacionales.",
+      "readArticle": "Leer Artículo"
+    },
+    "kits": {
+      "label": "Recursos de Marca y Kits de Prensa",
+      "titleLead": "Materiales oficiales para",
+      "titleAccent": "publicaciones.",
+      "description": "Logotipos en alta resolución, bancos de imágenes, manuales de marca y hojas informativas para periodistas acreditados.",
+      "downloadKit": "Descargar Paquete de Recursos"
+    },
+    "articles": {
+      "vogue-nordic": {
+        "title": "El Arte del Viaje Pausado: Los Refugios Subárticos de Talkwer",
+        "category": "Reportaje",
+        "excerpt": "Talkwer redefine el viaje nórdico situando el diseño sereno, el ritmo sin prisas y la artesanía local en el corazón de cada itinerario."
+      },
+      "nyt-escapes": {
+        "title": "Doce Rutas Artesanales para Viajeros Conscientes",
+        "category": "Reseña",
+        "excerpt": "Lo que distingue a Talkwer es su renuncia a conducir a los viajeros por monumentos trillados. Sus rutas se sienten como un diario personal."
+      },
+      "wallpaper-design": {
+        "title": "Soledad Arquitectónica: En el Interior de los Refugios Glaciares",
+        "category": "Diseño",
+        "excerpt": "Un estudio extraordinario de refugios de mínimo impacto ambiental, concebidos con rigor estético y profundo respeto por la naturaleza."
+      },
+      "ft-weekend": {
+        "title": "Reinventando el Gran Tour para el Siglo de la Consciencia",
+        "category": "Ensayo",
+        "excerpt": "Talkwer demuestra que el futuro de la exploración no radica en tachar destinos a toda velocidad, sino en demorarse hasta comprender el lugar."
+      }
+    },
+    "kitAssets": {
+      "brand-assets": {
+        "title": "Manual de Marca y Logotipos Vectoriales",
+        "description": "Especificaciones tipográficas oficiales, logotipos SVG, isotipos principales y paletas cromáticas para medios impresos y digitales."
+      },
+      "press-pack": {
+        "title": "Dossier de Prensa y Presentación Corporativa 2026",
+        "description": "Biografías del equipo directivo, historia fundacional, red de colaboradores globales y manifiesto editorial en PDF de alta calidad."
+      },
+      "photography-suite": {
+        "title": "Banco de Fotografías en Alta Resolución",
+        "description": "Selección curada de fotografías a 300 DPI de destinos, retratos de guías de campo y alojamientos aprobados para uso en prensa."
+      },
+      "sustainability-report": {
+        "title": "Informe de Sostenibilidad e Impacto Local",
+        "description": "Auditorías ambientales verificadas, marcos de compensación justa a socios locales y políticas de mitigación de huella de carbono."
+      }
+    },
+    "cta": {
+      "label": "Consultas para Medios",
+      "titleLead": "¿Necesitas una declaración o",
+      "titleAccent": "entrevista personalizada?",
+      "description": "Nuestro equipo editorial y directores de expedición están disponibles para aportar comentarios sobre turismo sostenible y tendencias de viaje.",
+      "primaryAction": "Escribir a Prensa",
+      "secondaryAction": "Ver Comunicados de Prensa"
     }
   },
   "Partners": {
     "hero": {
+      "badge": "08 // Red Global",
+      "deskLabel": "Mesa de Colaboradores",
+      "titleLead": "Únete a nuestra alianza",
+      "titleAccent": "global selecta.",
       "eyebrow": "Red Global",
       "title": "Colabora con Talkwer",
       "description": "Nos asociamos con hoteleros boutique independientes, maestros culinarios regionales y guías locales experimentados en seis continentes.",
       "primaryAction": "Postular como Socio",
-      "secondaryAction": "Leer Estándares de Socios"
+      "secondaryAction": "Explorar Niveles"
+    },
+    "benefits": {
+      "label": "Por Qué Asociarse Con Nosotros",
+      "titleLead": "Acceso directo a",
+      "titleAccent": "viajeros conscientes.",
+      "description": "Nuestra comunidad valora la autenticidad, el arraigo cultural y las prácticas sostenibles por encima de todo."
+    },
+    "benefitsItems": {
+      "direct-audience": {
+        "tag": "AUDIENCIA",
+        "title": "Acceso Editorial Directo",
+        "description": "Conecta con viajeros exigentes que buscan estancias boutique auténticas e inmersiones culturales sin algoritmos ruidosos."
+      },
+      "fair-terms": {
+        "tag": "CONDICIONES",
+        "title": "Términos Justos y Claros",
+        "description": "Tratamos a nuestros socios como verdaderos aliados. Disfruta de condiciones directas, depósitos garantizados y liquidaciones puntuales."
+      },
+      "curated-roster": {
+        "tag": "CALIDAD",
+        "title": "Presencia Curada y Distintiva",
+        "description": "Tu propiedad o servicio nunca competirá por descuentos. Destacamos tu oficio singular, origen y hospitalidad."
+      },
+      "global-reach": {
+        "tag": "VISIBILIDAD",
+        "title": "Proyección Editorial Global",
+        "description": "Aparición destacada en nuestros dossiers trimestrales, crónicas y boletines que leen más de 65,000 viajeros en todo el mundo."
+      }
+    },
+    "tiers": {
+      "label": "Niveles de Colaboración",
+      "titleLead": "Modelos de alianza",
+      "titleAccent": "a medida.",
+      "description": "Tanto si gestionas un refugio alpino boutique como un velero independiente, ofrecemos alianzas diseñadas para el beneficio mutuo.",
+      "criteriaHeading": "Criterios Clave de Selección"
+    },
+    "tiersItems": {
+      "boutique-lodging": {
+        "badge": "NIVEL 01",
+        "category": "Alojamientos",
+        "title": "Alojamientos Boutique y Estancias con Historia",
+        "description": "Para hoteles independientes, ryokans restaurados, refugios de montaña y fincas costeras con identidad arquitectónica y menos de 30 habitaciones.",
+        "criteria": [
+          "Integridad arquitectónica e identidad auténtica del lugar",
+          "Compromiso demostrado con la sostenibilidad y gestión de residuos",
+          "Gastronomía de proximidad o cercanía con artesanos locales"
+        ]
+      },
+      "expedition-guides": {
+        "badge": "NIVEL 02",
+        "category": "Guías y Trekking",
+        "title": "Líderes de Expedición y Guías de Montaña",
+        "description": "Para guías alpinos certificados, capitanes de navegación, rastreadores y especialistas que lideran salidas de grupos reducidos.",
+        "criteria": [
+          "Certificación de guía oficial nacional o internacional (UIAGM, WFR)",
+          "Mínimo de 5 años de experiencia operativa en la región de destino",
+          "Protocolos rigurosos de seguridad, comunicación satelital y evacuación"
+        ]
+      },
+      "cultural-ateliers": {
+        "badge": "NIVEL 03",
+        "category": "Artesanía y Gastronomía",
+        "title": "Talleres Culturales y Maestros Artesanos",
+        "description": "Para ceramistas, viticultores, tejedores tradicionales y chefs que abren sus obradores a experiencias privadas y respetuosas.",
+        "criteria": [
+          "Práctica acreditada de oficios tradicionales o técnicas innovadoras",
+          "Capacidad para acoger grupos pequeños (2-8 personas) en un entorno dedicado",
+          "Narrativa auténtica y trato directo y cercano con los visitantes"
+        ]
+      }
+    },
+    "testimonial": {
+      "quote": "Asociarnos con Talkwer conectó nuestro remoto refugio patagónico con viajeros que respetan de verdad el medio ambiente y a nuestra comunidad. Su relato editorial reflejó a la perfección nuestra filosofía.",
+      "name": "Mateo Valenzuela",
+      "role": "Fundador y Anfitrión, Patagonia Glacial Lodge",
+      "badge": "Destacado del Gremio",
+      "accredited": "Acreditado",
+      "region": "Región de Aysén, Chile",
+      "stat1": "Tasa de Viajeros Recurrentes",
+      "stat2": "Estancia Media de Huéspedes",
+      "stat3": "Certificado"
+    },
+    "form": {
+      "label": "Solicitud de Colaboración",
+      "titleLead": "Presenta tu",
+      "titleAccent": "propiedad o servicio.",
+      "description": "Completa los datos de tu entidad. Nuestro equipo evalúa todas las propuestas conforme a nuestros estándares de calidad y sostenibilidad.",
+      "orgName": "Nombre de la Organización / Propiedad *",
+      "orgPlaceholder": "Alpine Retreat Collective",
+      "contactName": "Persona de Contacto *",
+      "contactPlaceholder": "Julian Thorne",
+      "email": "Correo Corporativo *",
+      "emailPlaceholder": "julian@alpineretreat.com",
+      "category": "Categoría de Colaborador *",
+      "location": "Ubicación Principal / Región *",
+      "locationPlaceholder": "Oberland Bernés, Suiza",
+      "website": "Sitio Web / Perfil Social *",
+      "websitePlaceholder": "https://...",
+      "notes": "Descripción de la oferta y prácticas sostenibles *",
+      "notesPlaceholder": "Describe tus alojamientos, capacidad, experiencias culturales e iniciativas ecológicas...",
+      "submit": "Enviar Solicitud de Socio",
+      "submitting": "Enviando Solicitud…",
+      "successMessage": "¡Solicitud recibida! Nuestro equipo revisará tu propuesta en un plazo de 5 días laborables."
+    },
+    "cta": {
+      "label": "¿Ya Eres Colaborador?",
+      "titleLead": "Accede a tu",
+      "titleAccent": "portal de socios.",
+      "description": "Gestiona tus expediciones activas, coordina fechas de llegada y consulta los comentarios de los viajeros directamente desde tu panel.",
+      "primaryAction": "Entrar al Portal de Socios",
+      "secondaryAction": "Soporte para Colaboradores"
     }
   },
   "Legal": {
@@ -834,10 +1269,139 @@
     "cookieAccept": "Aceptar Todas",
     "cookieDecline": "Rechazar Opcionales",
     "cookieLearnMore": "Saber Más",
-    "bookingPolicyTitle": "Política de Reservas",
-    "cancellationTitle": "Política de Cancelación y Reembolsos",
+    "privacyEyebrow": "Legalidad y Transparencia",
     "privacyTitle": "Política de Privacidad",
+    "privacyEffectiveDate": "Fecha de entrada en vigor: 15 de febrero de 2026",
+    "privacyIntro": "Talkwer se compromete a proteger tu privacidad y a garantizar la total transparencia sobre cómo se recopila, utiliza y custodia tu información en todas nuestras plataformas digitales y servicios de viaje.",
+    "privacySections": {
+      "collect": {
+        "heading": "Qué información recopilamos",
+        "body": "Cuando utilizas el formulario de Contacto, recibimos los datos que envías: nombre, dirección de correo y mensaje. También podemos registrar datos técnicos como el tipo de navegador y la ubicación aproximada deducida de las peticiones de red al servir el sitio. No solicitamos datos de tarjetas de pago en esta revista estática."
+      },
+      "use": {
+        "heading": "Cómo utilizamos tu información",
+        "body": "Los mensajes de contacto se utilizan exclusivamente para responder a tus consultas sobre viajes, alianzas, prensa o sugerencias editoriales. Los registros técnicos nos ayudan a garantizar la estabilidad del sitio y comprender qué secciones interesan a nuestros lectores. Nunca vendemos datos personales a terceros."
+      },
+      "cookies": {
+        "heading": "Cookies y tecnologías similares",
+        "body": "Talkwer utiliza cookies esenciales para el funcionamiento básico del sitio y cookies de preferencias para recordar elecciones como el consentimiento de cookies. Para conocer en detalle los tipos de cookies y cómo revocar tu preferencia, consulta nuestra página de Cookies en /cookies. Rechazar las cookies opcionales no impide la lectura de la revista."
+      },
+      "retention": {
+        "heading": "Conservación y acceso a los datos",
+        "body": "Conservamos los mensajes únicamente durante el tiempo necesario para atender y dar seguimiento a la consulta planteada. Puedes escribir a hello@talkwer.example para solicitar qué datos conservamos o pedir el borrado de una conversación cuando sea técnicamente posible. Algunos registros técnicos caducan automáticamente según las ventanas del proveedor de alojamiento."
+      },
+      "contact": {
+        "heading": "Consultas sobre privacidad",
+        "body": "Cualquier duda sobre esta política o tus datos personales puede remitirse a hello@talkwer.example o a través de la página de Contacto. Nos esforzamos por responder en un plazo de pocos días laborables. Si tu petición atañe a un proveedor externo de hosting o analítica, te guiaremos hacia el canal adecuado."
+      }
+    },
+    "termsEyebrow": "Términos Legales",
     "termsTitle": "Términos de Servicio",
-    "cookiesTitle": "Política de Cookies"
+    "termsEffectiveDate": "Fecha de entrada en vigor: 15 de febrero de 2026",
+    "termsIntro": "Estos Términos de Servicio rigen el acceso y uso del sitio web de Talkwer, la gestión de reservas y los productos editoriales digitales.",
+    "termsSections": {
+      "acceptance": {
+        "heading": "Aceptación de los términos",
+        "body": "Al acceder a las páginas de Talkwer aceptas utilizar el sitio de manera lícita y de conformidad con estos términos. Si no estás de acuerdo, te rogamos que interrumpas su uso. Podemos actualizar esta página periódicamente; la fecha de vigor en el encabezado indica la versión actual."
+      },
+      "site-use": {
+        "heading": "Uso del sitio",
+        "body": "Puedes navegar, compartir enlaces y contactarnos para consultas legítimas de viaje o prensa. Queda prohibido el raspado masivo automatizado de contenidos, intentar vulnerar el alojamiento o enviar mensajes abusivos o fraudulentos por Contacto. Nos reservamos el derecho de bloquear accesos perjudiciales."
+      },
+      "intellectual-property": {
+        "heading": "Propiedad intelectual",
+        "body": "Las historias, créditos fotográficos, reseñas de destinos y la marca Talkwer están protegidos como contenidos propios o materiales bajo licencia. Se permite citar fragmentos breves con la debida atribución para fines personales y no comerciales. No está permitida la reproducción íntegra de artículos ni el uso comercial de imágenes sin autorización expresa."
+      },
+      "editorial-disclaimer": {
+        "heading": "Itinerarios de carácter editorial",
+        "body": "Las descripciones de tours, listados de equipaje y guías de destinos constituyen relatos editoriales y no un contrato vinculante ni una garantía de disponibilidad, tarifas o condiciones en destino. Confirma siempre los detalles definitivos con Talkwer o el operador local antes de viajar."
+      },
+      "limitation": {
+        "heading": "Limitación de responsabilidad",
+        "body": "En la medida en que lo permita la legislación aplicable, Talkwer no se hace responsable de las pérdidas derivadas de la confianza exclusiva en contenidos editoriales o en enlaces a terceros. El viaje conlleva riesgos inherentes; eres responsable de tus seguros, documentación y decisiones personales durante la ruta."
+      },
+      "contact": {
+        "heading": "Consultas",
+        "body": "Si algún punto de estos términos resulta confuso, escribe a hello@talkwer.example o utiliza la página de Contacto antes de comprometerte con un itinerario o alianza. Estaremos encantados de aclararte cualquier detalle."
+      }
+    },
+    "cookiesEyebrow": "Preferencias de Cookies",
+    "cookiesTitle": "Política de Cookies",
+    "cookiesEffectiveDate": "Fecha de entrada en vigor: 15 de febrero de 2026",
+    "cookiesIntro": "Esta Política de Cookies explica cómo Talkwer utiliza cookies y tecnologías similares para recordar tus preferencias, optimizar la navegación y personalizar tu experiencia.",
+    "cookiesSections": {
+      "essential": {
+        "heading": "Cookies esenciales",
+        "body": "Las cookies esenciales permiten el funcionamiento básico del sitio, manteniendo estados de sesión o seguridad que el navegador precisa para cargar las páginas de forma segura. No se utilizan para crear perfiles publicitarios. Sin ellas, partes de la experiencia podrían fallar o reiniciarse."
+      },
+      "preference": {
+        "heading": "Cookies de preferencias",
+        "body": "Las cookies de preferencias recuerdan elecciones como haber aceptado o rechazado cookies opcionales en el banner de consentimiento. Esto evita volver a solicitar tu conformidad en cada visita. Los datos permanecen almacenados localmente en tu navegador hasta que borres los datos del sitio."
+      },
+      "consent-banner": {
+        "heading": "Banner de consentimiento",
+        "body": "En tu primera visita, Talkwer puede mostrar un banner con las opciones de Aceptar, Rechazar y un enlace a esta página. Al Aceptar, se guardan tus preferencias para cookies no esenciales. Al Rechazar, la revista sigue siendo totalmente accesible registrando únicamente la negativa."
+      },
+      "withdraw": {
+        "heading": "Cómo revocar el consentimiento",
+        "body": "Para modificar o eliminar una preferencia guardada, borra los datos de Talkwer en la configuración de tu navegador. Tras el borrado, el banner volverá a mostrarse para que elijas de nuevo. También puedes configurar tu navegador para bloquear cookies de forma global."
+      },
+      "more": {
+        "heading": "Políticas complementarias",
+        "body": "Para conocer el tratamiento de los datos del formulario de contacto y otra información personal, consulta nuestra Política de Privacidad en /privacy. Las dudas sobre cookies pueden enviarse a hello@talkwer.example o por Contacto."
+      }
+    },
+    "cancellationEyebrow": "Protección Flexible de Viaje",
+    "cancellationTitle": "Política de Cancelación y Reembolsos",
+    "cancellationEffectiveDate": "Fecha de entrada en vigor: 15 de febrero de 2026",
+    "cancellationIntro": "Creemos que planificar un viaje debe inspirar, no generar estrés. Nuestras políticas de cancelación y marcos de reembolso están diseñados bajo criterios de total equidad y claridad.",
+    "cancellationSections": {
+      "windows": {
+        "heading": "Plazos de reembolso",
+        "body": "El derecho a reembolso depende de la antelación con la que se solicite la cancelación y las condiciones de los proveedores reflejadas en tu confirmación. Las cancelaciones tempranas conservan una mayor proporción reembolsable del depósito y saldo. En fechas próximas a la salida, los costes no reembolsables pueden reducir o anular el reintegro en efectivo."
+      },
+      "credits": {
+        "heading": "Créditos de viaje",
+        "body": "Cuando no sea posible el reembolso en efectivo, Talkwer puede ofrecer un crédito de viaje aplicable a una futura expedición de valor equivalente o superior. Los créditos suelen tener fecha de caducidad y no son canjeables por dinero. Confirmaremos el importe, validez y posibles fechas restringidas por escrito al emitirlos."
+      },
+      "how-to-cancel": {
+        "heading": "Cómo solicitar la cancelación",
+        "body": "Envía una solicitud de cancelación por escrito desde el correo vinculado a tu reserva, o mediante la página de Contacto indicando el número de confirmación y las fechas del viaje. Las cancelaciones verbales o por redes sociales no son vinculantes hasta que las confirmemos por escrito."
+      },
+      "force-majeure": {
+        "heading": "Fuerza mayor",
+        "body": "Situaciones fuera de un control razonable (fenómenos meteorológicos extremos, huelgas, cierres gubernamentales o alertas sanitarias) pueden obligar a modificar o cancelar itinerarios. En tales casos colaboramos con nuestros socios para reprogramar, emitir créditos o reembolsar según lo autoricen los proveedores locales."
+      },
+      "contact": {
+        "heading": "Consultas",
+        "body": "Si no tienes la certeza de qué plazo aplica a tu viaje, ponte en contacto con nosotros antes de cancelar. Escribe a hello@talkwer.example o utiliza Contacto con los detalles de tu confirmación para evaluar tus opciones con total claridad."
+      }
+    },
+    "bookingPolicyEyebrow": "Marco de Reservas",
+    "bookingPolicyTitle": "Política de Reservas",
+    "bookingPolicyEffectiveDate": "Fecha de entrada en vigor: 15 de febrero de 2026",
+    "bookingPolicyIntro": "Nuestra política de reservas detalla cómo se gestionan, confirman y verifican las plazas de expedición con nuestros colaboradores locales en todo el mundo.",
+    "bookingSections": {
+      "confirmation": {
+        "heading": "Confirmaciones de reserva",
+        "body": "Una reserva queda formalmente confirmada en cuanto recibes la confirmación por escrito de Talkwer con las fechas, número de viajeros y servicios incluidos. Las solicitudes de pre-reserva no garantizan la plaza hasta la confirmación definitiva. Revisa minuciosamente cada dato de la confirmación."
+      },
+      "deposits": {
+        "heading": "Depósitos y saldo final",
+        "body": "La mayoría de las rutas requieren un depósito para asegurar plaza y traslados. Las fechas límite de abono del saldo figuran en tu confirmación. El retraso en el pago del saldo puede provocar la liberación de la plaza para otros viajeros. Los importes exactos y plazos se detallan en tu documentación."
+      },
+      "changes": {
+        "heading": "Modificaciones de fechas y viajeros",
+        "body": "Las solicitudes de cambio se valoran caso a caso y pueden conllevar gastos de gestión de proveedores. Los cambios de nombre y fechas dependen de la disponibilidad en alojamientos, guías y transportes colaboradores. Detallaremos cualquier coste adicional antes de formalizar el cambio."
+      },
+      "responsibilities": {
+        "heading": "Responsabilidades del viajero",
+        "body": "Es responsabilidad de cada viajero contar con pasaporte en regla, visados, vacunas y seguro de viaje adaptado a los destinos de su itinerario. Talkwer ofrece recomendaciones y notas de equipaje, pero las normativas de entrada pueden variar. Verifica siempre los requisitos oficiales antes de partir."
+      },
+      "contact": {
+        "heading": "Consultas",
+        "body": "Escribe a hello@talkwer.example o utiliza la página de Contacto antes de formalizar tu reserva si tienes cualquier duda. Preferimos resolver cualquier cuestión con antelación para asegurar una experiencia perfecta. Los tiempos de respuesta pueden variar en temporada alta."
+      }
+    }
   }
 }

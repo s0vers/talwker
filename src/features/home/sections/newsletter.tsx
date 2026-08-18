@@ -108,7 +108,7 @@ export default function Newsletter() {
 							/>
 							<button
 								type="button"
-								className="flex items-center justify-center gap-2 rounded-full bg-orange-500 px-8 py-4 text-sm font-bold text-black transition-all duration-300 hover:scale-[1.03] hover:bg-orange-400 shadow-[0_10px_25px_rgba(249,115,22,0.35)] hover:shadow-[0_12px_30px_rgba(249,115,22,0.5)]"
+								className="flex items-center justify-center gap-2 rounded-full bg-orange-500 px-8 py-4 text-sm font-bold text-white transition-all duration-300 hover:scale-[1.03] hover:bg-orange-400 shadow-[0_10px_25px_rgba(249,115,22,0.35)] hover:shadow-[0_12px_30px_rgba(249,115,22,0.5)]"
 							>
 								<LuSend className="h-4 w-4" />
 								{t("subscribe")}

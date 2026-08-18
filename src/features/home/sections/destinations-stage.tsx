@@ -183,7 +183,7 @@ export function DestinationsStage({
 						<div className="mt-5 flex items-center justify-between gap-2.5">
 							<Link
 								href={href}
-								className="group inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-orange-500 px-4 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold text-black transition-all duration-300 hover:bg-orange-400 shadow-[0_10px_25px_rgba(249,115,22,0.35)] hover:shadow-[0_12px_30px_rgba(249,115,22,0.5)] truncate text-center"
+								className="group inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-orange-500 px-4 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold text-white transition-all duration-300 hover:bg-orange-400 shadow-[0_10px_25px_rgba(249,115,22,0.35)] hover:shadow-[0_12px_30px_rgba(249,115,22,0.5)] truncate text-center"
 							>
 								<span className="truncate">{t("exploreButtonLabel")}</span>
 								<LuArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 transition-transform group-hover:translate-x-1" />
@@ -199,7 +199,7 @@ export function DestinationsStage({
 											: t("pauseAutoplay")
 									}
 									onClick={() => onPauseChange(!isPaused)}
-									className="inline-flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md transition-colors hover:border-orange-500 hover:bg-orange-500 hover:text-black"
+									className="inline-flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md transition-colors hover:border-orange-500 hover:bg-orange-500 hover:text-white"
 								>
 									{isPaused ? (
 										<LuPlay className="h-3.5 w-3.5 sm:h-4 sm:w-4 translate-x-0.5" />
@@ -211,7 +211,7 @@ export function DestinationsStage({
 									type="button"
 									aria-label={t("prevSlide")}
 									onClick={() => go(activeIndex - 1)}
-									className="inline-flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md transition-colors hover:border-orange-500 hover:bg-orange-500 hover:text-black"
+									className="inline-flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md transition-colors hover:border-orange-500 hover:bg-orange-500 hover:text-white"
 								>
 									<LuChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
 								</button>
@@ -219,7 +219,7 @@ export function DestinationsStage({
 									type="button"
 									aria-label={t("nextSlide")}
 									onClick={() => go(activeIndex + 1)}
-									className="inline-flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md transition-colors hover:border-orange-500 hover:bg-orange-500 hover:text-black"
+									className="inline-flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md transition-colors hover:border-orange-500 hover:bg-orange-500 hover:text-white"
 								>
 									<LuChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
 								</button>

@@ -1,6 +1,6 @@
 "use client";
 
-import { BOOKING_COPY } from "@/features/booking/content/booking-copy";
+import { useTranslations } from "next-intl";
 import {
 	Select,
 	SelectContent,
@@ -35,6 +35,7 @@ export function LeftPanel({
 	setTimeZone: (timeZone: string) => void;
 	tour: Tour;
 }) {
+	const t = useTranslations("Booking");
 	const { locale } = useLocale();
 	const searchParams = useSearchParams();
 	const slotParam = searchParams.get("slot");
@@ -49,16 +50,16 @@ export function LeftPanel({
 						</span>
 					</TooltipTrigger>
 					<TooltipContent className="border border-white/10 bg-[#0a0a0a] text-white">
-						{BOOKING_COPY.brand}
+						{t("brand")}
 					</TooltipContent>
 				</Tooltip>
 				<p className="text-sm font-semibold text-white/70">
-					{BOOKING_COPY.brand}
+					{t("brand")}
 					<span className="text-orange-500">.</span>
 				</p>
 			</div>
 			<div className="grid gap-3">
-				<p className="text-2xl font-bold text-white">{BOOKING_COPY.meetingTitle}</p>
+				<p className="text-2xl font-bold text-white">{t("meetingTitle")}</p>
 				<p className="text-sm text-white/55">{tour.title}</p>
 				{showForm && slotParam && (
 					<div className="flex text-white/90">
@@ -81,16 +82,16 @@ export function LeftPanel({
 				)}
 				<div className="flex items-center text-white/90">
 					<Clock4 className="mr-2 size-4" />
-					<p className="text-sm font-semibold">{BOOKING_COPY.duration}</p>
+					<p className="text-sm font-semibold">{t("duration")}</p>
 				</div>
 				<div className="flex items-center text-white/90">
 					<Video className="mr-2 size-4 text-orange-500" aria-hidden />
 					<Tooltip>
 						<TooltipTrigger asChild>
-							<p className="text-sm font-semibold">{BOOKING_COPY.meetingType}</p>
+							<p className="text-sm font-semibold">{t("meetingType")}</p>
 						</TooltipTrigger>
 						<TooltipContent className="border border-white/10 bg-[#0a0a0a] text-white">
-							{BOOKING_COPY.meetingTypeTooltip}
+							{t("meetingTypeTooltip")}
 						</TooltipContent>
 					</Tooltip>
 				</div>
