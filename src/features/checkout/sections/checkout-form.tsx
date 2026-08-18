@@ -77,8 +77,9 @@ export function CheckoutForm() {
 	return (
 		<section
 			aria-labelledby="checkout-payment-heading"
-			className="rounded-3xl border border-white/[0.08] bg-[#0a0a0a] p-6 shadow-[0_32px_96px_rgba(0,0,0,0.5)] md:p-8"
+			className="relative p-6 md:p-8 text-white"
 		>
+			<div className="pointer-events-none absolute inset-0 -z-10 rounded-full bg-orange-500/5 blur-[120px]" aria-hidden="true" />
 			{/* Checkout Step Header */}
 			<div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-6">
 				<div>
@@ -145,7 +146,7 @@ export function CheckoutForm() {
 							value={cardNumber}
 							onChange={(e) => setCardNumber(e.target.value)}
 							placeholder={t("cardNumberPlaceholder")}
-							className="pl-10"
+							className="pl-10 border-0 bg-white/[0.02] shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] focus-visible:ring-1 focus-visible:ring-orange-500/50"
 						/>
 						<CreditCard className="absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-white/40" />
 					</div>
@@ -164,7 +165,7 @@ export function CheckoutForm() {
 								value={expiry}
 								onChange={(e) => setExpiry(e.target.value)}
 								placeholder={t("expiryPlaceholder")}
-								className="pl-10"
+								className="pl-10 border-0 bg-white/[0.02] shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] focus-visible:ring-1 focus-visible:ring-orange-500/50"
 							/>
 							<Calendar className="absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-white/40" />
 						</div>
@@ -181,7 +182,7 @@ export function CheckoutForm() {
 								value={cvc}
 								onChange={(e) => setCvc(e.target.value)}
 								placeholder={t("cvcPlaceholder")}
-								className="pl-10"
+								className="pl-10 border-0 bg-white/[0.02] shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] focus-visible:ring-1 focus-visible:ring-orange-500/50"
 							/>
 							<Lock className="absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-white/40" />
 						</div>

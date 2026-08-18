@@ -1,0 +1,116 @@
+{
+  "$schema": "https://impeccable.style/schemas/surfaces.json",
+  "version": "1.0.0",
+  "surfaces": [
+    {
+      "id": "home",
+      "name": "Home Editorial Page",
+      "route": "/[locale]",
+      "mode": "persuade",
+      "featureEntry": "src/features/home/home-page.tsx",
+      "sections": [
+        "src/features/home/sections/hero.tsx",
+        "src/features/home/sections/about.tsx",
+        "src/features/home/sections/destinations.tsx",
+        "src/features/home/sections/destinations-stage.tsx",
+        "src/features/home/sections/destinations-filmstrip.tsx",
+        "src/features/home/sections/featured-tours.tsx",
+        "src/features/home/sections/testimonials.tsx",
+        "src/features/home/sections/newsletter.tsx",
+        "src/features/home/sections/cta.tsx"
+      ]
+    },
+    {
+      "id": "destinations",
+      "name": "Destinations Showcase (3 Layout Variants)",
+      "route": "/[locale]/destinations",
+      "mode": "explore",
+      "featureEntry": "src/features/destinations/destinations-page.tsx",
+      "variants": [
+        "src/features/destinations-2/destinations-2-page.tsx",
+        "src/features/destinations-3/destinations-3-page.tsx"
+      ]
+    },
+    {
+      "id": "tours",
+      "name": "Tours & Expeditions",
+      "route": "/[locale]/tours",
+      "mode": "persuade",
+      "featureEntry": "src/features/tours/tours-page.tsx",
+      "sections": [
+        "src/features/tours/sections/tours-hero.tsx",
+        "src/features/tours/sections/tours-catalog.tsx",
+        "src/features/tours/sections/tours-cta.tsx"
+      ]
+    },
+    {
+      "id": "booking-checkout",
+      "name": "Expedition Scheduler & Checkout",
+      "route": "/[locale]/booking",
+      "mode": "operate",
+      "featureEntry": "src/features/booking/booking-page.tsx",
+      "sections": [
+        "src/features/booking/sections/booking-scheduler.tsx",
+        "src/features/booking/sections/calendar.tsx",
+        "src/features/booking/sections/form-panel.tsx",
+        "src/features/booking/sections/left-panel.tsx",
+        "src/features/booking/sections/right-panel.tsx",
+        "src/features/checkout/sections/checkout-form.tsx",
+        "src/features/checkout/sections/checkout-summary.tsx"
+      ]
+    },
+    {
+      "id": "stories",
+      "name": "Editorial Travel Stories",
+      "route": "/[locale]/stories",
+      "mode": "read",
+      "featureEntry": "src/features/stories/stories-page.tsx",
+      "sections": [
+        "src/features/stories/sections/stories-hero.tsx",
+        "src/features/stories/sections/stories-issue-grid.tsx",
+        "src/features/stories/sections/story-details-hero.tsx"
+      ]
+    },
+    {
+      "id": "experiences",
+      "name": "Curated Experiences",
+      "route": "/[locale]/experiences",
+      "mode": "explore",
+      "featureEntry": "src/features/experiences/experiences-page.tsx"
+    },
+    {
+      "id": "about",
+      "name": "Brand Narrative & Philosophy",
+      "route": "/[locale]/about",
+      "mode": "read",
+      "featureEntry": "src/features/about/about-page.tsx"
+    },
+    {
+      "id": "auth",
+      "name": "Authentication & Member Portal",
+      "route": "/[locale]/login",
+      "mode": "operate",
+      "featureEntry": "src/features/auth/login-page.tsx",
+      "variants": [
+        "src/features/auth/register-page.tsx"
+      ]
+    },
+    {
+      "id": "partners-careers",
+      "name": "Partners & Careers",
+      "route": "/[locale]/partners",
+      "mode": "operate",
+      "featureEntry": "src/features/partners/partners-page.tsx",
+      "variants": [
+        "src/features/careers/careers-page.tsx"
+      ]
+    },
+    {
+      "id": "legal",
+      "name": "Legal & Policies",
+      "route": "/[locale]/terms",
+      "mode": "read",
+      "featureEntry": "src/features/terms/terms-page.tsx"
+    }
+  ]
+}

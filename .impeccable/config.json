@@ -8,7 +8,7 @@
   },
   "live": {
     "port": 3000,
-    "entry": "src/app/page.tsx",
+    "entry": "src/app/[locale]/page.tsx",
     "devCommand": "pnpm dev"
   },
   "context": {

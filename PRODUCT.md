@@ -17,7 +17,8 @@ Tagline: *Wander. Discover. Share.*
 - **Experience**: Interactive dotted world map route exploration, cinematic scroll-driven story spreads, and atmospheric visual galleries.
 
 ## Capabilities and Constraints
-- **Architecture**: Next.js 16 (App Router), React 19, Tailwind CSS v4, feature-first module layout (`src/features/*`).
+- **Architecture**: Next.js 16 (App Router with `[locale]` dynamic segmentation), React 19, Tailwind CSS v4, feature-first module layout (`src/features/*`).
+- **Internationalization (i18n)**: Fully localized across English (`en`), Spanish (`es`), and Japanese (`ja`) via `next-intl` dictionary routing and localized navigation helpers.
 - **Single-Mode Perpetual Dark**: The site operates exclusively in dark mode (`#050505` canvas); no light theme exists or is planned. All components and primitives must be designed and styled specifically for dark surfaces.
 - **Static Showcase**: No live backend database or external server dependencies. All destination, tour, and story data is statically driven.
 - **Theme Multi-Template Support**: Multiple parallel page variations for identical resources (e.g. `/destinations`, `/destinations-2`, `/destinations-3`, `/destination-details-2`, etc.) are intentional template options and should be preserved.
