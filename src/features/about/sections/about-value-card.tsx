@@ -1,7 +1,12 @@
-import type { AboutValue } from "@/features/about/content/about-copy";
+export type AboutValueItem = {
+	number: string;
+	title: string;
+	description: string;
+	accent: string;
+};
 
 type AboutValueCardProps = {
-	value: AboutValue;
+	value: AboutValueItem;
 	className?: string;
 };
 

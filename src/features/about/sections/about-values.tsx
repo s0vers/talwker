@@ -1,14 +1,12 @@
 "use client";
 
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
-import {
-	ABOUT_VALUES,
-	ABOUT_VALUES_SECTION,
-} from "@/features/about/content/about-copy";
 import { AboutValueCard } from "./about-value-card";
 
 export default function AboutValues() {
+	const t = useTranslations("About.values");
 	const sectionRef = useRef<HTMLElement>(null);
 	const headingRef = useRef<HTMLDivElement>(null);
 	const listRef = useRef<HTMLDivElement>(null);
@@ -77,22 +75,50 @@ export default function AboutValues() {
 		);
 	}, []);
 
+	const valuesList = [
+		{
+			id: "human-first",
+			number: "01",
+			title: t("v1Title"),
+			description: t("v1Desc"),
+			accent: t("v1Accent"),
+		},
+		{
+			id: "radical-curiosity",
+			number: "02",
+			title: t("v2Title"),
+			description: t("v2Desc"),
+			accent: t("v2Accent"),
+		},
+		{
+			id: "sustainable-footprints",
+			number: "03",
+			title: t("v3Title"),
+			description: t("v3Desc"),
+			accent: t("v3Accent"),
+		},
+		{
+			id: "fearless-honesty",
+			number: "04",
+			title: t("v4Title"),
+			description: t("v4Desc"),
+			accent: t("v4Accent"),
+		},
+	];
+
 	return (
 		<section ref={sectionRef} className="bg-[#0a0a0a] py-28 md:py-36">
 			<div className="mx-auto grid max-w-[1600px] gap-12 pad-x md:grid-cols-[minmax(240px,0.9fr)_minmax(0,1.25fr)] md:gap-10 lg:gap-16">
 				<div className="md:sticky md:top-28 md:h-fit">
 					<div ref={headingRef}>
 						<span className="mb-5 inline-block text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500">
-							{ABOUT_VALUES_SECTION.label}
+							{t("label")}
 						</span>
 						<h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-bold leading-[0.95] tracking-tighter text-white">
-							{ABOUT_VALUES_SECTION.title}
-							<span className="font-light italic text-orange-500">
-								{ABOUT_VALUES_SECTION.titleSuffix}
-							</span>
+							{t("title")}
 						</h2>
 						<p className="mt-6 max-w-sm text-sm leading-relaxed text-white/55 md:text-base">
-							{ABOUT_VALUES_SECTION.description}
+							{t("description")}
 						</p>
 					</div>
 					<div className="mt-8 hidden items-center gap-4 md:flex">
@@ -100,7 +126,7 @@ export default function AboutValues() {
 							<div data-values-rail className="h-full w-full bg-orange-500/80" />
 						</div>
 						<p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/40">
-							{ABOUT_VALUES_SECTION.railCaption}
+							{t("railCaption")}
 						</p>
 					</div>
 				</div>
@@ -109,7 +135,7 @@ export default function AboutValues() {
 					ref={listRef}
 					className="grid gap-6 sm:grid-cols-2 md:gap-7 lg:gap-8"
 				>
-					{ABOUT_VALUES.map((val, index) => (
+					{valuesList.map((val, index) => (
 						<AboutValueCard
 							key={val.id}
 							value={val}

@@ -2,10 +2,9 @@
 
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
-import { useLayoutEffect, useRef } from "react";
+import { useRef } from "react";
 import { useTranslations } from "next-intl";
-import gsap from "gsap";
-import { prefersReducedMotion } from "@/lib/useGsap";
+import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
 import type { Story } from "@/shared/types/domain";
 
 type StoryDetailsHeroProps = {
@@ -20,15 +19,17 @@ export default function StoryDetailsHero({
 	const t = useTranslations("StoryDetails");
 	const sectionRef = useRef<HTMLElement>(null);
 
-	useLayoutEffect(() => {
-		const root = sectionRef.current;
-		if (typeof window === "undefined" || !root || !runEntrance) return;
-		if (prefersReducedMotion()) return;
+	useGsapContext(
+		sectionRef,
+		() => {
+			if (!runEntrance) return;
+			if (prefersReducedMotion()) return;
+			const root = sectionRef.current;
+			if (!root) return;
 
-		const nodes = root.querySelectorAll("[data-st-opener]");
-		if (!nodes.length) return;
+			const nodes = root.querySelectorAll("[data-st-opener]");
+			if (!nodes.length) return;
 
-		const ctx = gsap.context(() => {
 			gsap.from(nodes, {
 				y: 36,
 				opacity: 0,
@@ -37,10 +38,9 @@ export default function StoryDetailsHero({
 				ease: "power3.out",
 				delay: 0.08,
 			});
-		}, root);
-
-		return () => ctx.revert();
-	}, [runEntrance, story.slug]);
+		},
+		[runEntrance, story.slug],
+	);
 
 	return (
 		<section

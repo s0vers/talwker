@@ -1,10 +1,11 @@
 "use client";
 
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
-import { ABOUT_PHILOSOPHY } from "@/features/about/content/about-copy";
 
 export default function AboutPhilosophy() {
+	const t = useTranslations("About.philosophy");
 	const section = useRef<HTMLElement>(null);
 	const wordsRef = useRef<HTMLDivElement>(null);
 	const lineRef = useRef<HTMLDivElement>(null);
@@ -52,7 +53,8 @@ export default function AboutPhilosophy() {
 		[],
 	);
 
-	const words = ABOUT_PHILOSOPHY.line.split(" ");
+	const philosophyLine = t("line");
+	const words = philosophyLine.split(" ");
 
 	return (
 		<section ref={section} className="relative bg-[#070707] py-40 md:py-56">
@@ -61,7 +63,7 @@ export default function AboutPhilosophy() {
 			<div className="relative mx-auto max-w-[1600px] pad-x">
 				<div className="mx-auto max-w-5xl text-center">
 					<span className="mb-10 inline-block text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500">
-						{ABOUT_PHILOSOPHY.label}
+						{t("label")}
 					</span>
 					<div
 						ref={wordsRef}

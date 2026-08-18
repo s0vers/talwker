@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Link, useRouter } from "@/i18n/navigation";
 import { useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { LuSearch, LuX } from "react-icons/lu";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -14,7 +15,6 @@ import {
 	SelectValue,
 } from "@/components/ui/select";
 import {
-	DESTINATIONS_GRID,
 	DESTINATIONS_GRID_QUICK_SEARCHES,
 } from "@/features/destinations/content/destinations-page-copy";
 import {
@@ -45,6 +45,7 @@ export type DestinationsGridToolbarProps = {
 };
 
 function DestinationsGridToolbarInner({ list, quickLinks }: DestinationsGridToolbarProps) {
+	const t = useTranslations("Destinations.grid");
 	const router = useRouter();
 	const [qDraft, setQDraft] = useState(list.q);
 	const [selectKey, setSelectKey] = useState<DestinationsSelectKey>(() => filterToSelectKey(list.filter));
@@ -53,6 +54,14 @@ function DestinationsGridToolbarInner({ list, quickLinks }: DestinationsGridTool
 	const hrefById = Object.fromEntries(quickLinks.map((l) => [l.id, l.href] as const));
 	const clearHref = getDestinationsListClearHref();
 	const showClear = destinationsListHasActiveRefinements(list);
+
+	const quickSearchLabels: Record<string, string> = {
+		bali: t("quickSearchBali"),
+		japan: t("quickSearchJapan"),
+		italy: t("quickSearchItaly"),
+		luxury: t("quickSearchLuxury"),
+		under2k: t("quickSearchUnder2k"),
+	};
 
 	function handleSearchSubmit(e: React.FormEvent<HTMLFormElement>) {
 		e.preventDefault();
@@ -67,7 +76,7 @@ function DestinationsGridToolbarInner({ list, quickLinks }: DestinationsGridTool
 
 	return (
 		<div className="mb-10 space-y-6 md:mb-12">
-			<form onSubmit={handleSearchSubmit} role="search" aria-label="Search destinations">
+			<form onSubmit={handleSearchSubmit} role="search" aria-label={t("searchFieldLabel")}>
 				<input type="hidden" name="tag" value={hiddenTag} aria-hidden />
 				<input type="hidden" name="maxPrice" value={hiddenMaxPrice} aria-hidden />
 
@@ -77,7 +86,7 @@ function DestinationsGridToolbarInner({ list, quickLinks }: DestinationsGridTool
 							htmlFor="destinations-search"
 							className="mb-2 block text-[11px] uppercase tracking-[0.18em] text-white/45"
 						>
-							{DESTINATIONS_GRID.searchFieldLabel}
+							{t("searchFieldLabel")}
 						</label>
 						<Input
 							id="destinations-search"
@@ -85,7 +94,7 @@ function DestinationsGridToolbarInner({ list, quickLinks }: DestinationsGridTool
 							name="q"
 							value={qDraft}
 							onChange={(e) => setQDraft(e.target.value)}
-							placeholder={DESTINATIONS_GRID.searchPlaceholder}
+							placeholder={t("searchPlaceholder")}
 							autoComplete="off"
 							className={cn(surfaceControl)}
 						/>
@@ -101,7 +110,7 @@ function DestinationsGridToolbarInner({ list, quickLinks }: DestinationsGridTool
 								)}
 							>
 								<LuX className="size-3 shrink-0 opacity-80" aria-hidden />
-								{DESTINATIONS_GRID.clearFilters}
+								{t("clearFilters")}
 							</Link>
 						</div>
 					</div>
@@ -111,7 +120,7 @@ function DestinationsGridToolbarInner({ list, quickLinks }: DestinationsGridTool
 							htmlFor="destinations-filter"
 							className="mb-2 block text-[11px] uppercase tracking-[0.18em] text-white/45"
 						>
-							{DESTINATIONS_GRID.filterLabel}
+							{t("filterLabel")}
 						</label>
 						<Select value={selectKey} onValueChange={(v) => setSelectKey(v as DestinationsSelectKey)}>
 							<SelectTrigger id="destinations-filter" className={cn(surfaceControl, "w-full")}>
@@ -119,22 +128,22 @@ function DestinationsGridToolbarInner({ list, quickLinks }: DestinationsGridTool
 							</SelectTrigger>
 							<SelectContent position="popper" sideOffset={8} className={DESTINATIONS_SELECT_CONTENT_CLASS}>
 								<SelectItem value="all" className={DESTINATIONS_SELECT_ITEM_CLASS}>
-									{DESTINATIONS_GRID.filterAll}
+									{t("filterAll")}
 								</SelectItem>
 								<SelectItem value="popular" className={DESTINATIONS_SELECT_ITEM_CLASS}>
-									{DESTINATIONS_GRID.filterTagPopular}
+									{t("filterTagPopular")}
 								</SelectItem>
 								<SelectItem value="trending" className={DESTINATIONS_SELECT_ITEM_CLASS}>
-									{DESTINATIONS_GRID.filterTagTrending}
+									{t("filterTagTrending")}
 								</SelectItem>
 								<SelectItem value="new" className={DESTINATIONS_SELECT_ITEM_CLASS}>
-									{DESTINATIONS_GRID.filterTagNew}
+									{t("filterTagNew")}
 								</SelectItem>
 								<SelectItem value="luxury" className={DESTINATIONS_SELECT_ITEM_CLASS}>
-									{DESTINATIONS_GRID.filterTagLuxury}
+									{t("filterTagLuxury")}
 								</SelectItem>
 								<SelectItem value="under2000" className={DESTINATIONS_SELECT_ITEM_CLASS}>
-									{DESTINATIONS_GRID.filterUnder2000}
+									{t("filterUnder2000")}
 								</SelectItem>
 							</SelectContent>
 						</Select>
@@ -145,7 +154,7 @@ function DestinationsGridToolbarInner({ list, quickLinks }: DestinationsGridTool
 							className="mb-2 hidden text-[11px] uppercase tracking-[0.18em] text-white/45 lg:block lg:invisible"
 							aria-hidden
 						>
-							{DESTINATIONS_GRID.filterLabel}
+							{t("filterLabel")}
 						</span>
 						<Button
 							type="submit"
@@ -156,7 +165,7 @@ function DestinationsGridToolbarInner({ list, quickLinks }: DestinationsGridTool
 							)}
 						>
 							<LuSearch className="mr-2 h-4 w-4" aria-hidden />
-							{DESTINATIONS_GRID.searchButton}
+							{t("searchButton")}
 						</Button>
 					</div>
 				</div>
@@ -164,12 +173,13 @@ function DestinationsGridToolbarInner({ list, quickLinks }: DestinationsGridTool
 
 			<div>
 				<p className="mb-3 text-[11px] uppercase tracking-[0.18em] text-white/45">
-					{DESTINATIONS_GRID.quickSearchesLabel}
+					{t("quickSearchesLabel")}
 				</p>
-				<div className="flex flex-wrap gap-2" role="group" aria-label={DESTINATIONS_GRID.quickSearchesLabel}>
+				<div className="flex flex-wrap gap-2" role="group" aria-label={t("quickSearchesLabel")}>
 					{DESTINATIONS_GRID_QUICK_SEARCHES.map((item) => {
 						const href = hrefById[item.id] ?? DEFAULT_DESTINATIONS_LIST_PATH;
 						const active = isQuickSearchActive(list, item);
+						const label = quickSearchLabels[item.id] ?? item.label;
 						return (
 							<Link
 								key={item.id}
@@ -182,7 +192,7 @@ function DestinationsGridToolbarInner({ list, quickLinks }: DestinationsGridTool
 										: "border-white/15 text-white/70 hover:border-white/30 hover:text-white",
 								)}
 							>
-								{item.label}
+								{label}
 							</Link>
 						);
 					})}

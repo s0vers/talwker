@@ -1,9 +1,9 @@
 "use client";
 
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
 import {
-	ABOUT_GLOBAL_REACH_COPY,
 	ABOUT_MAP_DOT_VARIANCE,
 	ABOUT_MAP_HUB_SPOKES,
 	ABOUT_MAP_MARKERS,
@@ -11,6 +11,7 @@ import {
 import { DottedMap } from "@/components/ui/dotted-map";
 
 export default function AboutGlobalReach() {
+	const t = useTranslations("About.reach");
 	const section = useRef<HTMLElement>(null);
 	const columnRef = useRef<HTMLDivElement>(null);
 	const mapRef = useRef<HTMLDivElement>(null);
@@ -86,16 +87,16 @@ export default function AboutGlobalReach() {
 				<div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
 					<div ref={columnRef} className="min-w-0">
 						<span className="mb-5 inline-block text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500">
-							{ABOUT_GLOBAL_REACH_COPY.label}
+							{t("label")}
 						</span>
 						<h2 className="text-[clamp(2rem,4.5vw,3.75rem)] font-bold leading-[1.05] tracking-tighter text-white">
-							{ABOUT_GLOBAL_REACH_COPY.titleLead}{" "}
+							{t("titleLead")}{" "}
 							<span className="font-light italic text-orange-500">
-								{ABOUT_GLOBAL_REACH_COPY.titleAccent}
+								{t("titleAccent")}
 							</span>
 						</h2>
 						<p className="mt-6 max-w-lg text-sm leading-relaxed text-white/40 md:text-base">
-							{ABOUT_GLOBAL_REACH_COPY.description}
+							{t("description")}
 						</p>
 						<ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[11px] font-medium uppercase tracking-widest text-white/25">
 							{ABOUT_MAP_MARKERS.map((m) => (

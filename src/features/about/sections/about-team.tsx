@@ -2,13 +2,12 @@
 
 import Image from "next/image";
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
-import {
-	ABOUT_TEAM,
-	ABOUT_TEAM_SECTION,
-} from "@/features/about/content/about-copy";
+import { ABOUT_TEAM } from "@/features/about/content/about-copy";
 
 export default function AboutTeam() {
+	const t = useTranslations("About.team");
 	const section = useRef<HTMLElement>(null);
 	const headingRef = useRef<HTMLDivElement>(null);
 	const gridRef = useRef<HTMLDivElement>(null);
@@ -74,16 +73,13 @@ export default function AboutTeam() {
 			<div className="mx-auto max-w-[1600px] pad-x">
 				<div ref={headingRef} className="mb-16 text-center md:mb-20">
 					<span className="mb-5 inline-block text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500">
-						{ABOUT_TEAM_SECTION.label}
+						{t("label")}
 					</span>
 					<h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-bold leading-[0.95] tracking-tighter text-white">
-						{ABOUT_TEAM_SECTION.title}
-						<span className="font-light italic text-orange-500">
-							{ABOUT_TEAM_SECTION.titleSuffix}
-						</span>
+						{t("title")}
 					</h2>
 					<p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-white/40 md:text-base">
-						{ABOUT_TEAM_SECTION.description}
+						{t("description")}
 					</p>
 				</div>
 

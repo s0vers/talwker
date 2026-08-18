@@ -216,11 +216,18 @@
       "label": "あなたへの厳選提案",
       "title": "注目のツアー",
       "description": "最高の価値と特別な体験を約束する、最も人気のある催行ツアーパッケージです。",
+      "spotlightBadge": "厳選パッケージ",
+      "filterAll": "すべて",
+      "filterCultural": "カルチャー",
+      "filterAdventure": "アドベンチャー",
+      "filterNature": "ネイチャー",
+      "filterLuxury": "ラグジュアリー",
       "viewAllCta": "すべてのツアーを見る",
       "savePrefix": "割引：$",
       "startingAt": "最安料金："
     },
     "testimonials": {
+      "badge": "認定トラベラーレビュー",
       "label": "旅人たちの声",
       "title": "ゲストからのレビュー",
       "description": "Talkwerに最高の休暇を託してくださった、実際の冒険者たちからのリアルなストーリーです。"
@@ -271,6 +278,11 @@
       "searchButton": "検索",
       "clearFilters": "クリア",
       "quickSearchesLabel": "人気の検索ワード",
+      "quickSearchBali": "バリ",
+      "quickSearchJapan": "日本",
+      "quickSearchItaly": "イタリア",
+      "quickSearchLuxury": "ラグジュアリー",
+      "quickSearchUnder2k": "$2,000未満",
       "noResults": "該当する目的地がありません。キーワードやフィルターを変更してください。",
       "paginationPrevious": "前へ",
       "paginationNext": "次へ",
@@ -321,6 +333,11 @@
       "searchButton": "適用",
       "clearFilters": "リセット",
       "quickSearchesLabel": "ショートカット",
+      "quickSearchBali": "バリ",
+      "quickSearchJapan": "日本",
+      "quickSearchItaly": "イタリア",
+      "quickSearchLuxury": "ラグジュアリー",
+      "quickSearchUnder2k": "$2,000未満",
       "noResults": "該当なし — 短いキーワードにするかフィルターを解除してください。"
     }
   },
@@ -352,6 +369,11 @@
       "searchButton": "検索",
       "clearFilters": "クリア",
       "quickSearchesLabel": "人気のピックアップ",
+      "quickSearchBali": "バリ",
+      "quickSearchJapan": "日本",
+      "quickSearchItaly": "イタリア",
+      "quickSearchLuxury": "ラグジュアリー",
+      "quickSearchUnder2k": "$2,000未満",
       "noResults": "一致する結果がありません — 条件を変更してお試しください。"
     }
   },
@@ -509,6 +531,31 @@
       "description": "お客様のペース、日程、興味に合わせて、編集チームが完全プライベートの旅をご提案します。",
       "primaryAction": "カスタム旅行をリクエスト",
       "secondaryAction": "すべてのツアーを見る"
+    },
+    "themes": {
+      "eyebrow": "コレクションを見る",
+      "title": "注目の体験 ({count})",
+      "description": "体験をクリックして旅程の概要を確認するか、ツアー詳細ページへ直接移動できます。",
+      "filterLabel": "体験フォーマットを選択",
+      "empty": "このカテゴリーの体験は見つかりませんでした。",
+      "quickPreview": "クイックプレビュー",
+      "viewPackage": "パッケージを見る"
+    },
+    "modal": {
+      "closeLabel": "モーダルを閉じる",
+      "duration": "所要時間",
+      "capacity": "定員",
+      "pricing": "料金",
+      "overview": "概要",
+      "highlights": "体験のハイライト",
+      "itineraryNotes": "旅程とペースの補足",
+      "viewTourPackage": "ツアープラン全体を見る →",
+      "inquire": "この体験について問い合わせる"
+    },
+    "styles": {
+      "eyebrow": "ペースとスタイル",
+      "title": "旅のスタイル",
+      "explore": "見る"
     }
   },
   "About": {
@@ -638,7 +685,19 @@
     "selectDate": "ご出発または相談希望日を選択",
     "selectTime": "ご相談時間枠を選択",
     "guestCount": "参加人数",
-    "specialRequests": "特別なご要望やリクエスト"
+    "specialRequests": "特別なご要望やリクエスト",
+    "nameLabel": "お名前 *",
+    "emailLabel": "メールアドレス *",
+    "phoneLabel": "電話番号 *",
+    "notesLabel": "補足事項",
+    "notesPlaceholder": "打ち合わせの事前準備に役立つ情報があればご記入ください",
+    "addGuests": "同伴者を追加",
+    "removeEmail": "メールを削除",
+    "termsNotice": "続行することにより、利用規約およびプライバシーポリシーに同意したものとみなされます。",
+    "back": "戻る",
+    "errorRequired": "名前、メールアドレス、電話番号は必須です。",
+    "errorPhone": "有効な電話番号を入力してください。",
+    "errorSlot": "時間枠を選択してください。"
   },
   "Checkout": {
     "title": "ご予約手続き＆決済",
@@ -657,16 +716,38 @@
     "expiryPlaceholder": "MM/YY",
     "cvcPlaceholder": "123",
     "cardError": "カード番号、有効期限、CVCを入力してください。",
+    "step": "ステップ 2 / 2",
+    "paymentDetails": "お支払い情報",
+    "slotReserved": "時間枠確保済み",
+    "cardBanner": "クレジットカード / デビットカード",
+    "autofillBanner": "デモをお試し中ですか？テスト用カード情報を自動入力:",
+    "autofillButton": "カード情報を自動入力",
+    "securityNotice": "256ビットSSL暗号化＆デモ検証済み",
     "summaryTourLabel": "選択した遠征ツアー",
     "summarySlotLabel": "ご相談日時",
     "summaryGuestLabel": "旅行者情報",
     "summaryTimezoneLabel": "タイムゾーン",
+    "scheduledDeparture": "予定された出発日時",
+    "bookerInfo": "ご予約者情報",
+    "additionalGuests": "+ 同伴者 {count} 名",
+    "includedPerks": "この予約に含まれるもの",
+    "defaultPerk1": "専任現地ガイド",
+    "defaultPerk2": "プレミアム送迎",
+    "defaultPerk3": "48時間前までキャンセル無料",
+    "packageLabel": "ツアーパッケージ",
+    "taxesFees": "税金・予約手数料",
+    "included": "$0.00 (込み)",
+    "totalDue": "本日のお支払い合計",
+    "taxesGuarantees": "すべての諸税・安心補償を含みます",
+    "instantConfirm": "即時予約確定・安全なツアー枠引き継ぎ",
     "redirectingLabel": "予約を処理中…",
+    "registeredNote": "ツアー枠が正常に確保されました",
     "successTitle": "ツアーのご予約を承りました",
     "successBody": "これはデモ用の予約確認書です。システムにご予約内容が登録されました。",
     "successHomeLabel": "ホームに戻る",
     "successTourLabel": "ツアーを見る",
-    "successConfirmationLabel": "予約コード"
+    "successConfirmationLabel": "予約コード",
+    "verifiedBooking": "予約認証済み"
   },
   "Auth": {
     "loginEyebrow": "アカウント",

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Link, useRouter } from "@/i18n/navigation";
 import { useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { LuArrowRight, LuX } from "react-icons/lu";
 import { Input } from "@/components/ui/input";
 import {
@@ -30,7 +31,6 @@ import {
 	isQuickSearchActive,
 	selectKeyToFormFields,
 } from "@/features/destinations/lib/destinations-list-params";
-import { DESTINATIONS_3_GRID } from "@/features/destinations-3/content/destinations-3-page-copy";
 import { DESTINATIONS_3_LIST_PATH } from "@/features/destinations-3/lib/destinations-3-list-path";
 import { cn } from "@/lib/utils";
 
@@ -43,6 +43,7 @@ export type Destinations3GridToolbarProps = {
 };
 
 function Destinations3GridToolbarInner({ list, quickLinks }: Destinations3GridToolbarProps) {
+	const t = useTranslations("Destinations3.grid");
 	const router = useRouter();
 	const [qDraft, setQDraft] = useState(list.q);
 	const [selectKey, setSelectKey] = useState<DestinationsSelectKey>(() => filterToSelectKey(list.filter));
@@ -51,6 +52,14 @@ function Destinations3GridToolbarInner({ list, quickLinks }: Destinations3GridTo
 	const hrefById = Object.fromEntries(quickLinks.map((l) => [l.id, l.href] as const));
 	const clearHref = getDestinationsListClearHref(DESTINATIONS_3_LIST_PATH);
 	const showClear = destinationsListHasActiveRefinements(list);
+
+	const quickSearchLabels: Record<string, string> = {
+		bali: t("quickSearchBali"),
+		japan: t("quickSearchJapan"),
+		italy: t("quickSearchItaly"),
+		luxury: t("quickSearchLuxury"),
+		under2k: t("quickSearchUnder2k"),
+	};
 
 	function handleSearchSubmit(e: React.FormEvent<HTMLFormElement>) {
 		e.preventDefault();
@@ -66,15 +75,16 @@ function Destinations3GridToolbarInner({ list, quickLinks }: Destinations3GridTo
 	return (
 		<div className="mb-12 space-y-10 md:mb-16 md:space-y-12">
 			<div>
-				<p className="mb-3 text-xs font-medium text-white/50">{DESTINATIONS_3_GRID.quickSearchesLabel}</p>
+				<p className="mb-3 text-xs font-medium text-white/50">{t("quickSearchesLabel")}</p>
 				<div
 					className="flex flex-wrap gap-2 md:gap-2.5"
 					role="group"
-					aria-label={DESTINATIONS_3_GRID.quickSearchesLabel}
+					aria-label={t("quickSearchesLabel")}
 				>
 					{DESTINATIONS_GRID_QUICK_SEARCHES.map((item) => {
 						const href = hrefById[item.id] ?? DESTINATIONS_3_LIST_PATH;
 						const active = isQuickSearchActive(list, item);
+						const label = quickSearchLabels[item.id] ?? item.label;
 						return (
 							<Link
 								key={item.id}
@@ -87,21 +97,21 @@ function Destinations3GridToolbarInner({ list, quickLinks }: Destinations3GridTo
 										: "bg-white/4 text-white/65 hover:bg-white/8 hover:text-white",
 								)}
 							>
-								{item.label}
+								{label}
 							</Link>
 						);
 					})}
 				</div>
 			</div>
 
-			<form onSubmit={handleSearchSubmit} role="search" aria-label="Search destinations">
+			<form onSubmit={handleSearchSubmit} role="search" aria-label={t("searchFieldLabel")}>
 				<input type="hidden" name="tag" value={hiddenTag} aria-hidden />
 				<input type="hidden" name="maxPrice" value={hiddenMaxPrice} aria-hidden />
 
 				<div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:gap-8">
 					<div className="min-w-0 flex-1">
 						<label htmlFor="destinations-3-search" className="sr-only">
-							{DESTINATIONS_3_GRID.searchFieldLabel}
+							{t("searchFieldLabel")}
 						</label>
 						<Input
 							id="destinations-3-search"
@@ -109,7 +119,7 @@ function Destinations3GridToolbarInner({ list, quickLinks }: Destinations3GridTo
 							name="q"
 							value={qDraft}
 							onChange={(e) => setQDraft(e.target.value)}
-							placeholder={DESTINATIONS_3_GRID.searchPlaceholder}
+							placeholder={t("searchPlaceholder")}
 							autoComplete="off"
 							className={underlineField}
 						/>
@@ -118,7 +128,7 @@ function Destinations3GridToolbarInner({ list, quickLinks }: Destinations3GridTo
 					<div className="flex w-full items-center gap-3 sm:gap-4 lg:w-auto lg:shrink-0">
 						<div className="min-w-0 flex-1 sm:max-w-48 lg:w-56 lg:flex-none">
 							<label htmlFor="destinations-3-filter" className="sr-only">
-								{DESTINATIONS_3_GRID.filterLabel}
+								{t("filterLabel")}
 							</label>
 							<Select value={selectKey} onValueChange={(v) => setSelectKey(v as DestinationsSelectKey)}>
 								<SelectTrigger id="destinations-3-filter" className={cn(DESTINATIONS_SELECT_TRIGGER_SURFACE, "w-full")}>
@@ -126,22 +136,22 @@ function Destinations3GridToolbarInner({ list, quickLinks }: Destinations3GridTo
 								</SelectTrigger>
 								<SelectContent position="popper" sideOffset={8} className={DESTINATIONS_SELECT_CONTENT_CLASS}>
 									<SelectItem value="all" className={DESTINATIONS_SELECT_ITEM_CLASS}>
-										{DESTINATIONS_3_GRID.filterAll}
+										{t("filterAll")}
 									</SelectItem>
 									<SelectItem value="popular" className={DESTINATIONS_SELECT_ITEM_CLASS}>
-										{DESTINATIONS_3_GRID.filterTagPopular}
+										{t("filterTagPopular")}
 									</SelectItem>
 									<SelectItem value="trending" className={DESTINATIONS_SELECT_ITEM_CLASS}>
-										{DESTINATIONS_3_GRID.filterTagTrending}
+										{t("filterTagTrending")}
 									</SelectItem>
 									<SelectItem value="new" className={DESTINATIONS_SELECT_ITEM_CLASS}>
-										{DESTINATIONS_3_GRID.filterTagNew}
+										{t("filterTagNew")}
 									</SelectItem>
 									<SelectItem value="luxury" className={DESTINATIONS_SELECT_ITEM_CLASS}>
-										{DESTINATIONS_3_GRID.filterTagLuxury}
+										{t("filterTagLuxury")}
 									</SelectItem>
 									<SelectItem value="under2000" className={DESTINATIONS_SELECT_ITEM_CLASS}>
-										{DESTINATIONS_3_GRID.filterUnder2000}
+										{t("filterUnder2000")}
 									</SelectItem>
 								</SelectContent>
 							</Select>
@@ -150,7 +160,7 @@ function Destinations3GridToolbarInner({ list, quickLinks }: Destinations3GridTo
 						<button
 							type="submit"
 							className="group flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-orange-500/15 text-orange-200 transition-colors hover:bg-orange-500/25"
-							aria-label={DESTINATIONS_3_GRID.searchButton}
+							aria-label={t("searchButton")}
 						>
 							<LuArrowRight className="size-5 transition-transform group-hover:translate-x-0.5" aria-hidden />
 						</button>
@@ -169,7 +179,7 @@ function Destinations3GridToolbarInner({ list, quickLinks }: Destinations3GridTo
 						)}
 					>
 						<LuX className="size-3.5 shrink-0 opacity-80" aria-hidden />
-						{DESTINATIONS_3_GRID.clearFilters}
+						{t("clearFilters")}
 					</Link>
 				</div>
 			</form>

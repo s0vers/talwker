@@ -1,16 +1,14 @@
 "use client";
 
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import {
 	gsap,
 	prefersReducedMotion,
 	useGsapContext,
 	useCountUp,
 } from "@/lib/useGsap";
-import { ABOUT_STORY_COPY, ABOUT_STATS } from "@/features/about/content/about-copy";
-import { Highlighter } from "@/components/ui/highlighter";
-
-const HIGHLIGHT_ORANGE = "hsl(25 95% 53% / 0.38)";
+import { ABOUT_STATS } from "@/features/about/content/about-copy";
 
 function StatItem({
 	value,
@@ -45,6 +43,7 @@ function StatItem({
 }
 
 export default function AboutStory() {
+	const t = useTranslations("About.story");
 	const section = useRef<HTMLElement>(null);
 	const textRef = useRef<HTMLDivElement>(null);
 	const statsRef = useRef<HTMLDivElement>(null);
@@ -85,53 +84,23 @@ export default function AboutStory() {
 				<div className="mx-auto w-full max-w-4xl">
 					<div ref={textRef} className="text-center">
 						<span className="mb-8 inline-block text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500 md:mb-10">
-							{ABOUT_STORY_COPY.label}
+							{t("label")}
 						</span>
 						<h2 className="text-balance text-[clamp(2.2rem,5vw,4.5rem)] font-bold leading-[0.95] tracking-tighter text-white">
-							{ABOUT_STORY_COPY.titleLead}
+							{t("titleLead")}
 							<br />
 							<span className="font-light italic text-orange-500">
-								{ABOUT_STORY_COPY.titleAccent}
+								{t("titleAccent")}
 							</span>
 						</h2>
 						<p className="mt-10 text-pretty text-sm leading-relaxed text-white/40 md:mt-12 md:text-base">
-							In 2010, a small group of friends — tired of cookie‑cutter package
-							holidays — set out to prove that travel could be{" "}
-							<Highlighter
-								isView
-								action="highlight"
-								color={HIGHLIGHT_ORANGE}
-								multiline
-							>
-								more personal, more meaningful, more alive
-							</Highlighter>
-							.
+							{t("p1")}
 						</p>
 						<p className="mt-8 text-pretty text-sm leading-relaxed text-white/40 md:text-base">
-							What started as a shared spreadsheet of hidden gems quickly grew into
-							Talkwer: a platform where{" "}
-							<Highlighter
-								isView
-								action="underline"
-								color={HIGHLIGHT_ORANGE}
-								multiline
-							>
-								every itinerary is a story
-							</Highlighter>
-							, every destination a chapter waiting to be written.
+							{t("p2")}
 						</p>
 						<p className="mt-8 text-pretty text-sm leading-relaxed text-white/40 md:text-base">
-							Today, we partner with local guides, boutique stays, and cultural
-							ambassadors across{" "}
-							<Highlighter
-								isView
-								action="highlight"
-								color={HIGHLIGHT_ORANGE}
-								multiline
-							>
-								six continents
-							</Highlighter>{" "}
-							to craft journeys that leave travellers changed — not just tanned.
+							{t("p3")}
 						</p>
 					</div>
 

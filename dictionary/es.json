@@ -216,11 +216,18 @@
       "label": "Seleccionado Para Ti",
       "title": "Tours Destacados",
       "description": "Nuestros paquetes de viaje más populares, diseñados para experiencias extraordinarias con un valor inigualable.",
+      "spotlightBadge": "Paquetes Seleccionados",
+      "filterAll": "Todos",
+      "filterCultural": "Cultural",
+      "filterAdventure": "Aventura",
+      "filterNature": "Naturaleza",
+      "filterLuxury": "Lujo",
       "viewAllCta": "Ver Todos los Tours",
       "savePrefix": "Ahorra $",
       "startingAt": "A partir de"
     },
     "testimonials": {
+      "badge": "Opiniones Verificadas de Viajeros",
       "label": "Historias de Viajeros",
       "title": "Lo Que Dicen Nuestros Viajeros",
       "description": "Historias reales de aventureros auténticos que confiaron en Talkwer para diseñar su escapada perfecta."
@@ -271,6 +278,11 @@
       "searchButton": "Buscar",
       "clearFilters": "Limpiar filtros",
       "quickSearchesLabel": "Búsquedas populares",
+      "quickSearchBali": "Bali",
+      "quickSearchJapan": "Japón",
+      "quickSearchItaly": "Italia",
+      "quickSearchLuxury": "Lujo",
+      "quickSearchUnder2k": "Menos de $2k",
       "noResults": "Ningún destino coincide con esa búsqueda. Prueba con otra palabra clave o filtro.",
       "paginationPrevious": "Anterior",
       "paginationNext": "Siguiente",
@@ -321,6 +333,11 @@
       "searchButton": "Aplicar",
       "clearFilters": "Restablecer",
       "quickSearchesLabel": "Accesos rápidos",
+      "quickSearchBali": "Bali",
+      "quickSearchJapan": "Japón",
+      "quickSearchItaly": "Italia",
+      "quickSearchLuxury": "Lujo",
+      "quickSearchUnder2k": "Menos de $2k",
       "noResults": "Nada coincide — prueba con una búsqueda más corta o limpia los filtros."
     }
   },
@@ -352,6 +369,11 @@
       "searchButton": "Buscar",
       "clearFilters": "Limpiar filtros",
       "quickSearchesLabel": "Opciones populares",
+      "quickSearchBali": "Bali",
+      "quickSearchJapan": "Japón",
+      "quickSearchItaly": "Italia",
+      "quickSearchLuxury": "Lujo",
+      "quickSearchUnder2k": "Menos de $2k",
       "noResults": "Sin coincidencias — prueba con una búsqueda más corta o limpia los filtros."
     }
   },
@@ -509,6 +531,31 @@
       "description": "Permite que nuestro equipo editorial diseñe un viaje privado ajustado a tu ritmo, fechas e intereses exactos.",
       "primaryAction": "Solicitar Viaje Personalizado",
       "secondaryAction": "Explorar Todos los Tours"
+    },
+    "themes": {
+      "eyebrow": "Explorar Colección",
+      "title": "Experiencias Exclusivas ({count})",
+      "description": "Haz clic en cualquier experiencia para abrir el resumen interactivo del itinerario o ir directamente a los detalles completos del tour.",
+      "filterLabel": "Seleccionar Formato de Experiencia",
+      "empty": "No se encontraron experiencias en esta categoría.",
+      "quickPreview": "Vista Rápida",
+      "viewPackage": "Ver Paquete"
+    },
+    "modal": {
+      "closeLabel": "Cerrar ventana",
+      "duration": "Duración",
+      "capacity": "Capacidad",
+      "pricing": "Precios",
+      "overview": "Resumen",
+      "highlights": "Aspectos Destacados de la Experiencia",
+      "itineraryNotes": "Notas de Itinerario y Ritmo",
+      "viewTourPackage": "Ver Paquete Completo del Tour →",
+      "inquire": "Consultar Sobre Esta Experiencia"
+    },
+    "styles": {
+      "eyebrow": "Ritmo y Formato",
+      "title": "Estilos de Viaje",
+      "explore": "Explorar"
     }
   },
   "About": {
@@ -638,7 +685,19 @@
     "selectDate": "Selecciona la fecha de salida o consulta",
     "selectTime": "Selecciona el horario de consulta",
     "guestCount": "Número de viajeros",
-    "specialRequests": "Preferencias o requerimientos especiales de viaje"
+    "specialRequests": "Preferencias o requerimientos especiales de viaje",
+    "nameLabel": "Tu nombre *",
+    "emailLabel": "Correo electrónico *",
+    "phoneLabel": "Número de teléfono *",
+    "notesLabel": "Notas adicionales",
+    "notesPlaceholder": "Comparte cualquier detalle que nos ayude a preparar nuestra reunión",
+    "addGuests": "Añadir invitados",
+    "removeEmail": "Eliminar correo",
+    "termsNotice": "Al continuar, aceptas nuestros Términos y Política de Privacidad.",
+    "back": "Atrás",
+    "errorRequired": "Nombre, correo y teléfono son obligatorios.",
+    "errorPhone": "Introduce un número de teléfono válido (no solo el prefijo).",
+    "errorSlot": "Elige un horario antes de continuar."
   },
   "Checkout": {
     "title": "Pago y Reserva",
@@ -657,16 +716,38 @@
     "expiryPlaceholder": "MM/AA",
     "cvcPlaceholder": "123",
     "cardError": "Introduce el número de tarjeta, fecha de caducidad y CVC.",
+    "step": "Paso 2 de 2",
+    "paymentDetails": "Detalles de Pago",
+    "slotReserved": "Horario Reservado",
+    "cardBanner": "Tarjeta de Crédito / Débito",
+    "autofillBanner": "¿Probando esta demo? Autorrellena los datos de prueba:",
+    "autofillButton": "Autorrellenar Tarjeta",
+    "securityNotice": "Cifrado SSL de 256 bits y verificado en demo",
     "summaryTourLabel": "Expedición Seleccionada",
     "summarySlotLabel": "Horario de consulta",
     "summaryGuestLabel": "Datos de los viajeros",
     "summaryTimezoneLabel": "Zona horaria",
+    "scheduledDeparture": "Salida Programada",
+    "bookerInfo": "Información del Reservante",
+    "additionalGuests": "+ {count} viajero(s) adicional(es)",
+    "includedPerks": "Incluido en esta reserva",
+    "defaultPerk1": "Guía Local Experto",
+    "defaultPerk2": "Transporte de Lujo",
+    "defaultPerk3": "Cancelación Gratuita 48h",
+    "packageLabel": "Paquete de Tour",
+    "taxesFees": "Impuestos y Gastos de Gestión",
+    "included": "$0.00 (Incluido)",
+    "totalDue": "Total a Pagar Ahora",
+    "taxesGuarantees": "Incluye todos los impuestos y coberturas",
+    "instantConfirm": "Confirmación inmediata y transferencia 100% segura",
     "redirectingLabel": "Procesando reserva…",
+    "registeredNote": "Salida registrada con éxito",
     "successTitle": "Salida Reservada",
     "successBody": "Este es un comprobante de confirmación demo. Tu reserva ha sido registrada en el sistema.",
     "successHomeLabel": "Volver al Inicio",
     "successTourLabel": "Ver Expedición",
-    "successConfirmationLabel": "Código de Confirmación"
+    "successConfirmationLabel": "Código de Confirmación",
+    "verifiedBooking": "Reserva Verificada"
   },
   "Auth": {
     "loginEyebrow": "Cuenta",

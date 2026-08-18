@@ -59,6 +59,13 @@ export default function ContactForm() {
 	const topicId = `${formId}-topic`;
 	const messageId = `${formId}-message`;
 
+	const topicItems = [
+		{ value: "editorial" as const, label: t("topicEditorial") },
+		{ value: "partnerships" as const, label: t("topicPartnerships") },
+		{ value: "support" as const, label: t("topicSupport") },
+		{ value: "other" as const, label: t("topicOther") },
+	];
+
 	function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
 		e.preventDefault();
 		const form = e.currentTarget;
@@ -68,7 +75,8 @@ export default function ContactForm() {
 		const message = String(fd.get("message") ?? "").trim();
 		const topic = topicFromFormData(fd);
 		const inbox = inboxForFormTopic(topic);
-		const topicLabel = topicLabelForValue(topic);
+		const topicMatch = topicItems.find((i) => i.value === topic);
+		const topicLabel = topicMatch?.label ?? topicLabelForValue(topic);
 
 		const href = buildContactMailtoHref({
 			to: inbox.email,
@@ -176,7 +184,7 @@ export default function ContactForm() {
 											name="topic"
 											defaultValue={DEFAULT_TOPIC}
 											required
-											items={CONTACT_FORM_TOPIC_ITEMS}
+											items={topicItems}
 										>
 											<SelectTrigger
 												id={topicId}
@@ -195,7 +203,7 @@ export default function ContactForm() {
 												sideOffset={8}
 												className={selectContentClass}
 											>
-												{CONTACT_FORM_TOPIC_ITEMS.map((item) => (
+												{topicItems.map((item) => (
 													<SelectItem
 														key={item.value}
 														value={item.value}

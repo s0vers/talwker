@@ -216,11 +216,18 @@
       "label": "Curated For You",
       "title": "Featured Tours",
       "description": "Our most popular tour packages, designed for extraordinary experiences at unbeatable value.",
+      "spotlightBadge": "Curated Packages",
+      "filterAll": "All",
+      "filterCultural": "Cultural",
+      "filterAdventure": "Adventure",
+      "filterNature": "Nature",
+      "filterLuxury": "Luxury",
       "viewAllCta": "View All Tours",
       "savePrefix": "Save $",
       "startingAt": "Starting at"
     },
     "testimonials": {
+      "badge": "Verified Traveler Reviews",
       "label": "Traveler Stories",
       "title": "What Our Travelers Say",
       "description": "Real stories from real adventurers who trusted Talkwer to craft their perfect getaway."
@@ -271,6 +278,11 @@
       "searchButton": "Search",
       "clearFilters": "Clear filters",
       "quickSearchesLabel": "Popular searches",
+      "quickSearchBali": "Bali",
+      "quickSearchJapan": "Japan",
+      "quickSearchItaly": "Italy",
+      "quickSearchLuxury": "Luxury",
+      "quickSearchUnder2k": "Under $2k",
       "noResults": "No destinations match that search. Try another keyword or filter.",
       "paginationPrevious": "Previous",
       "paginationNext": "Next",
@@ -321,6 +333,11 @@
       "searchButton": "Apply",
       "clearFilters": "Reset",
       "quickSearchesLabel": "Shortcuts",
+      "quickSearchBali": "Bali",
+      "quickSearchJapan": "Japan",
+      "quickSearchItaly": "Italy",
+      "quickSearchLuxury": "Luxury",
+      "quickSearchUnder2k": "Under $2k",
       "noResults": "Nothing matches — try a shorter query or clear filters."
     }
   },
@@ -352,6 +369,11 @@
       "searchButton": "Search",
       "clearFilters": "Clear filters",
       "quickSearchesLabel": "Popular picks",
+      "quickSearchBali": "Bali",
+      "quickSearchJapan": "Japan",
+      "quickSearchItaly": "Italy",
+      "quickSearchLuxury": "Luxury",
+      "quickSearchUnder2k": "Under $2k",
       "noResults": "No matches — try a shorter search or clear filters."
     }
   },
@@ -509,6 +531,31 @@
       "description": "Let our editorial team design a private journey around your exact pacing, dates, and interests.",
       "primaryAction": "Request Custom Trip",
       "secondaryAction": "Browse All Tours"
+    },
+    "themes": {
+      "eyebrow": "Explore Collection",
+      "title": "Signature Experiences ({count})",
+      "description": "Click any experience to open the interactive itinerary overview or route directly to full tour details.",
+      "filterLabel": "Select Experience Format",
+      "empty": "No experiences found in this category.",
+      "quickPreview": "Quick Preview",
+      "viewPackage": "View Package"
+    },
+    "modal": {
+      "closeLabel": "Close modal",
+      "duration": "Duration",
+      "capacity": "Capacity",
+      "pricing": "Pricing",
+      "overview": "Overview",
+      "highlights": "Experience Highlights",
+      "itineraryNotes": "Itinerary & Pacing Notes",
+      "viewTourPackage": "View Full Tour Package →",
+      "inquire": "Inquire About Experience"
+    },
+    "styles": {
+      "eyebrow": "Pacing & Format",
+      "title": "Travel Styles",
+      "explore": "Explore"
     }
   },
   "About": {
@@ -638,7 +685,19 @@
     "selectDate": "Select departure or consult date",
     "selectTime": "Select consult time slot",
     "guestCount": "Number of travelers",
-    "specialRequests": "Special travel preferences or requirements"
+    "specialRequests": "Special travel preferences or requirements",
+    "nameLabel": "Your name *",
+    "emailLabel": "Email address *",
+    "phoneLabel": "Phone number *",
+    "notesLabel": "Additional notes",
+    "notesPlaceholder": "Please share anything that will help prepare for our meeting",
+    "addGuests": "Add guests",
+    "removeEmail": "Remove email",
+    "termsNotice": "By proceeding, you agree to our Terms and Privacy Policy.",
+    "back": "Back",
+    "errorRequired": "Name, email, and phone are required.",
+    "errorPhone": "Enter a valid phone number (not just the country code).",
+    "errorSlot": "Pick a time slot before continuing."
   },
   "Checkout": {
     "title": "Checkout & Reservation",
@@ -657,16 +716,38 @@
     "expiryPlaceholder": "MM/YY",
     "cvcPlaceholder": "123",
     "cardError": "Enter card number, expiry, and CVC.",
+    "step": "Step 2 of 2",
+    "paymentDetails": "Payment Details",
+    "slotReserved": "Slot Reserved",
+    "cardBanner": "Credit / Debit Card",
+    "autofillBanner": "Testing this demo? Autofill test payment credentials:",
+    "autofillButton": "Autofill Card",
+    "securityNotice": "256-Bit SSL Encrypted & Demo Handoff Verified",
     "summaryTourLabel": "Selected Expedition",
     "summarySlotLabel": "Consult time",
     "summaryGuestLabel": "Traveler details",
     "summaryTimezoneLabel": "Timezone",
+    "scheduledDeparture": "Scheduled Departure",
+    "bookerInfo": "Booker Information",
+    "additionalGuests": "+ {count} additional guest(s)",
+    "includedPerks": "Included in this Booking",
+    "defaultPerk1": "Expert Local Guide",
+    "defaultPerk2": "Luxury Transport",
+    "defaultPerk3": "Free 48h Cancellation",
+    "packageLabel": "Tour Package",
+    "taxesFees": "Taxes & Booking Fees",
+    "included": "$0.00 (Included)",
+    "totalDue": "Total Due Now",
+    "taxesGuarantees": "Includes all taxes and guarantees",
+    "instantConfirm": "Instant confirmation & 100% secure tour slot handoff",
     "redirectingLabel": "Processing reservation…",
+    "registeredNote": "Handoff successfully registered",
     "successTitle": "Departure Reserved",
     "successBody": "This is a demo confirmation receipt. Your booking has been registered in the system.",
     "successHomeLabel": "Back to Home",
     "successTourLabel": "View Expedition",
-    "successConfirmationLabel": "Confirmation Code"
+    "successConfirmationLabel": "Confirmation Code",
+    "verifiedBooking": "Verified Booking"
   },
   "Auth": {
     "loginEyebrow": "Account",

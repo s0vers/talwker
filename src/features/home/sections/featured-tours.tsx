@@ -104,6 +104,14 @@ export default function FeaturedTours() {
 		[selectedStyle],
 	);
 
+	const filterTabLabels: Record<string, string> = {
+		All: t("filterAll"),
+		Cultural: t("filterCultural"),
+		Adventure: t("filterAdventure"),
+		Nature: t("filterNature"),
+		Luxury: t("filterLuxury"),
+	};
+
 	return (
 		<section
 			ref={sectionRef}
@@ -135,13 +143,14 @@ export default function FeaturedTours() {
 								<span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400 opacity-75" />
 								<span className="relative inline-flex h-2 w-2 rounded-full bg-orange-500" />
 							</span>
-							{FEATURED_TOURS_SECTION.spotlightBadge}
+							{t("spotlightBadge")}
 						</div>
 
 						{/* Style Filter Tabs */}
 						<div className="flex flex-wrap items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.03] p-1.5 backdrop-blur-md">
 							{FEATURED_TOURS_SECTION.filterCategories.map((style) => {
 								const active = selectedStyle === style;
+								const label = filterTabLabels[style] ?? style;
 								return (
 									<button
 										key={style}
@@ -154,7 +163,7 @@ export default function FeaturedTours() {
 												: "text-white/60 hover:bg-white/10 hover:text-white",
 										)}
 									>
-										{style}
+										{label}
 									</button>
 								);
 							})}

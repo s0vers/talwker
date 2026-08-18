@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 import { LuClock, LuUsers, LuArrowRight } from "react-icons/lu";
 import { EXPERIENCES_CATALOG, EXPERIENCE_CATEGORIES, type ExperienceCategory, type ExperienceItem } from "../content/experiences-page-copy";
 import { cn } from "@/lib/utils";
@@ -13,10 +14,20 @@ export type ExperiencesThemesProps = {
 };
 
 export function ExperiencesThemes({ activeCategory, onCategoryChange, onSelectExperience }: ExperiencesThemesProps) {
+	const t = useTranslations("Experiences");
 	const filteredCatalog =
 		activeCategory === "all"
 			? EXPERIENCES_CATALOG
 			: EXPERIENCES_CATALOG.filter((item) => item.category === activeCategory);
+
+	const categoryLabels: Record<ExperienceCategory, string> = {
+		all: t("categories.all"),
+		cultural: t("categories.cultural"),
+		coastal: t("categories.coastal"),
+		alpine: t("categories.alpine"),
+		culinary: t("categories.culinary"),
+		wellness: t("categories.wellness"),
+	};
 
 	return (
 		<section className="bg-[#050505] text-white py-16 md:py-24">
@@ -24,26 +35,27 @@ export function ExperiencesThemes({ activeCategory, onCategoryChange, onSelectEx
 				<div className="mb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
 					<div>
 						<p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-orange-500">
-							Explore Collection
+							{t("themes.eyebrow")}
 						</p>
 						<h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl text-white">
-							Signature Experiences ({filteredCatalog.length})
+							{t("themes.title", { count: filteredCatalog.length })}
 						</h2>
 					</div>
 					<p className="max-w-md text-sm text-white/50 md:text-right">
-						Click any experience to open the interactive itinerary overview or route directly to full tour details.
+						{t("themes.description")}
 					</p>
 				</div>
 
 				{/* Integrated Category Filter Bar */}
 				<div className="mb-12 pb-8 border-b border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
 					<p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/40">
-						Select Experience Format
+						{t("themes.filterLabel")}
 					</p>
 
 					<div className="flex flex-wrap gap-2">
 						{EXPERIENCE_CATEGORIES.map((cat) => {
 							const isActive = activeCategory === cat.id;
+							const label = categoryLabels[cat.id] ?? cat.label;
 							return (
 								<button
 									key={cat.id}
@@ -56,7 +68,7 @@ export function ExperiencesThemes({ activeCategory, onCategoryChange, onSelectEx
 											: "border border-white/10 bg-[#0a0a0a] text-white/60 hover:border-white/25 hover:text-white",
 									)}
 								>
-									{cat.label}
+									{label}
 								</button>
 							);
 						})}
@@ -65,7 +77,7 @@ export function ExperiencesThemes({ activeCategory, onCategoryChange, onSelectEx
 
 				{filteredCatalog.length === 0 ? (
 					<div className="rounded-2xl border border-white/10 bg-[#0a0a0a] p-12 text-center">
-						<p className="text-white/60">No experiences found in this category.</p>
+						<p className="text-white/60">{t("themes.empty")}</p>
 					</div>
 				) : (
 					<div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -90,7 +102,7 @@ export function ExperiencesThemes({ activeCategory, onCategoryChange, onSelectEx
 										{/* Category Badge */}
 										<div className="absolute top-4 left-4">
 											<span className="rounded-full bg-black/60 backdrop-blur-md border border-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-orange-400">
-												{item.categoryLabel}
+												{categoryLabels[item.category] ?? item.categoryLabel}
 											</span>
 										</div>
 
@@ -132,13 +144,13 @@ export function ExperiencesThemes({ activeCategory, onCategoryChange, onSelectEx
 												onClick={() => onSelectExperience(item)}
 												className="text-xs font-semibold uppercase tracking-wider text-orange-500 hover:text-orange-400 transition-colors"
 											>
-												Quick Preview
+												{t("themes.quickPreview")}
 											</button>
 											<Link
 												href={tourHref}
 												className="inline-flex items-center gap-1 text-xs font-semibold text-white/70 hover:text-white transition-colors"
 											>
-												View Package <LuArrowRight className="h-3.5 w-3.5 text-orange-500 transition-transform group-hover:translate-x-1" />
+												{t("themes.viewPackage")} <LuArrowRight className="h-3.5 w-3.5 text-orange-500 transition-transform group-hover:translate-x-1" />
 											</Link>
 										</div>
 									</div>
