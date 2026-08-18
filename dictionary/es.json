@@ -384,6 +384,7 @@
     },
     "catalog": {
       "heading": "Rutas Operadas",
+      "routesCount": "{count} Expediciones Curadas",
       "emptyFilterNote": "Aún no hay ningún itinerario asignado a ese destino; mostramos el catálogo completo en su lugar.",
       "fromPrefix": "desde",
       "openLabel": "Abrir viaje"
@@ -437,6 +438,14 @@
       "titleAccent": "el camino",
       "description": "Ensayos sinceros de viajeros que nos acompañaron: momentos auténticos y luminosos que nunca aparecen en los folletos turísticos."
     },
+    "grid": {
+      "featuredLabel": "Nota de Campo Destacada",
+      "railLabel": "Más ensayos",
+      "readCta": "Leer el ensayo",
+      "minutesSuffix": "min de lectura",
+      "countSuffix": "ensayos",
+      "sectionHeading": "Historias y Crónicas"
+    },
     "index": {
       "featuredLabel": "Nota de Campo Destacada",
       "railLabel": "Más ensayos",
@@ -471,7 +480,12 @@
       "title": "Experiencias Artesanales y Travesías de Campo",
       "description": "Formatos de viaje inmersivos diseñados para la profundidad sobre la prisa: desde caminatas alpinas y navegación costera hasta tradiciones culinarias.",
       "primaryAction": "Explorar Todos los Tours",
-      "secondaryAction": "Planificar Viaje a Medida"
+      "secondaryAction": "Planificar Viaje a Medida",
+      "catalogTag": "6 Formatos Curados",
+      "titleLine1": "Experiencias",
+      "titleAccent": "Diseñadas",
+      "formatsPill": "Formatos a Medida y en Grupo Reducido",
+      "guestsPill": "Ritmo Diseñado para la Reflexión"
     },
     "categories": {
       "all": "Todas las Experiencias",
@@ -504,7 +518,8 @@
       "headlineAccent": "caminantes",
       "headlinePost": "Somos",
       "headlineAccent2": "narradores",
-      "description": "Nacidos de un amor inquieto por lo desconocido, en Talkwer conectamos almas curiosas con los rincones más extraordinarios del planeta."
+      "description": "Nacidos de un amor inquieto por lo desconocido, en Talkwer conectamos almas curiosas con los rincones más extraordinarios del planeta.",
+      "scrollCue": "Desplázate para explorar"
     },
     "story": {
       "label": "Donde Comenzó",

@@ -69,10 +69,12 @@ export const FEATURED_TOURS_SECTION = {
 	label: "Curated For You",
 	title: "Featured Tours",
 	description:
-		"Our most popular tour packages, designed for extraordinary experiences at unbeatable value.",
+		"Handpicked tour packages designed for extraordinary experiences and unforgettable journeys.",
+	spotlightBadge: "Handpicked Itineraries",
 	viewAllCta: "View All Tours",
 	savePrefix: "Save $",
 	startingAt: "Starting at",
+	filterCategories: ["All", "Cultural", "Adventure", "Nature", "Luxury"] as const,
 } as const;
 
 export const TESTIMONIALS_SECTION = {

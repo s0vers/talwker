@@ -384,6 +384,7 @@
     },
     "catalog": {
       "heading": "Operated Routes",
+      "routesCount": "{count} Curated Expeditions",
       "emptyFilterNote": "No itinerary is tagged to that destination yet — showing the full roster instead.",
       "fromPrefix": "from",
       "openLabel": "Open trip"
@@ -437,6 +438,14 @@
       "titleAccent": "the road",
       "description": "Honest essays from travelers who went with us — the messy, luminous moments that never make the brochure."
     },
+    "grid": {
+      "featuredLabel": "Featured Field Note",
+      "railLabel": "More essays",
+      "readCta": "Read the essay",
+      "minutesSuffix": "min read",
+      "countSuffix": "essays",
+      "sectionHeading": "Stories & Dispatches"
+    },
     "index": {
       "featuredLabel": "Featured Field Note",
       "railLabel": "More essays",
@@ -471,7 +480,12 @@
       "title": "Crafted Experiences & Field Journeys",
       "description": "Immersive travel formats designed for depth over speed — from alpine treks and coastal sailing to culinary traditions and tea house rituals.",
       "primaryAction": "Explore All Tours",
-      "secondaryAction": "Plan Custom Trip"
+      "secondaryAction": "Plan Custom Trip",
+      "catalogTag": "6 Curated Formats",
+      "titleLine1": "Crafted",
+      "titleAccent": "Experiences",
+      "formatsPill": "Custom & Small Group Formats",
+      "guestsPill": "Paced for Depth & Reflection"
     },
     "categories": {
       "all": "All Experiences",
@@ -504,7 +518,8 @@
       "headlineAccent": "wanderers",
       "headlinePost": "We are",
       "headlineAccent2": "storytellers",
-      "description": "Born from a restless love of the unknown, Talkwer connects curious souls with the world's most extraordinary corners."
+      "description": "Born from a restless love of the unknown, Talkwer connects curious souls with the world's most extraordinary corners.",
+      "scrollCue": "Scroll to explore"
     },
     "story": {
       "label": "Where It Began",

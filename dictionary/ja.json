@@ -384,6 +384,7 @@
     },
     "catalog": {
       "heading": "催行ルート一覧",
+      "routesCount": "{count} 件の厳選ツアー旅程",
       "emptyFilterNote": "その目的地に該当する旅程はまだありません。代わりに全ラインナップを表示しています。",
       "fromPrefix": "料金：",
       "openLabel": "ツアーを見る"
@@ -437,6 +438,14 @@
       "titleAccent": "生の声",
       "description": "パンフレットには決して載らない、私たちと共に旅した仲間たちによる率直で輝かしいエッセイ集。"
     },
+    "grid": {
+      "featuredLabel": "注目のフィールドノート",
+      "railLabel": "その他のエッセイ",
+      "readCta": "エッセイを読む",
+      "minutesSuffix": "分で読める",
+      "countSuffix": "編のエッセイ",
+      "sectionHeading": "ストーリー＆通信"
+    },
     "index": {
       "featuredLabel": "注目のフィールドノート",
       "railLabel": "その他のエッセイ",
@@ -471,7 +480,12 @@
       "title": "クラフト体験＆フィールドジャーニー",
       "description": "スピードよりも深さを重視した没入型の旅。アルプストレッキングや沿岸セーリングから伝統料理まで。",
       "primaryAction": "すべてのツアーを見る",
-      "secondaryAction": "カスタム旅程を相談"
+      "secondaryAction": "カスタム旅程を相談",
+      "catalogTag": "6つの厳選フォーマット",
+      "titleLine1": "洗練された",
+      "titleAccent": "体験",
+      "formatsPill": "少人数＆カスタムフォーマット",
+      "guestsPill": "深みと探求のためのペース配分"
     },
     "categories": {
       "all": "すべての体験",
@@ -504,7 +518,8 @@
       "headlineAccent": "放浪者であり、",
       "headlinePost": "私たちは",
       "headlineAccent2": "語り部です。",
-      "description": "未知への尽きない探求心から生まれたTalkwerは、好奇心豊かな旅人と世界中の類まれな場所を結びつけます。"
+      "description": "未知への尽きない探求心から生まれたTalkwerは、好奇心豊かな旅人と世界中の類まれな場所を結びつけます。",
+      "scrollCue": "スクロールして探索"
     },
     "story": {
       "label": "原点",

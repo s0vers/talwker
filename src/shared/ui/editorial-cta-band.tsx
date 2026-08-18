@@ -107,8 +107,11 @@ export function EditorialCtaBand({
 			ref={sectionRef}
 			id={id}
 			{...(headingId ? { "aria-labelledby": headingId } : {})}
-			className={cn("relative bg-[#0a0a0a] py-32 md:py-44", showTopFrame && "border-t border-white/6")}
+			className={cn("relative overflow-hidden bg-[#060606] py-32 md:py-44", showTopFrame && "border-t border-white/6")}
 		>
+			{/* Ambient atmosphere glow */}
+			<div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-500/10 blur-[140px]" />
+
 			<div
 				className="absolute inset-0 opacity-[0.03]"
 				style={{
@@ -124,17 +127,17 @@ export function EditorialCtaBand({
 			) : null}
 
 			<div ref={headRef} className="relative mx-auto max-w-[1600px] pad-x text-center">
-				<span className="mb-6 inline-block text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500">
+				<span className="mb-6 inline-block rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-orange-400">
 					{label}
 				</span>
 				<h2
 					{...(headingId ? { id: headingId } : {})}
-					className="mx-auto max-w-4xl text-[clamp(2.5rem,7vw,6rem)] font-bold leading-[0.9] tracking-tighter text-white"
+					className="mx-auto max-w-4xl text-[clamp(2.5rem,7vw,6rem)] font-extrabold leading-[0.9] tracking-tight text-white"
 				>
 					{titleLead}{" "}
 					<span className="font-light italic text-orange-500">{titleAccent}</span>
 				</h2>
-				<p className="mx-auto mt-8 max-w-lg text-base text-white/30">{description}</p>
+				<p className="mx-auto mt-8 max-w-lg text-base text-white/50">{description}</p>
 				<div
 					className={cn(
 						"mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center",
