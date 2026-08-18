@@ -97,46 +97,40 @@ export default function AboutStory() {
 							</span>
 						</h2>
 						<p className="mt-10 text-pretty text-sm leading-relaxed text-white/40 md:mt-12 md:text-base">
-							{t.rich("p1", {
-								highlight: (chunks) => (
-									<Highlighter
-										isView
-										action="highlight"
-										color={HIGHLIGHT_ORANGE}
-										multiline
-									>
-										{chunks}
-									</Highlighter>
-								),
-							})}
+							{t("p1Lead")}
+							<Highlighter
+								isView
+								action="highlight"
+								color={HIGHLIGHT_ORANGE}
+								multiline
+							>
+								{t("p1Highlight")}
+							</Highlighter>
+							{t("p1Tail")}
 						</p>
 						<p className="mt-8 text-pretty text-sm leading-relaxed text-white/40 md:text-base">
-							{t.rich("p2", {
-								underline: (chunks) => (
-									<Highlighter
-										isView
-										action="underline"
-										color={HIGHLIGHT_ORANGE}
-										multiline
-									>
-										{chunks}
-									</Highlighter>
-								),
-							})}
+							{t("p2Lead")}
+							<Highlighter
+								isView
+								action="underline"
+								color={HIGHLIGHT_ORANGE}
+								multiline
+							>
+								{t("p2Underline")}
+							</Highlighter>
+							{t("p2Tail")}
 						</p>
 						<p className="mt-8 text-pretty text-sm leading-relaxed text-white/40 md:text-base">
-							{t.rich("p3", {
-								highlight: (chunks) => (
-									<Highlighter
-										isView
-										action="highlight"
-										color={HIGHLIGHT_ORANGE}
-										multiline
-									>
-										{chunks}
-									</Highlighter>
-								),
-							})}
+							{t("p3Lead")}
+							<Highlighter
+								isView
+								action="highlight"
+								color={HIGHLIGHT_ORANGE}
+								multiline
+							>
+								{t("p3Highlight")}
+							</Highlighter>
+							{t("p3Tail")}
 						</p>
 					</div>
 

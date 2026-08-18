@@ -572,9 +572,15 @@
       "label": "Donde Comenzó",
       "titleLead": "Una chispa de curiosidad",
       "titleAccent": "se convirtió en movimiento.",
-      "p1": "En 2010, un pequeño grupo de amigos, cansados de los paquetes turísticos convencionales, se propuso demostrar que viajar podía ser <highlight>más personal, más auténtico, más vivo</highlight>.",
-      "p2": "Lo que empezó como una hoja compartida de joyas ocultas se convirtió rápidamente en Talkwer: una plataforma donde <underline>cada itinerario es una historia</underline>, cada destino un nuevo capítulo por escribir.",
-      "p3": "Hoy colaboramos con guías locales, alojamientos boutique y embajadores culturales en <highlight>seis continentes</highlight> para crear viajes que transforman al viajero."
+      "p1Lead": "En 2010, un pequeño grupo de amigos, cansados de los paquetes turísticos convencionales, se propuso demostrar que viajar podía ser ",
+      "p1Highlight": "más personal, más auténtico, más vivo",
+      "p1Tail": ".",
+      "p2Lead": "Lo que empezó como una hoja compartida de joyas ocultas se convirtió rápidamente en Talkwer: una plataforma donde ",
+      "p2Underline": "cada itinerario es una historia",
+      "p2Tail": ", cada destino un nuevo capítulo por escribir.",
+      "p3Lead": "Hoy colaboramos con guías locales, alojamientos boutique y embajadores culturales en ",
+      "p3Highlight": "seis continentes",
+      "p3Tail": " para crear viajes que transforman al viajero."
     },
     "reach": {
       "label": "Dónde Te Encontramos",
