@@ -9,6 +9,9 @@ import {
 	useCountUp,
 } from "@/lib/useGsap";
 import { ABOUT_STATS } from "@/features/about/content/about-copy";
+import { Highlighter } from "@/components/ui/highlighter";
+
+const HIGHLIGHT_ORANGE = "hsl(25 95% 53% / 0.38)";
 
 function StatItem({
 	value,
@@ -94,13 +97,46 @@ export default function AboutStory() {
 							</span>
 						</h2>
 						<p className="mt-10 text-pretty text-sm leading-relaxed text-white/40 md:mt-12 md:text-base">
-							{t("p1")}
+							{t.rich("p1", {
+								highlight: (chunks) => (
+									<Highlighter
+										isView
+										action="highlight"
+										color={HIGHLIGHT_ORANGE}
+										multiline
+									>
+										{chunks}
+									</Highlighter>
+								),
+							})}
 						</p>
 						<p className="mt-8 text-pretty text-sm leading-relaxed text-white/40 md:text-base">
-							{t("p2")}
+							{t.rich("p2", {
+								underline: (chunks) => (
+									<Highlighter
+										isView
+										action="underline"
+										color={HIGHLIGHT_ORANGE}
+										multiline
+									>
+										{chunks}
+									</Highlighter>
+								),
+							})}
 						</p>
 						<p className="mt-8 text-pretty text-sm leading-relaxed text-white/40 md:text-base">
-							{t("p3")}
+							{t.rich("p3", {
+								highlight: (chunks) => (
+									<Highlighter
+										isView
+										action="highlight"
+										color={HIGHLIGHT_ORANGE}
+										multiline
+									>
+										{chunks}
+									</Highlighter>
+								),
+							})}
 						</p>
 					</div>
 

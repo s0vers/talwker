@@ -572,9 +572,9 @@
       "label": "Where It Began",
       "titleLead": "A spark of curiosity",
       "titleAccent": "became a movement.",
-      "p1": "In 2010, a small group of friends — tired of cookie‑cutter package holidays — set out to prove that travel could be more personal, more meaningful, more alive.",
-      "p2": "What started as a shared spreadsheet of hidden gems quickly grew into Talkwer: a platform where every itinerary is a story, every destination a chapter waiting to be written.",
-      "p3": "Today, we partner with local guides, boutique stays, and cultural ambassadors across six continents to craft journeys that leave travellers changed — not just tanned."
+      "p1": "In 2010, a small group of friends — tired of cookie‑cutter package holidays — set out to prove that travel could be <highlight>more personal, more meaningful, more alive</highlight>.",
+      "p2": "What started as a shared spreadsheet of hidden gems quickly grew into Talkwer: a platform where <underline>every itinerary is a story</underline>, every destination a chapter waiting to be written.",
+      "p3": "Today, we partner with local guides, boutique stays, and cultural ambassadors across <highlight>six continents</highlight> to craft journeys that leave travellers changed — not just tanned."
     },
     "reach": {
       "label": "Where We Meet You",
