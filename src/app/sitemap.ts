@@ -30,6 +30,7 @@ function createEntry(
 export default function sitemap(): MetadataRoute.Sitemap {
 	const staticRoutes: Array<{ path: string; freq: "weekly" | "monthly" | "yearly"; prio: number }> = [
 		{ path: "/", freq: "weekly", prio: 1.0 },
+		{ path: "/home-2", freq: "weekly", prio: 0.95 },
 		{ path: "/about", freq: "monthly", prio: 0.8 },
 		{ path: "/contact", freq: "yearly", prio: 0.55 },
 		{ path: "/destinations", freq: "weekly", prio: 0.85 },
