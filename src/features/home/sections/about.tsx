@@ -18,7 +18,7 @@ function Stat({ value, suffix, label }: { value: number; suffix: string; label: 
 				<span ref={numRef} className="text-4xl font-bold text-white md:text-5xl">0</span>
 				<span className="text-2xl font-bold text-orange-500">{suffix}</span>
 			</div>
-			<p className="mt-1 text-[13px] text-white/30">{label}</p>
+			<p className="mt-1 text-[13px] text-white/45">{label}</p>
 		</div>
 	);
 }
@@ -93,7 +93,7 @@ export default function About() {
 			id="about"
 			ref={section}
 			aria-labelledby="about-title"
-			className="bg-[#0e0e0e] py-32 md:py-44"
+			className="bg-[#0a0a0a] py-32 md:py-44"
 		>
 			<div className="mx-auto max-w-[1600px] pad-x">
 				<div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-24">

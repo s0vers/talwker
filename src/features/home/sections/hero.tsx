@@ -87,24 +87,18 @@ export default function Hero() {
 				</div>
 
 				<div className="overflow-hidden">
-					<h1 ref={line1} className="text-[clamp(2.15rem,10vw,9rem)] font-bold leading-[0.9] tracking-tighter text-white">
-						{t("titleLines1")}
-					</h1>
-				</div>
-				<div className="overflow-hidden">
-					<h1 ref={line2} className="text-[clamp(2.15rem,10vw,9rem)] font-bold leading-[0.9] tracking-tighter text-white">
-						{t("titleLines2")}
-					</h1>
-				</div>
-				<div className="overflow-hidden">
-					<h1 ref={line3} className="text-[clamp(2.15rem,10vw,9rem)] font-bold leading-[0.9] tracking-tighter">
-						<span className="text-white">{t("titleLines3")}</span>{" "}
-						<span className="font-light italic text-orange-500">{t("titleAccent")}</span>
+					<h1 className="text-[clamp(2.15rem,10vw,9rem)] font-bold leading-[0.9] tracking-tighter">
+						<span ref={line1} className="block text-white">{t("titleLines1")}</span>
+						<span ref={line2} className="block text-white">{t("titleLines2")}</span>
+						<span ref={line3} className="block">
+							<span className="text-white">{t("titleLines3")}</span>{" "}
+							<span className="font-light italic text-orange-500">{t("titleAccent")}</span>
+						</span>
 					</h1>
 				</div>
 
 				<div ref={subRef} className="mt-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-					<p className="max-w-sm text-sm leading-relaxed text-white/40">
+					<p className="max-w-sm text-sm leading-relaxed text-white/60">
 						{t("description")}
 					</p>
 					<ButtonWithIcon

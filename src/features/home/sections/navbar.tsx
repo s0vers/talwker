@@ -116,7 +116,7 @@ function MobileNavPortal({
 					</button>
 
 					{destinationsExpanded && (
-						<div className="mt-3 flex flex-col items-center gap-2.5 rounded-xl border border-white/10 bg-white/5 p-3 w-full animate-in fade-in slide-in-from-top-2 duration-150">
+						<div className="mt-3 flex flex-col items-center gap-2.5 rounded-xl border border-white/10 bg-white/5 p-3 w-full motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-top-2 duration-150">
 							{destinationOptions.map((opt) => (
 								<Link
 									key={opt.href}
@@ -291,19 +291,19 @@ export default function Navbar() {
 			href: "/destinations",
 			title: t("destinationsStandard"),
 			icon: LuLayoutGrid,
-			description: "Classic grid layout with interactive style filters",
+			description: t("destinationsStandardDesc"),
 		},
 		{
 			href: "/destinations-2",
 			title: t("destinationsStage"),
 			icon: LuLayoutTemplate,
-			description: "Cinematic spotlight stage & interactive filmstrip",
+			description: t("destinationsStageDesc"),
 		},
 		{
 			href: "/destinations-3",
 			title: t("destinationsCinematic"),
 			icon: LuCompass,
-			description: "Immersive visual masonry and card exploration",
+			description: t("destinationsCinematicDesc"),
 		},
 	];
 
@@ -354,7 +354,11 @@ export default function Navbar() {
 								onMouseEnter={handleDestinationsEnter}
 								onMouseLeave={handleDestinationsLeave}
 							>
-								<div className="rounded-2xl border border-white/12 bg-[#0c0c0c]/98 p-2 shadow-2xl backdrop-blur-xl animate-in fade-in zoom-in-95 duration-150">
+								<div
+									role="menu"
+									aria-label={t("destinations")}
+									className="rounded-2xl border border-white/12 bg-[#0c0c0c]/98 p-2 shadow-2xl backdrop-blur-xl motion-safe:animate-in motion-safe:fade-in motion-safe:zoom-in-95 duration-150"
+								>
 									<div className="space-y-1">
 										{destinationMenuItems.map((item) => {
 											const Icon = item.icon;
@@ -362,6 +366,7 @@ export default function Navbar() {
 												<Link
 													key={item.href}
 													href={item.href}
+													role="menuitem"
 													onClick={() => setDestinationsOpen(false)}
 													className="flex items-start gap-3 rounded-xl p-2.5 transition-colors hover:bg-white/8 group/item"
 												>

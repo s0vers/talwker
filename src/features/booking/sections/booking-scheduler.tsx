@@ -92,7 +92,7 @@ export function BookingScheduler({ tour }: BookingSchedulerProps) {
 		<TooltipProvider delayDuration={200}>
 			<div className="relative mx-auto w-full max-w-max px-4 py-8 sm:px-8 text-white">
 				<div className="pointer-events-none absolute inset-0 -z-10 rounded-full bg-orange-500/5 blur-[120px]" aria-hidden="true" />
-				<div className="flex gap-6">
+				<div className="flex flex-col gap-6 lg:flex-row">
 					<LeftPanel
 						showForm={showForm}
 						timeZone={timeZone}
