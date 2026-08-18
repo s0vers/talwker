@@ -50,6 +50,7 @@ Static Next.js travel magazine / landing ("Talkwer"). The **shipped home** is `s
 - **Body font**: Inter (root `layout.tsx`). One type family site-wide; parallel destination layouts differ by composition and motion, not by loading serif/mono stacks.
 - **Editorial nav / labels**: small caps feel — `uppercase`, `tracking-[0.15em]`–`0.2em`, `text-[11px]`–`text-[13px]`, `font-medium` or `font-semibold`.
 - **Display**: large fluid headlines via `clamp(...)`; tight `leading` and `tracking-tighter` on hero lines; occasional **italic** + `orange-500` for one emphasis phrase (Hero pattern).
+- **Hero headline masked reveal**: Each headline row MUST be wrapped in its own `<div className="overflow-hidden">` slot with individual line refs so GSAP animates each row up out of its own masked cut-off boundary. Do not collapse or flatten hero headline rows into a single continuous container.
 
 ## Motion (design intent)
 

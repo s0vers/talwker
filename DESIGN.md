@@ -64,9 +64,11 @@ Talkwer embodies the visual gravity of a high-end coffee-table travel journal tr
   - Use the utility `.pad-x` (`px-5 md:px-10 lg:px-16 xl:px-24`) for consistent horizontal margins.
   - Use `text-orange-500` for the brand full stop (`talkwer.`), primary CTA accents, and active indicators.
   - Keep typography clean in Inter, relying on weight and letter-spacing for editorial texture.
+  - Wrap each hero headline line in its own individual `div.overflow-hidden` container to preserve the creative per-line cut-off reveal motion.
   - Honor `prefers-reduced-motion` in every GSAP or CSS animation.
 - **DON'T**:
   - DON'T create light-theme full-page backgrounds or harsh white cards.
+  - DON'T collapse or merge the individual per-line `overflow-hidden` mask slots on the hero headline.
   - DON'T use generic AI design tropes: purple gradients on dark backgrounds, glowing rainbow borders, or icon-stuffed bento boxes.
   - DON'T introduce uncoordinated font families (serif/mono) without an intentional design spec.
   - DON'T use arbitrary red, green, or blue accent buttons when orange is the established brand accent.
