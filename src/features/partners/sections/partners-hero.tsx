@@ -1,11 +1,13 @@
 "use client";
 
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import { LuArrowDown } from "react-icons/lu";
 import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
 import { PARTNERS_HERO } from "../content/partners-copy";
 
 export function PartnersHero() {
+	const t = useTranslations("Partners");
 	const containerRef = useRef<HTMLElement>(null);
 	const contentRef = useRef<HTMLDivElement>(null);
 
@@ -48,7 +50,7 @@ export function PartnersHero() {
 				{/* Top Eyebrow */}
 				<div>
 					<p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500">
-						{PARTNERS_HERO.eyebrow}
+						{t("hero.badge")} · {t("hero.deskLabel")}
 					</p>
 				</div>
 
@@ -58,14 +60,14 @@ export function PartnersHero() {
 						id="partners-hero-title"
 						className="text-[clamp(2.75rem,6.5vw,5.5rem)] font-bold leading-[0.92] tracking-tight text-white"
 					>
-						Uniting the world’s finest{" "}
+						{t("hero.titleLead")}{" "}
 						<span className="font-light italic text-orange-500 block sm:inline">
-							boutique hosts & guides.
+							{t("hero.titleAccent")}
 						</span>
 					</h1>
 
 					<p className="text-base sm:text-lg text-white/70 leading-relaxed max-w-2xl mx-auto">
-						{PARTNERS_HERO.description}
+						{t("hero.description")}
 					</p>
 
 					<div className="pt-2 flex justify-center">
@@ -74,7 +76,7 @@ export function PartnersHero() {
 							onClick={scrollToForm}
 							className="inline-flex items-center gap-2 rounded-full bg-orange-500 px-9 py-4 text-xs font-semibold uppercase tracking-widest text-white transition-all hover:bg-orange-600 hover:shadow-2xl hover:shadow-orange-500/30"
 						>
-							Apply for Partnership <LuArrowDown className="h-4 w-4" />
+							{t("hero.primaryAction")} <LuArrowDown className="h-4 w-4" />
 						</button>
 					</div>
 				</div>

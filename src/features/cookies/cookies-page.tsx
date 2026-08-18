@@ -1,25 +1,27 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { InitialLoader } from "@/features/home/sections";
 import { useInitialPageLoader } from "@/lib/use-initial-page-loader";
 import { PolicyDocument } from "@/shared/ui";
 import { COOKIES_COPY } from "./content/cookies-copy";
 
 export default function CookiesPage() {
+	const t = useTranslations("Legal");
 	const isLoading = useInitialPageLoader();
 
 	return (
 		<>
 			<InitialLoader isLoading={isLoading} />
 			<PolicyDocument
-				eyebrow={COOKIES_COPY.eyebrow}
-				title={COOKIES_COPY.title}
-				effectiveDate={COOKIES_COPY.effectiveDate}
-				intro={COOKIES_COPY.intro}
+				eyebrow={t("cookiesEyebrow")}
+				title={t("cookiesTitle")}
+				effectiveDate={t("cookiesEffectiveDate")}
+				intro={t("cookiesIntro")}
 				sections={COOKIES_COPY.sections.map((s) => ({
 					id: s.id,
-					heading: s.heading,
-					body: <p>{s.body}</p>,
+					heading: t.has(`cookiesSections.${s.id}.heading`) ? t(`cookiesSections.${s.id}.heading`) : s.heading,
+					body: <p>{t.has(`cookiesSections.${s.id}.body`) ? t(`cookiesSections.${s.id}.body`) : s.body}</p>,
 				}))}
 			/>
 		</>

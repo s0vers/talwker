@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useRef } from "react";
-import { TOURS_CATALOG } from "@/features/tours/content/tours-page-copy";
+import { useTranslations } from "next-intl";
 import { formatTourPrice } from "@/features/tours/lib/format-tour-price";
 import { getTourSlug } from "@/features/tours/lib/tour-slug";
 import { toursMatchDestinationFilter } from "@/features/tours/lib/tours-list-params";
@@ -23,6 +23,7 @@ export default function ToursCatalog({
 	tours,
 	destinationFilter,
 }: ToursCatalogProps) {
+	const t = useTranslations("Tours.catalog");
 	const sectionRef = useRef<HTMLElement>(null);
 	const showEmptyNote =
 		Boolean(destinationFilter) &&
@@ -54,18 +55,18 @@ export default function ToursCatalog({
 				<div className="mb-6 flex flex-col gap-3 md:mb-8 md:flex-row md:items-end md:justify-between">
 					<div>
 						<p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-orange-500">
-							{TOURS_CATALOG.heading}
+							{t("heading")}
 						</p>
 						<h2
 							id="tours-catalog-heading"
 							className="mt-3 text-2xl font-semibold tracking-tight text-white md:text-3xl"
 						>
-							{tours.length} route{tours.length === 1 ? "" : "s"}
+							{t("routesCount", { count: tours.length })}
 						</h2>
 					</div>
 					{showEmptyNote ? (
 						<p className="max-w-md text-sm text-white/40 md:text-right">
-							{TOURS_CATALOG.emptyFilterNote}
+							{t("emptyFilterNote")}
 						</p>
 					) : null}
 				</div>
@@ -80,7 +81,7 @@ export default function ToursCatalog({
 								<Link
 									href={`/tours/${slug}`}
 									data-tour-row
-									aria-label={`${TOURS_CATALOG.openLabel}: ${tour.title}`}
+									aria-label={`${t("openLabel")}: ${tour.title}`}
 									className="group grid gap-4 rounded-2xl border border-orange-500/15 bg-[#0a0a0a] p-4 transition-[border-color,background-color] duration-300 hover:border-orange-500/35 hover:bg-orange-500/3 sm:grid-cols-[7.5rem_minmax(0,1fr)_auto] sm:items-center sm:gap-6 sm:p-5 md:grid-cols-[9rem_minmax(0,1fr)_auto]"
 								>
 									<div className="relative aspect-4/3 overflow-hidden rounded-xl border border-white/10 sm:aspect-5/4 sm:h-[4.75rem] sm:w-full">
@@ -108,7 +109,7 @@ export default function ToursCatalog({
 												·
 											</span>
 											<span>
-												{TOURS_CATALOG.fromPrefix}{" "}
+												{t("fromPrefix")}{" "}
 												<span className="text-orange-400">
 													{formatTourPrice(tour.price)}
 												</span>
@@ -120,7 +121,7 @@ export default function ToursCatalog({
 									</div>
 
 									<span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-orange-400 transition-colors group-hover:text-orange-300 sm:justify-self-end">
-										{TOURS_CATALOG.openLabel}
+										{t("openLabel")}
 										<span aria-hidden>→</span>
 									</span>
 								</Link>

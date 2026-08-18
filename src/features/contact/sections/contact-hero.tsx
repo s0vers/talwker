@@ -1,14 +1,16 @@
 "use client";
 
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import { CONTACT_HERO_COPY } from "@/features/contact/content/contact-page-copy";
 import { useContactHeroEntrance } from "@/features/contact/lib/contact-page-motion";
 
-const headlineWords = CONTACT_HERO_COPY.headlineLead.split(" ");
-
 export default function ContactHero({ runEntrance }: { runEntrance: boolean }) {
+	const t = useTranslations("Contact.hero");
 	const sectionRef = useRef<HTMLElement>(null);
 	useContactHeroEntrance(sectionRef, runEntrance);
+
+	const headlineWords = t("headlineLead").split(" ");
 
 	return (
 		<section
@@ -49,7 +51,7 @@ export default function ContactHero({ runEntrance }: { runEntrance: boolean }) {
 								data-contact-hero-eyebrow
 								className="font-mono text-[11px] tracking-[0.35em] text-orange-500/90 will-change-[filter,opacity,transform]"
 							>
-								{CONTACT_HERO_COPY.eyebrow}
+								{t("eyebrow")}
 							</p>
 
 							<div className="mt-8 flex gap-6 md:mt-10 md:gap-8">
@@ -90,7 +92,7 @@ export default function ContactHero({ runEntrance }: { runEntrance: boolean }) {
 												data-contact-hero-accent
 												className="block font-light italic text-orange-500 will-change-[filter,transform]"
 											>
-												{CONTACT_HERO_COPY.headlineAccent}
+												{t("headlineAccent")}
 											</span>
 										</span>
 									</h1>
@@ -101,7 +103,7 @@ export default function ContactHero({ runEntrance }: { runEntrance: boolean }) {
 								data-contact-hero-desc
 								className="mt-8 max-w-xl border-l border-white/10 pl-5 text-sm leading-relaxed text-white/70 will-change-[filter,opacity,transform] md:mt-10 md:text-base"
 							>
-								{CONTACT_HERO_COPY.description}
+								{t("description")}
 							</p>
 						</div>
 
@@ -117,14 +119,14 @@ export default function ContactHero({ runEntrance }: { runEntrance: boolean }) {
 									aria-hidden
 								>
 									<span className="max-w-13 text-center">
-										{CONTACT_HERO_COPY.stampLabel}
+										{t("stampLabel")}
 									</span>
 								</div>
 								<p
 									data-contact-hero-meta-title
 									className="font-mono text-[10px] uppercase tracking-[0.3em] text-white/35"
 								>
-									{CONTACT_HERO_COPY.metaCardTitle}
+									{t("metaCardTitle")}
 								</p>
 								<dl className="mt-6 space-y-4 border-t border-white/10 pt-6">
 									{CONTACT_HERO_COPY.metaLines.map((row) => (

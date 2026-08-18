@@ -1,13 +1,12 @@
 "use client";
 
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
-import {
-	ABOUT_JOURNEY,
-	ABOUT_JOURNEY_SECTION,
-} from "@/features/about/content/about-copy";
+import { ABOUT_JOURNEY } from "@/features/about/content/about-copy";
 
 export default function AboutJourney() {
+	const t = useTranslations("About.journey");
 	const section = useRef<HTMLElement>(null);
 	const headingRef = useRef<HTMLDivElement>(null);
 	const lineRef = useRef<HTMLDivElement>(null);
@@ -83,13 +82,10 @@ export default function AboutJourney() {
 			<div className="mx-auto max-w-[1600px] pad-x">
 				<div ref={headingRef} className="mb-20 text-center md:mb-28">
 					<span className="mb-5 inline-block text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500">
-						{ABOUT_JOURNEY_SECTION.label}
+						{t("label")}
 					</span>
 					<h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-bold leading-[0.95] tracking-tighter text-white">
-						{ABOUT_JOURNEY_SECTION.title}
-						<span className="font-light italic text-orange-500">
-							{ABOUT_JOURNEY_SECTION.titleSuffix}
-						</span>
+						{t("title")}
 					</h2>
 				</div>
 

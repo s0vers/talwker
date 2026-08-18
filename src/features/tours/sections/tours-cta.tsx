@@ -1,24 +1,26 @@
 "use client";
 
-import { TOURS_CTA_COPY } from "@/features/tours/content/tours-page-copy";
+import { useTranslations } from "next-intl";
 import { EditorialCtaBand } from "@/shared/ui";
 
 export default function ToursCTA() {
+	const t = useTranslations("Tours.cta");
+
 	return (
 		<EditorialCtaBand
 			showTopFrame
 			headingId="tours-cta-title"
-			label={TOURS_CTA_COPY.label}
-			titleLead={TOURS_CTA_COPY.titleLead}
-			titleAccent={TOURS_CTA_COPY.titleAccent}
-			description={TOURS_CTA_COPY.description}
+			label={t("label")}
+			titleLead={t("titleLead")}
+			titleAccent={t("titleAccent")}
+			description={t("description")}
 			primary={{
-				label: TOURS_CTA_COPY.primaryAction,
-				href: TOURS_CTA_COPY.primaryHref,
+				label: t("primaryAction"),
+				href: "/destinations",
 			}}
 			secondary={{
-				label: TOURS_CTA_COPY.secondaryAction,
-				href: TOURS_CTA_COPY.secondaryHref,
+				label: t("secondaryAction"),
+				href: "/stories",
 			}}
 		/>
 	);

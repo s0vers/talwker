@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import { LuClock, LuUsers, LuTag, LuCircleCheck } from "react-icons/lu";
 import type { ExperienceItem } from "../content/experiences-page-copy";
@@ -13,6 +14,8 @@ export type ExperienceModalProps = {
 };
 
 export function ExperienceModal({ experience, onClose }: ExperienceModalProps) {
+	const t = useTranslations("Experiences.modal");
+
 	useEffect(() => {
 		if (!experience) return;
 		const handleKeyDown = (e: KeyboardEvent) => {
@@ -48,7 +51,7 @@ export function ExperienceModal({ experience, onClose }: ExperienceModalProps) {
 				<button
 					type="button"
 					onClick={onClose}
-					aria-label="Close modal"
+					aria-label={t("closeLabel")}
 					className="absolute right-4 top-4 z-10 rounded-full bg-black/60 p-2.5 text-white/80 transition-colors hover:bg-black hover:text-white"
 				>
 					<Cross2Icon className="h-5 w-5" />
@@ -81,21 +84,21 @@ export function ExperienceModal({ experience, onClose }: ExperienceModalProps) {
 						<div className="flex flex-col sm:flex-row items-center gap-2">
 							<LuClock className="h-4 w-4 text-orange-500 shrink-0" />
 							<div>
-								<p className="text-[10px] uppercase tracking-wider text-white/40 font-medium">Duration</p>
+								<p className="text-[10px] uppercase tracking-wider text-white/40 font-medium">{t("duration")}</p>
 								<p className="text-sm font-semibold text-white">{experience.duration}</p>
 							</div>
 						</div>
 						<div className="flex flex-col sm:flex-row items-center gap-2">
 							<LuUsers className="h-4 w-4 text-orange-500 shrink-0" />
 							<div>
-								<p className="text-[10px] uppercase tracking-wider text-white/40 font-medium">Capacity</p>
+								<p className="text-[10px] uppercase tracking-wider text-white/40 font-medium">{t("capacity")}</p>
 								<p className="text-sm font-semibold text-white">{experience.groupSize}</p>
 							</div>
 						</div>
 						<div className="flex flex-col sm:flex-row items-center gap-2">
 							<LuTag className="h-4 w-4 text-orange-500 shrink-0" />
 							<div>
-								<p className="text-[10px] uppercase tracking-wider text-white/40 font-medium">Pricing</p>
+								<p className="text-[10px] uppercase tracking-wider text-white/40 font-medium">{t("pricing")}</p>
 								<p className="text-sm font-semibold text-white">{experience.price}</p>
 							</div>
 						</div>
@@ -103,13 +106,13 @@ export function ExperienceModal({ experience, onClose }: ExperienceModalProps) {
 
 					{/* Description */}
 					<div>
-						<h3 className="text-xs font-semibold uppercase tracking-wider text-orange-500">Overview</h3>
+						<h3 className="text-xs font-semibold uppercase tracking-wider text-orange-500">{t("overview")}</h3>
 						<p className="mt-2 text-sm leading-relaxed text-white/70">{experience.description}</p>
 					</div>
 
 					{/* Highlights */}
 					<div>
-						<h3 className="text-xs font-semibold uppercase tracking-wider text-orange-500">Experience Highlights</h3>
+						<h3 className="text-xs font-semibold uppercase tracking-wider text-orange-500">{t("highlights")}</h3>
 						<ul className="mt-3 space-y-2">
 							{experience.highlights.map((item, idx) => (
 								<li key={idx} className="flex items-start gap-2.5 text-sm text-white/80">
@@ -122,7 +125,7 @@ export function ExperienceModal({ experience, onClose }: ExperienceModalProps) {
 
 					{/* Itinerary Summary */}
 					<div className="rounded-xl border border-white/10 bg-[#121212] p-4">
-						<h4 className="text-xs font-semibold uppercase tracking-wider text-white/50">Itinerary & Pacing Notes</h4>
+						<h4 className="text-xs font-semibold uppercase tracking-wider text-white/50">{t("itineraryNotes")}</h4>
 						<p className="mt-2 text-xs leading-relaxed text-white/60">{experience.itinerarySummary}</p>
 					</div>
 
@@ -133,14 +136,14 @@ export function ExperienceModal({ experience, onClose }: ExperienceModalProps) {
 							onClick={onClose}
 							className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-orange-500 px-6 py-3 text-xs font-semibold uppercase tracking-widest text-white transition-all hover:bg-orange-600 hover:shadow-lg hover:shadow-orange-500/20"
 						>
-							View Full Tour Package →
+							{t("viewTourPackage")}
 						</Link>
 						<Link
 							href={contactHref}
 							onClick={onClose}
 							className="w-full sm:w-auto inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 text-xs font-semibold uppercase tracking-widest text-white/70 transition-all hover:border-white/40 hover:text-white"
 						>
-							Inquire About Experience
+							{t("inquire")}
 						</Link>
 					</div>
 				</div>

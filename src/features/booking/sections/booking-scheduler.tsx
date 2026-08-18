@@ -13,7 +13,8 @@ import {
 } from "@internationalized/date";
 import type { DateValue } from "@react-aria/calendar";
 import { useLocale } from "@react-aria/i18n";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "@/i18n/navigation";
+import { useSearchParams } from "next/navigation";
 import * as React from "react";
 import { FormPanel } from "./form-panel";
 import { LeftPanel } from "./left-panel";
@@ -89,8 +90,7 @@ export function BookingScheduler({ tour }: BookingSchedulerProps) {
 
 	return (
 		<TooltipProvider delayDuration={200}>
-			<div className="relative mx-auto w-full max-w-max px-4 py-8 sm:px-8 text-white">
-				<div className="pointer-events-none absolute inset-0 -z-10 rounded-full bg-orange-500/5 blur-[120px]" aria-hidden="true" />
+			<div className="mx-auto w-full max-w-max rounded-md border border-white/[0.06] bg-[#0a0a0a] px-8 py-6 text-white">
 				<div className="flex gap-6">
 					<LeftPanel
 						showForm={showForm}

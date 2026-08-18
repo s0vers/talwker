@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
+import { useTranslations } from "next-intl";
 import {
 	LuSend,
 	LuQuote,
@@ -15,6 +16,7 @@ import {
 import { PARTNERS_TESTIMONIAL } from "../content/partners-copy";
 
 export function PartnersBody() {
+	const t = useTranslations("Partners");
 	const formId = useId();
 	const orgId = `${formId}-org`;
 	const contactId = `${formId}-contact`;
@@ -65,38 +67,42 @@ export function PartnersBody() {
 						<div className="lg:col-span-4 rounded-2xl border border-white/10 bg-[#121212] p-6 space-y-4">
 							<div className="flex items-center justify-between border-b border-white/10 pb-3">
 								<span className="text-[10px] font-bold uppercase tracking-[0.2em] text-orange-500 flex items-center gap-1.5">
-									<LuBuilding2 className="h-3.5 w-3.5" /> Guild Spotlight
+									<LuBuilding2 className="h-3.5 w-3.5" /> {t.has("testimonial.badge") ? t("testimonial.badge") : "Guild Spotlight"}
 								</span>
 								<span className="text-[10px] text-orange-400 font-semibold flex items-center gap-1">
-									<LuAward className="h-3 w-3" /> Accredited
+									<LuAward className="h-3 w-3" /> {t.has("testimonial.accredited") ? t("testimonial.accredited") : "Accredited"}
 								</span>
 							</div>
 
 							<div>
 								<h4 className="text-lg font-bold text-white">Patagonia Glacial Lodge</h4>
 								<p className="text-xs text-white/50 flex items-center gap-1 mt-1">
-									<LuMapPin className="h-3 w-3 text-orange-500" /> Aysén Region, Chile
+									<LuMapPin className="h-3 w-3 text-orange-500" /> {t.has("testimonial.region") ? t("testimonial.region") : "Aysén Region, Chile"}
 								</p>
 							</div>
 
 							<div className="pt-2 border-t border-white/10 text-xs space-y-1">
-								<p className="font-semibold text-white">{PARTNERS_TESTIMONIAL.name}</p>
-								<p className="text-white/50 text-[11px]">{PARTNERS_TESTIMONIAL.role}</p>
+								<p className="font-semibold text-white">
+									{t.has("testimonial.name") ? t("testimonial.name") : PARTNERS_TESTIMONIAL.name}
+								</p>
+								<p className="text-white/50 text-[11px]">
+									{t.has("testimonial.role") ? t("testimonial.role") : PARTNERS_TESTIMONIAL.role}
+								</p>
 							</div>
 						</div>
 
 						<div className="lg:col-span-8 space-y-6">
 							<LuQuote className="h-8 w-8 text-orange-500/40" />
 							<p className="text-xl sm:text-2xl font-light italic text-white/95 leading-relaxed">
-								&ldquo;{PARTNERS_TESTIMONIAL.quote}&rdquo;
+								&ldquo;{t.has("testimonial.quote") ? t("testimonial.quote") : PARTNERS_TESTIMONIAL.quote}&rdquo;
 							</p>
 
 							<div className="flex flex-wrap gap-4 pt-4 border-t border-white/10 text-xs text-white/60">
-								<span className="text-orange-400 font-bold">94%</span> Repeat Guest Engagement
+								<span className="text-orange-400 font-bold">94%</span> {t.has("testimonial.stat1") ? t("testimonial.stat1") : "Repeat Guest Engagement"}
 								<span>·</span>
-								<span className="text-white font-bold">4.8 Days</span> Avg Guest Stay
+								<span className="text-white font-bold">4.8 Days</span> {t.has("testimonial.stat2") ? t("testimonial.stat2") : "Avg Guest Stay"}
 								<span>·</span>
-								<span className="text-orange-400 font-bold">Zero-Waste</span> Certified
+								<span className="text-orange-400 font-bold">Zero-Waste</span> {t.has("testimonial.stat3") ? t("testimonial.stat3") : "Certified"}
 							</div>
 						</div>
 					</div>
@@ -105,14 +111,13 @@ export function PartnersBody() {
 				<div id="partner-form" className="rounded-2xl border border-white/10 bg-[#0a0a0a] p-8 md:p-12 shadow-2xl">
 					<div className="mb-8">
 						<p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-500">
-							Application Form
+							{t("form.label")}
 						</p>
 						<h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mt-1">
-							Partner Network Inquiry
+							{t("form.titleLead")} <span className="text-orange-500">{t("form.titleAccent")}</span>
 						</h3>
 						<p className="text-xs sm:text-sm text-white/60 mt-2">
-							Tell us about your property, guiding operation, or cultural atelier. Submit opens your
-							email app with a draft to our partnerships desk — nothing sends until you hit send.
+							{t("form.description")}
 						</p>
 					</div>
 
@@ -122,20 +127,16 @@ export function PartnersBody() {
 								htmlFor={orgId}
 								className="block text-xs font-semibold uppercase tracking-wider text-white/60 mb-2"
 							>
-								Organization / Property Name *
+								{t("form.orgName")}
 							</label>
 							<input
 								id={orgId}
 								type="text"
 								required
 								value={formData.orgName}
-								onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity("Please provide your organization or property name.")}
-								onInput={(e) => {
-									(e.target as HTMLInputElement).setCustomValidity("");
-									setFormData({ ...formData, orgName: (e.target as HTMLInputElement).value });
-								}}
-								placeholder="e.g. Kyoto Heritage Ryokan"
-								className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-3 text-sm text-white placeholder:text-white/50 focus:border-orange-500 focus:outline-none"
+								onChange={(e) => setFormData({ ...formData, orgName: e.target.value })}
+								placeholder={t("form.orgPlaceholder")}
+								className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-orange-500 focus:outline-none"
 							/>
 						</div>
 
@@ -144,7 +145,7 @@ export function PartnersBody() {
 								htmlFor={contactId}
 								className="block text-xs font-semibold uppercase tracking-wider text-white/60 mb-2"
 							>
-								Contact Person Name *
+								{t("form.contactName")}
 							</label>
 							<input
 								id={contactId}
@@ -152,13 +153,9 @@ export function PartnersBody() {
 								required
 								autoComplete="name"
 								value={formData.contactName}
-								onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity("Please enter your name so we know who to address.")}
-								onInput={(e) => {
-									(e.target as HTMLInputElement).setCustomValidity("");
-									setFormData({ ...formData, contactName: (e.target as HTMLInputElement).value });
-								}}
-								placeholder="e.g. Kenji Takahashi"
-								className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-3 text-sm text-white placeholder:text-white/50 focus:border-orange-500 focus:outline-none"
+								onChange={(e) => setFormData({ ...formData, contactName: e.target.value })}
+								placeholder={t("form.contactPlaceholder")}
+								className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-orange-500 focus:outline-none"
 							/>
 						</div>
 
@@ -167,7 +164,7 @@ export function PartnersBody() {
 								htmlFor={emailId}
 								className="block text-xs font-semibold uppercase tracking-wider text-white/60 mb-2"
 							>
-								Email Address *
+								{t("form.email")}
 							</label>
 							<input
 								id={emailId}
@@ -175,13 +172,9 @@ export function PartnersBody() {
 								required
 								autoComplete="email"
 								value={formData.email}
-								onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity("Please provide a valid email address so we can reach you.")}
-								onInput={(e) => {
-									(e.target as HTMLInputElement).setCustomValidity("");
-									setFormData({ ...formData, email: (e.target as HTMLInputElement).value });
-								}}
-								placeholder="kenji@ryokan.example"
-								className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-3 text-sm text-white placeholder:text-white/50 focus:border-orange-500 focus:outline-none"
+								onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+								placeholder={t("form.emailPlaceholder")}
+								className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-orange-500 focus:outline-none"
 							/>
 						</div>
 
@@ -190,7 +183,7 @@ export function PartnersBody() {
 								htmlFor={typeId}
 								className="block text-xs font-semibold uppercase tracking-wider text-white/60 mb-2"
 							>
-								Partner Category *
+								{t("form.category")}
 							</label>
 							<select
 								id={typeId}
@@ -210,20 +203,16 @@ export function PartnersBody() {
 								htmlFor={regionId}
 								className="block text-xs font-semibold uppercase tracking-wider text-white/60 mb-2"
 							>
-								Country & Region *
+								{t("form.location")}
 							</label>
 							<input
 								id={regionId}
 								type="text"
 								required
 								value={formData.region}
-								onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity("Please let us know where you are located.")}
-								onInput={(e) => {
-									(e.target as HTMLInputElement).setCustomValidity("");
-									setFormData({ ...formData, region: (e.target as HTMLInputElement).value });
-								}}
-								placeholder="e.g. Kyoto, Japan"
-								className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-3 text-sm text-white placeholder:text-white/50 focus:border-orange-500 focus:outline-none"
+								onChange={(e) => setFormData({ ...formData, region: e.target.value })}
+								placeholder={t("form.locationPlaceholder")}
+								className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-orange-500 focus:outline-none"
 							/>
 						</div>
 
@@ -232,15 +221,15 @@ export function PartnersBody() {
 								htmlFor={websiteId}
 								className="block text-xs font-semibold uppercase tracking-wider text-white/60 mb-2"
 							>
-								Website / Social Link
+								{t("form.website")}
 							</label>
 							<input
 								id={websiteId}
 								type="url"
 								value={formData.website}
 								onChange={(e) => setFormData({ ...formData, website: e.target.value })}
-								placeholder="https://ryokan.example.com"
-								className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-3 text-sm text-white placeholder:text-white/50 focus:border-orange-500 focus:outline-none"
+								placeholder={t("form.websitePlaceholder")}
+								className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-orange-500 focus:outline-none"
 							/>
 						</div>
 
@@ -249,20 +238,16 @@ export function PartnersBody() {
 								htmlFor={messageId}
 								className="block text-xs font-semibold uppercase tracking-wider text-white/60 mb-2"
 							>
-								Tell Us About Your Operation *
+								{t("form.notes")}
 							</label>
 							<textarea
 								id={messageId}
 								required
 								rows={4}
 								value={formData.message}
-								onInvalid={(e) => (e.target as HTMLTextAreaElement).setCustomValidity("Please provide a brief description of your operation.")}
-								onInput={(e) => {
-									(e.target as HTMLTextAreaElement).setCustomValidity("");
-									setFormData({ ...formData, message: (e.target as HTMLTextAreaElement).value });
-								}}
-								placeholder="Describe your property, capacity, guiding certifications, or hosted experience..."
-								className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-3 text-sm text-white placeholder:text-white/50 focus:border-orange-500 focus:outline-none"
+								onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+								placeholder={t("form.notesPlaceholder")}
+								className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-orange-500 focus:outline-none"
 							/>
 						</div>
 
@@ -271,7 +256,7 @@ export function PartnersBody() {
 								type="submit"
 								className="inline-flex items-center gap-2 rounded-full bg-orange-500 px-8 py-3.5 text-xs font-semibold uppercase tracking-widest text-white hover:bg-orange-600 transition-colors"
 							>
-								<LuSend className="h-4 w-4" /> Open Email Draft
+								<LuSend className="h-4 w-4" /> {t("form.submit")}
 							</button>
 							<p className="text-[11px] text-white/45">
 								Opens your email app with a draft addressed to partnerships. You stay in control of what goes out.

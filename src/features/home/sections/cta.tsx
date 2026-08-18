@@ -1,19 +1,27 @@
 "use client";
 
-import { CTA_COPY } from "@/features/home/content/section-copy";
+import { useTranslations } from "next-intl";
 import { EditorialCtaBand } from "@/shared/ui";
 
 export default function CTA() {
+	const t = useTranslations("Home.cta");
+
 	return (
 		<EditorialCtaBand
 			id="contact"
 			headingId="contact-title"
-			label={CTA_COPY.label}
-			titleLead={CTA_COPY.titleLead}
-			titleAccent={CTA_COPY.titleAccent}
-			description={CTA_COPY.description}
-			primary={{ label: CTA_COPY.primaryAction }}
-			secondary={{ label: CTA_COPY.secondaryAction }}
+			label={t("label")}
+			titleLead={t("titleLead")}
+			titleAccent={t("titleAccent")}
+			description={t("description")}
+			primary={{
+				label: t("primaryAction"),
+				href: "/contact",
+			}}
+			secondary={{
+				label: t("secondaryAction"),
+				href: "/tours",
+			}}
 		/>
 	);
 }

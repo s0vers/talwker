@@ -2,7 +2,8 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 import {
 	LuArrowRight,
 	LuChevronLeft,
@@ -15,7 +16,6 @@ import {
 } from "react-icons/lu";
 import type { Destination } from "@/shared/types/domain";
 import { destinationToSlug } from "@/features/destinations/lib/destination-slug";
-import { DESTINATIONS_SECTION } from "@/features/home/content/section-copy";
 import { DestinationsFilmstrip } from "@/features/home/sections/destinations-filmstrip";
 import { cn } from "@/lib/utils";
 
@@ -41,20 +41,15 @@ export function DestinationsStage({
 	isPaused = false,
 	className,
 }: DestinationsStageProps) {
+	const t = useTranslations("Home.destinations");
 	const dest = destinations[activeIndex] ?? destinations[0]!;
 	const href = `/destinations/${destinationToSlug(dest)}`;
 	const pointerStartX = useRef<number | null>(null);
 	const didSwipe = useRef(false);
-	const hoverPaused = useRef(false);
-	const focusPaused = useRef(false);
-
-	const syncPause = () => {
-		onPauseChange(hoverPaused.current || focusPaused.current);
-	};
 
 	const go = (next: number) => {
 		const len = destinations.length;
-		onSelect(((next % len) + len) % len);
+		onSelect((next + len) % len);
 	};
 
 	return (
@@ -64,23 +59,15 @@ export function DestinationsStage({
 				className,
 			)}
 			onPointerEnter={(e) => {
-				if (e.pointerType !== "mouse") return;
-				hoverPaused.current = true;
-				syncPause();
+				if (e.pointerType === "mouse") onPauseChange(true);
 			}}
 			onPointerLeave={(e) => {
-				if (e.pointerType !== "mouse") return;
-				hoverPaused.current = false;
-				syncPause();
+				if (e.pointerType === "mouse") onPauseChange(false);
 			}}
-			onFocusCapture={() => {
-				focusPaused.current = true;
-				syncPause();
-			}}
+			onFocusCapture={() => onPauseChange(true)}
 			onBlurCapture={(e) => {
 				if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
-					focusPaused.current = false;
-					syncPause();
+					onPauseChange(false);
 				}
 			}}
 		>
@@ -93,7 +80,7 @@ export function DestinationsStage({
 				<div
 					role="region"
 					aria-roledescription="carousel"
-					aria-label={DESTINATIONS_SECTION.stageRegionLabel}
+					aria-label={t("spotlightBadge")}
 					tabIndex={0}
 					className="relative min-h-[480px] sm:min-h-[520px] md:min-h-[540px] xl:min-h-[580px] overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-white/10 bg-[#050505] outline-none focus-visible:ring-2 focus-visible:ring-orange-500 lg:col-span-7 xl:col-span-8 flex flex-col justify-between"
 					onKeyDown={(e) => {
@@ -144,6 +131,7 @@ export function DestinationsStage({
 								alt=""
 								fill
 								priority={index === 0}
+								loading={index === 0 ? "eager" : undefined}
 								sizes="(max-width: 1024px) 100vw, 65vw"
 								className="object-cover"
 							/>
@@ -182,7 +170,7 @@ export function DestinationsStage({
 								</span>
 								<span className="h-px w-6 sm:w-8 bg-orange-500/40" />
 								<span className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-white/60">
-									{DESTINATIONS_SECTION.fromLabel} ${dest.price.toLocaleString()}
+									{t("fromLabel")} ${dest.price.toLocaleString()}
 								</span>
 							</div>
 
@@ -195,9 +183,9 @@ export function DestinationsStage({
 						<div className="mt-5 flex items-center justify-between gap-2.5">
 							<Link
 								href={href}
-								className="group inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-orange-500 px-4 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold text-black transition-all duration-300 hover:bg-orange-400 shadow-[0_10px_25px_rgba(249,115,22,0.35)] hover:shadow-[0_12px_30px_rgba(249,115,22,0.5)] truncate text-center"
+								className="group inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-orange-500 px-4 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold text-white transition-all duration-300 hover:bg-orange-400 shadow-[0_10px_25px_rgba(249,115,22,0.35)] hover:shadow-[0_12px_30px_rgba(249,115,22,0.5)] truncate text-center"
 							>
-								<span className="truncate">{DESTINATIONS_SECTION.exploreButtonLabel}</span>
+								<span className="truncate">{t("exploreButtonLabel")}</span>
 								<LuArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 transition-transform group-hover:translate-x-1" />
 							</Link>
 
@@ -207,11 +195,11 @@ export function DestinationsStage({
 									type="button"
 									aria-label={
 										isPaused
-											? DESTINATIONS_SECTION.playAutoplayLabel
-											: DESTINATIONS_SECTION.pauseAutoplayLabel
+											? t("playAutoplay")
+											: t("pauseAutoplay")
 									}
 									onClick={() => onPauseChange(!isPaused)}
-									className="inline-flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md transition-colors hover:border-orange-500 hover:bg-orange-500 hover:text-black"
+									className="inline-flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md transition-colors hover:border-orange-500 hover:bg-orange-500 hover:text-white"
 								>
 									{isPaused ? (
 										<LuPlay className="h-3.5 w-3.5 sm:h-4 sm:w-4 translate-x-0.5" />
@@ -221,17 +209,17 @@ export function DestinationsStage({
 								</button>
 								<button
 									type="button"
-									aria-label={DESTINATIONS_SECTION.prevSlideLabel}
+									aria-label={t("prevSlide")}
 									onClick={() => go(activeIndex - 1)}
-									className="inline-flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md transition-colors hover:border-orange-500 hover:bg-orange-500 hover:text-black"
+									className="inline-flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md transition-colors hover:border-orange-500 hover:bg-orange-500 hover:text-white"
 								>
 									<LuChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
 								</button>
 								<button
 									type="button"
-									aria-label={DESTINATIONS_SECTION.nextSlideLabel}
+									aria-label={t("nextSlide")}
 									onClick={() => go(activeIndex + 1)}
-									className="inline-flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md transition-colors hover:border-orange-500 hover:bg-orange-500 hover:text-black"
+									className="inline-flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md transition-colors hover:border-orange-500 hover:bg-orange-500 hover:text-white"
 								>
 									<LuChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
 								</button>

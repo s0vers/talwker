@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useRef } from "react";
-import { TOUR_DETAILS_HERO } from "@/features/tours/content/tour-details-copy";
+import { useTranslations } from "next-intl";
 import { formatTourPrice } from "@/features/tours/lib/format-tour-price";
 import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
 import type { Tour } from "@/shared/types/domain";
@@ -12,6 +12,7 @@ type TourDetailsHeroProps = {
 };
 
 export default function TourDetailsHero({ tour }: TourDetailsHeroProps) {
+	const t = useTranslations("TourDetails.hero");
 	const sectionRef = useRef<HTMLElement>(null);
 
 	useGsapContext(
@@ -44,7 +45,7 @@ export default function TourDetailsHero({ tour }: TourDetailsHeroProps) {
 							data-hero-item
 							className="text-[11px] font-semibold uppercase tracking-[0.22em] text-orange-500"
 						>
-							{TOUR_DETAILS_HERO.kicker}
+							{t("kicker")}
 						</p>
 						<p
 							data-hero-item
@@ -75,7 +76,7 @@ export default function TourDetailsHero({ tour }: TourDetailsHeroProps) {
 							className="mt-10 max-w-2xl border-t border-white/10 pt-8"
 						>
 							<p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-500/90">
-								{TOUR_DETAILS_HERO.routeWhyLabel}
+								{t("routeWhyLabel")}
 							</p>
 							<p className="mt-3 text-sm leading-relaxed text-white/60 md:text-base">
 								{tour.routeWhy}
@@ -104,7 +105,7 @@ export default function TourDetailsHero({ tour }: TourDetailsHeroProps) {
 				>
 					<div className="bg-[#050505] px-4 py-4 sm:px-5">
 						<dt className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/35">
-							{TOUR_DETAILS_HERO.factsDays}
+							{t("factsDays")}
 						</dt>
 						<dd className="mt-1.5 text-lg font-semibold tabular-nums text-white">
 							{tour.itinerary.length}
@@ -112,7 +113,7 @@ export default function TourDetailsHero({ tour }: TourDetailsHeroProps) {
 					</div>
 					<div className="bg-[#050505] px-4 py-4 sm:px-5">
 						<dt className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/35">
-							{TOUR_DETAILS_HERO.factsFrom}
+							{t("factsFrom")}
 						</dt>
 						<dd className="mt-1.5 text-lg font-semibold tabular-nums text-orange-400">
 							{formatTourPrice(tour.price)}
@@ -120,7 +121,7 @@ export default function TourDetailsHero({ tour }: TourDetailsHeroProps) {
 					</div>
 					<div className="bg-[#050505] px-4 py-4 sm:px-5">
 						<dt className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/35">
-							{TOUR_DETAILS_HERO.factsGroup}
+							{t("factsGroup")}
 						</dt>
 						<dd className="mt-1.5 text-lg font-semibold text-white">
 							{tour.groupSize.replace(/^Max\s+/i, "")}
@@ -128,7 +129,7 @@ export default function TourDetailsHero({ tour }: TourDetailsHeroProps) {
 					</div>
 					<div className="bg-[#050505] px-4 py-4 sm:px-5">
 						<dt className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/35">
-							{TOUR_DETAILS_HERO.factsRated}
+							{t("factsRated")}
 						</dt>
 						<dd className="mt-1.5 text-lg font-semibold tabular-nums text-white">
 							{tour.rating.toFixed(1)}

@@ -1,11 +1,13 @@
 "use client";
 
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import { LuSparkles, LuMail, LuDownload, LuNewspaper, LuShieldCheck, LuArrowRight } from "react-icons/lu";
 import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
 import { PRESS_HERO } from "../content/press-copy";
 
 export function PressHero() {
+	const t = useTranslations("Press");
 	const containerRef = useRef<HTMLElement>(null);
 	const contentRef = useRef<HTMLDivElement>(null);
 
@@ -59,10 +61,10 @@ export function PressHero() {
 					<div className="flex items-center gap-3">
 						<span className="inline-flex items-center gap-1.5 rounded-full bg-orange-500/10 border border-orange-500/30 px-3.5 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-400">
 							<LuSparkles className="h-3 w-3 text-orange-500" />
-							03 // Press & Media
+							{t("hero.badge")}
 						</span>
 						<span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/40">
-							Editorial Press Center
+							{t("hero.deskLabel")}
 						</span>
 					</div>
 
@@ -79,14 +81,14 @@ export function PressHero() {
 						id="press-hero-title"
 						className="text-[clamp(2.75rem,6.5vw,5.5rem)] font-bold leading-[0.92] tracking-tight text-white"
 					>
-						Official Media Center{" "}
+						{t("hero.titleLead")}{" "}
 						<span className="font-light italic text-orange-500 block sm:inline">
-							for Stories & Releases.
+							{t("hero.titleAccent")}
 						</span>
 					</h1>
 
 					<p className="text-base sm:text-lg text-white/60 leading-relaxed max-w-2xl">
-						{PRESS_HERO.description}
+						{t("hero.description")}
 					</p>
 				</div>
 

@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
-import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
+import { useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { AUTH_REGISTER_COPY } from "@/features/auth/content/auth-copy";
 import { authHref } from "@/features/auth/lib/auth-href";
 import { safeNextPath } from "@/features/auth/lib/safe-next-path";
 import {
@@ -16,6 +16,7 @@ import { FieldLabel } from "@/shared/ui";
 import { Lock, Mail, Sparkles, User } from "lucide-react";
 
 export function RegisterForm() {
+	const t = useTranslations("Auth");
 	const router = useRouter();
 	const searchParams = useSearchParams();
 	const formId = useId();
@@ -46,7 +47,7 @@ export function RegisterForm() {
 
 	function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
 		e.preventDefault();
-		setMessage(AUTH_REGISTER_COPY.demoMessage);
+		setMessage(t("demoMessage"));
 		if (!next) return;
 		const target = withDemoQuery(next);
 		if (redirectTimer.current) clearTimeout(redirectTimer.current);
@@ -61,7 +62,7 @@ export function RegisterForm() {
 			<div className="mb-6 flex items-center justify-between rounded-2xl border border-orange-500/20 bg-orange-500/10 px-3.5 py-2.5 text-xs text-orange-300">
 				<div className="flex items-center gap-2">
 					<Sparkles className="size-4 shrink-0 text-orange-400" />
-					<span>Registering demo account?</span>
+					<span>{t("demoRegisterPrompt")}</span>
 				</div>
 				<Button
 					type="button"
@@ -70,13 +71,13 @@ export function RegisterForm() {
 					onClick={handleFillDemo}
 					className="h-7 rounded-lg bg-orange-500/20 px-2.5 text-xs font-medium text-orange-200 hover:bg-orange-500/30 hover:text-white"
 				>
-					Autofill Demo
+					{t("demoRegisterAutofill")}
 				</Button>
 			</div>
 
 			<form onSubmit={handleSubmit} noValidate>
 				<div>
-					<FieldLabel htmlFor={nameId}>{AUTH_REGISTER_COPY.nameLabel}</FieldLabel>
+					<FieldLabel htmlFor={nameId}>{t("nameLabel")}</FieldLabel>
 					<div className="relative">
 						<Input
 							id={nameId}
@@ -86,7 +87,7 @@ export function RegisterForm() {
 							required
 							value={name}
 							onChange={(e) => setName(e.target.value)}
-							placeholder={AUTH_REGISTER_COPY.namePlaceholder}
+							placeholder={t("namePlaceholder")}
 							className="pl-10"
 						/>
 						<User className="absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-white/40" />
@@ -95,7 +96,7 @@ export function RegisterForm() {
 
 				<div className="mt-6">
 					<FieldLabel htmlFor={emailId}>
-						{AUTH_REGISTER_COPY.emailLabel}
+						{t("emailLabel")}
 					</FieldLabel>
 					<div className="relative">
 						<Input
@@ -106,7 +107,7 @@ export function RegisterForm() {
 							required
 							value={email}
 							onChange={(e) => setEmail(e.target.value)}
-							placeholder={AUTH_REGISTER_COPY.emailPlaceholder}
+							placeholder={t("emailPlaceholder")}
 							className="pl-10"
 						/>
 						<Mail className="absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-white/40" />
@@ -115,7 +116,7 @@ export function RegisterForm() {
 
 				<div className="mt-6">
 					<FieldLabel htmlFor={passwordId}>
-						{AUTH_REGISTER_COPY.passwordLabel}
+						{t("passwordLabel")}
 					</FieldLabel>
 					<div className="relative">
 						<Input
@@ -126,7 +127,7 @@ export function RegisterForm() {
 							required
 							value={password}
 							onChange={(e) => setPassword(e.target.value)}
-							placeholder={AUTH_REGISTER_COPY.passwordPlaceholder}
+							placeholder={t("passwordPlaceholder")}
 							className="pl-10"
 						/>
 						<Lock className="absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-white/40" />
@@ -145,18 +146,18 @@ export function RegisterForm() {
 						size="lg"
 						className="h-12 w-full rounded-full bg-orange-500 font-semibold text-white transition-colors hover:bg-orange-500/90"
 					>
-						{AUTH_REGISTER_COPY.submitLabel}
+						{t("registerSubmit")}
 					</Button>
 				</div>
 			</form>
 
 			<p className="mt-8 text-center text-sm text-white/55">
-				{AUTH_REGISTER_COPY.switchPrompt}{" "}
+				{t("haveAccountPrompt")}{" "}
 				<Link
 					href={authHref("/login", next)}
 					className="font-semibold text-orange-500 transition-colors hover:text-orange-400"
 				>
-					{AUTH_REGISTER_COPY.switchLabel}
+					{t("signInLink")}
 				</Link>
 			</p>
 		</div>

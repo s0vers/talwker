@@ -1,0 +1,1407 @@
+{
+  "Navbar": {
+    "brand": "talkwer",
+    "destinations": "Destinations",
+    "destinationsStandard": "Standard Grid",
+    "destinationsStage": "Stage Showcase",
+    "destinationsCinematic": "Cinematic Explorer",
+    "tours": "Tours",
+    "about": "About",
+    "contact": "Contact",
+    "stories": "Stories",
+    "letsTalk": "Let's Talk",
+    "switchLanguage": "Language",
+    "toggleMenu": "Toggle menu",
+    "mobileNav": "Mobile navigation",
+    "skipToMain": "Skip to main content"
+  },
+  "Footer": {
+    "explore": "Explore",
+    "company": "Company",
+    "support": "Support",
+    "legal": "Legal",
+    "destinations": "Destinations",
+    "tours": "Tours",
+    "stories": "Stories",
+    "experiences": "Experiences",
+    "about": "About",
+    "careers": "Careers",
+    "press": "Press",
+    "partners": "Partners",
+    "faq": "FAQ",
+    "bookingPolicy": "Booking Policy",
+    "cancellation": "Cancellation",
+    "contact": "Contact",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "cookies": "Cookies",
+    "blurb": "Crafting unforgettable journeys and authentic travel stories since 2010. The best stories begin with a single step into the unknown.",
+    "copyrightRest": "Talkwer. All rights reserved."
+  },
+  "Common": {
+    "explore": "Explore",
+    "viewAll": "View All",
+    "viewAllDestinations": "View All Destinations",
+    "viewAllTours": "View All Tours",
+    "viewAllStories": "View All Stories",
+    "startPlanning": "Start Planning",
+    "browseTours": "Browse Tours",
+    "from": "From",
+    "perPerson": "per person",
+    "days": "days",
+    "save": "Save",
+    "savePrefix": "Save $",
+    "startingAt": "Starting at",
+    "readMore": "Read More",
+    "learnMore": "Learn More",
+    "back": "Back",
+    "backHome": "Back to Home",
+    "pageNotFound": "Page Not Found",
+    "pageNotFoundDesc": "The page you are looking for does not exist or has been moved.",
+    "filter": "Filter",
+    "clearFilters": "Clear filters",
+    "search": "Search",
+    "searchPlaceholder": "Search by destination, country, or style…",
+    "quickSearches": "Popular searches",
+    "noResults": "No results found. Try adjusting your search keywords or active filters.",
+    "page": "Page",
+    "of": "of",
+    "prev": "Previous",
+    "next": "Next",
+    "close": "Close",
+    "loading": "Loading…",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "duration": "Duration",
+    "groupSize": "Group Size",
+    "rating": "Rating",
+    "included": "Included",
+    "share": "Share"
+  },
+  "Metadata": {
+    "home": {
+      "title": "Talkwer — Wander. Discover. Share.",
+      "description": "A modern travel studio and storytelling collective. Handcrafted expeditions, spotlight destination dossiers, and field notes from worldwide explorers."
+    },
+    "about": {
+      "title": "About Us — Talkwer",
+      "description": "Learn more about Talkwer's founding story, travel philosophy, global partner network, and team."
+    },
+    "destinations": {
+      "title": "Destinations — Talkwer",
+      "description": "Explore extraordinary destinations across the globe with Talkwer's curated standard catalog."
+    },
+    "destinations2": {
+      "title": "Destinations Showcase — Talkwer",
+      "description": "Immerse yourself in spotlight travel destinations through our interactive stage and filmstrip."
+    },
+    "destinations3": {
+      "title": "Cinematic Destinations — Talkwer",
+      "description": "Discover breathtaking places through an immersive visual masonry travel guide."
+    },
+    "tours": {
+      "title": "Curated Tours & Expeditions — Talkwer",
+      "description": "Handcrafted travel itineraries and operated expeditions designed for unforgettable memories."
+    },
+    "stories": {
+      "title": "Field Notes & Travel Stories — Talkwer",
+      "description": "Inspiring travel narratives, personal essays, and photography from worldwide explorers."
+    },
+    "contact": {
+      "title": "Contact Us — Talkwer",
+      "description": "Get in touch with our travel designers and editorial desks to plan your next journey."
+    },
+    "experiences": {
+      "title": "Curated Experiences — Talkwer",
+      "description": "Unrivaled cultural, culinary, and outdoor adventures curated by local insiders."
+    },
+    "careers": {
+      "title": "Careers — Talkwer",
+      "description": "Join our remote-first global collective crafting the future of intentional travel."
+    },
+    "press": {
+      "title": "Press & Media Kit — Talkwer",
+      "description": "Latest news, press releases, media coverage, and brand assets from Talkwer."
+    },
+    "partners": {
+      "title": "Partner With Us — Talkwer",
+      "description": "Collaborate with Talkwer as an expedition partner, boutique hotelier, or local guide lead."
+    },
+    "faq": {
+      "title": "Frequently Asked Questions — Talkwer",
+      "description": "Find answers to questions about booking reservations, travel pacing, payments, and safety."
+    },
+    "bookingPolicy": {
+      "title": "Booking Policy — Talkwer",
+      "description": "Understand Talkwer's reservation process, deposits, and itinerary confirmation terms."
+    },
+    "cancellation": {
+      "title": "Cancellation Policy — Talkwer",
+      "description": "Details on refunds, trip alterations, schedule flexibility, and cancellation windows."
+    },
+    "privacy": {
+      "title": "Privacy Policy — Talkwer",
+      "description": "How we protect, process, and respect your personal information."
+    },
+    "terms": {
+      "title": "Terms of Service — Talkwer",
+      "description": "The terms and conditions governing your use of Talkwer and expedition bookings."
+    },
+    "cookies": {
+      "title": "Cookie Policy — Talkwer",
+      "description": "Information on how Talkwer uses cookies and tracking technologies."
+    },
+    "booking": {
+      "title": "Plan Your Departure — Talkwer",
+      "description": "Customize your journey dates, travelers, and consult with a dedicated Talkwer travel designer."
+    },
+    "checkout": {
+      "title": "Complete Reservation — Talkwer",
+      "description": "Review itinerary summary, passenger details, and confirm your departure reservation."
+    },
+    "checkoutSuccess": {
+      "title": "Reservation Confirmed — Talkwer",
+      "description": "Your departure reservation has been received. Review your confirmation details."
+    },
+    "login": {
+      "title": "Sign In — Talkwer",
+      "description": "Access your Talkwer travel account and manage your expedition reservations."
+    },
+    "register": {
+      "title": "Create Account — Talkwer",
+      "description": "Create a Talkwer account to save destinations, track inquiries, and unlock field notes."
+    }
+  },
+  "Home": {
+    "hero": {
+      "tagline": "Wander · Discover · Share",
+      "titleLines1": "Travel is the",
+      "titleLines2": "only thing you",
+      "titleLines3": "buy that makes",
+      "titleAccent": "you richer.",
+      "description": "Curated journeys to the world's most extraordinary corners. Every trip a story. Every story worth sharing.",
+      "explore": "Explore"
+    },
+    "about": {
+      "label": "About Talkwer",
+      "titleLead": "We don't just plan trips.",
+      "titleLine2Prefix": "We craft",
+      "titleAccent": "memories.",
+      "description": "Founded by a community of passionate wanderers, Talkwer connects curious souls with the world's most extraordinary places. Every itinerary is a story waiting to unfold.",
+      "ratingSummary": "Avg. rating · 3,200 reviews",
+      "statDestinations": "Destinations",
+      "statExperience": "Years Experience",
+      "statTravelers": "Happy Travelers"
+    },
+    "destinations": {
+      "label": "Explore the World",
+      "title": "Popular Destinations",
+      "description": "Handpicked extraordinary places — filter by style or browse our featured spotlight showcase.",
+      "spotlightBadge": "Spotlight Showcase",
+      "countSuffix": "Destinations",
+      "viewAllCta": "View All Destinations",
+      "fromLabel": "From",
+      "exploreButtonLabel": "Explore Destination",
+      "filterAll": "All",
+      "filterPopular": "Popular",
+      "filterTrending": "Trending",
+      "filterLuxury": "Luxury",
+      "filterNew": "New",
+      "pauseAutoplay": "Pause slideshow",
+      "playAutoplay": "Play slideshow",
+      "prevSlide": "Previous destination",
+      "nextSlide": "Next destination"
+    },
+    "tours": {
+      "label": "Curated For You",
+      "title": "Featured Tours",
+      "description": "Our most popular tour packages, designed for extraordinary experiences at unbeatable value.",
+      "spotlightBadge": "Curated Packages",
+      "filterAll": "All",
+      "filterCultural": "Cultural",
+      "filterAdventure": "Adventure",
+      "filterNature": "Nature",
+      "filterLuxury": "Luxury",
+      "viewAllCta": "View All Tours",
+      "savePrefix": "Save $",
+      "startingAt": "Starting at"
+    },
+    "testimonials": {
+      "badge": "Verified Traveler Reviews",
+      "label": "Traveler Stories",
+      "title": "What Our Travelers Say",
+      "description": "Real stories from real adventurers who trusted Talkwer to craft their perfect getaway."
+    },
+    "newsletter": {
+      "label": "Stay in the Loop",
+      "title": "Get Exclusive Travel Deals",
+      "description": "Subscribe to our newsletter and be the first to know about flash sales, new destinations, and insider travel tips.",
+      "placeholder": "Enter your email",
+      "subscribe": "Subscribe",
+      "disclaimer": "No spam, ever. Unsubscribe anytime."
+    },
+    "cta": {
+      "label": "Ready?",
+      "titleLead": "Let's plan something",
+      "titleAccent": "extraordinary",
+      "description": "Tell us your dream destination and travel style. We'll craft an itinerary you'll never forget.",
+      "primaryAction": "Start Planning",
+      "secondaryAction": "Browse Tours"
+    }
+  },
+  "Destinations": {
+    "hero": {
+      "verticalRail": "Talkwer · field notes",
+      "kicker": "The index",
+      "titleLine1": "Plot your",
+      "titleAccent": "next escape.",
+      "description": "Every pin on our map is vetted for story, texture, and the kind of detail you only find when someone has actually been there.",
+      "passEyebrow": "Curated departure",
+      "passTitle": "ANYWHERE → WONDER",
+      "passMeta": "APR 2026 · NO LAYOVERS ON CURIOSITY",
+      "passFooter": "Boarding: explorers & daydreamers",
+      "scrollCue": "Scroll for the collection"
+    },
+    "grid": {
+      "label": "The collection",
+      "title": "Every destination we stand behind",
+      "description": "Same handpicked places as on the home page — here in a clear grid so you can scan the full set at a glance.",
+      "searchPlaceholder": "Search by place, country, or vibe…",
+      "searchFieldLabel": "Search",
+      "filterLabel": "Filter",
+      "filterAll": "All destinations",
+      "filterTagPopular": "Popular",
+      "filterTagTrending": "Trending",
+      "filterTagNew": "New",
+      "filterTagLuxury": "Luxury",
+      "filterUnder2000": "Under $2,000",
+      "searchButton": "Search",
+      "clearFilters": "Clear filters",
+      "quickSearchesLabel": "Popular searches",
+      "quickSearchBali": "Bali",
+      "quickSearchJapan": "Japan",
+      "quickSearchItaly": "Italy",
+      "quickSearchLuxury": "Luxury",
+      "quickSearchUnder2k": "Under $2k",
+      "noResults": "No destinations match that search. Try another keyword or filter.",
+      "paginationPrevious": "Previous",
+      "paginationNext": "Next",
+      "paginationPage": "Page",
+      "paginationOf": "of",
+      "paginationGoToPage": "Go to page"
+    },
+    "cta": {
+      "label": "Beyond the map",
+      "titleLead": "Ready for",
+      "titleAccent": "the full trip?",
+      "description": "Pair a place with a hand-built itinerary or see how travelers experienced it on the ground.",
+      "primaryAction": "Browse tours",
+      "secondaryAction": "Read stories"
+    }
+  },
+  "Destinations2": {
+    "hero": {
+      "rail": "Alternate index",
+      "kicker": "Field atlas · v2",
+      "title": "Places measured in",
+      "titleAccent": "texture, not ticks.",
+      "lede": "This grid is a second lens on the same collection — looser typography, sharper cards, and room to wander before you commit.",
+      "statALabel": "Curated",
+      "statAValue": "Same roster",
+      "statBLabel": "Lens",
+      "statBValue": "Editorial",
+      "footnote": "Scroll to filter — links open the story route for this layout."
+    },
+    "grid": {
+      "label": "Atlas",
+      "title": "Pick a place; open its dossier",
+      "description": "Choose a tile to open that place's dossier — our second long-form layout, with a different rhythm from the main destination story.",
+      "paginationPrevious": "Back",
+      "paginationNext": "Ahead",
+      "paginationPage": "Sheet",
+      "paginationOf": "/",
+      "paginationGoToPage": "Jump to sheet",
+      "searchPlaceholder": "Filter by name, country, tag…",
+      "searchFieldLabel": "Query",
+      "filterLabel": "Refine",
+      "filterAll": "All",
+      "filterTagPopular": "Popular",
+      "filterTagTrending": "Trending",
+      "filterTagNew": "New",
+      "filterTagLuxury": "Luxury",
+      "filterUnder2000": "Under $2,000",
+      "searchButton": "Apply",
+      "clearFilters": "Reset",
+      "quickSearchesLabel": "Shortcuts",
+      "quickSearchBali": "Bali",
+      "quickSearchJapan": "Japan",
+      "quickSearchItaly": "Italy",
+      "quickSearchLuxury": "Luxury",
+      "quickSearchUnder2k": "Under $2k",
+      "noResults": "Nothing matches — try a shorter query or clear filters."
+    }
+  },
+  "Destinations3": {
+    "hero": {
+      "rail": "Destinations",
+      "kicker": "Stories by place",
+      "title": "Read places through",
+      "titleAccent": "who holds them.",
+      "lede": "Each guide is a long read about one destination — daily life, culture, and a few meaningful spots. Open a card below to start."
+    },
+    "grid": {
+      "title": "Pick a destination",
+      "description": "Search by name or country, or tap a shortcut. Every tile opens the full guide for that place.",
+      "paginationPrevious": "Back",
+      "paginationNext": "Ahead",
+      "paginationPage": "Page",
+      "paginationOf": "of",
+      "paginationGoToPage": "Go to page",
+      "searchPlaceholder": "Search by name, country, or tag…",
+      "searchFieldLabel": "Search",
+      "filterLabel": "Filter",
+      "filterAll": "All",
+      "filterTagPopular": "Popular",
+      "filterTagTrending": "Trending",
+      "filterTagNew": "New",
+      "filterTagLuxury": "Luxury",
+      "filterUnder2000": "Under $2,000",
+      "searchButton": "Search",
+      "clearFilters": "Clear filters",
+      "quickSearchesLabel": "Popular picks",
+      "quickSearchBali": "Bali",
+      "quickSearchJapan": "Japan",
+      "quickSearchItaly": "Italy",
+      "quickSearchLuxury": "Luxury",
+      "quickSearchUnder2k": "Under $2k",
+      "noResults": "No matches — try a shorter search or clear filters."
+    }
+  },
+  "DestinationDetails": {
+    "backToGrid": "Back to Destinations",
+    "backToStage": "Back to Stage Showcase",
+    "backToCinematic": "Back to Cinematic Explorer",
+    "overviewHeading": "Destination Dossier",
+    "highlightsHeading": "Key Highlights",
+    "bestTimeToVisit": "Best Time to Visit",
+    "cultureNotes": "Cultural Notes & Etiquette",
+    "practicalTips": "Practical Traveler Notes",
+    "relatedToursHeading": "Featured Tours in this Destination",
+    "relatedStoriesHeading": "Field Notes from Fellow Travelers",
+    "inquireCta": "Plan a Trip to this Destination",
+    "viewItinerary": "View Expedition Itinerary"
+  },
+  "Tours": {
+    "hero": {
+      "kicker": "Operated routes",
+      "titleLine1": "The days",
+      "titleAccent": "we run",
+      "description": "Fixed pacing, small groups, and a reason for every day — operated itineraries, not destination mood pieces.",
+      "scrollCue": "Open a trip sheet",
+      "boardEyebrow": "Departure board",
+      "boardMeta": "on file",
+      "boardHint": "Day count · open for the sequence",
+      "filterLabel": "Filtered by",
+      "daysSuffix": "days"
+    },
+    "catalog": {
+      "heading": "Operated Routes",
+      "routesCount": "{count} Curated Expeditions",
+      "emptyFilterNote": "No itinerary is tagged to that destination yet — showing the full roster instead.",
+      "fromPrefix": "from",
+      "openLabel": "Open trip"
+    },
+    "cta": {
+      "label": "Ready when you are",
+      "titleLead": "Shape the",
+      "titleAccent": "next departure.",
+      "description": "Tell us the pace you want, or read how travelers lived these routes on the ground.",
+      "primaryAction": "Start a conversation",
+      "secondaryAction": "Read stories"
+    }
+  },
+  "TourDetails": {
+    "hero": {
+      "kicker": "Trip sheet",
+      "routeWhyLabel": "Why this route",
+      "factsDays": "Days",
+      "factsFrom": "From",
+      "factsGroup": "Group",
+      "factsRated": "Rated"
+    },
+    "sheet": {
+      "ariaLabel": "Trip summary",
+      "fromLabel": "From",
+      "durationLabel": "Duration",
+      "groupLabel": "Group",
+      "ratingLabel": "Rating",
+      "includesLabel": "Included",
+      "inquireLabel": "Inquire / Book Departure",
+      "mailtoLabel": "Email hello@talkwer.com",
+      "mailtoHref": "mailto:hello@talkwer.com?subject=Tour%20inquiry",
+      "destinationLinkPrefix": "Explore destination guide:"
+    },
+    "days": {
+      "label": "Itinerary",
+      "title": "Day by day sequence",
+      "expandHint": "Show day details",
+      "collapseHint": "Hide day details",
+      "overnightLabel": "Overnight stay"
+    },
+    "mobileBar": {
+      "fromPrefix": "From",
+      "bookButton": "Inquire / Book"
+    }
+  },
+  "Stories": {
+    "hero": {
+      "kicker": "Field notes",
+      "titleLine1": "Notes from",
+      "titleAccent": "the road",
+      "description": "Honest essays from travelers who went with us — the messy, luminous moments that never make the brochure."
+    },
+    "grid": {
+      "featuredLabel": "Featured Field Note",
+      "railLabel": "More essays",
+      "readCta": "Read the essay",
+      "minutesSuffix": "min read",
+      "countSuffix": "essays",
+      "sectionHeading": "Stories & Dispatches"
+    },
+    "index": {
+      "featuredLabel": "Featured Field Note",
+      "railLabel": "More essays",
+      "readCta": "Read the essay",
+      "minutesSuffix": "min read",
+      "countSuffix": "essays",
+      "sectionHeading": "Stories & Dispatches"
+    },
+    "cta": {
+      "label": "More from the field",
+      "titleLead": "The trip is only",
+      "titleAccent": "half the story.",
+      "description": "Browse destinations we write about, or open a departure dossier when you are ready to go.",
+      "primaryAction": "Explore destinations",
+      "secondaryAction": "Browse tours"
+    }
+  },
+  "StoryDetails": {
+    "backToIndex": "All field notes",
+    "bylinePrefix": "By",
+    "minutesSuffix": "min read",
+    "relatedLabel": "Keep going",
+    "relatedHeading": "Where the essay points next",
+    "destinationKind": "Destination",
+    "tourKind": "Tour",
+    "relatedDestinationCta": "Open destination dossier",
+    "relatedTourCta": "View operated itinerary"
+  },
+  "Experiences": {
+    "hero": {
+      "eyebrow": "Curated Catalog",
+      "title": "Crafted Experiences & Field Journeys",
+      "description": "Immersive travel formats designed for depth over speed — from alpine treks and coastal sailing to culinary traditions and tea house rituals.",
+      "primaryAction": "Explore All Tours",
+      "secondaryAction": "Plan Custom Trip",
+      "catalogTag": "6 Curated Formats",
+      "titleLine1": "Crafted",
+      "titleAccent": "Experiences",
+      "formatsPill": "Custom & Small Group Formats",
+      "guestsPill": "Paced for Depth & Reflection"
+    },
+    "categories": {
+      "all": "All Experiences",
+      "cultural": "Cultural Immersion",
+      "coastal": "Coastal & Islands",
+      "alpine": "Alpine & Trekking",
+      "culinary": "Culinary & Markets",
+      "wellness": "Wellness & Slow Pacing"
+    },
+    "spotlight": {
+      "eyebrow": "Curator's Spotlight",
+      "title": "The Art of Paced Discovery",
+      "quote": "Travel is at its best when it moves at the speed of human observation. We limit group sizes and build unscheduled blocks so place can happen to you.",
+      "curatorName": "Elena Rostova",
+      "curatorTitle": "Head of Editorial Experience, Talkwer"
+    },
+    "cta": {
+      "label": "Tailored Journeys",
+      "titleLead": "Looking for a custom",
+      "titleAccent": "experience?",
+      "description": "Let our editorial team design a private journey around your exact pacing, dates, and interests.",
+      "primaryAction": "Request Custom Trip",
+      "secondaryAction": "Browse All Tours"
+    },
+    "themes": {
+      "eyebrow": "Explore Collection",
+      "title": "Signature Experiences ({count})",
+      "description": "Click any experience to open the interactive itinerary overview or route directly to full tour details.",
+      "filterLabel": "Select Experience Format",
+      "empty": "No experiences found in this category.",
+      "quickPreview": "Quick Preview",
+      "viewPackage": "View Package"
+    },
+    "modal": {
+      "closeLabel": "Close modal",
+      "duration": "Duration",
+      "capacity": "Capacity",
+      "pricing": "Pricing",
+      "overview": "Overview",
+      "highlights": "Experience Highlights",
+      "itineraryNotes": "Itinerary & Pacing Notes",
+      "viewTourPackage": "View Full Tour Package →",
+      "inquire": "Inquire About Experience"
+    },
+    "styles": {
+      "eyebrow": "Pacing & Format",
+      "title": "Travel Styles",
+      "explore": "Explore"
+    }
+  },
+  "About": {
+    "hero": {
+      "tagline": "Est. 2010",
+      "headlinePre": "We are",
+      "headlineAccent": "wanderers",
+      "headlinePost": "We are",
+      "headlineAccent2": "storytellers",
+      "description": "Born from a restless love of the unknown, Talkwer connects curious souls with the world's most extraordinary corners.",
+      "scrollCue": "Scroll to explore"
+    },
+    "story": {
+      "label": "Where It Began",
+      "titleLead": "A spark of curiosity",
+      "titleAccent": "became a movement.",
+      "p1Lead": "In 2010, a small group of friends — tired of cookie‑cutter package holidays — set out to prove that travel could be ",
+      "p1Highlight": "more personal, more meaningful, more alive",
+      "p1Tail": ".",
+      "p2Lead": "What started as a shared spreadsheet of hidden gems quickly grew into Talkwer: a platform where ",
+      "p2Underline": "every itinerary is a story",
+      "p2Tail": ", every destination a chapter waiting to be written.",
+      "p3Lead": "Today, we partner with local guides, boutique stays, and cultural ambassadors across ",
+      "p3Highlight": "six continents",
+      "p3Tail": " to craft journeys that leave travellers changed — not just tanned."
+    },
+    "reach": {
+      "label": "Where We Meet You",
+      "titleLead": "A network that spans",
+      "titleAccent": "the globe.",
+      "description": "From neighbourhood guides to remote trailheads, our partners anchor every journey in real places — so you always land somewhere that matters."
+    },
+    "philosophy": {
+      "label": "Our Philosophy",
+      "line": "We believe the best stories are lived, not told. Every journey we craft is an invitation to lose yourself in a place — and return home more found than ever."
+    },
+    "values": {
+      "label": "What We Stand For",
+      "title": "Our Values",
+      "description": "Every principle guides how we design journeys and how we partner with people on the ground.",
+      "railCaption": "Core Principles",
+      "v1Title": "Human‑First Travel",
+      "v1Desc": "We design every journey around the people who take it. Your pace, your interests, your story.",
+      "v1Accent": "People over itineraries.",
+      "v2Title": "Radical Curiosity",
+      "v2Desc": "We're never satisfied with surface level. We dig deeper, ask more questions, and uncover the places that guidebooks miss.",
+      "v2Accent": "Go beyond the obvious.",
+      "v3Title": "Sustainable Footprints",
+      "v3Desc": "Every trip supports local economies and respects the ecosystems we visit. We tread lightly so the next traveller can experience the same magic.",
+      "v3Accent": "Travel with purpose.",
+      "v4Title": "Fearless Honesty",
+      "v4Desc": "We tell you the real deal — the best time to go, the overrated spots, the hidden costs. Transparency builds trust.",
+      "v4Accent": "No sugarcoating."
+    },
+    "journey": {
+      "label": "Our Journey",
+      "title": "Milestones that shaped us"
+    },
+    "team": {
+      "label": "The People Behind It",
+      "title": "Meet the Team",
+      "description": "Passionate explorers, storytellers, and connectors — united by a shared love for the extraordinary."
+    },
+    "cta": {
+      "label": "Join the Journey",
+      "titleLead": "Your next story starts",
+      "titleAccent": "here.",
+      "description": "Whether it's your first adventure or your fiftieth, we're ready to craft something unforgettable together.",
+      "primaryAction": "Plan Your Trip",
+      "secondaryAction": "Browse Destinations"
+    }
+  },
+  "Contact": {
+    "hero": {
+      "eyebrow": "Correspondence",
+      "headlineLead": "Drop us",
+      "headlineAccent": "a line",
+      "description": "Editorial pitches, partnerships, press, and reader notes — we read every thread, even when we cannot answer them all.",
+      "metaCardTitle": "Desk routing",
+      "refLabel": "Ref",
+      "refValue": "TALKWER · CONTACT",
+      "timezoneLabel": "Timezone",
+      "timezoneValue": "Editorial · GMT−5",
+      "replyLabel": "Typical reply",
+      "replyValue": "A few business days",
+      "stampLabel": "AIR MAIL"
+    },
+    "channels": {
+      "sectionEyebrow": "Direct lines",
+      "sectionTitle": "How to reach us",
+      "sectionDescription": "One inbox per desk. Choose the line that matches your note — we route from there.",
+      "editorialTitle": "Editorial pitches",
+      "editorialBody": "Story ideas, photographer portfolios, and destination features. Include a short summary and any relevant links.",
+      "editorialCta": "Email editorial",
+      "pressTitle": "Partnerships & press",
+      "pressBody": "Brand collaborations, media kits, and interview requests. Tell us your timeline and audience.",
+      "pressCta": "Email partnerships",
+      "supportTitle": "Reader support",
+      "supportBody": "Booking questions, account help, or feedback about the site. We typically respond within a few business days.",
+      "supportCta": "Email support"
+    },
+    "form": {
+      "eyebrow": "Message",
+      "title": "Send a note",
+      "description": "Share a few details and we'll route your note to the right desk. When you send, your email app opens with everything filled in — you stay in control of what goes out.",
+      "nameLabel": "Name",
+      "namePlaceholder": "Your name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "you@example.com",
+      "topicLabel": "Topic",
+      "topicPlaceholder": "What is this about?",
+      "topicEditorial": "Editorial pitch",
+      "topicPartnerships": "Partnerships & press",
+      "topicSupport": "Reader support",
+      "topicOther": "Something else",
+      "messageLabel": "Message",
+      "messagePlaceholder": "A few sentences help us route your note — links, dates, or destinations if relevant.",
+      "submitLabel": "Send message",
+      "submitHint": "Opens your email app with a draft addressed to us."
+    },
+    "social": {
+      "title": "Elsewhere",
+      "description": "Day-to-day dispatches and behind-the-scenes travel."
+    }
+  },
+  "Booking": {
+    "brand": "talkwer",
+    "meetingTitle": "Agent consult",
+    "duration": "30 mins",
+    "meetingType": "Video call",
+    "meetingTypeTooltip": "Meet a Talkwer agent on video to walk through this tour.",
+    "continueLabel": "Continue to Checkout",
+    "selectDate": "Select departure or consult date",
+    "selectTime": "Select consult time slot",
+    "guestCount": "Number of travelers",
+    "specialRequests": "Special travel preferences or requirements",
+    "nameLabel": "Your name *",
+    "emailLabel": "Email address *",
+    "phoneLabel": "Phone number *",
+    "notesLabel": "Additional notes",
+    "notesPlaceholder": "Please share anything that will help prepare for our meeting",
+    "addGuests": "Add guests",
+    "removeEmail": "Remove email",
+    "termsNotice": "By proceeding, you agree to our Terms and Privacy Policy.",
+    "back": "Back",
+    "errorRequired": "Name, email, and phone are required.",
+    "errorPhone": "Enter a valid phone number (not just the country code).",
+    "errorSlot": "Pick a time slot before continuing."
+  },
+  "Checkout": {
+    "title": "Checkout & Reservation",
+    "feeLabel": "Agent consult & deposit",
+    "feeAmount": "$25",
+    "feeNote": "Demo reservation fee — no live payment processed in demo mode.",
+    "confirmLabel": "Confirm reservation",
+    "signInLabel": "Sign in",
+    "registerLabel": "Create account",
+    "demoAuthHint": "Optional — checkout works as a guest.",
+    "demoAuthFlash": "Demo only — no live account required.",
+    "cardNumberLabel": "Card number",
+    "expiryLabel": "Expiry",
+    "cvcLabel": "CVC",
+    "cardNumberPlaceholder": "4242 4242 4242 4242",
+    "expiryPlaceholder": "MM/YY",
+    "cvcPlaceholder": "123",
+    "cardError": "Enter card number, expiry, and CVC.",
+    "step": "Step 2 of 2",
+    "paymentDetails": "Payment Details",
+    "slotReserved": "Slot Reserved",
+    "cardBanner": "Credit / Debit Card",
+    "autofillBanner": "Testing this demo? Autofill test payment credentials:",
+    "autofillButton": "Autofill Card",
+    "securityNotice": "256-Bit SSL Encrypted & Demo Handoff Verified",
+    "summaryTourLabel": "Selected Expedition",
+    "summarySlotLabel": "Consult time",
+    "summaryGuestLabel": "Traveler details",
+    "summaryTimezoneLabel": "Timezone",
+    "scheduledDeparture": "Scheduled Departure",
+    "bookerInfo": "Booker Information",
+    "additionalGuests": "+ {count} additional guest(s)",
+    "includedPerks": "Included in this Booking",
+    "defaultPerk1": "Expert Local Guide",
+    "defaultPerk2": "Luxury Transport",
+    "defaultPerk3": "Free 48h Cancellation",
+    "packageLabel": "Tour Package",
+    "taxesFees": "Taxes & Booking Fees",
+    "included": "$0.00 (Included)",
+    "totalDue": "Total Due Now",
+    "taxesGuarantees": "Includes all taxes and guarantees",
+    "instantConfirm": "Instant confirmation & 100% secure tour slot handoff",
+    "redirectingLabel": "Processing reservation…",
+    "registeredNote": "Handoff successfully registered",
+    "successTitle": "Departure Reserved",
+    "successBody": "This is a demo confirmation receipt. Your booking has been registered in the system.",
+    "successHomeLabel": "Back to Home",
+    "successTourLabel": "View Expedition",
+    "successConfirmationLabel": "Confirmation Code",
+    "verifiedBooking": "Verified Booking"
+  },
+  "Auth": {
+    "loginEyebrow": "Account",
+    "loginTitle": "Sign in",
+    "loginDescription": "Demo sign-in — enter your credentials to access your traveler dashboard.",
+    "registerEyebrow": "Account",
+    "registerTitle": "Register",
+    "registerDescription": "Demo registration — create your traveler profile to save trips.",
+    "emailLabel": "Email",
+    "emailPlaceholder": "you@example.com",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Your password",
+    "nameLabel": "Name",
+    "namePlaceholder": "Your name",
+    "signInSubmit": "Sign in",
+    "registerSubmit": "Create account",
+    "needAccountPrompt": "Need an account?",
+    "haveAccountPrompt": "Already have an account?",
+    "createAccountLink": "Create account",
+    "signInLink": "Sign in",
+    "demoMessage": "Demo mode — credentials are simulated locally.",
+    "tagline": "Wander. Discover. Share.",
+    "quote": "“Every destination has a story waiting to be uncovered.”",
+    "perk1": "Exclusive access to rare expeditions & boutique itineraries",
+    "perk2": "Timezone-aware scheduling & instant tour handoff",
+    "perk3": "Personalized concierge & direct expert local guide access",
+    "communityBadge": "Verified Travel Community",
+    "communityRating": "4.9 / 5.0",
+    "demoQuickPrompt": "Quick demo sign-in?",
+    "demoAutofill": "Autofill Demo",
+    "demoRegisterPrompt": "Testing registration?",
+    "demoRegisterAutofill": "Autofill Test Profile",
+    "magazineTag": "talkwer. magazine"
+  },
+  "FAQ": {
+    "hero": {
+      "badge": "05 // Help Center",
+      "deskLabel": "Live Search Desk",
+      "titleLead": "Help & Knowledge",
+      "titleAccent": "Base.",
+      "eyebrow": "Help & Support",
+      "title": "Frequently Asked Questions",
+      "description": "Search our knowledge base or browse answers by category — covering reservations, travel day pacing, safety protocols, and custom trip design.",
+      "searchPlaceholder": "Search questions (e.g. deposit, cancellation, group size, insurance)..."
+    },
+    "tabAll": "All Topics",
+    "tabBooking": "Booking",
+    "tabTravel": "Travel & Pacing",
+    "tabSafety": "Safety & Insurance",
+    "tabCustom": "Custom Journeys",
+    "noResultsTitle": "No matching questions found",
+    "noResultsDesc": "We couldn't find any questions matching your search query. Try adjusting your query or clear the filter.",
+    "clearFilter": "Clear Search Filter",
+    "bookingCategory": "Booking & Reservations",
+    "travelCategory": "Travel Pacing & Logistics",
+    "safetyCategory": "Safety, Insurance & Cancellations",
+    "customCategory": "Custom & Private Journeys",
+    "cta": {
+      "label": "Still Have Questions?",
+      "titleLead": "Can't find what you're",
+      "titleAccent": "looking for?",
+      "description": "Our expedition concierges and local guides are available to help plan your journey or clarify itinerary details.",
+      "primaryAction": "Contact Support Desk",
+      "secondaryAction": "Browse Expeditions"
+    },
+    "groups": {
+      "booking": "Booking & Reservations",
+      "travel": "Travel Pacing & Logistics",
+      "safety": "Safety, Insurance & Cancellations",
+      "custom": "Custom & Private Journeys"
+    },
+    "items": {
+      "how-book": {
+        "question": "How do I reserve a spot on a Talkwer departure?",
+        "answer": "Select your desired journey on Tours or submit a request on Contact. Once dates and party size are confirmed, we issue a written confirmation and collect a deposit per our Booking Policy.",
+        "linkLabel": "Read Booking Policy"
+      },
+      "deposit-rules": {
+        "question": "What is the deposit policy and payment timeline?",
+        "answer": "Most departures require a 25% deposit at confirmation to secure boutique lodging and local transport. Final balances are due 60 days before departure.",
+        "linkLabel": "View Booking Policy"
+      },
+      "payment-methods": {
+        "question": "What payment methods do you accept?",
+        "answer": "We accept major credit cards (Visa, MasterCard, Amex), wire transfers, and verified bank transfers with zero hidden processing surcharges."
+      },
+      "group-size": {
+        "question": "How large are Talkwer group departures?",
+        "answer": "We strictly cap departure group sizes between 8 and 16 travelers (depending on destination terrain) to maintain an unhurried, editorial pacing.",
+        "linkLabel": "Browse Tours"
+      },
+      "fitness-pacing": {
+        "question": "What physical fitness level is required?",
+        "answer": "Each tour page lists activity ratings ranging from 'Relaxed Pacing' (coastal walks and city strolls) to 'Active Expedition' (highland mountain treks). Ask our team if you need a personalized read.",
+        "linkLabel": "Ask Our Experience Team"
+      },
+      "solo-travelers": {
+        "question": "Do you welcome solo travelers? Is there a single supplement?",
+        "answer": "Over 40% of Talkwer guests travel solo. We offer single room options at cost without predatory single supplement markups."
+      },
+      "inclusions-exclusions": {
+        "question": "What is included in the departure price?",
+        "answer": "Accommodations, hosted experiences, ground transfers, regional guide leads, and specified meals are included. International long-haul flights are quoted separately."
+      },
+      "cancellation-policy": {
+        "question": "What happens if I need to cancel or reschedule my trip?",
+        "answer": "Cancellations made 60+ days before departure receive a full refund minus an administrative fee. Transfers to future dates are supported under our Cancellation Policy.",
+        "linkLabel": "Read Cancellation Policy"
+      },
+      "travel-insurance": {
+        "question": "Is travel insurance required for Talkwer trips?",
+        "answer": "Comprehensive travel insurance covering medical expenses, emergency evacuation, and trip cancellation is required for all guests on active or wilderness itineraries."
+      },
+      "health-safety": {
+        "question": "How do you handle medical situations in remote regions?",
+        "answer": "All field guides carry satellite communicators, first-aid kits, and localized emergency evacuation protocols verified before every departure."
+      },
+      "custom-trip": {
+        "question": "Can Talkwer design a private custom trip for my family or group?",
+        "answer": "Yes. Our editorial team crafts private custom itineraries for families, couples, and private groups of 2 to 20 travelers.",
+        "linkLabel": "Request Custom Trip"
+      },
+      "lead-time": {
+        "question": "How far in advance should we plan a custom itinerary?",
+        "answer": "We recommend reaching out 3 to 6 months prior to your desired departure window, especially for high-season dates in Japan, Greece, or Patagonia."
+      }
+    }
+  },
+  "Careers": {
+    "hero": {
+      "badge": "06 // Careers",
+      "liveDesk": "Talkwer Studio · Global Talent",
+      "titleLead": "Build the next era of",
+      "titleAccent": "meaningful travel.",
+      "eyebrow": "Careers at Talkwer",
+      "title": "Shape the Future of Editorial Travel",
+      "description": "Talkwer is an independent travel studio. We build hand-crafted itineraries, long-form field guides, and digital tools for intentional wanderers.",
+      "remoteLabel": "Remote-First Team",
+      "stipendLabel": "Annual Travel Stipend",
+      "leaveLabel": "Paid Field Leave"
+    },
+    "valuesLabel": "How We Work",
+    "valuesTitleLead": "Principles built for",
+    "valuesTitleAccent": "craft & autonomy.",
+    "valuesDesc": "We are a small, intentional team of designers, writers, developers, and expedition curators.",
+    "perksLabel": "Benefits & Field Privileges",
+    "perksTitleLead": "Designed for life on the",
+    "perksTitleAccent": "move.",
+    "perksDesc": "We believe exceptional travel creators must experience the world themselves. Here is how we invest in your journey.",
+    "positionsLabel": "Open Positions",
+    "positionsTitleLead": "Find your place in the",
+    "positionsTitleAccent": "field.",
+    "positionsDesc": "Explore our active openings across editorial, product, operations, and expedition design.",
+    "filterAll": "All Departments",
+    "filterEditorial": "Editorial & Content",
+    "filterProduct": "Product & Engineering",
+    "filterOperations": "Operations & Concierge",
+    "filterDesign": "Expedition Design",
+    "applyRole": "Apply for this role",
+    "valuesHeading": "How We Work",
+    "perksHeading": "Benefits & Field Privileges",
+    "openRolesHeading": "Open Positions",
+    "applyNow": "Apply for this role",
+    "responsibilitiesHeading": "Key Responsibilities",
+    "requirementsHeading": "Requirements & Fit",
+    "values": {
+      "autonomy": {
+        "title": "Autonomy & Mastery",
+        "desc": "We trust exceptional people to do their best work without micro-management. Set your hours, choose your base, deliver excellence."
+      },
+      "field": {
+        "title": "Field-First Research",
+        "desc": "We don't write about places from desks. Our team travels extensively to test routes, meet local guides, and verify lodging."
+      },
+      "craft": {
+        "title": "Uncompromising Craft",
+        "desc": "From typography and imagery to editorial prose and software architecture, we obsess over details that elevate the experience."
+      },
+      "stewardship": {
+        "title": "Sustainable Stewardship",
+        "desc": "We prioritize low-impact travel, fair partner compensation, and long-term relationships with the communities we visit."
+      }
+    },
+    "perks": {
+      "stipend": {
+        "tag": "EXPLORE",
+        "title": "$4,000 Annual Travel Stipend",
+        "desc": "Explore the destinations we cover. Use your stipend for Talkwer departures or independent cultural field research."
+      },
+      "remote": {
+        "tag": "FLEXIBILITY",
+        "title": "Remote & Flexible",
+        "desc": "Work from anywhere with reliable internet. We coordinate across time zones with async-first workflows."
+      },
+      "health": {
+        "tag": "CARE",
+        "title": "Health & Wellness",
+        "desc": "Comprehensive medical, dental, and mental wellness coverage tailored to your home country's healthcare system."
+      },
+      "equipment": {
+        "tag": "GEAR",
+        "title": "Equipment & Home Office",
+        "desc": "Top-tier hardware allowance ($2,500) refreshed every two years, plus a monthly remote office stipend."
+      },
+      "sabbatical": {
+        "tag": "EXPEDITION",
+        "title": "Field Research Sabbatical",
+        "desc": "After two years, take a fully funded 3-week immersive field research trip to any Talkwer destination."
+      },
+      "learning": {
+        "tag": "MASTERY",
+        "title": "Learning & Growth",
+        "desc": "Annual $1,500 budget for books, courses, photography workshops, or language immersion classes."
+      }
+    },
+    "positions": {
+      "senior-expedition-editor": {
+        "title": "Senior Expedition Editor",
+        "department": "Editorial",
+        "location": "Remote (UTC-5 to UTC+2)",
+        "type": "Full-Time",
+        "summary": "Lead storytelling across our Nordic, Alpine, and Patagonian destination catalogs. Commission field photographers, write immersive feature stories, and shape long-form dispatch guides.",
+        "responsibilities": [
+          "Direct editorial voice across multi-page destination dossiers",
+          "Coordinate with local cultural guides and field photographers",
+          "Oversee publishing calendar and fact-checking workflows"
+        ],
+        "requirements": [
+          "5+ years experience in narrative travel journalism or editorial publishing",
+          "Proven track record editing long-form dispatches and essays",
+          "Strong visual sensibilities and collaborative editorial instinct"
+        ]
+      },
+      "full-stack-engineer": {
+        "title": "Full-Stack Web Engineer (Next.js)",
+        "department": "Engineering",
+        "location": "Remote (Global)",
+        "type": "Full-Time",
+        "summary": "Build the next generation of our digital magazine, interactive maps, booking pipelines, and high-performance editorial components using Next.js 16, TypeScript, and GSAP motion.",
+        "responsibilities": [
+          "Architect elegant UI components with rich micro-animations",
+          "Optimize static generation performance across all routes",
+          "Collaborate with designers on seamless editorial layouts"
+        ],
+        "requirements": [
+          "3+ years production experience with modern React, TypeScript, and Next.js",
+          "Deep familiarity with CSS layout, performance profiling, and animation",
+          "Passion for typographic craft, accessible UI, and clean code"
+        ]
+      },
+      "operations-concierge": {
+        "title": "Guest Experience & Operations Concierge",
+        "department": "Operations",
+        "location": "Remote (Europe or Americas)",
+        "type": "Full-Time",
+        "summary": "Guide travelers through reservation planning, bespoke itinerary adjustments, dietary preferences, and pre-departure preparation with editorial-level care and discretion.",
+        "responsibilities": [
+          "Manage pre-departure guest communication and bespoke requests",
+          "Liaise with boutique lodgings and local guiding partners",
+          "Resolve travel logistics and ensure seamless on-ground transitions"
+        ],
+        "requirements": [
+          "3+ years in boutique hospitality, expedition travel, or concierge roles",
+          "Impeccable written communication skills in English (multilingual a plus)",
+          "Calm problem-solving approach in dynamic situations"
+        ]
+      },
+      "lead-destination-designer": {
+        "title": "Lead Destination & Route Designer",
+        "department": "Design & Product",
+        "location": "Remote / Field (Travel ~25%)",
+        "type": "Full-Time",
+        "summary": "Scout new expedition corridors, curate boutique family-owned lodges, establish relationships with indigenous artisans, and design unforgettable day-by-day travel itineraries.",
+        "responsibilities": [
+          "Scout and field-test prospective travel routes worldwide",
+          "Establish partnerships with independent lodges and cultural hosts",
+          "Craft detailed route notes, timing grids, and elevation profiles"
+        ],
+        "requirements": [
+          "4+ years in luxury adventure or bespoke itinerary creation",
+          "Extensive international travel and route scouting experience",
+          "Commitment to sustainable and low-impact tourism models"
+        ]
+      }
+    },
+    "modal": {
+      "title": "Apply for {title}",
+      "description": "Submit your details and portfolio. Our team reviews all applications directly.",
+      "fullNameLabel": "Full Name *",
+      "fullNamePlaceholder": "Elena Rostova",
+      "emailLabel": "Email Address *",
+      "emailPlaceholder": "elena@example.com",
+      "portfolioLabel": "Portfolio / LinkedIn URL *",
+      "portfolioPlaceholder": "https://...",
+      "coverLabel": "Why Talkwer? *",
+      "coverPlaceholder": "Tell us about your background, your favorite journeys, and what you'd bring to this role...",
+      "submitApp": "Submit Application",
+      "submitting": "Sending Application…",
+      "close": "Close",
+      "successMessage": "Application sent! Our talent team will follow up within 3 business days."
+    },
+    "cta": {
+      "label": "Don't See Your Role?",
+      "titleLead": "Have a unique",
+      "titleAccent": "craft to share?",
+      "description": "We are always eager to connect with extraordinary writers, photographers, guides, and developers.",
+      "primaryAction": "Send Open Application",
+      "secondaryAction": "About Talkwer Studio"
+    }
+  },
+  "Press": {
+    "hero": {
+      "badge": "07 // Press & Media",
+      "deskLabel": "Editorial Desk · Press Routing",
+      "titleLead": "News, Dispatches &",
+      "titleAccent": "Media Resources.",
+      "eyebrow": "Press & Media",
+      "title": "News, Editorial Coverage & Brand Assets",
+      "description": "Official announcements, media kits, press releases, high-resolution visual assets, and contact channels for journalists and cultural editors.",
+      "primaryAction": "Download Media Kit",
+      "secondaryAction": "Contact Press Desk"
+    },
+    "coverage": {
+      "label": "Recent Coverage",
+      "titleLead": "Talkwer in the",
+      "titleAccent": "headlines.",
+      "description": "Features, reviews, and editorial mentions across global publications.",
+      "readArticle": "Read Article"
+    },
+    "kits": {
+      "label": "Brand Assets & Media Kits",
+      "titleLead": "Official assets for",
+      "titleAccent": "publications.",
+      "description": "High-resolution logos, imagery packages, brand guidelines, and fact sheets for accredited journalists.",
+      "downloadKit": "Download Asset Package"
+    },
+    "articles": {
+      "vogue-nordic": {
+        "title": "The Art of Slow Travel: Talkwer's Sub-Arctic Lodges",
+        "category": "Feature",
+        "excerpt": "Talkwer is reimagining the Nordic journey by placing quiet design, unhurried pacing, and local craft at the very center of every itinerary."
+      },
+      "nyt-escapes": {
+        "title": "Twelve Handcrafted Journeys for Intentional Wanderers",
+        "category": "Review",
+        "excerpt": "What sets Talkwer apart is the refusal to herd travelers through predictable landmarks. Their routes feel closer to a personal journal than a packaged tour."
+      },
+      "wallpaper-design": {
+        "title": "Architectural Solitude: Inside Patagonia's Glacial Shelters",
+        "category": "Design",
+        "excerpt": "An extraordinary study in low-impact shelter design, curated with rigorous architectural sensitivity and deep respect for the surrounding wilderness."
+      },
+      "ft-weekend": {
+        "title": "Reclaiming the Grand Tour for the Mindful Century",
+        "category": "Essay",
+        "excerpt": "Talkwer proves that the future of exploration lies not in bucket-list velocity, but in lingering until the rhythm of a place reveals itself."
+      }
+    },
+    "kitAssets": {
+      "brand-assets": {
+        "title": "Brand Guidelines & Vector Logos",
+        "description": "Official typography specifications, SVG wordmarks, primary logomarks, and brand color palette swatches for print and screen."
+      },
+      "press-pack": {
+        "title": "2026 Press Pack & Company Dossier",
+        "description": "Executive biographies, founding narrative, global partner footprint, and editorial mission statement in formatted PDF."
+      },
+      "photography-suite": {
+        "title": "High-Resolution Photography Suite",
+        "description": "Curated selection of 300 DPI destination imagery, field guide portraits, and lodge photography approved for editorial use."
+      },
+      "sustainability-report": {
+        "title": "Sustainability & Local Impact Report",
+        "description": "Verified environmental auditing data, local partner compensation frameworks, and carbon mitigation disclosures."
+      }
+    },
+    "cta": {
+      "label": "Media Inquiries",
+      "titleLead": "Need a quote or",
+      "titleAccent": "custom interview?",
+      "description": "Our editorial team and expedition directors are available for commentary on sustainable tourism, cultural immersion, and modern travel trends.",
+      "primaryAction": "Email Press Office",
+      "secondaryAction": "View Press Releases"
+    }
+  },
+  "Partners": {
+    "hero": {
+      "badge": "08 // Global Network",
+      "deskLabel": "Partner Network Desk",
+      "titleLead": "Join our curated",
+      "titleAccent": "global alliance.",
+      "eyebrow": "Global Network",
+      "title": "Partner with Talkwer",
+      "description": "We collaborate with independent boutique hoteliers, regional culinary masters, and experienced local guides on six continents.",
+      "primaryAction": "Apply as Partner",
+      "secondaryAction": "Read Partner Standards"
+    },
+    "benefits": {
+      "label": "Why Partner With Us",
+      "titleLead": "Direct access to",
+      "titleAccent": "intentional travelers.",
+      "description": "Our audience values authenticity, cultural depth, and sustainable practices above all else."
+    },
+    "benefitsItems": {
+      "direct-audience": {
+        "tag": "AUDIENCE",
+        "title": "Direct Editorial Access",
+        "description": "Connect with discerning travelers seeking authentic boutique stays and cultural immersions without noisy platform algorithms."
+      },
+      "fair-terms": {
+        "tag": "TERMS",
+        "title": "Fair, Transparent Terms",
+        "description": "We treat partners as collaborators, not suppliers. Enjoy straightforward terms, guaranteed reservation deposits, and prompt settlement."
+      },
+      "curated-roster": {
+        "tag": "QUALITY",
+        "title": "Curated, Non-Commoditized",
+        "description": "Your property or service will never compete on discounts. We showcase your unique craft, provenance, and hospitality story."
+      },
+      "global-reach": {
+        "tag": "EXPOSURE",
+        "title": "Global Editorial Exposure",
+        "description": "Featured inclusion in our quarterly destination dossiers, journal dispatches, and curated newsletter reads reaching 65,000+ readers."
+      }
+    },
+    "tiers": {
+      "label": "Partnership Tiers",
+      "titleLead": "Tailored collaboration",
+      "titleAccent": "models.",
+      "description": "Whether you run a boutique alpine lodge or an independent sailing charter, we offer partnership models designed for mutual growth.",
+      "criteriaHeading": "Key Qualification Criteria"
+    },
+    "tiersItems": {
+      "boutique-lodging": {
+        "badge": "TIER 01",
+        "category": "Accommodations",
+        "title": "Boutique Lodging & Heritage Stays",
+        "description": "For independent hotels, restored ryokans, mountain lodges, and coastal fincas with distinct architectural identity and fewer than 30 rooms.",
+        "criteria": [
+          "Architectural integrity and sense of place",
+          "Demonstrated commitment to sustainability and waste reduction",
+          "Locally sourced dining or proximity to regional food artisans"
+        ]
+      },
+      "expedition-guides": {
+        "badge": "TIER 02",
+        "category": "Guiding & Trekking",
+        "title": "Expedition Leaders & Wilderness Guides",
+        "description": "For certified alpine guides, maritime captains, wildlife trackers, and expedition specialists leading small-group field departures.",
+        "criteria": [
+          "Recognized national or international guiding certification (UIAGM, WFR)",
+          "Minimum 5 years operating experience in the target region",
+          "Comprehensive safety, satellite comms, and medical evacuation protocols"
+        ]
+      },
+      "cultural-ateliers": {
+        "badge": "TIER 03",
+        "category": "Craft & Gastronomy",
+        "title": "Cultural Ateliers & Master Artisans",
+        "description": "For ceramicists, winemakers, heritage weavers, and culinary masters who open their workspaces for private, respectful immersion.",
+        "criteria": [
+          "Practitioner of traditional or innovative heritage crafts",
+          "Ability to host small groups (2-8 guests) in a dedicated atelier setting",
+          "Authentic storytelling and personal engagement with visitors"
+        ]
+      }
+    },
+    "testimonial": {
+      "quote": "Partnering with Talkwer connected our remote Patagonian lodge with travelers who truly respect our environment and local community. Their editorial presentation captured our ethos perfectly.",
+      "name": "Mateo Valenzuela",
+      "role": "Founder & Host, Patagonia Glacial Lodge",
+      "badge": "Guild Spotlight",
+      "accredited": "Accredited",
+      "region": "Aysén Region, Chile",
+      "stat1": "Repeat Guest Engagement",
+      "stat2": "Avg Guest Stay",
+      "stat3": "Certified"
+    },
+    "form": {
+      "label": "Partner Application",
+      "titleLead": "Submit your",
+      "titleAccent": "property or service.",
+      "description": "Fill in your organization details. Our partner desk evaluates all submissions against our quality and sustainability standards.",
+      "orgName": "Organization / Property Name *",
+      "orgPlaceholder": "Alpine Retreat Collective",
+      "contactName": "Contact Person *",
+      "contactPlaceholder": "Julian Thorne",
+      "email": "Business Email *",
+      "emailPlaceholder": "julian@alpineretreat.com",
+      "category": "Partner Category *",
+      "location": "Primary Location / Region *",
+      "locationPlaceholder": "Bernese Oberland, Switzerland",
+      "website": "Website / Social Profile *",
+      "websitePlaceholder": "https://...",
+      "notes": "Overview of your offering & sustainability practices *",
+      "notesPlaceholder": "Describe your accommodations, guest capacity, cultural immersion activities, and eco-initiatives...",
+      "submit": "Submit Partner Application",
+      "submitting": "Submitting Application…",
+      "successMessage": "Application received! Our partner team will review your dossier within 5 business days."
+    },
+    "cta": {
+      "label": "Already a Partner?",
+      "titleLead": "Access your",
+      "titleAccent": "partner portal.",
+      "description": "Manage your active expedition listings, coordinate arrival dates, and review traveler feedback directly in your portal.",
+      "primaryAction": "Partner Portal Sign In",
+      "secondaryAction": "Contact Partner Support"
+    }
+  },
+  "Legal": {
+    "cookieTitle": "We respect your privacy",
+    "cookieDescription": "We use cookies to personalize your experience, analyze site traffic, and deliver tailored travel content.",
+    "cookieAccept": "Accept All",
+    "cookieDecline": "Decline Optional",
+    "cookieLearnMore": "Learn More",
+    "privacyEyebrow": "Legal & Transparency",
+    "privacyTitle": "Privacy Policy",
+    "privacyEffectiveDate": "Effective date: February 15, 2026",
+    "privacyIntro": "Talkwer is committed to protecting your privacy and ensuring transparency in how your information is collected, used, and safeguarded across all our digital platforms and travel services.",
+    "privacySections": {
+      "collect": {
+        "heading": "What we collect",
+        "body": "When you use the Contact form, we receive the fields you submit — typically your name, email address, and message. We may also receive technical data such as browser type and approximate location inferred from network requests as the site is served. We do not ask for payment card numbers on this static magazine site."
+      },
+      "use": {
+        "heading": "How we use information",
+        "body": "Contact submissions are used to reply to your questions about trips, partnerships, press, or editorial feedback. Technical logs help us keep the site reliable and understand which pages readers visit. We do not sell personal information to third parties."
+      },
+      "cookies": {
+        "heading": "Cookies and similar tech",
+        "body": "Talkwer uses essential cookies to run the site and preference cookies to remember choices such as cookie consent. For a fuller breakdown of cookie types and how to withdraw preference storage, see our Cookies page at /cookies. Declining non-essential preferences does not block reading the magazine."
+      },
+      "retention": {
+        "heading": "Retention and access",
+        "body": "We keep contact messages only as long as needed to respond and follow up on the conversation you started. You may email hello@talkwer.example to ask what contact data we hold about you or to request that we delete a message thread where practical. Some technical logs may age out automatically with hosting provider retention windows."
+      },
+      "contact": {
+        "heading": "Privacy questions",
+        "body": "Questions about this policy or your data can go to hello@talkwer.example or the Contact page. We aim to reply within a few business days. If your request involves a third-party hosting or analytics vendor, we will say so and point you to the right channel when we can."
+      }
+    },
+    "termsEyebrow": "Legal Terms",
+    "termsTitle": "Terms of Service",
+    "termsEffectiveDate": "Effective date: February 15, 2026",
+    "termsIntro": "These Terms of Service govern your access to and use of Talkwer's website, reservation handoffs, and digital editorial products.",
+    "termsSections": {
+      "acceptance": {
+        "heading": "Acceptance of terms",
+        "body": "By accessing talkwer pages you agree to use the site lawfully and in line with these terms. If you do not agree, please stop using the site. We may update this page from time to time; the effective date at the top reflects the current version."
+      },
+      "site-use": {
+        "heading": "Site use",
+        "body": "You may browse, share links, and contact us for legitimate travel or press inquiries. Do not scrape the site aggressively, attempt to disrupt hosting, or submit abusive or fraudulent messages through Contact. We may block access that harms the magazine or other readers."
+      },
+      "intellectual-property": {
+        "heading": "Intellectual property",
+        "body": "Stories, photography credits, destination write-ups, and Talkwer branding on this site are protected as our content or licensed material. You may quote short excerpts with attribution for personal, non-commercial use. Republishing full articles, downloading image libraries for commercial reuse, or removing credits without permission is not allowed."
+      },
+      "editorial-disclaimer": {
+        "heading": "Editorial itineraries",
+        "body": "Tour outlines, packing lists, and destination guides are editorial storytelling — not a binding contract or guarantee of availability, pricing, or safety conditions on the ground. Always confirm live details with Talkwer or the relevant operator before you travel. Conditions, visas, and supplier offerings change."
+      },
+      "limitation": {
+        "heading": "Limitation of liability",
+        "body": "To the fullest extent permitted by applicable law, Talkwer is not liable for losses arising from reliance on editorial content alone or from third-party sites we link to. Travel involves inherent risk; you are responsible for insurance, documentation, and personal decisions on the road. Nothing on this page limits rights that cannot be waived under local law."
+      },
+      "contact": {
+        "heading": "Questions",
+        "body": "If something in these terms is unclear, email hello@talkwer.example or use Contact before you rely on a specific itinerary or partnership. We will clarify how the magazine content relates to any booking conversation you start with us."
+      }
+    },
+    "cookiesEyebrow": "Cookie Preferences",
+    "cookiesTitle": "Cookie Policy",
+    "cookiesEffectiveDate": "Effective date: February 15, 2026",
+    "cookiesIntro": "This Cookie Policy explains how Talkwer uses cookies and similar technologies to remember your preferences, optimize navigation, and personalize your experience.",
+    "cookiesSections": {
+      "essential": {
+        "heading": "Essential cookies",
+        "body": "Essential cookies help the site function — for example keeping session or security-related state that the browser needs to load pages reliably. These are not used to build advertising profiles. Without them, parts of the experience may break or reset unexpectedly."
+      },
+      "preference": {
+        "heading": "Preference cookies",
+        "body": "Preference cookies remember choices such as whether you accepted or declined non-essential cookies in our consent banner. Storing that preference means we do not ask on every visit. Preference data stays local to your browser unless you clear site data."
+      },
+      "consent-banner": {
+        "heading": "Consent banner",
+        "body": "When you first visit, Talkwer may show a cookie consent banner with Accept, Decline, and a Learn more link to this page. Accepting stores your preference for non-essential cookies where the banner applies. Declining keeps the magazine readable while skipping preference storage beyond what is needed to remember the decline itself."
+      },
+      "withdraw": {
+        "heading": "How to withdraw",
+        "body": "To change or clear a stored cookie preference, clear site data for Talkwer in your browser settings, or remove the preference key the consent component uses. After clearing, the banner can appear again so you can Accept or Decline anew. Browser controls also let you block cookies globally if you prefer."
+      },
+      "more": {
+        "heading": "Related policies",
+        "body": "For how contact form data and other personal information are handled, read our Privacy Policy at /privacy. Questions about cookies or consent can go to hello@talkwer.example or the Contact page. We will explain which storage applies to your request when we can."
+      }
+    },
+    "cancellationEyebrow": "Flexible Travel Protection",
+    "cancellationTitle": "Cancellation & Refund Policy",
+    "cancellationEffectiveDate": "Effective date: February 15, 2026",
+    "cancellationIntro": "We believe travel planning should be inspiring, not stressful. Our clear cancellation schedules and refund frameworks are designed with fairness in mind.",
+    "cancellationSections": {
+      "windows": {
+        "heading": "Refund windows",
+        "body": "Refund eligibility depends on how far out you cancel and the supplier rules on your confirmation. Early cancellations typically retain a larger refundable portion of the deposit and balance. Closer to departure, non-refundable supplier costs often apply and may reduce or eliminate a cash refund."
+      },
+      "credits": {
+        "heading": "Travel credits",
+        "body": "When a cash refund is not available, Talkwer may offer a travel credit toward a future journey of equal or greater value. Credits usually carry an expiration date and cannot be transferred for cash. We will confirm credit amount, expiry, and any blackout dates in writing when a credit is issued."
+      },
+      "how-to-cancel": {
+        "heading": "How to cancel",
+        "body": "Send a written cancellation request from the email on your booking, or use the Contact page with your confirmation number and travel dates. Verbal or social-message cancellations are not binding until we acknowledge them in writing. Processing times vary with supplier response windows."
+      },
+      "force-majeure": {
+        "heading": "Force majeure",
+        "body": "Events beyond reasonable control — severe weather, strikes, government closures, or public health emergencies — may force itinerary changes or cancellations. In those cases we work with partners to rebook, credit, or refund according to what suppliers allow. Talkwer cannot guarantee outcomes that depend on third-party policies or local regulations."
+      },
+      "contact": {
+        "heading": "Questions",
+        "body": "If you are unsure which window applies to your trip, reach out before you cancel. Email hello@talkwer.example or use Contact with your confirmation details. We will walk through options so you can choose refund, credit, or date change with clear expectations."
+      }
+    },
+    "bookingPolicyEyebrow": "Reservation Framework",
+    "bookingPolicyTitle": "Booking Policy",
+    "bookingPolicyEffectiveDate": "Effective date: February 15, 2026",
+    "bookingPolicyIntro": "Our booking policy outlines how expedition slots are reserved, confirmed, and verified with our local partners worldwide.",
+    "bookingSections": {
+      "confirmation": {
+        "heading": "Confirmations",
+        "body": "A booking is confirmed once you receive written confirmation from Talkwer with dates, travelers, and inclusions. Hold requests are not guarantees. Until confirmation arrives, inventory may still be released to other guests. Double-check every detail on the confirmation and reply promptly if anything looks incorrect."
+      },
+      "deposits": {
+        "heading": "Deposits and balance",
+        "body": "Most journeys require a deposit to secure space. Balance due dates appear on your confirmation. Late balances may release inventory. Deposit amounts and payment schedules vary by trip type and supplier; your confirmation always lists the amounts that apply to you."
+      },
+      "changes": {
+        "heading": "Date and traveler changes",
+        "body": "Change requests are reviewed case by case and may incur supplier fees. See Cancellation for refunds and credits. Name swaps and date moves often depend on availability with hotels, guides, and transport partners. We will outline any extra costs before you commit to a change."
+      },
+      "responsibilities": {
+        "heading": "Traveler responsibilities",
+        "body": "You are responsible for accurate passport details, visas, vaccinations, and travel insurance that meet the destinations on your itinerary. Talkwer shares editorial guidance and packing notes, but entry rules and health requirements can change. Always verify current requirements with official sources before you depart."
+      },
+      "contact": {
+        "heading": "Questions",
+        "body": "Email hello@talkwer.example or use the Contact page before you book if anything is unclear. We would rather answer a booking question early than unravel a mismatch after deposit. Response times may be longer during peak travel seasons."
+      }
+    }
+  }
+}

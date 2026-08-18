@@ -1,9 +1,17 @@
 "use client";
 
-import { AboutHero, AboutPhilosophy, AboutStory, AboutValues } from "@/features/about/sections";
+import {
+	AboutHero,
+	AboutStory,
+	AboutGlobalReach,
+	AboutPhilosophy,
+	AboutValues,
+	AboutJourney,
+	AboutTeam,
+	AboutCTA,
+} from "@/features/about/sections";
 import { InitialLoader } from "@/features/home/sections";
 import { useInitialPageLoader } from "@/lib/use-initial-page-loader";
-import { EditorialCtaBand } from "@/shared/ui";
 
 export default function AboutPage() {
 	const isLoading = useInitialPageLoader();
@@ -14,24 +22,12 @@ export default function AboutPage() {
 			<div className="relative min-h-screen overflow-x-clip bg-[#050505]">
 				<AboutHero />
 				<AboutStory />
+				<AboutGlobalReach />
 				<AboutPhilosophy />
 				<AboutValues />
-				<EditorialCtaBand
-					showTopFrame
-					headingId="about-footer-cta"
-					label="Join the Journey"
-					titleLead="Ready to Experience"
-					titleAccent="Unrushed Travel?"
-					description="Explore signature group itineraries or custom private journeys designed with local depth."
-					primary={{
-						label: "Browse Destinations",
-						href: "/destinations",
-					}}
-					secondary={{
-						label: "Read Stories",
-						href: "/stories",
-					}}
-				/>
+				<AboutJourney />
+				<AboutTeam />
+				<AboutCTA />
 			</div>
 		</>
 	);

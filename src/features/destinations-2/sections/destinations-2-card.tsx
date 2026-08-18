@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import type { Destination } from "@/shared/types/domain";
 import { cn } from "@/lib/utils";
 

@@ -1,8 +1,13 @@
+"use client";
+
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { LuQuote } from "react-icons/lu";
 import { EXPERIENCES_SPOTLIGHT } from "../content/experiences-page-copy";
 
 export function ExperiencesSpotlight() {
+	const t = useTranslations("Experiences.spotlight");
+
 	return (
 		<section className="bg-[#050505] text-white py-16 md:py-24 border-t border-white/6">
 			<div className="pad-x mx-auto max-w-[1600px]">
@@ -10,20 +15,20 @@ export function ExperiencesSpotlight() {
 					{/* Text Column */}
 					<div className="lg:col-span-7 space-y-6">
 						<p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-500">
-							{EXPERIENCES_SPOTLIGHT.eyebrow}
+							{t("eyebrow")}
 						</p>
 						<h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
-							{EXPERIENCES_SPOTLIGHT.title}
+							{t("title")}
 						</h2>
 						<div className="relative pl-6 border-l-2 border-orange-500 my-6">
 							<LuQuote className="h-8 w-8 text-orange-500/20 absolute -top-4 -left-3 -z-10" />
 							<p className="text-base sm:text-lg italic text-white/80 leading-relaxed">
-								&ldquo;{EXPERIENCES_SPOTLIGHT.quote}&rdquo;
+								&ldquo;{t("quote")}&rdquo;
 							</p>
 						</div>
 						<div>
-							<p className="text-sm font-semibold text-white">{EXPERIENCES_SPOTLIGHT.curatorName}</p>
-							<p className="text-xs text-white/40">{EXPERIENCES_SPOTLIGHT.curatorTitle}</p>
+							<p className="text-sm font-semibold text-white">{t("curatorName")}</p>
+							<p className="text-xs text-white/40">{t("curatorTitle")}</p>
 						</div>
 					</div>
 

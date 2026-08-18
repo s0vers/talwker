@@ -1,10 +1,12 @@
-import Link from "next/link";
+"use client";
+
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
 import {
 	buildDestinationsListHref,
 	type DestinationsListParsed,
 } from "@/features/destinations/lib/destinations-list-params";
-import { DESTINATIONS_3_GRID } from "@/features/destinations-3/content/destinations-3-page-copy";
 import { DESTINATIONS_3_LIST_PATH } from "@/features/destinations-3/lib/destinations-3-list-path";
 import { cn } from "@/lib/utils";
 
@@ -19,6 +21,7 @@ export function Destinations3GridPagination({
 	currentPage,
 	totalPages,
 }: Destinations3GridPaginationProps) {
+	const t = useTranslations("Destinations3.grid");
 	if (totalPages <= 1) return null;
 
 	const hrefForPage = (page: number) => {
@@ -32,8 +35,8 @@ export function Destinations3GridPagination({
 			aria-label="Destinations pagination"
 		>
 			<p className="text-center text-xs tabular-nums text-white/45 sm:text-left" aria-live="polite" aria-atomic="true">
-				{DESTINATIONS_3_GRID.paginationPage} {currentPage}
-				<span className="mx-1 text-white/25">{DESTINATIONS_3_GRID.paginationOf}</span>
+				{t("paginationPage")} {currentPage}
+				<span className="mx-1 text-white/25">{t("paginationOf")}</span>
 				{totalPages}
 			</p>
 
@@ -50,7 +53,7 @@ export function Destinations3GridPagination({
 					)}
 				>
 					<LuChevronLeft className="h-4 w-4" aria-hidden />
-					{DESTINATIONS_3_GRID.paginationPrevious}
+					{t("paginationPrevious")}
 				</Link>
 
 				<div className="flex flex-wrap items-center justify-center gap-1 px-2">
@@ -59,7 +62,7 @@ export function Destinations3GridPagination({
 							key={n}
 							href={hrefForPage(n)}
 							scroll={false}
-							aria-label={`${DESTINATIONS_3_GRID.paginationGoToPage} ${n}`}
+							aria-label={`${t("paginationGoToPage")} ${n}`}
 							aria-current={n === currentPage ? "page" : undefined}
 							className={cn(
 								"flex h-9 min-w-9 items-center justify-center rounded-sm border text-xs font-semibold tabular-nums",
@@ -84,7 +87,7 @@ export function Destinations3GridPagination({
 							: "border-white/18 text-white/75 hover:border-orange-500/40 hover:text-white",
 					)}
 				>
-					{DESTINATIONS_3_GRID.paginationNext}
+					{t("paginationNext")}
 					<LuChevronRight className="h-4 w-4" aria-hidden />
 				</Link>
 			</div>

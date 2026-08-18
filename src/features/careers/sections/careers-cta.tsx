@@ -1,20 +1,24 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import { EditorialCtaBand } from "@/shared/ui";
-import { CAREERS_CTA } from "../content/careers-copy";
 
 export function CareersCTA() {
+	const t = useTranslations("Careers");
+
 	return (
 		<EditorialCtaBand
-			label={CAREERS_CTA.label}
-			titleLead={CAREERS_CTA.titleLead}
-			titleAccent={CAREERS_CTA.titleAccent}
-			description={CAREERS_CTA.description}
+			label={t("cta.label")}
+			titleLead={t("cta.titleLead")}
+			titleAccent={t("cta.titleAccent")}
+			description={t("cta.description")}
 			primary={{
-				label: CAREERS_CTA.primaryAction,
-				href: CAREERS_CTA.primaryHref,
+				label: t("cta.primaryAction"),
+				href: "/contact",
 			}}
 			secondary={{
-				label: CAREERS_CTA.secondaryAction,
-				href: CAREERS_CTA.secondaryHref,
+				label: t("cta.secondaryAction"),
+				href: "/about",
 			}}
 			showTopFrame
 		/>

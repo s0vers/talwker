@@ -53,23 +53,35 @@ export function createPageMetadata(config: SeoConfig): Metadata {
 		title,
 		description,
 		path = "/",
-		canonicalPath = path,
+		canonicalPath,
 		imagePath = SEO_DEFAULTS.defaultImagePath,
 		keywords = SEO_DEFAULTS.defaultKeywords,
 		index = true,
 		follow = true,
 		type = "website",
 		absoluteTitle = false,
+		locale = "en",
 	} = config;
 
-	const canonicalUrl = resolveCanonicalUrl(canonicalPath);
+	const targetPath = canonicalPath ?? path;
+	const cleanPath = targetPath === "/" ? "" : targetPath.startsWith("/") ? targetPath : `/${targetPath}`;
+	const canonicalUrl = resolveCanonicalUrl(
+		locale === "en" ? `${cleanPath || "/"}` : `/${locale}${cleanPath}`,
+	);
 	const imageUrl = resolveCanonicalUrl(imagePath);
 
 	return {
 		title: absoluteTitle ? { absolute: title } : title,
 		description,
 		keywords,
-		alternates: { canonical: canonicalUrl },
+		alternates: {
+			canonical: canonicalUrl,
+			languages: {
+				en: resolveCanonicalUrl(cleanPath || "/"),
+				es: resolveCanonicalUrl(`/es${cleanPath}`),
+				ja: resolveCanonicalUrl(`/ja${cleanPath}`),
+			},
+		},
 		robots: {
 			...SEO_DEFAULTS.robots,
 			index,
@@ -88,7 +100,7 @@ export function createPageMetadata(config: SeoConfig): Metadata {
 			title,
 			description,
 			siteName: SEO_DEFAULTS.siteName,
-			locale: SEO_DEFAULTS.locale,
+			locale: locale === "es" ? "es_ES" : locale === "ja" ? "ja_JP" : "en_US",
 			images: [{ url: imageUrl, width: 1200, height: 630, alt: title }],
 		},
 		twitter: {
@@ -113,6 +125,11 @@ export function createBaseMetadata(): Metadata {
 		category: "travel",
 		alternates: {
 			canonical: resolveCanonicalUrl("/"),
+			languages: {
+				en: resolveCanonicalUrl("/"),
+				es: resolveCanonicalUrl("/es"),
+				ja: resolveCanonicalUrl("/ja"),
+			},
 		},
 		robots: SEO_DEFAULTS.robots,
 		openGraph: {

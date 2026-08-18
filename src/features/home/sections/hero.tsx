@@ -2,10 +2,12 @@
 
 import Image from "next/image";
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
-import { HERO_COPY } from "@/features/home/content/section-copy";
+import { ButtonWithIcon } from "@/shared/ui";
 
 export default function Hero() {
+	const t = useTranslations("Home.hero");
 	const section = useRef<HTMLElement>(null);
 	const imgWrap = useRef<HTMLDivElement>(null);
 	const overlayRef = useRef<HTMLDivElement>(null);
@@ -34,7 +36,11 @@ export default function Hero() {
 
 			const subChildren = subRef.current?.children;
 			if (subChildren?.length) {
-				tl.from(subChildren, { y: 30, opacity: 0, duration: 0.8, stagger: 0.15 }, "-=0.6");
+				tl.from(
+					subChildren,
+					{ y: 30, opacity: 0, duration: 0.8, stagger: 0.15, clearProps: "opacity,transform" },
+					"-=0.6",
+				);
 			}
 
 			gsap.to([line1.current, line2.current, line3.current], {
@@ -76,42 +82,39 @@ export default function Hero() {
 			<div className="relative z-10 flex h-full flex-col justify-end pad-x pb-10 pt-28 md:pb-14 md:pt-32">
 				<div ref={tagRef} className="mb-6">
 					<span className="inline-block rounded-full border border-white/20 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.25em] text-white/50">
-						{HERO_COPY.tagline}
+						{t("tagline")}
 					</span>
 				</div>
 
 				<div className="overflow-hidden">
 					<h1 ref={line1} className="text-[clamp(2.15rem,10vw,9rem)] font-bold leading-[0.9] tracking-tighter text-white">
-						{HERO_COPY.titleLines[0]}
+						{t("titleLines1")}
 					</h1>
 				</div>
 				<div className="overflow-hidden">
 					<h1 ref={line2} className="text-[clamp(2.15rem,10vw,9rem)] font-bold leading-[0.9] tracking-tighter text-white">
-						{HERO_COPY.titleLines[1]}
+						{t("titleLines2")}
 					</h1>
 				</div>
 				<div className="overflow-hidden">
 					<h1 ref={line3} className="text-[clamp(2.15rem,10vw,9rem)] font-bold leading-[0.9] tracking-tighter">
-						<span className="text-white">{HERO_COPY.titleLines[2]}</span>{" "}
-						<span className="font-light italic text-orange-500">{HERO_COPY.titleAccent}</span>
+						<span className="text-white">{t("titleLines3")}</span>{" "}
+						<span className="font-light italic text-orange-500">{t("titleAccent")}</span>
 					</h1>
 				</div>
 
 				<div ref={subRef} className="mt-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-					<p className="max-w-sm text-sm leading-relaxed text-white/65">
-						{HERO_COPY.description}
+					<p className="max-w-sm text-sm leading-relaxed text-white/40">
+						{t("description")}
 					</p>
-					<a
+					<ButtonWithIcon
 						href="#destinations"
-						className="group inline-flex items-center gap-4 self-start"
+						variant="orange"
+						size="lg"
+						className="shrink-0 shadow-xl shadow-orange-500/20"
 					>
-						<span className="flex h-14 w-14 items-center justify-center rounded-full bg-orange-500 text-white transition-transform duration-500 group-hover:scale-110">
-							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-						</span>
-						<span className="text-[13px] font-medium uppercase tracking-[0.15em] text-white/50 transition-colors duration-300 group-hover:text-white">
-							{HERO_COPY.exploreLabel}
-						</span>
-					</a>
+						{t("explore")}
+					</ButtonWithIcon>
 				</div>
 			</div>
 		</section>

@@ -1,6 +1,8 @@
-import Link from "next/link";
+"use client";
+
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
-import { DESTINATIONS_GRID } from "@/features/destinations/content/destinations-page-copy";
 import {
 	buildDestinationsListHref,
 	type DestinationsListParsed,
@@ -18,6 +20,7 @@ export function DestinationsGridPagination({
 	currentPage,
 	totalPages,
 }: DestinationsGridPaginationProps) {
+	const t = useTranslations("Destinations.grid");
 	if (totalPages <= 1) return null;
 
 	const hrefForPage = (page: number) => {
@@ -35,7 +38,7 @@ export function DestinationsGridPagination({
 				aria-live="polite"
 				aria-atomic="true"
 			>
-				{DESTINATIONS_GRID.paginationPage} {currentPage} {DESTINATIONS_GRID.paginationOf} {totalPages}
+				{t("paginationPage")} {currentPage} {t("paginationOf")} {totalPages}
 			</p>
 
 			<div className="order-1 flex w-full flex-wrap items-center justify-center gap-2 sm:order-2 sm:w-auto sm:justify-end">
@@ -51,7 +54,7 @@ export function DestinationsGridPagination({
 					)}
 				>
 					<LuChevronLeft className="h-4 w-4" aria-hidden />
-					{DESTINATIONS_GRID.paginationPrevious}
+					{t("paginationPrevious")}
 				</Link>
 
 				<div className="flex flex-wrap items-center justify-center gap-1.5 px-2">
@@ -60,7 +63,7 @@ export function DestinationsGridPagination({
 							key={n}
 							href={hrefForPage(n)}
 							scroll={false}
-							aria-label={`${DESTINATIONS_GRID.paginationGoToPage} ${n}`}
+							aria-label={`${t("paginationGoToPage")} ${n}`}
 							aria-current={n === currentPage ? "page" : undefined}
 							className={cn(
 								"flex h-10 min-w-10 items-center justify-center rounded-full border text-xs font-semibold tabular-nums transition-colors",
@@ -85,7 +88,7 @@ export function DestinationsGridPagination({
 							: "border-white/20 text-white/80 hover:border-orange-500/50 hover:text-white",
 					)}
 				>
-					{DESTINATIONS_GRID.paginationNext}
+					{t("paginationNext")}
 					<LuChevronRight className="h-4 w-4" aria-hidden />
 				</Link>
 			</div>

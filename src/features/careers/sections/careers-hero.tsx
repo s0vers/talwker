@@ -1,11 +1,13 @@
 "use client";
 
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import { LuSparkles, LuBriefcase, LuGlobe, LuHeart, LuArrowDown } from "react-icons/lu";
 import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
 import { CAREERS_HERO } from "../content/careers-copy";
 
 export function CareersHero() {
+	const t = useTranslations("Careers");
 	const containerRef = useRef<HTMLElement>(null);
 	const contentRef = useRef<HTMLDivElement>(null);
 	const manifestoRef = useRef<HTMLDivElement>(null);
@@ -98,11 +100,11 @@ export function CareersHero() {
 						<div className="flex flex-wrap items-center gap-3">
 							<span className="inline-flex items-center gap-1.5 rounded-full bg-orange-500/10 border border-orange-500/30 px-3.5 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-400">
 								<LuSparkles className="h-3 w-3 text-orange-500" />
-								02 // Careers
+								{t("hero.badge")}
 							</span>
 							<span className="inline-flex items-center gap-2 rounded-full bg-orange-500/10 border border-orange-500/30 px-3 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-orange-400">
 								<span className="h-1.5 w-1.5 rounded-full bg-orange-400 animate-pulse" />
-								4 Open Positions
+								{t("hero.liveDesk")}
 							</span>
 						</div>
 
@@ -110,14 +112,14 @@ export function CareersHero() {
 							id="careers-hero-title"
 							className="text-[clamp(2.75rem,6.5vw,5.25rem)] font-bold leading-[0.93] tracking-tight text-white"
 						>
-							Shape the future of{" "}
+							{t("hero.titleLead")}{" "}
 							<span className="font-light italic text-orange-500 block sm:inline">
-								slow editorial travel.
+								{t("hero.titleAccent")}
 							</span>
 						</h1>
 
 						<p className="text-base sm:text-lg text-white/60 leading-relaxed max-w-xl">
-							{CAREERS_HERO.description}
+							{t("hero.description")}
 						</p>
 
 						<div className="pt-2 flex flex-wrap gap-4 items-center">
@@ -126,7 +128,7 @@ export function CareersHero() {
 								onClick={scrollToRoles}
 								className="inline-flex items-center gap-2 rounded-full bg-orange-500 px-8 py-3.5 text-xs font-semibold uppercase tracking-widest text-white transition-all hover:bg-orange-600 hover:shadow-xl hover:shadow-orange-500/20"
 							>
-								Explore Open Roles <LuArrowDown className="h-4 w-4" />
+								{t("applyNow")} <LuArrowDown className="h-4 w-4" />
 							</button>
 						</div>
 					</div>

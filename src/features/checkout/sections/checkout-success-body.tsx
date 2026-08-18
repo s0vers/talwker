@@ -1,8 +1,10 @@
+"use client";
+
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { resolveBookingTour } from "@/features/booking/lib/booking-tour";
-import { CHECKOUT_COPY, CHECKOUT_SUCCESS_COPY } from "@/features/checkout/content/checkout-copy";
 import { formatCheckoutSlot } from "@/features/checkout/lib/format-checkout-slot";
 import type { BookingConfirmation } from "@/features/checkout/lib/confirmation-id";
 import { Calendar, CheckCircle2, MapPin } from "lucide-react";
@@ -12,6 +14,7 @@ export function CheckoutSuccessBody({
 }: {
 	confirmation: BookingConfirmation;
 }) {
+	const t = useTranslations("Checkout");
 	const tour = resolveBookingTour(confirmation.tourSlug);
 	const slot = formatCheckoutSlot(confirmation.slotIso, confirmation.timeZone);
 
@@ -30,9 +33,9 @@ export function CheckoutSuccessBody({
 					</div>
 					<div>
 						<span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-emerald-400">
-							{CHECKOUT_SUCCESS_COPY.confirmationLabel}
+							{t("successConfirmationLabel")}
 						</span>
-						<p className="text-xs text-white/50">Handoff successfully registered</p>
+						<p className="text-xs text-white/50">{t("registeredNote")}</p>
 					</div>
 				</div>
 
@@ -40,17 +43,17 @@ export function CheckoutSuccessBody({
 					id="checkout-success-heading"
 					className="mt-6 text-[clamp(1.85rem,4vw,2.75rem)] font-bold tracking-tighter text-white"
 				>
-					{CHECKOUT_SUCCESS_COPY.title}
+					{t("successTitle")}
 				</h1>
 				<p className="mt-3 max-w-xl text-sm leading-relaxed text-white/70 md:text-base">
-					{CHECKOUT_SUCCESS_COPY.body}
+					{t("successBody")}
 				</p>
 
 				{/* Confirmation Code Box */}
 				<div className="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-orange-500/30 bg-orange-500/10 p-4">
 					<div>
 						<p className="text-[10px] font-semibold uppercase tracking-widest text-orange-400">
-							Confirmation Code
+							{t("successConfirmationLabel")}
 						</p>
 						<p className="font-mono text-lg font-bold tracking-wider text-orange-300">
 							{confirmation.id}
@@ -58,7 +61,7 @@ export function CheckoutSuccessBody({
 					</div>
 					<div className="flex items-center gap-2">
 						<span className="rounded-full bg-orange-500/20 px-3 py-1 text-xs text-orange-200">
-							Verified Booking
+							{t("verifiedBooking")}
 						</span>
 					</div>
 				</div>
@@ -78,7 +81,7 @@ export function CheckoutSuccessBody({
 						<div className="p-5 grid gap-3 text-sm">
 							<div>
 								<span className="text-[10px] font-semibold uppercase tracking-widest text-white/50">
-									{CHECKOUT_COPY.summaryTourLabel}
+									{t("summaryTourLabel")}
 								</span>
 								<p className="text-base font-bold text-white mt-0.5">
 									{confirmation.tourTitle}
@@ -110,7 +113,7 @@ export function CheckoutSuccessBody({
 						size="lg"
 						className="rounded-full bg-orange-500 px-8 text-white transition-colors hover:bg-orange-500/90"
 					>
-						<Link href="/">{CHECKOUT_SUCCESS_COPY.homeLabel}</Link>
+						<Link href="/">{t("successHomeLabel")}</Link>
 					</Button>
 					<Button
 						asChild
@@ -119,7 +122,7 @@ export function CheckoutSuccessBody({
 						className="rounded-full border-white/20 bg-transparent text-white transition-colors hover:bg-white/10 hover:text-white"
 					>
 						<Link href={`/tours/${confirmation.tourSlug}`}>
-							{CHECKOUT_SUCCESS_COPY.tourLabel}
+							{t("successTourLabel")}
 						</Link>
 					</Button>
 				</div>

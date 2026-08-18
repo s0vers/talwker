@@ -1,15 +1,19 @@
-import Link from "next/link";
+"use client";
+
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 import { EXPERIENCE_STYLES } from "../content/experience-styles";
 
 export function ExperiencesStyles() {
+	const t = useTranslations("Experiences.styles");
 	return (
 		<section className="bg-[#050505] text-white py-16 md:py-24 border-t border-white/6">
 			<div className="pad-x mx-auto max-w-[1600px]">
 				<div className="mb-12">
 					<p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-500">
-						Pacing & Format
+						{t("eyebrow")}
 					</p>
-					<h2 className="mt-2 text-2xl font-bold tracking-tight md:text-3xl">Travel Styles</h2>
+					<h2 className="mt-2 text-2xl font-bold tracking-tight md:text-3xl">{t("title")}</h2>
 				</div>
 				<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
 					{EXPERIENCE_STYLES.map((style) => (
@@ -27,7 +31,7 @@ export function ExperiencesStyles() {
 								</p>
 							</div>
 							<span className="mt-8 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wider text-orange-500">
-								Explore <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+								{t("explore")} <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
 							</span>
 						</Link>
 					))}

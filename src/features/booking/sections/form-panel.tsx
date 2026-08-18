@@ -1,6 +1,6 @@
 "use client";
 
-import { BOOKING_COPY } from "@/features/booking/content/booking-copy";
+import { useTranslations } from "next-intl";
 import { writeBookingHandoff } from "@/features/booking/lib/booking-handoff";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,7 +13,8 @@ import {
 } from "@/components/ui/tooltip";
 import type { Tour } from "@/shared/types/domain";
 import { UserPlus, X } from "lucide-react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "@/i18n/navigation";
+import { useSearchParams } from "next/navigation";
 import * as React from "react";
 import { PhoneInput, getPhoneData } from "./phone-input";
 
@@ -31,6 +32,7 @@ export function FormPanel({
 	timeZone: string;
 	onBack: () => void;
 }) {
+	const t = useTranslations("Booking");
 	const router = useRouter();
 	const searchParams = useSearchParams();
 	const slotParam = searchParams.get("slot");
@@ -78,14 +80,14 @@ export function FormPanel({
 		if (!name || !email || !hasValidPhone) {
 			setError(
 				!name || !email
-					? "Name, email, and phone are required."
-					: "Enter a valid phone number (not just the country code).",
+					? t("errorRequired")
+					: t("errorPhone"),
 			);
 			return;
 		}
 
 		if (!slotParam) {
-			setError("Pick a time slot before continuing.");
+			setError(t("errorSlot"));
 			return;
 		}
 
@@ -112,7 +114,7 @@ export function FormPanel({
 		>
 			<div className="flex flex-col space-y-1.5">
 				<Label htmlFor="name" className="text-white/80">
-					Your name *
+					{t("nameLabel")}
 				</Label>
 				<Input
 					id="name"
@@ -120,12 +122,11 @@ export function FormPanel({
 					value={guestName}
 					onChange={(e) => setGuestName(e.target.value)}
 					required
-					className="border-0 bg-white/[0.02] shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] focus-visible:ring-1 focus-visible:ring-orange-500/50"
 				/>
 			</div>
 			<div className="flex flex-col space-y-1.5">
 				<Label htmlFor="email" className="text-white/80">
-					Email address *
+					{t("emailLabel")}
 				</Label>
 				<Input
 					id="email"
@@ -134,32 +135,30 @@ export function FormPanel({
 					value={guestEmail}
 					onChange={(e) => setGuestEmail(e.target.value)}
 					required
-					className="border-0 bg-white/[0.02] shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] focus-visible:ring-1 focus-visible:ring-orange-500/50"
 				/>
 			</div>
 			<div className="flex flex-col space-y-1.5">
 				<Label htmlFor="phone" className="text-white/80">
-					Phone number *
+					{t("phoneLabel")}
 				</Label>
 				<PhoneInput id="phone" />
 			</div>
 			<div className="flex flex-col space-y-1.5">
 				<Label htmlFor="notes" className="text-white/80">
-					Additional notes
+					{t("notesLabel")}
 				</Label>
 				<Textarea
 					id="notes"
 					name="notes"
 					value={notes}
 					onChange={(e) => setNotes(e.target.value)}
-					placeholder="Please share anything that will help prepare for our meeting"
-					className="border-0 bg-white/[0.02] shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] focus-visible:ring-1 focus-visible:ring-orange-500/50"
+					placeholder={t("notesPlaceholder")}
 				/>
 			</div>
 			{hasGuests && (
 				<>
 					<Label htmlFor="guest" className="text-white/80">
-						Add guests
+						{t("addGuests")}
 					</Label>
 					<div className="flex flex-col gap-1">
 						{guests.map((guest, index) => (
@@ -173,7 +172,6 @@ export function FormPanel({
 									placeholder="Email"
 									value={guest.email}
 									onChange={(e) => handleGuestChange(guest.id, e.target.value)}
-									className="border-0 bg-white/[0.02] shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] focus-visible:ring-1 focus-visible:ring-orange-500/50"
 								/>
 								<Tooltip>
 									<TooltipTrigger asChild>
@@ -181,13 +179,13 @@ export function FormPanel({
 											type="button"
 											className="absolute right-3 top-1/2 -translate-y-1/2 p-1"
 											onClick={() => removeGuest(guest.id)}
-											aria-label="Remove email"
+											aria-label={t("removeEmail")}
 										>
 											<X className="size-4 cursor-pointer text-white/60 transition-colors hover:text-white" />
 										</button>
 									</TooltipTrigger>
 									<TooltipContent>
-										Remove email
+										{t("removeEmail")}
 									</TooltipContent>
 								</Tooltip>
 							</div>
@@ -202,12 +200,10 @@ export function FormPanel({
 				className="w-fit text-white/80 hover:bg-white/10 hover:text-white"
 			>
 				<UserPlus className="mr-2 size-4" />
-				Add guests
+				{t("addGuests")}
 			</Button>
 			<p className="my-2 text-xs text-white/50">
-				By proceeding, you agree to our{" "}
-				<span className="text-white/80">Terms</span> and{" "}
-				<span className="text-white/80">Privacy Policy</span>.
+				{t("termsNotice")}
 			</p>
 			{error && <p className="text-sm font-medium text-orange-400">{error}</p>}
 			<div className="flex justify-end gap-2 pt-2">
@@ -217,13 +213,13 @@ export function FormPanel({
 					onClick={onBack}
 					className="rounded-full text-white/80 hover:bg-white/10 hover:text-white"
 				>
-					Back
+					{t("back")}
 				</Button>
 				<Button
 					type="submit"
 					className="rounded-full bg-orange-500 px-6 font-medium text-white transition-colors hover:bg-orange-500/90"
 				>
-					{BOOKING_COPY.continueLabel}
+					{t("continueLabel")}
 				</Button>
 			</div>
 		</form>

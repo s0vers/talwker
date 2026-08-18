@@ -1,19 +1,24 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import { EditorialCtaBand } from "@/shared/ui";
 
 export function FaqCTA() {
+	const t = useTranslations("FAQ");
+
 	return (
 		<EditorialCtaBand
-			label="Help & Support"
-			titleLead="Still have"
-			titleAccent="questions?"
-			description="Our experience team and trip planners are available to assist with custom routes, dates, and booking details."
+			label={t("cta.label")}
+			titleLead={t("cta.titleLead")}
+			titleAccent={t("cta.titleAccent")}
+			description={t("cta.description")}
 			primary={{
-				label: "Contact Support",
+				label: t("cta.primaryAction"),
 				href: "/contact",
 			}}
 			secondary={{
-				label: "Read Booking Policy",
-				href: "/booking-policy",
+				label: t("cta.secondaryAction"),
+				href: "/tours",
 			}}
 			showTopFrame
 		/>

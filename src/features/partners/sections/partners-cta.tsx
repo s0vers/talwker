@@ -1,20 +1,24 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import { EditorialCtaBand } from "@/shared/ui";
-import { PARTNERS_CTA } from "../content/partners-copy";
 
 export function PartnersCTA() {
+	const t = useTranslations("Partners");
+
 	return (
 		<EditorialCtaBand
-			label={PARTNERS_CTA.label}
-			titleLead={PARTNERS_CTA.titleLead}
-			titleAccent={PARTNERS_CTA.titleAccent}
-			description={PARTNERS_CTA.description}
+			label={t("cta.label")}
+			titleLead={t("cta.titleLead")}
+			titleAccent={t("cta.titleAccent")}
+			description={t("cta.description")}
 			primary={{
-				label: PARTNERS_CTA.primaryAction,
-				href: PARTNERS_CTA.primaryHref,
+				label: t("cta.primaryAction"),
+				href: "/login",
 			}}
 			secondary={{
-				label: PARTNERS_CTA.secondaryAction,
-				href: PARTNERS_CTA.secondaryHref,
+				label: t("cta.secondaryAction"),
+				href: "/contact",
 			}}
 			showTopFrame
 		/>

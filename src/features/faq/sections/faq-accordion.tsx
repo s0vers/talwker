@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { LuArrowRight, LuCircleHelp } from "react-icons/lu";
 import { FAQ_GROUPS } from "../content/faq-copy";
@@ -12,23 +13,39 @@ export type FaqAccordionProps = {
 };
 
 export function FaqAccordion({ searchQuery, onClearSearch }: FaqAccordionProps) {
+	const t = useTranslations("FAQ");
 	const [activeTab, setActiveTab] = useState<string>("all");
 
 	const categories = [
-		{ id: "all", label: "All Topics" },
-		{ id: "booking", label: "Booking" },
-		{ id: "travel", label: "Travel & Pacing" },
-		{ id: "safety", label: "Safety & Insurance" },
-		{ id: "custom", label: "Custom Journeys" },
+		{ id: "all", label: t("tabAll") },
+		{ id: "booking", label: t("tabBooking") },
+		{ id: "travel", label: t("tabTravel") },
+		{ id: "safety", label: t("tabSafety") },
+		{ id: "custom", label: t("tabCustom") },
 	];
 
 	const query = searchQuery.trim().toLowerCase();
 
-	// Filter groups and items
+	// Filter groups and items with localized content
 	const filteredGroups = FAQ_GROUPS.map((group) => {
 		if (activeTab !== "all" && group.id !== activeTab) return null;
 
-		const matchingItems = group.items.filter((item) => {
+		const translatedGroupTitle = t.has(`groups.${group.id}`) ? t(`groups.${group.id}`) : group.title;
+
+		const localizedItems = group.items.map((item) => {
+			const question = t.has(`items.${item.id}.question`) ? t(`items.${item.id}.question`) : item.question;
+			const answer = t.has(`items.${item.id}.answer`) ? t(`items.${item.id}.answer`) : item.answer;
+			const linkLabel = item.linkLabel && t.has(`items.${item.id}.linkLabel`) ? t(`items.${item.id}.linkLabel`) : item.linkLabel;
+
+			return {
+				...item,
+				question,
+				answer,
+				linkLabel,
+			};
+		});
+
+		const matchingItems = localizedItems.filter((item) => {
 			if (!query) return true;
 			const haystack = [item.question, item.answer, ...item.keywords].join(" ").toLowerCase();
 			return haystack.includes(query);
@@ -38,6 +55,7 @@ export function FaqAccordion({ searchQuery, onClearSearch }: FaqAccordionProps) 
 
 		return {
 			...group,
+			title: translatedGroupTitle,
 			items: matchingItems,
 		};
 	}).filter(Boolean);
@@ -69,17 +87,17 @@ export function FaqAccordion({ searchQuery, onClearSearch }: FaqAccordionProps) 
 				{/* Accordion Groups */}
 				{filteredGroups.length === 0 ? (
 					<div className="rounded-2xl border border-white/10 bg-[#0a0a0a] p-12 text-center space-y-4">
-						<LuCircleHelp className="mx-auto h-12 w-12 text-white/50" />
-						<h3 className="text-lg font-bold text-white">No matching questions found</h3>
+						<LuCircleHelp className="mx-auto h-12 w-12 text-white/30" />
+						<h3 className="text-lg font-bold text-white">{t("noResultsTitle")}</h3>
 						<p className="text-xs text-white/60 max-w-sm mx-auto">
-							We couldn&apos;t find any questions matching &ldquo;{searchQuery}&rdquo;. Try adjusting your search query or clear the filter.
+							{t("noResultsDesc")}
 						</p>
 						<button
 							type="button"
 							onClick={onClearSearch}
 							className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-2 text-xs font-semibold uppercase tracking-wider text-orange-500 hover:border-orange-500"
 						>
-							Clear Search Filter
+							{t("clearFilter")}
 						</button>
 					</div>
 				) : (
@@ -94,12 +112,12 @@ export function FaqAccordion({ searchQuery, onClearSearch }: FaqAccordionProps) 
 									<AccordionItem
 										key={item.id}
 										value={item.id}
-										className="rounded-2xl border border-white/10 bg-[#0a0a0a] px-6 py-1 transition-colors hover:border-white/20"
+										className="rounded-2xl border border-white/10 bg-[#0a0a0a] transition-colors hover:border-white/20 overflow-hidden"
 									>
-										<AccordionTrigger className="text-white text-base md:text-lg hover:no-underline font-semibold py-4">
-											{item.question}
+										<AccordionTrigger className="text-white text-base md:text-lg hover:no-underline font-semibold px-6 py-5 w-full">
+											<span className="pr-4">{item.question}</span>
 										</AccordionTrigger>
-										<AccordionContent className="space-y-4 pt-1 pb-5">
+										<AccordionContent className="space-y-4 px-6 pt-1 pb-6">
 											<p className="text-white/70 leading-relaxed text-sm">{item.answer}</p>
 											{item.linkHref && item.linkLabel ? (
 												<div>

@@ -1,20 +1,24 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import { EditorialCtaBand } from "@/shared/ui";
-import { EXPERIENCES_CTA } from "../content/experiences-page-copy";
 
 export function ExperiencesCTA() {
+	const t = useTranslations("Experiences.cta");
+
 	return (
 		<EditorialCtaBand
-			label={EXPERIENCES_CTA.label}
-			titleLead={EXPERIENCES_CTA.titleLead}
-			titleAccent={EXPERIENCES_CTA.titleAccent}
-			description={EXPERIENCES_CTA.description}
+			label={t("label")}
+			titleLead={t("titleLead")}
+			titleAccent={t("titleAccent")}
+			description={t("description")}
 			primary={{
-				label: EXPERIENCES_CTA.primaryAction,
-				href: EXPERIENCES_CTA.primaryHref,
+				label: t("primaryAction"),
+				href: "/contact",
 			}}
 			secondary={{
-				label: EXPERIENCES_CTA.secondaryAction,
-				href: EXPERIENCES_CTA.secondaryHref,
+				label: t("secondaryAction"),
+				href: "/tours",
 			}}
 			showTopFrame
 		/>

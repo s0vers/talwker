@@ -1,9 +1,9 @@
 "use client";
 
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import { LuSearch, LuX, LuCircleHelp } from "react-icons/lu";
 import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
-import { FAQ_HERO } from "../content/faq-copy";
 
 export type FaqHeroProps = {
 	searchQuery: string;
@@ -11,6 +11,7 @@ export type FaqHeroProps = {
 };
 
 export function FaqHero({ searchQuery, onSearchChange }: FaqHeroProps) {
+	const t = useTranslations("FAQ");
 	const containerRef = useRef<HTMLElement>(null);
 	const contentRef = useRef<HTMLDivElement>(null);
 
@@ -89,10 +90,10 @@ export function FaqHero({ searchQuery, onSearchChange }: FaqHeroProps) {
 					<div className="flex items-center gap-3">
 						<span className="inline-flex items-center gap-1.5 rounded-full bg-orange-500/10 border border-orange-500/30 px-3.5 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-400">
 							<LuCircleHelp className="h-3 w-3 text-orange-500" />
-							05 // Help Center
+							{t("hero.badge")}
 						</span>
 						<span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/40">
-							Live Search Desk
+							{t("hero.deskLabel")}
 						</span>
 					</div>
 
@@ -100,14 +101,14 @@ export function FaqHero({ searchQuery, onSearchChange }: FaqHeroProps) {
 						id="faq-hero-title"
 						className="text-[clamp(2.75rem,6.5vw,5.25rem)] font-bold leading-[0.93] tracking-tight text-white"
 					>
-						Help & Knowledge{" "}
+						{t("hero.titleLead")}{" "}
 						<span className="font-light italic text-orange-500 block sm:inline">
-							Base.
+							{t("hero.titleAccent")}
 						</span>
 					</h1>
 
 					<p className="text-base sm:text-lg text-white/65 leading-relaxed max-w-xl">
-						{FAQ_HERO.description}
+						{t("hero.description")}
 					</p>
 
 					{/* Search Input Bar */}
@@ -118,7 +119,7 @@ export function FaqHero({ searchQuery, onSearchChange }: FaqHeroProps) {
 								type="text"
 								value={searchQuery}
 								onChange={(e) => onSearchChange(e.target.value)}
-								placeholder={FAQ_HERO.searchPlaceholder}
+								placeholder={t("hero.searchPlaceholder")}
 								className="w-full rounded-2xl border border-white/15 bg-[#0a0a0a] py-4 pl-12 pr-12 text-sm text-white placeholder:text-white/35 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 focus:outline-none shadow-2xl transition-all"
 							/>
 							{searchQuery ? (

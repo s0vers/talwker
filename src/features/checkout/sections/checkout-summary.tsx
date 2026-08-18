@@ -1,7 +1,9 @@
+"use client";
+
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { resolveBookingTour } from "@/features/booking/lib/booking-tour";
 import type { BookingHandoff } from "@/features/booking/lib/booking-handoff";
-import { CHECKOUT_COPY } from "@/features/checkout/content/checkout-copy";
 import { formatCheckoutSlot } from "@/features/checkout/lib/format-checkout-slot";
 import {
 	Calendar,
@@ -14,6 +16,7 @@ import {
 } from "lucide-react";
 
 export function CheckoutSummary({ handoff }: { handoff: BookingHandoff }) {
+	const t = useTranslations("Checkout");
 	const tour = resolveBookingTour(handoff.tourSlug);
 	const slot = formatCheckoutSlot(handoff.slotIso, handoff.timeZone);
 
@@ -23,11 +26,12 @@ export function CheckoutSummary({ handoff }: { handoff: BookingHandoff }) {
 	const reviewsCount = tour?.reviews || 128;
 	const duration = tour?.duration || "8 Days / 7 Nights";
 	const groupSize = tour?.groupSize || "Max 12 Guests";
-	const priceFormatted = tour ? `$${tour.price.toLocaleString()}` : CHECKOUT_COPY.feeAmount;
+	const priceFormatted = tour ? `$${tour.price.toLocaleString()}` : t("feeAmount");
 
+	const defaultPerks = [t("defaultPerk1"), t("defaultPerk2"), t("defaultPerk3")];
 	const includesList = tour?.includes && tour.includes.length > 0
 		? tour.includes.slice(0, 3)
-		: ["Expert Local Guide", "Luxury Transport", "Free 48h Cancellation"];
+		: defaultPerks;
 
 	return (
 		<section
@@ -44,7 +48,7 @@ export function CheckoutSummary({ handoff }: { handoff: BookingHandoff }) {
 					className="object-cover transition-transform duration-700 hover:scale-105"
 					priority
 				/>
-				<div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent" />
+				<div className="absolute inset-0 bg-linear-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent" />
 				
 				<div className="absolute top-4 left-4 z-10">
 					<span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/60 px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-white backdrop-blur-md">
@@ -57,7 +61,7 @@ export function CheckoutSummary({ handoff }: { handoff: BookingHandoff }) {
 			{/* Tour Details Content */}
 			<div className="p-6 md:p-8">
 				<h2 id="checkout-summary-heading" className="sr-only">
-					{CHECKOUT_COPY.summaryTourLabel}
+					{t("summaryTourLabel")}
 				</h2>
 
 				{/* Title & Ratings */}
@@ -92,7 +96,7 @@ export function CheckoutSummary({ handoff }: { handoff: BookingHandoff }) {
 							<Calendar className="size-5" />
 						</div>
 						<div className="grid gap-0.5 text-sm">
-							<p className="font-semibold text-white">Scheduled Departure</p>
+							<p className="font-semibold text-white">{t("scheduledDeparture")}</p>
 							<p className="text-white/80">{slot.date}</p>
 							{slot.time && (
 								<p className="text-xs text-white/60">
@@ -106,7 +110,7 @@ export function CheckoutSummary({ handoff }: { handoff: BookingHandoff }) {
 				{/* Guest Info Box */}
 				<div className="mt-4 grid gap-1.5 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-4 text-xs">
 					<p className="font-semibold text-white/50 uppercase tracking-widest text-[10px]">
-						Booker Information
+						{t("bookerInfo")}
 					</p>
 					<div className="flex items-center justify-between text-sm text-white/90">
 						<span className="font-medium">{handoff.guestName}</span>
@@ -117,7 +121,7 @@ export function CheckoutSummary({ handoff }: { handoff: BookingHandoff }) {
 					)}
 					{handoff.guestEmails && handoff.guestEmails.length > 0 && (
 						<p className="mt-1 text-white/60">
-							+ {handoff.guestEmails.length} additional guest{handoff.guestEmails.length > 1 ? "s" : ""}
+							{t("additionalGuests", { count: handoff.guestEmails.length })}
 						</p>
 					)}
 				</div>
@@ -125,7 +129,7 @@ export function CheckoutSummary({ handoff }: { handoff: BookingHandoff }) {
 				{/* Included Perks */}
 				<div className="mt-6">
 					<p className="text-[10px] font-semibold uppercase tracking-widest text-white/50">
-						Included in this Booking
+						{t("includedPerks")}
 					</p>
 					<ul className="mt-2.5 grid gap-2 text-xs text-white/80">
 						{includesList.map((item, idx) => (
@@ -140,20 +144,20 @@ export function CheckoutSummary({ handoff }: { handoff: BookingHandoff }) {
 				{/* Price Summary Breakdown */}
 				<div className="mt-8 border-t border-white/10 pt-6">
 					<div className="flex items-center justify-between text-xs text-white/60">
-						<span>Tour Package</span>
+						<span>{t("packageLabel")}</span>
 						<span className="text-white">{priceFormatted}</span>
 					</div>
 					<div className="mt-1.5 flex items-center justify-between text-xs text-white/60">
-						<span>Taxes & Booking Fees</span>
-						<span className="text-emerald-400 font-medium">$0.00 (Included)</span>
+						<span>{t("taxesFees")}</span>
+						<span className="text-emerald-400 font-medium">{t("included")}</span>
 					</div>
 
 					<div className="mt-4 flex items-baseline justify-between border-t border-white/10 pt-4">
 						<div>
 							<p className="text-xs font-semibold uppercase tracking-widest text-white/50">
-								Total Due Now
+								{t("totalDue")}
 							</p>
-							<p className="text-[11px] text-white/40">Includes all taxes and guarantees</p>
+							<p className="text-[11px] text-white/40">{t("taxesGuarantees")}</p>
 						</div>
 						<p className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
 							{priceFormatted}
@@ -164,7 +168,7 @@ export function CheckoutSummary({ handoff }: { handoff: BookingHandoff }) {
 				{/* Trust Banner */}
 				<div className="mt-6 flex items-center gap-2.5 rounded-xl border border-emerald-500/20 bg-emerald-500/10 px-3.5 py-2.5 text-xs text-emerald-300">
 					<ShieldCheck className="size-4 shrink-0 text-emerald-400" />
-					<span>Instant confirmation & 100% secure tour slot handoff</span>
+					<span>{t("instantConfirm")}</span>
 				</div>
 			</div>
 		</section>

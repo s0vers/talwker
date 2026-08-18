@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useRef, type ReactNode } from "react";
-import { STORY_DETAIL_COPY } from "@/features/stories/content/stories-page-copy";
+import { useTranslations } from "next-intl";
 import {
 	createStaggerReveal,
 	prefersReducedMotion,
@@ -78,6 +78,7 @@ export default function StoryDetailsRelated({
 	tour,
 	tourSlug,
 }: StoryDetailsRelatedProps) {
+	const t = useTranslations("StoryDetails");
 	const sectionRef = useRef<HTMLElement>(null);
 	const hasDestination = Boolean(destination && destinationSlug);
 	const hasTour = Boolean(tour && tourSlug);
@@ -108,13 +109,13 @@ export default function StoryDetailsRelated({
 		>
 			<div className="mx-auto max-w-[1600px] pad-x py-16 md:py-24">
 				<p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-orange-500">
-					{STORY_DETAIL_COPY.relatedLabel}
+					{t("relatedLabel")}
 				</p>
 				<h2
 					id="story-related-heading"
 					className="mt-3 text-2xl font-semibold tracking-tight text-white md:text-3xl"
 				>
-					{STORY_DETAIL_COPY.relatedHeading}
+					{t("relatedHeading")}
 				</h2>
 
 				<ul className="mt-10 grid gap-6 md:grid-cols-2 md:gap-8">
@@ -123,14 +124,14 @@ export default function StoryDetailsRelated({
 							href={`/destinations/${destinationSlug}`}
 							image={destination.image}
 							imageAlt={`${destination.name}, ${destination.country}`}
-							kind={STORY_DETAIL_COPY.destinationKind}
+							kind={t("destinationKind")}
 							title={
 								<>
 									{destination.name}
 									<span className="text-white/40">, {destination.country}</span>
 								</>
 							}
-							cta={STORY_DETAIL_COPY.relatedDestinationCta}
+							cta={t("relatedDestinationCta")}
 						/>
 					) : null}
 
@@ -139,10 +140,10 @@ export default function StoryDetailsRelated({
 							href={`/tours/${tourSlug}`}
 							image={tour.image}
 							imageAlt={tour.title}
-							kind={STORY_DETAIL_COPY.tourKind}
+							kind={t("tourKind")}
 							title={tour.title}
 							subtitle={tour.destination}
-							cta={STORY_DETAIL_COPY.relatedTourCta}
+							cta={t("relatedTourCta")}
 						/>
 					) : null}
 				</ul>

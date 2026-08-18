@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useTranslations } from "next-intl";
 import { LuArrowRight } from "react-icons/lu";
 import {
 	gsap,
@@ -9,13 +10,11 @@ import {
 } from "@/lib/useGsap";
 import { DESTINATIONS } from "@/features/home/content/destinations";
 import { getFeaturedDestinations } from "@/features/home/content/featured-destinations";
-import { DESTINATIONS_SECTION } from "@/features/home/content/section-copy";
 import { DestinationsStage } from "@/features/home/sections/destinations-stage";
 import { cn } from "@/lib/utils";
 import { SectionCta, SectionHeading } from "@/shared/ui";
 
 const AUTOPLAY_MS = 5000;
-const featured = getFeaturedDestinations();
 
 function subscribeReducedMotion(onStoreChange: () => void) {
 	const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -24,6 +23,8 @@ function subscribeReducedMotion(onStoreChange: () => void) {
 }
 
 export default function Destinations() {
+	const t = useTranslations("Home.destinations");
+	const featured = getFeaturedDestinations();
 	const sectionRef = useRef<HTMLElement>(null);
 	const headingRef = useRef<HTMLDivElement>(null);
 	const stageWrapRef = useRef<HTMLDivElement>(null);
@@ -33,17 +34,24 @@ export default function Destinations() {
 	const [paused, setPaused] = useState(false);
 	const [progress, setProgress] = useState(0);
 
+	const filterCategories = [
+		{ key: "All", label: t("filterAll") },
+		{ key: "Popular", label: t("filterPopular") },
+		{ key: "Trending", label: t("filterTrending") },
+		{ key: "Luxury", label: t("filterLuxury") },
+		{ key: "New", label: t("filterNew") },
+	];
+
 	const reduceMotion = useSyncExternalStore(
 		subscribeReducedMotion,
 		prefersReducedMotion,
 		() => false,
 	);
 
-	const activeDestinations = useMemo(() => {
-		if (selectedCategory === "All") return featured;
-		const filtered = DESTINATIONS.filter((d) => d.tag === selectedCategory);
-		return filtered.length > 0 ? filtered : featured;
-	}, [selectedCategory]);
+	const activeDestinations =
+		selectedCategory === "All"
+			? featured
+			: DESTINATIONS.filter((d) => d.tag === selectedCategory);
 
 	const handleSelectDestination = (index: number) => {
 		setProgress(0);
@@ -52,14 +60,13 @@ export default function Destinations() {
 
 	useEffect(() => {
 		if (reduceMotion || paused) {
-			const reset = requestAnimationFrame(() => setProgress(0));
-			return () => cancelAnimationFrame(reset);
+			const frame = requestAnimationFrame(() => setProgress(0));
+			return () => cancelAnimationFrame(frame);
 		}
-		let frame = 0;
 		const started = performance.now();
+		let frame: number;
 		const tick = (now: number) => {
-			const elapsed = now - started;
-			const ratio = Math.min(1, elapsed / AUTOPLAY_MS);
+			const ratio = Math.min(1, (now - started) / AUTOPLAY_MS);
 			setProgress(ratio);
 			if (ratio >= 1) {
 				setProgress(0);
@@ -70,7 +77,7 @@ export default function Destinations() {
 		};
 		frame = requestAnimationFrame(tick);
 		return () => cancelAnimationFrame(frame);
-	}, [activeIndex, paused, reduceMotion, activeDestinations]);
+	}, [activeIndex, paused, reduceMotion, activeDestinations.length]);
 
 	useGsapContext(
 		sectionRef,
@@ -79,18 +86,24 @@ export default function Destinations() {
 			const heading = headingRef.current;
 			const stage = stageWrapRef.current;
 			if (heading && stage) {
-				gsap.from([heading, stage], {
-					y: 36,
-					opacity: 0,
-					duration: 1,
-					stagger: 0.15,
-					ease: "power3.out",
-					scrollTrigger: {
-						trigger: sectionRef.current,
-						start: "top 78%",
-						toggleActions: "play none none none",
+				gsap.fromTo(
+					[heading, stage],
+					{ y: 32, opacity: 0 },
+					{
+						y: 0,
+						opacity: 1,
+						duration: 0.9,
+						stagger: 0.12,
+						ease: "power3.out",
+						clearProps: "opacity,transform",
+						scrollTrigger: {
+							trigger: sectionRef.current,
+							start: "top 85%",
+							toggleActions: "play none none none",
+							once: true,
+						},
 					},
-				});
+				);
 			}
 		},
 		[],
@@ -110,11 +123,11 @@ export default function Destinations() {
 				>
 					<SectionHeading
 						containerClassName="max-w-xl"
-						label={DESTINATIONS_SECTION.label}
+						label={t("label")}
 						labelId="destinations-label"
-						title={DESTINATIONS_SECTION.title}
+						title={t("title")}
 						titleId="destinations-title"
-						description={DESTINATIONS_SECTION.description}
+						description={t("description")}
 						descriptionId="destinations-description"
 						labelClassName="mb-3"
 						descriptionClassName="mt-4 text-white/55"
@@ -126,29 +139,29 @@ export default function Destinations() {
 								<span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400 opacity-75" />
 								<span className="relative inline-flex h-2 w-2 rounded-full bg-orange-500" />
 							</span>
-							{DESTINATIONS_SECTION.spotlightBadge}
+							{t("spotlightBadge")}
 						</div>
 
 						{/* Category Filter Tabs */}
 						<div className="flex max-w-full items-center gap-1.5 overflow-x-auto rounded-full border border-white/10 bg-white/[0.03] p-1.5 scrollbar-none backdrop-blur-md">
-							{DESTINATIONS_SECTION.filterCategories.map((cat) => {
-								const active = selectedCategory === cat;
+							{filterCategories.map((cat) => {
+								const active = selectedCategory === cat.key;
 								return (
 									<button
-										key={cat}
+										key={cat.key}
 										type="button"
 										onClick={() => {
-											setSelectedCategory(cat);
+											setSelectedCategory(cat.key);
 											handleSelectDestination(0);
 										}}
 										className={cn(
 											"shrink-0 rounded-full px-3.5 py-1 text-xs font-semibold uppercase tracking-wider transition-all duration-300 outline-none focus-visible:ring-2 focus-visible:ring-orange-500",
 											active
-												? "bg-orange-500 text-black shadow-md shadow-orange-500/25"
+												? "bg-orange-500 text-white shadow-md shadow-orange-500/25"
 												: "text-white/60 hover:bg-white/10 hover:text-white",
 										)}
 									>
-										{cat}
+										{cat.label}
 									</button>
 								);
 							})}
@@ -175,7 +188,7 @@ export default function Destinations() {
 							<LuArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
 						}
 					>
-						{DESTINATIONS_SECTION.viewAllCta}
+						{t("viewAllCta")}
 					</SectionCta>
 				</div>
 			</div>

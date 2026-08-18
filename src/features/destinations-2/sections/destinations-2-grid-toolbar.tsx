@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
+import { useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { LuSearch, LuX } from "react-icons/lu";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,7 +14,6 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
-import { DESTINATIONS_2_GRID } from "@/features/destinations-2/content/destinations-2-page-copy";
 import { DESTINATIONS_2_LIST_PATH } from "@/features/destinations-2/lib/destinations-2-list-path";
 import {
 	DESTINATIONS_GRID_QUICK_SEARCHES,
@@ -46,6 +46,7 @@ export type Destinations2GridToolbarProps = {
 };
 
 function Destinations2GridToolbarInner({ list, quickLinks }: Destinations2GridToolbarProps) {
+	const t = useTranslations("Destinations2.grid");
 	const router = useRouter();
 	const [qDraft, setQDraft] = useState(list.q);
 	const [selectKey, setSelectKey] = useState<DestinationsSelectKey>(() => filterToSelectKey(list.filter));
@@ -54,6 +55,14 @@ function Destinations2GridToolbarInner({ list, quickLinks }: Destinations2GridTo
 	const hrefById = Object.fromEntries(quickLinks.map((l) => [l.id, l.href] as const));
 	const clearHref = getDestinationsListClearHref(DESTINATIONS_2_LIST_PATH);
 	const showClear = destinationsListHasActiveRefinements(list);
+
+	const quickSearchLabels: Record<string, string> = {
+		bali: t("quickSearchBali"),
+		japan: t("quickSearchJapan"),
+		italy: t("quickSearchItaly"),
+		luxury: t("quickSearchLuxury"),
+		under2k: t("quickSearchUnder2k"),
+	};
 
 	function handleSearchSubmit(e: React.FormEvent<HTMLFormElement>) {
 		e.preventDefault();
@@ -68,14 +77,14 @@ function Destinations2GridToolbarInner({ list, quickLinks }: Destinations2GridTo
 
 	return (
 		<div className="mb-12 space-y-8 border-l-2 border-orange-500/25 pl-6 md:mb-16">
-			<form onSubmit={handleSearchSubmit} role="search" aria-label="Search destinations">
+			<form onSubmit={handleSearchSubmit} role="search" aria-label={t("searchFieldLabel")}>
 				<input type="hidden" name="tag" value={hiddenTag} aria-hidden />
 				<input type="hidden" name="maxPrice" value={hiddenMaxPrice} aria-hidden />
 
 				<div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_13rem_auto] lg:items-end lg:gap-6">
 					<div className="min-w-0">
 						<label htmlFor="destinations-2-search" className="mb-2 block text-[10px] uppercase tracking-[0.2em] text-white/45">
-							{DESTINATIONS_2_GRID.searchFieldLabel}
+							{t("searchFieldLabel")}
 						</label>
 						<Input
 							id="destinations-2-search"
@@ -83,7 +92,7 @@ function Destinations2GridToolbarInner({ list, quickLinks }: Destinations2GridTo
 							name="q"
 							value={qDraft}
 							onChange={(e) => setQDraft(e.target.value)}
-							placeholder={DESTINATIONS_2_GRID.searchPlaceholder}
+							placeholder={t("searchPlaceholder")}
 							autoComplete="off"
 							className={cn(surface, "h-12 rounded-sm")}
 						/>
@@ -91,7 +100,7 @@ function Destinations2GridToolbarInner({ list, quickLinks }: Destinations2GridTo
 
 					<div className="w-full">
 						<label htmlFor="destinations-2-filter" className="mb-2 block text-[10px] uppercase tracking-[0.2em] text-white/45">
-							{DESTINATIONS_2_GRID.filterLabel}
+							{t("filterLabel")}
 						</label>
 						<Select value={selectKey} onValueChange={(v) => setSelectKey(v as DestinationsSelectKey)}>
 							<SelectTrigger id="destinations-2-filter" className={cn(DESTINATIONS_SELECT_TRIGGER_SURFACE, "h-12 w-full")}>
@@ -99,22 +108,22 @@ function Destinations2GridToolbarInner({ list, quickLinks }: Destinations2GridTo
 							</SelectTrigger>
 							<SelectContent position="popper" sideOffset={8} className={DESTINATIONS_SELECT_CONTENT_CLASS}>
 								<SelectItem value="all" className={DESTINATIONS_SELECT_ITEM_CLASS}>
-									{DESTINATIONS_2_GRID.filterAll}
+									{t("filterAll")}
 								</SelectItem>
 								<SelectItem value="popular" className={DESTINATIONS_SELECT_ITEM_CLASS}>
-									{DESTINATIONS_2_GRID.filterTagPopular}
+									{t("filterTagPopular")}
 								</SelectItem>
 								<SelectItem value="trending" className={DESTINATIONS_SELECT_ITEM_CLASS}>
-									{DESTINATIONS_2_GRID.filterTagTrending}
+									{t("filterTagTrending")}
 								</SelectItem>
 								<SelectItem value="new" className={DESTINATIONS_SELECT_ITEM_CLASS}>
-									{DESTINATIONS_2_GRID.filterTagNew}
+									{t("filterTagNew")}
 								</SelectItem>
 								<SelectItem value="luxury" className={DESTINATIONS_SELECT_ITEM_CLASS}>
-									{DESTINATIONS_2_GRID.filterTagLuxury}
+									{t("filterTagLuxury")}
 								</SelectItem>
 								<SelectItem value="under2000" className={DESTINATIONS_SELECT_ITEM_CLASS}>
-									{DESTINATIONS_2_GRID.filterUnder2000}
+									{t("filterUnder2000")}
 								</SelectItem>
 							</SelectContent>
 						</Select>
@@ -127,7 +136,7 @@ function Destinations2GridToolbarInner({ list, quickLinks }: Destinations2GridTo
 							className="h-12 w-full rounded-sm border-orange-500/50 bg-orange-500/10 px-6 text-[10px] font-semibold uppercase tracking-[0.2em] text-orange-300 hover:bg-orange-500/20 lg:w-auto"
 						>
 							<LuSearch className="mr-2 h-4 w-4" aria-hidden />
-							{DESTINATIONS_2_GRID.searchButton}
+							{t("searchButton")}
 						</Button>
 					</div>
 				</div>
@@ -144,17 +153,18 @@ function Destinations2GridToolbarInner({ list, quickLinks }: Destinations2GridTo
 						)}
 					>
 						<LuX className="size-3 shrink-0 opacity-80" aria-hidden />
-						{DESTINATIONS_2_GRID.clearFilters}
+						{t("clearFilters")}
 					</Link>
 				</div>
 			</form>
 
 			<div>
-				<p className="mb-3 text-[10px] uppercase tracking-[0.2em] text-white/40">{DESTINATIONS_2_GRID.quickSearchesLabel}</p>
-				<div className="flex flex-wrap gap-2" role="group" aria-label={DESTINATIONS_2_GRID.quickSearchesLabel}>
+				<p className="mb-3 text-[10px] uppercase tracking-[0.2em] text-white/40">{t("quickSearchesLabel")}</p>
+				<div className="flex flex-wrap gap-2" role="group" aria-label={t("quickSearchesLabel")}>
 					{DESTINATIONS_GRID_QUICK_SEARCHES.map((item) => {
 						const href = hrefById[item.id] ?? DESTINATIONS_2_LIST_PATH;
 						const active = isQuickSearchActive(list, item);
+						const label = quickSearchLabels[item.id] ?? item.label;
 						return (
 							<Link
 								key={item.id}
@@ -167,7 +177,7 @@ function Destinations2GridToolbarInner({ list, quickLinks }: Destinations2GridTo
 										: "border-white/12 text-white/65 hover:border-white/25 hover:text-white",
 								)}
 							>
-								{item.label}
+								{label}
 							</Link>
 						);
 					})}

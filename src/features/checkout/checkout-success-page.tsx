@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/navigation";
 import { CHECKOUT_SUCCESS_COPY } from "@/features/checkout/content/checkout-copy";
 import {
 	BOOKING_CONFIRMATION_KEY,

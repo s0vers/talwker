@@ -9,6 +9,7 @@ export type SeoConfig = {
 	follow?: boolean;
 	type?: "website" | "article";
 	absoluteTitle?: boolean;
+	locale?: string;
 };
 
 export type SeoBreadcrumbItem = {

@@ -1,7 +1,8 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import { TOURS_PAGE_HERO } from "@/features/tours/content/tours-page-copy";
 import { getTourSlug } from "@/features/tours/lib/tour-slug";
 import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
@@ -13,6 +14,7 @@ type ToursHeroProps = {
 };
 
 export default function ToursHero({ tours, destinationFilter }: ToursHeroProps) {
+	const t = useTranslations("Tours.hero");
 	const sectionRef = useRef<HTMLElement>(null);
 
 	useGsapContext(
@@ -60,7 +62,7 @@ export default function ToursHero({ tours, destinationFilter }: ToursHeroProps) 
 					aria-hidden
 				>
 					<span className="mr-4 shrink-0 font-mono text-[10px] uppercase tracking-[0.22em] text-orange-500/80">
-						{TOURS_PAGE_HERO.kicker}
+						{t("kicker")}
 					</span>
 					<div className="flex min-w-0 flex-1 items-end justify-between gap-1">
 						{TOURS_PAGE_HERO.dayMarks.map((mark, i) => (
@@ -107,57 +109,49 @@ export default function ToursHero({ tours, destinationFilter }: ToursHeroProps) 
 									className="m-0 text-[clamp(2.75rem,9vw,5.75rem)] font-bold leading-[0.9] tracking-tighter"
 								>
 									<span data-hero-item className="block text-white">
-										{TOURS_PAGE_HERO.titleLine1}
+										{t("titleLine1")}
 									</span>
 									<span
 										data-hero-item
 										className="mt-1 block font-light italic text-orange-500"
 									>
-										{TOURS_PAGE_HERO.titleAccent}
+										{t("titleAccent")}
 									</span>
 								</h1>
 								<p
 									data-hero-item
 									className="mt-8 max-w-md border-l border-white/10 pl-5 text-sm leading-relaxed text-white/55 md:mt-10 md:text-base"
 								>
-									{TOURS_PAGE_HERO.description}
+									{t("description")}
 								</p>
 								{destinationFilter ? (
-									<div
+									<p
 										data-hero-item
-										className="mt-5 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.16em]"
+										className="mt-5 font-mono text-[11px] uppercase tracking-[0.16em] text-white/45"
 									>
-										<p className="text-white/45">
-											<span className="text-white/50">
-												{TOURS_PAGE_HERO.filterLabel}
-											</span>{" "}
-											<span className="text-white/80">{destinationFilter}</span>
-										</p>
-										<Link
-											href="/tours"
-											className="text-[10px] text-orange-500 hover:text-orange-400 transition-colors"
-										>
-											[Clear Filter]
-										</Link>
-									</div>
+										<span className="text-white/30">
+											{t("filterLabel")}
+										</span>{" "}
+										<span className="text-white/80">{destinationFilter}</span>
+									</p>
 								) : null}
 							</div>
 						</div>
 					</div>
 
 					<div className="lg:col-span-6" data-hero-item>
-						<p className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/50">
-							{TOURS_PAGE_HERO.boardHint}
+						<p className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/30">
+							{t("boardHint")}
 						</p>
 						<div
 							className="mt-4 flex items-baseline justify-between gap-4 border-b border-orange-500/30 pb-3"
 						>
 							<p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-orange-500">
-								{TOURS_PAGE_HERO.boardEyebrow}
+								{t("boardEyebrow")}
 							</p>
 							<p className="font-mono text-[11px] tabular-nums tracking-[0.14em] text-white/40">
 								{String(tours.length).padStart(2, "0")}{" "}
-								{TOURS_PAGE_HERO.boardMeta}
+								{t("boardMeta")}
 							</p>
 						</div>
 
@@ -174,8 +168,8 @@ export default function ToursHero({ tours, destinationFilter }: ToursHeroProps) 
 										<span className="min-w-0 truncate text-[14px] font-medium tracking-wide text-white/65 transition-colors group-hover:text-white md:text-[15px]">
 											{tour.title}
 										</span>
-										<span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.14em] text-white/50 group-hover:text-white/70">
-											{tour.itinerary.length} {TOURS_PAGE_HERO.daysSuffix}
+										<span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.14em] text-white/30 group-hover:text-white/50">
+											{tour.itinerary.length} {t("daysSuffix")}
 										</span>
 										<span
 											className="hidden text-orange-500/0 transition-colors group-hover:text-orange-500 md:block"
@@ -198,7 +192,7 @@ export default function ToursHero({ tours, destinationFilter }: ToursHeroProps) 
 						className="h-10 w-px bg-linear-to-b from-orange-500/45 to-transparent"
 						aria-hidden
 					/>
-					<span>{TOURS_PAGE_HERO.scrollCue}</span>
+					<span>{t("scrollCue")}</span>
 				</div>
 			</div>
 		</section>
