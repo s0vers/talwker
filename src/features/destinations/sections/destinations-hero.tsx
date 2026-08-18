@@ -219,7 +219,7 @@ export default function DestinationsHero() {
 								))}
 							</ul>
 
-							<p className="mt-8 border-t border-dashed border-white/8 pt-6 text-[10px] font-medium uppercase tracking-[0.2em] text-white/30">
+							<p className="mt-8 border-t border-dashed border-white/8 pt-6 text-[10px] font-medium uppercase tracking-[0.2em] text-white/50">
 								{DESTINATIONS_PAGE_HERO.passFooter}
 							</p>
 						</div>

@@ -126,7 +126,7 @@ export function EditorialCtaBand({
 					{titleLead}{" "}
 					<span className="font-light italic text-orange-500">{titleAccent}</span>
 				</h2>
-				<p className="mx-auto mt-8 max-w-lg text-base text-white/30">{description}</p>
+				<p className="mx-auto mt-8 max-w-lg text-base leading-relaxed text-white/65">{description}</p>
 				<div
 					className={cn(
 						"mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center",

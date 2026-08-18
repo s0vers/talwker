@@ -120,6 +120,7 @@ export function FormPanel({
 					value={guestName}
 					onChange={(e) => setGuestName(e.target.value)}
 					required
+					className="border-0 bg-white/[0.02] shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] focus-visible:ring-1 focus-visible:ring-orange-500/50"
 				/>
 			</div>
 			<div className="flex flex-col space-y-1.5">
@@ -133,6 +134,7 @@ export function FormPanel({
 					value={guestEmail}
 					onChange={(e) => setGuestEmail(e.target.value)}
 					required
+					className="border-0 bg-white/[0.02] shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] focus-visible:ring-1 focus-visible:ring-orange-500/50"
 				/>
 			</div>
 			<div className="flex flex-col space-y-1.5">
@@ -151,6 +153,7 @@ export function FormPanel({
 					value={notes}
 					onChange={(e) => setNotes(e.target.value)}
 					placeholder="Please share anything that will help prepare for our meeting"
+					className="border-0 bg-white/[0.02] shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] focus-visible:ring-1 focus-visible:ring-orange-500/50"
 				/>
 			</div>
 			{hasGuests && (
@@ -170,6 +173,7 @@ export function FormPanel({
 									placeholder="Email"
 									value={guest.email}
 									onChange={(e) => handleGuestChange(guest.id, e.target.value)}
+									className="border-0 bg-white/[0.02] shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] focus-visible:ring-1 focus-visible:ring-orange-500/50"
 								/>
 								<Tooltip>
 									<TooltipTrigger asChild>

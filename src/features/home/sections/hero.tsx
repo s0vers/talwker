@@ -98,7 +98,7 @@ export default function Hero() {
 				</div>
 
 				<div ref={subRef} className="mt-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-					<p className="max-w-sm text-sm leading-relaxed text-white/40">
+					<p className="max-w-sm text-sm leading-relaxed text-white/65">
 						{HERO_COPY.description}
 					</p>
 					<a

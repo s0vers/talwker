@@ -1,0 +1,28 @@
+{
+  "$schema": "https://impeccable.style/schemas/config.json",
+  "version": "1.0.0",
+  "project": {
+    "name": "Talkwer",
+    "framework": "next",
+    "platform": "web"
+  },
+  "live": {
+    "port": 3000,
+    "entry": "src/app/page.tsx",
+    "devCommand": "pnpm dev"
+  },
+  "context": {
+    "product": "PRODUCT.md",
+    "design": "DESIGN.md",
+    "designJson": ".impeccable/design.json",
+    "surfacesDir": ".impeccable/surfaces"
+  },
+  "detector": {
+    "enabled": true,
+    "rules": {
+      "design-system-font": "error",
+      "design-system-color": "warn",
+      "design-system-radius": "warn"
+    }
+  }
+}

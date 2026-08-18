@@ -129,9 +129,13 @@ export function PartnersBody() {
 								type="text"
 								required
 								value={formData.orgName}
-								onChange={(e) => setFormData({ ...formData, orgName: e.target.value })}
+								onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity("Please provide your organization or property name.")}
+								onInput={(e) => {
+									(e.target as HTMLInputElement).setCustomValidity("");
+									setFormData({ ...formData, orgName: (e.target as HTMLInputElement).value });
+								}}
 								placeholder="e.g. Kyoto Heritage Ryokan"
-								className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-orange-500 focus:outline-none"
+								className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-3 text-sm text-white placeholder:text-white/50 focus:border-orange-500 focus:outline-none"
 							/>
 						</div>
 
@@ -148,9 +152,13 @@ export function PartnersBody() {
 								required
 								autoComplete="name"
 								value={formData.contactName}
-								onChange={(e) => setFormData({ ...formData, contactName: e.target.value })}
+								onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity("Please enter your name so we know who to address.")}
+								onInput={(e) => {
+									(e.target as HTMLInputElement).setCustomValidity("");
+									setFormData({ ...formData, contactName: (e.target as HTMLInputElement).value });
+								}}
 								placeholder="e.g. Kenji Takahashi"
-								className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-orange-500 focus:outline-none"
+								className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-3 text-sm text-white placeholder:text-white/50 focus:border-orange-500 focus:outline-none"
 							/>
 						</div>
 
@@ -167,9 +175,13 @@ export function PartnersBody() {
 								required
 								autoComplete="email"
 								value={formData.email}
-								onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+								onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity("Please provide a valid email address so we can reach you.")}
+								onInput={(e) => {
+									(e.target as HTMLInputElement).setCustomValidity("");
+									setFormData({ ...formData, email: (e.target as HTMLInputElement).value });
+								}}
 								placeholder="kenji@ryokan.example"
-								className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-orange-500 focus:outline-none"
+								className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-3 text-sm text-white placeholder:text-white/50 focus:border-orange-500 focus:outline-none"
 							/>
 						</div>
 
@@ -205,9 +217,13 @@ export function PartnersBody() {
 								type="text"
 								required
 								value={formData.region}
-								onChange={(e) => setFormData({ ...formData, region: e.target.value })}
+								onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity("Please let us know where you are located.")}
+								onInput={(e) => {
+									(e.target as HTMLInputElement).setCustomValidity("");
+									setFormData({ ...formData, region: (e.target as HTMLInputElement).value });
+								}}
 								placeholder="e.g. Kyoto, Japan"
-								className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-orange-500 focus:outline-none"
+								className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-3 text-sm text-white placeholder:text-white/50 focus:border-orange-500 focus:outline-none"
 							/>
 						</div>
 
@@ -224,7 +240,7 @@ export function PartnersBody() {
 								value={formData.website}
 								onChange={(e) => setFormData({ ...formData, website: e.target.value })}
 								placeholder="https://ryokan.example.com"
-								className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-orange-500 focus:outline-none"
+								className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-3 text-sm text-white placeholder:text-white/50 focus:border-orange-500 focus:outline-none"
 							/>
 						</div>
 
@@ -240,9 +256,13 @@ export function PartnersBody() {
 								required
 								rows={4}
 								value={formData.message}
-								onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+								onInvalid={(e) => (e.target as HTMLTextAreaElement).setCustomValidity("Please provide a brief description of your operation.")}
+								onInput={(e) => {
+									(e.target as HTMLTextAreaElement).setCustomValidity("");
+									setFormData({ ...formData, message: (e.target as HTMLTextAreaElement).value });
+								}}
 								placeholder="Describe your property, capacity, guiding certifications, or hosted experience..."
-								className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-orange-500 focus:outline-none"
+								className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-3 text-sm text-white placeholder:text-white/50 focus:border-orange-500 focus:outline-none"
 							/>
 						</div>
 

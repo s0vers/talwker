@@ -120,9 +120,13 @@ export function ApplicationModal({ position, onClose }: ApplicationModalProps) {
 							required
 							autoComplete="name"
 							value={formData.fullName}
-							onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+							onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity("Please enter your full name so we know who to address.")}
+							onInput={(e) => {
+								(e.target as HTMLInputElement).setCustomValidity("");
+								setFormData({ ...formData, fullName: (e.target as HTMLInputElement).value });
+							}}
 							placeholder="e.g. Elena Vance"
-							className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-2.5 text-sm text-white placeholder:text-white/30 focus:border-orange-500 focus:outline-none"
+							className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-2.5 text-sm text-white placeholder:text-white/50 focus:border-orange-500 focus:outline-none"
 						/>
 					</div>
 
@@ -139,9 +143,13 @@ export function ApplicationModal({ position, onClose }: ApplicationModalProps) {
 							required
 							autoComplete="email"
 							value={formData.email}
-							onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+							onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity("Please provide a valid email address so we can reach you.")}
+							onInput={(e) => {
+								(e.target as HTMLInputElement).setCustomValidity("");
+								setFormData({ ...formData, email: (e.target as HTMLInputElement).value });
+							}}
 							placeholder="elena@example.com"
-							className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-2.5 text-sm text-white placeholder:text-white/30 focus:border-orange-500 focus:outline-none"
+							className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-2.5 text-sm text-white placeholder:text-white/50 focus:border-orange-500 focus:outline-none"
 						/>
 					</div>
 
@@ -157,9 +165,13 @@ export function ApplicationModal({ position, onClose }: ApplicationModalProps) {
 							type="url"
 							required
 							value={formData.portfolioUrl}
-							onChange={(e) => setFormData({ ...formData, portfolioUrl: e.target.value })}
+							onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity("Please provide a URL to your portfolio or LinkedIn profile.")}
+							onInput={(e) => {
+								(e.target as HTMLInputElement).setCustomValidity("");
+								setFormData({ ...formData, portfolioUrl: (e.target as HTMLInputElement).value });
+							}}
 							placeholder="https://portfolio.example.com"
-							className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-2.5 text-sm text-white placeholder:text-white/30 focus:border-orange-500 focus:outline-none"
+							className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-2.5 text-sm text-white placeholder:text-white/50 focus:border-orange-500 focus:outline-none"
 						/>
 					</div>
 
@@ -175,9 +187,13 @@ export function ApplicationModal({ position, onClose }: ApplicationModalProps) {
 							required
 							rows={4}
 							value={formData.coverNote}
-							onChange={(e) => setFormData({ ...formData, coverNote: e.target.value })}
+							onInvalid={(e) => (e.target as HTMLTextAreaElement).setCustomValidity("Please tell us a bit about yourself and why you want to join.")}
+							onInput={(e) => {
+								(e.target as HTMLTextAreaElement).setCustomValidity("");
+								setFormData({ ...formData, coverNote: (e.target as HTMLTextAreaElement).value });
+							}}
 							placeholder="Tell us about your background and what draws you to our work..."
-							className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-2.5 text-sm text-white placeholder:text-white/30 focus:border-orange-500 focus:outline-none"
+							className="w-full rounded-xl border border-white/10 bg-[#121212] px-4 py-2.5 text-sm text-white placeholder:text-white/50 focus:border-orange-500 focus:outline-none"
 						/>
 					</div>
 

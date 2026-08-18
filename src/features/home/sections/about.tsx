@@ -21,7 +21,7 @@ function Stat({ value, suffix, label }: { value: number; suffix: string; label: 
 				<span ref={numRef} className="text-4xl font-bold text-white md:text-5xl">0</span>
 				<span className="text-2xl font-bold text-orange-500">{suffix}</span>
 			</div>
-			<p className="mt-1 text-[13px] text-white/30">{label}</p>
+			<p className="mt-1 text-[13px] text-white/55">{label}</p>
 		</div>
 	);
 }
@@ -98,7 +98,7 @@ export default function About() {
 								{ABOUT_COPY.titleAccent}
 							</span>
 						</h2>
-						<p className="mt-8 max-w-md text-base leading-relaxed text-white/35">
+						<p className="mt-8 max-w-md text-base leading-relaxed text-white/65">
 							{ABOUT_COPY.description}
 						</p>
 						<div className="mt-14 grid grid-cols-3 gap-6">

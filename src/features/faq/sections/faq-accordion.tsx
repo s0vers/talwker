@@ -69,7 +69,7 @@ export function FaqAccordion({ searchQuery, onClearSearch }: FaqAccordionProps) 
 				{/* Accordion Groups */}
 				{filteredGroups.length === 0 ? (
 					<div className="rounded-2xl border border-white/10 bg-[#0a0a0a] p-12 text-center space-y-4">
-						<LuCircleHelp className="mx-auto h-12 w-12 text-white/30" />
+						<LuCircleHelp className="mx-auto h-12 w-12 text-white/50" />
 						<h3 className="text-lg font-bold text-white">No matching questions found</h3>
 						<p className="text-xs text-white/60 max-w-sm mx-auto">
 							We couldn&apos;t find any questions matching &ldquo;{searchQuery}&rdquo;. Try adjusting your search query or clear the filter.

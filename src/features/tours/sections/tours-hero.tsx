@@ -123,22 +123,30 @@ export default function ToursHero({ tours, destinationFilter }: ToursHeroProps) 
 									{TOURS_PAGE_HERO.description}
 								</p>
 								{destinationFilter ? (
-									<p
+									<div
 										data-hero-item
-										className="mt-5 font-mono text-[11px] uppercase tracking-[0.16em] text-white/45"
+										className="mt-5 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.16em]"
 									>
-										<span className="text-white/30">
-											{TOURS_PAGE_HERO.filterLabel}
-										</span>{" "}
-										<span className="text-white/80">{destinationFilter}</span>
-									</p>
+										<p className="text-white/45">
+											<span className="text-white/50">
+												{TOURS_PAGE_HERO.filterLabel}
+											</span>{" "}
+											<span className="text-white/80">{destinationFilter}</span>
+										</p>
+										<Link
+											href="/tours"
+											className="text-[10px] text-orange-500 hover:text-orange-400 transition-colors"
+										>
+											[Clear Filter]
+										</Link>
+									</div>
 								) : null}
 							</div>
 						</div>
 					</div>
 
 					<div className="lg:col-span-6" data-hero-item>
-						<p className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/30">
+						<p className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/50">
 							{TOURS_PAGE_HERO.boardHint}
 						</p>
 						<div
@@ -166,7 +174,7 @@ export default function ToursHero({ tours, destinationFilter }: ToursHeroProps) 
 										<span className="min-w-0 truncate text-[14px] font-medium tracking-wide text-white/65 transition-colors group-hover:text-white md:text-[15px]">
 											{tour.title}
 										</span>
-										<span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.14em] text-white/30 group-hover:text-white/50">
+										<span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.14em] text-white/50 group-hover:text-white/70">
 											{tour.itinerary.length} {TOURS_PAGE_HERO.daysSuffix}
 										</span>
 										<span
