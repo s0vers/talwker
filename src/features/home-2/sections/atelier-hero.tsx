@@ -1,322 +1,209 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
-import {
-	LuArrowDown,
-	LuCamera,
-	LuCompass,
-	LuLayers,
-	LuMountain,
-	LuVolume2,
-	LuVolumeX,
-} from "react-icons/lu";
+import { useRef, useState } from "react";
+import { LuArrowRight, LuCompass, LuMapPin, LuStar } from "react-icons/lu";
 import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
-import { HERO_SLIDES, type HeroSlide } from "@/features/home-2/content/atelier-copy";
-import { ButtonWithIcon } from "@/shared/ui";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
+const HERO_PANELS = [
+	{
+		id: "patagonia",
+		slug: "patagonia-chile",
+		name: "Patagonia",
+		country: "Chile",
+		subtitle: "Glacial silence and granite monoliths across the southern ice cap",
+		image: "/laguna-del-inca-lake-surrounded-by-high-mountains-covered-snow-chile.jpg",
+		price: "$2,499",
+		duration: "10 Days",
+		rating: 4.9,
+	},
+	{
+		id: "kyoto",
+		slug: "kyoto-japan",
+		name: "Kyoto",
+		country: "Japan",
+		subtitle: "Centuries of moss, cedar shrines, and dawn temple meditations",
+		image: "/cherry-blossoms-spring-chureito-pagoda-fuji-mountain-japan.jpg",
+		price: "$1,599",
+		duration: "6 Days",
+		rating: 4.8,
+	},
+	{
+		id: "santorini",
+		slug: "santorini-greece",
+		name: "Santorini",
+		country: "Greece",
+		subtitle: "Sun-bleached caldera terraces overlooking the deep blue Aegean",
+		image: "/vertical-high-angle-shot-white-buildings-santorini-greece.jpg",
+		price: "$1,899",
+		duration: "5 Days",
+		rating: 4.9,
+	},
+];
+
 export function AtelierHero() {
 	const sectionRef = useRef<HTMLElement>(null);
-	const [activeSlideIndex, setActiveSlideIndex] = useState(0);
-	const [audioActive, setAudioActive] = useState(false);
-	const [currentTime, setCurrentTime] = useState("");
-
-	const activeSlide: HeroSlide = HERO_SLIDES[activeSlideIndex];
-
-	// Real-time time display
-	useEffect(() => {
-		const updateTime = () => {
-			const now = new Date();
-			setCurrentTime(
-				now.toLocaleTimeString("en-US", {
-					hour12: false,
-					hour: "2-digit",
-					minute: "2-digit",
-					second: "2-digit",
-					timeZone: "UTC",
-				}) + " UTC",
-			);
-		};
-		updateTime();
-		const interval = setInterval(updateTime, 1000);
-		return () => clearInterval(interval);
-	}, []);
-
-	// GSAP animations for slide transition
-	const titleRef = useRef<HTMLHeadingElement>(null);
-	const subtitleRef = useRef<HTMLDivElement>(null);
-	const tagRef = useRef<HTMLSpanElement>(null);
+	const [activePanel, setActivePanel] = useState<number>(0);
+	const line1Ref = useRef<HTMLDivElement>(null);
+	const line2Ref = useRef<HTMLDivElement>(null);
+	const triptychRef = useRef<HTMLDivElement>(null);
 
 	useGsapContext(
 		sectionRef,
 		() => {
 			if (prefersReducedMotion()) return;
 
-			gsap.fromTo(
-				titleRef.current,
-				{ y: 60, opacity: 0 },
-				{ y: 0, opacity: 1, duration: 0.9, ease: "power3.out" },
-			);
-			gsap.fromTo(
-				subtitleRef.current,
-				{ y: 30, opacity: 0 },
-				{ y: 0, opacity: 1, duration: 0.7, delay: 0.1, ease: "power2.out" },
-			);
+			const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+
+			tl.from(line1Ref.current, { y: "115%", duration: 1.2, delay: 0.2 })
+				.from(line2Ref.current, { y: "115%", duration: 1.2 }, "-=1.0")
+				.from(
+					triptychRef.current,
+					{ y: 40, opacity: 0, duration: 1.0, ease: "power3.out" },
+					"-=0.7",
+				);
 		},
-		[activeSlideIndex],
+		[],
 	);
 
 	return (
 		<section
 			ref={sectionRef}
 			id="atelier-hero"
-			aria-labelledby="hero-display-title"
-			className="relative min-h-svh w-full overflow-hidden bg-[#050505] text-white flex flex-col justify-between pt-24 pb-8"
+			aria-labelledby="hero-title"
+			className="relative min-h-svh w-full overflow-hidden bg-[#050505] text-white pt-24 pb-12 flex flex-col justify-between"
 		>
-			{/* Multi-Layer Cinematic Background Crossfade */}
-			{HERO_SLIDES.map((slide, idx) => (
-				<div
-					key={slide.id}
-					className={cn(
-						"absolute inset-0 transition-opacity duration-1000 ease-out",
-						idx === activeSlideIndex ? "opacity-100 z-0 pointer-events-auto" : "opacity-0 z-0 pointer-events-none",
-					)}
-				>
-					<Image
-						src={slide.image}
-						alt={slide.title}
-						fill
-						priority={idx === 0}
-						sizes="100vw"
-						className={cn(
-							"object-cover transition-transform duration-[4000ms] ease-out",
-							idx === activeSlideIndex ? "scale-105 brightness-75" : "scale-100 brightness-50",
-						)}
-					/>
-					<div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/70 to-[#050505]/35 backdrop-blur-[0.5px]" />
-					<div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_70%_30%,rgba(249,115,22,0.15),transparent_70%)]" />
-				</div>
-			))}
-
-			{/* Left Vertical Architectural Spine (Hidden on Mobile) */}
-			<div className="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 hidden md:flex flex-col items-center gap-8 text-white/30 pointer-events-none">
-				<div className="h-16 w-px bg-gradient-to-b from-transparent via-orange-500/50 to-transparent" />
-				<span className="rotate-180 [writing-mode:vertical-rl] font-mono text-[9px] uppercase tracking-[0.35em] text-white/40">
-					TALKWER ATELIER // NOCTURNAL EXPEDITIONS
-				</span>
-				<div className="h-16 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent" />
-			</div>
-
-			{/* Top Telemetry & Spatial HUD */}
-			<header className="relative z-10 w-full max-w-[1600px] mx-auto pad-x">
-				<div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-4 text-xs font-mono text-white/60 backdrop-blur-md">
-					<div className="flex items-center gap-4">
-						<span
-							ref={tagRef}
-							className="inline-flex items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-3.5 py-1 text-[10px] font-semibold tracking-widest text-orange-400"
-						>
-							<span className="relative flex h-2 w-2">
-								<span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400 opacity-75" />
-								<span className="relative inline-flex h-2 w-2 rounded-full bg-orange-500" />
-							</span>
-							{activeSlide.tag}
-						</span>
-
-						<div className="flex items-center gap-2 text-white/50 text-[11px]">
-							<LuCompass className="h-3.5 w-3.5 text-orange-400" />
-							<span>{activeSlide.coordinates}</span>
-						</div>
-					</div>
-
-					<div className="flex items-center gap-6 text-[11px]">
-						<div className="hidden sm:flex items-center gap-2 text-white/50">
-							<LuMountain className="h-3.5 w-3.5 text-orange-400" />
-							<span>{activeSlide.elevation}</span>
-						</div>
-
-						<div className="hidden sm:flex items-center gap-2 text-white/50">
-							<LuCamera className="h-3.5 w-3.5 text-orange-400" />
-							<span>{activeSlide.cameraMeta}</span>
-						</div>
-
-						{/* Audio Field Soundscape Trigger */}
-						<button
-							type="button"
-							onClick={() => setAudioActive((prev) => !prev)}
-							className={cn(
-								"flex items-center gap-2 rounded-full border px-3 py-1 text-[10px] uppercase tracking-wider transition-all duration-300",
-								audioActive
-									? "border-orange-500 bg-orange-500/20 text-orange-300 shadow-md shadow-orange-500/20"
-									: "border-white/15 bg-white/5 text-white/50 hover:border-white/30 hover:text-white",
-							)}
-							aria-label="Toggle field soundscape"
-						>
-							{audioActive ? (
-								<>
-									<LuVolume2 className="h-3 w-3 text-orange-400 animate-pulse" />
-									<span className="flex gap-0.5 items-end h-2.5">
-										<span className="w-0.5 h-1 bg-orange-400 animate-bounce" />
-										<span className="w-0.5 h-2.5 bg-orange-400 animate-bounce delay-75" />
-										<span className="w-0.5 h-1.5 bg-orange-400 animate-bounce delay-150" />
-									</span>
-									<span className="hidden lg:inline">AUDIO SIM</span>
-								</>
-							) : (
-								<>
-									<LuVolumeX className="h-3 w-3" />
-									<span className="hidden lg:inline">SOUNDSCAPE</span>
-								</>
-							)}
-						</button>
-
-						<div className="font-mono text-[10px] text-white/40">
-							{currentTime || "00:00:00 UTC"}
-						</div>
-					</div>
-				</div>
-			</header>
-
-			{/* Main Asymmetric Stage Content */}
-			<div className="relative z-10 w-full max-w-[1600px] mx-auto pad-x my-auto py-8 lg:py-12">
-				<div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
-					{/* Left Giant Monolithic Typography */}
-					<div className="lg:col-span-7 xl:col-span-8 space-y-6">
-						<div className="space-y-2">
-							<div className="overflow-hidden">
-								<p className="font-mono text-xs sm:text-sm uppercase tracking-[0.3em] text-orange-400 font-semibold">
-									{activeSlide.subtitle} {"//"} {activeSlide.region}
-								</p>
-							</div>
-
-							<div className="overflow-hidden">
-								<h1
-									id="hero-display-title"
-									ref={titleRef}
-									className="text-[clamp(2.75rem,9.5vw,8.5rem)] font-extrabold tracking-tighter leading-[0.88] text-white select-none"
-								>
-									{activeSlide.title}
-								</h1>
-							</div>
-						</div>
-
-						<div ref={subtitleRef} className="max-w-xl space-y-6">
-							<p className="text-sm sm:text-base md:text-lg font-light leading-relaxed text-white/80">
-								An avant-garde exploration of the earth&apos;s most secluded horizons. Engineered for contemplative nomads seeking raw geographic truth over transient luxury.
-							</p>
-
-							{/* Call to Actions */}
-							<div className="flex flex-wrap items-center gap-4 pt-2">
-								<ButtonWithIcon
-									href={`/destinations/${activeSlide.destinationSlug}`}
-									variant="orange"
-									size="lg"
-									className="shadow-2xl shadow-orange-500/30 text-xs uppercase tracking-widest font-semibold"
-								>
-									Explore {activeSlide.title} Dossier
-								</ButtonWithIcon>
-
-								<Link
-									href="#map-atlas"
-									className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-6 py-3 text-xs font-semibold uppercase tracking-widest text-white/80 backdrop-blur-md transition-all hover:border-orange-500/50 hover:bg-white/[0.08] hover:text-white"
-								>
-									<LuCompass className="h-4 w-4 text-orange-400" />
-									<span>Cartographic Atlas</span>
-								</Link>
-							</div>
-						</div>
-					</div>
-
-					{/* Right Interactive Spatial Slide Stack */}
-					<div className="lg:col-span-5 xl:col-span-4 flex flex-col items-start lg:items-end gap-4">
-						<div className="w-full max-w-sm rounded-3xl border border-white/15 bg-[#0c0c0c]/85 p-4 shadow-2xl backdrop-blur-2xl transition-all duration-500 hover:border-orange-500/40">
-							<div className="flex items-center justify-between pb-3 border-b border-white/10 text-[10px] font-mono text-white/40 uppercase tracking-widest">
-								<span>EXPEDITION DECK</span>
-								<span className="text-orange-400 font-semibold">0{activeSlideIndex + 1} / 0{HERO_SLIDES.length}</span>
-							</div>
-
-							{/* Slide Thumbnails Switcher */}
-							<div className="grid grid-cols-4 gap-2 pt-3">
-								{HERO_SLIDES.map((slide, idx) => {
-									const isCurrent = idx === activeSlideIndex;
-									return (
-										<button
-											key={slide.id}
-											type="button"
-											onClick={() => setActiveSlideIndex(idx)}
-											className={cn(
-												"relative aspect-square overflow-hidden rounded-xl border transition-all duration-300 outline-none focus-visible:ring-2 focus-visible:ring-orange-500 group",
-												isCurrent
-													? "border-orange-500 scale-105 shadow-md shadow-orange-500/30 ring-1 ring-orange-500"
-													: "border-white/10 opacity-60 hover:opacity-100 hover:border-white/30",
-											)}
-											aria-label={`Select ${slide.title}`}
-										>
-											<Image
-												src={slide.image}
-												alt={slide.title}
-												fill
-												sizes="100px"
-												className="object-cover"
-											/>
-											<div className="absolute inset-0 bg-black/30 group-hover:bg-transparent transition-colors" />
-											<span className="absolute bottom-1 right-1 font-mono text-[9px] font-bold text-white bg-black/70 px-1 rounded">
-												0{idx + 1}
-											</span>
-										</button>
-									);
-								})}
-							</div>
-
-							{/* Active Slide Snapshot Meta */}
-							<div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs">
-								<div>
-									<p className="font-semibold text-white">{activeSlide.title} Monograph</p>
-									<p className="text-[10px] font-mono text-white/40">{activeSlide.season} · {activeSlide.elevation}</p>
-								</div>
-
-								<Link
-									href={`/destinations/${activeSlide.destinationSlug}`}
-									className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/5 text-orange-400 transition-colors hover:bg-orange-500 hover:text-white"
-									aria-label={`Go to ${activeSlide.title}`}
-								>
-									<LuArrowDown className="h-3.5 w-3.5 -rotate-45" />
-								</Link>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			{/* Base Slide Track Selector */}
+			{/* Top Eyebrow */}
 			<div className="relative z-10 w-full max-w-[1600px] mx-auto pad-x">
-				<div className="flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-4">
+				<div className="flex items-center justify-between border-b border-white/10 pb-4 text-[11px] font-semibold uppercase tracking-[0.25em] text-white/50">
 					<div className="flex items-center gap-3">
-						<LuLayers className="h-4 w-4 text-orange-400" />
-						<span className="font-mono text-xs uppercase tracking-wider text-white/40">
-							EXPEDITION HORIZONS:
-						</span>
+						<span className="h-1.5 w-1.5 rounded-full bg-orange-500" />
+						<span>TALKWER · VISUAL FOLIO Nº 02</span>
 					</div>
+					<span className="hidden sm:inline text-white/40">CURATED TRAVEL ARCHIVE</span>
+				</div>
+			</div>
 
-					<div className="flex items-center gap-2">
-						{HERO_SLIDES.map((slide, idx) => (
-							<button
-								key={slide.id}
-								type="button"
-								onClick={() => setActiveSlideIndex(idx)}
+			{/* Main Masthead Headline */}
+			<div className="relative z-10 w-full max-w-[1600px] mx-auto pad-x my-auto py-6">
+				<div className="space-y-2 mb-8">
+					<div className="overflow-hidden">
+						<h1
+							id="hero-title"
+							ref={line1Ref}
+							className="text-[clamp(2.5rem,7.5vw,6.5rem)] font-bold tracking-tighter leading-[0.92] text-white"
+						>
+							EXPLORE WITH INTENTION.
+						</h1>
+					</div>
+					<div className="overflow-hidden">
+						<h1
+							ref={line2Ref}
+							className="text-[clamp(2.5rem,7.5vw,6.5rem)] font-bold tracking-tighter leading-[0.92]"
+						>
+							<span className="text-white/80">JOURNEYS CRAFTED FOR </span>
+							<span className="font-light italic text-orange-500">DEPTH.</span>
+						</h1>
+					</div>
+				</div>
+
+				{/* 3-Panel Interactive Triptych */}
+				<div
+					ref={triptychRef}
+					className="flex flex-col md:flex-row gap-4 h-[380px] sm:h-[440px] lg:h-[500px] w-full"
+				>
+					{HERO_PANELS.map((panel, idx) => {
+						const isExpanded = activePanel === idx;
+						return (
+							<article
+								key={panel.id}
+								onMouseEnter={() => setActivePanel(idx)}
 								className={cn(
-									"flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-mono transition-all duration-300 border outline-none focus-visible:ring-2 focus-visible:ring-orange-500",
-									idx === activeSlideIndex
-										? "border-orange-500 bg-orange-500/20 text-orange-400 font-semibold"
-										: "border-white/10 bg-white/[0.02] text-white/50 hover:border-white/20 hover:text-white",
+									"relative overflow-hidden rounded-3xl border border-white/10 bg-[#0c0c0c] transition-all duration-700 ease-out cursor-pointer group flex flex-col justify-between p-6",
+									isExpanded
+										? "md:flex-[2.2] border-orange-500/40 shadow-2xl shadow-orange-500/10"
+										: "md:flex-1 opacity-70 hover:opacity-100 hover:border-white/25",
 								)}
 							>
-								<span>0{idx + 1}</span>
-								<span className="hidden sm:inline">{slide.title}</span>
-							</button>
-						))}
+								{/* Background Image */}
+								<Image
+									src={panel.image}
+									alt={panel.name}
+									fill
+									sizes="(max-width: 768px) 100vw, 600px"
+									className="object-cover transition-transform duration-1000 group-hover:scale-105"
+								/>
+								<div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20" />
+
+								{/* Top Badge */}
+								<div className="relative z-10 flex items-center justify-between">
+									<span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/60 px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-white backdrop-blur-md">
+										<LuMapPin className="h-3 w-3 text-orange-400" />
+										<span>{panel.country}</span>
+									</span>
+
+									<div className="flex items-center gap-1 font-mono text-xs text-white/90 bg-black/60 px-2.5 py-1 rounded-full border border-white/15 backdrop-blur-md">
+										<LuStar className="h-3 w-3 fill-orange-400 text-orange-400" />
+										<span>{panel.rating}</span>
+									</div>
+								</div>
+
+								{/* Bottom Details */}
+								<div className="relative z-10 space-y-2">
+									<div className="flex items-end justify-between gap-4">
+										<div>
+											<p className="text-[10px] font-mono uppercase tracking-widest text-orange-400">
+												{panel.duration} TRIP
+											</p>
+											<h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+												{panel.name}
+											</h2>
+										</div>
+
+										<div className="text-right">
+											<p className="text-[10px] font-mono uppercase text-white/40">FROM</p>
+											<p className="text-lg font-bold font-mono text-white">{panel.price}</p>
+										</div>
+									</div>
+
+									{isExpanded && (
+										<p className="hidden md:block text-xs text-white/70 leading-relaxed pt-1">
+											{panel.subtitle}
+										</p>
+									)}
+
+									<div className="pt-2">
+										<Link
+											href={`/destinations/${panel.slug}`}
+											className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-orange-400 transition-colors hover:text-orange-300"
+										>
+											<span>Explore Itinerary</span>
+											<LuArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+										</Link>
+									</div>
+								</div>
+							</article>
+						);
+					})}
+				</div>
+			</div>
+
+			{/* Base Footer Bar */}
+			<div className="relative z-10 w-full max-w-[1600px] mx-auto pad-x">
+				<div className="flex items-center justify-between border-t border-white/10 pt-4 text-xs text-white/50 font-mono">
+					<div className="flex items-center gap-2">
+						<LuCompass className="h-4 w-4 text-orange-400" />
+						<span>CURATED COLLECTION // 2026 EDITION</span>
 					</div>
+
+					<a
+						href="#curators-gallery"
+						className="hover:text-white transition-colors"
+					>
+						Scroll to Discover ↓
+					</a>
 				</div>
 			</div>
 		</section>
