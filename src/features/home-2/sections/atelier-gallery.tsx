@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import {
 	LuArrowLeft,
 	LuArrowRight,
@@ -11,14 +11,42 @@ import { DESTINATIONS } from "@/features/home/content/destinations";
 import { destinationToSlug } from "@/features/destinations/lib/destination-slug";
 import { ButtonWithIcon } from "@/shared/ui";
 import { Link } from "@/i18n/navigation";
+import { cn } from "@/lib/utils";
 
 export function AtelierGallery() {
 	const scrollContainerRef = useRef<HTMLDivElement>(null);
+	const [isDragging, setIsDragging] = useState(false);
+	const startX = useRef(0);
+	const initialScrollLeft = useRef(0);
+	const hasDragged = useRef(false);
 
 	const scroll = (direction: "left" | "right") => {
 		if (!scrollContainerRef.current) return;
 		const offset = direction === "left" ? -400 : 400;
 		scrollContainerRef.current.scrollBy({ left: offset, behavior: "smooth" });
+	};
+
+	const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+		if (!scrollContainerRef.current) return;
+		setIsDragging(true);
+		hasDragged.current = false;
+		startX.current = e.pageX - scrollContainerRef.current.offsetLeft;
+		initialScrollLeft.current = scrollContainerRef.current.scrollLeft;
+	};
+
+	const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+		if (!isDragging || !scrollContainerRef.current) return;
+		e.preventDefault();
+		const x = e.pageX - scrollContainerRef.current.offsetLeft;
+		const walk = (x - startX.current) * 1.5;
+		if (Math.abs(walk) > 6) {
+			hasDragged.current = true;
+		}
+		scrollContainerRef.current.scrollLeft = initialScrollLeft.current - walk;
+	};
+
+	const handlePointerUpOrLeave = () => {
+		setIsDragging(false);
 	};
 
 	return (
@@ -66,26 +94,35 @@ export function AtelierGallery() {
 					</div>
 				</div>
 
-				{/* Horizontal Carousel Track */}
+				{/* Horizontal Carousel Track with Swipe / Drag Support */}
 				<div
 					ref={scrollContainerRef}
-					className="flex gap-6 overflow-x-auto pb-6 pt-2 scrollbar-none snap-x snap-mandatory"
+					onPointerDown={handlePointerDown}
+					onPointerMove={handlePointerMove}
+					onPointerUp={handlePointerUpOrLeave}
+					onPointerLeave={handlePointerUpOrLeave}
+					onPointerCancel={handlePointerUpOrLeave}
+					className={cn(
+						"flex gap-6 overflow-x-auto pb-6 pt-2 scrollbar-none snap-x snap-mandatory touch-pan-x",
+						isDragging ? "cursor-grabbing select-none scroll-auto" : "cursor-grab",
+					)}
 				>
 					{DESTINATIONS.map((dest) => {
 						const slug = destinationToSlug(dest);
 						return (
 							<article
 								key={dest.id}
-								className="min-w-[280px] sm:min-w-[340px] md:min-w-[380px] snap-start rounded-3xl border border-white/10 bg-[#0c0c0c] p-4 group transition-all duration-500 hover:border-orange-500/40 hover:bg-[#101010] flex flex-col justify-between"
+								className="min-w-[280px] sm:min-w-[340px] md:min-w-[380px] snap-start rounded-3xl border border-white/10 bg-[#0c0c0c] p-4 group transition-all duration-500 hover:border-orange-500/40 hover:bg-[#101010] flex flex-col justify-between select-none"
 							>
 								{/* Image Stage */}
-								<div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-black">
+								<div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-black pointer-events-none">
 									<Image
 										src={dest.image}
 										alt={dest.name}
 										fill
 										sizes="400px"
 										className="object-cover transition-transform duration-700 group-hover:scale-105"
+										draggable={false}
 									/>
 									<div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
@@ -129,6 +166,11 @@ export function AtelierGallery() {
 									<div className="pt-2 border-t border-white/[0.08] flex items-center justify-between">
 										<Link
 											href={`/destinations/${slug}`}
+											onClick={(e) => {
+												if (hasDragged.current) {
+													e.preventDefault();
+												}
+											}}
 											className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-orange-400 hover:text-orange-300 transition-colors"
 										>
 											<span>View Destination</span>
