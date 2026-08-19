@@ -73,19 +73,8 @@ export function AtelierHero() {
 			ref={sectionRef}
 			id="atelier-hero"
 			aria-labelledby="hero-title"
-			className="relative min-h-svh w-full overflow-hidden bg-[#050505] text-white pt-24 pb-12 flex flex-col justify-between"
+			className="relative min-h-svh w-full overflow-hidden bg-[#050505] text-white pt-28 pb-12 flex flex-col justify-between"
 		>
-			{/* Top Eyebrow */}
-			<div className="relative z-10 w-full max-w-[1600px] mx-auto pad-x">
-				<div className="flex items-center justify-between border-b border-white/10 pb-4 text-[11px] font-semibold uppercase tracking-[0.25em] text-white/50">
-					<div className="flex items-center gap-3">
-						<span className="h-1.5 w-1.5 rounded-full bg-orange-500" />
-						<span>TALKWER · VISUAL FOLIO Nº 02</span>
-					</div>
-					<span className="hidden sm:inline text-white/40">CURATED TRAVEL ARCHIVE</span>
-				</div>
-			</div>
-
 			{/* Main Masthead Headline */}
 			<div className="relative z-10 w-full max-w-[1600px] mx-auto pad-x my-auto py-6">
 				<div className="space-y-2 mb-8">
