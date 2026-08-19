@@ -1,8 +1,7 @@
 export { AtelierHero } from "./atelier-hero";
-export { AtelierTelemetry } from "./atelier-telemetry";
-export { AtelierDossiers } from "./atelier-dossiers";
-export { AtelierArchetypes } from "./atelier-archetypes";
-export { AtelierDispatch } from "./atelier-dispatch";
-export { AtelierDepartures } from "./atelier-departures";
-export { AtelierManifesto } from "./atelier-manifesto";
-export { AtelierCTA } from "./atelier-cta";
+export { AtelierMapAtlas } from "./atelier-map-atlas";
+export { AtelierDarkroom } from "./atelier-darkroom";
+export { AtelierJourneyWeaver } from "./atelier-journey-weaver";
+export { AtelierBoardingPasses } from "./atelier-boarding-passes";
+export { AtelierSplitDispatch } from "./atelier-split-dispatch";
+export { AtelierConciergeVault } from "./atelier-concierge-vault";
