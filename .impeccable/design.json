@@ -1,0 +1,65 @@
+{
+  "$schema": "https://impeccable.style/schemas/design.json",
+  "version": "1.0.0",
+  "meta": {
+    "name": "Talkwer Design System",
+    "creativeNorthStar": "The Nocturnal Expedition",
+    "platform": "web"
+  },
+  "typography": {
+    "primaryFont": "Inter",
+    "fallbackFont": "sans-serif",
+    "displayScale": {
+      "headlineLarge": "clamp(2.5rem, 6vw, 5.5rem)",
+      "headlineMedium": "clamp(2rem, 4vw, 3.5rem)",
+      "headlineSmall": "clamp(1.5rem, 2.5vw, 2.25rem)"
+    },
+    "tracking": {
+      "tight": "-0.04em",
+      "tighter": "-0.06em",
+      "editorialEyebrow": "0.18em"
+    }
+  },
+  "colors": {
+    "background": {
+      "canvas": "#050505",
+      "panel": "#0a0a0a",
+      "card": "#121212",
+      "overlay": "rgba(5, 5, 5, 0.90)"
+    },
+    "accent": {
+      "primary": "#f97316",
+      "primaryHover": "#ea580c",
+      "secondaryAmber": "hsl(43, 96%, 56%)"
+    },
+    "text": {
+      "primary": "#ffffff",
+      "secondary": "rgba(255, 255, 255, 0.75)",
+      "muted": "rgba(255, 255, 255, 0.60)",
+      "subtle": "rgba(255, 255, 255, 0.40)",
+      "faint": "rgba(255, 255, 255, 0.15)"
+    },
+    "border": {
+      "hairline": "rgba(255, 255, 255, 0.06)",
+      "subtle": "rgba(255, 255, 255, 0.10)",
+      "interactive": "rgba(255, 255, 255, 0.18)",
+      "accent": "#f97316"
+    }
+  },
+  "radii": {
+    "sm": "0.5rem",
+    "md": "0.625rem",
+    "lg": "0.75rem",
+    "xl": "1rem",
+    "full": "9999px"
+  },
+  "layout": {
+    "maxWidth": "1600px",
+    "padX": "px-5 md:px-10 lg:px-16 xl:px-24"
+  },
+  "rules": {
+    "enforceDarkCanvas": true,
+    "requireReducedMotionFallback": true,
+    "prohibitGenericAITropes": true
+  }
+}

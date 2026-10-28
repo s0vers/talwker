@@ -1,0 +1,26 @@
+"use client";
+
+import { useRef, type ReactNode } from "react";
+import { bindDestinationDetails3Scroll } from "@/features/destination-details-3/lib/destination-details-3-scroll-motion";
+import { prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
+
+type Props = {
+	children: ReactNode;
+};
+
+export function DestinationDetails3MotionRoot({ children }: Props) {
+	const scopeRef = useRef<HTMLDivElement | null>(null);
+
+	useGsapContext(scopeRef, () => {
+		if (prefersReducedMotion()) return;
+		const root = scopeRef.current;
+		if (!root) return;
+		bindDestinationDetails3Scroll(root);
+	}, []);
+
+	return (
+		<div ref={scopeRef} className="relative">
+			{children}
+		</div>
+	);
+}

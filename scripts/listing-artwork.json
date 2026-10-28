@@ -1,0 +1,122 @@
+[
+	{
+		"name": "a01-hero-window-desk",
+		"captures": ["home-1-mobile", "home-1"],
+		"headline": ["Travel & Tour", "Next.js Template"],
+		"subtitle": "Three home designs · Next.js 16",
+		"top": false,
+		"scene": "Dark walnut desk beside large sunset window; orange-lit sea of clouds and deep blue sky. Right half: open unbranded laptop angled toward camera plus separate smartphone on small stand, both full unobstructed flat #00FF00 displays. Orange rim light, ceramic coffee cup and folded map soft focus far right. Left 40% dark empty wall and desk shadow. Cinematic real 35–50mm photography, shallow depth of field, rich blacks, subtle grain; no text, logos, faces or reflections on screens. Native 1536x1024 landscape."
+	},
+	{
+		"name": "a02-three-laptops",
+		"captures": ["home-1", "home-2", "home-3"],
+		"headline": ["One brand,", "three moods."],
+		"subtitle": "Editorial / Triptych / Observatory",
+		"top": true,
+		"scene": "Three identical open laptops evenly spaced side by side on long dark oak studio table, angled toward camera all screens visible. Orange overhead spotlight, blue-black background. Empty TOP 30% headline space instead of left."
+	},
+	{
+		"name": "a03-santorini-terrace",
+		"captures": ["home-1"],
+		"headline": ["Home 01", "Editorial"],
+		"subtitle": "Photography-led travel storytelling",
+		"top": false,
+		"scene": "Laptop on small round white table on RIGHT of Santorini whitewashed terrace at blue hour. Blurred caldera white cliffside village warm window lights deep blue sea sky; linen napkin wine glass. Left dark sky soft wall."
+	},
+	{
+		"name": "a04-gallery-loft",
+		"captures": ["home-2"],
+		"headline": ["Home 02", "Triptych"],
+		"subtitle": "Triptych home layout",
+		"top": false,
+		"scene": "Laptop on black plinth RIGHT in minimalist dark photo gallery at night; framed mountains sea desert photographs on charcoal walls orange spotlights polished concrete. Left empty dark wall."
+	},
+	{
+		"name": "a05-atacama-night",
+		"captures": ["home-3"],
+		"headline": ["Home 03", "Observatory"],
+		"subtitle": "Observatory home layout",
+		"top": false,
+		"scene": "Laptop on flat volcanic rock RIGHT in Atacama desert night; Milky Way arc stars blue-black sky distant volcanoes. Small vintage lantern warm orange light. Left dark sky desert."
+	},
+	{
+		"name": "a06-map-flatlay",
+		"captures": ["destinations"],
+		"headline": ["Explore", "destinations."],
+		"subtitle": "Destination listing layouts",
+		"top": false,
+		"scene": "Top-down tablet lying flat RIGHT of center on vintage map with no readable names on dark wood golden hour. Brass compass film camera closed unmarked passport dried flowers. Left 40% bare dark wood."
+	},
+	{
+		"name": "a07-library-tablet",
+		"captures": ["destination-mobile"],
+		"headline": ["Every place,", "a story."],
+		"subtitle": "Destination detail pages",
+		"top": false,
+		"scene": "Tablet standing on wood stand RIGHT on reading desk wood-panel library at night; brass lamp orange light travel books and globe blurred. Left dark bookshelves."
+	},
+	{
+		"name": "a08-rice-terrace-phone",
+		"captures": ["tour-mobile"],
+		"headline": ["Tours &", "itineraries."],
+		"subtitle": "Tour detail pages",
+		"top": false,
+		"scene": "Hand holding upright phone RIGHT facing camera fingers only at edges; Balinese rice terraces sunrise mist palms orange glow blurred behind; left soft dark green terraces shadow, no face."
+	},
+	{
+		"name": "a09-kyoto-cafe",
+		"captures": ["story"],
+		"headline": ["Travel", "stories."],
+		"subtitle": "Long-form editorial layouts",
+		"top": false,
+		"scene": "Laptop RIGHT on small wooden cafe table Kyoto early evening; through window blurred traditional wood street orange lanterns pagoda silhouette deep blue sky; cup matcha folded unreadable magazine. Left dark wall window frame."
+	},
+	{
+		"name": "a10-studio-monitor",
+		"captures": ["about"],
+		"headline": ["35+", "inner pages."],
+		"subtitle": "About / Contact / FAQ / Policies",
+		"top": false,
+		"scene": "Large modern desktop monitor RIGHT of center dark design studio night desk; orange desk lamp plant travel photo books blurred, dark window faint city lights. Left dark wall."
+	},
+	{
+		"name": "a11-aurora-phone",
+		"captures": ["login-mobile"],
+		"headline": ["Account", "screens."],
+		"subtitle": "Sign-in UI demonstrations",
+		"top": false,
+		"scene": "Upright smartphone RIGHT on snow-covered cabin porch wooden railing at night; green violet aurora snowy mountains frozen fjord cabin window warm orange light. Left dark sky faint aurora."
+	},
+	{
+		"name": "a12-agency-office",
+		"captures": ["admin", "customer"],
+		"headline": ["Dashboard", "layouts."],
+		"subtitle": "Admin & customer UI demonstrations",
+		"top": false,
+		"scene": "Wide desktop monitor and open laptop side by side RIGHT on long travel agency desk dusk, BOTH screens completely visible separated. Behind abstract world map orange dots no labels, warm lamps blue shadows. Left empty dark wall desk."
+	},
+	{
+		"name": "a13-lounge-phone",
+		"captures": ["booking-mobile"],
+		"headline": ["Booking", "demo."],
+		"subtitle": "Frontend scheduling demonstration",
+		"top": false,
+		"scene": "Phone lying face up slight angle RIGHT of center on dark marble side table airport lounge dusk, closed unmarked passport leather wallet beside. Window runway blue amber lights plane silhouette orange sunset; left dark chair."
+	},
+	{
+		"name": "a14-three-phones-ledge",
+		"captures": ["home-1-mobile", "home-2-mobile", "home-3-mobile"],
+		"headline": ["Made for", "every screen."],
+		"subtitle": "Three responsive home designs",
+		"top": true,
+		"scene": "Three identical upright smartphones evenly spaced centered on weathered stone ledge Mediterranean sea cliffs blurred golden hour orange sky. Empty TOP 30% headline space instead of left."
+	},
+	{
+		"name": "a15-topographic-texture",
+		"captures": [],
+		"headline": ["Travel & Tour", "Next.js Template"],
+		"subtitle": "Next.js 16 · React 19 · TypeScript · Tailwind CSS 4",
+		"top": false,
+		"scene": "ONLY abstract texture: thin glowing orange topographic contour lines on near-black surface, subtle grain, faint warm top-right glow, dark calm left 40%. No devices, screens, objects, green, text, symbols or logos. Native 1536x1024 landscape 3:2."
+	}
+]

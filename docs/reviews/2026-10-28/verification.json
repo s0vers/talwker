@@ -1,0 +1,385 @@
+{
+	"date": "2026-10-28",
+	"runtime": {
+		"node": "v24.19.0",
+		"pnpm": "12.6.0",
+		"next": "16.4.3",
+		"build": "pnpm build (next build --webpack)",
+		"serve": "node node_modules/next/dist/bin/next start -p 45671 (equivalent to pnpm start -p 45671)",
+		"url": "http://localhost:45671/",
+		"proxy": false,
+		"hostingChanges": false,
+		"homepageRendering": "Static Pages Router; other routes use App Router"
+	},
+	"lighthouse": {
+		"lighthouseVersion": "13.5.0",
+		"userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+		"throttlingMethod": "simulate",
+		"throttling": {
+			"rttMs": 150,
+			"throughputKbps": 1638.4,
+			"requestLatencyMs": 562.5,
+			"downloadThroughputKbps": 1474.5600000000002,
+			"uploadThroughputKbps": 675,
+			"cpuSlowdownMultiplier": 4
+		},
+		"screenEmulation": {
+			"mobile": true,
+			"width": 412,
+			"height": 823,
+			"deviceScaleFactor": 1.75,
+			"disabled": false
+		},
+		"chromeFlags": "--headless --disable-gpu",
+		"runs": [
+			{
+				"run": 1,
+				"fetchTime": "2026-10-28T16:10:44.086Z",
+				"lcpMs": 2482.8581999999997,
+				"fcpMs": 907.8581999999999,
+				"performance": 0.97,
+				"accessibility": 1,
+				"cls": 0,
+				"tbtMs": 81.99999999999977,
+				"transferBytes": 237199,
+				"scriptTransferBytes": 148777,
+				"protocols": ["http/1.1"],
+				"passed": true
+			},
+			{
+				"run": 2,
+				"fetchTime": "2026-10-28T16:10:57.409Z",
+				"lcpMs": 2481.6935999999996,
+				"fcpMs": 906.6936000000001,
+				"performance": 0.97,
+				"accessibility": 1,
+				"cls": 0,
+				"tbtMs": 66.99999999999977,
+				"transferBytes": 237199,
+				"scriptTransferBytes": 148777,
+				"protocols": ["http/1.1"],
+				"passed": true
+			},
+			{
+				"run": 3,
+				"fetchTime": "2026-10-28T16:11:10.852Z",
+				"lcpMs": 2481.4760000000006,
+				"fcpMs": 906.4760000000001,
+				"performance": 0.98,
+				"accessibility": 1,
+				"cls": 0,
+				"tbtMs": 61.99999999999977,
+				"transferBytes": 237199,
+				"scriptTransferBytes": 148777,
+				"protocols": ["http/1.1"],
+				"passed": true
+			},
+			{
+				"run": 4,
+				"fetchTime": "2026-10-28T16:11:24.224Z",
+				"lcpMs": 2483.345,
+				"fcpMs": 908.345,
+				"performance": 0.98,
+				"accessibility": 1,
+				"cls": 0,
+				"tbtMs": 60,
+				"transferBytes": 237199,
+				"scriptTransferBytes": 148777,
+				"protocols": ["http/1.1"],
+				"passed": true
+			},
+			{
+				"run": 5,
+				"fetchTime": "2026-10-28T16:11:37.551Z",
+				"lcpMs": 2481.6895999999997,
+				"fcpMs": 906.6895999999999,
+				"performance": 0.97,
+				"accessibility": 1,
+				"cls": 0,
+				"tbtMs": 75,
+				"transferBytes": 237199,
+				"scriptTransferBytes": 148777,
+				"protocols": ["http/1.1"],
+				"passed": true
+			}
+		],
+		"lcpBudgetMs": 2500,
+		"lcpBudgetPassed": true,
+		"scope": "Default English homepage, five sequential fresh Chrome runs"
+	},
+	"checks": {
+		"verify": "passed",
+		"productionDependencyAudit": "no known vulnerabilities",
+		"localizedRoutes": 108,
+		"interactionRegressions": 5,
+		"browserErrors": 0,
+		"previewLinks": {
+			"checked": 43,
+			"failures": 0
+		},
+		"axe": [
+			{
+				"route": "/",
+				"violationCount": 0
+			},
+			{
+				"route": "/home-2",
+				"violationCount": 0
+			},
+			{
+				"route": "/home-3",
+				"violationCount": 0
+			},
+			{
+				"route": "/destinations",
+				"violationCount": 0
+			},
+			{
+				"route": "/stories/temple-smoke-and-terrace-light",
+				"violationCount": 0
+			}
+		],
+		"bookingCheckoutAndLocaleRegressions": "passed",
+		"designInteractionRegressions": "passed",
+		"responsiveEditorial": {
+			"locales": ["en", "es", "ja"],
+			"widths": [320, 390, 768, 1440],
+			"overflow": false
+		},
+		"editorialScreenshotComparison": {
+			"images": 4,
+			"bodyChangedPixels": 0,
+			"headerDifferences": "Differences confined to top 80px; body below header is pixel-identical."
+		},
+		"localeSwitching": "English to Spanish to Japanese to English passed",
+		"browserLanguageHydration": "es-ES and ja-JP: zero page errors",
+		"fontSubset": "Variable axes and horizontal metrics preserved for all 134 codepoints"
+	},
+	"limitations": [
+		"Local headless Chrome for the default English homepage; not field Core Web Vitals",
+		"Worst LCP is 2.483s, leaving about 17ms of lab margin",
+		"No exhaustive physical-device, Safari or Firefox validation",
+		"No persistent application test runner added"
+	],
+	"codeCleanupVerification": {
+		"verify": "passed",
+		"localizedRoutes": 108,
+		"interactionRegressions": 5,
+		"browserErrors": 0,
+		"browserLanguageHydration": "es-ES and ja-JP passed",
+		"mobile": {
+			"url": "http://localhost:45671/",
+			"lcpBudgetMs": 2500,
+			"passed": true,
+			"profile": {
+				"lighthouseVersion": "13.5.0",
+				"userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+				"throttlingMethod": "simulate",
+				"throttling": {
+					"rttMs": 150,
+					"throughputKbps": 1638.4,
+					"requestLatencyMs": 562.5,
+					"downloadThroughputKbps": 1474.5600000000002,
+					"uploadThroughputKbps": 675,
+					"cpuSlowdownMultiplier": 4
+				},
+				"screenEmulation": {
+					"mobile": true,
+					"width": 412,
+					"height": 823,
+					"deviceScaleFactor": 1.75,
+					"disabled": false
+				},
+				"chromeFlags": "--headless --disable-gpu"
+			},
+			"runs": [
+				{
+					"run": 1,
+					"fetchTime": "2026-10-28T16:23:06.367Z",
+					"lcpMs": 2482.5552000000002,
+					"fcpMs": 907.5552,
+					"performance": 0.98,
+					"accessibility": 1,
+					"cls": 0,
+					"tbtMs": 44.99999999999977,
+					"transferBytes": 237157,
+					"scriptTransferBytes": 148736,
+					"protocols": ["http/1.1"],
+					"passed": true
+				},
+				{
+					"run": 2,
+					"fetchTime": "2026-10-28T16:23:19.408Z",
+					"lcpMs": 2481.7414,
+					"fcpMs": 906.7414000000001,
+					"performance": 0.98,
+					"accessibility": 1,
+					"cls": 0,
+					"tbtMs": 42,
+					"transferBytes": 237157,
+					"scriptTransferBytes": 148736,
+					"protocols": ["http/1.1"],
+					"passed": true
+				},
+				{
+					"run": 3,
+					"fetchTime": "2026-10-28T16:23:32.481Z",
+					"lcpMs": 2481.1237,
+					"fcpMs": 906.1237000000001,
+					"performance": 0.98,
+					"accessibility": 1,
+					"cls": 0,
+					"tbtMs": 43,
+					"transferBytes": 237157,
+					"scriptTransferBytes": 148736,
+					"protocols": ["http/1.1"],
+					"passed": true
+				},
+				{
+					"run": 4,
+					"fetchTime": "2026-10-28T16:23:45.628Z",
+					"lcpMs": 2483.7212,
+					"fcpMs": 908.7212,
+					"performance": 0.98,
+					"accessibility": 1,
+					"cls": 0,
+					"tbtMs": 42,
+					"transferBytes": 237157,
+					"scriptTransferBytes": 148736,
+					"protocols": ["http/1.1"],
+					"passed": true
+				},
+				{
+					"run": 5,
+					"fetchTime": "2026-10-28T16:23:58.613Z",
+					"lcpMs": 2480.9444000000003,
+					"fcpMs": 905.9444000000001,
+					"performance": 0.98,
+					"accessibility": 1,
+					"cls": 0,
+					"tbtMs": 46,
+					"transferBytes": 237157,
+					"scriptTransferBytes": 148736,
+					"protocols": ["http/1.1"],
+					"passed": true
+				}
+			]
+		}
+	},
+	"finalCleanupVerification": {
+		"skills": [
+			"emil-unslop-code",
+			"vercel-react-best-practices",
+			"emil-ui-review"
+		],
+		"verify": "passed",
+		"productionDependencyAudit": "no known vulnerabilities",
+		"localizedRoutes": 108,
+		"interactionRegressions": 5,
+		"browserErrors": 0,
+		"sampledAxeRoutes": 5,
+		"axeViolations": 0,
+		"previewLinks": 43,
+		"previewLinkFailures": 0,
+		"bookingConfirmationBoundaryCases": "passed",
+		"targetedChecks": "Three filter-clear links; mobile 16px and desktop 14px search; 12h/24h tabs; language switching passed",
+		"mobile": {
+			"url": "http://localhost:45671/",
+			"lcpBudgetMs": 2500,
+			"passed": true,
+			"profile": {
+				"lighthouseVersion": "13.5.0",
+				"userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+				"throttlingMethod": "simulate",
+				"throttling": {
+					"rttMs": 150,
+					"throughputKbps": 1638.4,
+					"requestLatencyMs": 562.5,
+					"downloadThroughputKbps": 1474.5600000000002,
+					"uploadThroughputKbps": 675,
+					"cpuSlowdownMultiplier": 4
+				},
+				"screenEmulation": {
+					"mobile": true,
+					"width": 412,
+					"height": 823,
+					"deviceScaleFactor": 1.75,
+					"disabled": false
+				},
+				"chromeFlags": "--headless --disable-gpu"
+			},
+			"runs": [
+				{
+					"run": 1,
+					"fetchTime": "2026-10-28T16:33:59.146Z",
+					"lcpMs": 2482.6398,
+					"fcpMs": 907.6397999999999,
+					"performance": 0.98,
+					"accessibility": 1,
+					"cls": 0,
+					"tbtMs": 49,
+					"transferBytes": 237202,
+					"scriptTransferBytes": 148762,
+					"protocols": ["http/1.1"],
+					"passed": true
+				},
+				{
+					"run": 2,
+					"fetchTime": "2026-10-28T16:34:12.120Z",
+					"lcpMs": 2482.4395000000004,
+					"fcpMs": 907.4395,
+					"performance": 0.98,
+					"accessibility": 1,
+					"cls": 0,
+					"tbtMs": 42,
+					"transferBytes": 237202,
+					"scriptTransferBytes": 148762,
+					"protocols": ["http/1.1"],
+					"passed": true
+				},
+				{
+					"run": 3,
+					"fetchTime": "2026-10-28T16:34:25.021Z",
+					"lcpMs": 2482.4906,
+					"fcpMs": 907.4906000000001,
+					"performance": 0.98,
+					"accessibility": 1,
+					"cls": 0,
+					"tbtMs": 48,
+					"transferBytes": 237202,
+					"scriptTransferBytes": 148762,
+					"protocols": ["http/1.1"],
+					"passed": true
+				},
+				{
+					"run": 4,
+					"fetchTime": "2026-10-28T16:34:38.145Z",
+					"lcpMs": 2485.1357000000003,
+					"fcpMs": 910.1357,
+					"performance": 0.98,
+					"accessibility": 1,
+					"cls": 0,
+					"tbtMs": 48.99999999999977,
+					"transferBytes": 237202,
+					"scriptTransferBytes": 148762,
+					"protocols": ["http/1.1"],
+					"passed": true
+				},
+				{
+					"run": 5,
+					"fetchTime": "2026-10-28T16:34:51.201Z",
+					"lcpMs": 2485.4686999999994,
+					"fcpMs": 910.4686999999999,
+					"performance": 0.98,
+					"accessibility": 1,
+					"cls": 0,
+					"tbtMs": 40,
+					"transferBytes": 237202,
+					"scriptTransferBytes": 148762,
+					"protocols": ["http/1.1"],
+					"passed": true
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,261 @@
+"use client";
+
+import { useId, useRef } from "react";
+import { useTranslations } from "next-intl";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue
+} from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
+import {
+	CONTACT_FORM_COPY,
+	CONTACT_FORM_TOPIC_ITEMS,
+	type ContactFormTopicValue
+} from "@/features/contact/content/contact-page-copy";
+import {
+	buildContactMailtoHref,
+	inboxForFormTopic
+} from "@/features/contact/lib/contact-form-mailto";
+import { useContactFormScrollMotion } from "@/features/contact/lib/contact-page-motion";
+import { cn } from "@/lib/utils";
+import { FieldLabel } from "@/shared/ui";
+
+const fieldSurface =
+	"border-white/15 bg-white/[0.04] text-white shadow-[0_1px_0_rgba(255,255,255,0.04)]";
+
+const selectItemClass =
+	"rounded-full text-white data-highlighted:bg-white/10 data-highlighted:text-white";
+
+const selectContentClass =
+	"border-white/15 bg-[#0c0c0c] text-white shadow-[0_24px_80px_rgba(0,0,0,0.85)]";
+
+const DEFAULT_TOPIC = CONTACT_FORM_COPY.topics[0].value;
+
+function topicFromFormData(fd: FormData): ContactFormTopicValue {
+	const raw = fd.get("topic");
+	if (typeof raw !== "string") return DEFAULT_TOPIC;
+	const match = CONTACT_FORM_TOPIC_ITEMS.find(i => i.value === raw);
+	return match?.value ?? DEFAULT_TOPIC;
+}
+
+function topicLabelForValue(value: ContactFormTopicValue) {
+	const row = CONTACT_FORM_TOPIC_ITEMS.find(t => t.value === value);
+	return row?.label ?? value;
+}
+
+export default function ContactForm({
+	initialMessage = "",
+	initialTopic = DEFAULT_TOPIC
+}: {
+	initialMessage?: string;
+	initialTopic?: ContactFormTopicValue;
+}) {
+	const t = useTranslations("Contact.form");
+	const sectionRef = useRef<HTMLElement>(null);
+	useContactFormScrollMotion(sectionRef);
+
+	const formId = useId();
+	const nameId = `${formId}-name`;
+	const emailId = `${formId}-email`;
+	const topicId = `${formId}-topic`;
+	const messageId = `${formId}-message`;
+
+	const topicItems = [
+		{ value: "editorial" as const, label: t("topicEditorial") },
+		{ value: "partnerships" as const, label: t("topicPartnerships") },
+		{ value: "support" as const, label: t("topicSupport") },
+		{ value: "other" as const, label: t("topicOther") }
+	];
+
+	function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+		e.preventDefault();
+		const form = e.currentTarget;
+		const fd = new FormData(form);
+		const name = String(fd.get("name") ?? "").trim();
+		const email = String(fd.get("email") ?? "").trim();
+		const message = String(fd.get("message") ?? "").trim();
+		const topic = topicFromFormData(fd);
+		const inbox = inboxForFormTopic(topic);
+		const topicMatch = topicItems.find(i => i.value === topic);
+		const topicLabel = topicMatch?.label ?? topicLabelForValue(topic);
+
+		const href = buildContactMailtoHref({
+			to: inbox.email,
+			subject: `${inbox.subject} — ${name || "Talkwer contact"}`,
+			name,
+			fromEmail: email,
+			topicLabel,
+			message
+		});
+
+		window.location.assign(href);
+	}
+
+	return (
+		<section
+			id="contact-form"
+			ref={sectionRef}
+			className="border-t border-white/6 bg-[#050505] py-20 md:py-28"
+			aria-labelledby="contact-form-heading"
+		>
+			<div className="pad-x">
+				<div className="mx-auto max-w-[1600px]">
+					<div className="grid gap-12 lg:grid-cols-12 lg:items-start lg:gap-16">
+						<div className="lg:col-span-5">
+							<p
+								data-contact-form-intro
+								className="text-[11px] font-semibold tracking-[0.25em] text-orange-500 uppercase will-change-[filter,opacity,transform]"
+							>
+								{t("eyebrow")}
+							</p>
+							<h2
+								data-contact-form-intro
+								id="contact-form-heading"
+								className="mt-4 text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-tighter text-white will-change-[filter,opacity,transform]"
+							>
+								{t("title")}
+							</h2>
+							<p
+								data-contact-form-intro
+								className="mt-4 max-w-md text-sm leading-relaxed text-white/70 will-change-[filter,opacity,transform] md:text-base"
+							>
+								{t("description")}
+							</p>
+							<div
+								data-contact-form-intro
+								className="mt-10 hidden h-px w-24 bg-linear-to-r from-orange-500/80 to-transparent lg:block"
+								aria-hidden
+							/>
+						</div>
+
+						<div className="perspective-[1800px] lg:col-span-7">
+							<div
+								data-contact-form-panel
+								className="rounded-3xl border border-white/6 bg-linear-to-b from-white/5 to-transparent p-6 shadow-[0_40px_120px_rgba(0,0,0,0.35)] will-change-[filter,opacity,transform] md:p-10"
+								style={{ transformStyle: "preserve-3d" }}
+							>
+								<form onSubmit={handleSubmit}>
+									<div
+										data-contact-form-field
+										className="grid gap-6 will-change-[filter,opacity,transform] md:grid-cols-2"
+									>
+										<div className="md:col-span-1">
+											<FieldLabel htmlFor={nameId}>{t("nameLabel")}</FieldLabel>
+											<Input
+												id={nameId}
+												name="name"
+												type="text"
+												autoComplete="name"
+												required
+												placeholder={t("namePlaceholder")}
+												className={cn(
+													fieldSurface,
+													"rounded-2xl placeholder:text-white/35"
+												)}
+											/>
+										</div>
+										<div className="md:col-span-1">
+											<FieldLabel htmlFor={emailId}>
+												{t("emailLabel")}
+											</FieldLabel>
+											<Input
+												id={emailId}
+												name="email"
+												type="email"
+												autoComplete="email"
+												required
+												placeholder={t("emailPlaceholder")}
+												className={cn(
+													fieldSurface,
+													"rounded-2xl placeholder:text-white/35"
+												)}
+											/>
+										</div>
+									</div>
+
+									<div
+										data-contact-form-field
+										className="mt-6 will-change-[filter,opacity,transform]"
+									>
+										<FieldLabel htmlFor={topicId}>{t("topicLabel")}</FieldLabel>
+										<Select<ContactFormTopicValue>
+											name="topic"
+											defaultValue={initialTopic}
+											required
+											items={topicItems}
+										>
+											<SelectTrigger
+												id={topicId}
+												className={cn(
+													fieldSurface,
+													"rounded-2xl data-placeholder:text-white/35"
+												)}
+												aria-label={t("topicLabel")}
+											>
+												<SelectValue placeholder={t("topicPlaceholder")} />
+											</SelectTrigger>
+											<SelectContent
+												position="popper"
+												sideOffset={8}
+												className={selectContentClass}
+											>
+												{topicItems.map(item => (
+													<SelectItem
+														key={item.value}
+														value={item.value}
+														className={selectItemClass}
+													>
+														{item.label}
+													</SelectItem>
+												))}
+											</SelectContent>
+										</Select>
+									</div>
+
+									<div
+										data-contact-form-field
+										className="mt-6 will-change-[filter,opacity,transform]"
+									>
+										<FieldLabel htmlFor={messageId}>
+											{t("messageLabel")}
+										</FieldLabel>
+										<Textarea
+											id={messageId}
+											name="message"
+											defaultValue={initialMessage}
+											required
+											rows={6}
+											placeholder={t("messagePlaceholder")}
+											className={cn(fieldSurface, "placeholder:text-white/35")}
+										/>
+									</div>
+
+									<div
+										data-contact-form-field
+										className="mt-8 flex flex-col gap-4 will-change-[filter,opacity,transform] sm:flex-row sm:items-end sm:justify-between"
+									>
+										<Button
+											type="submit"
+											size="lg"
+											className="w-full rounded-full bg-orange-500 text-white hover:bg-orange-500/90 sm:w-auto sm:min-w-[200px]"
+										>
+											{t("submitLabel")}
+										</Button>
+										<p className="max-w-xs text-center text-[12px] leading-relaxed text-white/45 sm:text-right">
+											{t("submitHint")}
+										</p>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	);
+}

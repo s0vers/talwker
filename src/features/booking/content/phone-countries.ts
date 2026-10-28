@@ -1,0 +1,63 @@
+/** Slim phone-country catalog for the booking demo (iso2 + dial + display only). */
+export type PhoneCountry = {
+	iso2: string;
+	iso3: string;
+	name: string;
+	phone_code: string;
+	emoji: string;
+};
+
+export const countries: PhoneCountry[] = [
+	{ iso2: "US", iso3: "USA", name: "United States", phone_code: "1", emoji: "🇺🇸" },
+	{ iso2: "CA", iso3: "CAN", name: "Canada", phone_code: "1", emoji: "🇨🇦" },
+	{ iso2: "GB", iso3: "GBR", name: "United Kingdom", phone_code: "44", emoji: "🇬🇧" },
+	{ iso2: "AU", iso3: "AUS", name: "Australia", phone_code: "61", emoji: "🇦🇺" },
+	{ iso2: "NZ", iso3: "NZL", name: "New Zealand", phone_code: "64", emoji: "🇳🇿" },
+	{ iso2: "IE", iso3: "IRL", name: "Ireland", phone_code: "353", emoji: "🇮🇪" },
+	{ iso2: "FR", iso3: "FRA", name: "France", phone_code: "33", emoji: "🇫🇷" },
+	{ iso2: "DE", iso3: "DEU", name: "Germany", phone_code: "49", emoji: "🇩🇪" },
+	{ iso2: "ES", iso3: "ESP", name: "Spain", phone_code: "34", emoji: "🇪🇸" },
+	{ iso2: "IT", iso3: "ITA", name: "Italy", phone_code: "39", emoji: "🇮🇹" },
+	{ iso2: "PT", iso3: "PRT", name: "Portugal", phone_code: "351", emoji: "🇵🇹" },
+	{ iso2: "NL", iso3: "NLD", name: "Netherlands", phone_code: "31", emoji: "🇳🇱" },
+	{ iso2: "BE", iso3: "BEL", name: "Belgium", phone_code: "32", emoji: "🇧🇪" },
+	{ iso2: "CH", iso3: "CHE", name: "Switzerland", phone_code: "41", emoji: "🇨🇭" },
+	{ iso2: "AT", iso3: "AUT", name: "Austria", phone_code: "43", emoji: "🇦🇹" },
+	{ iso2: "SE", iso3: "SWE", name: "Sweden", phone_code: "46", emoji: "🇸🇪" },
+	{ iso2: "NO", iso3: "NOR", name: "Norway", phone_code: "47", emoji: "🇳🇴" },
+	{ iso2: "DK", iso3: "DNK", name: "Denmark", phone_code: "45", emoji: "🇩🇰" },
+	{ iso2: "FI", iso3: "FIN", name: "Finland", phone_code: "358", emoji: "🇫🇮" },
+	{ iso2: "PL", iso3: "POL", name: "Poland", phone_code: "48", emoji: "🇵🇱" },
+	{ iso2: "CZ", iso3: "CZE", name: "Czechia", phone_code: "420", emoji: "🇨🇿" },
+	{ iso2: "GR", iso3: "GRC", name: "Greece", phone_code: "30", emoji: "🇬🇷" },
+	{ iso2: "TR", iso3: "TUR", name: "Turkey", phone_code: "90", emoji: "🇹🇷" },
+	{ iso2: "AE", iso3: "ARE", name: "United Arab Emirates", phone_code: "971", emoji: "🇦🇪" },
+	{ iso2: "SA", iso3: "SAU", name: "Saudi Arabia", phone_code: "966", emoji: "🇸🇦" },
+	{ iso2: "IN", iso3: "IND", name: "India", phone_code: "91", emoji: "🇮🇳" },
+	{ iso2: "PK", iso3: "PAK", name: "Pakistan", phone_code: "92", emoji: "🇵🇰" },
+	{ iso2: "BD", iso3: "BGD", name: "Bangladesh", phone_code: "880", emoji: "🇧🇩" },
+	{ iso2: "LK", iso3: "LKA", name: "Sri Lanka", phone_code: "94", emoji: "🇱🇰" },
+	{ iso2: "NP", iso3: "NPL", name: "Nepal", phone_code: "977", emoji: "🇳🇵" },
+	{ iso2: "CN", iso3: "CHN", name: "China", phone_code: "86", emoji: "🇨🇳" },
+	{ iso2: "HK", iso3: "HKG", name: "Hong Kong", phone_code: "852", emoji: "🇭🇰" },
+	{ iso2: "TW", iso3: "TWN", name: "Taiwan", phone_code: "886", emoji: "🇹🇼" },
+	{ iso2: "JP", iso3: "JPN", name: "Japan", phone_code: "81", emoji: "🇯🇵" },
+	{ iso2: "KR", iso3: "KOR", name: "South Korea", phone_code: "82", emoji: "🇰🇷" },
+	{ iso2: "SG", iso3: "SGP", name: "Singapore", phone_code: "65", emoji: "🇸🇬" },
+	{ iso2: "MY", iso3: "MYS", name: "Malaysia", phone_code: "60", emoji: "🇲🇾" },
+	{ iso2: "TH", iso3: "THA", name: "Thailand", phone_code: "66", emoji: "🇹🇭" },
+	{ iso2: "VN", iso3: "VNM", name: "Vietnam", phone_code: "84", emoji: "🇻🇳" },
+	{ iso2: "ID", iso3: "IDN", name: "Indonesia", phone_code: "62", emoji: "🇮🇩" },
+	{ iso2: "PH", iso3: "PHL", name: "Philippines", phone_code: "63", emoji: "🇵🇭" },
+	{ iso2: "BR", iso3: "BRA", name: "Brazil", phone_code: "55", emoji: "🇧🇷" },
+	{ iso2: "MX", iso3: "MEX", name: "Mexico", phone_code: "52", emoji: "🇲🇽" },
+	{ iso2: "AR", iso3: "ARG", name: "Argentina", phone_code: "54", emoji: "🇦🇷" },
+	{ iso2: "CL", iso3: "CHL", name: "Chile", phone_code: "56", emoji: "🇨🇱" },
+	{ iso2: "CO", iso3: "COL", name: "Colombia", phone_code: "57", emoji: "🇨🇴" },
+	{ iso2: "ZA", iso3: "ZAF", name: "South Africa", phone_code: "27", emoji: "🇿🇦" },
+	{ iso2: "EG", iso3: "EGY", name: "Egypt", phone_code: "20", emoji: "🇪🇬" },
+	{ iso2: "NG", iso3: "NGA", name: "Nigeria", phone_code: "234", emoji: "🇳🇬" },
+	{ iso2: "KE", iso3: "KEN", name: "Kenya", phone_code: "254", emoji: "🇰🇪" },
+	{ iso2: "IL", iso3: "ISR", name: "Israel", phone_code: "972", emoji: "🇮🇱" },
+	{ iso2: "RU", iso3: "RUS", name: "Russia", phone_code: "7", emoji: "🇷🇺" },
+];

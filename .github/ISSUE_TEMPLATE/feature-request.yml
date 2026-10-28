@@ -1,0 +1,27 @@
+name: Feature request
+description: Request a scoped enhancement.
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem statement
+      description: What user problem are we solving?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Describe the expected behavior and acceptance criteria.
+    validations:
+      required: true
+  - type: checkboxes
+    id: constraints
+    attributes:
+      label: Guardrails
+      options:
+        - label: No visual redesign required
+        - label: No animation behavior changes required
+        - label: Fits existing architecture and verify gate

@@ -1,0 +1,1577 @@
+{
+	"Navbar": {
+		"brand": "talkwer",
+		"home": "ホーム",
+		"homeJournal": "エディトリアル ジャーナル",
+		"homeJournalDesc": "クラシックなエディトリアルレイアウトとスポットライトステージ",
+		"homeAtelier": "エクスペディション アトリエ",
+		"homeAtelierDesc": "キュレーションされたビジュアルフォリオとアーカイブ資料",
+		"homeObservatory": "ノクターナル天文台",
+		"homeObservatoryDesc": "星空の地図作成と星空保護区",
+		"destinations": "目的地",
+		"destinationsStandard": "スタンダードグリッド",
+		"destinationsStage": "ステージショーケース",
+		"destinationsCinematic": "シネマティックエクスプローラー",
+		"destinationsStandardDesc": "インタラクティブなスタイルフィルターがあるクラシックグリッドレイアウト",
+		"destinationsStageDesc": "シネマティックなスポットライトステージとインタラクティブフィルムストリップ",
+		"destinationsCinematicDesc": "没入感のあるビジュアルマソンリーとカードエクスプローラー",
+		"tours": "ツアー",
+		"about": "私たちについて",
+		"contact": "お問い合わせ",
+		"stories": "ストーリー",
+		"letsTalk": "ご相談・予約",
+		"switchLanguage": "言語",
+		"toggleMenu": "メニュー切替",
+		"mobileNav": "モバイルナビゲーション",
+		"skipToMain": "メインコンテンツへスキップ"
+	},
+	"Footer": {
+		"explore": "探索",
+		"company": "企業情報",
+		"support": "サポート",
+		"legal": "法的情報",
+		"destinations": "目的地",
+		"tours": "ツアー",
+		"stories": "ストーリー",
+		"experiences": "体験",
+		"about": "私たちについて",
+		"careers": "採用情報",
+		"press": "プレス",
+		"partners": "パートナー",
+		"faq": "よくある質問",
+		"bookingPolicy": "予約ポリシー",
+		"cancellation": "キャンセルポリシー",
+		"contact": "お問い合わせ",
+		"privacy": "プライバシーポリシー",
+		"terms": "利用規約",
+		"cookies": "クッキー設定",
+		"blurb": "2010年創業。忘れられない旅と本物の紀行文をお届けします。最高の物語は、未知への最初の一歩から始まります。",
+		"copyrightRest": "Talkwer. All rights reserved."
+	},
+	"Common": {
+		"explore": "探索する",
+		"viewAll": "すべて見る",
+		"viewAllDestinations": "すべての目的地を見る",
+		"viewAllTours": "すべてのツアーを見る",
+		"viewAllStories": "すべてのストーリーを見る",
+		"startPlanning": "プランニングを始める",
+		"browseTours": "ツアーを見る",
+		"from": "料金：",
+		"perPerson": "1名様あたり",
+		"days": "日間",
+		"save": "お得",
+		"savePrefix": "割引：$",
+		"startingAt": "最安料金：",
+		"readMore": "続きを読む",
+		"learnMore": "詳しく見る",
+		"back": "戻る",
+		"backHome": "ホームに戻る",
+		"pageNotFound": "ページが見つかりません",
+		"pageNotFoundDesc": "お探しのページは存在しないか、移動した可能性があります。",
+		"filter": "絞り込み",
+		"clearFilters": "フィルターをクリア",
+		"search": "検索",
+		"searchPlaceholder": "目的地、国、旅行スタイルで検索…",
+		"quickSearches": "人気の検索",
+		"noResults": "該当する結果が見つかりませんでした。キーワードやフィルターを変更してお試しください。",
+		"page": "ページ",
+		"of": "/",
+		"prev": "前へ",
+		"next": "次へ",
+		"close": "閉じる",
+		"loading": "読み込み中…",
+		"confirm": "確認",
+		"cancel": "キャンセル",
+		"duration": "日程",
+		"groupSize": "グループ規模",
+		"rating": "評価",
+		"included": "含まれるもの",
+		"share": "シェア"
+	},
+	"Metadata": {
+		"home": {
+			"title": "Talkwer — さあ、未知なる旅へ。",
+			"description": "現代的なトラベルスタジオ＆ストーリーテリング集団。選び抜かれた遠征ツアー、注目の目的地ドキュメント、世界中の旅人によるフィールドノートをお届けします。"
+		},
+		"home2": {
+			"title": "エクスペディション アトリエ — Talkwer",
+			"description": "思索する旅人のための、厳選されたビジュアルフォリオ、フィールド記録、アーカイブ資料。"
+		},
+		"home3": {
+			"title": "ノクターナル天文台 — Talkwer",
+			"description": "星空の地図作成、天体ドキュメント、思索する天文学的旅人のための夜間荒野遠征。"
+		},
+		"about": {
+			"title": "私たちについて — Talkwer",
+			"description": "Talkwerの創業物語、旅の哲学、世界中のパートナーネットワーク、チームをご紹介します。"
+		},
+		"destinations": {
+			"title": "目的地一覧 — Talkwer",
+			"description": "Talkwerが厳選した世界中の特別な目的地を、スタンダードカタログでご覧ください。"
+		},
+		"destinations2": {
+			"title": "デスティネーション・ショーケース — Talkwer",
+			"description": "インタラクティブなステージとフィルムストリップで、注目の旅先に浸ってください。"
+		},
+		"destinations3": {
+			"title": "シネマティック・デスティネーション — Talkwer",
+			"description": "臨場感あふれるビジュアルガイドを通じて、息を呑むような絶景を発見しましょう。"
+		},
+		"tours": {
+			"title": "厳選ツアー＆遠征 — Talkwer",
+			"description": "一生の思い出となるよう緻密に設計された、オーダーメイドの旅程とガイド付き遠征ツアー。"
+		},
+		"stories": {
+			"title": "フィールドノート＆旅のストーリー — Talkwer",
+			"description": "世界中の探検家による心躍る旅行記、エッセイ、写真集をお届けします。"
+		},
+		"contact": {
+			"title": "お問い合わせ — Talkwer",
+			"description": "トラベルデザイナーや編集部へのお問い合わせ、旅のプランニングはこちらから。"
+		},
+		"experiences": {
+			"title": "厳選された体験 — Talkwer",
+			"description": "地元のインサイダーが企画した、類まれな文化・食・大自然のアドベンチャー。"
+		},
+		"careers": {
+			"title": "採用情報 — Talkwer",
+			"description": "意図ある旅の未来を切り拓く、完全リモートのグローバルコレクティブに参加しませんか。"
+		},
+		"press": {
+			"title": "プレス＆メディアキット — Talkwer",
+			"description": "最新ニュース、プレスリリース、メディア掲載情報、ブランドアセットをご案内します。"
+		},
+		"partners": {
+			"title": "パートナーシップ — Talkwer",
+			"description": "遠征パートナー、ブティックホテル、地元ガイドリーダーとしてTalkwerと提携しませんか。"
+		},
+		"faq": {
+			"title": "よくある質問 — Talkwer",
+			"description": "予約手続き、旅のペース、お支払い、安全管理に関するご質問にお答えします。"
+		},
+		"bookingPolicy": {
+			"title": "予約ポリシー — Talkwer",
+			"description": "Talkwerの予約の流れ、デポジット、旅程確定条件についてご確認ください。"
+		},
+		"cancellation": {
+			"title": "キャンセルポリシー — Talkwer",
+			"description": "ご返金、日程変更、スケジュールの柔軟性、キャンセル受付期間に関するご案内です。"
+		},
+		"privacy": {
+			"title": "プライバシーポリシー — Talkwer",
+			"description": "お客様の個人情報の保護、取り扱い、管理方針について説明します。"
+		},
+		"terms": {
+			"title": "利用規約 — Talkwer",
+			"description": "Talkwerのウェブサイトおよびツアー予約をご利用いただく際の規約です。"
+		},
+		"cookies": {
+			"title": "クッキーポリシー — Talkwer",
+			"description": "Talkwerにおけるクッキーおよびトラッキング技術の利用に関する情報です。"
+		},
+		"booking": {
+			"title": "ご出発プランニング — Talkwer",
+			"description": "旅の日程や参加人数をカスタマイズし、専任デザイナーとの個別相談を予約できます。"
+		},
+		"checkout": {
+			"title": "ご予約手続き — Talkwer",
+			"description": "旅程概要とお客様情報を確認し、ツアーのご予約を確定します。"
+		},
+		"checkoutSuccess": {
+			"title": "ご予約完了 — Talkwer",
+			"description": "ツアーのご予約を承りました。確定内容をご確認ください。"
+		},
+		"login": {
+			"title": "ログイン — Talkwer",
+			"description": "Talkwerトラベラーアカウントにアクセスし、ご予約状況を管理します。"
+		},
+		"register": {
+			"title": "新規登録 — Talkwer",
+			"description": "アカウントを作成して、お気に入りの目的地保存やお問い合わせ管理をご利用ください。"
+		}
+	},
+	"Home": {
+		"hero": {
+			"tagline": "Wander · Discover · Share",
+			"titleLines1": "深く知りたい、",
+			"titleLines2": "旅先がある。",
+			"titleLines3": "その先を読みたい、",
+			"titleAccent": "物語がある。",
+			"description": "バリ、京都、パタゴニアへ。文化にふれる旅、一日ごとの旅程、現地の風景を伝える紀行文を見つけよう。",
+			"explore": "目的地を探す"
+		},
+		"about": {
+			"label": "Talkwerについて",
+			"titleLead": "単なる旅行計画ではなく、",
+			"titleLine2Prefix": "私たちは",
+			"titleAccent": "記憶を創り出します。",
+			"description": "情熱的な旅人たちによって創設されたTalkwerは、好奇心旺盛な旅人と世界各地の類まれな場所を結びつけます。すべての旅程が、まだ見ぬ物語の序章です。",
+			"ratingSummary": "平均評価 · 3,200件のレビュー",
+			"statDestinations": "目的地数",
+			"statExperience": "年の実績",
+			"statTravelers": "満足された旅行者"
+		},
+		"destinations": {
+			"label": "世界を探索する",
+			"title": "人気の目的地",
+			"description": "選び抜かれた特別な場所。スタイル別に絞り込むか、注目のスポットライトショーケースをご覧ください。",
+			"spotlightBadge": "スポットライトショーケース",
+			"countSuffix": "ヶ所の目的地",
+			"viewAllCta": "すべての目的地を見る",
+			"fromLabel": "料金：",
+			"exploreButtonLabel": "この目的地を見る",
+			"filterAll": "すべて",
+			"filterPopular": "人気",
+			"filterTrending": "トレンド",
+			"filterLuxury": "ラグジュアリー",
+			"filterNew": "新着",
+			"pauseAutoplay": "スライドショーを一時停止",
+			"playAutoplay": "スライドショーを再生",
+			"prevSlide": "前の目的地",
+			"nextSlide": "次の目的地"
+		},
+		"tours": {
+			"label": "あなたへの厳選提案",
+			"title": "注目のツアー",
+			"description": "最高の価値と特別な体験を約束する、最も人気のある催行ツアーパッケージです。",
+			"spotlightBadge": "厳選パッケージ",
+			"filterAll": "すべて",
+			"filterCultural": "カルチャー",
+			"filterAdventure": "アドベンチャー",
+			"filterNature": "ネイチャー",
+			"filterLuxury": "ラグジュアリー",
+			"viewAllCta": "すべてのツアーを見る",
+			"savePrefix": "割引：$",
+			"startingAt": "最安料金："
+		},
+		"testimonials": {
+			"badge": "認定トラベラーレビュー",
+			"label": "旅人たちの声",
+			"title": "ゲストからのレビュー",
+			"description": "Talkwerに最高の休暇を託してくださった、実際の冒険者たちからのリアルなストーリーです。"
+		},
+		"newsletter": {
+			"label": "最新情報を受け取る",
+			"title": "限定トラベルオファーをお届け",
+			"description": "ニュースレターにご登録いただくと、限定セール、新着目的地、旅のインサイダー情報をいち早くお届けします。",
+			"placeholder": "メールアドレスを入力",
+			"subscribe": "登録する",
+			"disclaimer": "デモフォーム — メール送信や購読登録は行われません。",
+			"emailLabel": "メールアドレス",
+			"demoMessage": "デモ専用 — メールアドレスの保存や購読登録は行われません。"
+		},
+		"cta": {
+			"label": "準備はできましたか？",
+			"titleLead": "心揺さぶる特別な旅を、",
+			"titleAccent": "一緒に創りましょう",
+			"description": "夢の目的地と旅のスタイルをお聞かせください。一生忘れられない旅程をご提案します。",
+			"primaryAction": "プランニングを始める",
+			"secondaryAction": "ツアーを見る"
+		}
+	},
+	"Home2": {
+		"hero": {
+			"tagline": "夜想のアトリエ",
+			"issueBadge": "第4号 // フィールド・アトリエ",
+			"telemetryChip": "北緯35.0116° / 標高1,200M",
+			"titleLine1": "思索の旅人に贈る",
+			"titleLine2": "研ぎ澄まされた",
+			"titleLine3": "遠征録",
+			"titleAccent": "ATELIER.",
+			"description": "フィールド地図学、写真モノグラフ、そして少人数による高地出発を融合させた前衛的なビジュアルフォリオ。",
+			"exploreDossiers": "アーカイブ資料を見る",
+			"viewArchetypes": "旅のエトス",
+			"jumpToRegions": "フィールド座標",
+			"regionPatagonia": "パタゴニア",
+			"regionKyoto": "京都",
+			"regionAmalfi": "アマルフィ",
+			"regionIceland": "アイスランド"
+		},
+		"telemetry": {
+			"label": "リアルタイム・テレメトリー＆センサー",
+			"beaconActive": "ビーコン作動中",
+			"telPatagonia": "パタゴニア山塊",
+			"telKyoto": "京都・嵐山",
+			"telTromso": "トロムソ北極海盆",
+			"telDolomites": "ドロミテ・アルタヴィア",
+			"condClearAlpine": "澄み切った高山の薄明",
+			"condMistyDawn": "静寂なる朝霧",
+			"condAuroraActive": "KP5地磁気オーロラ活動",
+			"condGoldenHour": "斜光のゴールデンアワー",
+			"statActiveTraverse": "遠征隊縦走中",
+			"statFieldNotesRecorded": "フィールドノート記録完了",
+			"statNocturnalWatch": "夜想天体観測中",
+			"statRidgeExpedition": "高所稜線ビバーク"
+		},
+		"dossiers": {
+			"label": "キュレーターズ・ドキュメント",
+			"title": "アーカイブ・フィールドプレート",
+			"description": "季節ごとの現地遠征で撮影・記録された、番号付き写真プレートと地理モノグラフ。",
+			"viewDossier": "資料を開く",
+			"plate1Title": "パタゴニア氷河ラグーン",
+			"plate1Region": "アンデス山脈（チリ）",
+			"plate1Excerpt": "氷点下の氷河水の上に、花崗岩の尖塔が夜の雲海を突き抜ける。",
+			"tagGlacial": "氷河モノグラフ",
+			"seasonPlate1": "春至",
+			"plate2Title": "京都の静寂なる聖域",
+			"plate2Region": "関西盆地（日本）",
+			"plate2Excerpt": "太古の竹林に抱かれた、数百年に及ぶ思索的建築美。",
+			"tagCultural": "禅の建築美",
+			"seasonPlate2": "秋紅葉",
+			"plate3Title": "アマルフィ断崖テラス",
+			"plate3Region": "ティレニア海（イタリア）",
+			"plate3Excerpt": "陽光に洗われた石灰岩が、深いコバルトブルーの海へと垂直に落ち込む。",
+			"tagCoastal": "海洋地形",
+			"seasonPlate3": "晩夏",
+			"plate4Title": "アイスランド極光の峡谷",
+			"plate4Region": "北欧火山帯",
+			"plate4Excerpt": "揺らめくソーラーグリーンの光の帯の下で立ち上る地熱の蒸気柱。",
+			"tagVolcanic": "亜北極フィールド",
+			"seasonPlate4": "真冬の極夜"
+		},
+		"archetypes": {
+			"label": "遠征のエトス",
+			"title": "あなたの旅のアーキタイプを選択",
+			"description": "すべての旅には独自の哲学的姿勢が宿ります。あなたと共鳴する旅のエトスを見つけてください。",
+			"intensityLabel": "体力レベル",
+			"gearLabel": "必須装備",
+			"durationLabel": "ペースと期間",
+			"coordinatesLabel": "フィールド座標",
+			"exploreRoute": "旅程を見る",
+			"seasonSummerAutumn": "夏 — 秋",
+			"seasonSpringSummer": "春 — 夏",
+			"seasonAutumnWinter": "秋 — 冬",
+			"seasonWinter": "厳冬期",
+			"alpineTitle": "孤高の高山探求者",
+			"alpineTagline": "高地での孤立と圧倒的な巨石の景観",
+			"alpineDesc": "森林限界を超えた峻厳な稜線、ミニマルなシェルター、剥き出しの花崗岩の壮大さに惹かれる旅人へ。",
+			"alpineGear1": "カーボントレッキングポール",
+			"alpineGear2": "高機能サーマルビバークシェル",
+			"alpineGear3": "高度計付きクロノグラフ",
+			"archipelagoTitle": "白夜の諸島巡礼者",
+			"archipelagoTagline": "海洋の静寂と沈まぬ北極の太陽",
+			"archipelagoDesc": "辺境の入り江、断崖の集落、そして夜の海の永遠の静けさを舟で巡る。",
+			"archipelagoGear1": "Gore-Tex オーシャンアノラック",
+			"archipelagoGear2": "完全防水カメラハウジング",
+			"archipelagoGear3": "ネオプレン保温ブーツ",
+			"oasisTitle": "シルクロードの旅人",
+			"oasisTagline": "古代交易路と星降る思索の砂漠",
+			"oasisDesc": "広大な砂漠高原、星空に浮かぶ砂岩の巨石、キャラバンの茶寮を渡る。",
+			"oasisGear1": "上質リネンスカーフ",
+			"oasisGear2": "偏光防砂グラス",
+			"oasisGear3": "キャメルレザー手帳",
+			"auroraTitle": "極北オーロラ追跡者",
+			"auroraTagline": "極夜の天体観測と地熱温泉での休息",
+			"auroraDesc": "氷点下の凍土を越えて地磁気オーロラを追い、地熱の温もりで心身を整える。",
+			"auroraGear1": "メリノウールベースレイヤー",
+			"auroraGear2": "極地遠征用ヘビーダウン",
+			"auroraGear3": "耐寒三脚操作用ミトン"
+		},
+		"dispatch": {
+			"label": "フィールド記録 // 第042号",
+			"title": "静寂と、歩みを遅らせる芸術について",
+			"subtitle": "南パタゴニア氷原からの覚書",
+			"pullQuote": "「私たちが旅をするのは世界から逃げるためではない。世界の静寂が、永遠に残るもので心を満たしてくれるからだ。」",
+			"bodyP1": "標高2,800メートルでは、音の響きが日常とは異なる。風はテント生地に触れるリアルな感触となり、モレーン（堆石）の下の氷河ブルーは現代のあらゆる焦燥を吸収していくようだ。",
+			"bodyP2": "私たちのアトリエ遠征では、急ぐことを意図的に手放します。一つの稜線に当たる光の移ろいを一日かけて観察し、五感の没入を一生残る記憶へと昇華させます。",
+			"authorName": "エレナ・ロストヴァ",
+			"authorRole": "遠征隊長・フィールドエッセイスト",
+			"readStories": "フィールド記録を読む"
+		},
+		"departures": {
+			"label": "厳選された季節限定出発",
+			"title": "人数限定のアトリエ・ジャーニー",
+			"description": "最大6名の特別なマイクログループ。すべての出発に遠征作家または現地ナチュラリストが同行します。",
+			"spotsRemaining": "残席数",
+			"startingFrom": "料金：",
+			"reserveSpot": "出発枠を予約する",
+			"dep1Title": "パタゴニア夏至の氷河縦走",
+			"dep1Dest": "パタゴニア（チリ）",
+			"dep2Title": "京都 禅寺の静寂と竹林巡礼",
+			"dep2Dest": "京都（日本）",
+			"dep3Title": "アマルフィ断崖小径と秘密の入り江",
+			"dep3Dest": "アマルフィ海岸（イタリア）"
+		},
+		"manifesto": {
+			"label": "夜想のマニフェスト",
+			"title": "心ある旅人の行動規範",
+			"roleLeadPhotographer": "首席フィールドフォトグラファー",
+			"roleAlpineNavigator": "アルパインナビゲーター",
+			"roleExpeditionFounder": "創業者・トラベルアーキテクト",
+			"quote1": "静かな敬意を胸に未知の大地へと足を踏み入れることこそ、現代生活が与えてくれる最高の贅沢である。",
+			"quote2": "真のナビゲーションとは地図に従うことではなく、大地が自分自身の立ち位置を教えてくれることにある。",
+			"quote3": "Talkwerは一つの確信のもとに創設された。旅とは、深遠なる思索の芸術形態でなければならない。",
+			"sealBrand": "TALKWER ATELIER EST. 2010"
+		},
+		"cta": {
+			"badge": "あなたの遠征を始める",
+			"title": "フィールドへ足を踏み入れる準備はできましたか？",
+			"description": "専属のトラベルアーキテクトと共に、あなたのペースと美意識に寄り添ったプライベート出発をデザインしましょう。",
+			"bookConsultation": "アトリエ相談を予約する",
+			"viewAllExpeditions": "すべての遠征を見る",
+			"conciergeNote": "コンシェルジュデスク：専属の旅のご相談に24時間対応"
+		}
+	},
+	"Destinations": {
+		"hero": {
+			"verticalRail": "Talkwer · フィールドノート",
+			"kicker": "インデックス",
+			"titleLine1": "次の旅路を",
+			"titleAccent": "描く。",
+			"description": "私たちのマップにあるすべてのピンは、物語性、質感、そして実際に足を運んだ者だけが知るディテールによって厳選されています。",
+			"passEyebrow": "厳選された出発地",
+			"passTitle": "どこからでも → 未知の感動へ",
+			"passMeta": "2026年4月 · 好奇心に途中降機なし",
+			"passFooter": "搭乗対象：すべての探検家と夢想家たち",
+			"scrollCue": "スクロールしてコレクションを見る"
+		},
+		"grid": {
+			"label": "コレクション",
+			"title": "私たちが自信を持ってお届けする全目的地",
+			"description": "トップページと同じ厳選された場所を、一目で全体を見渡せるクリアなグリッドでご覧いただけます。",
+			"searchPlaceholder": "場所、国、雰囲気で検索…",
+			"searchFieldLabel": "検索",
+			"filterLabel": "フィルター",
+			"filterAll": "すべての目的地",
+			"filterTagPopular": "人気",
+			"filterTagTrending": "トレンド",
+			"filterTagNew": "新着",
+			"filterTagLuxury": "ラグジュアリー",
+			"filterUnder2000": "$2,000未満",
+			"searchButton": "検索",
+			"clearFilters": "クリア",
+			"quickSearchesLabel": "人気の検索ワード",
+			"quickSearchBali": "バリ",
+			"quickSearchJapan": "日本",
+			"quickSearchItaly": "イタリア",
+			"quickSearchLuxury": "ラグジュアリー",
+			"quickSearchUnder2k": "$2,000未満",
+			"noResults": "該当する目的地がありません。キーワードやフィルターを変更してください。",
+			"paginationPrevious": "前へ",
+			"paginationNext": "次へ",
+			"paginationPage": "ページ",
+			"paginationOf": "/",
+			"paginationGoToPage": "ページへ移動"
+		},
+		"cta": {
+			"label": "地図の先にあるもの",
+			"titleLead": "完全な旅へ出る",
+			"titleAccent": "準備はできましたか？",
+			"description": "気になる場所と手作りの旅程を組み合わせるか、旅人たちの現地の体験談をご覧ください。",
+			"primaryAction": "ツアーを見る",
+			"secondaryAction": "ストーリーを読む"
+		}
+	},
+	"Destinations2": {
+		"hero": {
+			"rail": "旅先",
+			"kicker": "フィールド・アトラス",
+			"title": "チェックマークではなく、",
+			"titleAccent": "質感で選ぶ場所。",
+			"lede": "心に残る細部をたどってみてください。夜明けの海岸、市場の日々の営み、遠回りを楽しむ小道。"
+		},
+		"grid": {
+			"label": "アトラス",
+			"title": "場所を選び、詳細ドキュメントを開く",
+			"description": "行き先を選び、風景や人々、その土地を形づくる日々の習慣を読んでみましょう。",
+			"paginationPrevious": "戻る",
+			"paginationNext": "進む",
+			"paginationPage": "シート",
+			"paginationOf": "/",
+			"paginationGoToPage": "シートに移動",
+			"searchPlaceholder": "名前、国、タグで絞り込み…",
+			"searchFieldLabel": "クエリ",
+			"filterLabel": "絞り込み",
+			"filterAll": "すべて",
+			"filterTagPopular": "人気",
+			"filterTagTrending": "トレンド",
+			"filterTagNew": "新着",
+			"filterTagLuxury": "ラグジュアリー",
+			"filterUnder2000": "$2,000未満",
+			"searchButton": "適用",
+			"clearFilters": "リセット",
+			"quickSearchesLabel": "ショートカット",
+			"quickSearchBali": "バリ",
+			"quickSearchJapan": "日本",
+			"quickSearchItaly": "イタリア",
+			"quickSearchLuxury": "ラグジュアリー",
+			"quickSearchUnder2k": "$2,000未満",
+			"noResults": "該当なし — 短いキーワードにするかフィルターを解除してください。"
+		}
+	},
+	"Destinations3": {
+		"hero": {
+			"rail": "目的地",
+			"kicker": "土地が紡ぐ物語",
+			"title": "そこに暮らす人々を通じて",
+			"titleAccent": "土地を知る。",
+			"lede": "各ガイドは、日常生活、文化、厳選された場所をじっくりと読み解く長編紀行です。カードを選んでお読みください。"
+		},
+		"grid": {
+			"title": "目的地を選ぶ",
+			"description": "名前や国名で検索するか、ショートカットをタップ。各カードから完全なガイドが開きます。",
+			"paginationPrevious": "戻る",
+			"paginationNext": "進む",
+			"paginationPage": "ページ",
+			"paginationOf": "/",
+			"paginationGoToPage": "ページへ移動",
+			"searchPlaceholder": "名前、国、タグで検索…",
+			"searchFieldLabel": "検索",
+			"filterLabel": "フィルター",
+			"filterAll": "すべて",
+			"filterTagPopular": "人気",
+			"filterTagTrending": "トレンド",
+			"filterTagNew": "新着",
+			"filterTagLuxury": "ラグジュアリー",
+			"filterUnder2000": "$2,000未満",
+			"searchButton": "検索",
+			"clearFilters": "クリア",
+			"quickSearchesLabel": "人気のピックアップ",
+			"quickSearchBali": "バリ",
+			"quickSearchJapan": "日本",
+			"quickSearchItaly": "イタリア",
+			"quickSearchLuxury": "ラグジュアリー",
+			"quickSearchUnder2k": "$2,000未満",
+			"noResults": "一致する結果がありません — 条件を変更してお試しください。"
+		}
+	},
+	"DestinationDetails": {
+		"backToGrid": "目的地一覧に戻る",
+		"backToStage": "ステージショーケースに戻る",
+		"backToCinematic": "シネマティックエクスプローラーに戻る",
+		"overviewHeading": "デスティネーション・ドキュメント",
+		"highlightsHeading": "注目の見どころ",
+		"bestTimeToVisit": "ベストシーズン",
+		"cultureNotes": "文化・マナーの心得",
+		"practicalTips": "旅の実用アドバイス",
+		"relatedToursHeading": "この地域の催行ツアー",
+		"relatedStoriesHeading": "旅人たちによるフィールドノート",
+		"inquireCta": "この目的地への旅を計画する",
+		"viewItinerary": "遠征旅程を見る"
+	},
+	"Tours": {
+		"hero": {
+			"kicker": "催行ルート",
+			"titleLine1": "私たちが案内する",
+			"titleAccent": "日々の旅程",
+			"description": "落ち着いたペース、少人数グループ、そして毎日に明確な目的がある、真に催行される特別ツアーです。",
+			"scrollCue": "旅程シートを開く",
+			"boardEyebrow": "出発案内ボード",
+			"boardMeta": "登録済み",
+			"boardHint": "日数 · タップして詳細を表示",
+			"filterLabel": "絞り込み：",
+			"daysSuffix": "日間"
+		},
+		"catalog": {
+			"heading": "催行ルート一覧",
+			"routesCount": "{count} 件の厳選ツアー旅程",
+			"emptyFilterNote": "その目的地に該当する旅程はまだありません。代わりに全ラインナップを表示しています。",
+			"fromPrefix": "料金：",
+			"openLabel": "ツアーを見る"
+		},
+		"cta": {
+			"label": "旅立ちの準備は万全です",
+			"titleLead": "次の出発を、",
+			"titleAccent": "形にする。",
+			"description": "ご希望のペースをお知らせいただくか、実際の旅人たちが残した現地の記録をお読みください。",
+			"primaryAction": "相談を始める",
+			"secondaryAction": "ストーリーを読む"
+		}
+	},
+	"TourDetails": {
+		"hero": {
+			"kicker": "トリップシート",
+			"routeWhyLabel": "このルートを選ぶ理由",
+			"factsDays": "日数",
+			"factsFrom": "料金",
+			"factsGroup": "定員",
+			"factsRated": "評価"
+		},
+		"sheet": {
+			"ariaLabel": "旅程サマリー",
+			"fromLabel": "料金：",
+			"durationLabel": "所要日程",
+			"groupLabel": "グループ定員",
+			"ratingLabel": "評価",
+			"includesLabel": "含まれる内容",
+			"inquireLabel": "お問い合わせ / 予約する",
+			"mailtoLabel": "メール：hello@s0vers.com",
+			"mailtoHref": "mailto:hello@s0vers.com?subject=ツアーのお問い合わせ",
+			"destinationLinkPrefix": "目的地のガイドを見る："
+		},
+		"days": {
+			"label": "旅程表",
+			"title": "日ごとのスケジュール",
+			"expandHint": "詳細を表示",
+			"collapseHint": "詳細を隠す",
+			"overnightLabel": "宿泊地"
+		},
+		"mobileBar": {
+			"fromPrefix": "料金：",
+			"bookButton": "問い合わせ / 予約"
+		}
+	},
+	"Stories": {
+		"hero": {
+			"kicker": "フィールドノート",
+			"titleLine1": "旅路から届いた",
+			"titleAccent": "生の声",
+			"description": "パンフレットには決して載らない、私たちと共に旅した仲間たちによる率直で輝かしいエッセイ集。"
+		},
+		"grid": {
+			"featuredLabel": "注目のフィールドノート",
+			"railLabel": "その他のエッセイ",
+			"readCta": "エッセイを読む",
+			"minutesSuffix": "分で読める",
+			"countSuffix": "編のエッセイ",
+			"sectionHeading": "ストーリー＆通信"
+		},
+		"index": {
+			"featuredLabel": "注目のフィールドノート",
+			"railLabel": "その他のエッセイ",
+			"readCta": "エッセイを読む",
+			"minutesSuffix": "分で読める",
+			"countSuffix": "編のエッセイ",
+			"sectionHeading": "ストーリー＆通信"
+		},
+		"cta": {
+			"label": "現地からのさらなる便り",
+			"titleLead": "旅の体験は、",
+			"titleAccent": "物語の半分にすぎません。",
+			"description": "私たちが執筆した目的地を探索するか、準備が整ったらいつでも出発 dossiers を開いてください。",
+			"primaryAction": "目的地を探索",
+			"secondaryAction": "ツアーを見る"
+		}
+	},
+	"StoryDetails": {
+		"backToIndex": "すべてのフィールドノート",
+		"bylinePrefix": "著者：",
+		"minutesSuffix": "分で読める",
+		"relatedLabel": "さらに探索",
+		"relatedHeading": "このエッセイが指し示す次の目的地",
+		"destinationKind": "目的地",
+		"tourKind": "ツアー",
+		"relatedDestinationCta": "目的地のドキュメントを開く",
+		"relatedTourCta": "催行旅程を見る"
+	},
+	"Experiences": {
+		"hero": {
+			"eyebrow": "厳選カタログ",
+			"title": "クラフト体験＆フィールドジャーニー",
+			"description": "スピードよりも深さを重視した没入型の旅。アルプストレッキングや沿岸セーリングから伝統料理まで。",
+			"primaryAction": "すべてのツアーを見る",
+			"secondaryAction": "カスタム旅程を相談",
+			"catalogTag": "6つの厳選フォーマット",
+			"titleLine1": "洗練された",
+			"titleAccent": "体験",
+			"formatsPill": "少人数＆カスタムフォーマット",
+			"guestsPill": "深みと探求のためのペース配分"
+		},
+		"categories": {
+			"all": "すべての体験",
+			"cultural": "文化体験・伝統",
+			"coastal": "海岸＆島巡り",
+			"alpine": "アルプス＆トレッキング",
+			"culinary": "美食＆ローカルマーケット",
+			"wellness": "ウェルネス＆スローライフ"
+		},
+		"spotlight": {
+			"eyebrow": "キュレーターの視点",
+			"title": "ゆとりある発見の美学",
+			"quote": "旅が最も輝くのは、人の五感と同じ速度で進む時です。私たちはグループ人数を限定し、余白の時間を大切にしています。",
+			"curatorName": "エレナ・ロストヴァ",
+			"curatorTitle": "Talkwer エディトリアル体験責任者"
+		},
+		"cta": {
+			"label": "オーダーメイドの旅",
+			"titleLead": "特別な体験を",
+			"titleAccent": "お探しですか？",
+			"description": "お客様のペース、日程、興味に合わせて、編集チームが完全プライベートの旅をご提案します。",
+			"primaryAction": "カスタム旅行をリクエスト",
+			"secondaryAction": "すべてのツアーを見る"
+		},
+		"themes": {
+			"eyebrow": "コレクションを見る",
+			"title": "注目の体験 ({count})",
+			"description": "体験をクリックして旅程の概要を確認するか、ツアー詳細ページへ直接移動できます。",
+			"filterLabel": "体験フォーマットを選択",
+			"empty": "このカテゴリーの体験は見つかりませんでした。",
+			"quickPreview": "クイックプレビュー",
+			"viewPackage": "パッケージを見る"
+		},
+		"modal": {
+			"closeLabel": "モーダルを閉じる",
+			"duration": "所要時間",
+			"capacity": "定員",
+			"pricing": "料金",
+			"overview": "概要",
+			"highlights": "体験のハイライト",
+			"itineraryNotes": "旅程とペースの補足",
+			"viewTourPackage": "ツアープラン全体を見る →",
+			"inquire": "この体験について問い合わせる"
+		},
+		"styles": {
+			"eyebrow": "ペースとスタイル",
+			"title": "旅のスタイル",
+			"explore": "見る"
+		}
+	},
+	"About": {
+		"hero": {
+			"tagline": "2010年創業",
+			"headlinePre": "私たちは",
+			"headlineAccent": "放浪者であり、",
+			"headlinePost": "私たちは",
+			"headlineAccent2": "語り部です。",
+			"description": "未知への尽きない探求心から生まれたTalkwerは、好奇心豊かな旅人と世界中の類まれな場所を結びつけます。",
+			"scrollCue": "スクロールして探索"
+		},
+		"story": {
+			"label": "原点",
+			"titleLead": "好奇心のひとしずくが、",
+			"titleAccent": "ひとつの潮流へ。",
+			"p1Lead": "2010年、画一的なパッケージツアーに疑問を抱いた仲間たちが、旅は",
+			"p1Highlight": "もっと個性的で、意義深く、生き生きとしたもの",
+			"p1Tail": "になり得ると証明するために集まりました。",
+			"p2Lead": "秘密のスポットを共有していたリストはやがてTalkwerへと成長し、",
+			"p2Underline": "すべての旅程が一つの物語",
+			"p2Tail": "となるプラットフォームになりました。",
+			"p3Lead": "現在では",
+			"p3Highlight": "6大陸",
+			"p3Tail": "の現地ガイド、ブティックホテル、文化アンバサダーと提携し、ただの日焼けではなく人生観を変える旅を届けています。"
+		},
+		"reach": {
+			"label": "世界中に広がるネットワーク",
+			"titleLead": "地球全体を",
+			"titleAccent": "結ぶパートナーシップ。",
+			"description": "街角のガイドから秘境のトレイルヘッドまで、現地のパートナーがすべての旅を本物の場所にしっかりと繋ぎ止めます。"
+		},
+		"philosophy": {
+			"label": "私たちの哲学",
+			"line": "最高の物語は語られるものではなく、生きられるもの。私たちが紡ぐ旅は、その土地に没頭し、より自分らしくなって帰還するための招待状です。"
+		},
+		"values": {
+			"label": "私たちが大切にしていること",
+			"title": "コアバリュー",
+			"description": "私たちのすべての原則は、旅のデザイン方法と現地の人々との関わり方を導いています。",
+			"railCaption": "基本理念",
+			"v1Title": "人間中心の旅づくり",
+			"v1Desc": "旅をする人を中心にすべてを設計します。あなたのペース、関心、そして物語を最優先します。",
+			"v1Accent": "旅程よりも人を大切に。",
+			"v2Title": "徹底的な好奇心",
+			"v2Desc": "表面的な観光では満足しません。深く掘り下げ、ガイドブックが見逃す場所を発見します。",
+			"v2Accent": "ありきたりの先へ。",
+			"v3Title": "持続可能な足跡",
+			"v3Desc": "すべての旅が地域経済を支え、生態系を尊重します。次の旅人のためにも環境に配慮します。",
+			"v3Accent": "目的を持った旅を。",
+			"v4Title": "率直な誠実さ",
+			"v4Desc": "旅行のベストシーズンや過大評価されている場所、隠れたコストまで包み隠さずお伝えします。",
+			"v4Accent": "飾り立てない真実。"
+		},
+		"journey": {
+			"label": "私たちの歩み",
+			"title": "私たちを形作った節目"
+		},
+		"team": {
+			"label": "チーム紹介",
+			"title": "メンバーのご紹介",
+			"description": "並外れた情熱を持つ探検家、ストーリーテラー、コネクターたちの集まりです。"
+		},
+		"cta": {
+			"label": "旅に参加しませんか",
+			"titleLead": "あなたの次の物語が、",
+			"titleAccent": "ここから始まります。",
+			"description": "初めての冒険でも、50回目の旅でも、忘れられない体験を共に創り上げましょう。",
+			"primaryAction": "旅を計画する",
+			"secondaryAction": "目的地を見る"
+		}
+	},
+	"Contact": {
+		"hero": {
+			"eyebrow": "通信窓口",
+			"headlineLead": "お気軽に",
+			"headlineAccent": "ご連絡ください",
+			"description": "記事の企画提案、提携、メディア取材、読者の皆様からのご感想をお待ちしております。",
+			"metaCardTitle": "窓口情報",
+			"refLabel": "照会",
+			"refValue": "TALKWER · CONTACT",
+			"timezoneLabel": "タイムゾーン",
+			"timezoneValue": "編集部 · GMT−5",
+			"replyLabel": "返信の目安",
+			"replyValue": "数営業日以内",
+			"stampLabel": "航空郵便"
+		},
+		"channels": {
+			"sectionEyebrow": "直通窓口",
+			"sectionTitle": "用途別のお問い合わせ",
+			"sectionDescription": "目的ごとの専用アドレスをご用意しています。該当する窓口をお選びください。",
+			"editorialTitle": "記事・企画のご提案",
+			"editorialBody": "ストーリーのアイデア、写真ポートフォリオ、目的地特集など。概要とリンクを添えてお送りください。",
+			"editorialCta": "編集部へメール",
+			"pressTitle": "提携＆プレス取材",
+			"pressBody": "ブランドコラボ、メディアキット、インタビューのご依頼はこちらへ。",
+			"pressCta": "提携窓口へメール",
+			"supportTitle": "読者＆トラベラーサポート",
+			"supportBody": "ご予約に関する質問、アカウントヘルプ、サイトへのご意見を承ります。",
+			"supportCta": "サポートへメール"
+		},
+		"form": {
+			"eyebrow": "メッセージ",
+			"title": "メッセージを送る",
+			"description": "必要事項をご記入いただければ、適切なデスクにお繋ぎします。送信すると、内容が入力された状態でお使いのメールアプリが開きます。",
+			"nameLabel": "お名前",
+			"namePlaceholder": "山田 太郎",
+			"emailLabel": "メールアドレス",
+			"emailPlaceholder": "you@example.com",
+			"topicLabel": "用件",
+			"topicPlaceholder": "用件をお選びください",
+			"topicEditorial": "記事・企画のご提案",
+			"topicPartnerships": "提携＆プレス取材",
+			"topicSupport": "トラベラーサポート",
+			"topicOther": "その他のお問い合わせ",
+			"messageLabel": "メッセージ本文",
+			"messagePlaceholder": "ご用件の詳細をご記入ください（関連リンク、日程、希望の目的地など）。",
+			"submitLabel": "メッセージを送信",
+			"submitHint": "メールアプリが開き、下書きが作成されます。"
+		},
+		"social": {
+			"title": "ソーシャルメディア",
+			"description": "日々の旅の記録や舞台裏を発信しています。"
+		}
+	},
+	"Booking": {
+		"brand": "talkwer",
+		"meetingTitle": "専任担当者との個別相談",
+		"duration": "30分",
+		"meetingType": "ビデオ通話",
+		"meetingTypeTooltip": "Talkwerのエージェントとビデオ通話でツアー内容をじっくり確認できます。",
+		"continueLabel": "お支払いへ進む",
+		"selectDate": "ご出発または相談希望日を選択",
+		"selectTime": "ご相談時間枠を選択",
+		"guestCount": "参加人数",
+		"specialRequests": "特別なご要望やリクエスト",
+		"nameLabel": "お名前 *",
+		"emailLabel": "メールアドレス *",
+		"phoneLabel": "電話番号 *",
+		"notesLabel": "補足事項",
+		"notesPlaceholder": "打ち合わせの事前準備に役立つ情報があればご記入ください",
+		"addGuests": "同伴者を追加",
+		"removeEmail": "メールを削除",
+		"termsNotice": "続行することにより、利用規約およびプライバシーポリシーに同意したものとみなされます。",
+		"back": "戻る",
+		"errorRequired": "名前、メールアドレス、電話番号は必須です。",
+		"errorPhone": "有効な電話番号を入力してください。",
+		"errorSlot": "時間枠を選択してください。",
+		"storageError": "ブラウザーのストレージを使用できません。セッションストレージを許可して再試行してください。",
+		"demoNotice": "デモ専用 — サンプルの連絡先を使用してください。実際の予約は作成されません。"
+	},
+	"Checkout": {
+		"title": "デモ決済",
+		"feeLabel": "個別相談＆内金デポジット",
+		"feeAmount": "$25",
+		"feeNote": "デモ予約費用 — デモモードのため実際の請求は発生しません。",
+		"confirmLabel": "デモ予約を完了",
+		"signInLabel": "ログイン",
+		"registerLabel": "アカウント登録",
+		"demoAuthHint": "任意 — ゲストとしてそのまま予約を完了できます。",
+		"demoAuthFlash": "デモ用 — 実際の登録は不要です。",
+		"cardNumberLabel": "カード番号",
+		"expiryLabel": "有効期限",
+		"cvcLabel": "セキュリティコード",
+		"cardNumberPlaceholder": "4242 4242 4242 4242",
+		"expiryPlaceholder": "MM/YY",
+		"cvcPlaceholder": "123",
+		"cardError": "カード番号、有効期限、CVCを入力してください。",
+		"step": "ステップ 2 / 2",
+		"paymentDetails": "デモ用のお支払い情報",
+		"slotReserved": "サンプルの時間枠を選択済み",
+		"cardBanner": "サンプルカードの表示",
+		"autofillBanner": "デモ専用です。サンプル値を使用し、実際のカード情報を入力しないでください。",
+		"autofillButton": "カード情報を自動入力",
+		"securityNotice": "決済は行われません。カード情報は保存・送信されません。",
+		"summaryTourLabel": "選択した遠征ツアー",
+		"summarySlotLabel": "ご相談日時",
+		"summaryGuestLabel": "旅行者情報",
+		"summaryTimezoneLabel": "タイムゾーン",
+		"scheduledDeparture": "予定された出発日時",
+		"bookerInfo": "ご予約者情報",
+		"additionalGuests": "+ 同伴者 {count} 名",
+		"includedPerks": "この予約に含まれるもの",
+		"defaultPerk1": "専任現地ガイド",
+		"defaultPerk2": "プレミアム送迎",
+		"defaultPerk3": "48時間前までキャンセル無料",
+		"packageLabel": "ツアーパッケージ",
+		"taxesFees": "税金・予約手数料",
+		"included": "$0.00 (込み)",
+		"totalDue": "サンプル合計",
+		"taxesGuarantees": "価格は参考例です",
+		"instantConfirm": "デモ表示 — ツアーの予約は行われません",
+		"redirectingLabel": "予約を処理中…",
+		"registeredNote": "このブラウザーのセッション内にのみ保存されます",
+		"successTitle": "デモ予約が完了しました",
+		"successBody": "サンプルの確認画面です。決済、実際の予約、メール送信、カレンダー招待は行われません。",
+		"successHomeLabel": "ホームに戻る",
+		"successTourLabel": "ツアーを見る",
+		"successConfirmationLabel": "予約コード",
+		"verifiedBooking": "デモ予約",
+		"storageError": "ブラウザーのストレージを使用できません。セッションストレージを許可して再試行してください。"
+	},
+	"Auth": {
+		"loginEyebrow": "アカウント",
+		"loginTitle": "ログイン",
+		"loginDescription": "旅の続きを、ここから。",
+		"registerEyebrow": "アカウント",
+		"registerTitle": "新規登録",
+		"registerDescription": "これまでの旅と、これからの旅のための場所。",
+		"emailLabel": "メールアドレス",
+		"emailPlaceholder": "you@example.com",
+		"passwordLabel": "パスワード",
+		"passwordPlaceholder": "パスワードを入力",
+		"nameLabel": "お名前",
+		"namePlaceholder": "山田 太郎",
+		"signInSubmit": "ログインする",
+		"registerSubmit": "アカウントを作成",
+		"needAccountPrompt": "アカウントをお持ちでないですか？",
+		"haveAccountPrompt": "すでにアカウントをお持ちですか？",
+		"createAccountLink": "新規登録",
+		"signInLink": "ログイン",
+		"demoMessage": "ダッシュボードのプレビューを開いています…",
+		"tagline": "旅する。見つける。共有する。",
+		"quote": "“すべての目的地には、まだ見ぬ物語が眠っている。”",
+		"perk1": "厳選された遠征ツアー＆ブティック旅程への限定アクセス",
+		"perk2": "タイムゾーン連動スケジュール＆即時予約枠引き継ぎ",
+		"perk3": "パーソナライズされたコンシェルジュ＆現地専任ガイド直通",
+		"communityBadge": "認証済みトラベラーコミュニティ",
+		"communityRating": "4.9 / 5.0",
+		"demoQuickPrompt": "テスト用アカウントでログイン？",
+		"demoAutofill": "デモ情報を自動入力",
+		"demoRegisterPrompt": "登録をお試しですか？",
+		"demoRegisterAutofill": "テスト用情報を入力",
+		"magazineTag": "talkwer. magazine",
+		"backToSite": "サイトに戻る",
+		"loginImageAlt": "アイスランドの滝の上に広がるオーロラ",
+		"registerImageAlt": "バリ島ウブドの寺院の中庭",
+		"loginImageCaption": "01 / アイスランドの夜",
+		"registerImageCaption": "02 / バリ島の穏やかな朝",
+		"passwordHint": "8文字以上",
+		"showPassword": "パスワードを表示",
+		"hidePassword": "パスワードを隠す",
+		"demoDisclaimer": "プレビュー専用です。アカウントは作成されず、認証情報も保存されません。"
+	},
+	"FAQ": {
+		"hero": {
+			"badge": "05 // ヘルプセンター",
+			"deskLabel": "リアルタイム検索デスク",
+			"titleLead": "ヘルプ＆ナレッジ",
+			"titleAccent": "ベース。",
+			"eyebrow": "ヘルプ＆サポート",
+			"title": "よくある質問",
+			"description": "ご予約、旅のペース、安全管理、カスタムツアーに関するよくあるご質問にお答えします。",
+			"searchPlaceholder": "質問を検索（例：デポジット、キャンセル、定員、保険）..."
+		},
+		"tabAll": "すべてのトピック",
+		"tabBooking": "ご予約",
+		"tabTravel": "旅のペース＆日程",
+		"tabSafety": "安全＆保険",
+		"tabCustom": "オーダーメイドの旅",
+		"noResultsTitle": "一致する質問が見つかりませんでした",
+		"noResultsDesc": "検索条件に一致する質問がありませんでした。キーワードを変更するか、フィルターをリセットしてください。",
+		"clearFilter": "検索フィルターを解除",
+		"bookingCategory": "ご予約＆お支払い",
+		"travelCategory": "旅のペース＆ロジスティクス",
+		"safetyCategory": "安全管理、保険＆キャンセル",
+		"customCategory": "カスタム＆プライベートツアー",
+		"cta": {
+			"label": "まだご不明な点がありますか？",
+			"titleLead": "お探しの情報が",
+			"titleAccent": "見つかりませんか？",
+			"description": "専任コンシェルジュと現地ガイドが、旅程の詳細やご相談にいつでもお答えします。",
+			"primaryAction": "サポートデスクに問い合わせる",
+			"secondaryAction": "遠征ツアー一覧を見る"
+		},
+		"groups": {
+			"booking": "ご予約＆お支払い",
+			"travel": "旅のペース＆ロジスティクス",
+			"safety": "安全管理、保険＆キャンセル",
+			"custom": "カスタム＆プライベートツアー"
+		},
+		"items": {
+			"how-book": {
+				"question": "Talkwerのツアーに参加するにはどのように予約しますか？",
+				"answer": "ツアー一覧からご希望の旅程をお選びいただくか、お問い合わせフォームよりご相談ください。日程と人数が確定次第、書面での予約確認書を発行し、予約ポリシーに従ってデポジットを申し受けます。",
+				"linkLabel": "予約ポリシーを読む"
+			},
+			"deposit-rules": {
+				"question": "デポジットの規定とお支払いのスケジュールを教えてください。",
+				"answer": "ブティックロッジおよび現地送迎枠を確保するため、多くのツアーで確定時に25%のデポジットを申し受けます。残金のお支払期日はご出発の60日前までとなります。",
+				"linkLabel": "予約ポリシーを確認"
+			},
+			"payment-methods": {
+				"question": "どのような支払い方法が利用可能ですか？",
+				"answer": "主要クレジットカード（Visa、MasterCard、Amex）、銀行振込、および認証済み送金に対応しており、隠れた決済手数料は一切かかりません。"
+			},
+			"group-size": {
+				"question": "ツアーの定員は何名ですか？",
+				"answer": "ゆったりとしたペースと質の高い体験を守るため、ツアーの定員は目的地の地形に応じて8名〜16名に厳格に制限しています。",
+				"linkLabel": "ツアー一覧を見る"
+			},
+			"fitness-pacing": {
+				"question": "参加に必要な体力レベルはどの程度ですか？",
+				"answer": "各ツアーページに「ゆったりペース（海岸線の散策や街歩き）」から「アクティブ探検（高山トレッキング）」までのアクティビティ目安を記載しています。個別のご相談も承ります。",
+				"linkLabel": "チームに相談する"
+			},
+			"solo-travelers": {
+				"question": "一人での参加は可能ですか？シングル追加料金はありますか？",
+				"answer": "Talkwerのお客様の40%以上がお一人でご参加されています。不当な一人部屋追加料金は設定せず、実費のみで個室プランをご案内しています。"
+			},
+			"inclusions-exclusions": {
+				"question": "ツアー料金には何が含まれますか？",
+				"answer": "宿泊費、厳選体験プログラム、専用送迎、現地専任ガイド、旅程記載の食事が含まれます。国際線航空券は別途お見積もりとなります。"
+			},
+			"cancellation-policy": {
+				"question": "旅行をキャンセルまたは日程変更したい場合はどうなりますか？",
+				"answer": "出発日の60日前までのキャンセルは、所定の事務手数料を除き全額返金いたします。将来の日程への振替もキャンセルポリシーに基づき柔軟に対応いたします。",
+				"linkLabel": "キャンセルポリシーを読む"
+			},
+			"travel-insurance": {
+				"question": "旅行保険への加入は必須ですか？",
+				"answer": "アクティブな行程や大自然を訪れるツアーにご参加のすべてのお客様に、医療費・緊急搬送・旅行取消をカバーする包括的な海外旅行保険への加入をお願いしています。"
+			},
+			"health-safety": {
+				"question": "僻地での緊急医療体制はどのようになっていますか？",
+				"answer": "すべてのフィールドガイドが衛星通信機器、応急救護キットを携行し、出発前に現地緊急搬送ルートの確認を徹底しています。"
+			},
+			"custom-trip": {
+				"question": "家族や少人数グループ向けのプライベートツアーは手配できますか？",
+				"answer": "はい。2名様から20名様までのご家族、カップル、プライベートグループ向けに、完全オーダーメイドの旅程をご提案いたします。",
+				"linkLabel": "カスタムツアーを相談する"
+			},
+			"lead-time": {
+				"question": "オーダーメイド旅行はいつ頃から計画を始めるべきですか？",
+				"answer": "日本、ギリシャ、パタゴニアなどのハイシーズンの場合、ご出発予定の3〜6ヶ月前までにご連絡いただくことをお勧めいたします。"
+			}
+		}
+	},
+	"Careers": {
+		"hero": {
+			"badge": "06 // 採用情報",
+			"liveDesk": "Talkwerスタジオ · グローバル採用",
+			"titleLead": "心揺さぶる旅の",
+			"titleAccent": "新時代を共に創る。",
+			"eyebrow": "採用情報",
+			"title": "エディトリアルトラベルの未来を創る",
+			"description": "Talkwerは独立系トラベルスタジオです。手作りの旅程、長編フィールドガイド、旅人のためのデジタルツールを開発しています。",
+			"remoteLabel": "完全リモートチーム",
+			"stipendLabel": "年間旅行補助",
+			"leaveLabel": "有給フィールドリサーチ休暇"
+		},
+		"valuesLabel": "私たちの働き方",
+		"valuesTitleLead": "クラフトマンシップと",
+		"valuesTitleAccent": "自律性を重んじる原則。",
+		"valuesDesc": "私たちはデザイナー、ライター、エンジニア、遠征キュレーターからなる少数精鋭のチームです。",
+		"perksLabel": "福利厚生＆メンバー特典",
+		"perksTitleLead": "世界を舞台に",
+		"perksTitleAccent": "挑戦するための環境。",
+		"perksDesc": "素晴らしい旅の作り手自身が世界を体験すべきだと考えています。私たちはあなたの旅と成長に投資します。",
+		"positionsLabel": "募集中のポジション",
+		"positionsTitleLead": "あなたの強みを活かせる",
+		"positionsTitleAccent": "フィールド。",
+		"positionsDesc": "エディトリアル、プロダクト、オペレーション、遠征デザインの各職種でメンバーを募集しています。",
+		"filterAll": "すべての職種",
+		"filterEditorial": "エディトリアル＆コンテンツ",
+		"filterProduct": "プロダクト＆開発",
+		"filterOperations": "オペレーション＆コンシェルジュ",
+		"filterDesign": "遠征デザイン",
+		"applyRole": "この職種に応募する",
+		"valuesHeading": "私たちの働き方",
+		"perksHeading": "福利厚生＆メンバー特典",
+		"openRolesHeading": "募集中のポジション",
+		"applyNow": "このポジションに応募する",
+		"responsibilitiesHeading": "主な業務内容",
+		"requirementsHeading": "応募条件・人物像",
+		"values": {
+			"autonomy": {
+				"title": "自律性とクラフトマンシップ",
+				"desc": "私たちは優秀な人材を信頼し、過度な管理を行いません。勤務時間や拠点を自身で決め、最高品質の成果を追求します。"
+			},
+			"field": {
+				"title": "徹底した現地取材主義",
+				"desc": "私たちはデスクの上だけで旅を語りません。チーム全員が現地に赴き、ルートを歩き、ガイドと対話し、宿を厳しく確かめます。"
+			},
+			"craft": {
+				"title": "妥協なき美意識と品質",
+				"desc": "タイポグラフィや写真構図から、編集記事の文体、ソフトウェアの設計に至るまで、体験価値を高める細部に徹底的にこだわります。"
+			},
+			"stewardship": {
+				"title": "持続可能な地域還元",
+				"desc": "環境負荷を抑えた旅、パートナーへの適正な対価還元、そして訪問先のコミュニティとの持続的な信頼関係を最優先します。"
+			}
+		},
+		"perks": {
+			"stipend": {
+				"tag": "EXPLORE",
+				"title": "年間4,000ドルの旅行補助",
+				"desc": "私たちが扱う目的地を旅してください。Talkwerツアーへの参加や、個人での文化フィールドワークに利用できます。"
+			},
+			"remote": {
+				"tag": "FLEXIBILITY",
+				"title": "完全リモート＆柔軟な勤務形態",
+				"desc": "安定したネット環境があれば世界中どこからでも勤務可能。非同期ワークフローを軸に、時差を越えて連携します。"
+			},
+			"health": {
+				"tag": "CARE",
+				"title": "包括的な健康＆ウェルネス支援",
+				"desc": "お住まいの国の医療制度に合わせた、充実した医療・歯科・メンタルヘルスケアを完備しています。"
+			},
+			"equipment": {
+				"tag": "GEAR",
+				"title": "最新機材＆在宅環境手当",
+				"desc": "2年ごとに2,500ドルの最新ハードウェア購入枠を付与。さらに毎月のリモートワーク環境手当を支給します。"
+			},
+			"sabbatical": {
+				"tag": "EXPEDITION",
+				"title": "現地リサーチサバティカル休暇",
+				"desc": "勤続2年で、Talkwerの任意の目的地へ全額会社負担で赴く3週間のフィールドリサーチ休暇を取得できます。"
+			},
+			"learning": {
+				"tag": "MASTERY",
+				"title": "学習・成長支援予算",
+				"desc": "書籍、専門講座、写真ワークショップ、語学学習などに使える年間1,500ドルの自己研鑽予算を提供します。"
+			}
+		},
+		"positions": {
+			"senior-expedition-editor": {
+				"title": "シニア遠征エディター",
+				"department": "エディトリアル＆コンテンツ",
+				"location": "リモート（UTC-5〜UTC+2）",
+				"type": "正社員",
+				"summary": "北欧、アルプス、パタゴニアなどの目的地カタログの編集・ストーリーテリングを統括。現地写真家への依頼や長編フィールドガイドの執筆を担当します。",
+				"responsibilities": {
+					"0": "複数ページにわたる目的地ドシエのエディトリアルディレクション",
+					"1": "現地文化ガイドおよびフィールドフォトグラファーとの制作進行",
+					"2": "公開スケジュールの管理およびファクトチェック体制の統括"
+				},
+				"requirements": {
+					"0": "トラベルジャーナリズムまたは出版・エディトリアル分野での5年以上の実務経験",
+					"1": "長編紀行文やエッセイの編集における確かな実績",
+					"2": "洗練されたビジュアルセンスと協調的な編集ディレクション能力"
+				}
+			},
+			"full-stack-engineer": {
+				"title": "フルスタックWebエンジニア（Next.js）",
+				"department": "プロダクト＆開発",
+				"location": "リモート（グローバル）",
+				"type": "正社員",
+				"summary": "Next.js 16、TypeScript、GSAPアニメーションを駆使し、次世代のデジタルマガジン、インタラクティブマップ、高機能な編集コンポーネントを開発します。",
+				"responsibilities": {
+					"0": "リッチなマイクロアニメーションを備えた洗練されたUIコンポーネントの設計",
+					"1": "全ルートにおける静的生成パフォーマンスの最適化と高速化",
+					"2": "デザイナーと連携したシームレスなエディトリアルレイアウトの実装"
+				},
+				"requirements": {
+					"0": "モダンReact、TypeScript、Next.jsを用いた3年以上の本番開発経験",
+					"1": "CSSレイアウト、パフォーマンス計測、アニメーション実装への深い精通",
+					"2": "タイポグラフィへのこだわり、アクセシビリティへの配慮、クリーンなコード設計"
+				}
+			},
+			"operations-concierge": {
+				"title": "ゲスト体験＆オペレーションコンシェルジュ",
+				"department": "オペレーション＆コンシェルジュ",
+				"location": "リモート（欧州または米州）",
+				"type": "正社員",
+				"summary": "旅のプランニングから個別旅程のカスタマイズ、出発前のご準備まで、洗練されたおもてなしの心で旅行者をサポートします。",
+				"responsibilities": {
+					"0": "出発前の旅行者との丁寧なコミュニケーションおよび個別リクエスト対応",
+					"1": "ブティックロッジや現地ガイドパートナーとの連携・手配調整",
+					"2": "旅行ロジスティクスの管理と現地でのシームレスな体験の確保"
+				},
+				"requirements": {
+					"0": "ブティックホスピタリティ、遠征ツアー、またはコンシェルジュ業務での3年以上の経験",
+					"1": "卓越した書面コミュニケーションスキル（英語必須、他言語歓迎）",
+					"2": "変化の多い状況でも冷静に課題を解決できる対応力"
+				}
+			},
+			"lead-destination-designer": {
+				"title": "リード目的地＆ルートデザイナー",
+				"department": "遠征デザイン",
+				"location": "リモート / 現地取材（出張約25%）",
+				"type": "正社員",
+				"summary": "新たな旅の回廊を開拓し、家族経営のブティックロッジを厳選、現地職人との関係を築きながら心に残る日ごとの旅程をデザインします。",
+				"responsibilities": {
+					"0": "世界各地の新規旅行ルートの現地踏査およびテスト走行",
+					"1": "独立系ロッジや文化継承者との直接パートナーシップの締結",
+					"2": "詳細なルートガイド、時間割、高低差プロファイルの制作"
+				},
+				"requirements": {
+					"0": "ラグジュアリーアドベンチャーまたはオーダーメイド旅程開発での4年以上の経験",
+					"1": "豊富な海外旅行経験および現地ルート開拓の実績",
+					"2": "サステナブルで環境負荷の少ない観光モデルへの強い共感"
+				}
+			}
+		},
+		"modal": {
+			"title": "{title} に応募する",
+			"description": "プロフィールとポートフォリオをご提出ください。チームが直接書類を拝見します。",
+			"fullNameLabel": "お名前 *",
+			"fullNamePlaceholder": "山田 太郎",
+			"emailLabel": "メールアドレス *",
+			"emailPlaceholder": "taro@example.com",
+			"portfolioLabel": "ポートフォリオ / LinkedIn URL *",
+			"portfolioPlaceholder": "https://...",
+			"coverLabel": "志望動機・メッセージ *",
+			"coverPlaceholder": "これまでのご経歴、お気に入りの旅、この役割で挑戦したいことをお聞かせください...",
+			"submitApp": "応募書類を送信",
+			"submitting": "送信中…",
+			"close": "閉じる",
+			"successMessage": "ご応募ありがとうございます！3営業日以内に採用担当よりご連絡いたします。"
+		},
+		"cta": {
+			"label": "希望の職種が見当たりませんか？",
+			"titleLead": "特別なスキルを",
+			"titleAccent": "お持ちですか？",
+			"description": "卓越したライター、写真家、ガイド、エンジニアからのご連絡をいつでも歓迎しています。",
+			"primaryAction": "オープンポジションに応募",
+			"secondaryAction": "Talkwerスタジオについて"
+		}
+	},
+	"Press": {
+		"hero": {
+			"badge": "07 // プレス＆メディア",
+			"deskLabel": "エディトリアルデスク · プレス窓口",
+			"titleLead": "ニュース、公式発表＆",
+			"titleAccent": "メディア素材集。",
+			"eyebrow": "プレス＆メディア",
+			"title": "ニュース、掲載記事＆ブランドアセット",
+			"description": "公式発表、メディアキット、プレスリリース、高解像度画像素材、メディア関係者専用窓口です。",
+			"primaryAction": "メディアキットをダウンロード",
+			"secondaryAction": "プレス窓口へ連絡"
+		},
+		"coverage": {
+			"label": "最近のメディア掲載",
+			"titleLead": "メディアが注目する",
+			"titleAccent": "Talkwerの旅。",
+			"description": "世界各国のメディアによる特集、レビュー、掲載記事をご紹介します。",
+			"readArticle": "記事を読む"
+		},
+		"kits": {
+			"label": "ブランドアセット＆メディアキット",
+			"titleLead": "メディア掲載用の",
+			"titleAccent": "公式素材。",
+			"description": "認定ジャーナリスト向けの高解像度ロゴ、写真パッケージ、ブランドガイドライン、ファクトシートです。",
+			"downloadKit": "アセットパッケージをダウンロード"
+		},
+		"articles": {
+			"vogue-nordic": {
+				"title": "スロートラベルの真髄：Talkwerが拓く極北の隠れ家ロッジ",
+				"category": "特集",
+				"excerpt": "Talkwerは、静謐なデザインとゆったりとした時間、そして地域に息づく手仕事を旅の中心に据えることで、北欧の旅を再定義している。"
+			},
+			"nyt-escapes": {
+				"title": "本物を求める旅人に贈る、12の手作りジャーニー",
+				"category": "レビュー",
+				"excerpt": "Talkwerが他と一線を画すのは、ありふれた観光名所へ旅行者を誘導しない点だ。その旅程はパッケージツアーというより、個人的な旅日記に近い。"
+			},
+			"wallpaper-design": {
+				"title": "建築美が宿る静寂：パタゴニアの氷河シェルター探訪",
+				"category": "デザイン",
+				"excerpt": "周囲の大自然へ深い敬意を払い、研ぎ澄まされた建築的感性によって設計された、極めて環境負荷の少ないシェルターの傑作。"
+			},
+			"ft-weekend": {
+				"title": "マインドフルな時代に蘇るグランドツアーの精神",
+				"category": "エッセイ",
+				"excerpt": "Talkwerは証明している。探検の未来とはチェックリストを急いで埋めることではなく、その土地のリズムが心に染み渡るまで留まることにあるのだと。"
+			}
+		},
+		"kitAssets": {
+			"brand-assets": {
+				"title": "ブランドガイドライン＆ベクターロゴ",
+				"description": "印刷およびデジタルメディア用の公式タイポグラフィ規定、SVGワードマーク、プライマリロゴ、ブランドカラーパレット集。"
+			},
+			"press-pack": {
+				"title": "2026年 プレスキット＆会社概要ドシエ",
+				"description": "経営陣プロフィール、創業ストーリー、グローバル提携ネットワーク、および編集理念をまとめたPDFドキュメント。"
+			},
+			"photography-suite": {
+				"title": "高解像度写真パッケージ（300 DPI）",
+				"description": "メディア掲載用に厳選された目的地風景、現地フィールドガイドのポートレート、ロッジ写真の公式画像集。"
+			},
+			"sustainability-report": {
+				"title": "サステナビリティ＆地域還元レポート",
+				"description": "第三者機関による環境監査データ、現地パートナーへの適正報酬枠組み、およびカーボンオフセットの取り組み実績。"
+			}
+		},
+		"cta": {
+			"label": "メディア取材のお問い合わせ",
+			"titleLead": "コメントや個別取材を",
+			"titleAccent": "ご希望ですか？",
+			"description": "サステナブルツーリズム、文化体験、現代の旅行トレンドについて、編集チームや遠征ディレクターが取材にお応えします。",
+			"primaryAction": "広報担当にメールする",
+			"secondaryAction": "プレスリリース一覧を見る"
+		}
+	},
+	"Partners": {
+		"hero": {
+			"badge": "08 // グローバルネットワーク",
+			"deskLabel": "提携パートナーデスク",
+			"titleLead": "厳選されたグローバル",
+			"titleAccent": "アライアンスに参加する。",
+			"eyebrow": "グローバルネットワーク",
+			"title": "Talkwerと提携する",
+			"description": "世界6大陸の独立系ブティックホテル、郷土料理の料理人、経験豊富な現地ガイドと提携しています。",
+			"primaryAction": "パートナー申請する",
+			"secondaryAction": "提携モデルを見る"
+		},
+		"benefits": {
+			"label": "提携するメリット",
+			"titleLead": "感度の高い旅人への",
+			"titleAccent": "ダイレクトな発信。",
+			"description": "私たちの読者と旅人は、本物の体験、文化的深み、持続可能な取り組みを何よりも大切にしています。"
+		},
+		"benefitsItems": {
+			"direct-audience": {
+				"tag": "AUDIENCE",
+				"title": "感度の高い読者層への直接アプローチ",
+				"description": "アルゴリズムに左右されることなく、本物のブティック滞在や深い文化体験を求める質の高い旅行者と直接つながることができます。"
+			},
+			"fair-terms": {
+				"tag": "TERMS",
+				"title": "公平で透明性の高い提携条件",
+				"description": "私たちはパートナーを一過性の下請けではなく大切な共同制作者と考えます。明確な条件、事前デポジット保証、迅速な精算をお約束します。"
+			},
+			"curated-roster": {
+				"tag": "QUALITY",
+				"title": "値引き競争のないブランド価値の確立",
+				"description": "価格競争に巻き込まれることはありません。貴施設・サービスの独自のこだわり、歴史、おもてなしの物語を魅力的に伝えます。"
+			},
+			"global-reach": {
+				"tag": "EXPOSURE",
+				"title": "世界規模のエディトリアル露出",
+				"description": "季刊目的地ドシエ、ジャーナル記事、そして65,000人以上の熱心な読者を持つニュースレターで大々的に紹介されます。"
+			}
+		},
+		"tiers": {
+			"label": "提携カテゴリー",
+			"titleLead": "事業形態に合わせた",
+			"titleAccent": "提携モデル。",
+			"description": "アルプスのブティックロッジから独立系ヨットチャーターまで、相互の成長を目指したパートナーシップをご提案します。",
+			"criteriaHeading": "主な選定基準"
+		},
+		"tiersItems": {
+			"boutique-lodging": {
+				"badge": "CATEGORY 01",
+				"category": "宿泊施設",
+				"title": "ブティックロッジ＆ヘリテージステイ",
+				"description": "独自の建築美と土地の個性を備えた、30室未満の独立系ホテル、古民家旅館、山岳ロッジ、海辺の邸宅が対象です。",
+				"criteria": {
+					"0": "土地の文脈と調和した建築美と空間設計",
+					"1": "廃棄物削減および環境負荷軽減への具体的な取り組み",
+					"2": "地産地消の食体験または地域生産者との連携"
+				}
+			},
+			"expedition-guides": {
+				"badge": "CATEGORY 02",
+				"category": "ガイド＆遠征",
+				"title": "遠征リーダー＆マウンテンガイド",
+				"description": "少人数制のフィールドツアーを率いる、公認資格を持つ山岳ガイド、海洋キャプテン、ワイルドライフスペシャリストが対象です。",
+				"criteria": {
+					"0": "国内外で認定されたガイド公認資格（UIAGM、WFR等）の保有",
+					"1": "対象エリアにおける5年以上のフィールド案内実績",
+					"2": "衛星通信機器の携行および確立された緊急搬送プロトコル"
+				}
+			},
+			"cultural-ateliers": {
+				"badge": "CATEGORY 03",
+				"category": "工芸＆ガストロノミー",
+				"title": "文化アトリエ＆マスターアルチザン",
+				"description": "丁寧な対話とプライベートな工房体験を提供できる陶芸家、ワイナリー、伝統織物作家、郷土料理の料理人が対象です。",
+				"criteria": {
+					"0": "伝統技法の継承または革新的な手仕事の探求",
+					"1": "専用アトリエで少人数（2〜8名）を受け入れられる環境",
+					"2": "訪問者との誠実な対話とストーリーテリング"
+				}
+			}
+		},
+		"testimonial": {
+			"quote": "Talkwerとの提携によって、私たちの人里離れたパタゴニアのロッジは、自然と地域社会を心から尊重してくれる旅人と巡り合うことができました。その記事は私たちの理念を見事に伝えてくれています。",
+			"name": "マテオ・ヴァレンスエラ",
+			"role": "創業者兼ホスト / パタゴニア・グレイシャル・ロッジ",
+			"badge": "認定パートナー紹介",
+			"accredited": "公式認定",
+			"region": "チリ・アイセン州",
+			"stat1": "リピート滞在率",
+			"stat2": "平均滞在日数",
+			"stat3": "認証取得"
+		},
+		"form": {
+			"label": "パートナーシップ申請",
+			"titleLead": "貴施設・サービスを",
+			"titleAccent": "ご登録ください。",
+			"description": "組織情報をご記入ください。当社の品質および持続可能性基準に基づき、担当部署にて審査いたします。",
+			"orgName": "組織名 / 施設名 *",
+			"orgPlaceholder": "アルパイン・リトリート・コレクティブ",
+			"contactName": "ご担当者名 *",
+			"contactPlaceholder": "山田 太郎",
+			"email": "法人メールアドレス *",
+			"emailPlaceholder": "contact@example.com",
+			"category": "提携カテゴリー *",
+			"location": "主な拠点 / 地域 *",
+			"locationPlaceholder": "スイス・ベルナーオーバーラント",
+			"website": "ウェブサイト / SNS URL *",
+			"websitePlaceholder": "https://...",
+			"notes": "サービス内容およびサステナビリティの取り組み *",
+			"notesPlaceholder": "客室・収容人数、文化体験プログラム、環境保全への取り組みなどをご記入ください...",
+			"submit": "パートナー申請を送信",
+			"submitting": "送信中…",
+			"successMessage": "申請を受け付けました！5営業日以内にパートナーチームよりご連絡いたします。"
+		},
+		"cta": {
+			"label": "すでにパートナーですか？",
+			"titleLead": "パートナーポータルへ",
+			"titleAccent": "ログイン。",
+			"description": "遠征ツアー情報の管理、到着日の調整、旅行者からのフィードバック確認を直接ポータル上で行えます。",
+			"primaryAction": "パートナーポータルにログイン",
+			"secondaryAction": "パートナーサポートへ連絡"
+		}
+	},
+	"Legal": {
+		"cookieTitle": "プライバシーを尊重します",
+		"cookieDescription": "このデモは設定をローカルに保存し、サンプル予約にセッションストレージを使用します。分析・広告用Cookieは使用しません。",
+		"cookieAccept": "すべて同意",
+		"cookieDecline": "任意項目を拒否",
+		"cookieLearnMore": "詳細を見る",
+		"privacyEyebrow": "法的遵守と透明性",
+		"privacyTitle": "プライバシーポリシー",
+		"privacyEffectiveDate": "発効日: 2026年2月15日",
+		"privacyIntro": "Talkwerはお客様のプライバシーを尊重し、デジタルプラットフォームおよび旅行サービス全体でお預かりする情報の透明性と厳重な保護に努めています。",
+		"privacySections": {
+			"collect": {
+				"heading": "収集する情報について",
+				"body": "お問い合わせフォームをご利用いただく際、お名前、メールアドレス、メッセージ内容を取得します。また、サイト表示時にネットワークリクエストからブラウザの種類や大まかな地域情報などの技術的ログを受信することがあります。本静的マガジンサイト上でクレジットカード番号等を直接伺うことはありません。"
+			},
+			"use": {
+				"heading": "情報の利用目的",
+				"body": "取得したお問い合わせ内容は、旅行、提携、取材、または編集フィードバックへのご返答にのみ使用されます。技術ログはサイトの安定性向上および読者の閲覧傾向の把握に役立てられます。個人情報を第三者へ販売することは一切ありません。"
+			},
+			"cookies": {
+				"heading": "クッキーおよび類似技術",
+				"body": "Talkwerはサイトの正常な稼働に必要な必須クッキーと、同意選択などを保持するための環境設定クッキーを使用しています。クッキーの種類や設定の変更方法については、/cookies のクッキーポリシーをご覧ください。任意クッキーを拒否してもマガジンの閲覧が制限されることはありません。"
+			},
+			"retention": {
+				"heading": "データの保持と開示請求",
+				"body": "お問い合わせいただいたメッセージは、ご相談への対応に必要な期間に限り保持されます。ご自身の登録情報の確認や削除をご希望の場合は、hello@s0vers.com までご連絡ください。一部の技術ログはホスティング事業者の保持期間に応じて自動消去されます。"
+			},
+			"contact": {
+				"heading": "プライバシーに関するお問い合わせ",
+				"body": "本ポリシーやお客様のデータに関するご質問は、hello@s0vers.com またはお問い合わせページよりお寄せください。通常数営業日以内にご返答いたします。第三者ベンダーが関わる場合は適切な窓口をご案内します。"
+			}
+		},
+		"termsEyebrow": "利用規約",
+		"termsTitle": "利用規約",
+		"termsEffectiveDate": "発効日: 2026年2月15日",
+		"termsIntro": "本利用規約は、Talkwerのウェブサイト、予約手続き、およびデジタルエディトリアルコンテンツのご利用条件を定めるものです。",
+		"termsSections": {
+			"acceptance": {
+				"heading": "規約への同意",
+				"body": "Talkwerの各ページにアクセスすることにより、お客様は法令および本規約に従ってサイトを利用することに同意したものとみなされます。同意いただけない場合はご利用をお控えください。本規約は随時更新される場合があり、最新版の発効日は上部に記載されます。"
+			},
+			"site-use": {
+				"heading": "サイトのご利用について",
+				"body": "通常の閲覧、リンクの共有、正当な旅行・取材のお問い合わせを目的としてご利用いただけます。過度なスクレイピング、ホスティングへの妨害行為、不正・迷惑メッセージの送信は禁止されています。他の読者やサイトに損害を与えるアクセスは遮断する場合があります。"
+			},
+			"intellectual-property": {
+				"heading": "知的財産権について",
+				"body": "本サイトに掲載されている記事、写真、目的地ガイド、およびTalkwerのブランド表記は、当社の著作物または正当なライセンスに基づくものです。私的利用の範囲に限り出典を明記した引用が認められます。無断での全文転載や画像の商業利用は固く禁じられています。"
+			},
+			"editorial-disclaimer": {
+				"heading": "旅程コンテンツの免責事項",
+				"body": "ツアーの概要、持ち物リスト、ガイド情報はエディトリアルな読み物であり、現地の空き状況、料金、安全環境を保証する契約ではありません。ご出発前には必ずTalkwerまたは提携オペレーターに最新の詳細をご確認ください。"
+			},
+			"limitation": {
+				"heading": "責任の制限",
+				"body": "適用法令で認められる最大限の範囲において、Talkwerは記事内容のみに依拠したことによる損害や外部リンク先でのトラブルについて責任を負いません。旅行には固有のリスクが伴うため、保険の加入、必要書類の準備、現地での行動判断はお客様自身の責任となります。"
+			},
+			"contact": {
+				"heading": "お問い合わせ窓口",
+				"body": "本規約の内容にご不明な点がある場合は、予約やお申し込みの前に hello@s0vers.com またはお問い合わせページよりご連絡ください。編集記事と予約手続きの関係について丁寧にご案内いたします。"
+			}
+		},
+		"cookiesEyebrow": "クッキー設定",
+		"cookiesTitle": "クッキーポリシー",
+		"cookiesEffectiveDate": "発効日: 2026年2月15日",
+		"cookiesIntro": "本クッキーポリシーは、Talkwerがお客様の設定保存、操作性向上、体験の最適化のためにクッキーおよび類似技術をどのように利用しているかを説明するものです。",
+		"cookiesSections": {
+			"essential": {
+				"heading": "必須クッキーについて",
+				"body": "必須クッキーは、ブラウザがページを安定して読み込むためのセッションやセキュリティ状態の保持など、サイトの基本機能に不可欠です。これらは広告プロファイルの作成には使用されず、無効にすると機能が正しく動作しない場合があります。"
+			},
+			"preference": {
+				"heading": "設定保存クッキー",
+				"body": "設定保存クッキーは、同意バナーでの承諾・拒否の選択などを記憶し、再訪問時に毎回確認が表示されるのを防ぎます。この設定データはお客様がサイトデータを消去するまでブラウザ内に保持されます。"
+			},
+			"consent-banner": {
+				"heading": "同意バナーの仕組み",
+				"body": "初回訪問時に「同意する」「拒否する」および詳細リンクを含むバナーが表示されます。「同意する」を選ぶと任意クッキーの設定が保存され、「拒否する」を選んだ場合も選択結果のみを記憶し、快適にマガジンをお読みいただけます。"
+			},
+			"withdraw": {
+				"heading": "設定の変更・取り消し方法",
+				"body": "保存されたクッキー設定を変更・削除したい場合は、ブラウザの設定からTalkwerのサイトデータを消去してください。消去後に再訪問するとバナーが再度表示され、選択をやり直すことができます。"
+			},
+			"more": {
+				"heading": "関連ポリシー",
+				"body": "お問い合わせフォームでの個人情報の取り扱いについては、/privacy のプライバシーポリシーをご覧ください。クッキーに関するご質問は hello@s0vers.com までお気軽にお問い合わせください。"
+			}
+		},
+		"cancellationEyebrow": "柔軟な旅行者保護",
+		"cancellationTitle": "キャンセル＆ご返金ポリシー",
+		"cancellationEffectiveDate": "発効日: 2026年2月15日",
+		"cancellationIntro": "旅行の計画はストレスなく、心躍るものであるべきです。公平性と明確さを第一に考えたキャンセル規定および返金枠組みを設けています。",
+		"cancellationSections": {
+			"windows": {
+				"heading": "ご返金の適用期間",
+				"body": "返金の可否および金額は、キャンセルのご連絡時期と予約確認書に記載された各提携先の規定によって決定されます。早期のキャンセルの場合は返金割合が高くなりますが、出発日が近づくにつれて実費が発生し、返金額が減額または対象外となる場合があります。"
+			},
+			"credits": {
+				"heading": "旅行クレジットの付与",
+				"body": "現金での返金が難しい場合、Talkwerは将来の同等以上のツアーに利用可能な旅行クレジットを発行することがあります。クレジットには有効期限が設定され、現金への換金はできません。発行時に金額や有効期間を書面で明記いたします。"
+			},
+			"how-to-cancel": {
+				"heading": "キャンセルの手続き方法",
+				"body": "ご予約時のメールアドレスより書面で送信いただくか、お問い合わせページより予約番号と日程を明記の上ご連絡ください。口頭やSNSメッセージでのご連絡は、当社からの書面確認があるまで確定となりません。"
+			},
+			"force-majeure": {
+				"heading": "不可抗力による影響",
+				"body": "異常気象、ストライキ、政府による閉鎖、公衆衛生上の緊急事態など、当社の制御を超える事由により旅程の変更や中止を余儀なくされる場合があります。その際は現地提携先と連携し、日程変更、クレジット発行、または返金の最善策を講じます。"
+			},
+			"contact": {
+				"heading": "ご不明な点について",
+				"body": "ご自身のツアーにどのキャンセル規定が適用されるか不明な場合は、キャンセル手続きの前に hello@s0vers.com またはお問い合わせページよりご相談ください。選択肢を丁寧にご案内いたします。"
+			}
+		},
+		"bookingPolicyEyebrow": "ご予約枠組み",
+		"bookingPolicyTitle": "予約ポリシー",
+		"bookingPolicyEffectiveDate": "発効日: 2026年2月15日",
+		"bookingPolicyIntro": "本予約ポリシーは、世界各地の現地提携パートナーとのツアー枠の確保、確定、および認証プロセスについて定めています。",
+		"bookingSections": {
+			"confirmation": {
+				"heading": "ご予約の確定について",
+				"body": "日程、参加人数、含まれるサービスを明記したTalkwerからの書面確認書を受信した時点で予約が正式に確定します。仮押さえの段階では枠は保証されず、他のお客様へ解放される場合があります。確認書の内容を必ずご確認ください。"
+			},
+			"deposits": {
+				"heading": "デポジットとお支払期日",
+				"body": "多くのツアーでは予約枠を確保するためにデポジットが必要です。残金のお支払期日は確認書に記載されます。期日までにお支払いが確認できない場合、枠が取り消されることがありますのでご注意ください。"
+			},
+			"changes": {
+				"heading": "日程および参加者の変更",
+				"body": "変更のご要望は個別に対応いたしますが、提携先の手数料が発生する場合があります。名義変更や日程の移動はホテルやガイドの空き状況に依存します。変更確定前に追加費用を明示いたします。"
+			},
+			"responsibilities": {
+				"heading": "旅行者ご自身の責任事項",
+				"body": "有効なパスポート、査証（ビザ）、予防接種、および旅程に適した海外旅行保険の準備はお客様自身の責任となります。Talkwerは案内やアドバイスを提供しますが、渡航条件は変動するため必ず事前に公式情報をご確認ください。"
+			},
+			"contact": {
+				"heading": "お問い合わせ",
+				"body": "ご予約前にご不明な点がある場合は、hello@s0vers.com またはお問い合わせページよりお気軽にご連絡ください。事前のご不安を解消し、安心してご出発いただけるようサポートいたします。"
+			}
+		}
+	}
+}

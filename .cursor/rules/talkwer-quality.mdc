@@ -1,0 +1,53 @@
+---
+description: Talkwer quality gates and motion lifecycle contract
+globs: src/**/*.{ts,tsx,css}
+alwaysApply: false
+---
+
+# Talkwer quality
+
+## Required checks
+
+- `pnpm verify`
+- `pnpm lint`
+- `pnpm typecheck`
+- `pnpm build`
+- `pnpm check:filenames`
+- `pnpm check:image-sizes`
+
+## Review checklist
+
+- No visual regressions on active homepage sections.
+- No duplicate domain types across feature files.
+- No placeholder links (`href="#"`) in active UX paths.
+- Accessibility checklist reviewed (`docs/ACCESSIBILITY_CHECKLIST.md`).
+- Release checklist reviewed (`docs/RELEASE_CHECKLIST.md`).
+
+## Motion lifecycle
+
+### Choose the motion implementation
+
+- Preserve the authored duration, easing, trigger positions, scrub math, and reduced-motion behavior when changing implementation.
+- The default hero uses CSS for its image/overlay entrance and independently masked headline rows. `HeroFrame` provides lightweight scroll updates with the established scroll math; keep the row masks intact.
+- The marquee uses a 30-second linear CSS loop to `translateX(-50%)`; reduced motion disables the loop.
+- Use `useDeferredGsapContext` from `@/lib/use-deferred-gsap` for below-fold, non-pinned GSAP sections. It waits until the section is within 64px of the viewport, then dynamically imports `@/lib/useGsap` and delegates to `createGsapContext`. Keep the supplied engine inside the callback rather than adding an eager GSAP import.
+- Use `useGsapContext` from `@/lib/useGsap` for pinned ScrollTrigger sections. Both context paths retain capture-phase navigation cleanup and context revert; keep target refs scoped to the section root.
+- Use plain effects for DOM listeners and other non-GSAP side effects, cleaning up listeners and animation frames on unmount.
+
+### Accessibility
+
+- Respect reduced-motion with `prefersReducedMotion()`.
+- Skip non-essential animation when reduced-motion is enabled.
+
+### Performance
+
+- Avoid duplicate ScrollTrigger registrations in component trees.
+- Keep timeline creation scoped to the section refs.
+- Preserve server-rendered carousel slide markup while the lazy engine loads. Carousel enhancement begins within 400px of the viewport; testimonials import Autoplay asynchronously and skip autoplay for reduced motion.
+- ScrollTrigger `pin` is allowed only through `useGsapContext` (it reverts on capture-phase internal navigation / `popstate` before React unmounts). Do not pin outside that hook — pin reparents into `.pin-spacer` and otherwise throws `removeChild` NotFoundError on App Router client navigations. Do not fake pin with inflated section height + `position: sticky` when the sticky panel is taller than the viewport (creates giant blank space).
+
+### Invariants
+
+- No visual drift during refactors.
+- No timing/easing/trigger drift during refactors.
+- No leaked triggers or stale contexts after navigation/unmount.

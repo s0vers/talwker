@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Talkwer — Project Guide</title>
+  <style>
+    :root{color-scheme:light;font-family:system-ui,sans-serif;color:#202020;background:#faf9f6}
+    *{box-sizing:border-box}body{margin:0}header,main,footer{max-width:960px;margin:auto;padding:32px 24px}header{border-bottom:1px solid #ccc}h1{font-size:2.6rem;letter-spacing:-.03em;margin-bottom:12px}h2{margin-top:48px;font-size:1.65rem}h3{margin-top:28px}p,li{line-height:1.7;max-width:75ch}a{color:#984007;text-underline-offset:3px}a:focus-visible{outline:2px solid #984007;outline-offset:4px}nav{display:flex;flex-wrap:wrap;gap:16px}pre{overflow:auto;background:#eeeae3;padding:18px;border-radius:8px;line-height:1.6}code{font-family:ui-monospace,monospace}table{border-collapse:collapse;width:100%;font-size:.95rem}th,td{text-align:left;padding:12px;border-bottom:1px solid #ccc;vertical-align:top}td code{overflow-wrap:anywhere}.table-wrap{overflow:auto}.note{background:#eeeae3;padding:16px;border-radius:8px}footer{border-top:1px solid #ccc}
+  </style>
+</head>
+<body>
+<header>
+  <h1>Talkwer Project Guide</h1>
+  <p>Travel editorial &amp; tour showcase template · version 1.0.0<br>Author: <strong>s0vers — Sovers Tonmoy Pandey</strong></p>
+  <nav aria-label="Guide sections"><a href="#install">Install</a><a href="#pages">Pages</a><a href="#customize">Customize</a><a href="#demo">Demo behavior</a><a href="#deploy">Deploy</a><a href="#credits">Credits</a><a href="#support">Support</a></nav>
+</header>
+<main>
+  <p class="note"><strong>What is included:</strong> editable MIT-licensed Next.js frontend source. No backend, WordPress theme, CMS, payment integration, booking engine, or account security is included. Author-generated demo imagery is included under MIT. You will need basic React/TypeScript knowledge for code changes.</p>
+  <h2 id="install">1. Install and run</h2>
+  <ol><li>Clone the repository or extract its source download, then open the project folder in your editor.</li><li>Install <a href="https://nodejs.org/">Node.js 22.19 or newer</a>. Install pnpm by running <code>npm install -g pnpm@12.6.0</code> in a terminal. Confirm with <code>node --version</code> and <code>pnpm --version</code>.</li><li>Open a terminal inside the <code>talkwer</code> folder. Install the exact locked dependencies:</li></ol>
+  <pre><code>pnpm install --frozen-lockfile
+pnpm dev</code></pre>
+  <p>Open <a href="http://localhost:3560">http://localhost:3560</a>. Stop the server with Ctrl+C. Internet access is needed for the first dependency install, but the bundled font and local images need no external font or photo service.</p>
+  <p>For a production preview, stop the dev server and run:</p>
+  <pre><code>pnpm build
+pnpm start</code></pre>
+  <p>Open <a href="http://localhost:3000">http://localhost:3000</a>. Use this production preview for visual review if development CSS is missing. Run <code>pnpm verify</code> to check lint, TypeScript, filenames, image sizing/bytes, and production build.</p>
+  <h2 id="pages">2. Included pages</h2>
+  <div class="table-wrap"><table><thead><tr><th>Design / feature</th><th>Example URL</th><th>Source</th></tr></thead><tbody>
+    <tr><td>Home designs</td><td><code>/</code>, <code>/home-2</code>, <code>/home-3</code></td><td><code>src/features/home*</code></td></tr>
+    <tr><td>Destination listing and details, three layouts</td><td><code>/destinations</code>, <code>/destinations/bali-indonesia</code>; also <code>/destinations-2</code> and <code>/destinations-3</code></td><td><code>src/features/destinations*</code>, <code>destination-details*</code></td></tr>
+    <tr><td>Tours and stories</td><td><code>/tours</code>, <code>/tours/bali-cultural-immersion</code>, <code>/stories</code>, <code>/stories/temple-smoke-and-terrace-light</code></td><td><code>src/features/tours</code>, <code>stories</code></td></tr>
+    <tr><td>Information</td><td><code>/about</code>, <code>/contact</code>, <code>/experiences</code>, <code>/faq</code>, <code>/careers</code>, <code>/press</code>, <code>/partners</code></td><td>Corresponding feature folders</td></tr>
+    <tr><td>Policy examples</td><td><code>/booking-policy</code>, <code>/cancellation</code>, <code>/privacy</code>, <code>/terms</code>, <code>/cookies</code></td><td>Corresponding feature folders</td></tr>
+    <tr><td>Authentication UI, three layouts</td><td><code>/login</code>, <code>/register</code>, plus <code>-2</code> and <code>-3</code> variants</td><td><code>src/features/auth</code> and variants</td></tr>
+    <tr><td>Booking and checkout demonstration</td><td>Start on a tour detail, select a consult slot, then continue to checkout</td><td><code>src/features/booking</code>, <code>checkout</code></td></tr>
+    <tr><td>Dashboard UI previews</td><td><code>/dashboard</code>, <code>/dashboard/customer</code></td><td><code>src/features/dashboard</code></td></tr>
+  </tbody></table></div>
+  <p>English is the default without a prefix. Spanish uses <code>/es</code> and Japanese <code>/ja</code> (for example <code>/es/tours</code>). UI dictionaries are included, but some catalog descriptions, metadata, and supporting pages retain English copy. Do not treat these as fully translated sites without reviewing every page.</p>
+  <h2 id="customize">3. Customize your site</h2>
+  <h3>Brand, domain, and social previews</h3>
+  <p>Copy <code>.env.example</code> to <code>.env.local</code> and set <code>NEXT_PUBLIC_SITE_URL=https://your-domain.com</code>. This is a public value, not a secret. Rebuild after changing it. Edit the site name, title, description, social handle, and default social image in <code>src/lib/seo.ts</code>. Replace the sample wordmark in the navbar, footer, and auth/dashboard shells; search the source for <code>talkwer</code> to find brand references.</p>
+  <h3>Photography</h3>
+  <p>The repository includes author-generated demo photos under the MIT license. Replace files in <code>public/</code> using the same filenames to keep existing references working. Alternatively update image paths in feature content. Use commercially licensed images and descriptive alt text. For <code>next/image</code> with <code>fill</code>, keep the <code>sizes</code> attribute. Avoid oversized photos; <code>pnpm check:public-image-bytes</code> checks the 400 KB source-image budget. To use your own brand icon, replace <code>src/app/icon.svg</code>, <code>src/app/favicon.ico</code>, and <code>src/app/apple-icon.png</code>.</p>
+  <h3>Destinations, tours, and stories</h3>
+  <p>Edit destinations in <code>src/features/home/content/destinations.ts</code> and tours in <code>src/features/home/content/tours.ts</code>. Copy an existing record and keep its required fields; shared type definitions are in <code>src/shared/types/domain.ts</code>. Tour itineraries and imagery are nested inside the tour record. Stories live in <code>src/features/stories/content/stories.ts</code>. Check the slug helpers under each feature's <code>lib/</code> folder before changing identifiers; links, detail routes, and generated sitemap entries depend on them. Run <code>pnpm verify</code> after changes.</p>
+  <h3>Color, spacing, and motion</h3>
+  <p>Edit tokens and global utilities in <code>src/app/globals.css</code>. Tailwind CSS v4 is configured through this stylesheet and <code>postcss.config.mjs</code>; there is no <code>tailwind.config.ts</code>. The visual system is dark with orange accents. Some page sections use explicit color classes, so changing one token does not recolor every section. Shared <code>pad-x</code> spacing and feature section classes control layout. GSAP helpers are in <code>src/lib/useGsap.ts</code>; retain context cleanup and reduced-motion handling when editing animations.</p>
+  <h3>Copy and languages</h3>
+  <p>Edit interface messages in <code>dictionary/en.json</code>, <code>es.json</code>, and <code>ja.json</code>. Keep the same message keys and ICU variables in each language. Edit remaining editorial text in feature <code>content/</code> modules. Locale routing is in <code>src/i18n/routing.ts</code>, regional formatting in <code>src/i18n/regional.ts</code>. Adding a language also requires request loading, dictionaries, sitemap alternates, and SEO mapping updates.</p>
+  <h3>Adding a page</h3>
+  <p>The default homepage uses the static Pages Router entry <code>src/pages/[locale]/index.tsx</code> and build-time copy in <code>src/features/home/lib/get-static-home-props.ts</code>. Other pages use the App Router. Navigation across routers loads a new document. Fonts are defined in <code>src/app/globals.css</code>.</p>
+  <p>Use <code>src/features/about</code> as an example: a feature entry composes files in <code>sections/</code>, with copy in <code>content/</code>. Add a thin route under <code>src/app/[locale]/your-page/page.tsx</code> that imports the feature. Include metadata and locale handling from a sibling route, then update navigation and the sitemap. Do not put a whole page's UI inside the route file.</p>
+  <h2 id="demo">4. Demo behavior and integration boundaries</h2>
+  <ul>
+    <li><strong>Login/register:</strong> preview forms navigate without validating credentials or creating accounts. Dashboard URLs are public. Replace with real authentication, server-side session checks, and authorization before storing private data.</li>
+    <li><strong>Booking:</strong> sample times and traveler data are passed using browser session storage. No availability is checked and no slot is reserved. Use sample contact details; closing the browser session clears the handoff.</li>
+    <li><strong>Checkout:</strong> sample card fields are read-only and populated by the demo autofill control. No card details are sent or saved. A local confirmation is created; no payment, booking, email, or calendar invite occurs. Integrate a provider's hosted/tokenized checkout and validate prices and inventory on a server for real sales.</li>
+    <li><strong>Dashboards:</strong> sample records and local UI state demonstrate layouts. Edits do not update a database or publish the website.</li>
+    <li><strong>Contact:</strong> opens the visitor's email app using <code>mailto:</code>. It cannot guarantee delivery. Replace sample addresses in contact content with your own; an API/email service must be implemented separately for direct submissions.</li>
+    <li><strong>Newsletter:</strong> validates the input and reports demo feedback. It does not subscribe, store, or send the address. Connect your email service separately.</li>
+    <li><strong>Storage notice:</strong> an optional reusable component is provided, but the default demo does not display a consent overlay because no analytics or advertising services are installed. Review any scripts you add separately.</li>
+    <li><strong>Sample copy:</strong> reviews, ratings, business history, pricing, partner names, and policy text are illustrative. Replace these with your own accurate content and policies.</li>
+  </ul>
+  <h2 id="deploy">5. Deployment and troubleshooting</h2>
+  <p>Deploy the source to a host that supports Next.js 16 and Node.js 22.19+. Configure the public site URL, install dependencies, run <code>pnpm build</code>, and serve with <code>pnpm start</code>, or use a host's supported Next.js integration. The app contains middleware/proxy routing and image optimization; this package is not an <code>out/</code> folder for drag-and-drop static hosting. No database or secret environment variables are needed for the demo.</p>
+  <ul><li><strong>Port in use:</strong> stop the other server or run <code>pnpm exec next start -p 3001</code>.</li><li><strong>Missing CSS in dev:</strong> stop the dev server and use the production build commands above.</li><li><strong>Checkout redirects:</strong> enter from a tour's booking flow; the page needs the session handoff. Check that browser session storage is available.</li><li><strong>Broken image:</strong> confirm spelling, file extension, and exact case. Hosting is often case sensitive even if your Windows machine is not.</li><li><strong>Missing translation:</strong> compare keys in all three dictionaries and retain required ICU placeholders.</li><li><strong>Wrong canonical domain:</strong> set <code>NEXT_PUBLIC_SITE_URL</code> and rebuild.</li><li><strong>Build failure:</strong> use the documented Node/pnpm versions and install with the included lockfile. Share the full error and reproduction steps with support.</li></ul>
+  <h2 id="credits">6. Credits and licensing</h2>
+  <p>Original project code and author-generated demo imagery are MIT-licensed; see <code>LICENSE</code> at the repository root. Third-party code and fonts retain their original licenses. Preserve the notices in <code>Licensing/</code> and <code>public/fonts/OFL.txt</code>.</p>
+  <ul><li><a href="https://nextjs.org/">Next.js</a>, <a href="https://react.dev/">React</a>, <a href="https://www.typescriptlang.org/">TypeScript</a>, <a href="https://tailwindcss.com/">Tailwind CSS</a></li><li><a href="https://gsap.com/">GSAP</a>, <a href="https://motion.dev/">Motion</a>, <a href="https://www.embla-carousel.com/">Embla</a></li><li><a href="https://base-ui.com/">Base UI</a>, <a href="https://www.radix-ui.com/">Radix UI</a>, <a href="https://react-spectrum.adobe.com/react-aria/">React Aria</a>, <a href="https://ui.shadcn.com/">shadcn/ui</a></li><li><a href="https://lucide.dev/">Lucide</a>, <a href="https://react-icons.github.io/react-icons/">React Icons</a>, <a href="https://next-intl.dev/">next-intl</a>, <a href="https://github.com/catamphetamine/libphonenumber-js">libphonenumber-js</a></li><li><a href="https://github.com/magicuidesign/magicui">Magic UI</a>, <a href="https://roughnotation.com/">rough-notation</a>, <a href="https://github.com/thejessewinton/svg-dotted-map">svg-dotted-map</a></li><li><a href="https://rsms.me/inter/">Inter by Rasmus Andersson / The Inter Project Authors</a> — SIL Open Font License 1.1, full text in <code>public/fonts/OFL.txt</code>. Variable font is self-hosted; Japanese glyphs use system fallback fonts.</li></ul>
+  <p>See <code>docs/THIRD_PARTY_LICENSES.md</code> for component credits and <code>docs/marketplace/assets.json</code> for image provenance. Installed packages include their own license notices in <code>node_modules/</code>.</p>
+  <h2 id="support">7. Support and version history</h2>
+  <p>Author: <strong>s0vers — Sovers Tonmoy Pandey</strong>. Report bugs and request improvements through <a href="https://github.com/S0vers/talwker/issues">GitHub issues</a>. Include reproduction steps and the full error message. See <code>CONTRIBUTING.md</code> for development guidance and <code>SECURITY.md</code> for private vulnerability reporting. Community support is best-effort; no purchase code is needed.</p>
+  <h3>Version history</h3>
+  <div class="table-wrap"><table><thead><tr><th>Version</th><th>Release date</th><th>Changes</th></tr></thead><tbody>
+    <tr><td>1.0.0</td><td>October 6, 2026</td><td>Initial release: three home designs, destination/tour/story layouts, information pages, auth and dashboard UI examples, booking and checkout demonstration, English/Spanish/Japanese dictionaries, offline documentation. See <code>CHANGELOG.md</code> for the full list.</td></tr>
+  </tbody></table></div>
+  <p>There are no earlier versions. Future updates will be listed here and in <code>CHANGELOG.md</code>.</p>
+</main>
+<footer><p>Talkwer · s0vers · Offline documentation. Open this file in any modern browser.</p></footer>
+</body>
+</html>

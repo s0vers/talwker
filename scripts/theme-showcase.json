@@ -1,0 +1,1609 @@
+[
+  {
+    "name": "b01-cover-isometric-wall",
+    "source": "b01-cover-isometric-wall",
+    "gallery": false,
+    "top": false,
+    "headline": [
+      "Travel & Tour",
+      "Next.js Template"
+    ],
+    "subtitle": "3 home designs · 35+ pages",
+    "surfaces": [
+      {
+        "quad": [
+          [
+            699,
+            147
+          ],
+          [
+            906,
+            199
+          ],
+          [
+            906,
+            346
+          ],
+          [
+            692,
+            283
+          ]
+        ],
+        "capture": "home-1-desktop",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            693,
+            331
+          ],
+          [
+            910,
+            392
+          ],
+          [
+            911,
+            531
+          ],
+          [
+            700,
+            469
+          ]
+        ],
+        "capture": "home-2-desktop",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            697,
+            511
+          ],
+          [
+            912,
+            578
+          ],
+          [
+            911,
+            715
+          ],
+          [
+            700,
+            640
+          ]
+        ],
+        "capture": "home-3-desktop",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            936,
+            208
+          ],
+          [
+            1161,
+            267
+          ],
+          [
+            1158,
+            417
+          ],
+          [
+            941,
+            355
+          ]
+        ],
+        "capture": "destinations-desktop",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            937,
+            399
+          ],
+          [
+            1159,
+            462
+          ],
+          [
+            1156,
+            610
+          ],
+          [
+            944,
+            543
+          ]
+        ],
+        "capture": "tour-desktop",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            941,
+            584
+          ],
+          [
+            1161,
+            658
+          ],
+          [
+            1158,
+            801
+          ],
+          [
+            943,
+            726
+          ]
+        ],
+        "capture": "story-desktop",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            1191,
+            274
+          ],
+          [
+            1432,
+            340
+          ],
+          [
+            1427,
+            496
+          ],
+          [
+            1194,
+            427
+          ]
+        ],
+        "capture": "about-desktop",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            1190,
+            473
+          ],
+          [
+            1429,
+            545
+          ],
+          [
+            1424,
+            697
+          ],
+          [
+            1190,
+            618
+          ]
+        ],
+        "capture": "login-desktop",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            1191,
+            665
+          ],
+          [
+            1423,
+            743
+          ],
+          [
+            1424,
+            896
+          ],
+          [
+            1189,
+            809
+          ]
+        ],
+        "capture": "admin-desktop",
+        "fit": "cover"
+      }
+    ],
+    "headlineWidth": 540,
+    "headlineSize": 72,
+    "tech": true
+  },
+  {
+    "name": "b02-homepages-columns",
+    "source": "b02-homepages-columns",
+    "gallery": true,
+    "top": true,
+    "headline": [
+      "Three complete",
+      "home designs."
+    ],
+    "subtitle": "Editorial / Triptych / Observatory",
+    "surfaces": [
+      {
+        "quad": [
+          [
+            375,
+            286
+          ],
+          [
+            583,
+            320
+          ],
+          [
+            580,
+            895
+          ],
+          [
+            365,
+            895
+          ]
+        ],
+        "capture": "home-1-full",
+        "fit": "cover",
+        "aspect": 0.3333333333333333,
+        "refine": false
+      },
+      {
+        "quad": [
+          [
+            657,
+            315
+          ],
+          [
+            880,
+            315
+          ],
+          [
+            880,
+            896
+          ],
+          [
+            657,
+            896
+          ]
+        ],
+        "capture": "home-2-full",
+        "fit": "cover",
+        "aspect": 0.3333333333333333,
+        "refine": false
+      },
+      {
+        "quad": [
+          [
+            955,
+            322
+          ],
+          [
+            1161,
+            290
+          ],
+          [
+            1171,
+            895
+          ],
+          [
+            966,
+            895
+          ]
+        ],
+        "capture": "home-3-full",
+        "fit": "cover",
+        "aspect": 0.3333333333333333,
+        "refine": false
+      }
+    ]
+  },
+  {
+    "name": "b03-hero-browser-phone-a",
+    "source": "b03-hero-browser-phone-a",
+    "gallery": true,
+    "top": false,
+    "headline": [
+      "Home 01",
+      "Editorial"
+    ],
+    "subtitle": "Desktop & mobile layouts",
+    "surfaces": [
+      {
+        "quad": [
+          [
+            674,
+            229
+          ],
+          [
+            1237,
+            286
+          ],
+          [
+            1263,
+            643
+          ],
+          [
+            686,
+            687
+          ]
+        ],
+        "capture": "home-1-desktop",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            1338,
+            424
+          ],
+          [
+            1477,
+            421
+          ],
+          [
+            1489,
+            753
+          ],
+          [
+            1350,
+            771
+          ]
+        ],
+        "capture": "home-1-mobile",
+        "fit": "cover"
+      }
+    ],
+    "headlineWidth": 430,
+    "headlineSize": 60
+  },
+  {
+    "name": "b04-hero-browser-phone-b",
+    "source": "b04-hero-browser-phone-b",
+    "gallery": true,
+    "top": false,
+    "headline": [
+      "Home 02",
+      "Triptych"
+    ],
+    "subtitle": "Desktop & mobile layouts",
+    "surfaces": [
+      {
+        "quad": [
+          [
+            617,
+            484
+          ],
+          [
+            755,
+            498
+          ],
+          [
+            772,
+            831
+          ],
+          [
+            631,
+            824
+          ]
+        ],
+        "capture": "home-2-mobile",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            784,
+            283
+          ],
+          [
+            1438,
+            190
+          ],
+          [
+            1479,
+            723
+          ],
+          [
+            815,
+            685
+          ]
+        ],
+        "capture": "home-2-desktop",
+        "fit": "cover"
+      }
+    ],
+    "headlineWidth": 430,
+    "headlineSize": 60
+  },
+  {
+    "name": "b05-hero-browser-phone-c",
+    "source": "b05-hero-browser-phone-c",
+    "gallery": true,
+    "top": false,
+    "headline": [
+      "Home 03",
+      "Observatory"
+    ],
+    "subtitle": "Desktop & mobile layouts",
+    "surfaces": [
+      {
+        "quad": [
+          [
+            545,
+            213
+          ],
+          [
+            1202,
+            229
+          ],
+          [
+            1201,
+            631
+          ],
+          [
+            545,
+            644
+          ]
+        ],
+        "capture": "home-3-desktop",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            1316,
+            411
+          ],
+          [
+            1466,
+            428
+          ],
+          [
+            1425,
+            776
+          ],
+          [
+            1274,
+            754
+          ]
+        ],
+        "capture": "home-3-mobile",
+        "fit": "cover"
+      }
+    ],
+    "headlineWidth": 430,
+    "headlineSize": 60
+  },
+  {
+    "name": "b06-pages-grid-12",
+    "source": "b06-pages-grid-12",
+    "gallery": true,
+    "top": true,
+    "headline": [
+      "35+",
+      "inner pages."
+    ],
+    "subtitle": "Editorial pages / Account UI / Dashboards",
+    "surfaces": [
+      {
+        "quad": [
+          [
+            227,
+            361
+          ],
+          [
+            471,
+            361
+          ],
+          [
+            449,
+            458
+          ],
+          [
+            189,
+            458
+          ]
+        ],
+        "capture": "about-desktop",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            171,
+            500
+          ],
+          [
+            444,
+            499
+          ],
+          [
+            420,
+            617
+          ],
+          [
+            129,
+            618
+          ]
+        ],
+        "capture": "experiences-desktop",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            112,
+            668
+          ],
+          [
+            412,
+            668
+          ],
+          [
+            380,
+            818
+          ],
+          [
+            55,
+            818
+          ]
+        ],
+        "capture": "contact-desktop",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            500,
+            360
+          ],
+          [
+            747,
+            360
+          ],
+          [
+            746,
+            457
+          ],
+          [
+            484,
+            457
+          ]
+        ],
+        "capture": "faq-desktop",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            476,
+            499
+          ],
+          [
+            747,
+            498
+          ],
+          [
+            747,
+            616
+          ],
+          [
+            457,
+            617
+          ]
+        ],
+        "capture": "careers-desktop",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            449,
+            667
+          ],
+          [
+            748,
+            667
+          ],
+          [
+            749,
+            815
+          ],
+          [
+            424,
+            817
+          ]
+        ],
+        "capture": "press-desktop",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            776,
+            359
+          ],
+          [
+            1026,
+            358
+          ],
+          [
+            1046,
+            455
+          ],
+          [
+            779,
+            456
+          ]
+        ],
+        "capture": "partners-desktop",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            780,
+            498
+          ],
+          [
+            1054,
+            497
+          ],
+          [
+            1076,
+            615
+          ],
+          [
+            784,
+            616
+          ]
+        ],
+        "capture": "privacy-desktop",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            785,
+            666
+          ],
+          [
+            1087,
+            666
+          ],
+          [
+            1115,
+            815
+          ],
+          [
+            789,
+            816
+          ]
+        ],
+        "capture": "tours-desktop",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            1056,
+            358
+          ],
+          [
+            1304,
+            357
+          ],
+          [
+            1343,
+            454
+          ],
+          [
+            1078,
+            455
+          ]
+        ],
+        "capture": "stories-desktop",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            1087,
+            496
+          ],
+          [
+            1359,
+            495
+          ],
+          [
+            1407,
+            613
+          ],
+          [
+            1116,
+            615
+          ]
+        ],
+        "capture": "destinations-desktop",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            1124,
+            665
+          ],
+          [
+            1428,
+            665
+          ],
+          [
+            1480,
+            815
+          ],
+          [
+            1156,
+            815
+          ]
+        ],
+        "capture": "register-desktop",
+        "fit": "cover"
+      }
+    ]
+  },
+  {
+    "name": "b07-three-browsers-cascade",
+    "source": "b07-three-browsers-cascade",
+    "gallery": true,
+    "top": false,
+    "headline": [
+      "Destination",
+      "listing layouts."
+    ],
+    "subtitle": "Three distinct layout families",
+    "surfaces": [
+      {
+        "quad": [
+          [
+            602,
+            76
+          ],
+          [
+            1137,
+            140
+          ],
+          [
+            1137,
+            534
+          ],
+          [
+            602,
+            402
+          ]
+        ],
+        "capture": "destinations-desktop",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            739,
+            247
+          ],
+          [
+            1312,
+            321
+          ],
+          [
+            1310,
+            699
+          ],
+          [
+            739,
+            590
+          ]
+        ],
+        "capture": "destinations-2-desktop",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            888,
+            424
+          ],
+          [
+            1472,
+            513
+          ],
+          [
+            1452,
+            916
+          ],
+          [
+            887,
+            779
+          ]
+        ],
+        "capture": "destinations-3-desktop",
+        "fit": "cover"
+      }
+    ],
+    "headlineWidth": 430,
+    "headlineSize": 60
+  },
+  {
+    "name": "b08-two-browsers-split",
+    "source": "b08-two-browsers-split",
+    "gallery": true,
+    "top": true,
+    "headline": [
+      "Destination",
+      "detail pages."
+    ],
+    "subtitle": "Bali / Santorini",
+    "surfaces": [
+      {
+        "quad": [
+          [
+            121,
+            340
+          ],
+          [
+            740,
+            379
+          ],
+          [
+            729,
+            703
+          ],
+          [
+            114,
+            737
+          ]
+        ],
+        "capture": "destination-desktop",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            800,
+            375
+          ],
+          [
+            1419,
+            343
+          ],
+          [
+            1422,
+            736
+          ],
+          [
+            800,
+            702
+          ]
+        ],
+        "capture": "destination-2-desktop",
+        "fit": "cover"
+      }
+    ]
+  },
+  {
+    "name": "b08-tours-split",
+    "source": "b08-two-browsers-split",
+    "gallery": true,
+    "top": true,
+    "headline": [
+      "Tours &",
+      "itineraries."
+    ],
+    "subtitle": "Tour listing & detail",
+    "surfaces": [
+      {
+        "quad": [
+          [
+            121,
+            340
+          ],
+          [
+            740,
+            379
+          ],
+          [
+            729,
+            703
+          ],
+          [
+            114,
+            737
+          ]
+        ],
+        "capture": "tours-desktop",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            800,
+            375
+          ],
+          [
+            1419,
+            343
+          ],
+          [
+            1422,
+            736
+          ],
+          [
+            800,
+            702
+          ]
+        ],
+        "capture": "tour-desktop",
+        "fit": "cover"
+      }
+    ]
+  },
+  {
+    "name": "b08-stories-split",
+    "source": "b08-two-browsers-split",
+    "gallery": true,
+    "top": true,
+    "headline": [
+      "Stories &",
+      "editorial."
+    ],
+    "subtitle": "Story listing & detail",
+    "surfaces": [
+      {
+        "quad": [
+          [
+            121,
+            340
+          ],
+          [
+            740,
+            379
+          ],
+          [
+            729,
+            703
+          ],
+          [
+            114,
+            737
+          ]
+        ],
+        "capture": "stories-desktop",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            800,
+            375
+          ],
+          [
+            1419,
+            343
+          ],
+          [
+            1422,
+            736
+          ],
+          [
+            800,
+            702
+          ]
+        ],
+        "capture": "story-desktop",
+        "fit": "cover"
+      }
+    ]
+  },
+  {
+    "name": "b09-device-trio",
+    "source": "b09-device-trio",
+    "gallery": true,
+    "top": false,
+    "headline": [
+      "Responsive",
+      "by design."
+    ],
+    "subtitle": "Desktop / Tablet / Mobile",
+    "surfaces": [
+      {
+        "quad": [
+          [
+            587,
+            308
+          ],
+          [
+            814,
+            305
+          ],
+          [
+            816,
+            632
+          ],
+          [
+            587,
+            634
+          ]
+        ],
+        "capture": "home-1-tablet",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            864,
+            282
+          ],
+          [
+            1297,
+            281
+          ],
+          [
+            1297,
+            560
+          ],
+          [
+            864,
+            560
+          ]
+        ],
+        "capture": "home-1-desktop",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            1358,
+            403
+          ],
+          [
+            1461,
+            403
+          ],
+          [
+            1460,
+            641
+          ],
+          [
+            1356,
+            640
+          ]
+        ],
+        "capture": "home-1-mobile",
+        "fit": "cover"
+      }
+    ],
+    "headlineWidth": 430,
+    "headlineSize": 60
+  },
+  {
+    "name": "b10-phone-fan",
+    "source": "b10-phone-fan",
+    "gallery": true,
+    "top": true,
+    "headline": [
+      "Five mobile",
+      "page previews."
+    ],
+    "subtitle": "Three homes / Tour details / Booking UI",
+    "surfaces": [
+      {
+        "quad": [
+          [
+            204,
+            377
+          ],
+          [
+            367,
+            399
+          ],
+          [
+            392,
+            799
+          ],
+          [
+            239,
+            792
+          ]
+        ],
+        "capture": "home-1-mobile",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            419,
+            348
+          ],
+          [
+            607,
+            369
+          ],
+          [
+            608,
+            802
+          ],
+          [
+            433,
+            796
+          ]
+        ],
+        "capture": "home-2-mobile",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            648,
+            336
+          ],
+          [
+            880,
+            338
+          ],
+          [
+            880,
+            799
+          ],
+          [
+            648,
+            801
+          ]
+        ],
+        "capture": "home-3-mobile",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            920,
+            369
+          ],
+          [
+            1112,
+            347
+          ],
+          [
+            1097,
+            798
+          ],
+          [
+            908,
+            776
+          ]
+        ],
+        "capture": "tour-mobile",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            1163,
+            407
+          ],
+          [
+            1330,
+            367
+          ],
+          [
+            1294,
+            795
+          ],
+          [
+            1129,
+            781
+          ]
+        ],
+        "capture": "booking-mobile",
+        "fit": "cover"
+      }
+    ]
+  },
+  {
+    "name": "b11-auth-triptych",
+    "source": "b11-auth-triptych",
+    "gallery": true,
+    "top": true,
+    "headline": [
+      "Three sign-in",
+      "designs."
+    ],
+    "subtitle": "Frontend account UI demonstrations",
+    "surfaces": [
+      {
+        "quad": [
+          [
+            76,
+            392
+          ],
+          [
+            450,
+            450
+          ],
+          [
+            446,
+            726
+          ],
+          [
+            76,
+            761
+          ]
+        ],
+        "capture": "login-desktop",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            482,
+            430
+          ],
+          [
+            1053,
+            430
+          ],
+          [
+            1045,
+            743
+          ],
+          [
+            488,
+            743
+          ]
+        ],
+        "capture": "login-2-desktop",
+        "fit": "cover"
+      },
+      {
+        "quad": [
+          [
+            1088,
+            447
+          ],
+          [
+            1459,
+            395
+          ],
+          [
+            1459,
+            761
+          ],
+          [
+            1099,
+            726
+          ]
+        ],
+        "capture": "login-3-desktop",
+        "fit": "cover"
+      }
+    ]
+  },
+  {
+    "name": "b12-dashboard-monitor",
+    "source": "b12-dashboard-monitor",
+    "gallery": true,
+    "top": false,
+    "headline": [
+      "Dashboard",
+      "layouts."
+    ],
+    "subtitle": "Admin dashboard & customer UI cards",
+    "surfaces": [
+      {
+        "quad": [
+          [
+            555,
+            451
+          ],
+          [
+            789,
+            438
+          ],
+          [
+            779,
+            614
+          ],
+          [
+            541,
+            602
+          ]
+        ],
+        "capture": "component-customer-trip",
+        "fit": "contain",
+        "aspect": 1.4413473269224704
+      },
+      {
+        "quad": [
+          [
+            711,
+            550
+          ],
+          [
+            932,
+            555
+          ],
+          [
+            919,
+            711
+          ],
+          [
+            700,
+            700
+          ]
+        ],
+        "capture": "component-customer-consult",
+        "fit": "contain",
+        "aspect": 1.4345721733880723
+      },
+      {
+        "quad": [
+          [
+            770,
+            254
+          ],
+          [
+            1450,
+            162
+          ],
+          [
+            1413,
+            692
+          ],
+          [
+            719,
+            651
+          ]
+        ],
+        "capture": "admin-desktop",
+        "fit": "cover"
+      }
+    ],
+    "headlineWidth": 430,
+    "headlineSize": 60
+  },
+  {
+    "name": "b13-exploded-components",
+    "source": "b13-exploded-components",
+    "gallery": true,
+    "top": false,
+    "headline": [
+      "Components &",
+      "booking UI."
+    ],
+    "subtitle": "Real cards / Calendar / Newsletter / Navigation",
+    "surfaces": [
+      {
+        "quad": [
+          [
+            581,
+            315
+          ],
+          [
+            869,
+            342
+          ],
+          [
+            884,
+            535
+          ],
+          [
+            596,
+            524
+          ]
+        ],
+        "capture": "component-destination-card",
+        "fit": "contain",
+        "aspect": 1.4325099416615221
+      },
+      {
+        "quad": [
+          [
+            722,
+            604
+          ],
+          [
+            862,
+            620
+          ],
+          [
+            853,
+            778
+          ],
+          [
+            712,
+            779
+          ]
+        ],
+        "capture": "component-testimonial",
+        "fit": "contain",
+        "aspect": 0.8452164982966741
+      },
+      {
+        "quad": [
+          [
+            737,
+            119
+          ],
+          [
+            1213,
+            63
+          ],
+          [
+            1194,
+            330
+          ],
+          [
+            733,
+            281
+          ]
+        ],
+        "capture": "component-newsletter",
+        "fit": "contain",
+        "aspect": 2.194148791033715
+      },
+      {
+        "quad": [
+          [
+            942,
+            461
+          ],
+          [
+            1214,
+            445
+          ],
+          [
+            1214,
+            663
+          ],
+          [
+            937,
+            653
+          ]
+        ],
+        "capture": "component-calendar",
+        "fit": "contain",
+        "aspect": 1.3403984823405033
+      },
+      {
+        "quad": [
+          [
+            930,
+            714
+          ],
+          [
+            1346,
+            750
+          ],
+          [
+            1340,
+            840
+          ],
+          [
+            924,
+            792
+          ]
+        ],
+        "capture": "component-navigation",
+        "fit": "contain",
+        "refine": false,
+        "aspect": 4.96534959831382
+      },
+      {
+        "quad": [
+          [
+            1272,
+            252
+          ],
+          [
+            1459,
+            224
+          ],
+          [
+            1460,
+            680
+          ],
+          [
+            1272,
+            664
+          ]
+        ],
+        "capture": "component-tour-card",
+        "fit": "contain",
+        "aspect": 0.43521173107097383
+      }
+    ],
+    "headlineWidth": 430,
+    "headlineSize": 60
+  },
+  {
+    "name": "b14-studio-plate",
+    "source": "b14-studio-plate",
+    "gallery": true,
+    "top": false,
+    "headline": [
+      "Clean code,",
+      "clear docs."
+    ],
+    "subtitle": "Next.js 16 · React 19 · TypeScript · Tailwind CSS 4",
+    "surfaces": [],
+    "headlineWidth": 470,
+    "headlineSize": 64,
+    "tech": true,
+    "features": [
+      [
+        "App Router",
+        "Thin routes and feature folders: sections, content and lib per page."
+      ],
+      [
+        "i18n routing",
+        "English, Spanish and Japanese UI dictionaries with locale-aware URLs."
+      ],
+      [
+        "SEO ready",
+        "Per-page metadata, Open Graph, sitemap and robots."
+      ],
+      [
+        "Accessible",
+        "Keyboard focus, skip link, reduced-motion support, labelled forms."
+      ],
+      [
+        "Optimised images",
+        "next/image with sizes, lazy loading and byte budgets."
+      ],
+      [
+        "Offline docs",
+        "HTML guide for install, customisation, pages and deployment."
+      ]
+    ]
+  },
+  {
+    "name": "b15-long-scroll-tilt",
+    "source": "b15-long-scroll-tilt",
+    "gallery": false,
+    "top": false,
+    "headline": [
+      "A complete",
+      "editorial home."
+    ],
+    "subtitle": "Full-length Home 01",
+    "surfaces": [
+      {
+        "quad": [
+          [
+            686,
+            36
+          ],
+          [
+            841,
+            34
+          ],
+          [
+            1062,
+            880
+          ],
+          [
+            465,
+            880
+          ]
+        ],
+        "capture": "home-1-full",
+        "fit": "contain",
+        "aspect": 0.2,
+        "refine": false
+      }
+    ],
+    "side": "left",
+    "headlineSize": 48,
+    "headlineWidth": 340,
+    "reflections": false
+  }
+]

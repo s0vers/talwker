@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-27",
+  "profile": "Default Lighthouse mobile simulated navigation, local production Chrome; one before and one after run, not field metrics",
+  "before": {
+    "performance": 85,
+    "automatedAccessibility": 100,
+    "lcpMs": 4359,
+    "transferBytes": 698780,
+    "cls": 0
+  },
+  "after": {
+    "performance": 87,
+    "automatedAccessibility": 100,
+    "lcpMs": 4059,
+    "transferBytes": 609050,
+    "cls": 0
+  },
+  "axeAfter": [
+    {
+      "route": "/",
+      "violationCount": 0
+    },
+    {
+      "route": "/home-2",
+      "violationCount": 0
+    },
+    {
+      "route": "/home-3",
+      "violationCount": 0
+    },
+    {
+      "route": "/destinations",
+      "violationCount": 0
+    },
+    {
+      "route": "/stories/temple-smoke-and-terrace-light",
+      "violationCount": 0
+    }
+  ]
+}

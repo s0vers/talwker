@@ -1,0 +1,145 @@
+"use client";
+
+import { useRef } from "react";
+import { useTranslations } from "next-intl";
+import { gsap, prefersReducedMotion, useGsapContext } from "@/lib/useGsap";
+import { ABOUT_JOURNEY } from "@/features/about/content/about-copy";
+
+export default function AboutJourney() {
+	const t = useTranslations("About.journey");
+	const section = useRef<HTMLElement>(null);
+	const headingRef = useRef<HTMLDivElement>(null);
+	const lineRef = useRef<HTMLDivElement>(null);
+	const milestonesRef = useRef<HTMLDivElement>(null);
+
+	useGsapContext(section, () => {
+		if (prefersReducedMotion()) return;
+
+		if (headingRef.current?.children.length) {
+			gsap.from(headingRef.current.children, {
+				y: 60,
+				opacity: 0,
+				duration: 1,
+				stagger: 0.12,
+				ease: "power3.out",
+				scrollTrigger: { trigger: headingRef.current, start: "top 80%" },
+			});
+		}
+
+		if (lineRef.current) {
+			gsap.fromTo(
+				lineRef.current,
+				{ scaleY: 0 },
+				{
+					scaleY: 1,
+					ease: "none",
+					scrollTrigger: {
+						trigger: milestonesRef.current,
+						start: "top 70%",
+						end: "bottom 30%",
+						scrub: true,
+					},
+				},
+			);
+		}
+
+		const items =
+			milestonesRef.current?.querySelectorAll<HTMLElement>("[data-milestone]");
+		if (items?.length) {
+			items.forEach((item, i) => {
+				const isLeft = i % 2 === 0;
+				gsap.from(item, {
+					x: isLeft ? -80 : 80,
+					opacity: 0,
+					duration: 1,
+					ease: "power3.out",
+					scrollTrigger: {
+						trigger: item,
+						start: "top 82%",
+						toggleActions: "play none none none",
+					},
+				});
+
+				const dot = item.querySelector("[data-dot]");
+				if (dot) {
+					gsap.from(dot, {
+						scale: 0,
+						duration: 0.6,
+						ease: "back.out(2)",
+						scrollTrigger: {
+							trigger: item,
+							start: "top 80%",
+							toggleActions: "play none none none",
+						},
+					});
+				}
+			});
+		}
+	}, []);
+
+	return (
+		<section ref={section} className="bg-[#0e0e0e] py-32 md:py-44">
+			<div className="mx-auto max-w-[1600px] pad-x">
+				<div ref={headingRef} className="mb-20 text-center md:mb-28">
+					<span className="mb-5 inline-block text-[11px] font-semibold uppercase tracking-[0.25em] text-orange-500">
+						{t("label")}
+					</span>
+					<h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-bold leading-[0.95] tracking-tighter text-white">
+						{t("title")}
+					</h2>
+				</div>
+
+				<div ref={milestonesRef} className="relative">
+					<div
+						ref={lineRef}
+						className="pointer-events-none absolute top-0 left-2.5 h-full w-px origin-top -translate-x-1/2 bg-orange-500/30 md:left-1/2"
+					/>
+
+					<div className="flex flex-col gap-20 md:gap-28">
+						{ABOUT_JOURNEY.map((milestone, i) => {
+							const isLeft = i % 2 === 0;
+							return (
+								<div
+									key={milestone.year}
+									data-milestone
+									className={`relative flex flex-col items-start gap-6 pl-10 md:flex-row md:items-center md:pl-0 ${
+										isLeft ? "md:flex-row" : "md:flex-row-reverse"
+									}`}
+								>
+									<div
+										className={`flex-1 ${isLeft ? "md:pr-16 md:text-right" : "md:pl-16 md:text-left"}`}
+									>
+										<span className="text-[clamp(3rem,6vw,5rem)] leading-none font-black text-white/6">
+											{milestone.year}
+										</span>
+										<h3 className="mt-2 text-xl font-bold tracking-tight text-white md:text-2xl">
+											{milestone.title}
+										</h3>
+										<p
+											className={`mt-3 max-w-sm text-sm leading-relaxed text-white/40 md:text-base ${
+												isLeft ? "md:ml-auto" : ""
+											}`}
+										>
+											{milestone.description}
+										</p>
+									</div>
+
+									<div className="absolute left-0 top-4 z-10 flex shrink-0 items-center justify-center md:relative md:top-auto">
+										<div
+											data-dot
+											className="flex h-5 w-5 items-center justify-center rounded-full border-2 border-orange-500 bg-[#0e0e0e]"
+										>
+											<div className="h-2 w-2 rounded-full bg-orange-500" />
+										</div>
+									</div>
+
+									<div className="hidden flex-1 md:block" />
+								</div>
+							);
+						})}
+					</div>
+				</div>
+			</div>
+		</section>
+	);
+}

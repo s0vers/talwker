@@ -1,0 +1,23 @@
+export type NavbarCopy = {
+	about: string;
+	contact: string;
+	destinations: string;
+	destinationsCinematic: string;
+	destinationsCinematicDesc: string;
+	destinationsStage: string;
+	destinationsStageDesc: string;
+	destinationsStandard: string;
+	destinationsStandardDesc: string;
+	home: string;
+	homeAtelier: string;
+	homeAtelierDesc: string;
+	homeJournal: string;
+	homeJournalDesc: string;
+	homeObservatory: string;
+	homeObservatoryDesc: string;
+	letsTalk: string;
+	mobileNav: string;
+	stories: string;
+	toggleMenu: string;
+	tours: string;
+};

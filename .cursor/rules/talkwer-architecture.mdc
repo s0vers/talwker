@@ -1,0 +1,57 @@
+---
+description: Talkwer architecture boundaries and reusability thresholds
+globs: src/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# Talkwer architecture
+
+## Folder intent
+
+- `src/features/*`: feature-level composition. Use `src/features/<name>/content/` for page-specific copy; `src/features/<name>/lib/` for feature-local hooks and pure helpers. Shared catalog data used on multiple routes may live in `src/features/home/content/`.
+- `src/shared/*`: reusable primitives, shared domain types, and reusable helpers.
+- `src/components/ui/*`: shadcn primitives and low-level UI building blocks.
+
+## Canonical UI split
+
+- Keep shadcn primitives in `src/components/ui/*`.
+- Keep app-specific reusable compositions in `src/shared/ui/*`.
+- Do not place page-specific sections in either UI folder.
+
+## Import rules
+
+- Feature modules can import from `src/shared/*`.
+- Shared modules must not import from feature modules.
+- Active route entry points should import feature entry files directly where possible.
+- Import shared UI via `@/shared/ui` barrel instead of deep file paths.
+
+## Feature growth rule
+
+- New page sections must live under `src/features/<page>/sections/*`.
+- Feature entry files should use kebab-case (`home-page.tsx`, etc.).
+
+## Reuse what repeats
+
+Extract a shared primitive when all are true:
+
+- Pattern appears in 3+ places.
+- Visual and behavior contract are stable.
+- API can stay small and explicit.
+
+## Keep bespoke sections bespoke
+
+- Hero storytelling and section-specific motion can remain custom.
+- Do not force one generic component to cover unrelated layout patterns.
+
+## Preferred extraction order
+
+1. Shared types and static content.
+2. Heading/CTA/badge primitives.
+3. Section shells and card scaffolds.
+4. Animation helpers.
+
+## Anti-patterns
+
+- Prop-heavy universal components with many boolean flags.
+- Copy-pasting class strings across sections when a stable primitive exists.
+- Premature abstraction of one-off markup.

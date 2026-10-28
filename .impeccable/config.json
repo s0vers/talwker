@@ -1,0 +1,50 @@
+{
+  "$schema": "https://impeccable.style/schemas/config.json",
+  "version": "1.0.0",
+  "project": {
+    "name": "Talkwer",
+    "framework": "next",
+    "platform": "web"
+  },
+  "live": {
+    "port": 3000,
+    "entry": "src/app/[locale]/page.tsx",
+    "devCommand": "pnpm dev"
+  },
+  "context": {
+    "product": "PRODUCT.md",
+    "design": "DESIGN.md",
+    "designJson": ".impeccable/design.json",
+    "surfacesDir": ".impeccable/surfaces",
+    "newWorkGuide": ".impeccable/NEW_WORK.md"
+  },
+  "detector": {
+    "enabled": true,
+    "cli": "pnpm detect",
+    "rules": {
+      "design-system-font": "error",
+      "design-system-color": "error",
+      "design-system-radius": "warn",
+      "no-light-backgrounds": "error",
+      "no-purple-ai-gradients": "error",
+      "require-reduced-motion": "warn"
+    }
+  },
+  "doctor": {
+    "enabled": true,
+    "cli": "pnpm doctor"
+  },
+  "hooks": {
+    "preCommit": ".impeccable/hooks/pre-commit.mjs",
+    "cli": "pnpm hooks"
+  },
+  "ignores": [
+    "node_modules",
+    ".next",
+    ".git",
+    ".superpowers",
+    "public",
+    "dictionary",
+    "docs"
+  ]
+}

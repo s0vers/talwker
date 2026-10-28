@@ -1,0 +1,8 @@
+# Impeccable Ignore Patterns
+node_modules/
+.next/
+.git/
+.superpowers/
+public/
+dictionary/
+docs/

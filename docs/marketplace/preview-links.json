@@ -1,0 +1,181 @@
+{
+  "checkedAt": "2026-10-28T16:33:07.148Z",
+  "origin": "http://localhost:45671",
+  "scope": "English server-rendered anchor destinations; no JavaScript-only links, forms, query behavior or external links",
+  "checked": 43,
+  "failures": [],
+  "results": [
+    {
+      "route": "/",
+      "status": 200
+    },
+    {
+      "route": "/home-2",
+      "status": 200
+    },
+    {
+      "route": "/home-3",
+      "status": 200
+    },
+    {
+      "route": "/tours",
+      "status": 200
+    },
+    {
+      "route": "/about",
+      "status": 200
+    },
+    {
+      "route": "/contact",
+      "status": 200
+    },
+    {
+      "route": "/stories",
+      "status": 200
+    },
+    {
+      "route": "/destinations/bali-indonesia",
+      "status": 200
+    },
+    {
+      "route": "/destinations",
+      "status": 200
+    },
+    {
+      "route": "/tours/bali-cultural-immersion",
+      "status": 200
+    },
+    {
+      "route": "/tours/greek-island-odyssey",
+      "status": 200
+    },
+    {
+      "route": "/tours/patagonia-expedition",
+      "status": 200
+    },
+    {
+      "route": "/tours/japan-heritage-trail",
+      "status": 200
+    },
+    {
+      "route": "/experiences",
+      "status": 200
+    },
+    {
+      "route": "/careers",
+      "status": 200
+    },
+    {
+      "route": "/press",
+      "status": 200
+    },
+    {
+      "route": "/partners",
+      "status": 200
+    },
+    {
+      "route": "/faq",
+      "status": 200
+    },
+    {
+      "route": "/booking-policy",
+      "status": 200
+    },
+    {
+      "route": "/cancellation",
+      "status": 200
+    },
+    {
+      "route": "/privacy",
+      "status": 200
+    },
+    {
+      "route": "/terms",
+      "status": 200
+    },
+    {
+      "route": "/cookies",
+      "status": 200
+    },
+    {
+      "route": "/destinations/patagonia-chile",
+      "status": 200
+    },
+    {
+      "route": "/destinations/kyoto-japan",
+      "status": 200
+    },
+    {
+      "route": "/destinations/santorini-greece",
+      "status": 200
+    },
+    {
+      "route": "/destinations/amalfi-coast-italy",
+      "status": 200
+    },
+    {
+      "route": "/destinations/maldives-indian-ocean",
+      "status": 200
+    },
+    {
+      "route": "/destinations/iceland-iceland",
+      "status": 200
+    },
+    {
+      "route": "/destinations/morocco-morocco",
+      "status": 200
+    },
+    {
+      "route": "/destinations/peru-peru",
+      "status": 200
+    },
+    {
+      "route": "/destinations/norway-norway",
+      "status": 200
+    },
+    {
+      "route": "/destinations/atacama-chile",
+      "status": 200
+    },
+    {
+      "route": "/destinations/tromso-norway",
+      "status": 200
+    },
+    {
+      "route": "/destinations/mount-fuji-japan",
+      "status": 200
+    },
+    {
+      "route": "/stories/wind-at-the-edge-of-patagonia",
+      "status": 200
+    },
+    {
+      "route": "/stories/temple-smoke-and-terrace-light",
+      "status": 200
+    },
+    {
+      "route": "/stories/white-walls-after-the-cruise",
+      "status": 200
+    },
+    {
+      "route": "/stories/kyoto-before-the-gates-open",
+      "status": 200
+    },
+    {
+      "route": "/stories/aurora-above-the-falls",
+      "status": 200
+    },
+    {
+      "route": "/stories/bougainvillea-and-the-slow-coast",
+      "status": 200
+    },
+    {
+      "route": "/booking",
+      "status": 200
+    },
+    {
+      "route": "/login",
+      "status": 200
+    }
+  ]
+}

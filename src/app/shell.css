@@ -1,0 +1,15 @@
+@import "tailwindcss" source(none);
+@import "./globals.css";
+
+@source "../features/home";
+@source "../shared/ui/button-with-icon.tsx";
+@source "../shared/ui/editorial-cta-band.tsx";
+@source "../shared/ui/language-switcher.tsx";
+@source "../shared/ui/section-cta.tsx";
+@source "../shared/ui/section-heading.tsx";
+@source "../shared/ui/tour-card.tsx";
+@source "../components/ui/avatar.tsx";
+@source "../components/ui/button.tsx";
+@source "../components/ui/carousel.tsx";
+@source "./[locale]/layout.tsx";
+@source "./[locale]/not-found.tsx";
